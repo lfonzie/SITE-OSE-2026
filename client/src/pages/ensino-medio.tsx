@@ -108,6 +108,13 @@ export default function EnsinoMedio() {
           {/* Educational Approach */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
+              <div className="mb-6">
+                <img 
+                  src="/attached_assets/0541_1750717790207.jpg" 
+                  alt="Aluna do Ensino Médio concentrada nos estudos"
+                  className="w-full h-64 object-cover rounded-lg shadow-lg"
+                />
+              </div>
               <h3 className="text-3xl font-bold text-slate-800 mb-6">
                 Excelência que Prepara para a Vida
               </h3>

@@ -99,6 +99,13 @@ export default function Fundamental1() {
           {/* Educational Approach */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
+              <div className="mb-6">
+                <img 
+                  src="/attached_assets/0312_1750717790204.jpg" 
+                  alt="Alunos do Fundamental I em sala de aula"
+                  className="w-full h-64 object-cover rounded-lg shadow-lg"
+                />
+              </div>
               <h3 className="text-3xl font-bold text-slate-800 mb-6">
                 Nossa Abordagem Educacional
               </h3>

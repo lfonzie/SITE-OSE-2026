@@ -39,6 +39,13 @@ export default function PedagogicalProposalSection() {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
+            <div className="mb-6">
+              <img 
+                src="/attached_assets/0354_1750717790205.jpg" 
+                alt="Professora da OSE auxiliando aluno - metodologia personalizada"
+                className="w-full h-64 object-cover rounded-lg shadow-lg"
+              />
+            </div>
             <h3 className="text-3xl font-bold text-slate-800 mb-6">
               Educação que Transforma
             </h3>

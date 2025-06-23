@@ -120,8 +120,12 @@ export default function Professores() {
             {teachers.map((teacher, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-center mb-4">
-                  <div className="bg-school-orange/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <GraduationCap className="text-school-orange" size={32} />
+                  <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden bg-gray-200">
+                    <img 
+                      src={index % 2 === 0 ? "/attached_assets/0354_1750717790205.jpg" : "/attached_assets/1068_1750717790205.jpg"} 
+                      alt={`${teacher.name} - Professor da OSE`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="text-xl font-bold text-slate-800">{teacher.name}</h3>
                   <p className="text-school-orange font-medium">{teacher.position}</p>

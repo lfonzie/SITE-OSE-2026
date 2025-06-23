@@ -17,8 +17,8 @@ export default function LegacySection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <img 
-              src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png" 
-              alt="Colégio OSE - 100 Anos"
+              src="/attached_assets/1105_1750717790206.jpg" 
+              alt="Ambiente alegre e acolhedor da OSE - 100 Anos de tradição"
               className="w-full rounded-lg shadow-lg"
             />
           </div>

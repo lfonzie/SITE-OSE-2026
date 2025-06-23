@@ -48,19 +48,29 @@ export default function WhyOSESection() {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-school-orange to-school-brown rounded-xl p-8 md:p-12 text-white text-center">
-          <h3 className="text-3xl font-bold mb-4">
-            Venha conhecer a OSE
-          </h3>
-          <p className="text-xl mb-6 opacity-95">
-            Agende uma visita e descubra por que somos referência em educação há mais de 100 anos
-          </p>
-          <button 
-            className="bg-white text-school-orange px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+        <div className="mt-16 relative rounded-xl overflow-hidden">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/attached_assets/1092_1750717790205.jpg')"
+            }}
           >
-            Agendar Visita
-          </button>
+            <div className="absolute inset-0 bg-gradient-to-r from-school-orange/90 to-school-brown/90" />
+          </div>
+          <div className="relative p-8 md:p-12 text-white text-center">
+            <h3 className="text-3xl font-bold mb-4">
+              Venha conhecer a OSE
+            </h3>
+            <p className="text-xl mb-6 opacity-95">
+              Agende uma visita e descubra por que somos referência em educação há mais de 100 anos
+            </p>
+            <button 
+              className="bg-white text-school-orange px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Agendar Visita
+            </button>
+          </div>
         </div>
       </div>
     </section>

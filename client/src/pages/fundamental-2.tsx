@@ -99,6 +99,13 @@ export default function Fundamental2() {
           {/* Educational Philosophy */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
+              <div className="mb-6">
+                <img 
+                  src="/attached_assets/0581_1750717790206.jpg" 
+                  alt="Estudantes do Fundamental II em interação social"
+                  className="w-full h-64 object-cover rounded-lg shadow-lg"
+                />
+              </div>
               <h3 className="text-3xl font-bold text-slate-800 mb-6">
                 Formação de Líderes Éticos
               </h3>
