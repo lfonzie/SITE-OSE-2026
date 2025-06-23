@@ -50,7 +50,7 @@ export default function Fundamental2() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -168,6 +168,51 @@ export default function Fundamental2() {
                   <p className="text-slate-600"><strong>Devo:</strong> Construção da responsabilidade social</p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <h3 className="text-3xl font-bold text-slate-800 mb-6">
+                Preparando Líderes do Futuro
+              </h3>
+              <div className="space-y-4 text-slate-600">
+                <p className="text-lg">
+                  O Ensino Fundamental II é uma fase empolgante e transformadora onde nossos alunos 
+                  passam por <strong>rápido desenvolvimento cognitivo e emocional</strong>. Nosso foco 
+                  está além do currículo acadêmico.
+                </p>
+                <p>
+                  Criamos um ambiente que promove <strong>autonomia, responsabilidade e pensamento crítico</strong>, 
+                  essenciais para formar jovens conscientes e preparados para os desafios do futuro.
+                </p>
+              </div>
+              <div className="mt-8">
+                <Button 
+                  size="lg"
+                  className="bg-school-orange hover:bg-school-orange/90 text-white"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Agendamento Avaliação Pedagógica
+                </Button>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <img 
+                src="/attached_assets/1068_1750717790205.jpg" 
+                alt="Alunos do Fundamental II em laboratório"
+                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              />
+              <img 
+                src="/attached_assets/1092_1750717790205.jpg" 
+                alt="Sala de aula do Fundamental II"
+                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              />
+              <img 
+                src="/attached_assets/1105_1750717790206.jpg" 
+                alt="Projeto pedagógico Fundamental II"
+                className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
+              />
             </div>
           </div>
 

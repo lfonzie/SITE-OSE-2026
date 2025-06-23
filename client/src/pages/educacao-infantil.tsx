@@ -92,21 +92,30 @@ export default function EducacaoInfantil() {
                 </Button>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img 
+            <div className="grid grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <img 
                   src="/attached_assets/0312_1750717790204.jpg" 
                   alt="Crianças da Educação Infantil em ambiente de aprendizado"
-                  className="w-full h-64 object-cover rounded-lg shadow-lg"
+                  className="w-full h-48 object-cover rounded-lg shadow-lg"
                 />
-              {features.map((feature, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
-                  <div className="bg-school-orange/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <feature.icon className="text-school-orange" size={20} />
+                <img 
+                  src="/attached_assets/0354_1750717790205.jpg" 
+                  alt="Sala de aula da Educação Infantil"
+                  className="w-full h-48 object-cover rounded-lg shadow-lg"
+                />
+              </div>
+              <div className="grid grid-cols-1 gap-4">
+                {features.map((feature, index) => (
+                  <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
+                    <div className="bg-school-orange/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                      <feature.icon className="text-school-orange" size={20} />
+                    </div>
+                    <h4 className="font-bold text-slate-800 mb-2">{feature.title}</h4>
+                    <p className="text-sm text-slate-600">{feature.description}</p>
                   </div>
-                  <h4 className="font-bold text-slate-800 mb-2">{feature.title}</h4>
-                  <p className="text-sm text-slate-600">{feature.description}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 

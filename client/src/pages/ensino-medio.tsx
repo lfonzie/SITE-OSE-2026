@@ -51,13 +51,13 @@ export default function EnsinoMedio() {
     { area: "Linguagens", disciplines: ["Português", "Literatura", "Inglês", "Espanhol", "Artes", "Educação Física"] },
     { area: "Matemática", disciplines: ["Matemática", "Matemática Aplicada", "Estatística", "Geometria"] },
     { area: "Ciências da Natureza", disciplines: ["Física", "Química", "Biologia", "Ciências Ambientais"] },
-    { area: "Ciências Humanas", disciplines: ["História", "Geografia", "Filosofia", "Sociologia"] }
+    { area: "Ciências Humanas", disciplines: ["História", "Geografia", "Filosofia", "Sociologia"] },
   ];
 
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,30 +108,17 @@ export default function EnsinoMedio() {
           {/* Educational Approach */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <div className="mb-6">
-                <img 
-                  src="/attached_assets/0541_1750717790207.jpg" 
-                  alt="Aluna do Ensino Médio concentrada nos estudos"
-                  className="w-full h-64 object-cover rounded-lg shadow-lg"
-                />
-              </div>
               <h3 className="text-3xl font-bold text-slate-800 mb-6">
-                Excelência que Prepara para a Vida
+                Preparação para o Futuro
               </h3>
               <div className="space-y-4 text-slate-600">
                 <p className="text-lg">
-                  Com mais de <strong>100 anos de tradição educacional</strong>, a OSE desenvolveu 
-                  uma metodologia única que combina preparação acadêmica rigorosa com formação 
-                  humana integral.
+                  O Ensino Médio na a OSE representa o <strong>ápice da formação básica</strong>, onde consolidamos 
+                  todo o conhecimento adquirido e preparamos nossos jovens para os desafios universitários e profissionais.
                 </p>
                 <p>
-                  Nossos estudantes do Ensino Médio são protagonistas de seu aprendizado, 
-                  desenvolvendo autonomia, pensamento crítico e responsabilidade social que 
-                  os acompanharão por toda a vida.
-                </p>
-                <p>
-                  <strong>a OSE</strong> mantém alto índice de aprovação nos principais vestibulares 
-                  do país, reflexo de nossa metodologia consolidada e acompanhamento personalizado.
+                  Com foco em <strong>excelência acadêmica e desenvolvimento integral</strong>, oferecemos uma 
+                  educação que forma cidadãos críticos, éticos e preparados para transformar o mundo.
                 </p>
               </div>
               <div className="mt-8">
@@ -144,33 +131,22 @@ export default function EnsinoMedio() {
                 </Button>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h4 className="text-2xl font-bold text-slate-800 mb-6">
-                Nossos Resultados
-              </h4>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-600">Aprovação Vestibulares</span>
-                  <span className="text-2xl font-bold text-school-orange">95%</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-600">Universidades Públicas</span>
-                  <span className="text-2xl font-bold text-school-orange">78%</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-600">ENEM - Média Acima Nacional</span>
-                  <span className="text-2xl font-bold text-school-orange">150pts</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-600">Satisfação das Famílias</span>
-                  <span className="text-2xl font-bold text-school-orange">98%</span>
-                </div>
-              </div>
-              <div className="mt-6 p-4 bg-school-orange/10 rounded-lg">
-                <p className="text-sm text-slate-600 font-medium">
-                  "Tradição que prepara, inovação que transforma, resultados que comprovam."
-                </p>
-              </div>
+            <div className="grid grid-cols-2 gap-4">
+              <img 
+                src="/attached_assets/1285_1750717790208.jpg" 
+                alt="Alunos do Ensino Médio em laboratório"
+                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              />
+              <img 
+                src="/attached_assets/1295_1750717790207.jpg" 
+                alt="Formatura do Ensino Médio"
+                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              />
+              <img 
+                src="/attached_assets/0023_1750717790208.jpg" 
+                alt="Cerimônia de formatura"
+                className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
+              />
             </div>
           </div>
 

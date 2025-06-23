@@ -12,8 +12,13 @@ export default function HeroSection() {
     <section id="hero" className="relative min-h-screen flex items-center">
       {/* Background image with overlay */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-school-orange via-school-orange to-school-brown">
-          <div className="absolute inset-0 bg-black/40" />
+        <img 
+          src="/attached_assets/0491_1750717790207.jpg" 
+          alt="Colégio OSE - Fachada histórica"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-school-orange/80 via-school-orange/70 to-school-brown/80">
+          <div className="absolute inset-0 bg-black/50" />
         </div>
       </div>
       

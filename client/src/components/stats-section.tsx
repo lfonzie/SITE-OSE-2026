@@ -42,11 +42,11 @@ export default function StatsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => {
-            const Icon = stat.icon;
+            const IconComponent = stat.icon;
             return (
               <div key={index} className="text-center">
                 <div className={`${stat.bgColor} rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4`}>
-                  <Icon className={`${stat.color}`} size={32} />
+                  <IconComponent className={`${stat.color}`} size={32} />
                 </div>
                 <h3 className="text-4xl font-bold text-slate-800">{stat.number}</h3>
                 <p className="text-slate-600 font-medium">{stat.label}</p>

@@ -50,7 +50,7 @@ export default function Fundamental1() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,27 +99,19 @@ export default function Fundamental1() {
           {/* Educational Approach */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <div className="mb-6">
-                <img 
-                  src="/attached_assets/0312_1750717790204.jpg" 
-                  alt="Alunos do Fundamental I em sala de aula"
-                  className="w-full h-64 object-cover rounded-lg shadow-lg"
-                />
-              </div>
               <h3 className="text-3xl font-bold text-slate-800 mb-6">
-                Nossa Abordagem Educacional
+                Construindo Fundamentos Sólidos
               </h3>
               <div className="space-y-4 text-slate-600">
                 <p className="text-lg">
-                  <strong>a OSE</strong> prioriza o desenvolvimento da linguagem, que é a base para 
-                  todas as outras formas de aprendizado. Utilizamos uma variedade de leituras e 
-                  atividades escritas que fomentam não só a habilidade de comunicação, mas também 
-                  o pensamento crítico e a imaginação.
+                  O Ensino Fundamental I representa um período crítico e fascinante na jornada educacional. 
+                  Nosso enfoque vai além do desenvolvimento acadêmico, englobando também as <strong>habilidades 
+                  sociais, emocionais e culturais</strong> essenciais para o crescimento integral de cada criança.
                 </p>
                 <p>
-                  Acreditamos que a educação vai além dos livros. Enfatizamos atividades que cultivam 
-                  empatia, colaboração e consciência social. Nosso objetivo é formar não só alunos 
-                  bem preparados academicamente, mas também cidadãos conscientes e solidários.
+                  Através de <strong>metodologias ativas e inovadoras</strong>, proporcionamos um ambiente 
+                  onde cada aluno pode explorar suas curiosidades, desenvolver pensamento crítico e 
+                  construir uma base sólida para os próximos níveis educacionais.
                 </p>
               </div>
               <div className="mt-8">
@@ -132,44 +124,22 @@ export default function Fundamental1() {
                 </Button>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h4 className="text-2xl font-bold text-slate-800 mb-6">
-                Diferenciais do Fundamental I
-              </h4>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="bg-school-orange text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-sm">✓</span>
-                  </div>
-                  <p className="text-slate-600">
-                    <strong>Programação:</strong> Introdução ao pensamento computacional integrado ao currículo
-                  </p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="bg-school-orange text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-sm">✓</span>
-                  </div>
-                  <p className="text-slate-600">
-                    <strong>Educação Socioemocional:</strong> Desenvolvimento de habilidades para a vida
-                  </p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="bg-school-orange text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-sm">✓</span>
-                  </div>
-                  <p className="text-slate-600">
-                    <strong>Ensino Bilíngue:</strong> Opções de aprendizado de inglês adaptadas à idade
-                  </p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="bg-school-orange text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-sm">✓</span>
-                  </div>
-                  <p className="text-slate-600">
-                    <strong>Integral Flex:</strong> Aprendizado abrangente que atende necessidades individuais
-                  </p>
-                </div>
-              </div>
+            <div className="grid grid-cols-2 gap-4">
+              <img 
+                src="/attached_assets/0581_1750717790206.jpg" 
+                alt="Alunos do Fundamental I em atividade"
+                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              />
+              <img 
+                src="/attached_assets/0700_1750717790204.jpg" 
+                alt="Sala de aula do Fundamental I"
+                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              />
+              <img 
+                src="/attached_assets/0905_1750717790206.jpg" 
+                alt="Atividades pedagógicas Fundamental I"
+                className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
+              />
             </div>
           </div>
 
