@@ -16,9 +16,11 @@ import {
   Eye,
   Undo,
   Redo,
-  Settings
+  Settings,
+  Copy
 } from "lucide-react";
 import { componentTemplates, pageBuilder } from "@/lib/drag-drop-editor";
+import PageImporter from "./PageImporter";
 
 interface EditorToolbarProps {
   onAddComponent: (type: string) => void;
@@ -74,10 +76,11 @@ export default function EditorToolbar({ onAddComponent, onSave, onPreview }: Edi
 
       {/* Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 m-4">
+        <TabsList className="grid w-full grid-cols-4 m-4">
           <TabsTrigger value="components">Componentes</TabsTrigger>
           <TabsTrigger value="pages">Páginas</TabsTrigger>
           <TabsTrigger value="settings">Config</TabsTrigger>
+          <TabsTrigger value="import">Import</TabsTrigger>
         </TabsList>
 
         {/* Components Tab */}
@@ -134,6 +137,11 @@ export default function EditorToolbar({ onAddComponent, onSave, onPreview }: Edi
             </CardContent>
           </Card>
         </TabsContent>
+
+        {/* Import/Export Tab */}
+        <TabsContent value="import" className="p-4">
+          <PageImporter />
+        </TabsContent>
       </Tabs>
     </div>
   );
@@ -141,6 +149,7 @@ export default function EditorToolbar({ onAddComponent, onSave, onPreview }: Edi
 
 function PageList() {
   const [pages, setPages] = useState(pageBuilder.getAllPages());
+  const currentPage = pageBuilder.getCurrentPage();
 
   const handleCreatePage = () => {
     const name = prompt('Nome da nova página:');
@@ -153,7 +162,39 @@ function PageList() {
 
   const handleSelectPage = (pageId: string) => {
     pageBuilder.setCurrentPage(pageId);
+    setPages(pageBuilder.getAllPages()); // Force update
   };
+
+  const handleDuplicatePage = (pageId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const page = pageBuilder.getPage(pageId);
+    if (page) {
+      const newName = `${page.name} (Cópia)`;
+      const newSlug = `${page.slug}-copia`;
+      const newPage = pageBuilder.createPage(newName, newSlug);
+      
+      // Copy components
+      page.components.forEach(component => {
+        const newComponent = {
+          ...component,
+          id: 'comp_' + Math.random().toString(36).substr(2, 9)
+        };
+        const currentPageData = pageBuilder.getCurrentPage();
+        if (currentPageData && currentPageData.id === newPage.id) {
+          currentPageData.components.push(newComponent);
+        }
+      });
+      
+      setPages(pageBuilder.getAllPages());
+    }
+  };
+
+  const predefinedPages = [
+    { name: 'Página Inicial', slug: 'home', description: 'Homepage principal' },
+    { name: 'Sobre Nós', slug: 'sobre', description: 'História da escola' },
+    { name: 'Programas', slug: 'programas', description: 'Cursos oferecidos' },
+    { name: 'Contato', slug: 'contato', description: 'Informações de contato' }
+  ];
 
   return (
     <div className="space-y-2">
@@ -165,20 +206,67 @@ function PageList() {
         <Plus size={16} className="mr-2" />
         Nova Página
       </Button>
-      
-      {pages.map((page) => (
-        <div
-          key={page.id}
-          onClick={() => handleSelectPage(page.id)}
-          className="p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+
+      <div className="text-xs text-gray-500 mt-4 mb-2">Páginas Sugeridas:</div>
+      {predefinedPages.map((template) => (
+        <Button
+          key={template.slug}
+          variant="outline"
+          size="sm"
+          className="w-full justify-start text-left"
+          onClick={() => {
+            const existing = pages.find(p => p.slug === template.slug);
+            if (existing) {
+              handleSelectPage(existing.id);
+            } else {
+              const newPage = pageBuilder.createPage(template.name, template.slug);
+              pageBuilder.setCurrentPage(newPage.id);
+              setPages(pageBuilder.getAllPages());
+            }
+          }}
         >
-          <div className="font-medium text-sm">{page.name}</div>
-          <div className="text-xs text-gray-500">/{page.slug}</div>
-          <div className="text-xs text-gray-400 mt-1">
-            {page.status === 'published' ? '🟢 Publicado' : '🟡 Rascunho'}
+          <div>
+            <div className="font-medium text-sm">{template.name}</div>
+            <div className="text-xs text-gray-500">{template.description}</div>
           </div>
-        </div>
+        </Button>
       ))}
+      
+      {pages.length > 0 && (
+        <>
+          <div className="text-xs text-gray-500 mt-4 mb-2">Suas Páginas:</div>
+          {pages.map((page) => (
+            <div
+              key={page.id}
+              onClick={() => handleSelectPage(page.id)}
+              className={`p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors ${
+                currentPage?.id === page.id ? 'border-school-orange bg-orange-50' : ''
+              }`}
+            >
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <div className="font-medium text-sm">{page.name}</div>
+                  <div className="text-xs text-gray-500">/{page.slug}</div>
+                  <div className="text-xs text-gray-400 mt-1">
+                    {page.status === 'published' ? '🟢 Publicado' : '🟡 Rascunho'}
+                  </div>
+                  <div className="text-xs text-gray-400">
+                    {page.components.length} componentes
+                  </div>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={(e) => handleDuplicatePage(page.id, e)}
+                  className="h-6 w-6 p-0"
+                >
+                  <Copy size={12} />
+                </Button>
+              </div>
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 }

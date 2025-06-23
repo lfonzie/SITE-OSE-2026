@@ -23,6 +23,32 @@ export default function Editor() {
       keywords: "editor, cms, página builder"
     });
 
+    // Create default pages if none exist
+    const existingPages = pageBuilder.getAllPages();
+    if (existingPages.length === 0) {
+      // Create homepage for editing
+      const homePage = pageBuilder.createPage("Página Inicial", "home");
+      pageBuilder.setCurrentPage(homePage.id);
+      
+      // Add some default components to demonstrate
+      pageBuilder.addComponent('text');
+      const heroComponent = pageBuilder.addComponent('section');
+      pageBuilder.updateComponent(heroComponent.id, {
+        content: { title: 'Bem-vindo ao Colégio OSE' },
+        styles: { 
+          backgroundColor: '#ff7f00', 
+          color: 'white', 
+          padding: '60px 20px',
+          textAlign: 'center' 
+        }
+      });
+      
+      // Create other main pages
+      pageBuilder.createPage("Sobre Nós", "sobre");
+      pageBuilder.createPage("Serviços", "servicos");
+      pageBuilder.createPage("Contato", "contato");
+    }
+
     // Initialize page builder listener
     const updateComponents = () => {
       const currentPage = pageBuilder.getCurrentPage();
