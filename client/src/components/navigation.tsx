@@ -34,12 +34,14 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center space-x-4">
-            <div className="bg-school-blue text-white p-3 rounded-lg">
-              <GraduationCap className="text-2xl" />
-            </div>
+            <img 
+              src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png"
+              alt="Colégio OSE - 100 Anos"
+              className="h-16 w-auto object-contain"
+            />
             <div>
               <h1 className="text-2xl font-bold text-school-blue">Colégio OSE</h1>
-              <p className="text-sm text-slate-600">Excelência em Educação</p>
+              <p className="text-sm text-slate-600">Desde 1924</p>
             </div>
           </div>
 

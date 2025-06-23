@@ -41,12 +41,14 @@ export default function Footer() {
           {/* School Info */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="bg-school-blue text-white p-2 rounded-lg">
-                <GraduationCap size={24} />
-              </div>
+              <img 
+                src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png"
+                alt="Colégio OSE - 100 Anos"
+                className="h-12 w-auto object-contain filter brightness-0 invert"
+              />
               <div>
                 <h3 className="text-xl font-bold">Colégio OSE</h3>
-                <p className="text-slate-400 text-sm">Excelência em Educação</p>
+                <p className="text-slate-400 text-sm">Desde 1924</p>
               </div>
             </div>
             <p className="text-slate-300 mb-4">

@@ -153,11 +153,18 @@ export default function PortalAluno() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-6">
-              <img 
-                src={studentData.photo}
-                alt={studentData.name}
-                className="w-20 h-20 rounded-full border-4 border-white shadow-lg object-cover" 
-              />
+              <div className="flex items-center space-x-4">
+                <img 
+                  src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png"
+                  alt="Colégio OSE"
+                  className="h-12 w-auto object-contain filter brightness-0 invert"
+                />
+                <img 
+                  src={studentData.photo}
+                  alt={studentData.name}
+                  className="w-20 h-20 rounded-full border-4 border-white shadow-lg object-cover" 
+                />
+              </div>
               <div>
                 <h1 className="text-3xl font-bold">{studentData.name}</h1>
                 <p className="text-blue-100 text-lg">{studentData.class}</p>

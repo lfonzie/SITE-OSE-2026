@@ -47,12 +47,16 @@ export default function AboutSection() {
             />
             
             {/* Floating achievement card */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border-l-4 border-school-green">
+            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border-l-4 border-school-blue">
               <div className="flex items-center">
-                <Medal className="text-yellow-500 text-2xl mr-3" size={32} />
+                <img 
+                  src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png"
+                  alt="100 Anos OSE"
+                  className="h-8 w-auto object-contain mr-3"
+                />
                 <div>
-                  <h4 className="font-bold text-slate-800">Escola Nota 10</h4>
-                  <p className="text-slate-600 text-sm">Avaliação MEC 2023</p>
+                  <h4 className="font-bold text-slate-800">100 Anos de Tradição</h4>
+                  <p className="text-slate-600 text-sm">Desde 1924</p>
                 </div>
               </div>
             </div>

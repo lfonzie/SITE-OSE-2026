@@ -208,6 +208,13 @@ export default function Services() {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-school-blue to-blue-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center mb-8">
+            <img 
+              src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png"
+              alt="Colégio OSE - 100 Anos"
+              className="h-20 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Nossos <span className="text-yellow-300">Serviços</span>
           </h1>

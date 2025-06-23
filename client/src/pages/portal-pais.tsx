@@ -149,10 +149,17 @@ export default function PortalPais() {
       <section className="py-12 bg-gradient-to-r from-school-green to-green-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold">Portal dos Pais</h1>
-              <p className="text-green-100 text-lg">Bem-vindo, {parentData.name}</p>
-              <p className="text-green-200 text-sm">Acompanhe o desenvolvimento dos seus filhos</p>
+            <div className="flex items-center space-x-6">
+              <img 
+                src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png"
+                alt="Colégio OSE"
+                className="h-16 w-auto object-contain filter brightness-0 invert"
+              />
+              <div>
+                <h1 className="text-3xl font-bold">Portal dos Pais</h1>
+                <p className="text-green-100 text-lg">Bem-vindo, {parentData.name}</p>
+                <p className="text-green-200 text-sm">Acompanhe o desenvolvimento dos seus filhos</p>
+              </div>
             </div>
             <div className="flex space-x-3">
               <Button variant="outline" className="border-white text-white hover:bg-white hover:text-school-green">
