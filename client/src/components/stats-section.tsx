@@ -1,15 +1,44 @@
+
 import { Users, Calendar, Trophy, BookOpen } from "lucide-react";
 
 const stats = [
-  { number: "100", label: "Anos de Tradição", description: "Desde 1924" },
-  { number: "700", label: "Alunos", description: "Do Infantil ao Médio" },
-  { number: "95%", label: "Aprovação Vestibular", description: "Índice de sucesso" },
-  { number: "40+", label: "Professores", description: "Especializados" }
+  { 
+    number: "100", 
+    label: "Anos de Tradição", 
+    description: "Desde 1924",
+    icon: Calendar,
+    bgColor: "bg-school-orange/10",
+    color: "text-school-orange"
+  },
+  { 
+    number: "700", 
+    label: "Alunos", 
+    description: "Do Infantil ao Médio",
+    icon: Users,
+    bgColor: "bg-school-brown/10", 
+    color: "text-school-brown"
+  },
+  { 
+    number: "95%", 
+    label: "Aprovação Vestibular", 
+    description: "Índice de sucesso",
+    icon: Trophy,
+    bgColor: "bg-school-orange/10",
+    color: "text-school-orange"
+  },
+  { 
+    number: "40+", 
+    label: "Professores", 
+    description: "Especializados",
+    icon: BookOpen,
+    bgColor: "bg-school-brown/10",
+    color: "text-school-brown"
+  }
 ];
 
 export default function StatsSection() {
   return (
-    <section className="py-20 bg-white">
+    <section id="stats" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => {
@@ -17,10 +46,11 @@ export default function StatsSection() {
             return (
               <div key={index} className="text-center">
                 <div className={`${stat.bgColor} rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4`}>
-                  <Icon className={`text-3xl ${stat.color}`} size={32} />
+                  <Icon className={`${stat.color}`} size={32} />
                 </div>
-                <h3 className="text-4xl font-bold text-slate-800">{stat.value}</h3>
+                <h3 className="text-4xl font-bold text-slate-800">{stat.number}</h3>
                 <p className="text-slate-600 font-medium">{stat.label}</p>
+                <p className="text-sm text-slate-500">{stat.description}</p>
               </div>
             );
           })}
