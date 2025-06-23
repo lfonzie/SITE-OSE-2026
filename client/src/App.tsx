@@ -5,6 +5,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { useEffect } from "react";
 import { initAllTracking } from "./lib/analytics";
 import { useAnalytics } from "./hooks/use-analytics";
+import { setupFavicons } from "./lib/favicon";
+import { setupCSP } from "./lib/security";
+import { addSchoolSchema } from "./lib/seo";
+import { preloadResources, initLazyLoading } from "./lib/performance";
+import { snippetManager } from "./lib/custom-snippets";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import Services from "@/pages/services";
@@ -28,9 +33,24 @@ function Router() {
 }
 
 function App() {
-  // Initialize tracking when app loads
+  // Initialize all systems when app loads
   useEffect(() => {
+    // Analytics and tracking
     initAllTracking();
+    
+    // SEO and metadata
+    setupFavicons();
+    addSchoolSchema();
+    
+    // Security
+    setupCSP();
+    
+    // Performance optimizations
+    preloadResources();
+    initLazyLoading();
+    
+    // Custom snippets
+    snippetManager.executeSnippets();
   }, []);
 
   return (

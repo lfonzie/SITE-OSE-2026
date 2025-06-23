@@ -7,6 +7,7 @@ import FeaturesSection from "@/components/features-section";
 import FacultySection from "@/components/faculty-section";
 import NewsSection from "@/components/news-section";
 import TestimonialsSection from "@/components/testimonials-section";
+import SocialFeedsSection from "@/components/social-feeds-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 
@@ -22,6 +23,7 @@ export default function Home() {
       <FacultySection />
       <NewsSection />
       <TestimonialsSection />
+      <SocialFeedsSection />
       <ContactSection />
       <Footer />
     </div>
