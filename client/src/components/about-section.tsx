@@ -1,5 +1,5 @@
-import { Lightbulb, Heart, Medal } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Heart, Users, Target, Award, BookOpen } from "lucide-react";
 
 export default function AboutSection() {
   return (
@@ -40,11 +40,12 @@ export default function AboutSection() {
           </div>
           
           <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Fachada moderna do Colégio OSE" 
-              className="rounded-2xl shadow-2xl w-full" 
-            />
+            <div className="w-full h-96 bg-gradient-to-br from-school-orange/20 to-school-brown/20 rounded-2xl shadow-2xl flex items-center justify-center">
+              <div className="text-center">
+                <BookOpen className="text-school-orange mx-auto mb-4" size={64} />
+                <p className="text-school-brown font-medium">Ambiente Educacional da OSE</p>
+              </div>
+            </div>
             
             {/* Floating achievement card */}
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border-l-4 border-school-orange">

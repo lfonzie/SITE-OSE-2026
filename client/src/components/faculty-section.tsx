@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Linkedin, Mail } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Faculty } from "@shared/schema";
 
@@ -58,11 +58,9 @@ export default function FacultySection() {
               key={member.id}
               className={`bg-gradient-to-br ${colorMap[index % colorMap.length]} p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2`}
             >
-              <img 
-                src={member.image}
-                alt={`${member.name} - ${member.position}`}
-                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-white shadow-lg" 
-              />
+              <div className="w-24 h-24 rounded-full mx-auto mb-4 bg-white/20 border-4 border-white shadow-lg flex items-center justify-center">
+                <GraduationCap className="text-white" size={32} />
+              </div>
               <h3 className="text-xl font-bold text-slate-800 mb-1 text-center">{member.name}</h3>
               <p className={`${textColorMap[index % textColorMap.length]} font-semibold mb-2 text-center`}>
                 {member.position}

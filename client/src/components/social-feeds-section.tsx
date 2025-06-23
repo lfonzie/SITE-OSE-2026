@@ -65,61 +65,29 @@ export default function SocialFeedsSection() {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <img 
-                src="/attached_assets/0934_1750717790206.jpg" 
-                alt="Alunos da OSE em atividade esportiva"
-                className="w-full h-full object-cover hover:scale-105 transition-transform"
-              />
+            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center">
+              <Camera className="text-school-orange" size={32} />
             </div>
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <img 
-                src="/attached_assets/0312_1750717790204.jpg" 
-                alt="Alunos em sala de aula na OSE"
-                className="w-full h-full object-cover hover:scale-105 transition-transform"
-              />
+            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center">
+              <Camera className="text-school-orange" size={32} />
             </div>
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <img 
-                src="/attached_assets/0905_1750717790206.jpg" 
-                alt="Atividades em grupo na quadra da OSE"
-                className="w-full h-full object-cover hover:scale-105 transition-transform"
-              />
+            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center">
+              <Camera className="text-school-orange" size={32} />
             </div>
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <img 
-                src="/attached_assets/1295_1750717790207.jpg" 
-                alt="Interação entre aluno e professor na OSE"
-                className="w-full h-full object-cover hover:scale-105 transition-transform"
-              />
+            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center">
+              <Camera className="text-school-orange" size={32} />
             </div>
-            <div className="aspect-square rounded-lg overflow-hidden md:block hidden">
-              <img 
-                src="/attached_assets/0581_1750717790206.jpg" 
-                alt="Estudantes do ensino médio na OSE"
-                className="w-full h-full object-cover hover:scale-105 transition-transform"
-              />
+            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center md:block hidden">
+              <Camera className="text-school-orange" size={32} />
             </div>
-            <div className="aspect-square rounded-lg overflow-hidden md:block hidden">
-              <img 
-                src="/attached_assets/1092_1750717790205.jpg" 
-                alt="Momento especial entre aluno e educador"
-                className="w-full h-full object-cover hover:scale-105 transition-transform"
-              />
+            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center md:block hidden">
+              <Camera className="text-school-orange" size={32} />
             </div>
-            <div className="aspect-square rounded-lg overflow-hidden md:block hidden">
-              <img 
-                src="/attached_assets/0491_1750717790207.jpg" 
-                alt="Aluno da OSE concentrado nos estudos"
-                className="w-full h-full object-cover hover:scale-105 transition-transform"
-              />
+            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center md:block hidden">
+              <Camera className="text-school-orange" size={32} />
             </div>
-            <div className="aspect-square rounded-lg overflow-hidden md:block hidden">
-              <img 
-                src="/attached_assets/1105_1750717790206.jpg" 
-                alt="Ambiente alegre e descontraído na OSE"
-                className="w-full h-full object-cover hover:scale-105 transition-transform"
-              />
+            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center md:block hidden">
+              <Camera className="text-school-orange" size={32} />
             </div>
           </div>
           

@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, Phone, Mail, Facebook, Instagram, Youtube } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const quickLinks = [
   { label: "Início", href: "#inicio" },
@@ -18,11 +18,7 @@ const services = [
   { label: "Uniforme Escolar", href: "/servicos" }
 ];
 
-const socialLinks = [
-  { icon: Facebook, href: "#" },
-  { icon: Instagram, href: "#" },
-  { icon: Youtube, href: "#" }
-];
+// Social links removidos conforme solicitação
 
 export default function Footer() {
   const scrollToSection = (href: string) => {
@@ -37,85 +33,97 @@ export default function Footer() {
   return (
     <footer className="bg-slate-800 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* School Info */}
-          <div>
-            <div className="flex items-center space-x-3 mb-6">
+        <div className="grid lg:grid-cols-4 gap-8">
+          {/* About */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center mb-4">
               <img 
-                src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png"
-                alt="Colégio OSE - 100 Anos"
-                className="h-12 w-auto object-contain filter brightness-0 invert"
+                src="https://colegioose.com.br/wp-content/uploads/2021/03/logo-ose.png" 
+                alt="a OSE" 
+                className="h-12 w-auto mr-3"
               />
               <div>
-                <h3 className="text-xl font-bold">Colégio OSE</h3>
-                <p className="text-slate-400 text-sm">Desde 1924</p>
+                <h3 className="text-xl font-bold text-white">a OSE</h3>
+                <p className="text-slate-300 text-sm">Desde 1924</p>
               </div>
             </div>
             <p className="text-slate-300 mb-4">
               Tradição secular de ensino desde 1924. Formando cidadãos críticos e preparados para os desafios do futuro há 100 anos.
             </p>
-            {/* Ícones de redes sociais removidos conforme solicitação */}
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Links Rápidos</h4>
+            <h4 className="text-lg font-bold text-white mb-6">Links Rápidos</h4>
             <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-slate-300 hover:text-white transition-colors text-left"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
+              <li>
+                <a href="/" className="text-slate-300 hover:text-white transition-colors">
+                  Início
+                </a>
+              </li>
+              <li>
+                <a href="/professores" className="text-slate-300 hover:text-white transition-colors">
+                  Professores
+                </a>
+              </li>
+              <li>
+                <button
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="text-slate-300 hover:text-white transition-colors text-left"
+                >
+                  Contato
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Programas */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Serviços</h4>
+            <h4 className="text-lg font-bold text-white mb-6">Programas</h4>
             <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <a
-                    href={service.href}
-                    className="text-slate-300 hover:text-white transition-colors"
-                    onClick={(e) => {
-                      if (service.href.startsWith('/')) {
-                        e.preventDefault();
-                        window.location.href = service.href;
-                      }
-                    }}
-                  >
-                    {service.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="/educacao-infantil" className="text-slate-300 hover:text-white transition-colors">
+                  Educação Infantil
+                </a>
+              </li>
+              <li>
+                <a href="/fundamental-1" className="text-slate-300 hover:text-white transition-colors">
+                  Fundamental I
+                </a>
+              </li>
+              <li>
+                <a href="/fundamental-2" className="text-slate-300 hover:text-white transition-colors">
+                  Fundamental II
+                </a>
+              </li>
+              <li>
+                <a href="/ensino-medio" className="text-slate-300 hover:text-white transition-colors">
+                  Ensino Médio
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Contato</h4>
-            <div className="space-y-3">
-              <div className="text-slate-300 flex items-start">
-                <MapPin className="mr-2 mt-1 flex-shrink-0" size={16} />
-                <div>
-                  <span>Rua da Penha, 620</span><br />
-                  <span>Centro - Sorocaba, SP</span>
-                </div>
+            <h4 className="text-lg font-bold text-white mb-6">Contato</h4>
+            <div className="space-y-3 text-slate-300">
+              <div className="flex items-start">
+                <MapPin className="mr-2 mt-1 flex-shrink-0 text-school-orange" size={16} />
+                <span>Rua Comendador Oetterer, 758<br />Centro, Sorocaba - SP</span>
               </div>
-              <p className="text-slate-300 flex items-center">
-                <Phone className="mr-2" size={16} />
-                <span>(15) 2101-3800</span>
-              </p>
-              <p className="text-slate-300 flex items-center">
-                <Mail className="mr-2" size={16} />
-                <span>info@colegioose.com.br</span>
-              </p>
+              <div className="flex items-center">
+                <Phone className="mr-2 flex-shrink-0 text-school-orange" size={16} />
+                <span>(15) 3231-5588</span>
+              </div>
+              <div className="flex items-center">
+                <Mail className="mr-2 flex-shrink-0 text-school-orange" size={16} />
+                <span>contato@colegioose.com.br</span>
+              </div>
+              <div className="flex items-center">
+                <Clock className="mr-2 flex-shrink-0 text-school-orange" size={16} />
+                <span>Segunda a Sexta: 7h30 às 18h</span>
+              </div>
             </div>
           </div>
         </div>

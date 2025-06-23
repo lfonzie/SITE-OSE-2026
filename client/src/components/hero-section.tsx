@@ -10,15 +10,9 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center">
-      {/* Background image with overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/attached_assets/0700_1750717790204.jpg')"
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-school-orange/90 via-school-orange/85 to-school-brown/90" />
-        <div className="absolute inset-0 bg-black/50" />
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-school-orange via-school-orange to-school-brown">
+        <div className="absolute inset-0 bg-black/20" />
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">

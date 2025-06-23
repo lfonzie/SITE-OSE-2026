@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Star } from "lucide-react";
+import { Star, Users } from "lucide-react";
 import type { Testimonial } from "@shared/schema";
 
 export default function TestimonialsSection() {
@@ -44,12 +44,8 @@ export default function TestimonialsSection() {
               className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
             >
               <div className="text-center mb-6">
-                <div className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden bg-gray-200">
-                  <img 
-                    src="/attached_assets/0541_1750717790207.jpg" 
-                    alt="Aluna da OSE"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-16 h-16 rounded-full mx-auto mb-4 bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center">
+                  <Users className="text-school-orange" size={24} />
                 </div>
                 <div className="flex justify-center mb-4">
                   <div className="flex text-school-orange">
