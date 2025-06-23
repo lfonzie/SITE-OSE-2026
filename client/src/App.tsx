@@ -18,6 +18,7 @@ import Fundamental2 from "@/pages/fundamental-2";
 import EnsinoMedio from "@/pages/ensino-medio";
 import Professores from "@/pages/professores";
 import Services from "@/pages/services";
+import Legacy from "@/pages/legacy";
 import PortalAluno from "@/pages/portal-aluno";
 import PortalPais from "@/pages/portal-pais";
 import Editor from "@/pages/editor";
@@ -26,7 +27,7 @@ import NotFound from "@/pages/not-found";
 function Router() {
   // Track page views when routes change
   useAnalytics();
-  
+
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -35,7 +36,8 @@ function Router() {
       <Route path="/fundamental-2" component={Fundamental2} />
       <Route path="/ensino-medio" component={EnsinoMedio} />
       <Route path="/professores" component={Professores} />
-      <Route path="/servicos" component={Services} />
+      <Route path="/services" component={Services} />
+      <Route path="/legacy" component={Legacy} />
       <Route path="/portal-aluno" component={PortalAluno} />
       <Route path="/portal-pais" component={PortalPais} />
       <Route path="/editor" component={Editor} />
@@ -49,18 +51,18 @@ function App() {
   useEffect(() => {
     // Analytics and tracking
     initAllTracking();
-    
+
     // SEO and metadata
     setupFavicons();
     addSchoolSchema();
-    
+
     // Security
     setupCSP();
-    
+
     // Performance optimizations
     preloadResources();
     initLazyLoading();
-    
+
     // Custom snippets
     snippetManager.executeSnippets();
   }, []);

@@ -34,7 +34,7 @@ export default function Navigation() {
           <div className="flex items-center">
             <Link to="/">
               <img 
-                src="https://colegioose.com.br/wp-content/uploads/2021/03/logo-ose.png" 
+                src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png" 
                 alt="a OSE" 
                 className="h-10 w-auto"
               />

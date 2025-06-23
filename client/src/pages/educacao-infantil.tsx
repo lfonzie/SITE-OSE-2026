@@ -40,7 +40,7 @@ export default function EducacaoInfantil() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,6 +93,11 @@ export default function EducacaoInfantil() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
+              <img 
+                  src="/attached_assets/0312_1750717790204.jpg" 
+                  alt="Crianças da Educação Infantil em ambiente de aprendizado"
+                  className="w-full h-64 object-cover rounded-lg shadow-lg"
+                />
               {features.map((feature, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
                   <div className="bg-school-orange/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">

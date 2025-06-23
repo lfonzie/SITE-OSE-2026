@@ -26,7 +26,7 @@ export default function TestimonialsSection() {
   }
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-br from-school-orange to-school-brown">
+    <section id="testimonials" className="py-20 bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg">
@@ -39,28 +39,29 @@ export default function TestimonialsSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials?.map((testimonial) => (
-            <div 
-              key={testimonial.id}
-              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
-            >
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 rounded-full mx-auto mb-4 bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center">
-                  <Users className="text-school-orange" size={24} />
-                </div>
-                <div className="flex justify-center mb-4">
-                  <div className="flex text-school-orange">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} size={20} fill="currentColor" />
-                    ))}
+            <div key={testimonial.id} className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-school-orange hover:shadow-xl transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-school-orange to-school-brown rounded-full flex items-center justify-center text-white font-bold text-lg mr-4 shadow-lg">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-lg">{testimonial.name}</h4>
+                    <p className="text-school-orange text-sm font-medium">{testimonial.role}</p>
                   </div>
                 </div>
+                <div className="flex mb-4">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`${
+                        i < testimonial.rating ? "text-yellow-400 fill-current" : "text-slate-300"
+                      }`}
+                      size={20}
+                    />
+                  ))}
+                </div>
+                <p className="text-slate-700 italic leading-relaxed">"{testimonial.content}"</p>
               </div>
-              <p className="text-slate-600 mb-6 italic text-center">"{testimonial.content}"</p>
-              <div className="text-center">
-                <h4 className="font-bold text-slate-800">{testimonial.name}</h4>
-                <p className="text-school-orange text-sm">{testimonial.role}</p>
-              </div>
-            </div>
           ))}
         </div>
       </div>

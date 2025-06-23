@@ -5,7 +5,7 @@ export default function WhyOSESection() {
     {
       icon: Award,
       title: "100 Anos de Tradição",
-      description: "a OSE possui um diferencial que poucos colégios no Brasil têm: tradição secular e rica história educacional."
+      description: "A OSE possui um diferencial que poucos colégios no Brasil têm: tradição secular e rica história educacional."
     },
     {
       icon: Heart,
@@ -25,14 +25,15 @@ export default function WhyOSESection() {
   ];
 
   return (
-    <section id="why-ose" className="py-20 bg-gradient-to-br from-school-orange/10 to-school-brown/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="why-ose" className="py-20 bg-gradient-to-r from-school-orange to-school-brown text-white relative">
+      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-            Por que estudar <span className="text-school-orange">na OSE?</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-2xl">
+            Por que escolher <span className="text-white">a OSE</span>?
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Conheça os diferenciais que fazem da OSE a escolha ideal para a educação do seu filho
+          <p className="text-xl max-w-4xl mx-auto opacity-95 drop-shadow-xl">
+            Conheça os diferenciais que fazem da OSE a escolha ideal para a educação do seu filho.
           </p>
         </div>
 
@@ -48,14 +49,14 @@ export default function WhyOSESection() {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-school-orange to-school-brown rounded-xl p-8 md:p-12 text-white text-center shadow-xl">
+        <div className="mt-16 bg-white/20 rounded-xl p-8 md:p-12 text-white text-center shadow-xl">
           <h3 className="text-3xl font-bold mb-4 drop-shadow-md">
             Venha conhecer a OSE
           </h3>
           <p className="text-xl mb-6 drop-shadow-sm">
             Agende uma visita e descubra por que somos referência em educação há mais de 100 anos
           </p>
-          <button 
+          <button
             className="bg-white text-school-orange px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
