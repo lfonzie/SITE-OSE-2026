@@ -5,15 +5,15 @@ const stats = [
     icon: Users,
     value: "100",
     label: "Anos de Tradição",
-    color: "text-school-blue",
-    bgColor: "bg-school-blue/10"
+    color: "text-school-orange",
+    bgColor: "bg-school-orange/10"
   },
   {
     icon: GraduationCap,
     value: "Corpo Docente",
     label: "Experiente",
-    color: "text-school-green",
-    bgColor: "bg-school-green/10"
+    color: "text-school-brown",
+    bgColor: "bg-school-brown/10"
   },
   {
     icon: Trophy,

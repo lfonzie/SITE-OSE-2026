@@ -40,8 +40,8 @@ export default function Navigation() {
               className="h-16 w-auto object-contain"
             />
             <div>
-              <h1 className="text-2xl font-bold text-school-blue">Colégio OSE</h1>
-              <p className="text-sm text-slate-600">Desde 1924</p>
+              <h1 className="text-2xl font-bold text-school-orange">Colégio OSE</h1>
+              <p className="text-sm text-school-brown">Desde 1924</p>
             </div>
           </div>
 
@@ -51,14 +51,14 @@ export default function Navigation() {
               <button
                 key={item.id}
                 onClick={() => handleNavigation(item)}
-                className="text-slate-700 hover:text-school-blue transition-colors font-medium"
+                className="text-slate-700 hover:text-school-orange transition-colors font-medium"
               >
                 {item.label}
               </button>
             ))}
             <Button 
               onClick={() => window.location.href = '/portal-aluno'}
-              className="bg-school-green hover:bg-school-green/90 text-white"
+              className="bg-school-brown hover:bg-school-brown/90 text-white"
             >
               Portal do Aluno
             </Button>
@@ -84,14 +84,14 @@ export default function Navigation() {
               <button
                 key={item.id}
                 onClick={() => handleNavigation(item)}
-                className="block w-full text-left text-slate-700 hover:text-school-blue font-medium py-2"
+                className="block w-full text-left text-slate-700 hover:text-school-orange font-medium py-2"
               >
                 {item.label}
               </button>
             ))}
             <Button 
               onClick={() => window.location.href = '/portal-aluno'}
-              className="w-full bg-school-green hover:bg-school-green/90 text-white"
+              className="w-full bg-school-brown hover:bg-school-brown/90 text-white"
             >
               Portal do Aluno
             </Button>

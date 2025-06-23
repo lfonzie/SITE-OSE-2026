@@ -25,9 +25,9 @@
   --radius: 0.5rem;
   
   /* Custom school colors */
-  --school-blue: hsl(225, 83%, 53%);
-  --school-green: hsl(159, 94%, 39%);
-  --school-red: hsl(0, 74%, 51%);
+  --school-orange: hsl(25, 95%, 53%);
+  --school-brown: hsl(30, 67%, 35%);
+  --school-white: hsl(0, 0%, 100%);
 }
 
 .dark {
@@ -68,18 +68,18 @@
 }
 
 /* Custom utility classes for school colors */
-.bg-school-blue { background-color: hsl(225, 83%, 53%); }
-.text-school-blue { color: hsl(225, 83%, 53%); }
-.border-school-blue { border-color: hsl(225, 83%, 53%); }
+.bg-school-orange { background-color: hsl(25, 95%, 53%); }
+.text-school-orange { color: hsl(25, 95%, 53%); }
+.border-school-orange { border-color: hsl(25, 95%, 53%); }
 
-.bg-school-green { background-color: hsl(159, 94%, 39%); }
-.text-school-green { color: hsl(159, 94%, 39%); }
-.border-school-green { border-color: hsl(159, 94%, 39%); }
+.bg-school-brown { background-color: hsl(30, 67%, 35%); }
+.text-school-brown { color: hsl(30, 67%, 35%); }
+.border-school-brown { border-color: hsl(30, 67%, 35%); }
 
-.bg-school-red { background-color: hsl(0, 74%, 51%); }
-.text-school-red { color: hsl(0, 74%, 51%); }
-.border-school-red { border-color: hsl(0, 74%, 51%); }
+.bg-school-white { background-color: hsl(0, 0%, 100%); }
+.text-school-white { color: hsl(0, 0%, 100%); }
+.border-school-white { border-color: hsl(0, 0%, 100%); }
 
-.hover\:bg-school-blue:hover { background-color: hsl(225, 83%, 48%); }
-.hover\:bg-school-green:hover { background-color: hsl(159, 94%, 34%); }
-.hover\:bg-school-red:hover { background-color: hsl(0, 74%, 46%); }
+.hover\:bg-school-orange:hover { background-color: hsl(25, 95%, 48%); }
+.hover\:bg-school-brown:hover { background-color: hsl(30, 67%, 30%); }
+.hover\:bg-school-white:hover { background-color: hsl(0, 0%, 95%); }

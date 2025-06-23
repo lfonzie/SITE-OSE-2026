@@ -17,19 +17,19 @@ const contactInfo = [
     icon: MapPin,
     title: "Endereço",
     content: ["Rua da Penha, 620", "Centro - Sorocaba, SP", "CEP: 18010-002"],
-    color: "bg-school-blue"
+    color: "bg-school-orange"
   },
   {
     icon: Phone,
     title: "Telefones",
     content: ["(15) 2101-3800"],
-    color: "bg-school-green"
+    color: "bg-school-brown"
   },
   {
     icon: Mail,
     title: "E-mail",
     content: ["info@colegioose.com.br"],
-    color: "bg-school-red"
+    color: "bg-school-orange"
   },
   {
     icon: Clock,
@@ -89,7 +89,7 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-            Entre em <span className="text-school-blue">Contato</span>
+            Entre em <span className="text-school-orange">Contato</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Estamos aqui para esclarecer suas dúvidas e ajudar você a conhecer melhor nossa proposta educacional
@@ -233,7 +233,7 @@ export default function ContactSection() {
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-school-blue hover:bg-school-blue/90 text-white py-4 text-lg font-bold"
+                  className="w-full bg-school-orange hover:bg-school-orange/90 text-white py-4 text-lg font-bold"
                   disabled={createContactMutation.isPending}
                 >
                   {createContactMutation.isPending ? (

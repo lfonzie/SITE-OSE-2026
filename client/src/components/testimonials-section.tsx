@@ -32,7 +32,7 @@ export default function TestimonialsSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             O que dizem sobre nós
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-xl text-orange-100 max-w-3xl mx-auto">
             Depoimentos de pais, alunos e ex-alunos que fazem parte da nossa história
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
                   ))}
                 </div>
               </div>
-              <p className="text-blue-100 mb-6 italic">"{testimonial.content}"</p>
+              <p className="text-orange-100 mb-6 italic">"{testimonial.content}"</p>
               <div className="flex items-center">
                 <img 
                   src={testimonial.image}
@@ -59,7 +59,7 @@ export default function TestimonialsSection() {
                 />
                 <div>
                   <h4 className="font-bold">{testimonial.name}</h4>
-                  <p className="text-blue-200 text-sm">{testimonial.role}</p>
+                  <p className="text-orange-200 text-sm">{testimonial.role}</p>
                 </div>
               </div>
             </div>

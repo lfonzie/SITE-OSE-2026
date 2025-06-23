@@ -8,7 +8,7 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Desde <span className="text-school-blue">1924</span>
+              Desde <span className="text-school-orange">1924</span>
             </h2>
             <p className="text-lg text-slate-600 mb-6 leading-relaxed">
               A OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem: 
@@ -34,7 +34,7 @@ export default function AboutSection() {
               </div>
             </div>
             
-            <Button className="bg-school-blue hover:bg-school-blue/90 text-white">
+            <Button className="bg-school-orange hover:bg-school-orange/90 text-white">
               Conheça Nossa Proposta Pedagógica
             </Button>
           </div>
@@ -47,7 +47,7 @@ export default function AboutSection() {
             />
             
             {/* Floating achievement card */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border-l-4 border-school-blue">
+            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border-l-4 border-school-orange">
               <div className="flex items-center">
                 <img 
                   src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png"

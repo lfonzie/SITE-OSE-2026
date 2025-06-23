@@ -10,22 +10,22 @@ const iconMap = {
 
 const colorMap = {
   blue: {
-    bg: "bg-gradient-to-br from-blue-50 to-white",
-    border: "border-blue-100",
-    iconBg: "bg-school-blue",
-    text: "text-school-blue"
+    bg: "bg-gradient-to-br from-orange-50 to-white",
+    border: "border-orange-100",
+    iconBg: "bg-school-orange",
+    text: "text-school-orange"
   },
   green: {
-    bg: "bg-gradient-to-br from-green-50 to-white",
-    border: "border-green-100",
-    iconBg: "bg-school-green",
-    text: "text-school-green"
+    bg: "bg-gradient-to-br from-orange-50 to-white",
+    border: "border-orange-100",
+    iconBg: "bg-school-brown",
+    text: "text-school-brown"
   },
   red: {
-    bg: "bg-gradient-to-br from-red-50 to-white",
-    border: "border-red-100",
-    iconBg: "bg-school-red",
-    text: "text-school-red"
+    bg: "bg-gradient-to-br from-orange-50 to-white",
+    border: "border-orange-100",
+    iconBg: "bg-school-orange",
+    text: "text-school-orange"
   }
 };
 
@@ -57,7 +57,7 @@ export default function ProgramsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-            Nossos <span className="text-school-blue">Programas</span>
+            Nossos <span className="text-school-orange">Programas</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Oferecemos uma educação completa desde a Educação Infantil até o Ensino Médio, 
@@ -83,7 +83,7 @@ export default function ProgramsSection() {
                 <ul className="space-y-2 mb-6">
                   {program.features.map((feature, index) => (
                     <li key={index} className="flex items-center text-slate-600">
-                      <Check className="text-school-green mr-2" size={16} />
+                      <Check className="text-school-brown mr-2" size={16} />
                       <span>{feature}</span>
                     </li>
                   ))}

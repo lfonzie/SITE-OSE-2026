@@ -39,9 +39,9 @@ export default function NewsSection() {
   const getCategoryColor = (category: string) => {
     switch (category.toLowerCase()) {
       case 'evento':
-        return 'bg-school-blue text-white';
+        return 'bg-school-orange text-white';
       case 'conquista':
-        return 'bg-school-green text-white';
+        return 'bg-school-brown text-white';
       case 'infraestrutura':
         return 'bg-purple-600 text-white';
       default:
@@ -54,7 +54,7 @@ export default function NewsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-            Últimas <span className="text-school-blue">Notícias</span>
+            Últimas <span className="text-school-orange">Notícias</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Fique por dentro das novidades, eventos e conquistas do Colégio OSE
@@ -83,7 +83,7 @@ export default function NewsSection() {
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-3">{article.title}</h3>
                 <p className="text-slate-600 mb-4">{article.excerpt}</p>
-                <button className="text-school-blue font-semibold hover:underline flex items-center group">
+                <button className="text-school-orange font-semibold hover:underline flex items-center group">
                   Leia mais 
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
                 </button>
@@ -93,7 +93,7 @@ export default function NewsSection() {
         </div>
 
         <div className="text-center mt-12">
-          <Button className="bg-school-blue hover:bg-school-blue/90 text-white">
+          <Button className="bg-school-orange hover:bg-school-orange/90 text-white">
             Ver Todas as Notícias
           </Button>
         </div>

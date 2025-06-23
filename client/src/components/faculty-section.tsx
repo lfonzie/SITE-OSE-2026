@@ -11,10 +11,10 @@ const colorMap = [
 ];
 
 const textColorMap = [
-  "text-school-blue",
-  "text-school-green",
-  "text-purple-600",
-  "text-yellow-600"
+  "text-school-orange",
+  "text-school-brown",
+  "text-school-orange",
+  "text-school-brown"
 ];
 
 export default function FacultySection() {
@@ -45,7 +45,7 @@ export default function FacultySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-            Nossos <span className="text-school-blue">Professores</span>
+            Nossos <span className="text-school-orange">Professores</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Profissionais qualificados e apaixonados pela educação, dedicados ao sucesso de cada aluno
@@ -69,7 +69,7 @@ export default function FacultySection() {
               </p>
               <p className="text-slate-600 text-sm text-center mb-4">{member.description}</p>
               <div className="flex justify-center space-x-3">
-                <button className="text-school-blue hover:text-blue-600 transition-colors">
+                <button className="text-school-orange hover:text-orange-600 transition-colors">
                   <Linkedin size={20} />
                 </button>
                 <button 
@@ -84,7 +84,7 @@ export default function FacultySection() {
         </div>
 
         <div className="text-center mt-12">
-          <Button className="bg-school-blue hover:bg-school-blue/90 text-white">
+          <Button className="bg-school-orange hover:bg-school-orange/90 text-white">
             Conheça Todo Nosso Corpo Docente
           </Button>
         </div>

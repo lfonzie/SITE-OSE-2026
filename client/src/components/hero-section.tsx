@@ -10,9 +10,9 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="inicio" className="relative bg-gradient-to-br from-school-blue via-blue-600 to-school-green min-h-screen flex items-center">
+    <section id="inicio" className="relative bg-gradient-to-br from-school-orange via-orange-600 to-school-brown min-h-screen flex items-center">
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-green-900/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-orange-900/90 to-orange-800/90"></div>
       
       {/* Pattern overlay */}
       <div className="absolute inset-0 opacity-10">
@@ -31,13 +31,13 @@ export default function HeroSection() {
             Tradição Secular de Ensino:{" "}
             <span className="text-yellow-300">Celebrando 100 Anos</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed">
+          <p className="text-xl md:text-2xl mb-8 text-orange-100 leading-relaxed">
             A OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem: Tradição e uma rica história. Com uma equipe de professores experientes e aliados à nova plataforma Amplia, nosso compromisso é com a excelência no ensino e no desenvolvimento pessoal e emocional de cada aluno.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
-              className="bg-yellow-400 text-blue-900 hover:bg-yellow-300 font-bold text-lg px-8 py-4 transform hover:scale-105 transition-all"
+              className="bg-school-white text-school-brown hover:bg-gray-100 font-bold text-lg px-8 py-4 transform hover:scale-105 transition-all"
             >
               <Play className="mr-2" />
               Conheça Nossa Escola
@@ -45,7 +45,7 @@ export default function HeroSection() {
             <Button 
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-school-blue font-bold text-lg px-8 py-4"
+              className="border-2 border-white text-white hover:bg-white hover:text-school-orange font-bold text-lg px-8 py-4"
             >
               <Calendar className="mr-2" />
               Agendar Visita
