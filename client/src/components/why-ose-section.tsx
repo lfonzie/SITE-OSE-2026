@@ -55,17 +55,18 @@ export default function WhyOSESection() {
               backgroundImage: "url('/attached_assets/1092_1750717790205.jpg')"
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-school-orange/90 to-school-brown/90" />
+            <div className="absolute inset-0 bg-gradient-to-r from-school-orange/95 to-school-brown/95" />
+            <div className="absolute inset-0 bg-black/40" />
           </div>
           <div className="relative p-8 md:p-12 text-white text-center">
-            <h3 className="text-3xl font-bold mb-4">
+            <h3 className="text-3xl font-bold mb-4 drop-shadow-lg">
               Venha conhecer a OSE
             </h3>
-            <p className="text-xl mb-6 opacity-95">
+            <p className="text-xl mb-6 opacity-95 drop-shadow-md">
               Agende uma visita e descubra por que somos referência em educação há mais de 100 anos
             </p>
             <button 
-              className="bg-white text-school-orange px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="bg-white text-school-orange px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Agendar Visita

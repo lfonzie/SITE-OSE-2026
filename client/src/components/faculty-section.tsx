@@ -68,17 +68,7 @@ export default function FacultySection() {
                 {member.position}
               </p>
               <p className="text-slate-600 text-sm text-center mb-4">{member.description}</p>
-              <div className="flex justify-center space-x-3">
-                <button className="text-school-orange hover:text-orange-600 transition-colors">
-                  <Linkedin size={20} />
-                </button>
-                <button 
-                  onClick={() => window.location.href = `mailto:${member.email}`}
-                  className="text-slate-500 hover:text-slate-700 transition-colors"
-                >
-                  <Mail size={20} />
-                </button>
-              </div>
+              {/* Contato removido conforme solicitação */}
             </div>
           ))}
         </div>

@@ -26,7 +26,7 @@ export default function TestimonialsSection() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-school-blue to-blue-700 text-white">
+    <section id="testimonials" className="py-20 bg-gradient-to-r from-school-orange/10 to-school-brown/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -41,26 +41,28 @@ export default function TestimonialsSection() {
           {testimonials?.map((testimonial) => (
             <div 
               key={testimonial.id}
-              className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 hover:bg-white/15 transition-all"
+              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
             >
-              <div className="flex items-center mb-4">
-                <div className="flex text-yellow-400">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} size={20} fill="currentColor" />
-                  ))}
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden bg-gray-200">
+                  <img 
+                    src="/attached_assets/0541_1750717790207.jpg" 
+                    alt="Aluna da OSE"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex justify-center mb-4">
+                  <div className="flex text-school-orange">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <Star key={i} size={20} fill="currentColor" />
+                    ))}
+                  </div>
                 </div>
               </div>
-              <p className="text-orange-100 mb-6 italic">"{testimonial.content}"</p>
-              <div className="flex items-center">
-                <img 
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full mr-4 border-2 border-white object-cover" 
-                />
-                <div>
-                  <h4 className="font-bold">{testimonial.name}</h4>
-                  <p className="text-orange-200 text-sm">{testimonial.role}</p>
-                </div>
+              <p className="text-slate-600 mb-6 italic text-center">"{testimonial.content}"</p>
+              <div className="text-center">
+                <h4 className="font-bold text-slate-800">{testimonial.name}</h4>
+                <p className="text-school-orange text-sm">{testimonial.role}</p>
               </div>
             </div>
           ))}

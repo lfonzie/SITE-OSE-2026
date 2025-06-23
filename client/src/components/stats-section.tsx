@@ -1,34 +1,10 @@
-import { Users, GraduationCap, Trophy, Medal } from "lucide-react";
+import { Users, Calendar, Trophy, BookOpen } from "lucide-react";
 
 const stats = [
-  {
-    icon: Users,
-    value: "100",
-    label: "Anos de Tradição",
-    color: "text-school-orange",
-    bgColor: "bg-school-orange/10"
-  },
-  {
-    icon: GraduationCap,
-    value: "Corpo Docente",
-    label: "Experiente",
-    color: "text-school-brown",
-    bgColor: "bg-school-brown/10"
-  },
-  {
-    icon: Trophy,
-    value: "Educação",
-    label: "Bilíngue",
-    color: "text-yellow-600",
-    bgColor: "bg-yellow-500/10"
-  },
-  {
-    icon: Medal,
-    value: "Plataforma",
-    label: "Amplia",
-    color: "text-purple-600",
-    bgColor: "bg-purple-500/10"
-  }
+  { number: "100+", label: "Anos de Tradição", icon: Calendar },
+  { number: "700", label: "Alunos Ativos", icon: Users },
+  { number: "98%", label: "Satisfação das Famílias", icon: Trophy },
+  { number: "60+", label: "Educadores Especializados", icon: BookOpen }
 ];
 
 export default function StatsSection() {

@@ -54,20 +54,7 @@ export default function Footer() {
             <p className="text-slate-300 mb-4">
               Tradição secular de ensino desde 1924. Formando cidadãos críticos e preparados para os desafios do futuro há 100 anos.
             </p>
-            <div className="flex space-x-3">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className="bg-slate-700 p-2 rounded hover:bg-school-orange transition-colors"
-                  >
-                    <Icon size={20} />
-                  </a>
-                );
-              })}
-            </div>
+            {/* Ícones de redes sociais removidos conforme solicitação */}
           </div>
 
           {/* Quick Links */}

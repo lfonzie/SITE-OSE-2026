@@ -125,6 +125,7 @@ Changelog:
 - June 23, 2025: Imported authentic content from colegioose.com.br/legado/
 - June 23, 2025: Configured real tracking IDs (GTM-524DC3R, Facebook Pixel 303393036895689)
 - June 23, 2025: Applied all user corrections: removed logo text, background images, "a OSE" naming, 700 students stat, removed CTAs, updated navigation, Instagram grid with real photos
+- June 23, 2025: Final adjustments: improved readability with shadows, corrected naming to "a OSE", removed LinkedIn/emails from teachers, updated testimonials background, removed news section, updated footer
 ```
 
 ## User Preferences
