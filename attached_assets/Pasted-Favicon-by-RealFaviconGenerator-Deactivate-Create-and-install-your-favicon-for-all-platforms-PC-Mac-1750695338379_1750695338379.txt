@@ -1,0 +1,87 @@
+Favicon by RealFaviconGenerator
+Deactivate
+Create and install your favicon for all platforms: PC/Mac of course, but also iPhone/iPad, Android devices, Windows 8 tablets, etc.
+
+Version 1.3.41 | By Philippe Bernard | View details
+Enable auto-updates
+Select Flexible SSL for CloudFlare	
+Flexible SSL for CloudFlare
+Deactivate
+Fix For CloudFlare Flexible SSL Redirect Loop For WordPress
+
+Version 1.3.1 | By One Dollar Plugin | View details
+Enable auto-updates
+Select Jetpack	
+Jetpack
+My Jetpack | Settings | Deactivate
+Security, performance, and marketing tools made by WordPress experts. Jetpack keeps your site protected so you can focus on more important things.
+
+Version 14.7 | By Automattic | View details | 
+Enable auto-updates
+Select Jetpack Boost	
+Jetpack Boost
+My Jetpack | Settings | Deactivate
+Boost your WordPress site's performance, from the creators of Jetpack
+
+Version 4.1.1 | By Automattic - Jetpack Site Speed team | View details
+Enable auto-updates
+Select Jetpack Protect	
+Jetpack Protect
+My Jetpack | Dashboard | Deactivate
+Security tools that keep your site safe and sound, from posts to plugins.
+
+Version 4.1.0 | By Automattic - Jetpack Security team | View details
+Enable auto-updates
+Select Meta pixel for WordPress	
+Meta pixel for WordPress
+Settings | Deactivate
+***ATTENTION: After upgrade the plugin may be deactivated due to a known issue, to workaround please refresh this page and activate plugin.*** The Facebook pixel is an analytics tool that helps you measure the effectiveness of your advertising. You can use the Facebook pixel to understand the actions people are taking on your website and reach audiences you care about.
+
+Version 4.1.3 | By Facebook | View details
+Enable auto-updates
+Select Rank Math SEO	
+Rank Math SEO
+Deactivate | Settings | Setup Wizard
+Rank Math SEO is the Best WordPress SEO plugin with the features of many SEO and AI SEO tools in a single package to help multiply your SEO traffic.
+
+Version 1.0.247 | By Rank Math SEO | View details | Getting Started | Documentation
+Enable auto-updates
+Select Site Kit by Google	
+Site Kit by Google
+Settings | Deactivate
+Site Kit is a one-stop solution for WordPress users to use everything Google has to offer to make them successful on the web.
+
+Version 1.155.0 | By Google | View details | Rate Site Kit | Support
+Enable auto-updates
+Select Smart Custom 404 Error Page	
+Smart Custom 404 Error Page
+Deactivate
+Custom 404 the easy way! Set any page as a custom 404 error page -- no coding needed. Now managed by NerdPress!
+
+Version 11.4.8 | By NerdPress | View details
+Enable auto-updates
+Select Smash Balloon Instagram Feed	
+Smash Balloon Instagram Feed
+Upgrade to Pro | Settings | Deactivate
+Display beautifully clean, customizable, and responsive Instagram feeds.
+
+Version 6.9.1 | By Smash Balloon | View details
+Enable auto-updates
+Select Visual Composer	
+Visual Composer
+Settings | Deactivate
+Create your WordPress website with the fast and easy-to-use drag-and-drop builder for experts and beginners.
+
+Version 45.12.0 | By visualcomposer.com | View details | Help Center | API | Premium Support
+Enable auto-updates
+Select WPCode Lite	
+WPCode Lite
+Get WPCode Pro | Code Snippets | Deactivate
+Easily add code snippets in WordPress. Insert scripts to the header and footer, add PHP code snippets with conditional logic, insert ads pixel, custom content, and more.
+
+Version 2.2.8 | By WPCode | View details
+Enable auto-updates
+Select Yoast Duplicate Post	
+Yoast Duplicate Post
+Settings | Deactivate
+The go-to tool for cloning posts and pages, including the powerful Rewrite & Republish feature.

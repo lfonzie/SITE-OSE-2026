@@ -81,6 +81,10 @@ export default function ContactSection() {
   });
 
   const onSubmit = (data: InsertContact) => {
+    // Track form submission
+    trackEvent('form_submit', 'contact', 'contact_form');
+    trackFBEvent('Lead', { content_name: 'Contact Form' });
+    
     createContactMutation.mutate(data);
   };
 
