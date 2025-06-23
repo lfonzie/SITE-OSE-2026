@@ -32,60 +32,89 @@ export default function PageImporter() {
   };
 
   const handleExportHomepage = () => {
-    // Create a sample homepage structure for the existing site
+    // Create homepage structure based on authentic OSE content
     const homepageStructure = {
-      id: "home_template",
-      name: "Página Inicial - Colégio OSE",
+      id: "home_ose_template",
+      name: "Página Inicial - Colégio OSE (Autêntica)",
       slug: "home",
       components: [
         {
           id: "hero_section",
           type: "section",
           content: { 
-            title: "Colégio OSE - 100 Anos de Tradição" 
+            title: "Tradição Secular de Ensino: Celebrando 100 Anos" 
           },
           styles: {
-            backgroundColor: "#ff7f00",
+            backgroundColor: "#ff6600",
             color: "white",
             padding: "80px 20px",
             textAlign: "center"
           },
-          position: { x: 0, y: 0, width: 100, height: 400 }
+          position: { x: 0, y: 0, width: 100, height: 500 }
         },
         {
-          id: "hero_text",
+          id: "hero_subtitle",
           type: "text",
           content: { 
-            text: "<h1>Formando cidadãos críticos há 100 anos</h1><p>Educação de qualidade desde 1924</p>" 
+            text: "<h2>A OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem:</h2><h3><strong>Tradição e uma rica história.</strong></h3>" 
           },
           styles: {
-            fontSize: "24px",
+            fontSize: "20px",
             textAlign: "center",
-            color: "white"
+            color: "white",
+            margin: "20px 0"
           },
-          position: { x: 0, y: 100, width: 100, height: 200 }
+          position: { x: 0, y: 100, width: 100, height: 150 }
+        },
+        {
+          id: "hero_description",
+          type: "text",
+          content: { 
+            text: "<p>Educando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania.</p>" 
+          },
+          styles: {
+            fontSize: "18px",
+            textAlign: "center",
+            color: "white",
+            margin: "20px 0"
+          },
+          position: { x: 0, y: 250, width: 100, height: 100 }
         },
         {
           id: "cta_button",
           type: "button",
           content: { 
-            text: "Conheça Nossos Programas",
-            link: "#programas",
+            text: "CONHEÇA NOSSO LEGADO",
+            link: "#legacy",
             target: "_self"
           },
           styles: {
-            backgroundColor: "#8b4513",
-            color: "white",
+            backgroundColor: "white",
+            color: "#ff6600",
             padding: "15px 30px",
-            borderRadius: "8px"
+            borderRadius: "8px",
+            fontWeight: "bold"
           },
-          position: { x: 0, y: 300, width: 100, height: 50 }
+          position: { x: 0, y: 350, width: 100, height: 60 }
+        },
+        {
+          id: "legacy_section",
+          type: "section",
+          content: { 
+            title: "100 Anos de Excelência Educacional" 
+          },
+          styles: {
+            backgroundColor: "#f8f9fa",
+            padding: "60px 20px",
+            textAlign: "center"
+          },
+          position: { x: 0, y: 500, width: 100, height: 400 }
         }
       ],
       seo: {
-        title: "Colégio OSE - Tradição Secular de Ensino desde 1924 | Sorocaba",
-        description: "100 anos de excelência educacional em Sorocaba. Educação Infantil, Fundamental e Ensino Médio.",
-        keywords: "colégio sorocaba, escola sorocaba, educação infantil"
+        title: "Colégio OSE - Escola Particular em Sorocaba | Colégio OSE",
+        description: "OSE: Educando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania.",
+        keywords: "colégio sorocaba, escola particular sorocaba, tradição secular ensino, OSE 100 anos"
       },
       status: "draft" as const,
       lastModified: new Date()

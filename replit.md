@@ -122,6 +122,8 @@ Changelog:
 - June 23, 2025: Created migration guide for Hostgator WordPress replacement
 - June 23, 2025: Built complete WordPress plugin replacement system (12 plugins)
 - June 23, 2025: Implemented visual drag & drop page editor with component system
+- June 23, 2025: Imported authentic content from colegioose.com.br/legado/
+- June 23, 2025: Configured real tracking IDs (GTM-524DC3R, Facebook Pixel 303393036895689)
 ```
 
 ## User Preferences
