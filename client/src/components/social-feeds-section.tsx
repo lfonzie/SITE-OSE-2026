@@ -57,41 +57,84 @@ export default function SocialFeedsSection() {
           </p>
         </div>
 
-        {/* Instagram Feed */}
+        {/* Instagram Grid */}
         <div className="mb-12">
           <div className="flex items-center justify-center mb-8">
             <Camera className="text-school-orange mr-3" size={32} />
             <h3 className="text-2xl font-bold text-slate-800">@colegioose</h3>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6">
-            {instagramPosts.map((post) => (
-              <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <img 
-                  src={post.media_url} 
-                  alt="Post do Instagram" 
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-4">
-                  <p className="text-sm text-slate-600 mb-3 line-clamp-3">
-                    {post.caption}
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs text-slate-400">
-                      {new Date(post.timestamp).toLocaleDateString('pt-BR')}
-                    </span>
-                    <a 
-                      href={post.permalink} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-school-orange hover:underline text-sm font-medium"
-                    >
-                      Ver no Instagram
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="aspect-square rounded-lg overflow-hidden">
+              <img 
+                src="/attached_assets/0934_1750717790206.jpg" 
+                alt="Alunos da OSE em atividade esportiva"
+                className="w-full h-full object-cover hover:scale-105 transition-transform"
+              />
+            </div>
+            <div className="aspect-square rounded-lg overflow-hidden">
+              <img 
+                src="/attached_assets/0312_1750717790204.jpg" 
+                alt="Alunos em sala de aula na OSE"
+                className="w-full h-full object-cover hover:scale-105 transition-transform"
+              />
+            </div>
+            <div className="aspect-square rounded-lg overflow-hidden">
+              <img 
+                src="/attached_assets/0905_1750717790206.jpg" 
+                alt="Atividades em grupo na quadra da OSE"
+                className="w-full h-full object-cover hover:scale-105 transition-transform"
+              />
+            </div>
+            <div className="aspect-square rounded-lg overflow-hidden">
+              <img 
+                src="/attached_assets/1295_1750717790207.jpg" 
+                alt="Interação entre aluno e professor na OSE"
+                className="w-full h-full object-cover hover:scale-105 transition-transform"
+              />
+            </div>
+            <div className="aspect-square rounded-lg overflow-hidden md:block hidden">
+              <img 
+                src="/attached_assets/0581_1750717790206.jpg" 
+                alt="Estudantes do ensino médio na OSE"
+                className="w-full h-full object-cover hover:scale-105 transition-transform"
+              />
+            </div>
+            <div className="aspect-square rounded-lg overflow-hidden md:block hidden">
+              <img 
+                src="/attached_assets/1092_1750717790205.jpg" 
+                alt="Momento especial entre aluno e educador"
+                className="w-full h-full object-cover hover:scale-105 transition-transform"
+              />
+            </div>
+            <div className="aspect-square rounded-lg overflow-hidden md:block hidden">
+              <img 
+                src="/attached_assets/0491_1750717790207.jpg" 
+                alt="Aluno da OSE concentrado nos estudos"
+                className="w-full h-full object-cover hover:scale-105 transition-transform"
+              />
+            </div>
+            <div className="aspect-square rounded-lg overflow-hidden md:block hidden">
+              <img 
+                src="/attached_assets/1105_1750717790206.jpg" 
+                alt="Ambiente alegre e descontraído na OSE"
+                className="w-full h-full object-cover hover:scale-105 transition-transform"
+              />
+            </div>
+          </div>
+          
+          <div className="text-center">
+            <p className="text-slate-600 mb-4">
+              Acompanhe o dia a dia dos nossos alunos e eventos especiais
+            </p>
+            <a 
+              href="https://instagram.com/colegioose" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-school-orange text-white px-6 py-2 rounded-full hover:bg-school-orange/90 transition-colors"
+            >
+              Siga @colegioose
+            </a>
           </div>
         </div>
 

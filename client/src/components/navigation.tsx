@@ -33,16 +33,12 @@ export default function Navigation() {
     <nav className="bg-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center">
             <img 
-              src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png"
-              alt="Colégio OSE - 100 Anos"
-              className="h-16 w-auto object-contain"
+              src="https://colegioose.com.br/wp-content/uploads/2021/03/logo-ose.png" 
+              alt="a OSE" 
+              className="h-10 w-auto"
             />
-            <div>
-              <h1 className="text-2xl font-bold text-school-orange">Colégio OSE</h1>
-              <p className="text-sm text-school-brown">Desde 1924</p>
-            </div>
           </div>
 
           {/* Desktop Navigation */}

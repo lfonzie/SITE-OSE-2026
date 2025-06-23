@@ -1,61 +1,46 @@
-import { Play, Calendar, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 
 export default function HeroSection() {
-  const scrollToAbout = () => {
-    const element = document.getElementById("sobre");
+  const scrollToNext = () => {
+    const element = document.getElementById("stats");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section id="inicio" className="relative bg-gradient-to-br from-school-orange via-orange-600 to-school-brown min-h-screen flex items-center">
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-orange-900/90 to-orange-800/90"></div>
-      
-      {/* Pattern overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <div 
-          className="h-full w-full"
-          style={{
-            backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBmaWxsPSIjRkZGRkZGIiBmaWxsLW9wYWNpdHk9IjAuMSI+CiAgICA8Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+CiAgPC9nPgo8L3N2Zz4=")`,
-            backgroundRepeat: "repeat"
-          }}
-        />
+    <section id="hero" className="relative min-h-screen flex items-center">
+      {/* Background image with overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/attached_assets/0700_1750717790204.jpg')"
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-school-orange/90 via-school-orange/85 to-school-brown/90" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Tradição Secular de Ensino:{" "}
-            <span className="text-yellow-300">Celebrando 100 Anos</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <span className="block">Tradição Secular de Ensino:</span>
+            <span className="block text-white">Celebrando 100 Anos</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-orange-100 leading-relaxed">
-            A OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem: Tradição e uma rica história. Com uma equipe de professores experientes e aliados à nova plataforma Amplia, nosso compromisso é com a excelência no ensino e no desenvolvimento pessoal e emocional de cada aluno.
+          <h2 className="text-lg md:text-xl text-white/95 mb-4 max-w-4xl mx-auto font-medium">
+            a OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem:
+          </h2>
+          <h3 className="text-xl md:text-2xl text-white font-bold mb-8">
+            Tradição e uma rica história.
+          </h3>
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+            Educando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              className="bg-school-white text-school-brown hover:bg-gray-100 font-bold text-lg px-8 py-4 transform hover:scale-105 transition-all"
-            >
-              <Play className="mr-2" />
-              Conheça Nossa Escola
-            </Button>
-            <Button 
-              variant="outline"
-              size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-school-orange font-bold text-lg px-8 py-4"
-            >
-              <Calendar className="mr-2" />
-              Agendar Visita
-            </Button>
-          </div>
         </div>
         
         {/* Scroll indicator */}
         <button 
-          onClick={scrollToAbout}
+          onClick={scrollToNext}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/80 hover:text-white transition-colors"
         >
           <ChevronDown size={32} />
