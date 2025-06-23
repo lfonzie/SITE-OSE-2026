@@ -1,8 +1,8 @@
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import StatsSection from "@/components/stats-section";
-import AboutSection from "@/components/about-section";
-import LegacySection from "@/components/legacy-section";
+import WhyOSESection from "@/components/why-ose-section";
+import PedagogicalProposalSection from "@/components/pedagogical-proposal-section";
 import ProgramsSection from "@/components/programs-section";
 import FeaturesSection from "@/components/features-section";
 import FacultySection from "@/components/faculty-section";
@@ -18,11 +18,10 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <StatsSection />
-      <AboutSection />
+      <WhyOSESection />
+      <PedagogicalProposalSection />
       <ProgramsSection />
       <FeaturesSection />
-      <FacultySection />
-      <NewsSection />
       <TestimonialsSection />
       <SocialFeedsSection />
       <ContactSection />
