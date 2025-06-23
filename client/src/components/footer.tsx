@@ -61,7 +61,7 @@ export default function Footer() {
                   <a
                     key={index}
                     href={social.href}
-                    className="bg-slate-700 p-2 rounded hover:bg-school-blue transition-colors"
+                    className="bg-slate-700 p-2 rounded hover:bg-school-orange transition-colors"
                   >
                     <Icon size={20} />
                   </a>

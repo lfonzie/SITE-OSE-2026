@@ -275,20 +275,20 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-school-green to-green-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-school-orange to-orange-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Precisa de Ajuda com Nossos Serviços?
           </h2>
-          <p className="text-xl mb-8 text-green-100">
+          <p className="text-xl mb-8 text-orange-100">
             Nossa equipe de suporte está sempre disponível para ajudar você a aproveitar 
             ao máximo todos os nossos serviços digitais.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-school-green hover:bg-gray-100">
+            <Button size="lg" className="bg-white text-school-orange hover:bg-gray-100">
               Central de Ajuda
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-school-green">
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-school-orange">
               Entrar em Contato
             </Button>
           </div>

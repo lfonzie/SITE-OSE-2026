@@ -162,11 +162,11 @@ export default function PortalPais() {
               </div>
             </div>
             <div className="flex space-x-3">
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-school-green">
+              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-school-orange">
                 <Bell className="mr-2" size={16} />
                 Notificações
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-school-green">
+              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-school-orange">
                 <Settings className="mr-2" size={16} />
                 Configurações
               </Button>
@@ -198,11 +198,11 @@ export default function PortalPais() {
                 <CardContent>
                   <div className="grid grid-cols-3 gap-4">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-school-blue">{child.performance.average}</div>
+                      <div className="text-2xl font-bold text-school-orange">{child.performance.average}</div>
                       <p className="text-xs text-slate-600">Média Geral</p>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-school-green">{child.performance.attendance}%</div>
+                      <div className="text-2xl font-bold text-school-brown">{child.performance.attendance}%</div>
                       <p className="text-xs text-slate-600">Frequência</p>
                     </div>
                     <div className="text-center">
@@ -228,7 +228,7 @@ export default function PortalPais() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Bell className="mr-2 text-school-green" size={20} />
+                    <Bell className="mr-2 text-school-orange" size={20} />
                     Comunicados da Escola
                   </CardTitle>
                   <CardDescription>Últimas informações sobre seus filhos</CardDescription>
@@ -264,7 +264,7 @@ export default function PortalPais() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Calendar className="mr-2 text-school-green" size={20} />
+                    <Calendar className="mr-2 text-school-orange" size={20} />
                     Agenda de Reuniões
                   </CardTitle>
                   <CardDescription>Próximas reuniões e atendimentos</CardDescription>
@@ -300,7 +300,7 @@ export default function PortalPais() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <CreditCard className="mr-2 text-school-green" size={20} />
+                    <CreditCard className="mr-2 text-school-orange" size={20} />
                     Situação Financeira
                   </CardTitle>
                   <CardDescription>Mensalidades e pagamentos</CardDescription>
@@ -319,7 +319,7 @@ export default function PortalPais() {
                             {getStatusText(payment.status)}
                           </Badge>
                           {payment.status === 'pending' && (
-                            <Button size="sm" className="bg-school-green hover:bg-school-green/90">
+                            <Button size="sm" className="bg-school-orange hover:bg-school-orange/90">
                               Pagar
                             </Button>
                           )}
@@ -336,7 +336,7 @@ export default function PortalPais() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <MessageSquare className="mr-2 text-school-green" size={20} />
+                    <MessageSquare className="mr-2 text-school-orange" size={20} />
                     Contato com a Escola
                   </CardTitle>
                   <CardDescription>Entre em contato com coordenadores e professores</CardDescription>
@@ -347,15 +347,15 @@ export default function PortalPais() {
                       <h3 className="font-medium text-slate-800">Coordenação Pedagógica</h3>
                       <div className="space-y-3">
                         <div className="flex items-center space-x-3">
-                          <Phone className="text-school-green" size={16} />
-                          <span className="text-sm">(11) 1234-5678 - Ramal 201</span>
+                          <Phone className="text-school-orange" size={16} />
+                          <span className="text-sm">(15) 2101-3800 - Ramal 201</span>
                         </div>
                         <div className="flex items-center space-x-3">
-                          <Mail className="text-school-green" size={16} />
+                          <Mail className="text-school-orange" size={16} />
                           <span className="text-sm">coordenacao@colegioose.com.br</span>
                         </div>
                         <div className="flex items-center space-x-3">
-                          <Clock className="text-school-green" size={16} />
+                          <Clock className="text-school-orange" size={16} />
                           <span className="text-sm">Segunda a Sexta: 7h30 às 17h</span>
                         </div>
                       </div>
@@ -365,15 +365,15 @@ export default function PortalPais() {
                       <h3 className="font-medium text-slate-800">Secretaria</h3>
                       <div className="space-y-3">
                         <div className="flex items-center space-x-3">
-                          <Phone className="text-school-green" size={16} />
-                          <span className="text-sm">(11) 1234-5678 - Ramal 100</span>
+                          <Phone className="text-school-brown" size={16} />
+                          <span className="text-sm">(15) 2101-3800 - Ramal 100</span>
                         </div>
                         <div className="flex items-center space-x-3">
-                          <Mail className="text-school-green" size={16} />
+                          <Mail className="text-school-brown" size={16} />
                           <span className="text-sm">secretaria@colegioose.com.br</span>
                         </div>
                         <div className="flex items-center space-x-3">
-                          <Clock className="text-school-green" size={16} />
+                          <Clock className="text-school-brown" size={16} />
                           <span className="text-sm">Segunda a Sexta: 7h às 18h</span>
                         </div>
                       </div>
@@ -381,7 +381,7 @@ export default function PortalPais() {
                   </div>
                   
                   <div className="mt-6">
-                    <Button className="w-full bg-school-green hover:bg-school-green/90 text-white">
+                    <Button className="w-full bg-school-orange hover:bg-school-orange/90 text-white">
                       <MessageSquare className="mr-2" size={16} />
                       Enviar Mensagem para a Escola
                     </Button>

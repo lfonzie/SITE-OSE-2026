@@ -9,7 +9,7 @@ export default function TestimonialsSection() {
 
   if (isLoading) {
     return (
-      <section className="py-20 bg-gradient-to-br from-school-blue to-blue-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-school-brown to-orange-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="h-12 bg-white/20 rounded w-96 mx-auto mb-4 animate-pulse"></div>

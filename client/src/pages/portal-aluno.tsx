@@ -172,11 +172,11 @@ export default function PortalAluno() {
               </div>
             </div>
             <div className="flex space-x-3">
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-school-blue">
+              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-school-orange">
                 <Bell className="mr-2" size={16} />
                 Notificações
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-school-blue">
+              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-school-orange">
                 <Settings className="mr-2" size={16} />
                 Configurações
               </Button>
@@ -205,7 +205,7 @@ export default function PortalAluno() {
                     <CardTitle className="text-sm font-medium text-slate-600">Média Geral</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold text-school-blue">8.95</div>
+                    <div className="text-2xl font-bold text-school-orange">8.95</div>
                     <p className="text-xs text-slate-500">+0.2 desde o último mês</p>
                   </CardContent>
                 </Card>
@@ -214,7 +214,7 @@ export default function PortalAluno() {
                     <CardTitle className="text-sm font-medium text-slate-600">Frequência</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold text-school-green">96%</div>
+                    <div className="text-2xl font-bold text-school-brown">96%</div>
                     <p className="text-xs text-slate-500">145 de 151 presenças</p>
                   </CardContent>
                 </Card>
