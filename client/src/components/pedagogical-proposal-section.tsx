@@ -1,118 +1,77 @@
-import { Brain, Users, BookOpen, Target } from "lucide-react";
+import { BookOpen, Heart, Users, Target, Lightbulb, Shield } from "lucide-react";
 
 export default function PedagogicalProposalSection() {
-  const pillars = [
-    {
-      icon: Brain,
-      title: "Desenvolvimento Socioemocional",
-      description: "Laboratório de Inteligência de Vida que cultiva inteligência emocional, empatia e resiliência."
-    },
-    {
-      icon: Target,
-      title: "Metodologia Ativa",
-      description: "Combinamos tradição e inovação, incentivando o protagonismo do aluno em seu aprendizado."
-    },
+  const proposals = [
     {
       icon: BookOpen,
-      title: "Formação Integral",
-      description: "Currículo que desenvolve não apenas conhecimento acadêmico, mas também valores éticos e cidadania."
+      title: "Ensino Personalizado",
+      description: "Metodologia que respeita o ritmo individual de cada aluno, promovendo aprendizado significativo e duradouro."
+    },
+    {
+      icon: Heart,
+      title: "Formação Humana",
+      description: "Desenvolvimento de valores éticos, empáticos e sociais para formar cidadãos conscientes e responsáveis."
     },
     {
       icon: Users,
-      title: "Pedagogia Colaborativa",
-      description: "Ambiente que promove colaboração, pensamento crítico e preparação para os desafios contemporâneos."
+      title: "Aprendizagem Colaborativa",
+      description: "Estímulo ao trabalho em equipe, cooperação e troca de experiências entre alunos e educadores."
+    },
+    {
+      icon: Target,
+      title: "Objetivos Claros",
+      description: "Metas educacionais bem definidas com acompanhamento contínuo do desenvolvimento acadêmico."
+    },
+    {
+      icon: Lightbulb,
+      title: "Inovação Pedagógica",
+      description: "Incorporação de tecnologias educacionais e metodologias ativas para potencializar o aprendizado."
+    },
+    {
+      icon: Shield,
+      title: "Ambiente Seguro",
+      description: "Espaço protegido e acolhedor onde cada criança pode se expressar livremente e desenvolver sua autoestima."
     }
   ];
 
   return (
-    <section id="pedagogical-proposal" className="py-20 bg-white">
+    <section id="proposta-pedagogica" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
             Nossa <span className="text-school-orange">Proposta Pedagógica</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-            Uma educação que combina tradição centenária com metodologias modernas, 
-            focada no desenvolvimento integral de cada aluno
+            a OSE desenvolve uma metodologia única que combina tradição educacional com inovação pedagógica, 
+            preparando alunos para os desafios do futuro
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <div className="mb-6">
-              <img 
-                src="/attached_assets/0354_1750717790205.jpg" 
-                alt="Professora da OSE auxiliando aluno - metodologia personalizada"
-                className="w-full h-64 object-cover rounded-lg shadow-lg"
-              />
-            </div>
-            <h3 className="text-3xl font-bold text-slate-800 mb-6">
-              Educação que Transforma
-            </h3>
-            <div className="space-y-4 text-slate-600">
-              <p className="text-lg">
-                Nossa proposta pedagógica baseia-se em <strong>100 anos de experiência educacional</strong>, 
-                sempre adaptando-se às necessidades contemporâneas sem perder nossos valores fundamentais.
-              </p>
-              <p>
-                Acreditamos que cada aluno é único e merece uma educação que respeite seu ritmo de 
-                aprendizagem, estimule sua curiosidade natural e desenvolva seu potencial máximo.
-              </p>
-              <p>
-                <strong>a OSE</strong> prepara seus alunos não apenas para provas e vestibulares, 
-                mas para a vida, formando cidadãos críticos, éticos e preparados para os desafios do futuro.
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {pillars.map((pillar, index) => (
-              <div key={index} className="bg-slate-50 p-6 rounded-lg">
-                <div className="bg-school-orange text-white w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                  <pillar.icon size={20} />
-                </div>
-                <h4 className="font-bold text-slate-800 mb-2">{pillar.title}</h4>
-                <p className="text-sm text-slate-600">{pillar.description}</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {proposals.map((proposal, index) => (
+            <div key={index} className="bg-slate-50 p-6 rounded-xl hover:shadow-lg transition-shadow border border-gray-100">
+              <div className="bg-school-orange/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                <proposal.icon className="text-school-orange" size={28} />
               </div>
-            ))}
-          </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-3">{proposal.title}</h3>
+              <p className="text-slate-600 leading-relaxed">{proposal.description}</p>
+            </div>
+          ))}
         </div>
 
-        {/* Diferenciais */}
-        <div className="bg-slate-50 rounded-xl p-8 md:p-12">
-          <h3 className="text-3xl font-bold text-center text-slate-800 mb-8">
-            Nossos Diferenciais Pedagógicos
-          </h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold">EN</span>
-              </div>
-              <h4 className="text-xl font-bold text-slate-800 mb-3">Ensino Bilíngue</h4>
-              <p className="text-slate-600">
-                Aulas diárias de inglês com metodologia flexível e opcional, 
-                proporcionando introdução natural à língua estrangeira.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🧠</span>
-              </div>
-              <h4 className="text-xl font-bold text-slate-800 mb-3">Inteligência Emocional</h4>
-              <p className="text-slate-600">
-                Laboratório de Inteligência de Vida focado no desenvolvimento 
-                socioemocional e construção de habilidades para a vida.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💻</span>
-              </div>
-              <h4 className="text-xl font-bold text-slate-800 mb-3">Tecnologia Educacional</h4>
-              <p className="text-slate-600">
-                Programação e recursos tecnológicos integrados ao currículo, 
-                preparando alunos para o mundo digital.
-              </p>
-            </div>
+        <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 rounded-xl p-8 md:p-12">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-3xl font-bold text-slate-800 mb-6">
+              Educação Integral para o Século XXI
+            </h3>
+            <p className="text-lg text-slate-600 mb-6">
+              Nossa proposta pedagógica fundamenta-se em <strong>100 anos de experiência educacional</strong>, 
+              combinando tradição e inovação para formar cidadãos preparados para um mundo em constante transformação.
+            </p>
+            <p className="text-lg text-slate-600">
+              Acreditamos que a educação vai além da transmissão de conhecimentos: ela deve formar pessoas 
+              íntegras, críticas e capazes de transformar positivamente a sociedade em que vivem.
+            </p>
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
 import { Users, Calendar, Trophy, BookOpen } from "lucide-react";
 
 const stats = [
-  { number: "100+", label: "Anos de Tradição", icon: Calendar },
-  { number: "700", label: "Alunos Ativos", icon: Users },
-  { number: "98%", label: "Satisfação das Famílias", icon: Trophy },
-  { number: "60+", label: "Educadores Especializados", icon: BookOpen }
+  { number: "100", label: "Anos de Tradição", description: "Desde 1924" },
+  { number: "700", label: "Alunos", description: "Do Infantil ao Médio" },
+  { number: "95%", label: "Aprovação Vestibular", description: "Índice de sucesso" },
+  { number: "40+", label: "Professores", description: "Especializados" }
 ];
 
 export default function StatsSection() {

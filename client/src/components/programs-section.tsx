@@ -69,7 +69,7 @@ export default function ProgramsSection() {
           {programs?.map((program) => {
             const IconComponent = iconMap[program.icon as keyof typeof iconMap] || Book;
             const colors = colorMap[program.color as keyof typeof colorMap] || colorMap.blue;
-            
+
             return (
               <div 
                 key={program.id}

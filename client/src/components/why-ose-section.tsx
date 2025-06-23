@@ -25,7 +25,7 @@ export default function WhyOSESection() {
   ];
 
   return (
-    <section id="why-ose" className="py-20 bg-slate-50">
+    <section id="why-ose" className="py-20 bg-gradient-to-br from-school-orange/10 to-school-brown/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
@@ -38,7 +38,7 @@ export default function WhyOSESection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
               <div className="bg-school-orange/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
                 <reason.icon className="text-school-orange" size={28} />
               </div>
@@ -48,15 +48,15 @@ export default function WhyOSESection() {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-school-orange to-school-brown rounded-xl p-8 md:p-12 text-white text-center">
-          <h3 className="text-3xl font-bold mb-4">
+        <div className="mt-16 bg-gradient-to-r from-school-orange to-school-brown rounded-xl p-8 md:p-12 text-white text-center shadow-xl">
+          <h3 className="text-3xl font-bold mb-4 drop-shadow-md">
             Venha conhecer a OSE
           </h3>
-          <p className="text-xl mb-6">
+          <p className="text-xl mb-6 drop-shadow-sm">
             Agende uma visita e descubra por que somos referência em educação há mais de 100 anos
           </p>
           <button 
-            className="bg-white text-school-orange px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            className="bg-white text-school-orange px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Agendar Visita

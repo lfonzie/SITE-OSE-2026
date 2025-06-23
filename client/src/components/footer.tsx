@@ -18,7 +18,7 @@ const services = [
   { label: "Uniforme Escolar", href: "/servicos" }
 ];
 
-// Social links removidos conforme solicitação
+// Links para redes sociais serão adicionados posteriormente
 
 export default function Footer() {
   const scrollToSection = (href: string) => {
@@ -122,7 +122,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center">
                 <Clock className="mr-2 flex-shrink-0 text-school-orange" size={16} />
-                <span>Segunda a Sexta: 7h30 às 18h</span>
+                <span>Segunda a Sexta: 7h30 às 17h30</span>
               </div>
             </div>
           </div>

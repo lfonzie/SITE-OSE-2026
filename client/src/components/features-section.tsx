@@ -41,13 +41,13 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-school-brown to-orange-900 text-white">
+    <section className="py-20 bg-gradient-to-br from-school-orange to-school-brown text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Por que escolher o <span className="text-school-white">Colégio OSE?</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
+            Por que escolher <span className="text-white">a OSE?</span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
             Nossos diferenciais fazem a diferença na formação dos nossos alunos
           </p>
         </div>
@@ -58,11 +58,11 @@ export default function FeaturesSection() {
             return (
               <div 
                 key={index}
-                className="bg-slate-700/50 p-8 rounded-2xl backdrop-blur-sm border border-slate-600 hover:bg-slate-700/70 transition-all"
+                className="bg-white/95 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all text-slate-800 backdrop-blur-sm"
               >
-                <Icon className={`${feature.color} mb-6`} size={48} />
-                <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-slate-300">{feature.description}</p>
+                <Icon className="text-school-orange mb-6" size={48} />
+                <h3 className="text-2xl font-bold mb-4 text-slate-800">{feature.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{feature.description}</p>
               </div>
             );
           })}

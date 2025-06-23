@@ -26,13 +26,13 @@ export default function TestimonialsSection() {
   }
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-r from-school-orange/10 to-school-brown/10">
+    <section id="testimonials" className="py-20 bg-gradient-to-br from-school-orange to-school-brown">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            O que dizem sobre nós
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg">
+            O que dizem sobre a OSE
           </h2>
-          <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
             Depoimentos de pais, alunos e ex-alunos que fazem parte da nossa história
           </p>
         </div>

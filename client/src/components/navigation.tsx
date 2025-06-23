@@ -20,12 +20,10 @@ export default function Navigation() {
   };
 
   const navigationItems = [
-    { label: "Início", id: "inicio", isSection: true },
+    { label: "Início", id: "/", isSection: false },
     { label: "Sobre", id: "sobre", isSection: true },
     { label: "Programas", id: "programas", isSection: true },
-    { label: "Professores", id: "professores", isSection: true },
-    { label: "Notícias", id: "noticias", isSection: true },
-    { label: "Serviços", id: "/servicos", isSection: false },
+    { label: "Professores", id: "/professores", isSection: false },
     { label: "Contato", id: "contato", isSection: true },
   ];
 
@@ -34,11 +32,13 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
-            <img 
-              src="https://colegioose.com.br/wp-content/uploads/2021/03/logo-ose.png" 
-              alt="a OSE" 
-              className="h-10 w-auto"
-            />
+            <Link to="/">
+              <img 
+                src="https://colegioose.com.br/wp-content/uploads/2021/03/logo-ose.png" 
+                alt="a OSE" 
+                className="h-10 w-auto"
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}

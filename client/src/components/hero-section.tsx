@@ -10,24 +10,26 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-school-orange via-school-orange to-school-brown">
-        <div className="absolute inset-0 bg-black/20" />
+      {/* Background image with overlay */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-school-orange via-school-orange to-school-brown">
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
             <span className="block">Tradição Secular de Ensino:</span>
             <span className="block text-white">Celebrando 100 Anos</span>
           </h1>
-          <h2 className="text-lg md:text-xl text-white/95 mb-4 max-w-4xl mx-auto font-medium drop-shadow-md">
+          <h2 className="text-lg md:text-xl text-white/95 mb-4 max-w-4xl mx-auto font-medium drop-shadow-xl">
             a OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem:
           </h2>
-          <h3 className="text-xl md:text-2xl text-white font-bold mb-8 drop-shadow-md">
+          <h3 className="text-xl md:text-2xl text-white font-bold mb-8 drop-shadow-xl">
             Tradição e uma rica história.
           </h3>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md">
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-xl">
             Educando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania.
           </p>
         </div>
