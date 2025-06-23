@@ -10,12 +10,12 @@ const quickLinks = [
 ];
 
 const services = [
-  { label: "Portal do Aluno", href: "#" },
-  { label: "Portal dos Pais", href: "#" },
-  { label: "Biblioteca Digital", href: "#" },
-  { label: "Calendário Escolar", href: "#" },
-  { label: "Documentos", href: "#" },
-  { label: "Uniforme Escolar", href: "#" }
+  { label: "Portal do Aluno", href: "/portal-aluno" },
+  { label: "Portal dos Pais", href: "/portal-pais" },
+  { label: "Biblioteca Digital", href: "/servicos" },
+  { label: "Calendário Escolar", href: "/servicos" },
+  { label: "Documentos", href: "/servicos" },
+  { label: "Uniforme Escolar", href: "/servicos" }
 ];
 
 const socialLinks = [
@@ -94,6 +94,12 @@ export default function Footer() {
                   <a
                     href={service.href}
                     className="text-slate-300 hover:text-white transition-colors"
+                    onClick={(e) => {
+                      if (service.href.startsWith('/')) {
+                        e.preventDefault();
+                        window.location.href = service.href;
+                      }
+                    }}
                   >
                     {service.label}
                   </a>

@@ -108,7 +108,11 @@ The application uses a comprehensive schema with the following entities:
 
 ```
 Changelog:
-- June 23, 2025. Initial setup
+- June 23, 2025: Initial setup - Complete school website with homepage
+- June 23, 2025: Added comprehensive services system with 12 different services
+- June 23, 2025: Implemented Portal do Aluno with grades, assignments, schedule, and materials
+- June 23, 2025: Created Portal dos Pais with child monitoring, communications, and financial tracking
+- June 23, 2025: Enhanced navigation and footer with service connections
 ```
 
 ## User Preferences

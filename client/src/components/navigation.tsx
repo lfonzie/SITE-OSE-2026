@@ -7,21 +7,26 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [location] = useLocation();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false);
+  const handleNavigation = (item: { id: string; isSection: boolean }) => {
+    if (item.isSection) {
+      const element = document.getElementById(item.id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.location.href = item.id;
     }
+    setMobileMenuOpen(false);
   };
 
   const navigationItems = [
-    { label: "Início", id: "inicio" },
-    { label: "Sobre", id: "sobre" },
-    { label: "Programas", id: "programas" },
-    { label: "Professores", id: "professores" },
-    { label: "Notícias", id: "noticias" },
-    { label: "Contato", id: "contato" },
+    { label: "Início", id: "inicio", isSection: true },
+    { label: "Sobre", id: "sobre", isSection: true },
+    { label: "Programas", id: "programas", isSection: true },
+    { label: "Professores", id: "professores", isSection: true },
+    { label: "Notícias", id: "noticias", isSection: true },
+    { label: "Serviços", id: "/servicos", isSection: false },
+    { label: "Contato", id: "contato", isSection: true },
   ];
 
   return (
@@ -43,13 +48,16 @@ export default function Navigation() {
             {navigationItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavigation(item)}
                 className="text-slate-700 hover:text-school-blue transition-colors font-medium"
               >
                 {item.label}
               </button>
             ))}
-            <Button className="bg-school-green hover:bg-school-green/90 text-white">
+            <Button 
+              onClick={() => window.location.href = '/portal-aluno'}
+              className="bg-school-green hover:bg-school-green/90 text-white"
+            >
               Portal do Aluno
             </Button>
           </div>
@@ -73,13 +81,16 @@ export default function Navigation() {
             {navigationItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavigation(item)}
                 className="block w-full text-left text-slate-700 hover:text-school-blue font-medium py-2"
               >
                 {item.label}
               </button>
             ))}
-            <Button className="w-full bg-school-green hover:bg-school-green/90 text-white">
+            <Button 
+              onClick={() => window.location.href = '/portal-aluno'}
+              className="w-full bg-school-green hover:bg-school-green/90 text-white"
+            >
               Portal do Aluno
             </Button>
           </div>
