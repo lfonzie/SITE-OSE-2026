@@ -62,6 +62,13 @@ export default function Navigation() {
             >
               Portal do Aluno
             </Button>
+            <Button 
+              onClick={() => window.location.href = '/editor'}
+              variant="outline"
+              className="border-school-orange text-school-orange hover:bg-school-orange hover:text-white"
+            >
+              Editor
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -91,9 +98,16 @@ export default function Navigation() {
             ))}
             <Button 
               onClick={() => window.location.href = '/portal-aluno'}
-              className="w-full bg-school-brown hover:bg-school-brown/90 text-white"
+              className="w-full bg-school-brown hover:bg-school-brown/90 text-white mb-2"
             >
               Portal do Aluno
+            </Button>
+            <Button 
+              onClick={() => window.location.href = '/editor'}
+              variant="outline"
+              className="w-full border-school-orange text-school-orange hover:bg-school-orange hover:text-white"
+            >
+              Editor
             </Button>
           </div>
         </div>

@@ -15,6 +15,7 @@ import Home from "@/pages/home";
 import Services from "@/pages/services";
 import PortalAluno from "@/pages/portal-aluno";
 import PortalPais from "@/pages/portal-pais";
+import Editor from "@/pages/editor";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/servicos" component={Services} />
       <Route path="/portal-aluno" component={PortalAluno} />
       <Route path="/portal-pais" component={PortalPais} />
+      <Route path="/editor" component={Editor} />
       <Route component={NotFound} />
     </Switch>
   );

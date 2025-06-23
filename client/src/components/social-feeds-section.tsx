@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Instagram, Facebook } from "lucide-react";
+import { Camera, Users } from "lucide-react";
 import { getInstagramFeed, type InstagramPost } from "@/lib/social-feeds";
 
 export default function SocialFeedsSection() {
@@ -60,7 +60,7 @@ export default function SocialFeedsSection() {
         {/* Instagram Feed */}
         <div className="mb-12">
           <div className="flex items-center justify-center mb-8">
-            <Instagram className="text-school-orange mr-3" size={32} />
+            <Camera className="text-school-orange mr-3" size={32} />
             <h3 className="text-2xl font-bold text-slate-800">@colegioose</h3>
           </div>
           
@@ -98,7 +98,7 @@ export default function SocialFeedsSection() {
         {/* Social Media CTAs */}
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl p-8 text-white text-center">
-            <Instagram size={48} className="mx-auto mb-4" />
+            <Camera size={48} className="mx-auto mb-4" />
             <h3 className="text-2xl font-bold mb-2">Instagram</h3>
             <p className="mb-4">Acompanhe o dia a dia dos nossos alunos</p>
             <a 
@@ -112,7 +112,7 @@ export default function SocialFeedsSection() {
           </div>
 
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-8 text-white text-center">
-            <Facebook size={48} className="mx-auto mb-4" />
+            <Users size={48} className="mx-auto mb-4" />
             <h3 className="text-2xl font-bold mb-2">Facebook</h3>
             <p className="mb-4">Novidades e comunicados oficiais</p>
             <a 
