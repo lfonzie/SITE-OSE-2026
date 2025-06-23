@@ -16,19 +16,19 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Endereço",
-    content: ["Rua da Educação, 123", "Centro - São Paulo, SP", "CEP: 01234-567"],
+    content: ["Rua da Penha, 620", "Centro - Sorocaba, SP", "CEP: 18010-002"],
     color: "bg-school-blue"
   },
   {
     icon: Phone,
     title: "Telefones",
-    content: ["(11) 1234-5678", "(11) 98765-4321"],
+    content: ["(15) 2101-3800"],
     color: "bg-school-green"
   },
   {
     icon: Mail,
     title: "E-mail",
-    content: ["contato@colegioose.com.br", "secretaria@colegioose.com.br"],
+    content: ["info@colegioose.com.br"],
     color: "bg-school-red"
   },
   {

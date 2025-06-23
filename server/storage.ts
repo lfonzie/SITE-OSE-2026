@@ -47,27 +47,36 @@ export class MemStorage implements IStorage {
       {
         id: 1,
         title: "Educação Infantil",
-        description: "Desenvolvimento integral através do lúdico, respeitando o ritmo natural de cada criança.",
+        description: "Base sólida para o desenvolvimento integral da criança com foco no aprendizado lúdico e socioemocional.",
         ageRange: "2-5 anos",
-        features: ["Maternal (2-3 anos)", "Pré I e II (4-5 anos)"],
+        features: ["Desenvolvimento Socioemocional", "Educação Bilíngue", "Google for Education"],
         color: "blue",
         icon: "baby"
       },
       {
         id: 2,
-        title: "Ensino Fundamental",
-        description: "Formação sólida dos conceitos fundamentais com metodologias ativas e tecnologia.",
-        ageRange: "6-14 anos",
-        features: ["Anos Iniciais (1º ao 5º ano)", "Anos Finais (6º ao 9º ano)"],
+        title: "Ensino Fundamental I",
+        description: "Formação acadêmica sólida integrada com tecnologia e programação na grade curricular.",
+        ageRange: "6-10 anos",
+        features: ["{CODE.OSE} - Linguagem de Programação", "Integral Flex", "Árvore de Livros"],
         color: "green",
         icon: "book"
       },
       {
         id: 3,
-        title: "Ensino Médio",
-        description: "Preparação completa para o vestibular e formação cidadã com foco no projeto de vida.",
+        title: "Ensino Fundamental II",
+        description: "Consolidação do conhecimento com preparação para o ensino médio através da plataforma Amplia.",
+        ageRange: "11-14 anos",
+        features: ["Plataforma Amplia", "LIV - Laboratório Inteligência de Vida", "Ensino Bilíngue by MacMillan"],
+        color: "green",
+        icon: "book"
+      },
+      {
+        id: 4,
+        title: "Novo Ensino Médio",
+        description: "Preparação completa para vestibular e ENEM com foco no projeto de vida e formação cidadã.",
         ageRange: "15-17 anos",
-        features: ["1ª, 2ª e 3ª série", "Preparação ENEM"],
+        features: ["Itinerários Formativos", "Preparação ENEM", "Projeto de Vida"],
         color: "red",
         icon: "graduation-cap"
       }
@@ -117,30 +126,30 @@ export class MemStorage implements IStorage {
     const newsData: News[] = [
       {
         id: 1,
-        title: "Feira de Ciências 2023 foi um sucesso",
-        excerpt: "Nossos alunos apresentaram projetos inovadores que impressionaram toda a comunidade escolar e visitantes.",
-        content: "A Feira de Ciências 2023 do Colégio OSE foi um verdadeiro sucesso, reunindo estudantes, professores, pais e visitantes para prestigiar os projetos desenvolvidos pelos nossos alunos. Durante o evento, foram apresentados mais de 50 projetos que abordaram temas como sustentabilidade, tecnologia, saúde e inovação.",
-        image: "https://images.unsplash.com/photo-1581726690015-c9861fa5057f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+        title: "Festa Junina 2025 - Um sábado de alegria, tradição e família na OSE!",
+        excerpt: "Vivemos uma manhã inesquecível na nossa Festa Junina 2025! Com muita cor, música e animação, o evento reuniu alunos, famílias e toda a comunidade escolar.",
+        content: "No último sábado, vivemos uma manhã inesquecível na nossa Festa Junina 2025! Com muita cor, música e animação, o evento reuniu alunos, famílias e toda a comunidade escolar em um momento cheio de cultura, afeto e diversão. As danças típicas apresentadas pelos alunos encantaram o público e trouxeram todo o charme das festas tradicionais para o palco.",
+        image: "https://images.unsplash.com/photo-1542802107-2b46ed58f85e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
         category: "Evento",
-        publishedAt: new Date("2023-11-15")
+        publishedAt: new Date("2025-06-07")
       },
       {
         id: 2,
-        title: "Alunos conquistam medalhas na Olimpíada de Matemática",
-        excerpt: "Três estudantes do Ensino Médio foram premiados na Olimpíada Brasileira de Matemática das Escolas Públicas.",
-        content: "Os alunos Pedro Henrique, Maria Eduarda e Gabriel Silva conquistaram medalhas de ouro, prata e bronze respectivamente na Olimpíada Brasileira de Matemática. Este resultado demonstra a excelência do ensino de matemática em nossa instituição.",
-        image: "https://images.unsplash.com/photo-1596496050827-8299e0220de1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-        category: "Conquista",
-        publishedAt: new Date("2023-11-10")
+        title: "JES - Atletismo Infanto: OSE no pódio!",
+        excerpt: "Com muita garra e dedicação, nossos alunos da categoria Infanto participaram das provas de atletismo nos Jogos Escolares de Sorocaba (JES) e conquistaram resultados incríveis!",
+        content: "Tiago Guimarães Correa Tavares conquistou o 3º lugar nos 100 metros rasos e Lorenzo A. de Almeida Lagemann ficou em 3º lugar no salto em altura. Essas conquistas são reflexo do esforço, da disciplina e do espírito esportivo que fazem parte da rotina dos nossos alunos.",
+        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+        category: "Esporte",
+        publishedAt: new Date("2025-05-20")
       },
       {
         id: 3,
-        title: "Novas salas interativas inauguradas",
-        excerpt: "Investimento em tecnologia educacional moderniza ainda mais as salas de aula do colégio.",
-        content: "O Colégio OSE inaugurou suas novas salas interativas, equipadas com lousas digitais, sistemas de som avançados e conectividade de alta velocidade. Esse investimento reforça nosso compromisso com a educação de qualidade e inovação tecnológica.",
-        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-        category: "Infraestrutura",
-        publishedAt: new Date("2023-11-05")
+        title: "Zoológico de São Paulo - Uma aula ao ar livre com os 8º e 9º anos!",
+        excerpt: "Os alunos dos 8º e 9º anos participaram de um passeio especial ao Zoológico de São Paulo, unindo aprendizado, contato com a natureza e muita curiosidade científica!",
+        content: "Durante a visita, os estudantes observaram de perto diversas espécies da fauna brasileira e mundial, ampliando seus conhecimentos sobre ecossistemas, biodiversidade, comportamento animal e conservação ambiental. A experiência permitiu a conexão entre os conteúdos de Ciências e Geografia com a vivência real.",
+        image: "https://images.unsplash.com/photo-1549924652-6f8e0c7b0e76?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+        category: "Educação",
+        publishedAt: new Date("2025-05-15")
       }
     ];
 
@@ -150,25 +159,25 @@ export class MemStorage implements IStorage {
     const testimonialsData: Testimonial[] = [
       {
         id: 1,
-        name: "Maria Oliveira",
-        role: "Mãe da aluna Sofia (8º ano)",
-        content: "O Colégio OSE proporcionou uma formação excepcional para minha filha. Os professores são dedicados e a metodologia inovadora fez toda a diferença no desenvolvimento dela.",
+        name: "Samanta Chibau Mileze",
+        role: "Ex-aluna e Médica Veterinária",
+        content: "Uma vida de OSE me fez ir direto para uma universidade federal. O melhor ensino, a melhor equipe e as melhores lembranças. Obrigada!",
         image: "https://images.unsplash.com/photo-1494790108755-2616b612b17c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100",
         rating: 5
       },
       {
         id: 2,
-        name: "Pedro Santos",
-        role: "Ex-aluno - Medicina USP",
-        content: "Estudei no OSE durante todo o Ensino Médio e hoje curso Medicina. A preparação que recebi foi fundamental para meu sucesso no vestibular.",
+        name: "Fernando Proença",
+        role: "Médico e pai orgulhoso de 3 filhos",
+        content: "Estudei na OSE de 1984 a 1996. Foram 12 anos de muitas amizades e aprendizado. Grande escola. Amigos que mantenho até hoje.",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100",
         rating: 5
       },
       {
         id: 3,
-        name: "Julia Costa",
-        role: "Aluna do 5º ano",
-        content: "Adoro estudar aqui! Os professores são muito carinhosos e as aulas são super divertidas. Aprendo muito brincando!",
+        name: "Edna J. Paulo",
+        role: "Ex-aluna e mãe orgulhosa do Richard",
+        content: "Hoje com muita satisfação e alegria meu filho começará a trilhar sua história nesta tão sonhada escola. Parabéns ao gestor da OSE sempre oferecendo grandes oportunidades aos alunos que desejam um futuro brilhante!",
         image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100",
         rating: 5
       }

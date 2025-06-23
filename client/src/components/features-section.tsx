@@ -3,38 +3,38 @@ import { Laptop, Users, Globe, FlaskRound, Zap, Shield } from "lucide-react";
 const features = [
   {
     icon: Laptop,
-    title: "Tecnologia Educacional",
-    description: "Salas inteligentes, plataforma digital e ferramentas modernas para potencializar o aprendizado.",
+    title: "Google for Education",
+    description: "Plataforma que transforma a maneira como educadores e alunos aprendem e colaboram, oferecendo educação interativa e colaborativa.",
     color: "text-blue-400"
   },
   {
     icon: Users,
-    title: "Turmas Reduzidas",
-    description: "Atendimento personalizado com turmas de até 25 alunos para maior atenção individual.",
+    title: "Corpo Docente Experiente",
+    description: "Equipe altamente qualificada com vasta experiência acadêmica e prática, sempre atualizada com as melhores práticas pedagógicas.",
     color: "text-green-400"
   },
   {
     icon: Globe,
-    title: "Programa Bilíngue",
-    description: "Imersão no idioma inglês desde a educação infantil, preparando para um mundo globalizado.",
+    title: "Educação Bilíngue by MacMillan",
+    description: "Currículo bilíngue que forma cidadãos globais, preparando alunos para interações multiculturais e proficiência linguística.",
     color: "text-purple-400"
   },
   {
     icon: FlaskRound,
-    title: "Laboratórios Modernos",
-    description: "Laboratórios de ciências, informática e robótica para aprendizado prático e experimental.",
+    title: "{CODE.OSE} - Programação",
+    description: "Linguagem de programação com foco em Inteligência Artificial na grade curricular do Ensino Fundamental I.",
     color: "text-yellow-400"
   },
   {
     icon: Zap,
-    title: "Esportes e Artes",
-    description: "Desenvolvimento integral através de atividades esportivas, artísticas e culturais diversificadas.",
+    title: "Parceria com ACM",
+    description: "Acesso exclusivo às instalações esportivas da ACM Unidade Centro com condições especiais para famílias OSE.",
     color: "text-red-400"
   },
   {
     icon: Shield,
-    title: "Ambiente Seguro",
-    description: "Segurança 24h, câmeras de monitoramento e protocolos rigorosos para tranquilidade das famílias.",
+    title: "Plataforma Amplia",
+    description: "Solução integrada que oferece produtos e serviços de excelência, proporcionando ensino de qualidade e habilidades de vida.",
     color: "text-cyan-400"
   }
 ];

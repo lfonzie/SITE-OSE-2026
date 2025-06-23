@@ -50,7 +50,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-slate-300 mb-4">
-              Formando cidadãos críticos e preparados para os desafios do futuro há mais de 25 anos.
+              Tradição secular de ensino desde 1924. Formando cidadãos críticos e preparados para os desafios do futuro há 100 anos.
             </p>
             <div className="flex space-x-3">
               {socialLinks.map((social, index) => {
@@ -115,17 +115,17 @@ export default function Footer() {
               <div className="text-slate-300 flex items-start">
                 <MapPin className="mr-2 mt-1 flex-shrink-0" size={16} />
                 <div>
-                  <span>Rua da Educação, 123</span><br />
-                  <span>Centro - São Paulo, SP</span>
+                  <span>Rua da Penha, 620</span><br />
+                  <span>Centro - Sorocaba, SP</span>
                 </div>
               </div>
               <p className="text-slate-300 flex items-center">
                 <Phone className="mr-2" size={16} />
-                <span>(11) 1234-5678</span>
+                <span>(15) 2101-3800</span>
               </p>
               <p className="text-slate-300 flex items-center">
                 <Mail className="mr-2" size={16} />
-                <span>contato@colegioose.com.br</span>
+                <span>info@colegioose.com.br</span>
               </p>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-700 mt-12 pt-8 text-center">
           <p className="text-slate-400">
-            © 2023 Colégio OSE. Todos os direitos reservados. |{" "}
+            © 2025 Colégio OSE. Todos os direitos reservados. |{" "}
             <a href="#" className="hover:text-white transition-colors">Política de Privacidade</a> |{" "}
             <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
           </p>

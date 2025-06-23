@@ -3,29 +3,29 @@ import { Users, GraduationCap, Trophy, Medal } from "lucide-react";
 const stats = [
   {
     icon: Users,
-    value: "1,200+",
-    label: "Alunos Ativos",
+    value: "100",
+    label: "Anos de Tradição",
     color: "text-school-blue",
     bgColor: "bg-school-blue/10"
   },
   {
     icon: GraduationCap,
-    value: "95+",
-    label: "Professores",
+    value: "Corpo Docente",
+    label: "Experiente",
     color: "text-school-green",
     bgColor: "bg-school-green/10"
   },
   {
     icon: Trophy,
-    value: "25",
-    label: "Anos de Experiência",
+    value: "Educação",
+    label: "Bilíngue",
     color: "text-yellow-600",
     bgColor: "bg-yellow-500/10"
   },
   {
     icon: Medal,
-    value: "98%",
-    label: "Aprovação Vestibular",
+    value: "Plataforma",
+    label: "Amplia",
     color: "text-purple-600",
     bgColor: "bg-purple-500/10"
   }

@@ -28,11 +28,11 @@ export default function HeroSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Educação que{" "}
-            <span className="text-yellow-300">Transforma</span>
+            Tradição Secular de Ensino:{" "}
+            <span className="text-yellow-300">Celebrando 100 Anos</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed">
-            Formando cidadãos críticos e preparados para os desafios do futuro através de uma educação inovadora e humanizada.
+            A OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem: Tradição e uma rica história. Com uma equipe de professores experientes e aliados à nova plataforma Amplia, nosso compromisso é com a excelência no ensino e no desenvolvimento pessoal e emocional de cada aluno.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 

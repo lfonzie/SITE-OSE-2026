@@ -8,17 +8,17 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Nossa <span className="text-school-blue">História</span>
+              Desde <span className="text-school-blue">1924</span>
             </h2>
             <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-              Desde 1998, o Colégio OSE tem sido referência em educação de qualidade, 
-              formando gerações de estudantes preparados para os desafios do mundo moderno. 
-              Nossa metodologia inovadora combina tradição pedagógica com tecnologia de ponta.
+              A OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem: 
+              Tradição e uma rica história de 100 anos formando gerações. Nossa metodologia inovadora 
+              combina nossa experiência secular com a moderna plataforma Amplia.
             </p>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              Acreditamos que cada aluno é único e possui potencial ilimitado. Por isso, 
-              oferecemos um ambiente acolhedor e estimulante, onde o aprendizado acontece 
-              de forma natural e prazerosa.
+              Com uma equipe de professores experientes, nosso compromisso é com a excelência no ensino 
+              e no desenvolvimento pessoal e emocional de cada aluno, oferecendo um ambiente que prepara 
+              cidadãos completos para o futuro.
             </p>
             
             <div className="grid grid-cols-2 gap-6 mb-8">
