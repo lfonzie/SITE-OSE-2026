@@ -17,8 +17,8 @@ export default function HeroSection() {
           alt="Colégio OSE - Campus e estudantes"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-school-orange/85 via-school-orange/75 to-school-brown/85">
-          <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FF4F00]/90 via-[#FF4F00]/80 to-[#FF6B00]/85">
+          <div className="absolute inset-0 bg-black/30" />
         </div>
       </div>
       

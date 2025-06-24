@@ -63,13 +63,13 @@ export default function Fundamental1() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-school-orange to-school-brown text-white overflow-hidden">
+      <section className="relative pt-20 pb-16 bg-gradient-to-br from-[#FF4F00] to-[#FF6B00] text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Fundamental <span className="text-yellow-300">I</span>
+                Ensino Fundamental <span className="text-yellow-300">I</span>
               </h1>
               <p className="text-xl md:text-2xl mb-8 leading-relaxed">
                 Desenvolvendo <strong>mentes curiosas</strong> e <strong>corações compassivos</strong>
@@ -98,11 +98,12 @@ export default function Fundamental1() {
               </div>
             </div>
             <div className="relative">
-              <OptimizedImage
-                src={img1}
-                alt="Crianças do Fundamental I da OSE aprendendo"
-                className="w-full h-96 rounded-2xl shadow-2xl"
-              />
+              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
+                <div className="text-center">
+                  <Heart className="text-white/80 mx-auto mb-4" size={80} />
+                  <p className="text-white/70 text-lg font-medium">Ensino Fundamental I</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

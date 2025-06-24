@@ -62,14 +62,8 @@ export default function Fundamental2() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <OptimizedImage
-            src={img1}
-            alt="Alunos do Ensino Fundamental II"
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <section className="relative py-20 bg-gradient-to-r from-[#FF4F00] to-[#FF6B00] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">

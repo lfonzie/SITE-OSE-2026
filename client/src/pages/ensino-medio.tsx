@@ -63,7 +63,7 @@ export default function EnsinoMedio() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-school-orange to-school-brown text-white overflow-hidden">
+      <section className="relative pt-20 pb-16 bg-gradient-to-br from-[#FF4F00] to-[#FF6B00] text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -200,7 +200,7 @@ export default function EnsinoMedio() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
+      <section className="py-16 bg-gradient-to-r from-[#FF4F00] to-[#FF6B00] text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h3 className="text-3xl md:text-4xl font-bold mb-6">
             Prepare-se para o Futuro com a OSE

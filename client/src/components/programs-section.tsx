@@ -1,28 +1,30 @@
 import { useQuery } from "@tanstack/react-query";
-import { Baby, Book, GraduationCap, ArrowRight, Check } from "lucide-react";
+import { Baby, Book, GraduationCap, ArrowRight, Check, Heart, Brain } from "lucide-react";
 import type { Program } from "@shared/schema";
 
 const iconMap = {
   baby: Baby,
   book: Book,
   "graduation-cap": GraduationCap,
+  heart: Heart,
+  brain: Brain,
 };
 
 const colorMap = {
   blue: {
-    bg: "bg-gradient-to-br from-orange-50 to-white",
+    bg: "bg-gradient-to-br from-orange-500 to-orange-100",
     border: "border-orange-100",
     iconBg: "bg-school-orange",
     text: "text-school-orange"
   },
   green: {
-    bg: "bg-gradient-to-br from-orange-50 to-white",
+    bg: "bg-gradient-to-br from-orange-500 to-orange-100",
     border: "border-orange-100",
     iconBg: "bg-school-brown",
     text: "text-school-brown"
   },
   red: {
-    bg: "bg-gradient-to-br from-orange-50 to-white",
+    bg: "bg-gradient-to-br from-orange-500 to-orange-100",
     border: "border-orange-100",
     iconBg: "bg-school-orange",
     text: "text-school-orange"
@@ -53,7 +55,7 @@ export default function ProgramsSection() {
   }
 
   return (
-    <section id="programas" className="py-20 bg-white">
+    <section id="programas" className="py-20 bg-orange-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">

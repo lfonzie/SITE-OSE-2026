@@ -41,9 +41,9 @@ export default function Navigation() {
       label: "Segmentos",
       submenu: [
         { label: "Infantil", id: "/educacao-infantil", isSection: false },
-        { label: "Fund I", id: "/fundamental-1", isSection: false },
-        { label: "Fund II", id: "/fundamental-2", isSection: false },
-        { label: "Médio", id: "/ensino-medio", isSection: false }
+        { label: "Ensino Fundamental I", id: "/fundamental-1", isSection: false },
+        { label: "Ensino Fundamental II", id: "/fundamental-2", isSection: false },
+        { label: "Ensino Médio", id: "/ensino-medio", isSection: false }
       ]
     },
     {
