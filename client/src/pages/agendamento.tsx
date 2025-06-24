@@ -15,19 +15,22 @@ export default function Agendamento() {
       keywords: "agendar visita, colégio ose, matrícula, conhecer escola, visita guiada, agendamento"
     });
 
-    // Carregar script do Calendly
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup do script
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
-      }
-    };
+    // Verificar se o script já existe
+    const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+    
+    if (!existingScript) {
+      // Carregar script do Calendly
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      script.onload = () => {
+        console.log('Calendly script loaded successfully');
+      };
+      script.onerror = () => {
+        console.error('Failed to load Calendly script');
+      };
+      document.head.appendChild(script);
+    }
   }, []);
 
   const beneficios = [
@@ -167,6 +170,35 @@ export default function Agendamento() {
               data-url="https://calendly.com/colegioose/apresentacao?hide_gdpr_banner=1&primary_color=ffa500" 
               style={{ minWidth: '320px', height: '700px' }}
             />
+            
+            {/* Fallback caso o widget não carregue */}
+            <noscript>
+              <div className="p-8 text-center">
+                <p className="text-slate-600 mb-4">
+                  O widget de agendamento requer JavaScript para funcionar.
+                </p>
+                <Button 
+                  className="bg-school-orange hover:bg-school-orange/90 text-white"
+                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                >
+                  Abrir Calendly em Nova Aba
+                </Button>
+              </div>
+            </noscript>
+            
+            {/* Link direto como backup */}
+            <div className="p-4 text-center border-t">
+              <p className="text-sm text-slate-500 mb-2">
+                Problemas com o agendamento online?
+              </p>
+              <Button 
+                variant="outline"
+                className="border-school-orange text-school-orange hover:bg-school-orange/10"
+                onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+              >
+                Abrir Calendly Diretamente
+              </Button>
+            </div>
           </div>
         </div>
       </section>
