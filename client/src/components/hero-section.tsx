@@ -13,7 +13,7 @@ export default function HeroSection() {
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         <img 
-          src="/attached_assets/1295_1750717790207.jpg" 
+          src="/images/0023_1750717790208.jpg" 
           alt="Colégio OSE - Campus e estudantes"
           className="w-full h-full object-cover"
         />
