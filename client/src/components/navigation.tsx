@@ -20,8 +20,13 @@ export default function Navigation() {
         }
       }
     } else {
-      // Use wouter navigation for internal pages
-      window.location.href = item.id;
+      // Check if it's an external link
+      if (item.id.startsWith('http')) {
+        window.open(item.id, '_blank', 'noopener,noreferrer');
+      } else {
+        // Use wouter navigation for internal pages
+        window.location.href = item.id;
+      }
     }
     setMobileMenuOpen(false);
     setActiveDropdown(null);
@@ -62,7 +67,7 @@ export default function Navigation() {
       label: "Serviços",
       submenu: [
         { label: "Árvore (Livros Digitais)", id: "/arvore", isSection: false },
-        { label: "Portal do Aluno", id: "/portal-aluno", isSection: false },
+        { label: "Portal do Aluno", id: "https://siga03.activesoft.com.br/login/?instituicao=COLEGIOOSE", isSection: false },
         { label: "ISAAC (Financeiro)", id: "/isaac", isSection: false }
       ]
     }

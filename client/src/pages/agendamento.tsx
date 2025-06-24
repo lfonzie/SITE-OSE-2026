@@ -276,7 +276,7 @@ export default function Agendamento() {
               <Button 
                 variant="outline"
                 className="border-school-orange text-school-orange hover:bg-school-orange/10"
-                onClick={() => window.open('https://maps.google.com/?q=Rua+da+Penha,+620+-+Centro,+Sorocaba+-+SP', '_blank')}
+                onClick={() => window.open('https://maps.app.goo.gl/XWhG1sB8yZokULtY8', '_blank')}
               >
                 Ver no Mapa
               </Button>
