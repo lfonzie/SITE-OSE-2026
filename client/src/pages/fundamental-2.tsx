@@ -79,23 +79,7 @@ export default function Fundamental2() {
                 Uma fase empolgante e transformadora onde nossos alunos passam por rápido desenvolvimento 
                 cognitivo e emocional. Nosso foco está além do currículo acadêmico.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg"
-                  className="bg-white text-school-orange font-semibold px-8 py-3"
-                  onClick={() => window.location.href = '/agendamento'}
-                >
-                  📅 Agende uma Visita
-                </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white font-semibold px-8 py-3"
-                  onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Saiba Mais
-                </Button>
-              </div>
+
             </div>
             <div className="relative">
               <img 

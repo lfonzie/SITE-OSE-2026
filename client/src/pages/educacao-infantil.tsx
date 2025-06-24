@@ -69,23 +69,7 @@ export default function EducacaoInfantil() {
                 Para os grupos de Jardim I e Jardim II, destinados a crianças de 4 a 6 anos, 
                 oferecemos uma abordagem única que foca no desenvolvimento socioemocional e cognitivo.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg"
-                  className="bg-white text-school-orange font-semibold px-8 py-3"
-                  onClick={() => window.location.href = '/agendamento'}
-                >
-                  📅 Agende uma Visita
-                </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white font-semibold px-8 py-3"
-                  onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Saiba Mais
-                </Button>
-              </div>
+
             </div>
             <div className="relative">
               <img 

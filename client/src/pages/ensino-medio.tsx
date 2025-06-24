@@ -78,23 +78,7 @@ export default function EnsinoMedio() {
                 mas para a vida. Com metodologia inovadora e foco no desenvolvimento integral, 
                 formamos cidadãos críticos e preparados para os desafios do século XXI.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg"
-                  className="bg-white text-school-orange font-semibold px-8 py-3"
-                  onClick={() => window.location.href = '/agendamento'}
-                >
-                  📅 Agende uma Visita
-                </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white font-semibold px-8 py-3"
-                  onClick={() => document.getElementById('detalhes')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Saiba Mais
-                </Button>
-              </div>
+
             </div>
             <div className="relative">
               <OptimizedImage
