@@ -224,7 +224,7 @@ export default function Services() {
             />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Nossos <span className="text-yellow-300">Serviços</span>
+            Nossos <span className="text-school-orange">Serviços</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
             Oferecemos uma gama completa de serviços digitais e presenciais para facilitar 
@@ -262,7 +262,7 @@ export default function Services() {
                     <Button 
                       onClick={() => {
                         if (service.id === 'portal-aluno') {
-                          window.location.href = '/portal-aluno';
+                          window.open('https://siga03.activesoft.com.br/login/?instituicao=COLEGIOOSE', '_blank');
                         } else if (service.id === 'portal-pais') {
                           window.location.href = '/portal-pais';
                         } else {

@@ -190,44 +190,46 @@ export default function Professores() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-school-orange/90 to-school-brown/90">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-          style={{
-            backgroundImage: "url('/images/campus-ose-background.png')"
-          }}
-        ></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Nossos <span className="text-white drop-shadow-lg">Professores</span>
-            </h2>
-            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">
-              Educadores Especializados
-            </h3>
-            <p className="text-xl md:text-2xl text-white/95 mb-4">
-              Mais de 100 anos de tradição em ensino
-            </p>
-            <p className="text-lg text-white/90 mb-8 max-w-4xl mx-auto">
-              Conheça o corpo docente da OSE: educadores qualificados e experientes 
-              comprometidos com a excelência acadêmica e formação integral dos alunos.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-white text-school-orange hover:bg-white/90 font-semibold px-8 py-3 shadow-lg"
-                onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
-              >
-                📅 Agende uma Visita
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3 shadow-lg"
-                onClick={() => document.getElementById('mural')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Conheça a Equipe
-              </Button>
+      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                Nossos <span className="text-school-orange">Professores</span>
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 leading-relaxed">
+                Formando <strong>educadores especializados</strong> com <strong>tradição centenária</strong>
+              </p>
+              <p className="text-lg mb-8 opacity-90">
+                Conheça o corpo docente da OSE: educadores qualificados e experientes 
+                comprometidos com a excelência acadêmica e formação integral dos alunos.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                >
+                  📅 Agende uma Visita
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  onClick={() => document.getElementById('mural')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Conheça a Equipe
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
+                <div className="text-center">
+                  <GraduationCap className="text-white/80 mx-auto mb-4" size={80} />
+                  <p className="text-white/70 text-lg font-medium">Educadores Especializados</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
