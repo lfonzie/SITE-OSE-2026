@@ -8,7 +8,7 @@ const features = [
     color: "bg-blue-600"
   },
   {
-    logo: "/images/GoogleEduc_1750801413575.jpg",
+    logo: "/images/logo-ose.png",
     title: "Corpo Docente Experiente",
     description: "Equipe altamente qualificada com vasta experiência acadêmica e prática, sempre atualizada com as melhores práticas pedagógicas.",
     color: "bg-green-600"

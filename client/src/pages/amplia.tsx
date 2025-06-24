@@ -166,17 +166,17 @@ export default function Amplia() {
           {/* Image Gallery */}
           <div className="grid md:grid-cols-3 gap-6">
             <OptimizedImage
-              src="/attached_assets/0354_1750717790205.jpg"
+              src="/images/0354_1750717790205.jpg"
               alt="Material didático Amplia"
               className="w-full h-48 rounded-lg shadow-lg"
             />
             <OptimizedImage
-              src="/attached_assets/0905_1750717790206.jpg"
+              src="/images/0905_1750717790206.jpg"
               alt="Tecnologia educacional"
               className="w-full h-48 rounded-lg shadow-lg"
             />
             <OptimizedImage
-              src="/attached_assets/0934_1750717790206.jpg"
+              src="/images/0934_1750717790206.jpg"
               alt="Metodologia Amplia"
               className="w-full h-48 rounded-lg shadow-lg"
             />

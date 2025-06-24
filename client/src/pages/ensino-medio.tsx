@@ -8,12 +8,12 @@ import { GraduationCap, Users, Award, BookOpen, Target, Lightbulb } from "lucide
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Usando imagens da pasta public/images
-const img1 = "/attached_assets/0312_1750719589609.jpg";
-const img2 = "/attached_assets/0354_1750719589610.jpg";
-const img3 = "/attached_assets/0491_1750719589611.jpg";
-const img4 = "/attached_assets/0541_1750719589611.jpg";
-const img5 = "/attached_assets/0581_1750719589610.jpg";
-const img6 = "/attached_assets/0700_1750719589609.jpg";
+const img1 = "/images/0312_1750719589609.jpg";
+const img2 = "/images/0354_1750719589610.jpg";
+const img3 = "/images/0491_1750719589611.jpg";
+const img4 = "/images/0541_1750719589611.jpg";
+const img5 = "/images/0581_1750719589610.jpg";
+const img6 = "/images/0700_1750719589609.jpg";
 
 export default function EnsinoMedio() {
   useEffect(() => {
