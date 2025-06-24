@@ -20,12 +20,24 @@ export default function LegacySection() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div>
+          <div className="space-y-4">
             <OptimizedImage 
               src={legacyImage} 
               alt="Ambiente alegre e acolhedor da OSE - 100 Anos de tradição"
               className="w-full rounded-lg shadow-lg"
             />
+            <div className="grid grid-cols-2 gap-4">
+              <OptimizedImage 
+                src="/images/0312_1750717790204.jpg" 
+                alt="Tradição centenária da OSE"
+                className="w-full h-32 object-cover rounded-lg shadow-md"
+              />
+              <OptimizedImage 
+                src="/images/0354_1750717790205.jpg" 
+                alt="Formação integral na OSE"
+                className="w-full h-32 object-cover rounded-lg shadow-md"
+              />
+            </div>
           </div>
           <div className="space-y-6">
             <h3 className="text-3xl font-bold text-school-brown">
@@ -43,6 +55,35 @@ export default function LegacySection() {
                 qualificados em comércio e administração era evidente.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Galeria de Imagens da História */}
+        <div className="mb-16">
+          <h3 className="text-3xl font-bold text-center text-school-brown mb-8">
+            Memórias de Uma Trajetória Centenária
+          </h3>
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <OptimizedImage 
+              src="/images/0905_1750717790206.jpg" 
+              alt="Momentos históricos da OSE"
+              className="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            />
+            <OptimizedImage 
+              src="/images/0700_1750717790204.jpg" 
+              alt="Ambiente educacional da OSE"
+              className="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            />
+            <OptimizedImage 
+              src="/images/0581_1750717790206.jpg" 
+              alt="Tradição educacional OSE"
+              className="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            />
+            <OptimizedImage 
+              src="/images/0491_1750717790207.jpg" 
+              alt="Excelência acadêmica OSE"
+              className="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            />
           </div>
         </div>
 
@@ -132,7 +173,7 @@ export default function LegacySection() {
           <h3 className="text-3xl font-bold text-school-brown mb-6">
             Anos 1958-1980: Expansão e Modernização
           </h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8">
             <div className="space-y-4 text-school-brown">
               <p>
                 Em 1958, a OSE investiu em um novo prédio na <strong>Rua da Penha, 620</strong>. 
@@ -153,6 +194,18 @@ export default function LegacySection() {
                 <li>• Cursos técnicos: Química, Contabilidade, Administração</li>
                 <li>• Implementação de Informática e Magistério</li>
               </ul>
+            </div>
+            <div className="space-y-4">
+              <OptimizedImage 
+                src="/images/0934_1750717790206.jpg" 
+                alt="Expansão da OSE nos anos 1958-1980"
+                className="w-full h-40 object-cover rounded-lg shadow-lg"
+              />
+              <OptimizedImage 
+                src="/images/1068_1750717790205.jpg" 
+                alt="Modernização das instalações OSE"
+                className="w-full h-40 object-cover rounded-lg shadow-lg"
+              />
             </div>
           </div>
         </div>
@@ -257,6 +310,30 @@ export default function LegacySection() {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Galeria Final - Legado Vivo */}
+        <div className="mb-16">
+          <h3 className="text-3xl font-bold text-center text-school-brown mb-8">
+            Um Legado que Continua Vivo
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <OptimizedImage 
+              src="/images/1092_1750717790205.jpg" 
+              alt="Continuidade do legado OSE"
+              className="w-full h-56 object-cover rounded-lg shadow-lg"
+            />
+            <OptimizedImage 
+              src="/images/1295_1750717790207.jpg" 
+              alt="Tradição renovada OSE"
+              className="w-full h-56 object-cover rounded-lg shadow-lg"
+            />
+            <OptimizedImage 
+              src="/images/0541_1750717790207.jpg" 
+              alt="Futuro da educação na OSE"
+              className="w-full h-56 object-cover rounded-lg shadow-lg"
+            />
           </div>
         </div>
 
