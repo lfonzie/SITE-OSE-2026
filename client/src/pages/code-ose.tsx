@@ -76,7 +76,7 @@ export default function CodeOSE() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg"
-                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  className="bg-white text-school-orange font-semibold px-8 py-3"
                   onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
                 >
                   📅 Agende uma Visita
@@ -84,7 +84,7 @@ export default function CodeOSE() {
                 <Button 
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  className="border-white text-white font-semibold px-8 py-3"
                   onClick={() => document.getElementById('detalhes')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Saiba Mais

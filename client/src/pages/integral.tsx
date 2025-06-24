@@ -150,7 +150,7 @@ export default function Integral() {
               <div className="mt-8">
                 <Button 
                   size="lg"
-                  className="bg-school-orange hover:bg-school-orange/90 text-white"
+                  className="bg-school-orange text-white font-semibold px-8 py-3"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Conheça o Integral Flex

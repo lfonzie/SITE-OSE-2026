@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
@@ -61,7 +60,7 @@ export default function Fundamental1() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
@@ -82,7 +81,7 @@ export default function Fundamental1() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  className="bg-white text-school-orange font-semibold px-8 py-3"
                   onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
                 >
                   📅 Agende uma Visita
@@ -90,7 +89,7 @@ export default function Fundamental1() {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  className="border-white text-white font-semibold px-8 py-3"
                   onClick={() => document.getElementById('detalhes')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Saiba Mais
@@ -212,7 +211,7 @@ export default function Fundamental1() {
           </p>
           <Button 
             size="lg" 
-            className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+            className="bg-white text-school-orange font-semibold px-8 py-3"
             onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
           >
             Agende uma Visita e Conheça Nossa Escola

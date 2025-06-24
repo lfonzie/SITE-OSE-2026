@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
@@ -27,7 +26,7 @@ export default function Legacy() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
@@ -47,15 +46,15 @@ export default function Legacy() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  className="bg-white text-school-orange font-semibold px-8 py-3"
                   onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
                 >
                   📅 Agende uma Visita
                 </Button>
                 <Button 
                   size="lg" 
-                  variant="outline" 
-                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  variant="outline"
+                  className="border-white text-white font-semibold px-8 py-3"
                   onClick={() => document.getElementById('legado')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Saiba Mais
@@ -75,7 +74,7 @@ export default function Legacy() {
       </section>
 
       <LegacySection />
-      
+
     </div>
   );
 }

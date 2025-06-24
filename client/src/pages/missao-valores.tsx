@@ -69,15 +69,15 @@ export default function MissaoValores() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  className="bg-white text-school-orange font-semibold px-8 py-3"
                   onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
                 >
                   📅 Agende uma Visita
                 </Button>
                 <Button 
                   size="lg" 
-                  variant="outline" 
-                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  variant="outline"
+                  className="border-white text-white font-semibold px-8 py-3"
                   onClick={() => document.getElementById('missao')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Saiba Mais
@@ -187,7 +187,7 @@ export default function MissaoValores() {
             className="bg-white text-school-orange px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg text-lg"
             onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Agende uma Visita
+            Saiba Mais
           </button>
         </div>
       </section>

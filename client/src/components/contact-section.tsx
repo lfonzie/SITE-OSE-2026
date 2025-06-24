@@ -131,7 +131,7 @@ export default function ContactSection() {
               <div className="mt-8">
                 <Button 
                   size="lg"
-                  className="w-full bg-school-orange hover:bg-school-orange/90 text-white"
+                  className="w-full bg-school-orange text-white font-semibold"
                   onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
                 >
                   📅 Agende sua Visita
@@ -145,7 +145,7 @@ export default function ContactSection() {
               <div className="text-center">
                 <Button 
                   size="lg"
-                  className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 text-lg"
+                  className="w-full bg-green-500 text-white font-semibold px-8 py-4 text-lg"
                   onClick={() => window.open('https://wa.me/5515221013812', '_blank')}
                 >
                   📱 Conversar no WhatsApp
