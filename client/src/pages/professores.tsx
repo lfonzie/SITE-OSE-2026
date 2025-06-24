@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Award, BookOpen, Users } from "lucide-react";
@@ -192,7 +194,8 @@ export default function Professores() {
         </div>
       </section>
 
-
+      <WhyOSESection />
+      <ContactSection />
     </div>
   );
 }

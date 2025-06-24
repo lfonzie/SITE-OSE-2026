@@ -194,12 +194,12 @@ export default function Bilingue() {
             </p>
             <div className="flex justify-center items-center space-x-8 mt-8">
               <img 
-                src="/attached_assets/macmillan-education-vector-logo_1750779294901.png" 
+                src="/attached_assets/png-clipart-macmillan-education-logo-publishing-houses-logos_1750779294902.png" 
                 alt="MacMillan Education"
                 className="h-16"
               />
               <img 
-                src="/attached_assets/code-ose-logo_1750779294901.png" 
+                src="/attached_assets/codeose23_1750779294902.png" 
                 alt="CODE OSE"
                 className="h-16"
               />

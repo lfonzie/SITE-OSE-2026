@@ -270,20 +270,6 @@ export default function SocioEmocional() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-3xl font-bold mb-6">
-            Prepare Seu Filho para o Futuro
-          </h3>
-          <p className="text-xl mb-8 opacity-95">
-            O Programa SócioEmocional da OSE forma cidadãos resilientes, conscientes e 
-            preparados para os desafios do século XXI. Invista no desenvolvimento integral do seu filho.
-          </p>
-
-        </div>
-      </section>
-
       <WhyOSESection />
       <ContactSection />
     </div>
