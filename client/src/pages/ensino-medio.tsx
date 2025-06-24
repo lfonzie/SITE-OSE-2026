@@ -163,7 +163,6 @@ export default function EnsinoMedio() {
                 src={img4}
                 alt="Projetos de vida"
                 className="w-full h-48 rounded-lg shadow-lg"
-              />Name="w-full h-48 rounded-lg shadow-lg col-span-2"
               />
             </div>
           </div>
