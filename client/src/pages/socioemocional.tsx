@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
@@ -279,16 +280,11 @@ export default function SocioEmocional() {
             O Programa SócioEmocional da OSE forma cidadãos resilientes, conscientes e 
             preparados para os desafios do século XXI. Invista no desenvolvimento integral do seu filho.
           </p>
-          <Button 
-            size="lg"
-            className="bg-white text-school-orange hover:bg-slate-100"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Conheça o Programa SócioEmocional
-          </Button>
+
         </div>
       </section>
 
+      <WhyOSESection />
       <ContactSection />
     </div>
   );

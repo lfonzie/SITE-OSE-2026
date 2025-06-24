@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { updateSEO } from "@/lib/seo";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import ContactSection from "@/components/contact-section";
 import { CreditCard, ExternalLink, FileText, Calculator, Clock, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,7 +26,7 @@ export default function Isaac() {
           <div className="text-center">
             <div className="mb-8">
               <img 
-                src="/attached_assets/616841d439101013bdc4c67c_isaac-log0-01_1750779294900.png" 
+                src="/attached_assets/isaac-logo_1750779294901.png" 
                 alt="ISAAC"
                 className="h-32 mx-auto mb-4"
               />
@@ -169,6 +171,8 @@ export default function Isaac() {
         </div>
       </section>
 
+      <WhyOSESection />
+      <ContactSection />
     </div>
   );
 }

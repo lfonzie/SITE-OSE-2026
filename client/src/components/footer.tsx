@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-school-brown text-white py-16">
+    <footer className="text-white py-16" style={{ backgroundColor: '#FF4F00' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-4 gap-8">
           {/* About */}
@@ -11,11 +11,11 @@ export default function Footer() {
             <div className="flex items-center mb-4">
               <img 
                 src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png" 
-                alt="a OSE" 
+                alt="OSE" 
                 className="h-12 w-auto mr-3"
               />
               <div>
-                <h3 className="text-xl font-bold text-white">a OSE</h3>
+                <h3 className="text-xl font-bold text-white">OSE</h3>
                 <p className="text-white/80 text-sm">Desde 1924</p>
               </div>
             </div>
@@ -49,8 +49,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/bilingue" className="text-white/80 hover:text-school-orange transition-colors">
-                  Bilíngue
+                <a href="/portal-aluno" className="text-white/80 hover:text-school-orange transition-colors">
+                  Portal do Aluno
+                </a>
+              </li>
+              <li>
+                <a href="/portal-pais" className="text-white/80 hover:text-school-orange transition-colors">
+                  Portal dos Pais
                 </a>
               </li>
             </ul>
@@ -125,8 +130,7 @@ export default function Footer() {
               <Clock className="mr-2 mt-1 flex-shrink-0 text-school-orange" size={16} />
               <div className="text-sm">
                 <strong>Horário de Atendimento:</strong><br />
-                Segunda a Sexta: 7h às 18h<br />
-                Sábados: 8h às 12h
+                Segunda a Sexta: 7h às 18h
               </div>
             </div>
           </div>
@@ -153,7 +157,7 @@ export default function Footer() {
 
         <div className="border-t border-white/20 mt-12 pt-8 text-center">
           <p className="text-white/60">
-            © 2025 a OSE. Todos os direitos reservados. |{" "}
+            © 2025 OSE. Todos os direitos reservados. |{" "}
             <a href="#" className="hover:text-school-orange transition-colors">Política de Privacidade</a> |{" "}
             <a href="#" className="hover:text-school-orange transition-colors">Termos de Uso</a>
           </p>

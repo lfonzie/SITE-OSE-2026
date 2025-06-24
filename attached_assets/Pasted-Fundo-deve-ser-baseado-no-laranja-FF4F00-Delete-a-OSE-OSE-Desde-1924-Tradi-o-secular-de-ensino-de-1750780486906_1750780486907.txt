@@ -1,0 +1,62 @@
+Fundo deve ser baseado no laranja #FF4F00
+Delete a OSE
+OSE
+Desde 1924
+
+Tradição secular de ensino desde 1924. Formando cidadãos críticos e preparados para os desafios do futuro há 100 anos.
+
+Links Rápidos
+Início
+Nosso Legado
+Professores
+Serviços
+Portal do Aluno
+Portal dos Pais
+Programas
+Educação Infantil
+Fundamental I
+Fundamental II
+Ensino Médio
+Siga-nos nas Redes Sociais:
+@colegioose
+Colégio OSE
+Canal OSE
+
+Deixe somente OSE
+Desde 1924
+
+Tradição secular de ensino desde 1924. Formando cidadãos críticos e preparados para os desafios do futuro há 100 anos.
+Funciona de seg a sex somente
+[plugin:runtime-error-plugin] Palette is not defined
+/home/runner/workspace/client/src/pages/educacao-infantil.tsx:44:13
+42 |      },
+43 |      {
+44 |        icon: Palette,
+   |              ^
+45 |        title: "Aprendizado Lúdico",
+46 |        description: "Utilizamos abordagens lúdicas e práticas para estimular a curiosidade e criatividade, oferecendo desenvolvimento equilibrado."
+    at EducacaoInfantil /home/runner/workspace/client/src/pages/educacao-infantil.tsx:44:13
+Click outside, press Esc key, or fix the code to dismiss.
+You can also disable this overlay by setting server.hmr.overlay to false in vite.config.js.[plugin:runtime-error-plugin] MessageCircle is not defined
+/home/runner/workspace/client/src/pages/fundamental-1.tsx:29:13
+27 |    const competencies = [
+28 |      {
+29 |        icon: MessageCircle,
+   |              ^
+30 |        title: "Capacidade Verbal",
+31 |        description: "Priorizamos o desenvolvimento da linguagem como base para todas as outras formas de aprendizado, fomentando comunicação, pensamento crítico e imaginação."
+    at Fundamental1 /home/runner/workspace/client/src/pages/fundamental-1.tsx:29:13
+Click outside, press Esc key, or fix the code to dismiss.
+You can also disable this overlay by setting server.hmr.overlay to false in vite.config.js.
+Ensino medio, bilingue, Code, integral, amplia, socioemocional, professores, lista de material  deve ter o por que estudar na ose no final
+Add Logo macmillan na pagina Bilingue onde for aplicável
+Add Logo codeose na pagina Bilingue onde for aplicável
+Arrume logo ACM em integral
+Arrume logo amplia em amplia 
+Tire botao connect programa socio emocional 
+Entre em contato (footer) deve estar em todas as paginas
+Arrume logo arvore 
+Portal do aluno deve ser o link Activesoft que ja forneci 
+Arrume logo isaac
+Retire contato de serviços pois ja tem no rodapé
+

@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Globe, Users, BookOpen, Target, Lightbulb, Award } from "lucide-react";
-import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Importando imagens para educação bilíngue
 import img1 from "@assets/0312_1750717790204.jpg";
@@ -193,13 +194,13 @@ export default function Bilingue() {
             </p>
             <div className="flex justify-center items-center space-x-8 mt-8">
               <img 
-                src="/attached_assets/png-transparent-bett-google-for-education-g-suite-google-text-logo-google-logo-thumbnail_1750779294902.png" 
-                alt="Google for Education"
+                src="/attached_assets/macmillan-education-vector-logo_1750779294901.png" 
+                alt="MacMillan Education"
                 className="h-16"
               />
               <img 
-                src="/attached_assets/png-clipart-macmillan-education-logo-publishing-houses-logos_1750779294902.png" 
-                alt="Macmillan Education"
+                src="/attached_assets/code-ose-logo_1750779294901.png" 
+                alt="CODE OSE"
                 className="h-16"
               />
             </div>
@@ -207,6 +208,8 @@ export default function Bilingue() {
         </div>
       </section>
 
+      <WhyOSESection />
+      <ContactSection />
     </div>
   );
 }

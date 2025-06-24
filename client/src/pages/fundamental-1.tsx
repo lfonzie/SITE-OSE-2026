@@ -4,7 +4,7 @@ import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Users, Target, Lightbulb, Heart, Award } from "lucide-react";
+import { BookOpen, Users, Target, Lightbulb, Heart, Award, MessageCircle } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Importando imagens para Fundamental I

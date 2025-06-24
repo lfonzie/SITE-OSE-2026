@@ -1,6 +1,8 @@
 
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Code, Rocket, Heart, Monitor, Gamepad2, Brain } from "lucide-react";
@@ -201,6 +203,8 @@ export default function CodeOSE() {
         </div>
       </section>
 
+      <WhyOSESection />
+      <ContactSection />
     </div>
   );
 }

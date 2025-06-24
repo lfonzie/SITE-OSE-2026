@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Heart, Music, Dumbbell, Globe, TreePine, Clock } from "lucide-react";
@@ -173,10 +175,7 @@ export default function Integral() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <div className="mt-16 text-center">
+          <div className="mt-16 text-center">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
               Parceria de Excelência
             </h3>
@@ -191,6 +190,11 @@ export default function Integral() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      <WhyOSESection />
+      <ContactSection />
     </div>
   );
 }

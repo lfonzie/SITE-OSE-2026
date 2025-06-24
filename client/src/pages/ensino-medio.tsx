@@ -212,6 +212,8 @@ export default function EnsinoMedio() {
         </div>
       </section>
 
+      <WhyOSESection />
+      <ContactSection />
     </div>
   );
 }

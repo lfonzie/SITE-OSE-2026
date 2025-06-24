@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { updateSEO } from "@/lib/seo";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import ContactSection from "@/components/contact-section";
 import { Book, ExternalLink, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,7 +26,7 @@ export default function Arvore() {
           <div className="text-center">
             <div className="mb-8">
               <img 
-                src="/attached_assets/Arvore-de-Livros_1750779294901.png" 
+                src="/attached_assets/arvore-logo_1750779294901.png" 
                 alt="Árvore de Livros"
                 className="h-32 mx-auto mb-4"
               />
@@ -131,6 +133,8 @@ export default function Arvore() {
         </div>
       </section>
 
+      <WhyOSESection />
+      <ContactSection />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
@@ -228,9 +229,26 @@ export default function Amplia() {
               </div>
             ))}
           </div>
+          
+          <div className="mt-16 text-center">
+            <h3 className="text-2xl font-bold text-slate-800 mb-4">
+              Plataforma de Excelência
+            </h3>
+            <p className="text-lg text-slate-600 mb-6">
+              Desenvolvida em parceria com especialistas em educação
+            </p>
+            <div className="flex justify-center items-center mt-8">
+              <img 
+                src="/attached_assets/amplia-logo_1750779294901.png" 
+                alt="Amplia"
+                className="h-20"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
+      <WhyOSESection />
       <ContactSection />
     </div>
   );
