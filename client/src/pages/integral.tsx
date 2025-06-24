@@ -204,7 +204,7 @@ export default function Integral() {
               Parceria de Excelência
             </h3>
             <p className="text-lg text-slate-600 mb-6">
-              Em parceria com a ACM (YMCA) de Sorocaba, nossa vizinha no centro da cidade
+              Ginásio e atividades da ACM (YMCA) disponíveis para nossos alunos. Famílias podem frequentar pagando apenas a mensalidade, sem compra de título
             </p>
             <div className="flex justify-center items-center mt-8">
               <img 

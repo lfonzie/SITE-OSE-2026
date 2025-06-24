@@ -28,7 +28,7 @@ const features = [
   {
     logo: "/attached_assets/logo-acm-sao-paulo_1750779294901.png",
     title: "Parceria com ACM-YMCA",
-    description: "Colaboração estratégica com a ACM (YMCA) de Sorocaba, nossa vizinha no centro da cidade, promovendo desenvolvimento integral e valores cristãos.",
+    description: "Ginásio e atividades da ACM (YMCA) de Sorocaba disponíveis para nossos alunos. Famílias podem frequentar pagando apenas a mensalidade, sem compra de título.",
     color: "bg-yellow-600"
   },
   {
