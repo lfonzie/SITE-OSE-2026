@@ -15,7 +15,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
-      <HeroSection />
+      {/* Hero Section */}
+      <section className="relative pt-20 pb-16 text-white overflow-hidden" style={{ backgroundColor: '#FF4F00' }}>
+        <div className="absolute inset-0 bg-black/10" />
+      </section>
       <StatsSection />
       <WhyOSESection />
       <PedagogicalProposalSection />

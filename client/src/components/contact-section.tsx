@@ -126,25 +126,7 @@ export default function ContactSection() {
                 })}
               </div>
 
-              <div className="mt-8">
-                <h4 className="font-bold text-slate-800 mb-4">Redes Sociais</h4>
-                <div className="flex space-x-4">
-                  {socialLinks.map((social, index) => {
-                    const Icon = social.icon;
-                    return (
-                      <a
-                        key={index}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${social.color} text-white p-3 rounded-lg transition-colors`}
-                      >
-                        <Icon size={20} />
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
+              
 
               <div className="mt-8">
                 <Button 
@@ -157,119 +139,22 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Formulário de contato */}
-            <div className="bg-gray-50 p-8 rounded-xl">
-              <h3 className="text-2xl font-bold text-slate-800 mb-6">Envie sua Mensagem</h3>
-
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Nome completo</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Seu nome" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>E-mail</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="seu@email.com" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Telefone</FormLabel>
-                        <FormControl>
-                          <Input placeholder="(15) 99999-9999" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="interest"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Interesse</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Selecione seu interesse" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="educacao-infantil">Educação Infantil</SelectItem>
-                            <SelectItem value="fundamental-1">Fundamental I</SelectItem>
-                            <SelectItem value="fundamental-2">Fundamental II</SelectItem>
-                            <SelectItem value="ensino-medio">Ensino Médio</SelectItem>
-                            <SelectItem value="bilingue">Programa Bilíngue</SelectItem>
-                            <SelectItem value="integral">Integral Flex</SelectItem>
-                            <SelectItem value="outros">Outros</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Mensagem</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder="Conte-nos como podemos ajudar..."
-                            className="min-h-[120px]"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full bg-school-orange hover:bg-school-orange/90"
-                    disabled={createContactMutation.isPending}
-                  >
-                    {createContactMutation.isPending ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
-                        Enviando...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2" size={16} />
-                        Enviar Mensagem
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </Form>
+            {/* Botão WhatsApp */}
+            <div className="bg-green-50 p-8 rounded-xl border-2 border-green-200">
+              <h3 className="text-2xl font-bold text-slate-800 mb-6 text-center">Fale Conosco no WhatsApp</h3>
+              <div className="text-center">
+                <Button 
+                  size="lg"
+                  className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 text-lg"
+                  onClick={() => window.open('https://wa.me/5515221013812', '_blank')}
+                >
+                  📱 Conversar no WhatsApp
+                </Button>
+                <p className="text-slate-600 mt-4">
+                  Estamos prontos para atendê-lo!<br/>
+                  <span className="font-semibold">(15) 2101-3812</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -295,27 +180,7 @@ export default function ContactSection() {
               Tradição secular de ensino desde 1924. Formando cidadãos críticos e preparados para os desafios do futuro há 100 anos.
             </p>
 
-            {/* Redes Sociais */}
-            <div className="mb-6">
-              <h5 className="text-slate-800 font-semibold mb-3">Siga-nos nas Redes Sociais:</h5>
-              <div className="flex justify-center space-x-6">
-                <a href="https://instagram.com/colegioose" target="_blank" rel="noopener noreferrer" 
-                   className="flex items-center text-slate-600 hover:text-school-orange transition-colors">
-                  <Instagram className="mr-2" size={20} />
-                  @colegioose
-                </a>
-                <a href="https://facebook.com/colegioose" target="_blank" rel="noopener noreferrer"
-                   className="flex items-center text-slate-600 hover:text-school-orange transition-colors">
-                  <Facebook className="mr-2" size={20} />
-                  Colégio OSE
-                </a>
-                <a href="https://youtube.com/@colegioose" target="_blank" rel="noopener noreferrer"
-                   className="flex items-center text-slate-600 hover:text-school-orange transition-colors">
-                  <Youtube className="mr-2" size={20} />
-                  Canal OSE
-                </a>
-              </div>
-            </div>
+            
 
             <div className="border-t border-gray-200 pt-6">
               <p className="text-slate-500">

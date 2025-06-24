@@ -25,8 +25,8 @@ export default function WhyOSESection() {
   ];
 
   return (
-    <section id="why-ose" className="py-20 bg-gradient-to-r from-school-orange to-school-brown text-white relative">
-      <div className="absolute inset-0 bg-black/40"></div>
+    <section className="py-20 text-white relative overflow-hidden" style={{ backgroundColor: '#FF4F00' }}>
+      <div className="absolute inset-0 bg-black/5" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-2xl">
@@ -67,4 +67,3 @@ export default function WhyOSESection() {
     </section>
   );
 }
-
