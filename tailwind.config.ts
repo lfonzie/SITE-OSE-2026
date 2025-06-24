@@ -61,6 +61,12 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
+        // Custom school colors
+        "school-orange": "hsl(25, 95%, 53%)",
+        "school-brown": "hsl(30, 67%, 35%)",
+        "school-white": "hsl(0, 0%, 100%)",
+        "school-blue": "hsl(207, 90%, 54%)",
+        "school-green": "hsl(142, 76%, 36%)",
       },
       keyframes: {
         "accordion-down": {

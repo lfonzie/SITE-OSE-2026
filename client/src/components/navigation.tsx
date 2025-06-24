@@ -9,11 +9,17 @@ export default function Navigation() {
 
   const handleNavigation = (item: { id: string; isSection: boolean }) => {
     if (item.isSection) {
-      const element = document.getElementById(item.id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      // If we're not on home page, navigate to home first
+      if (location !== "/") {
+        window.location.href = `/#${item.id}`;
+      } else {
+        const element = document.getElementById(item.id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     } else {
+      // Use wouter navigation for internal pages
       window.location.href = item.id;
     }
     setMobileMenuOpen(false);

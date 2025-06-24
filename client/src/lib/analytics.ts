@@ -11,7 +11,10 @@ export const initGA = () => {
   const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
   if (!measurementId) {
-    console.warn('Google Analytics ID não configurado');
+    // Only warn in development mode
+    if (import.meta.env.DEV) {
+      console.warn('Google Analytics ID não configurado');
+    }
     return;
   }
 
@@ -65,7 +68,10 @@ export const initFacebookPixel = () => {
   const pixelId = import.meta.env.VITE_FACEBOOK_PIXEL_ID;
   
   if (!pixelId) {
-    console.warn('Facebook Pixel ID não configurado');
+    // Only warn in development mode
+    if (import.meta.env.DEV) {
+      console.warn('Facebook Pixel ID não configurado');
+    }
     return;
   }
 
@@ -103,7 +109,10 @@ export const initGTM = () => {
   const gtmId = import.meta.env.VITE_GTM_ID;
   
   if (!gtmId) {
-    console.warn('Google Tag Manager ID não configurado');
+    // Only warn in development mode
+    if (import.meta.env.DEV) {
+      console.warn('Google Tag Manager ID não configurado');
+    }
     return;
   }
 
