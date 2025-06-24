@@ -15,6 +15,12 @@ export default function Agendamento() {
       keywords: "agendar visita, colégio ose, matrícula, conhecer escola, visita guiada, agendamento"
     });
 
+    // Limpar widgets existentes
+    const existingWidgets = document.querySelectorAll('.calendly-inline-widget');
+    existingWidgets.forEach(widget => {
+      widget.innerHTML = '';
+    });
+
     // Verificar se o script já existe
     const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
     
@@ -25,11 +31,34 @@ export default function Agendamento() {
       script.async = true;
       script.onload = () => {
         console.log('Calendly script loaded successfully');
+        // Inicializar widget após o script carregar
+        setTimeout(() => {
+          if (window.Calendly) {
+            window.Calendly.initInlineWidget({
+              url: 'https://calendly.com/colegioose/apresentacao?hide_gdpr_banner=1&primary_color=ff8c00',
+              parentElement: document.querySelector('.calendly-inline-widget'),
+              prefill: {},
+              utm: {}
+            });
+          }
+        }, 100);
       };
       script.onerror = () => {
         console.error('Failed to load Calendly script');
       };
       document.head.appendChild(script);
+    } else {
+      // Se o script já existe, inicializar widget
+      setTimeout(() => {
+        if (window.Calendly) {
+          window.Calendly.initInlineWidget({
+            url: 'https://calendly.com/colegioose/apresentacao?hide_gdpr_banner=1&primary_color=ff8c00',
+            parentElement: document.querySelector('.calendly-inline-widget'),
+            prefill: {},
+            utm: {}
+          });
+        }
+      }, 100);
     }
   }, []);
 
@@ -167,9 +196,17 @@ export default function Agendamento() {
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
             <div 
               className="calendly-inline-widget" 
-              data-url="https://calendly.com/colegioose/apresentacao?hide_gdpr_banner=1&primary_color=ffa500" 
-              style={{ minWidth: '320px', height: '700px' }}
-            />
+              data-url="https://calendly.com/colegioose/apresentacao?hide_gdpr_banner=1&primary_color=ff8c00" 
+              style={{ minWidth: '320px', height: '700px', position: 'relative' }}
+            >
+              {/* Loading placeholder */}
+              <div className="flex items-center justify-center h-full">
+                <div className="text-center">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-school-orange mx-auto mb-4"></div>
+                  <p className="text-slate-600">Carregando calendário...</p>
+                </div>
+              </div>
+            </div>
             
             {/* Fallback caso o widget não carregue */}
             <noscript>
@@ -224,9 +261,9 @@ export default function Agendamento() {
               </p>
               <Button 
                 className="bg-school-orange hover:bg-school-orange/90 text-white"
-                onClick={() => window.open('tel:+551532332626', '_self')}
+                onClick={() => window.open('tel:+551521013800', '_self')}
               >
-                (15) 3233-2626
+                (15) 2101-3800
               </Button>
             </div>
 
@@ -234,12 +271,12 @@ export default function Agendamento() {
               <MapPin className="text-school-orange mx-auto mb-4" size={48} />
               <h3 className="text-xl font-bold text-slate-800 mb-4">Endereço</h3>
               <p className="text-slate-600 mb-4">
-                R. Sorocaba, 423 - Centro, Sorocaba - SP
+                Rua da Penha, 620 - Centro, Sorocaba - SP
               </p>
               <Button 
                 variant="outline"
                 className="border-school-orange text-school-orange hover:bg-school-orange/10"
-                onClick={() => window.open('https://maps.google.com/?q=R.+Sorocaba,+423+-+Centro,+Sorocaba+-+SP', '_blank')}
+                onClick={() => window.open('https://maps.google.com/?q=Rua+da+Penha,+620+-+Centro,+Sorocaba+-+SP', '_blank')}
               >
                 Ver no Mapa
               </Button>
