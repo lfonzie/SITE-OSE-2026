@@ -10,57 +10,57 @@ export const mainImages = {
   infantil3: "/images/0700_1750717790204.jpg", // Interação alunos
   
   // Fundamental I
-  fund1_1: "@assets/0934_1750717790206.jpg", // Sala de aula
-  fund1_2: "@assets/1105_1750717790206.jpg", // Atividades colaborativas
-  fund1_3: "@assets/0581_1750717790206.jpg", // Projetos educacionais
-  fund1_4: "@assets/0491_1750717790207.jpg", // Aprendizado
-  fund1_5: "@assets/0541_1750717790207.jpg", // Desenvolvimento
-  fund1_6: "@assets/1295_1750717790207.jpg", // Atividades culturais
+  fund1_1: "/images/0934_1750717790206.jpg", // Sala de aula
+  fund1_2: "/images/1105_1750717790206.jpg", // Atividades colaborativas
+  fund1_3: "/images/0581_1750717790206.jpg", // Projetos educacionais
+  fund1_4: "/images/0491_1750717790207.jpg", // Aprendizado
+  fund1_5: "/images/0541_1750717790207.jpg", // Desenvolvimento
+  fund1_6: "/images/1295_1750717790207.jpg", // Atividades culturais
   
   // Fundamental II
-  fund2_1: "@assets/0023_1750717790208.jpg", // Estudos avançados
-  fund2_2: "@assets/0378_1750717790208.jpg", // Tecnologia educacional
-  fund2_3: "@assets/1285_1750717790208.jpg", // Preparação acadêmica
+  fund2_1: "/images/0023_1750717790208.jpg", // Estudos avançados
+  fund2_2: "/images/0378_1750717790208.jpg", // Tecnologia educacional
+  fund2_3: "/images/1285_1750717790208.jpg", // Preparação acadêmica
   
   // Geral/Institucional
-  campus1: "@assets/0905_1750717790206.jpg", // Campus e instalações
-  materiais: "@assets/1068_1750717790205.jpg", // Material didático
-  tecnologia: "@assets/1092_1750717790205.jpg", // Recursos tecnológicos
+  campus1: "/images/0905_1750717790206.jpg", // Campus e instalações
+  materiais: "/images/1068_1750717790205.jpg", // Material didático
+  tecnologia: "/images/1092_1750717790205.jpg", // Recursos tecnológicos
 };
 
 // Imagens Secundárias (segunda série - mais recentes)
 export const secondaryImages = {
   // Ensino Médio
-  medio1: "@assets/0312_1750719589609.jpg",
-  medio2: "@assets/0354_1750719589610.jpg", 
-  medio3: "@assets/0491_1750719589611.jpg",
-  medio4: "@assets/0541_1750719589611.jpg",
-  medio5: "@assets/0581_1750719589610.jpg",
-  medio6: "@assets/0700_1750719589609.jpg",
+  medio1: "/images/0312_1750719589609.jpg",
+  medio2: "/images/0354_1750719589610.jpg", 
+  medio3: "/images/0491_1750719589611.jpg",
+  medio4: "/images/0541_1750719589611.jpg",
+  medio5: "/images/0581_1750719589610.jpg",
+  medio6: "/images/0700_1750719589609.jpg",
   
   // Fundamental II (série 2)
-  fund2_alt1: "@assets/0023_1750719589611.jpg",
-  fund2_alt2: "@assets/0378_1750719589611.jpg", 
-  fund2_alt3: "@assets/1285_1750719589611.jpg",
+  fund2_alt1: "/images/0023_1750719589611.jpg",
+  fund2_alt2: "/images/0378_1750719589611.jpg", 
+  fund2_alt3: "/images/1285_1750719589611.jpg",
   
   // Outros
-  geral1: "@assets/0905_1750719589610.jpg",
-  geral2: "@assets/0934_1750719589610.jpg",
-  geral3: "@assets/1068_1750719589610.jpg",
-  geral4: "@assets/1092_1750719589610.jpg",
-  geral5: "@assets/1105_1750719589610.jpg",
-  geral6: "@assets/1295_1750719589611.jpg",
+  geral1: "/images/0905_1750719589610.jpg",
+  geral2: "/images/0934_1750719589610.jpg",
+  geral3: "/images/1068_1750719589610.jpg",
+  geral4: "/images/1092_1750719589610.jpg",
+  geral5: "/images/1105_1750719589610.jpg",
+  geral6: "/images/1295_1750719589611.jpg",
 };
 
 // Logos e Assets Especiais
 export const logos = {
-  amplia: "@assets/AMPLIA_Logotipo-versoes_1750779294903.png",
-  isaac: "@assets/616841d439101013bdc4c67c_isaac-log0-01_1750779294900.png",
-  arvore: "@assets/Arvore-de-Livros_1750779294901.png",
-  codeose: "@assets/codeose23_1750779294902.png",
-  acm: "@assets/logo-acm-sao-paulo_1750779294901.png",
-  macmillan: "@assets/png-clipart-macmillan-education-logo-publishing-houses-logos_1750779294902.png",
-  google: "@assets/png-transparent-bett-google-for-education-g-suite-google-text-logo-google-logo-thumbnail_1750779294902.png"
+  amplia: "/images/AMPLIA_Logotipo-versoes_1750779294903.png",
+  isaac: "/images/616841d439101013bdc4c67c_isaac-log0-01_1750779294900.png",
+  arvore: "/images/Arvore-de-Livros_1750779294901.png",
+  codeose: "/images/codeose23_1750779294902.png",
+  acm: "/images/logo-acm-sao-paulo_1750779294901.png",
+  macmillan: "/images/png-clipart-macmillan-education-logo-publishing-houses-logos_1750779294902.png",
+  google: "/images/png-transparent-bett-google-for-education-g-suite-google-text-logo-google-logo-thumbnail_1750779294902.png"
 };
 
 // Exemplo de uso correto:

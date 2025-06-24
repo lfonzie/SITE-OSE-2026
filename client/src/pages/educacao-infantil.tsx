@@ -8,12 +8,12 @@ import { Heart, Play, Users, BookOpen, Lightbulb, Target, Palette } from "lucide
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Importando imagens para Educação Infantil
-import img1 from "@assets/0354_1750717790205.jpg";
-import img2 from "@assets/0312_1750717790204.jpg";
-import img3 from "@assets/0700_1750717790204.jpg";
-import img4 from "@assets/0905_1750717790206.jpg";
-import img5 from "@assets/1068_1750717790205.jpg";
-import img6 from "@assets/1092_1750717790205.jpg";
+const img1 = "/images/0354_1750717790205.jpg";
+const img2 = "/images/0312_1750717790204.jpg";
+const img3 = "/images/0700_1750717790204.jpg";
+const img4 = "/images/0905_1750717790206.jpg";
+const img5 = "/images/1068_1750717790205.jpg";
+const img6 = "/images/1092_1750717790205.jpg";
 
 export default function EducacaoInfantil() {
   useEffect(() => {
@@ -130,15 +130,15 @@ export default function EducacaoInfantil() {
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div className="space-y-4">
-                <img 
-                  src="/attached_assets/0312_1750717790204.jpg" 
+                <OptimizedImage
+                  src={img2}
                   alt="Crianças da Educação Infantil em ambiente de aprendizado"
-                  className="w-full h-48 object-cover rounded-lg shadow-lg"
+                  className="w-full h-48 rounded-lg shadow-lg"
                 />
-                <img 
-                  src="/attached_assets/0354_1750717790205.jpg" 
+                <OptimizedImage
+                  src={img1}
                   alt="Sala de aula da Educação Infantil"
-                  className="w-full h-48 object-cover rounded-lg shadow-lg"
+                  className="w-full h-48 rounded-lg shadow-lg"
                 />
               </div>
               <div className="grid grid-cols-1 gap-4">
