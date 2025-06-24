@@ -41,13 +41,13 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="py-20" style={{ backgroundColor: '#FF4F00' }}>
+    <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Nossos <span className="text-yellow-300">Diferenciais</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+            Nossos <span className="text-school-orange">Diferenciais</span>
           </h2>
-          <p className="text-xl text-white/90 max-w-4xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-4xl mx-auto">
             Oferecemos uma educação de excelência com recursos modernos e parcerias estratégicas
           </p>
         </div>

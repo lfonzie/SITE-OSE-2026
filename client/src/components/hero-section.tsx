@@ -17,15 +17,15 @@ export default function HeroSection() {
           alt="Colégio OSE - Campus e estudantes"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-800/90 via-slate-700/80 to-slate-600/85">
-          <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-school-brown/90 via-school-orange/80 to-white/85">
+          <div className="absolute inset-0 bg-black/20" />
         </div>
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
-            <span className="block">Tradição Secular de Ensino:</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-2xl">
+            <span className="block text-white">Tradição Secular de Ensino:</span>
             <span className="block text-white">Celebrando 100 Anos</span>
           </h1>
           <h2 className="text-lg md:text-xl text-white/95 mb-4 max-w-4xl mx-auto font-medium drop-shadow-xl">
