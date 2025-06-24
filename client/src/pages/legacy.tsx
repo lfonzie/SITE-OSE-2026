@@ -4,6 +4,8 @@ import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import LegacySection from "@/components/legacy-section";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { Button } from "@/components/ui/button";
+import { Award } from "lucide-react";
 
 // Importando imagens para legado
 import img1 from "@assets/0312_1750719589609.jpg";
