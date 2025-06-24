@@ -54,13 +54,13 @@ export const secondaryImages = {
 
 // Logos e Assets Especiais
 export const logos = {
-  amplia: "/images/AMPLIA_Logotipo-versoes_1750779294903.png",
-  isaac: "/images/616841d439101013bdc4c67c_isaac-log0-01_1750779294900.png",
-  arvore: "/images/Arvore-de-Livros_1750779294901.png",
-  codeose: "/images/codeose23_1750779294902.png",
-  acm: "/images/logo-acm-sao-paulo_1750779294901.png",
-  macmillan: "/images/png-clipart-macmillan-education-logo-publishing-houses-logos_1750779294902.png",
-  google: "/images/png-transparent-bett-google-for-education-g-suite-google-text-logo-google-logo-thumbnail_1750779294902.png"
+  amplia: "/images/logo-amplia.png",
+  isaac: "/images/logo-isaac.png",
+  arvore: "/images/logo-arvore.png",
+  codeose: "/images/logo-codeose.png",
+  acm: "/images/logo-acm.jpg",
+  macmillan: "/images/logo-macmillan.png",
+  google: "/images/logo-google-education.jpg",1750779294902.png"
 };
 
 // Exemplo de uso correto:
