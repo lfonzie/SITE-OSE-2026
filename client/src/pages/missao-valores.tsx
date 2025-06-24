@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
@@ -79,7 +78,7 @@ export default function MissaoValores() {
                   size="lg" 
                   variant="outline" 
                   className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
-                  onClick={() => document.getElementById('valores')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById('missao')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Saiba Mais
                 </Button>
@@ -116,17 +115,17 @@ export default function MissaoValores() {
                   O Colégio OSE tem uma rica história em Sorocaba e uma reputação de desenvolver 
                   <strong className="text-school-orange"> líderes transformadores</strong>. A nossa missão é nutrir uma nova geração de líderes que não apenas prosperarão em suas próprias vidas, mas que também serão agentes de mudança, contribuindo para um mundo melhor.
                 </p>
-                
+
                 <p>
                   Nós vemos além da mera concessão de um diploma. Firmemente acreditamos que a educação é um 
                   <strong className="text-school-brown"> processo holístico</strong> que engloba mais do que as matérias tradicionais. Nosso compromisso é formar cidadãos completos, que levam consigo a marca da diversidade, empatia e benevolência que tanto valorizamos.
                 </p>
-                
+
                 <p>
                   Através da nossa longa história, e durante o difícil período de uma pandemia sem precedentes, reafirmamos nossa verdadeira essência de ser uma escola: um lugar onde os 
                   <strong className="text-school-orange"> valores são vividos e transmitidos</strong>.
                 </p>
-                
+
                 <p>
                   Com salas de aula de última geração, educadores experientes e materiais didáticos inovadores, estamos preparados para enfrentar os desafios do presente e do futuro. Assim, continuamos a honrar nosso legado, sendo um 
                   <strong className="text-school-brown"> pilar de aprendizado e desenvolvimento</strong> na comunidade de Sorocaba.

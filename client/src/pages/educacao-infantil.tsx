@@ -126,6 +126,14 @@ export default function EducacaoInfantil() {
                 >
                   Agendamento Avaliação Pedagógica
                 </Button>
+                 <Button 
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  onClick={() => document.getElementById('detalhes')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Saiba Mais
+                </Button>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6">
