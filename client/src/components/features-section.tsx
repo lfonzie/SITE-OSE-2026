@@ -2,7 +2,7 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 
 const features = [
   {
-    logo: "/images/png-transparent-bett-google-for-education-g-suite-google-text-logo-google-logo-thumbnail_1750779294902.png",
+    logo: "/images/google-for-education.png",
     title: "Google for Education",
     description: "Plataforma que transforma a maneira como educadores e alunos aprendem e colaboram, oferecendo educação interativa e colaborativa.",
     color: "bg-blue-600"
@@ -14,7 +14,7 @@ const features = [
     color: "bg-green-600"
   },
   {
-    logo: "/images/png-clipart-macmillan-education-logo-publishing-houses-logos_1750779294902.png",
+    logo: "/images/macmillan-education.png",
     title: "Educação Bilíngue MacMillan",
     description: "Currículo bilíngue que forma cidadãos globais, preparando alunos para interações multiculturais e proficiência linguística.",
     color: "bg-purple-600"
@@ -26,16 +26,16 @@ const features = [
     color: "bg-red-600"
   },
   {
-    logo: "/images/logo-acm-sao-paulo_1750779294901.png",
+    logo: "/images/acm-ymca.png",
     title: "Parceria com ACM-YMCA",
     description: "Colaboração estratégica com a ACM (YMCA) de Sorocaba, nossa vizinha no centro da cidade, promovendo desenvolvimento integral e valores cristãos.",
     color: "bg-yellow-600"
   },
   {
-    logo: "/images/Arvore-de-Livros_1750779294901.png",
+    logo: "/images/arvore-logo.png",
     title: "Plataforma Árvore",
     description: "Biblioteca digital com milhares de livros e recursos educacionais para incentivar a leitura e o aprendizado.",
-    color: "bg-indigo-600"
+    color: "bg-emerald-600"
   }
 ];
 
