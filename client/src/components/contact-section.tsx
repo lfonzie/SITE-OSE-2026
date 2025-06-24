@@ -35,7 +35,7 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Horário de Atendimento",
-    content: ["Segunda a Sexta: 7h às 18h", "Sábados: 8h às 12h"],
+    content: ["Segunda a Sexta: 7h às 18h"],
     color: "bg-purple-600"
   }
 ];
@@ -83,7 +83,7 @@ export default function ContactSection() {
   const onSubmit = (data: InsertContact) => {
     trackEvent('form_submit', 'contact', 'contact_form');
     trackFBEvent('Lead', { content_name: 'Contact Form' });
-    
+
     createContactMutation.mutate(data);
   };
 
@@ -100,11 +100,11 @@ export default function ContactSection() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12">
             {/* Informações de contato */}
             <div>
               <h3 className="text-2xl font-bold text-slate-800 mb-8">Informações de Contato</h3>
-              
+
               <div className="space-y-6">
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
@@ -157,219 +157,171 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Links Rápidos */}
-            <div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-8">Links Rápidos</h3>
-              <ul className="space-y-3">
-                <li>
-                  <a href="/" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Início
-                  </a>
-                </li>
-                <li>
-                  <a href="/legacy" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Nosso Legado
-                  </a>
-                </li>
-                <li>
-                  <a href="/missao-valores" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Missão e Valores
-                  </a>
-                </li>
-                <li>
-                  <a href="/professores" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Professores
-                  </a>
-                </li>
-                <li>
-                  <a href="/bilingue" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Bilíngue
-                  </a>
-                </li>
-                <li>
-                  <a href="/code-ose" className="text-slate-600 hover:text-school-orange transition-colors">
-                    CODE OSE
-                  </a>
-                </li>
-                <li>
-                  <a href="/integral" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Integral Flex
-                  </a>
-                </li>
-                <li>
-                  <a href="/amplia" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Plataforma Amplia
-                  </a>
-                </li>
-              </ul>
-            </div>
+            {/* Formulário de contato */}
+            <div className="bg-gray-50 p-8 rounded-xl">
+              <h3 className="text-2xl font-bold text-slate-800 mb-6">Envie sua Mensagem</h3>
 
-            {/* Programas */}
-            <div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-8">Programas</h3>
-              <ul className="space-y-3">
-                <li>
-                  <a href="/educacao-infantil" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Educação Infantil
-                  </a>
-                </li>
-                <li>
-                  <a href="/fundamental-1" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Fundamental I
-                  </a>
-                </li>
-                <li>
-                  <a href="/fundamental-2" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Fundamental II
-                  </a>
-                </li>
-                <li>
-                  <a href="/ensino-medio" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Ensino Médio
-                  </a>
-                </li>
-                <li>
-                  <a href="/arvore" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Árvore Livros
-                  </a>
-                </li>
-                <li>
-                  <a href="/isaac" className="text-slate-600 hover:text-school-orange transition-colors">
-                    ISAAC Financeiro
-                  </a>
-                </li>
-                <li>
-                  <a href="/portal-aluno" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Portal do Aluno
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Nome completo</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Seu nome" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-          <div className="mt-16 text-center">
-            <p className="text-slate-600">
-              Estamos localizados no coração de Sorocaba, próximos aos principais pontos da cidade.
-            </p>
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>E-mail</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="seu@email.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Telefone</FormLabel>
+                        <FormControl>
+                          <Input placeholder="(15) 99999-9999" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="interest"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Interesse</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Selecione seu interesse" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="educacao-infantil">Educação Infantil</SelectItem>
+                            <SelectItem value="fundamental-1">Fundamental I</SelectItem>
+                            <SelectItem value="fundamental-2">Fundamental II</SelectItem>
+                            <SelectItem value="ensino-medio">Ensino Médio</SelectItem>
+                            <SelectItem value="bilingue">Programa Bilíngue</SelectItem>
+                            <SelectItem value="integral">Integral Flex</SelectItem>
+                            <SelectItem value="outros">Outros</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Mensagem</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Conte-nos como podemos ajudar..."
+                            className="min-h-[120px]"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full bg-school-orange hover:bg-school-orange/90"
+                    disabled={createContactMutation.isPending}
+                  >
+                    {createContactMutation.isPending ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2" size={16} />
+                        Enviar Mensagem
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </Form>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Footer com fundo branco e redes sociais */}
-      <footer className="bg-white py-16 border-t border-gray-200">
+      {/* Footer simplificado */}
+      <footer className="bg-white py-12 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-4 gap-8">
-            {/* About */}
-            <div className="lg:col-span-2">
-              <div className="flex items-center mb-4">
-                <img 
-                  src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png" 
-                  alt="a OSE" 
-                  className="h-12 w-auto mr-3"
-                />
-                <div>
-                  <h3 className="text-xl font-bold text-slate-800">OSE</h3>
-                  <p className="text-slate-600 text-sm">Desde 1924</p>
-                </div>
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-6">
+              <img 
+                src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png" 
+                alt="OSE" 
+                className="h-12 w-auto mr-3"
+              />
+              <div>
+                <h3 className="text-xl font-bold text-slate-800">OSE</h3>
+                <p className="text-slate-600 text-sm">Desde 1924</p>
               </div>
-              <p className="text-slate-600 mb-4">
-                Tradição secular de ensino desde 1924. Formando cidadãos críticos e preparados para os desafios do futuro há 100 anos.
+            </div>
+
+            <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+              Tradição secular de ensino desde 1924. Formando cidadãos críticos e preparados para os desafios do futuro há 100 anos.
+            </p>
+
+            {/* Redes Sociais */}
+            <div className="mb-6">
+              <h5 className="text-slate-800 font-semibold mb-3">Siga-nos nas Redes Sociais:</h5>
+              <div className="flex justify-center space-x-6">
+                <a href="https://instagram.com/colegioose" target="_blank" rel="noopener noreferrer" 
+                   className="flex items-center text-slate-600 hover:text-school-orange transition-colors">
+                  <Instagram className="mr-2" size={20} />
+                  @colegioose
+                </a>
+                <a href="https://facebook.com/colegioose" target="_blank" rel="noopener noreferrer"
+                   className="flex items-center text-slate-600 hover:text-school-orange transition-colors">
+                  <Facebook className="mr-2" size={20} />
+                  Colégio OSE
+                </a>
+                <a href="https://youtube.com/@colegioose" target="_blank" rel="noopener noreferrer"
+                   className="flex items-center text-slate-600 hover:text-school-orange transition-colors">
+                  <Youtube className="mr-2" size={20} />
+                  Canal OSE
+                </a>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-200 pt-6">
+              <p className="text-slate-500">
+                © 2025 OSE. Todos os direitos reservados.
               </p>
             </div>
-
-            {/* Quick Links */}
-            <div>
-              <h4 className="text-lg font-bold text-slate-800 mb-6">Links Rápidos</h4>
-              <ul className="space-y-3">
-                <li>
-                  <a href="/" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Início
-                  </a>
-                </li>
-                <li>
-                  <a href="/legacy" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Nosso Legado
-                  </a>
-                </li>
-                <li>
-                  <a href="/professores" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Professores
-                  </a>
-                </li>
-                <li>
-                  <a href="/services" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Serviços
-                  </a>
-                </li>
-                <li>
-                  <a href="/portal-aluno" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Portal do Aluno
-                  </a>
-                </li>
-                <li>
-                  <a href="/portal-pais" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Portal dos Pais
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Programas */}
-            <div>
-              <h4 className="text-lg font-bold text-slate-800 mb-6">Programas</h4>
-              <ul className="space-y-3">
-                <li>
-                  <a href="/educacao-infantil" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Educação Infantil
-                  </a>
-                </li>
-                <li>
-                  <a href="/fundamental-1" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Fundamental I
-                  </a>
-                </li>
-                <li>
-                  <a href="/fundamental-2" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Fundamental II
-                  </a>
-                </li>
-                <li>
-                  <a href="/ensino-medio" className="text-slate-600 hover:text-school-orange transition-colors">
-                    Ensino Médio
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Redes Sociais */}
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <h5 className="text-slate-800 font-semibold mb-3">Siga-nos nas Redes Sociais:</h5>
-            <div className="flex space-x-6">
-              <a href="https://instagram.com/colegioose" target="_blank" rel="noopener noreferrer" 
-                 className="flex items-center text-slate-600 hover:text-school-orange transition-colors">
-                <Instagram className="mr-2" size={20} />
-                @colegioose
-              </a>
-              <a href="https://facebook.com/colegioose" target="_blank" rel="noopener noreferrer"
-                 className="flex items-center text-slate-600 hover:text-school-orange transition-colors">
-                <Facebook className="mr-2" size={20} />
-                Colégio OSE
-              </a>
-              <a href="https://youtube.com/@colegioose" target="_blank" rel="noopener noreferrer"
-                 className="flex items-center text-slate-600 hover:text-school-orange transition-colors">
-                <Youtube className="mr-2" size={20} />
-                Canal OSE
-              </a>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-200 mt-12 pt-8 text-center">
-            <p className="text-slate-500">
-              © 2025 a OSE. Todos os direitos reservados. |{" "}
-              <a href="#" className="hover:text-school-orange transition-colors">Política de Privacidade</a> |{" "}
-              <a href="#" className="hover:text-school-orange transition-colors">Termos de Uso</a>
-            </p>
           </div>
         </div>
       </footer>

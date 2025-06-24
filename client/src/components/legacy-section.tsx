@@ -1,8 +1,9 @@
+
 import { Calendar, Award, Users, BookOpen } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
-// Importando imagem para seção de legado
-import legacyImage from "@assets/1105_1750717790206.jpg";
+// Usando imagem da pasta public/images
+const legacyImage = "/images/1105_1750717790206.jpg";
 
 export default function LegacySection() {
   return (

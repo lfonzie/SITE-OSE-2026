@@ -1,14 +1,14 @@
+
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Users, Target, Lightbulb, Heart, Award, MessageCircle } from "lucide-react";
+import { Heart, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
-import { Calculator, Palette, UserCheck } from "lucide-react";
 
-// Importando imagens para Fundamental I
+// Usando imagens da pasta public/images
 const img1 = "/images/0934_1750717790206.jpg";
 const img2 = "/images/1105_1750717790206.jpg";
 const img3 = "/images/0581_1750717790206.jpg";
@@ -19,214 +19,208 @@ const img6 = "/images/1295_1750717790207.jpg";
 export default function Fundamental1() {
   useEffect(() => {
     updateSEO({
-      title: "Ensino Fundamental I - Anos Iniciais | a OSE",
-      description: "Ensino Fundamental I na OSE: desenvolvendo mentes curiosas e corações compassivos. 1º ao 5º ano com foco em habilidades sociais e emocionais.",
-      keywords: "ensino fundamental I sorocaba, anos iniciais, desenvolvimento acadêmico, habilidades sociais"
+      title: "Ensino Fundamental I - Anos Iniciais | OSE",
+      description: "Ensino Fundamental I na OSE: desenvolvendo mentes curiosas e corações compassivos. Educação integral para crianças de 6 a 10 anos.",
+      keywords: "ensino fundamental I sorocaba, anos iniciais, educação infantil, desenvolvimento cognitivo"
     });
   }, []);
 
-  const competencies = [
+  const features = [
     {
-      icon: MessageCircle,
-      title: "Capacidade Verbal",
-      description: "Priorizamos o desenvolvimento da linguagem como base para todas as outras formas de aprendizado, fomentando comunicação, pensamento crítico e imaginação."
+      icon: Heart,
+      title: "Desenvolvimento Emocional",
+      description: "Cultivamos inteligência emocional e valores humanos fundamentais"
+    },
+    {
+      icon: Target,
+      title: "Aprendizagem Significativa",
+      description: "Metodologias ativas que tornam o aprendizado prazeroso e efetivo"
     },
     {
       icon: Users,
-      title: "Socialização",
-      description: "Enfatizamos atividades que cultivam empatia, colaboração e consciência social para formar cidadãos conscientes e solidários."
+      title: "Socialização Saudável",
+      description: "Ambiente acolhedor que promove amizades duradouras e respeito mútuo"
     },
     {
-      icon: Calculator,
-      title: "Operações Mentais",
-      description: "Os alunos se tornam fluentes em matemática, desenvolvendo capacidade de aplicar conceitos numéricos na vida cotidiana com abordagens práticas e lúdicas."
-    },
-    {
-      icon: Palette,
-      title: "Capital Cultural",
-      description: "Ampliamos os horizontes culturais apresentando variedade de artes, histórias e tradições para uma educação mais rica e diversificada."
-    },
-    {
-      icon: UserCheck,
-      title: "Autonomia",
-      description: "Encorajamos os alunos a serem protagonistas do próprio aprendizado com atividades que exigem decisões e pensamento independente."
+      icon: Lightbulb,
+      title: "Criatividade e Inovação",
+      description: "Estímulo à criatividade através de projetos e atividades lúdicas"
     },
     {
       icon: BookOpen,
-      title: "Currículo Tradicional",
-      description: "Disciplinas fundamentais como Matemática, Português, História, Geografia, além de Educação Física, Inglês, Ciências, Artes e Música."
+      title: "Base Acadêmica Sólida",
+      description: "Fundamentos essenciais para uma trajetória escolar de sucesso"
+    },
+    {
+      icon: Award,
+      title: "Formação de Caráter",
+      description: "Desenvolvimento de valores éticos e responsabilidade social"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
-
+      
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <OptimizedImage
-            src={img1}
-            alt="Alunos do Ensino Fundamental I"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
-              Ensino Fundamental I
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4 drop-shadow-lg">
-              Anos Iniciais - 1º ao 5º ano
-            </h2>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto drop-shadow-lg">
-              Desenvolvendo Mentes Curiosas e Corações Compassivos
-            </p>
-            <p className="text-lg max-w-3xl mx-auto opacity-95 drop-shadow-lg">
-              O Ensino Fundamental I representa um período crítico e fascinante na jornada educacional. 
-              Focamos não apenas no desenvolvimento acadêmico, mas também nas habilidades sociais, emocionais e culturais.
-            </p>
+      <section className="relative pt-20 pb-16 bg-gradient-to-br from-school-orange to-school-brown text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                Fundamental <span className="text-yellow-300">I</span>
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 leading-relaxed">
+                Desenvolvendo <strong>mentes curiosas</strong> e <strong>corações compassivos</strong>
+              </p>
+              <p className="text-lg mb-8 opacity-90">
+                O Ensino Fundamental I da OSE é onde a jornada educacional se torna uma aventura 
+                emocionante. Nossos pequenos alunos descobrem o prazer de aprender em um ambiente 
+                acolhedor, seguro e estimulante.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                >
+                  📅 Agende uma Visita
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  onClick={() => document.getElementById('detalhes')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Saiba Mais
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <OptimizedImage
+                src={img1}
+                alt="Crianças do Fundamental I da OSE aprendendo"
+                className="w-full h-96 rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-20">
+      {/* Features Section */}
+      <section id="detalhes" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-slate-800 mb-6">
-              Competências Desenvolvidas
-            </h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Anos Iniciais que <span className="text-school-orange">Inspiram</span>
+            </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Nossa metodologia abrange seis pilares fundamentais para o desenvolvimento integral dos alunos
+              Uma educação que respeita o desenvolvimento natural da criança, 
+              estimulando curiosidade e construindo bases sólidas para o futuro
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {competencies.map((competency, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="bg-school-orange/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                  <competency.icon className="text-school-orange" size={28} />
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="bg-school-orange text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+                    <Icon size={28} />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
+                  <p className="text-slate-600">{feature.description}</p>
                 </div>
-                <h4 className="text-xl font-bold text-slate-800 mb-3">{competency.title}</h4>
-                <p className="text-slate-600 leading-relaxed">{competency.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          {/* Educational Approach */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Image Gallery */}
+          <div className="grid md:grid-cols-3 gap-6">
+            <OptimizedImage
+              src={img2}
+              alt="Atividades colaborativas no Fundamental I"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
+            <OptimizedImage
+              src={img3}
+              alt="Projetos educacionais criativos"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
+            <OptimizedImage
+              src={img4}
+              alt="Ambiente de aprendizado estimulante"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Methodology Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-3xl font-bold text-slate-800 mb-6">
-                Construindo Fundamentos Sólidos
+              <h3 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+                Metodologia que <span className="text-school-orange">Encanta</span>
               </h3>
               <div className="space-y-4 text-slate-600">
                 <p className="text-lg">
-                  O Ensino Fundamental I representa um período crítico e fascinante na jornada educacional. 
-                  Nosso enfoque vai além do desenvolvimento acadêmico, englobando também as <strong>habilidades 
-                  sociais, emocionais e culturais</strong> essenciais para o crescimento integral de cada criança.
+                  <strong>Aprendizagem Lúdica:</strong> Transformamos o aprender em brincadeira, 
+                  respeitando o universo infantil e tornando cada descoberta uma alegria.
                 </p>
                 <p>
-                  Através de <strong>metodologias ativas e inovadoras</strong>, proporcionamos um ambiente 
-                  onde cada aluno pode explorar suas curiosidades, desenvolver pensamento crítico e 
-                  construir uma base sólida para os próximos níveis educacionais.
+                  <strong>Desenvolvimento Integral:</strong> Cuidamos não apenas do aspecto cognitivo, 
+                  mas também do emocional, social e físico de cada criança.
+                </p>
+                <p>
+                  <strong>Acompanhamento Individual:</strong> Cada criança é única, por isso 
+                  oferecemos atenção personalizada para potencializar suas habilidades.
+                </p>
+                <p>
+                  <strong>Ambiente Acolhedor:</strong> Espaços seguros e estimulantes onde as 
+                  crianças se sentem à vontade para explorar e crescer.
                 </p>
               </div>
-              <div className="mt-8">
-                <Button 
-                  size="lg"
-                  className="bg-school-orange hover:bg-school-orange/90 text-white"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Agendamento Avaliação Pedagógica
-                </Button>
-              </div>
             </div>
-          {/* Galeria de Imagens do Fundamental I */}
-          <div className="mt-20">
-            <h3 className="text-3xl font-bold text-slate-800 text-center mb-12">
-              Vida Escolar no Fundamental I
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <OptimizedImage
-                src={img2}
-                alt="Atividades em sala de aula"
-                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-              />
-              <OptimizedImage
-                src={img3}
-                alt="Projetos educacionais"
-                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-              />
-              <OptimizedImage
-                src={img4}
-                alt="Aprendizado colaborativo"
-                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-              />
+            <div className="grid grid-cols-2 gap-4">
               <OptimizedImage
                 src={img5}
-                alt="Desenvolvimento de autonomia"
-                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                alt="Desenvolvimento das crianças"
+                className="w-full h-48 rounded-lg shadow-lg"
               />
               <OptimizedImage
                 src={img6}
-                alt="Atividades culturais"
-                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                alt="Atividades culturais e educativas"
+                className="w-full h-48 rounded-lg shadow-lg"
               />
-              <OptimizedImage
-                src={img1}
-                alt="Ambiente acolhedor do Fundamental I"
-                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-              />
-            </div>
-          </div>
-          </div>
-
-          {/* Curriculum Section */}
-          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 rounded-xl p-8 md:p-12">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-slate-800 mb-4">
-                Currículo Completo e Equilibrado
-              </h3>
-              <p className="text-xl text-slate-600">
-                Base sólida para o desenvolvimento intelectual e social
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen size={24} />
-                </div>
-                <h4 className="font-bold text-slate-800 mb-2">Núcleo Básico</h4>
-                <p className="text-sm text-slate-600">Matemática, Português, História, Geografia</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Palette size={24} />
-                </div>
-                <h4 className="font-bold text-slate-800 mb-2">Artes e Cultura</h4>
-                <p className="text-sm text-slate-600">Artes Visuais, Música, Educação Cultural</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calculator size={24} />
-                </div>
-                <h4 className="font-bold text-slate-800 mb-2">Ciências</h4>
-                <p className="text-sm text-slate-600">Ciências Naturais, Experimentação</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users size={24} />
-                </div>
-                <h4 className="font-bold text-slate-800 mb-2">Desenvolvimento</h4>
-                <p className="text-sm text-slate-600">Educação Física, Inglês, Socioemocional</p>
-              </div>
             </div>
           </div>
         </div>
       </section>
-      <WhyOSESection />
 
+      {/* Call to Action */}
+      <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h3 className="text-3xl md:text-4xl font-bold mb-6">
+            O Melhor Começo para Seu Filho
+          </h3>
+          <p className="text-xl mb-8">
+            Há 100 anos cuidando com carinho dos primeiros passos na educação
+          </p>
+          <Button 
+            size="lg" 
+            className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+            onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+          >
+            Agende uma Visita e Conheça Nossa Escola
+          </Button>
+        </div>
+      </section>
+
+      <WhyOSESection />
+      <ContactSection />
     </div>
   );
 }
