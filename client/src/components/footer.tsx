@@ -102,40 +102,9 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="border-t border-white/20 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="text-center">
             <div className="text-white/70 text-sm">
               © 2024 Colégio OSE. Todos os direitos reservados.
-            </div>
-
-            {/* Social Media Links */}
-            <div className="flex items-center space-x-1">
-              <span className="text-white/70 text-sm mr-2">Siga-nos nas Redes Sociais:</span>
-              <a 
-                href="https://instagram.com/colegioose" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white/70 hover:text-white transition-colors"
-              >
-                @colegioose
-              </a>
-              <span className="text-white/70 mx-1">•</span>
-              <a 
-                href="https://facebook.com/colegioose" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white/70 hover:text-white transition-colors"
-              >
-                Colégio OSE
-              </a>
-              <span className="text-white/70 mx-1">•</span>
-              <a 
-                href="https://youtube.com/@canalose" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white/70 hover:text-white transition-colors"
-              >
-                Canal OSE
-              </a>
             </div>
           </div>
         </div>
