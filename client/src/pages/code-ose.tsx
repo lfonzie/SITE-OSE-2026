@@ -62,7 +62,7 @@ export default function CodeOSE() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                CODE <span className="text-yellow-300">OSE</span>
+                CODE <span className="text-school-orange">OSE</span>
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold mb-4">
                 Alfabetização Digital Integrada

@@ -69,7 +69,7 @@ export default function EnsinoMedio() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Ensino <span className="text-yellow-300">Médio</span>
+                Ensino <span className="text-school-orange">Médio</span>
               </h1>
               <p className="text-xl md:text-2xl mb-8 leading-relaxed">
                 Preparação para o futuro com <strong>excelência acadêmica</strong> e <strong>formação integral</strong>
