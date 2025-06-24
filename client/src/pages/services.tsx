@@ -39,7 +39,7 @@ const services = [
       "Histórico escolar"
     ],
     color: "bg-school-blue",
-    link: "#portal-aluno"
+    link: "https://siga03.activesoft.com.br/login/?instituicao=COLEGIOOSE"
   },
   {
     id: "portal-pais",
