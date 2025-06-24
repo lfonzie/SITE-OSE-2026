@@ -38,14 +38,6 @@ export default function HeroSection() {
             Educando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania.
           </p>
         </div>
-        
-        {/* Scroll indicator */}
-        <button 
-          onClick={scrollToNext}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/80 hover:text-white transition-colors"
-        >
-          <ChevronDown size={32} />
-        </button>
       </div>
     </section>
   );
