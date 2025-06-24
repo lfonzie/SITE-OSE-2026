@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { updateSEO } from "@/lib/seo";
 import Navigation from "@/components/navigation";
@@ -19,7 +18,7 @@ export default function Isaac() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-school-brown to-school-orange text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -124,13 +123,13 @@ export default function Isaac() {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">
             Como Acessar o ISAAC
           </h2>
-          
+
           <div className="bg-slate-50 rounded-lg p-8 mb-8">
             <p className="text-lg text-slate-700 mb-6">
               O acesso ao sistema financeiro é exclusivo para responsáveis financeiros 
               cadastrados no colégio.
             </p>
-            
+
             <div className="space-y-4 text-left max-w-2xl mx-auto">
               <div className="flex items-start">
                 <div className="bg-school-brown text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 mt-1">1</div>
@@ -149,13 +148,14 @@ export default function Isaac() {
 
           <div className="space-y-4">
             <Button 
-              onClick={() => window.open('https://isaac.com.br', '_blank')}
-              className="bg-school-brown hover:bg-school-brown/90 text-white text-lg px-8 py-3 mr-4"
-            >
-              Acessar ISAAC
-              <ExternalLink className="ml-2" size={20} />
-            </Button>
-            
+                  size="lg"
+                  className="bg-school-orange hover:bg-school-orange/90"
+                  onClick={() => window.open('https://isaac.com.br/', '_blank')}
+                >
+                  <ExternalLink className="mr-2" size={20} />
+                  Acessar Portal ISAAC
+                </Button>
+
             <p className="text-sm text-slate-600 mt-4">
               Problemas com acesso? Entre em contato com a secretaria: 
               <span className="font-semibold"> (15) 2101-3800</span>

@@ -1,3 +1,4 @@
+
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export default function Footer() {
@@ -38,17 +39,19 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="/missao-valores" className="text-white/80 hover:text-school-orange transition-colors">
+                  Missão e Valores
+                </a>
+              </li>
+              <li>
                 <a href="/professores" className="text-white/80 hover:text-school-orange transition-colors">
                   Professores
                 </a>
               </li>
               <li>
-                <button
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-white/80 hover:text-school-orange transition-colors text-left"
-                >
-                  Contato
-                </button>
+                <a href="/bilingue" className="text-white/80 hover:text-school-orange transition-colors">
+                  Bilíngue
+                </a>
               </li>
             </ul>
           </div>
@@ -77,13 +80,23 @@ export default function Footer() {
                   Ensino Médio
                 </a>
               </li>
+              <li>
+                <a href="/code-ose" className="text-white/80 hover:text-school-orange transition-colors">
+                  CODE OSE
+                </a>
+              </li>
+              <li>
+                <a href="/integral" className="text-white/80 hover:text-school-orange transition-colors">
+                  Integral Flex
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
         {/* Contact Info */}
         <div className="mt-8 bg-school-orange/10 rounded-xl p-6">
-          <h4 className="text-lg font-bold text-white mb-6">Contato e Localização</h4>
+          <h4 className="text-lg font-bold text-white mb-6">Informações de Contato</h4>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-white/90">
             <div className="flex items-start">
               <MapPin className="mr-2 mt-1 flex-shrink-0 text-school-orange" size={16} />

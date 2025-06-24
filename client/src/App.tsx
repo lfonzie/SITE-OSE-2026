@@ -27,7 +27,8 @@ import CodeOSE from "./pages/code-ose";
 import Amplia from "./pages/amplia";
 import ListaMaterial from "./pages/lista-material";
 import Arvore from "./pages/arvore";
-import Isaac from "./pages/isaac";
+import Isaac from "@/pages/isaac";
+import MissaoValores from "@/pages/missao-valores";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -53,6 +54,7 @@ function Router() {
       <Route path="/lista-material" component={ListaMaterial} />
       <Route path="/arvore" component={Arvore} />
       <Route path="/isaac" component={Isaac} />
+      <Route path="/missao-valores" component={MissaoValores} />
       <Route component={NotFound} />
     </Switch>
   );

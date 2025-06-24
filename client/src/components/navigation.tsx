@@ -33,7 +33,7 @@ export default function Navigation() {
       label: "Colégio OSE",
       submenu: [
         { label: "Legado", id: "/legacy", isSection: false },
-        { label: "Missão e Valores", id: "sobre", isSection: true },
+        { label: "Missão e Valores", id: "/missao-valores", isSection: false },
         { label: "Nossa Estrutura", id: "sobre", isSection: true }
       ]
     },

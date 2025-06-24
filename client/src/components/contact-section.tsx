@@ -53,7 +53,7 @@ export default function ContactSection() {
     script.async = true;
     script.defer = true;
     script.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/full.js';
-    document.head.appendChild(script);
+    document.body.appendChild(script);
 
     return () => {
       // Cleanup: remove o script quando o componente for desmontado
