@@ -20,7 +20,12 @@ import Professores from "@/pages/professores";
 import Services from "@/pages/services";
 import Legacy from "@/pages/legacy";
 import PortalAluno from "@/pages/portal-aluno";
-import PortalPais from "@/pages/portal-pais";
+import PortalPais from "./pages/portal-pais";
+import Bilingue from "./pages/bilingue";
+import Integral from "./pages/integral";
+import CodeOSE from "./pages/code-ose";
+import Amplia from "./pages/amplia";
+import ListaMaterial from "./pages/lista-material";
 import Editor from "@/pages/editor";
 import NotFound from "@/pages/not-found";
 
@@ -41,6 +46,11 @@ function Router() {
       <Route path="/portal-aluno" component={PortalAluno} />
       <Route path="/portal-pais" component={PortalPais} />
       <Route path="/editor" component={Editor} />
+      <Route path="/bilingue" component={Bilingue} />
+      <Route path="/integral" component={Integral} />
+      <Route path="/code-ose" component={CodeOSE} />
+      <Route path="/amplia" component={Amplia} />
+      <Route path="/lista-material" component={ListaMaterial} />
       <Route component={NotFound} />
     </Switch>
   );

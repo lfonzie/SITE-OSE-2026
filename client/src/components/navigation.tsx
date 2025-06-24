@@ -29,6 +29,11 @@ export default function Navigation() {
     { label: "Início", id: "/", isSection: false },
     { label: "Sobre", id: "sobre", isSection: true },
     { label: "Programas", id: "programas", isSection: true },
+    { label: "Bilíngue", id: "/bilingue", isSection: false },
+    { label: "Integral", id: "/integral", isSection: false },
+    { label: "CODE OSE", id: "/code-ose", isSection: false },
+    { label: "Amplia", id: "/amplia", isSection: false },
+    { label: "Material 2025", id: "/lista-material", isSection: false },
     { label: "Professores", id: "/professores", isSection: false },
     { label: "Contato", id: "contato", isSection: true },
   ];
