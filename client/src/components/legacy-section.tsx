@@ -1,4 +1,8 @@
 import { Calendar, Award, Users, BookOpen } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+
+// Importando imagem para seção de legado
+import legacyImage from "@assets/1105_1750717790206.jpg";
 
 export default function LegacySection() {
   return (
@@ -16,8 +20,8 @@ export default function LegacySection() {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <img 
-              src="/attached_assets/1105_1750717790206.jpg" 
+            <OptimizedImage 
+              src={legacyImage} 
               alt="Ambiente alegre e acolhedor da OSE - 100 Anos de tradição"
               className="w-full rounded-lg shadow-lg"
             />

@@ -6,6 +6,12 @@ import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Brain, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+
+// Importando imagens para página Amplia
+import img1 from "@assets/1105_1750717790206.jpg";
+import img5 from "@assets/1068_1750717790205.jpg";
+import img6 from "@assets/1092_1750717790205.jpg";
 
 export default function Amplia() {
   useEffect(() => {
@@ -185,18 +191,18 @@ export default function Amplia() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img 
-                src="/attached_assets/1068_1750717790205.jpg" 
+              <OptimizedImage 
+                src={img5} 
                 alt="Material didático Amplia"
                 className="w-full h-48 object-cover rounded-lg shadow-lg"
               />
-              <img 
-                src="/attached_assets/1092_1750717790205.jpg" 
+              <OptimizedImage 
+                src={img6} 
                 alt="Tecnologia educacional"
                 className="w-full h-48 object-cover rounded-lg shadow-lg"
               />
-              <img 
-                src="/attached_assets/1105_1750717790206.jpg" 
+              <OptimizedImage 
+                src={img1} 
                 alt="Metodologia Amplia"
                 className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
               />

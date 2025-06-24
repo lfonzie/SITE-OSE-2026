@@ -1,0 +1,76 @@
+
+// Verificação de Imagens - OSE
+// Este arquivo lista todas as imagens disponíveis e como usá-las
+
+// Imagens Principais (primeira série)
+export const mainImages = {
+  // Educação Infantil e atividades gerais
+  infantil1: "@assets/0354_1750717790205.jpg", // Atividades educacionais
+  infantil2: "@assets/0312_1750717790204.jpg", // Ambiente escolar
+  infantil3: "@assets/0700_1750717790204.jpg", // Interação alunos
+  
+  // Fundamental I
+  fund1_1: "@assets/0934_1750717790206.jpg", // Sala de aula
+  fund1_2: "@assets/1105_1750717790206.jpg", // Atividades colaborativas
+  fund1_3: "@assets/0581_1750717790206.jpg", // Projetos educacionais
+  fund1_4: "@assets/0491_1750717790207.jpg", // Aprendizado
+  fund1_5: "@assets/0541_1750717790207.jpg", // Desenvolvimento
+  fund1_6: "@assets/1295_1750717790207.jpg", // Atividades culturais
+  
+  // Fundamental II
+  fund2_1: "@assets/0023_1750717790208.jpg", // Estudos avançados
+  fund2_2: "@assets/0378_1750717790208.jpg", // Tecnologia educacional
+  fund2_3: "@assets/1285_1750717790208.jpg", // Preparação acadêmica
+  
+  // Geral/Institucional
+  campus1: "@assets/0905_1750717790206.jpg", // Campus e instalações
+  materiais: "@assets/1068_1750717790205.jpg", // Material didático
+  tecnologia: "@assets/1092_1750717790205.jpg", // Recursos tecnológicos
+};
+
+// Imagens Secundárias (segunda série - mais recentes)
+export const secondaryImages = {
+  // Ensino Médio
+  medio1: "@assets/0312_1750719589609.jpg",
+  medio2: "@assets/0354_1750719589610.jpg", 
+  medio3: "@assets/0491_1750719589611.jpg",
+  medio4: "@assets/0541_1750719589611.jpg",
+  medio5: "@assets/0581_1750719589610.jpg",
+  medio6: "@assets/0700_1750719589609.jpg",
+  
+  // Fundamental II (série 2)
+  fund2_alt1: "@assets/0023_1750719589611.jpg",
+  fund2_alt2: "@assets/0378_1750719589611.jpg", 
+  fund2_alt3: "@assets/1285_1750719589611.jpg",
+  
+  // Outros
+  geral1: "@assets/0905_1750719589610.jpg",
+  geral2: "@assets/0934_1750719589610.jpg",
+  geral3: "@assets/1068_1750719589610.jpg",
+  geral4: "@assets/1092_1750719589610.jpg",
+  geral5: "@assets/1105_1750719589610.jpg",
+  geral6: "@assets/1295_1750719589611.jpg",
+};
+
+// Logos e Assets Especiais
+export const logos = {
+  amplia: "@assets/AMPLIA_Logotipo-versoes_1750779294903.png",
+  isaac: "@assets/616841d439101013bdc4c67c_isaac-log0-01_1750779294900.png",
+  arvore: "@assets/Arvore-de-Livros_1750779294901.png",
+  codeose: "@assets/codeose23_1750779294902.png",
+  acm: "@assets/logo-acm-sao-paulo_1750779294901.png",
+  macmillan: "@assets/png-clipart-macmillan-education-logo-publishing-houses-logos_1750779294902.png",
+  google: "@assets/png-transparent-bett-google-for-education-g-suite-google-text-logo-google-logo-thumbnail_1750779294902.png"
+};
+
+// Exemplo de uso correto:
+/*
+import { OptimizedImage } from "@/components/ui/optimized-image";
+import img1 from "@assets/0354_1750717790205.jpg";
+
+<OptimizedImage 
+  src={img1}
+  alt="Descrição detalhada da imagem"
+  className="w-full h-64 object-cover rounded-lg shadow-lg"
+/>
+*/

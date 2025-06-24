@@ -6,6 +6,7 @@ import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Users, Target, Lightbulb, Heart, Award, MessageCircle } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { Calculator, Palette, UserCheck } from "lucide-react";
 
 // Importando imagens para Fundamental I
 import img1 from "@assets/0934_1750717790206.jpg";
@@ -174,7 +175,7 @@ export default function Fundamental1() {
               />
               <OptimizedImage
                 src={img1}
-                alt="Momentos especiais"
+                alt="Ambiente acolhedor do Fundamental I"
                 className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               />
             </div>
