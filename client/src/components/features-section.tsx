@@ -14,7 +14,7 @@ const features = [
     color: "bg-green-600"
   },
   {
-    logo: "/images/macmillan-education.png",
+    logo: "/attached_assets/LogoMacmillan_1750797550182.png",
     title: "Educação Bilíngue MacMillan",
     description: "Currículo bilíngue que forma cidadãos globais, preparando alunos para interações multiculturais e proficiência linguística.",
     color: "bg-purple-600"
@@ -26,13 +26,13 @@ const features = [
     color: "bg-red-600"
   },
   {
-    logo: "/attached_assets/logo-acm-sao-paulo_1750779294901.png",
+    logo: "/attached_assets/LogoACM_1750797550182.jpg",
     title: "Parceria com ACM-YMCA",
     description: "Ginásio e atividades da ACM (YMCA) de Sorocaba disponíveis para nossos alunos. Famílias podem frequentar pagando apenas a mensalidade, sem compra de título.",
     color: "bg-yellow-600"
   },
   {
-    logo: "/attached_assets/Arvore-de-Livros_1750779294901.png",
+    logo: "/attached_assets/LogoArvore_1750797550181.png",
     title: "Plataforma Árvore",
     description: "Biblioteca digital com milhares de livros e recursos educacionais para incentivar a leitura e o aprendizado.",
     color: "bg-emerald-600"

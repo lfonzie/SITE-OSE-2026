@@ -208,7 +208,7 @@ export default function Integral() {
             </p>
             <div className="flex justify-center items-center mt-8">
               <img 
-                src="/attached_assets/logo-acm-sao-paulo_1750779294901.png" 
+                src="/attached_assets/LogoACM_1750797550182.jpg" 
                 alt="ACM - YMCA Sorocaba"
                 className="h-20"
               />

@@ -146,7 +146,7 @@ export default function ContactSection() {
                 <Button 
                   size="lg"
                   className="w-full bg-green-500 text-white font-semibold px-8 py-4 text-lg"
-                  onClick={() => window.open('https://wa.me/5515221013812', '_blank')}
+                  onClick={() => window.open('https://wa.me/551521013812', '_blank')}
                 >
                   📱 Conversar no WhatsApp
                 </Button>
