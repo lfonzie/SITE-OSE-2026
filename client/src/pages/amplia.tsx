@@ -184,6 +184,9 @@ export default function Amplia() {
         </div>
       </section>
 
+      {/* Content Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Resources Section */}
           <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 rounded-xl p-8 md:p-12 mb-16">
             <div className="text-center mb-8">
