@@ -31,6 +31,7 @@ import Arvore from "./pages/arvore";
 import Isaac from "@/pages/isaac";
 import MissaoValores from "@/pages/missao-valores";
 import Agendamento from "@/pages/agendamento";
+import Dash from "@/pages/dash";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -59,6 +60,7 @@ function Router() {
       <Route path="/isaac" component={Isaac} />
       <Route path="/missao-valores" component={MissaoValores} />
       <Route path="/agendamento" component={Agendamento} />
+      <Route path="/dash" component={Dash} />
       <Route component={NotFound} />
     </Switch>
   );
