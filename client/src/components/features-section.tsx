@@ -2,13 +2,13 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 
 const features = [
   {
-    logo: "/images/GoogleEduc_1750801413575.jpg",
+    logo: "/attached_assets/GoogleEduc_1750801413575.jpg",
     title: "Google for Education",
     description: "Plataforma que transforma a maneira como educadores e alunos aprendem e colaboram, oferecendo educação interativa e colaborativa.",
     color: "bg-blue-600"
   },
   {
-    logo: "/images/GoogleEduc_1750801413575.jpg",
+    logo: "/attached_assets/LogoMacmillan_1750801133344.png",
     title: "Corpo Docente Experiente",
     description: "Equipe altamente qualificada com vasta experiência acadêmica e prática, sempre atualizada com as melhores práticas pedagógicas.",
     color: "bg-green-600"

@@ -6,10 +6,10 @@ import ContactSection from '@/components/contact-section';
 import { OptimizedImage } from '@/components/ui/optimized-image';
 
 // Import images
-import img1 from '/images/0312_1750717790204.jpg';
-import img2 from '/images/0354_1750717790205.jpg';
-import img3 from '/images/0581_1750717790206.jpg';
-import img4 from '/images/0700_1750717790204.jpg';
+import img1 from '@assets/0312_1750717790204.jpg';
+import img2 from '@assets/0354_1750717790205.jpg';
+import img3 from '@assets/0581_1750717790206.jpg';
+import img4 from '@assets/0700_1750717790204.jpg';
 
 export default function Bilingue() {
   const features = [

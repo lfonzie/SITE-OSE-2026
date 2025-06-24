@@ -1,8 +1,8 @@
 // EXEMPLOS PRÁTICOS PARA USAR SUAS IMAGENS
 
-const img1 = "/images/0354_1750717790205.jpg";
-const img2 = "/images/1068_1750717790205.jpg";
-const img3 = "/images/0312_1750717790204.jpg";
+const img1 = "/attached_assets/0354_1750717790205.jpg";
+const img2 = "/attached_assets/1068_1750717790205.jpg";
+const img3 = "/attached_assets/0312_1750717790204.jpg";
 
 // 1. EXEMPLO BÁSICO - Card com Imagem
 export function CardEscola() {
