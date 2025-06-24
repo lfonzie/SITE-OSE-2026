@@ -29,10 +29,10 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="py-20 bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg">
+          <h2 className="text-4xl md:text-5xl font-bold text-school-brown mb-4">
             O que dizem sobre a OSE
           </h2>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
+          <p className="text-xl text-school-brown max-w-3xl mx-auto">
             Depoimentos de pais, alunos e ex-alunos que fazem parte da nossa história
           </p>
         </div>

@@ -87,7 +87,7 @@ export default function Navigation() {
               <div key={index} className="relative group">
                 {item.submenu ? (
                   <div 
-                    className="relative"
+                    className="relative group"
                     onMouseEnter={() => setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
@@ -95,19 +95,19 @@ export default function Navigation() {
                       {item.label}
                       <ChevronDown size={16} className="ml-1" />
                     </button>
-                    {activeDropdown === item.label && (
-                      <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-                        {item.submenu.map((subItem, subIndex) => (
-                          <button
-                            key={subIndex}
-                            onClick={() => handleNavigation(subItem)}
-                            className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-school-orange hover:text-white transition-colors"
-                          >
-                            {subItem.label}
-                          </button>
-                        ))}
-                      </div>
-                    )}
+                    <div className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 transition-all duration-200 ${
+                      activeDropdown === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                    }`}>
+                      {item.submenu.map((subItem, subIndex) => (
+                        <button
+                          key={subIndex}
+                          onClick={() => handleNavigation(subItem)}
+                          className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-school-orange hover:text-white transition-colors"
+                        >
+                          {subItem.label}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 ) : (
                   <button
