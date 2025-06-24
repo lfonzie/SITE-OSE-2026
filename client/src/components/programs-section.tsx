@@ -88,7 +88,21 @@ export default function ProgramsSection() {
                     </li>
                   ))}
                 </ul>
-                <button className={`${colors.text} font-semibold hover:underline flex items-center`}>
+                <button 
+                  className={`${colors.text} font-semibold hover:underline flex items-center`}
+                  onClick={() => {
+                    const pageMap: Record<string, string> = {
+                      'Educação Infantil': '/educacao-infantil',
+                      'Ensino Fundamental I': '/fundamental-1',
+                      'Ensino Fundamental II': '/fundamental-2',
+                      'Ensino Médio': '/ensino-medio'
+                    };
+                    const targetPage = pageMap[program.title];
+                    if (targetPage) {
+                      window.location.href = targetPage;
+                    }
+                  }}
+                >
                   Saiba Mais <ArrowRight className="ml-1" size={16} />
                 </button>
               </div>

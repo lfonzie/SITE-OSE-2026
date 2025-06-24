@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -40,53 +40,29 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: "#", color: "bg-blue-600 hover:bg-blue-700" },
-  { icon: Instagram, href: "#", color: "bg-pink-600 hover:bg-pink-700" },
-  { icon: Twitter, href: "#", color: "bg-blue-400 hover:bg-blue-500" },
-  { icon: Youtube, href: "#", color: "bg-red-600 hover:bg-red-700" }
+  { icon: Facebook, href: "https://facebook.com/colegioose", color: "bg-blue-600 hover:bg-blue-700" },
+  { icon: Instagram, href: "https://instagram.com/colegioose", color: "bg-pink-600 hover:bg-pink-700" },
+  { icon: Twitter, href: "https://twitter.com/colegioose", color: "bg-blue-400 hover:bg-blue-500" },
+  { icon: Youtube, href: "https://youtube.com/colegioose", color: "bg-red-600 hover:bg-red-700" }
 ];
 
 export default function ContactSection() {
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
+  useEffect(() => {
+    // Adiciona o script do UCChat
+    const script = document.createElement('script');
+    script.async = true;
+    script.defer = true;
+    script.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/full.js';
+    document.head.appendChild(script);
 
-  const form = useForm<InsertContact>({
-    resolver: zodResolver(insertContactSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      interest: "",
-      message: ""
-    }
-  });
-
-  const createContactMutation = useMutation({
-    mutationFn: (data: InsertContact) => apiRequest("POST", "/api/contacts", data),
-    onSuccess: () => {
-      toast({
-        title: "Mensagem enviada!",
-        description: "Entraremos em contato em breve. Obrigado pelo interesse!",
-      });
-      form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/contacts"] });
-    },
-    onError: (error: Error) => {
-      toast({
-        title: "Erro ao enviar mensagem",
-        description: error.message,
-        variant: "destructive",
-      });
-    },
-  });
-
-  const onSubmit = (data: InsertContact) => {
-    // Track form submission
-    trackEvent('form_submit', 'contact', 'contact_form');
-    trackFBEvent('Lead', { content_name: 'Contact Form' });
-    
-    createContactMutation.mutate(data);
-  };
+    return () => {
+      // Cleanup: remove o script quando o componente for desmontado
+      const existingScript = document.querySelector('script[src="https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/full.js"]');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
 
   return (
     <section id="contato" className="py-20 bg-white">
@@ -103,7 +79,7 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
             <h3 className="text-2xl font-bold text-slate-800 mb-8">Informações de Contato</h3>
-            
+
             <div className="space-y-6">
               {contactInfo.map((info, index) => {
                 const Icon = info.icon;
@@ -144,114 +120,7 @@ export default function ContactSection() {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-2xl font-bold text-slate-800 mb-8">Envie sua Mensagem</h3>
-            
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Nome Completo</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Seu nome completo" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>E-mail</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="seu@email.com" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Telefone</FormLabel>
-                        <FormControl>
-                          <Input placeholder="(11) 99999-9999" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="interest"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Interesse</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Selecione uma opção" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="educacao-infantil">Educação Infantil</SelectItem>
-                            <SelectItem value="ensino-fundamental">Ensino Fundamental</SelectItem>
-                            <SelectItem value="ensino-medio">Ensino Médio</SelectItem>
-                            <SelectItem value="informacoes-gerais">Informações Gerais</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Mensagem</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          rows={5}
-                          placeholder="Conte-nos como podemos ajudar..." 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <Button 
-                  type="submit" 
-                  className="w-full bg-school-orange hover:bg-school-orange/90 text-white py-4 text-lg font-bold"
-                  disabled={createContactMutation.isPending}
-                >
-                  {createContactMutation.isPending ? (
-                    "Enviando..."
-                  ) : (
-                    <>
-                      <Send className="mr-2" size={20} />
-                      Enviar Mensagem
-                    </>
-                  )}
-                </Button>
-              </form>
-            </Form>
-          </div>
+          
         </div>
       </div>
     </section>
