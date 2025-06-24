@@ -5,6 +5,7 @@ import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Globe, Users, BookOpen, Target, Lightbulb, Award } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Importando imagens para educação bilíngue
 import img1 from "@assets/0312_1750717790204.jpg";
