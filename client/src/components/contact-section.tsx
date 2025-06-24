@@ -92,10 +92,10 @@ export default function ContactSection() {
       <section id="contato" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-school-brown mb-4">
               Entre em <span className="text-school-orange">Contato</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-xl text-school-brown max-w-3xl mx-auto">
               Estamos aqui para esclarecer suas dúvidas e ajudar você a conhecer melhor nossa proposta educacional
             </p>
           </div>
@@ -103,7 +103,7 @@ export default function ContactSection() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Informações de contato */}
             <div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-8">Informações de Contato</h3>
+              <h3 className="text-2xl font-bold text-school-brown mb-8">Informações de Contato</h3>
 
               <div className="space-y-6">
                 {contactInfo.map((info, index) => {
@@ -114,9 +114,9 @@ export default function ContactSection() {
                         <Icon size={24} />
                       </div>
                       <div>
-                        <h4 className="font-bold text-slate-800 mb-1">{info.title}</h4>
+                        <h4 className="font-bold text-school-brown mb-1">{info.title}</h4>
                         {info.content.map((line, lineIndex) => (
-                          <p key={lineIndex} className="text-slate-600">
+                          <p key={lineIndex} className="text-school-brown">
                             {line}
                           </p>
                         ))}
@@ -141,7 +141,7 @@ export default function ContactSection() {
 
             {/* Botão WhatsApp */}
             <div className="bg-green-50 p-8 rounded-xl border-2 border-green-200">
-              <h3 className="text-2xl font-bold text-slate-800 mb-6 text-center">Fale Conosco no WhatsApp</h3>
+              <h3 className="text-2xl font-bold text-school-brown mb-6 text-center">Fale Conosco no WhatsApp</h3>
               <div className="text-center">
                 <Button 
                   size="lg"
@@ -150,7 +150,7 @@ export default function ContactSection() {
                 >
                   📱 Conversar no WhatsApp
                 </Button>
-                <p className="text-slate-600 mt-4">
+                <p className="text-school-brown mt-4">
                   Estamos prontos para atendê-lo!<br/>
                   <span className="font-semibold">(15) 2101-3812</span>
                 </p>
@@ -171,19 +171,19 @@ export default function ContactSection() {
                 className="h-12 w-auto mr-3"
               />
               <div>
-                <h3 className="text-xl font-bold text-slate-800">OSE</h3>
-                <p className="text-slate-600 text-sm">Desde 1924</p>
+                <h3 className="text-xl font-bold text-school-brown">OSE</h3>
+                <p className="text-school-brown text-sm">Desde 1924</p>
               </div>
             </div>
 
-            <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+            <p className="text-school-brown mb-6 max-w-2xl mx-auto">
               Tradição secular de ensino desde 1924. Formando cidadãos críticos e preparados para os desafios do futuro há 100 anos.
             </p>
 
             
 
             <div className="border-t border-gray-200 pt-6">
-              <p className="text-slate-500">
+              <p className="text-school-brown/70">
                 © 2025 OSE. Todos os direitos reservados.
               </p>
             </div>
