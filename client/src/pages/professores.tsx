@@ -1,79 +1,21 @@
-import { useEffect } from "react";
-import Navigation from "@/components/navigation";
-import WhyOSESection from "@/components/why-ose-section";
-import ContactSection from "@/components/contact-section";
-import { updateSEO } from "@/lib/seo";
-import { Button } from "@/components/ui/button";
-import { GraduationCap, Award, BookOpen, Users } from "lucide-react";
-import { OptimizedImage } from "@/components/ui/optimized-image";
+import { GraduationCap, Award, BookOpen, Users, Target, Heart } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Navigation from '@/components/navigation';
+import WhyOSESection from '@/components/why-ose-section';
+import ContactSection from '@/components/contact-section';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 
-// Importando imagens para página de professores
-const img1 = "/images/0905_1750719589610.jpg";
-const img2 = "/images/0934_1750719589610.jpg";
-const img3 = "/images/1068_1750719589610.jpg";
-const img4 = "/images/1092_1750719589610.jpg";
-const img5 = "/images/1105_1750719589610.jpg";
-const img6 = "/images/1295_1750719589611.jpg";
+// Import images
+import img1 from '/images/0905_1750717790206.jpg';
+import img2 from '/images/0934_1750717790206.jpg';
+import img3 from '/images/1068_1750717790205.jpg';
 
 export default function Professores() {
-  useEffect(() => {
-    updateSEO({
-      title: "Nossos Professores - Educadores Especializados | a OSE",
-      description: "Conheça o corpo docente da OSE: educadores qualificados com mais de 100 anos de tradição em ensino de excelência.",
-      keywords: "professores OSE, corpo docente, educadores qualificados, ensino sorocaba"
-    });
-  }, []);
-
-  const teachers = [
-    {
-      name: "Profa. Maria Silva",
-      position: "Coordenadora Pedagógica - Educação Infantil",
-      specialization: "Pedagogia e Psicopedagogia",
-      experience: "15 anos",
-      description: "Especialista em desenvolvimento infantil e metodologias lúdicas de aprendizagem."
-    },
-    {
-      name: "Prof. João Santos",
-      position: "Professor de Matemática - Ensino Médio",
-      specialization: "Matemática e Física",
-      experience: "20 anos",
-      description: "Mestre em Matemática Aplicada, focado em preparação para vestibulares."
-    },
-    {
-      name: "Profa. Ana Costa",
-      position: "Professora de Português - Fundamental II",
-      specialization: "Letras e Literatura Brasileira",
-      experience: "12 anos",
-      description: "Doutora em Literatura, desenvolve projetos de leitura e escrita criativa."
-    },
-    {
-      name: "Prof. Carlos Lima",
-      position: "Professor de Ciências - Fundamental I",
-      specialization: "Biologia e Ciências Naturais",
-      experience: "18 anos",
-      description: "Especialista em educação científica e experimentação prática."
-    },
-    {
-      name: "Profa. Lucia Rodrigues",
-      position: "Professora de Inglês - Todos os Níveis",
-      specialization: "Letras - Inglês",
-      experience: "14 anos",
-      description: "Certificada em Cambridge, aplica metodologias comunicativas no ensino."
-    },
-    {
-      name: "Prof. Roberto Ferreira",
-      position: "Professor de História - Ensino Médio",
-      specialization: "História e Ciências Sociais",
-      experience: "22 anos",
-      description: "Mestre em História do Brasil, especialista em preparação para vestibulares."
-    }
-  ];
-
-  const qualities = [
+  const diferenciais = [
     {
       icon: GraduationCap,
-      title: "Formação Continuada",
-      description: "Todos os nossos educadores participam regularmente de cursos de atualização e capacitação."
+      title: "Formação Especializada",
+      description: "Professores com graduação, especialização e pós-graduação em suas áreas de atuação."
     },
     {
       icon: Award,
@@ -89,6 +31,16 @@ export default function Professores() {
       icon: Users,
       title: "Relacionamento Próximo",
       description: "Acompanhamento individualizado e relacionamento próximo com alunos e famílias."
+    },
+    {
+      icon: Target,
+      title: "Foco no Resultado",
+      description: "Compromisso com o desenvolvimento integral e sucesso acadêmico dos estudantes."
+    },
+    {
+      icon: Heart,
+      title: "Paixão pelo Ensino",
+      description: "Dedicação genuína à educação e ao crescimento pessoal de cada aluno."
     }
   ];
 
@@ -97,39 +49,59 @@ export default function Professores() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/attached_assets/0905_1750717790206.jpg" 
-            alt="Nossos Professores"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FF4F00]/90 via-[#FF4F00]/80 to-[#FF6B00]/85">
-            <div className="absolute inset-0 bg-black/30" />
-          </div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Nossos Professores
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-              Educadores Especializados com Tradição de Excelência
-            </p>
-            <p className="text-lg max-w-3xl mx-auto opacity-95">
-              Conheça o corpo docente que faz da OSE referência em educação há mais de 100 anos. 
-              Profissionais qualificados, comprometidos com a formação integral de cada aluno.
-            </p>
+      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Nossos <span className="text-yellow-300">Professores</span>
+              </h1>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+                Educadores Especializados
+              </h2>
+              <p className="text-xl md:text-2xl mb-6">
+                Mais de 100 anos de tradição em ensino
+              </p>
+              <p className="text-lg mb-8 opacity-95">
+                Conheça o corpo docente da OSE: educadores qualificados e experientes 
+                comprometidos com a excelência acadêmica e formação integral dos alunos.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                >
+                  📅 Agende uma Visita
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  onClick={() => document.getElementById('detalhes')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Conheça a Equipe
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
+                <div className="text-center">
+                  <GraduationCap className="text-white/80 mx-auto mb-4" size={80} />
+                  <p className="text-white/70 text-lg font-medium">Educadores Especialistas</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Teachers Grid */}
-      <section className="py-20">
+      {/* Features Section */}
+      <section id="detalhes" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-800 mb-6">
-              Conheça Nossos Educadores
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Educadores <span className="text-school-orange">Especialistas</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto">
               Professores qualificados que combinam experiência, dedicação e paixão pelo ensino
@@ -137,69 +109,37 @@ export default function Professores() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {teachers.map((teacher, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="text-center mb-4">
-                  <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden bg-school-orange/10 flex items-center justify-center">
-                    <GraduationCap className="text-school-orange" size={32} />
+            {diferenciais.map((diferencial, index) => {
+              const Icon = diferencial.icon;
+              return (
+                <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="bg-school-orange text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+                    <Icon size={28} />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800">{teacher.name}</h3>
-                  <p className="text-school-orange font-medium">{teacher.position}</p>
+                  <h3 className="text-xl font-bold text-slate-800 mb-4">{diferencial.title}</h3>
+                  <p className="text-slate-600">{diferencial.description}</p>
                 </div>
-                <div className="space-y-3">
-                  <div>
-                    <span className="font-semibold text-slate-700">Formação: </span>
-                    <span className="text-slate-600">{teacher.specialization}</span>
-                  </div>
-                  <div>
-                    <span className="font-semibold text-slate-700">Experiência: </span>
-                    <span className="text-slate-600">{teacher.experience}</span>
-                  </div>
-                  <p className="text-slate-600 text-sm leading-relaxed">{teacher.description}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          {/* Qualities Section */}
-          <div className="bg-white rounded-xl p-8 md:p-12 shadow-lg">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-slate-800 mb-4">
-                O que torna nossos professores especiais
-              </h3>
-              <p className="text-xl text-slate-600">
-                Diferenciais que fazem da OSE referência em qualidade educacional
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {qualities.map((quality, index) => (
-                <div key={index} className="text-center">
-                  <div className="bg-school-orange/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <quality.icon className="text-school-orange" size={28} />
-                  </div>
-                  <h4 className="text-xl font-bold text-slate-800 mb-3">{quality.title}</h4>
-                  <p className="text-slate-600 leading-relaxed">{quality.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div className="mt-16 bg-gradient-to-r from-school-orange to-school-brown rounded-xl p-8 md:p-12 text-white text-center">
-            <h3 className="text-3xl font-bold mb-4">
-              Venha conhecer nossa equipe
-            </h3>
-            <p className="text-xl mb-6 opacity-95">
-              Agende uma visita e converse pessoalmente com nossos educadores
-            </p>
-            <Button 
-              size="lg"
-              className="bg-white text-school-orange hover:bg-gray-100"
-              onClick={() => window.location.href = '/#contato'}
-            >
-              Agendar Visita
-            </Button>
+          {/* Image Gallery */}
+          <div className="grid md:grid-cols-3 gap-6">
+            <OptimizedImage
+              src={img1}
+              alt="Corpo docente especializado"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
+            <OptimizedImage
+              src={img2}
+              alt="Educadores qualificados"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
+            <OptimizedImage
+              src={img3}
+              alt="Metodologia inovadora"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
           </div>
         </div>
       </section>

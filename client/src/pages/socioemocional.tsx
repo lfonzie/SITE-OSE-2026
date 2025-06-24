@@ -113,53 +113,89 @@ export default function SocioEmocional() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/attached_assets/1092_1750717790205.jpg" 
-            alt="Programa SócioEmocional"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FF4F00]/90 via-[#FF4F00]/80 to-[#FF6B00]/85">
-            <div className="absolute inset-0 bg-black/30" />
-          </div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Programa SócioEmocional
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              Desenvolvendo Cidadãos Conscientes
-            </h2>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-              Formação integral que vai além do ensino acadêmico tradicional
-            </p>
-            <p className="text-lg max-w-3xl mx-auto opacity-95">
-              Cultivamos habilidades emocionais e sociais essenciais para os desafios do século XXI, 
-              valorizando as singularidades dos alunos em um contexto sociocultural.
-            </p>
+      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Programa <span className="text-yellow-300">SócioEmocional</span>
+              </h1>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+                Laboratório de Inteligência de Vida
+              </h2>
+              <p className="text-xl md:text-2xl mb-6">
+                Desenvolvimento integral do ser humano
+              </p>
+              <p className="text-lg mb-8 opacity-95">
+                Programa educacional voltado para o desenvolvimento de competências socioemocionais, 
+                formando cidadãos conscientes e emocionalmente inteligentes.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg"
+                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                >
+                  📅 Agende uma Visita
+                </Button>
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  onClick={() => document.getElementById('detalhes')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Saiba Mais
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
+                <div className="text-center">
+                  <Heart className="text-white/80 mx-auto mb-4" size={80} />
+                  <p className="text-white/70 text-lg font-medium">Inteligência Emocional</p>
+                  <p className="text-white/60 text-sm">Desenvolvimento Integral</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Vision Section */}
-      <section className="py-20">
+      {/* Features Section */}
+      <section id="detalhes" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-slate-800 mb-6">
-              Nossa Visão Educacional
-            </h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Pilares da <span className="text-school-orange">Inteligência Emocional</span>
+            </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              O programa educacional da OSE é uma iniciativa voltada para o desenvolvimento 
-              socioemocional de estudantes, da educação infantil ao ensino médio, formando 
-              cidadãos conscientes e preparados para os desafios contemporâneos.
+              Nosso programa é fundamentado em quatro pilares essenciais para o desenvolvimento 
+              socioemocional completo dos estudantes
             </p>
           </div>
 
-          {/* Pillars Section */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {pillars.map((pillar, index) => (
+            {pillars.map((pillar, index) => {
+              const Icon = pillar.icon;
+              return (
+                <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center">
+                  <div className="bg-school-orange text-white w-16 h-16 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                    <Icon size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-4">{pillar.title}</h3>
+                  <p className="text-slate-600">{pillar.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <WhyOSESection />
+      <ContactSection />
+    </div>
+  );
+}
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center">
                 <div className="bg-school-orange/10 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
                   <pillar.icon className="text-school-orange" size={28} />
