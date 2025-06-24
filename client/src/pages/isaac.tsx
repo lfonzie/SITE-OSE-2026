@@ -26,7 +26,7 @@ export default function Isaac() {
           <div className="text-center">
             <div className="mb-8">
               <img 
-                src="/images/logo-isaac.png" 
+                src="/images/616841d439101013bdc4c67c_isaac-log0-01_1750779294900.png" 
                 alt="ISAAC"
                 className="h-32 mx-auto mb-4"
               />
