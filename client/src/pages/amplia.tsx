@@ -87,8 +87,18 @@ export default function Amplia() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="/attached_assets/1105_1750717790206.jpg" 
+            alt="Plataforma Amplia"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FF4F00]/90 via-[#FF4F00]/80 to-[#FF6B00]/85">
+            <div className="absolute inset-0 bg-black/30" />
+          </div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="mb-8">
               <img 

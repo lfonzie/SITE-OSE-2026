@@ -43,46 +43,62 @@ export class MemStorage implements IStorage {
 
   private seedData() {
     // Seed programs
-    const programsData: Program[] = [
+    const programs: Program[] = [
       {
         id: 1,
         title: "Educação Infantil",
-        description: "Base sólida para o desenvolvimento integral da criança com foco no aprendizado lúdico e socioemocional.",
-        ageRange: "2-5 anos",
-        features: ["Desenvolvimento Socioemocional", "Educação Bilíngue", "Google for Education"],
-        color: "blue",
-        icon: "baby"
+        description: "Desenvolvimento socioemocional e cognitivo para crianças de 4 a 6 anos, com ambiente seguro e pedagogia finlandesa.",
+        features: [
+          "Jardim I e Jardim II",
+          "Pedagogia Finlandesa",
+          "Desenvolvimento Socioemocional",
+          "Ambiente Seguro e Acolhedor"
+        ],
+        icon: "baby",
+        color: "blue"
       },
       {
         id: 2,
         title: "Ensino Fundamental I",
-        description: "Formação acadêmica sólida integrada com tecnologia e programação na grade curricular.",
-        ageRange: "6-10 anos",
-        features: ["{CODE.OSE} - Linguagem de Programação", "Integral Flex", "Árvore de Livros"],
-        color: "green",
-        icon: "book"
+        description: "Desenvolvendo mentes curiosas e corações compassivos através de metodologias ativas e pensamento crítico.",
+        features: [
+          "1º ao 5º ano",
+          "Metodologias Ativas",
+          "Pensamento Crítico",
+          "CODE OSE Programação"
+        ],
+        icon: "graduation-cap",
+        color: "green"
       },
       {
         id: 3,
         title: "Ensino Fundamental II",
-        description: "Consolidação do conhecimento com preparação para o ensino médio através da plataforma Amplia.",
-        ageRange: "11-14 anos",
-        features: ["Plataforma Amplia", "LIV - Laboratório Inteligência de Vida", "Ensino Bilíngue by MacMillan"],
-        color: "green",
-        icon: "book"
+        description: "Formando líderes conscientes para um mundo em transformação, com foco em cidadania e ética.",
+        features: [
+          "6º ao 9º ano",
+          "Formação de Líderes",
+          "Responsabilidade Ética",
+          "Preparação para o Futuro"
+        ],
+        icon: "brain",
+        color: "red"
       },
       {
         id: 4,
-        title: "Novo Ensino Médio",
-        description: "Preparação completa para vestibular e ENEM com foco no projeto de vida e formação cidadã.",
-        ageRange: "15-17 anos",
-        features: ["Itinerários Formativos", "Preparação ENEM", "Projeto de Vida"],
-        color: "red",
-        icon: "graduation-cap"
+        title: "Ensino Médio",
+        description: "Preparação para o futuro com excelência acadêmica e formação integral, focando em vestibulares e vida.",
+        features: [
+          "1ª a 3ª série",
+          "Preparação Vestibular",
+          "Formação Integral",
+          "Excelência Acadêmica"
+        ],
+        icon: "graduation-cap",
+        color: "blue"
       }
     ];
 
-    programsData.forEach(program => this.programs.set(program.id, program));
+    programs.forEach(program => this.programs.set(program.id, program));
 
     // Seed faculty
     const facultyData: Faculty[] = [

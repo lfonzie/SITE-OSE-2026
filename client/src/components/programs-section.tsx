@@ -12,22 +12,22 @@ const iconMap = {
 
 const colorMap = {
   blue: {
-    bg: "bg-gradient-to-br from-orange-500 to-orange-100",
-    border: "border-orange-100",
-    iconBg: "bg-school-orange",
-    text: "text-school-orange"
+    bg: "bg-blue-50",
+    border: "border-blue-100",
+    iconBg: "bg-blue-600",
+    text: "text-blue-600"
   },
   green: {
-    bg: "bg-gradient-to-br from-orange-500 to-orange-100",
-    border: "border-orange-100",
-    iconBg: "bg-school-brown",
-    text: "text-school-brown"
+    bg: "bg-green-50",
+    border: "border-green-100",
+    iconBg: "bg-green-600",
+    text: "text-green-600"
   },
   red: {
-    bg: "bg-gradient-to-br from-orange-500 to-orange-100",
-    border: "border-orange-100",
-    iconBg: "bg-school-orange",
-    text: "text-school-orange"
+    bg: "bg-red-50",
+    border: "border-red-100",
+    iconBg: "bg-red-600",
+    text: "text-red-600"
   }
 };
 
@@ -55,7 +55,7 @@ export default function ProgramsSection() {
   }
 
   return (
-    <section id="programas" className="py-20 bg-orange-50">
+    <section id="programas" className="py-20 bg-gradient-to-br from-[#FF4F00]/10 to-[#FF6B00]/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">

@@ -83,3 +83,11 @@
 .hover\:bg-school-orange:hover { background-color: hsl(25, 95%, 48%); }
 .hover\:bg-school-brown:hover { background-color: hsl(30, 67%, 30%); }
 .hover\:bg-school-white:hover { background-color: hsl(0, 0%, 95%); }
+
+/* Gradientes laranja para fundos */
+.bg-orange-gradient { 
+  background: linear-gradient(135deg, #FF4F00 0%, #FF6B00 100%); 
+}
+.bg-orange-light-gradient { 
+  background: linear-gradient(135deg, rgba(255, 79, 0, 0.1) 0%, rgba(255, 107, 0, 0.05) 100%); 
+}
