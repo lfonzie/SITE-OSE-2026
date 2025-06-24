@@ -5,9 +5,9 @@
 // Imagens Principais (primeira série)
 export const mainImages = {
   // Educação Infantil e atividades gerais
-  infantil1: "@assets/0354_1750717790205.jpg", // Atividades educacionais
-  infantil2: "@assets/0312_1750717790204.jpg", // Ambiente escolar
-  infantil3: "@assets/0700_1750717790204.jpg", // Interação alunos
+  infantil1: "/images/0354_1750717790205.jpg", // Atividades educacionais
+  infantil2: "/images/0312_1750717790204.jpg", // Ambiente escolar
+  infantil3: "/images/0700_1750717790204.jpg", // Interação alunos
   
   // Fundamental I
   fund1_1: "@assets/0934_1750717790206.jpg", // Sala de aula

@@ -8,12 +8,12 @@ import { Brain, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Importando imagens para Fundamental II
-import img1 from "@assets/0023_1750717790208.jpg";
-import img2 from "@assets/0378_1750717790208.jpg";
-import img3 from "@assets/1285_1750717790208.jpg";
-import img4 from "@assets/0023_1750719589611.jpg";
-import img5 from "@assets/0378_1750719589611.jpg";
-import img6 from "@assets/1285_1750719589611.jpg";
+const img1 = "/images/0023_1750717790208.jpg";
+const img2 = "/images/0378_1750717790208.jpg";
+const img3 = "/images/1285_1750717790208.jpg";
+const img4 = "/images/0023_1750719589611.jpg";
+const img5 = "/images/0378_1750719589611.jpg";
+const img6 = "/images/1285_1750719589611.jpg";
 
 export default function Fundamental2() {
   useEffect(() => {

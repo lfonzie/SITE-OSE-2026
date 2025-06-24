@@ -9,9 +9,9 @@ import { Brain, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Importando imagens para página Amplia
-import img1 from "@assets/1105_1750717790206.jpg";
-import img5 from "@assets/1068_1750717790205.jpg";
-import img6 from "@assets/1092_1750717790205.jpg";
+const img1 = "/images/1105_1750717790206.jpg";
+const img5 = "/images/1068_1750717790205.jpg";
+const img6 = "/images/1092_1750717790205.jpg";
 
 export default function Amplia() {
   useEffect(() => {

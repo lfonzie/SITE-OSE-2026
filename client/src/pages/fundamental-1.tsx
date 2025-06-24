@@ -9,12 +9,12 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 import { Calculator, Palette, UserCheck } from "lucide-react";
 
 // Importando imagens para Fundamental I
-import img1 from "@assets/0934_1750717790206.jpg";
-import img2 from "@assets/1105_1750717790206.jpg";
-import img3 from "@assets/0581_1750717790206.jpg";
-import img4 from "@assets/0491_1750717790207.jpg";
-import img5 from "@assets/0541_1750717790207.jpg";
-import img6 from "@assets/1295_1750717790207.jpg";
+const img1 = "/images/0934_1750717790206.jpg";
+const img2 = "/images/1105_1750717790206.jpg";
+const img3 = "/images/0581_1750717790206.jpg";
+const img4 = "/images/0491_1750717790207.jpg";
+const img5 = "/images/0541_1750717790207.jpg";
+const img6 = "/images/1295_1750717790207.jpg";
 
 export default function Fundamental1() {
   useEffect(() => {

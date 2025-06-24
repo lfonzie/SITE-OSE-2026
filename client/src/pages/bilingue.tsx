@@ -8,12 +8,12 @@ import { Globe, Users, BookOpen, Target, Lightbulb, Award } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Importando imagens para educação bilíngue
-import img1 from "@assets/0312_1750717790204.jpg";
-import img2 from "@assets/0354_1750717790205.jpg";
-import img3 from "@assets/0700_1750717790204.jpg";
-import img4 from "@assets/0905_1750717790206.jpg";
-import img5 from "@assets/1068_1750717790205.jpg";
-import img6 from "@assets/1092_1750717790205.jpg";
+const img1 = "/images/0312_1750717790204.jpg";
+const img2 = "/images/0354_1750717790205.jpg";
+const img3 = "/images/0700_1750717790204.jpg";
+const img4 = "/images/0905_1750717790206.jpg";
+const img5 = "/images/1068_1750717790205.jpg";
+const img6 = "/images/1092_1750717790205.jpg";
 
 export default function Bilingue() {
   useEffect(() => {
