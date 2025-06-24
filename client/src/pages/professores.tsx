@@ -191,26 +191,32 @@ export default function Professores() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gradient-to-r from-school-orange/90 to-school-brown/90">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+          style={{
+            backgroundImage: "url('/images/campus-ose-background.png')"
+          }}
+        ></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-school-brown mb-6">
-              Nossos <span className="text-school-orange">Professores</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Nossos <span className="text-white drop-shadow-lg">Professores</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-school-brown mb-4">
+            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
               Educadores Especializados
             </h2>
-            <p className="text-xl md:text-2xl text-school-orange mb-6">
+            <p className="text-xl md:text-2xl text-white/95 mb-6">
               Mais de 100 anos de tradição em ensino
             </p>
-            <p className="text-lg text-school-brown mb-8 max-w-4xl mx-auto">
+            <p className="text-lg text-white/90 mb-8 max-w-4xl mx-auto">
               Conheça o corpo docente da OSE: educadores qualificados e experientes 
               comprometidos com a excelência acadêmica e formação integral dos alunos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-school-orange hover:bg-school-orange/90 text-white font-semibold px-8 py-3"
+                className="bg-white text-school-orange hover:bg-white/90 font-semibold px-8 py-3 shadow-lg"
                 onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
               >
                 📅 Agende uma Visita
@@ -218,7 +224,7 @@ export default function Professores() {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-school-brown text-school-brown hover:bg-school-brown hover:text-white font-semibold px-8 py-3"
+                className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3 shadow-lg"
                 onClick={() => document.getElementById('mural')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Conheça a Equipe
