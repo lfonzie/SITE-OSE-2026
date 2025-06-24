@@ -87,7 +87,7 @@ export default function ListaMaterial() {
                   size="lg" 
                   variant="outline" 
                   className="border-white text-white font-semibold px-8 py-3"
-                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                  onClick={() => window.location.href = '/agendamento'}
                 >
                   📅 Agende uma Visita
                 </Button>

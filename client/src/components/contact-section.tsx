@@ -132,7 +132,7 @@ export default function ContactSection() {
                 <Button 
                   size="lg"
                   className="w-full bg-school-orange text-white font-semibold"
-                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                  onClick={() => window.location.href = '/agendamento'}
                 >
                   📅 Agende sua Visita
                 </Button>

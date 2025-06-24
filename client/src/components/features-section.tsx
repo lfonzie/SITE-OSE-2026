@@ -20,19 +20,19 @@ const features = [
     color: "bg-purple-600"
   },
   {
-    logo: "/images/codeose23_1750779294902.png",
+    logo: "/attached_assets/codeose23_1750779294902.png",
     title: "{CODE.OSE} - Programação",
     description: "Programa inovador de ensino de programação e pensamento computacional, preparando alunos para o futuro digital.",
     color: "bg-red-600"
   },
   {
-    logo: "/images/acm-ymca.png",
+    logo: "/attached_assets/logo-acm-sao-paulo_1750779294901.png",
     title: "Parceria com ACM-YMCA",
     description: "Colaboração estratégica com a ACM (YMCA) de Sorocaba, nossa vizinha no centro da cidade, promovendo desenvolvimento integral e valores cristãos.",
     color: "bg-yellow-600"
   },
   {
-    logo: "/images/arvore-logo.png",
+    logo: "/attached_assets/Arvore-de-Livros_1750779294901.png",
     title: "Plataforma Árvore",
     description: "Biblioteca digital com milhares de livros e recursos educacionais para incentivar a leitura e o aprendizado.",
     color: "bg-emerald-600"
