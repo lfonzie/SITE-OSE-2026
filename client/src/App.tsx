@@ -26,7 +26,8 @@ import Integral from "./pages/integral";
 import CodeOSE from "./pages/code-ose";
 import Amplia from "./pages/amplia";
 import ListaMaterial from "./pages/lista-material";
-import Editor from "@/pages/editor";
+import Arvore from "./pages/arvore";
+import Isaac from "./pages/isaac";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -45,12 +46,13 @@ function Router() {
       <Route path="/legacy" component={Legacy} />
       <Route path="/portal-aluno" component={PortalAluno} />
       <Route path="/portal-pais" component={PortalPais} />
-      <Route path="/editor" component={Editor} />
       <Route path="/bilingue" component={Bilingue} />
       <Route path="/integral" component={Integral} />
       <Route path="/code-ose" component={CodeOSE} />
       <Route path="/amplia" component={Amplia} />
       <Route path="/lista-material" component={ListaMaterial} />
+      <Route path="/arvore" component={Arvore} />
+      <Route path="/isaac" component={Isaac} />
       <Route component={NotFound} />
     </Switch>
   );
