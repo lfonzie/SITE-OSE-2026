@@ -57,7 +57,7 @@ export default function EducacaoInfantil() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Educação <span className="text-yellow-300">Infantil</span>
+                Educação <span className="text-school-orange">Infantil</span>
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold mb-4">
                 Jardim I e Jardim II

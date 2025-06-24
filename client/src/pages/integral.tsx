@@ -53,36 +53,47 @@ export default function Integral() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/attached_assets/0934_1750717790206.jpg" 
-            alt="Integral Flex"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/90 via-slate-700/80 to-slate-600/85">
-            <div className="absolute inset-0 bg-black/30" />
-          </div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Integral Flex
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              Período Integral Flexível
-            </h2>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-              Um Programa de Desenvolvimento Integral
-            </p>
-            <div className="flex items-center justify-center mb-6">
-              <Clock className="mr-3" size={32} />
-              <span className="text-2xl font-semibold">12h00 às 17h30</span>
+      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                Integral <span className="text-school-orange">Flex</span>
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 leading-relaxed">
+                Desenvolvendo <strong>mentes criativas</strong> e <strong>corpos saudáveis</strong>
+              </p>
+              <p className="text-lg mb-8 opacity-90">
+                O Integral Flex da OSE é onde a educação se estende além da sala de aula. 
+                Nossos alunos vivenciam um programa completo de desenvolvimento integral das 12h às 17h30.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                >
+                  📅 Agende uma Visita
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  onClick={() => document.getElementById('detalhes')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Saiba Mais
+                </Button>
+              </div>
             </div>
-            <p className="text-lg max-w-3xl mx-auto opacity-95">
-              O Integral Flex é um programa exclusivo que expande a jornada educacional para além 
-              da sala de aula, abrangendo aspectos que fazem do aprendizado uma experiência completa e holística.
-            </p>
+            <div className="relative">
+              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
+                <div className="text-center">
+                  <Clock className="text-white/80 mx-auto mb-4" size={80} />
+                  <p className="text-white/70 text-lg font-medium">12h00 às 17h30</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -166,7 +177,7 @@ export default function Integral() {
           </div>
 
           {/* Program Benefits */}
-          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 rounded-xl p-8 md:p-12">
+          <div className="bg-gradient-to-r from-slate-100 to-gray-50 rounded-xl p-8 md:p-12">
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-slate-800 mb-4">
                 Leitura e Jogo Educativo

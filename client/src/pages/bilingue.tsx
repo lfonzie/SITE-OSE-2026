@@ -55,7 +55,7 @@ export default function Bilingue() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Global <span className="text-yellow-300">Citizens</span>
+                Global <span className="text-school-orange">Citizens</span>
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold mb-4">
                 Educação Bilíngue Integral

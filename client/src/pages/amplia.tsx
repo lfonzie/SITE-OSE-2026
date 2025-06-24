@@ -92,7 +92,7 @@ export default function Amplia() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                <span className="text-yellow-300">Amplia</span>
+                <span className="text-school-orange">Amplia</span>
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold mb-4">
                 Plataforma de Ensino Completa

@@ -118,7 +118,7 @@ export default function SocioEmocional() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Programa <span className="text-yellow-300">SócioEmocional</span>
+                Programa <span className="text-school-orange">SócioEmocional</span>
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold mb-4">
                 Laboratório de Inteligência de Vida

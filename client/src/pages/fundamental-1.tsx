@@ -69,7 +69,7 @@ export default function Fundamental1() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Ensino Fundamental <span className="text-yellow-300">I</span>
+                Ensino Fundamental <span className="text-school-orange">I</span>
               </h1>
               <p className="text-xl md:text-2xl mb-8 leading-relaxed">
                 Desenvolvendo <strong>mentes curiosas</strong> e <strong>corações compassivos</strong>
