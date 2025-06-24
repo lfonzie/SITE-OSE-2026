@@ -204,12 +204,12 @@ export default function Integral() {
               Parceria de Excelência
             </h3>
             <p className="text-lg text-slate-600 mb-6">
-              Em parceria com organizações renomadas no desenvolvimento integral
+              Em parceria com a ACM (YMCA) de Sorocaba, nossa vizinha no centro da cidade
             </p>
             <div className="flex justify-center items-center mt-8">
               <img 
                 src="/attached_assets/logo-acm-sao-paulo_1750779294901.png" 
-                alt="ACM São Paulo"
+                alt="ACM - YMCA Sorocaba"
                 className="h-20"
               />
             </div>

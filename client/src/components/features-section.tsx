@@ -27,8 +27,8 @@ const features = [
   },
   {
     logo: "/images/logo-acm-sao-paulo_1750779294901.png",
-    title: "Parceria com ACM",
-    description: "Colaboração estratégica com a Association for Computing Machinery, trazendo as melhores práticas em computação.",
+    title: "Parceria com ACM-YMCA",
+    description: "Colaboração estratégica com a ACM (YMCA) de Sorocaba, nossa vizinha no centro da cidade, promovendo desenvolvimento integral e valores cristãos.",
     color: "bg-yellow-600"
   },
   {
