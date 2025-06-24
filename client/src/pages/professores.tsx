@@ -1,4 +1,3 @@
-
 import { GraduationCap, Award, BookOpen, Users, Target, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/navigation';
@@ -189,7 +188,7 @@ export default function Professores() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-school-orange/90 to-school-brown/90">
         <div 
@@ -199,14 +198,14 @@ export default function Professores() {
           }}
         ></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Nossos <span className="text-white drop-shadow-lg">Professores</span>
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-              Educadores Especializados
             </h2>
-            <p className="text-xl md:text-2xl text-white/95 mb-6">
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">
+              Educadores Especializados
+            </h3>
+            <p className="text-xl md:text-2xl text-white/95 mb-4">
               Mais de 100 anos de tradição em ensino
             </p>
             <p className="text-lg text-white/90 mb-8 max-w-4xl mx-auto">
@@ -260,15 +259,15 @@ export default function Professores() {
                       className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-school-orange shadow-lg"
                     />
                   </div>
-                  
+
                   <h3 className="text-xl font-bold text-school-brown mb-2">
                     {professor.nome}
                   </h3>
-                  
+
                   <p className="text-school-orange font-semibold text-lg mb-3">
                     {professor.disciplina}
                   </p>
-                  
+
                   <div className="space-y-2 mb-4">
                     <p className="text-sm text-school-brown font-medium">
                       {professor.formacao}
@@ -277,7 +276,7 @@ export default function Professores() {
                       {professor.experiencia}
                     </p>
                   </div>
-                  
+
                   <p className="text-sm text-school-brown leading-relaxed">
                     {professor.sobre}
                   </p>
