@@ -3,6 +3,15 @@ import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Target, Users, BookOpen, Award, TrendingUp } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+
+// Importando imagens para Ensino Médio
+import img1 from "@assets/0312_1750719589609.jpg";
+import img2 from "@assets/0354_1750719589610.jpg";
+import img3 from "@assets/0491_1750719589611.jpg";
+import img4 from "@assets/0541_1750719589611.jpg";
+import img5 from "@assets/0581_1750719589610.jpg";
+import img6 from "@assets/0700_1750719589609.jpg";
 
 export default function EnsinoMedio() {
   useEffect(() => {
@@ -58,19 +67,26 @@ export default function EnsinoMedio() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <OptimizedImage
+            src={img1}
+            alt="Estudantes do Ensino Médio"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
               Ensino Médio
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 drop-shadow-lg">
               1º, 2º e 3º Série
             </h2>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto drop-shadow-lg">
               Preparação Completa para o Futuro
             </p>
-            <p className="text-lg max-w-3xl mx-auto opacity-95">
+            <p className="text-lg max-w-3xl mx-auto opacity-95 drop-shadow-lg">
               No Ensino Médio da OSE, preparamos nossos estudantes não apenas para os vestibulares, 
               mas para a vida universitária e profissional, formando cidadãos críticos e preparados 
               para os desafios do mundo contemporâneo.
@@ -131,20 +147,20 @@ export default function EnsinoMedio() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img 
-                src="/attached_assets/1285_1750717790208.jpg" 
-                alt="Alunos do Ensino Médio em laboratório"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              <OptimizedImage
+                src={img2}
+                alt="Alunos do Ensino Médio em atividades"
+                className="w-full h-48 rounded-lg shadow-lg"
               />
-              <img 
-                src="/attached_assets/1295_1750717790207.jpg" 
-                alt="Formatura do Ensino Médio"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              <OptimizedImage
+                src={img3}
+                alt="Preparação para vestibulares"
+                className="w-full h-48 rounded-lg shadow-lg"
               />
-              <img 
-                src="/attached_assets/0023_1750717790208.jpg" 
-                alt="Cerimônia de formatura"
-                className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
+              <OptimizedImage
+                src={img4}
+                alt="Projetos de vida"
+                className="w-full h-48 rounded-lg shadow-lg col-span-2"
               />
             </div>
           </div>

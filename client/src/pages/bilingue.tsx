@@ -4,6 +4,15 @@ import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Globe, Users, BookOpen, Target, Lightbulb, Award } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+
+// Importando imagens para educação bilíngue
+import img1 from "@assets/0312_1750717790204.jpg";
+import img2 from "@assets/0354_1750717790205.jpg";
+import img3 from "@assets/0700_1750717790204.jpg";
+import img4 from "@assets/0905_1750717790206.jpg";
+import img5 from "@assets/1068_1750717790205.jpg";
+import img6 from "@assets/1092_1750717790205.jpg";
 
 export default function Bilingue() {
   useEffect(() => {
@@ -52,19 +61,26 @@ export default function Bilingue() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <OptimizedImage
+            src={img1}
+            alt="Programa Global Citizens - Educação Bilíngue"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
               Global Citizens
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 drop-shadow-lg">
               Educação Bilíngue
             </h2>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto drop-shadow-lg">
               Uma Jornada Rumo à Educação Bilíngue
             </p>
-            <p className="text-lg max-w-3xl mx-auto opacity-95">
+            <p className="text-lg max-w-3xl mx-auto opacity-95 drop-shadow-lg">
               Na OSE, a educação bilíngue vai além da mera aquisição de um segundo idioma. 
               Nosso programa Global Citizens proporciona uma jornada educacional abrangente 
               que abraça tanto aspectos linguísticos quanto culturais.

@@ -3,6 +3,15 @@ import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Brain, Target, Users, Shield, Lightbulb, BookOpen } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+
+// Importando imagens para Fundamental II
+import img1 from "@assets/0023_1750717790208.jpg";
+import img2 from "@assets/0378_1750717790208.jpg";
+import img3 from "@assets/1285_1750717790208.jpg";
+import img4 from "@assets/0023_1750719589611.jpg";
+import img5 from "@assets/0378_1750719589611.jpg";
+import img6 from "@assets/1285_1750719589611.jpg";
 
 export default function Fundamental2() {
   useEffect(() => {
@@ -51,19 +60,26 @@ export default function Fundamental2() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <OptimizedImage
+            src={img1}
+            alt="Alunos do Ensino Fundamental II"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
               Ensino Fundamental II
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 drop-shadow-lg">
               Anos Finais - 6º ao 9º ano
             </h2>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto drop-shadow-lg">
               Formando Líderes Conscientes para um Mundo em Transformação
             </p>
-            <p className="text-lg max-w-3xl mx-auto opacity-95">
+            <p className="text-lg max-w-3xl mx-auto opacity-95 drop-shadow-lg">
               Uma fase empolgante e transformadora onde nossos alunos passam por rápido desenvolvimento 
               cognitivo e emocional. Nosso foco está além do currículo acadêmico.
             </p>
@@ -98,11 +114,22 @@ export default function Fundamental2() {
           {/* Educational Philosophy */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <div className="mb-6">
-                <img 
-                  src="/attached_assets/0581_1750717790206.jpg" 
-                  alt="Estudantes do Fundamental II em interação social"
-                  className="w-full h-64 object-cover rounded-lg shadow-lg"
+              {/* Galeria de Imagens do Fundamental II */}
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <OptimizedImage
+                  src={img2}
+                  alt="Estudantes do Fundamental II em atividades"
+                  className="w-full h-32 rounded-lg shadow-lg"
+                />
+                <OptimizedImage
+                  src={img3}
+                  alt="Projetos colaborativos"
+                  className="w-full h-32 rounded-lg shadow-lg"
+                />
+                <OptimizedImage
+                  src={img4}
+                  alt="Desenvolvimento de liderança"
+                  className="w-full h-32 rounded-lg shadow-lg col-span-2"
                 />
               </div>
               <h3 className="text-3xl font-bold text-slate-800 mb-6">

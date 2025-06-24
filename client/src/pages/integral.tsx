@@ -4,6 +4,15 @@ import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Heart, Music, Dumbbell, Globe, TreePine, Clock } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+
+// Importando imagens para período integral
+import img1 from "@assets/0934_1750717790206.jpg";
+import img2 from "@assets/1105_1750717790206.jpg";
+import img3 from "@assets/0581_1750717790206.jpg";
+import img4 from "@assets/0491_1750717790207.jpg";
+import img5 from "@assets/0541_1750717790207.jpg";
+import img6 from "@assets/1295_1750717790207.jpg";
 
 export default function Integral() {
   useEffect(() => {

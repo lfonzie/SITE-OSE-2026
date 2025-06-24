@@ -3,6 +3,15 @@ import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Users, Calculator, Palette, UserCheck, BookOpen } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+
+// Importando imagens para Fundamental I
+import img1 from "@assets/0934_1750717790206.jpg";
+import img2 from "@assets/1105_1750717790206.jpg";
+import img3 from "@assets/0581_1750717790206.jpg";
+import img4 from "@assets/0491_1750717790207.jpg";
+import img5 from "@assets/0541_1750717790207.jpg";
+import img6 from "@assets/1295_1750717790207.jpg";
 
 export default function Fundamental1() {
   useEffect(() => {
@@ -51,19 +60,26 @@ export default function Fundamental1() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <OptimizedImage
+            src={img1}
+            alt="Alunos do Ensino Fundamental I"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
               Ensino Fundamental I
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 drop-shadow-lg">
               Anos Iniciais - 1º ao 5º ano
             </h2>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto drop-shadow-lg">
               Desenvolvendo Mentes Curiosas e Corações Compassivos
             </p>
-            <p className="text-lg max-w-3xl mx-auto opacity-95">
+            <p className="text-lg max-w-3xl mx-auto opacity-95 drop-shadow-lg">
               O Ensino Fundamental I representa um período crítico e fascinante na jornada educacional. 
               Focamos não apenas no desenvolvimento acadêmico, mas também nas habilidades sociais, emocionais e culturais.
             </p>
@@ -123,23 +139,44 @@ export default function Fundamental1() {
                 </Button>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img 
-                src="/attached_assets/0581_1750717790206.jpg" 
-                alt="Alunos do Fundamental I em atividade"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
+          {/* Galeria de Imagens do Fundamental I */}
+          <div className="mt-20">
+            <h3 className="text-3xl font-bold text-slate-800 text-center mb-12">
+              Vida Escolar no Fundamental I
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <OptimizedImage
+                src={img2}
+                alt="Atividades em sala de aula"
+                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               />
-              <img 
-                src="/attached_assets/0700_1750717790204.jpg" 
-                alt="Sala de aula do Fundamental I"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              <OptimizedImage
+                src={img3}
+                alt="Projetos educacionais"
+                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               />
-              <img 
-                src="/attached_assets/0905_1750717790206.jpg" 
-                alt="Atividades pedagógicas Fundamental I"
-                className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
+              <OptimizedImage
+                src={img4}
+                alt="Aprendizado colaborativo"
+                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              />
+              <OptimizedImage
+                src={img5}
+                alt="Desenvolvimento de autonomia"
+                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              />
+              <OptimizedImage
+                src={img6}
+                alt="Atividades culturais"
+                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              />
+              <OptimizedImage
+                src={img1}
+                alt="Momentos especiais"
+                className="w-full h-64 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               />
             </div>
+          </div>
           </div>
 
           {/* Curriculum Section */}

@@ -1,9 +1,17 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Award, BookOpen, Users } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+
+// Importando imagens para página de professores
+import img1 from "@assets/0905_1750719589610.jpg";
+import img2 from "@assets/0934_1750719589610.jpg";
+import img3 from "@assets/1068_1750719589610.jpg";
+import img4 from "@assets/1092_1750719589610.jpg";
+import img5 from "@assets/1105_1750719589610.jpg";
+import img6 from "@assets/1295_1750719589611.jpg";
 
 export default function Professores() {
   useEffect(() => {
