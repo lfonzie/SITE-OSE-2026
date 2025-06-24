@@ -294,7 +294,7 @@ export default function Amplia() {
             </p>
             <div className="flex justify-center items-center mt-8">
               <img 
-                src="/images/AMPLIA_Logotipo-versoes_1750779294903_1750801133345.png" 
+                src="/attached_assets/AMPLIA_Logotipo-versoes_1750779294903_1750801133345.png" 
                 alt="Amplia"
                 className="h-20"
               />
