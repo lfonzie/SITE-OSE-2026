@@ -26,7 +26,7 @@ export default function Arvore() {
           <div className="text-center">
             <div className="mb-8">
               <img 
-                src="/attached_assets/LogoArvore_1750797550181.png" 
+                src="/images/LogoArvore_1750797550181.png" 
                 alt="Árvore"
                 className="h-32 mx-auto mb-4"
               />

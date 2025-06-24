@@ -2,37 +2,37 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 
 const features = [
   {
-    logo: "/attached_assets/GoogleEduc_1750801413575.jpg",
+    logo: "/images/GoogleEduc_1750801413575.jpg",
     title: "Google for Education",
     description: "Plataforma que transforma a maneira como educadores e alunos aprendem e colaboram, oferecendo educação interativa e colaborativa.",
     color: "bg-blue-600"
   },
   {
-    logo: "/attached_assets/LogoMacmillan_1750801133344.png",
+    logo: "/images/GoogleEduc_1750801413575.jpg",
     title: "Corpo Docente Experiente",
     description: "Equipe altamente qualificada com vasta experiência acadêmica e prática, sempre atualizada com as melhores práticas pedagógicas.",
     color: "bg-green-600"
   },
   {
-    logo: "/attached_assets/LogoMacmillan_1750801133344.png",
+    logo: "/images/LogoMacmillan_1750801133344.png",
     title: "Educação Bilíngue MacMillan",
     description: "Currículo bilíngue que forma cidadãos globais, preparando alunos para interações multiculturais e proficiência linguística.",
     color: "bg-purple-600"
   },
   {
-    logo: "/attached_assets/codeose23_1750779294902.png",
+    logo: "/images/codeose23_1750779294902.png",
     title: "{CODE.OSE} - Programação",
     description: "Programa inovador de ensino de programação e pensamento computacional, preparando alunos para o futuro digital.",
     color: "bg-red-600"
   },
   {
-    logo: "/attached_assets/LogoACM_1750801133344.jpg",
+    logo: "/images/LogoACM_1750801133344.jpg",
     title: "Parceria com ACM-YMCA",
     description: "Ginásio e atividades da ACM (YMCA) de Sorocaba disponíveis para nossos alunos. Famílias podem frequentar pagando apenas a mensalidade, sem compra de título.",
     color: "bg-yellow-600"
   },
   {
-    logo: "/attached_assets/LogoArvore_1750797550181.png",
+    logo: "/images/LogoArvore_1750797550181.png",
     title: "Plataforma Árvore",
     description: "Biblioteca digital com milhares de livros e recursos educacionais para incentivar a leitura e o aprendizado.",
     color: "bg-emerald-600"

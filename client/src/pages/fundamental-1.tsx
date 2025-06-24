@@ -8,12 +8,12 @@ import { Heart, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Usando imagens da pasta public/images
-const img1 = "/attached_assets/0934_1750717790206.jpg";
-const img2 = "/attached_assets/1105_1750717790206.jpg";
-const img3 = "/attached_assets/0581_1750717790206.jpg";
-const img4 = "/attached_assets/0491_1750717790207.jpg";
-const img5 = "/attached_assets/0541_1750717790207.jpg";
-const img6 = "/attached_assets/1295_1750717790207.jpg";
+const img1 = "/images/0934_1750717790206.jpg";
+const img2 = "/images/1105_1750717790206.jpg";
+const img3 = "/images/0581_1750717790206.jpg";
+const img4 = "/images/0491_1750717790207.jpg";
+const img5 = "/images/0541_1750717790207.jpg";
+const img6 = "/images/1295_1750717790207.jpg";
 
 export default function Fundamental1() {
   useEffect(() => {
