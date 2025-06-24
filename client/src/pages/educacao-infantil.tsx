@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Heart, Users, BookOpen, Palette } from "lucide-react";
+import { Heart, Play, Users, BookOpen, Lightbulb, Target } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Importando imagens para Educação Infantil

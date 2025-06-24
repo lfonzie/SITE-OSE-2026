@@ -19,12 +19,18 @@ export default function Isaac() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-school-brown to-school-orange text-white py-20">
+      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <CreditCard className="mx-auto mb-6" size={64} />
+            <div className="mb-8">
+              <img 
+                src="/attached_assets/616841d439101013bdc4c67c_isaac-log0-01_1750779294900.png" 
+                alt="ISAAC"
+                className="h-32 mx-auto mb-4"
+              />
+            </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              ISAAC - Sistema Financeiro
+              ISAAC
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
               Gerencie suas informações financeiras de forma simples e segura

@@ -52,6 +52,7 @@ export default function Navigation() {
         { label: "Bilíngue", id: "/bilingue", isSection: false },
         { label: "CODE OSE", id: "/code-ose", isSection: false },
         { label: "Integral", id: "/integral", isSection: false },
+        { label: "Amplia", id: "/amplia", isSection: false },
         { label: "Lista de Material", id: "/lista-material", isSection: false },
         { label: "Professores", id: "/professores", isSection: false }
       ]

@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Users, Calculator, Palette, UserCheck, BookOpen } from "lucide-react";
+import { BookOpen, Users, Target, Lightbulb, Heart, Award } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Importando imagens para Fundamental I
@@ -222,6 +224,7 @@ export default function Fundamental1() {
           </div>
         </div>
       </section>
+      <WhyOSESection />
 
     </div>
   );

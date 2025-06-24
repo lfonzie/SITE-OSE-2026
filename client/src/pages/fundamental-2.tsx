@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Brain, Target, Users, Shield, Lightbulb, BookOpen } from "lucide-react";
+import { Brain, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Importando imagens para Fundamental II
@@ -39,7 +41,7 @@ export default function Fundamental2() {
       description: "Utilizamos leituras, filmes, debates e entrevistas para preparar jovens para a vida em sociedade, cultivando colaboração e protagonismo."
     },
     {
-      icon: Shield,
+      icon: Award,
       title: "Responsabilidade Ética",
       description: "Questões de ética são pilares em nossa metodologia. 'Quero? Posso? Devo?' norteiam nosso comportamento ético diário."
     },
@@ -291,7 +293,8 @@ export default function Fundamental2() {
           </div>
         </div>
       </section>
-
+      <WhyOSESection />
+      <ContactSection />
     </div>
   );
 }

@@ -1,4 +1,6 @@
-
+The code incorporates the ACM logo and related text into the specified section.
+```
+```replit_final_file
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
@@ -186,6 +188,21 @@ export default function Integral() {
         </div>
       </section>
 
+      <div className="mt-16 text-center">
+            <h3 className="text-2xl font-bold text-slate-800 mb-4">
+              Parceria de Excelência
+            </h3>
+            <p className="text-lg text-slate-600 mb-6">
+              Em parceria com organizações renomadas no desenvolvimento integral
+            </p>
+            <div className="flex justify-center items-center mt-8">
+              <img 
+                src="/attached_assets/logo-acm-sao-paulo_1750779294901.png" 
+                alt="ACM São Paulo"
+                className="h-20"
+              />
+            </div>
+          </div>
     </div>
   );
 }

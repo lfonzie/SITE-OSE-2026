@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Target, Users, BookOpen, Award, TrendingUp } from "lucide-react";
+import { GraduationCap, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 
 // Importando imagens para Ensino Médio
@@ -49,7 +51,7 @@ export default function EnsinoMedio() {
       description: "Alto índice de aprovação em universidades públicas e privadas, com acompanhamento personalizado de cada estudante."
     },
     {
-      icon: TrendingUp,
+      icon: Lightbulb,
       title: "Desenvolvimento Integral",
       description: "Formação que vai além do acadêmico, desenvolvendo habilidades socioemocionais e competências para o século XXI."
     }

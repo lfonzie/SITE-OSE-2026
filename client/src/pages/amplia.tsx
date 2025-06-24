@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Brain, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
@@ -82,6 +83,13 @@ export default function Amplia() {
       <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            <div className="mb-8">
+              <img 
+                src="/attached_assets/AMPLIA_Logotipo-versoes_1750779294903.png" 
+                alt="Plataforma Amplia"
+                className="h-32 mx-auto mb-4"
+              />
+            </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Amplia
             </h1>
@@ -223,6 +231,7 @@ export default function Amplia() {
         </div>
       </section>
 
+      <ContactSection />
     </div>
   );
 }

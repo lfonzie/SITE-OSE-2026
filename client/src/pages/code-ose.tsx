@@ -58,6 +58,13 @@ export default function CodeOSE() {
       <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            <div className="mb-8">
+              <img 
+                src="/attached_assets/codeose23_1750779294902.png" 
+                alt="CODE OSE"
+                className="h-32 mx-auto mb-4"
+              />
+            </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               {"{CODE.OSE}"}
             </h1>

@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
@@ -182,6 +181,27 @@ export default function Bilingue() {
                 culturalmente enriquecidos. A MacMillan Education proporciona assim uma educação 
                 bilíngue inovadora, preparando alunos para um mundo globalizado.
               </p>
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <h3 className="text-2xl font-bold text-slate-800 mb-4">
+              Metodologia Reconhecida
+            </h3>
+            <p className="text-lg text-slate-600 mb-6">
+              Utilizamos as melhores práticas internacionais de ensino bilíngue
+            </p>
+            <div className="flex justify-center items-center space-x-8 mt-8">
+              <img 
+                src="/attached_assets/png-transparent-bett-google-for-education-g-suite-google-text-logo-google-logo-thumbnail_1750779294902.png" 
+                alt="Google for Education"
+                className="h-16"
+              />
+              <img 
+                src="/attached_assets/png-clipart-macmillan-education-logo-publishing-houses-logos_1750779294902.png" 
+                alt="Macmillan Education"
+                className="h-16"
+              />
             </div>
           </div>
         </div>

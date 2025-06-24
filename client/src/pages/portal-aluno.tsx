@@ -146,7 +146,7 @@ export default function PortalAluno() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
-      
+
       {/* Header */}
       <section className="py-12 bg-gradient-to-r from-school-blue to-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -411,6 +411,48 @@ export default function PortalAluno() {
           </Tabs>
         </div>
       </section>
+          <div className="mt-12 text-center">
+            <Button 
+              size="lg"
+              className="bg-school-orange hover:bg-school-orange/90 text-white text-lg px-8 py-4"
+              onClick={() => window.open('https://siga03.activesoft.com.br/login/?instituicao=COLEGIOOSE', '_blank')}
+            >
+              🔗 Acessar Portal do Aluno
+            </Button>
+          </div>
+          {/* Instruções de Acesso */}
+          <div className="mt-16 bg-gradient-to-r from-school-orange/10 to-school-brown/10 rounded-xl p-8">
+            <h3 className="text-2xl font-bold text-slate-800 mb-6 text-center">
+              Como Acessar o Portal
+            </h3>
+            <div className="max-w-2xl mx-auto">
+              <div className="space-y-4 text-slate-700">
+                <div className="flex items-start">
+                  <div className="bg-school-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0 font-bold">
+                    1
+                  </div>
+                  <p><strong>Acesse o link:</strong> Portal do Aluno (botão abaixo).</p>
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-school-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0 font-bold">
+                    2
+                  </div>
+                  <p><strong>No campo de login:</strong> use o CPF do responsável financeiro.</p>
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-school-orange text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0 font-bold">
+                    3
+                  </div>
+                  <p><strong>A senha:</strong> são os primeiros 6 dígitos do CPF (somente números).</p>
+                </div>
+              </div>
+              <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                <p className="text-blue-800 text-sm">
+                  <strong>Após o login:</strong> você poderá acessar as notas do aluno e outras informações importantes.
+                </p>
+              </div>
+            </div>
+          </div>
 
     </div>
   );

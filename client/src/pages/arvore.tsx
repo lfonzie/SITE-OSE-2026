@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { updateSEO } from "@/lib/seo";
 import Navigation from "@/components/navigation";
@@ -18,14 +17,20 @@ export default function Arvore() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-school-orange to-school-brown text-white py-20">
+      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <Book className="mx-auto mb-6" size={64} />
+            <div className="mb-8">
+              <img 
+                src="/attached_assets/Arvore-de-Livros_1750779294901.png" 
+                alt="Árvore de Livros"
+                className="h-32 mx-auto mb-4"
+              />
+            </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Árvore - Livros Digitais
+              Árvore
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
               Uma biblioteca completa ao alcance dos nossos alunos
@@ -93,13 +98,13 @@ export default function Arvore() {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">
             Como Acessar
           </h2>
-          
+
           <div className="bg-slate-50 rounded-lg p-8 mb-8">
             <p className="text-lg text-slate-700 mb-6">
               Todos os nossos alunos têm acesso gratuito à plataforma Árvore. 
               Use suas credenciais do colégio para fazer login.
             </p>
-            
+
             <div className="space-y-4 text-left max-w-2xl mx-auto">
               <div className="flex items-start">
                 <div className="bg-school-orange text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 mt-1">1</div>

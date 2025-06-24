@@ -62,7 +62,7 @@ export default {
           ring: "var(--sidebar-ring)",
         },
         // Custom school colors
-        "school-orange": "hsl(25, 95%, 53%)",
+        "school-orange": "#ff4500",
         "school-brown": "hsl(30, 67%, 35%)",
         "school-white": "hsl(0, 0%, 100%)",
         "school-blue": "hsl(207, 90%, 54%)",
