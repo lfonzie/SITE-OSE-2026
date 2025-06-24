@@ -1,205 +1,261 @@
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Download, FileText, GraduationCap } from "lucide-react";
+import { FileText, Download, Calendar, BookOpen, Backpack, Palette } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+
+// Usando imagens da pasta public/images
+const img1 = "/images/0934_1750717790206.jpg";
+const img2 = "/images/1105_1750717790206.jpg";
+const img3 = "/images/0581_1750717790206.jpg";
+const img4 = "/images/0491_1750717790207.jpg";
+const img5 = "/images/0541_1750717790207.jpg";
 
 export default function ListaMaterial() {
-  const [selectedSegment, setSelectedSegment] = useState<string | null>(null);
-
   useEffect(() => {
     updateSEO({
-      title: "Lista de Material 2025 | a OSE",
-      description: "Lista de material escolar 2025 do Colégio OSE. Confira os materiais necessários para Educação Infantil, Ensino Fundamental I, II e Ensino Médio.",
-      keywords: "lista material escolar 2025, material didático OSE, livros escolares sorocaba"
+      title: "Lista de Material Escolar | Colégio OSE",
+      description: "Confira a lista de material escolar por segmento. Materiais organizados para o sucesso acadêmico dos nossos alunos.",
+      keywords: "lista material, material escolar, colégio ose, educação infantil, fundamental, ensino médio"
     });
   }, []);
 
-  const segments = [
+  const segmentos = [
     {
-      id: "educacao-infantil",
-      title: "Educação Infantil",
-      subtitle: "Jardim I e Jardim II",
-      icon: BookOpen,
-      color: "from-pink-500 to-rose-500",
-      description: "Material desenvolvido especialmente para os primeiros passos na educação"
+      titulo: "Educação Infantil",
+      descricao: "Material lúdico e pedagógico para os primeiros anos",
+      icone: <Palette className="text-school-orange" size={40} />,
+      link: "#educacao-infantil",
+      imagem: img1
     },
     {
-      id: "fundamental-1",
-      title: "Ensino Fundamental I",
-      subtitle: "1º ao 5º ano",
-      icon: BookOpen,
-      color: "from-blue-500 to-cyan-500",
-      description: "Base sólida para o desenvolvimento acadêmico e social"
+      titulo: "Fundamental I",
+      descricao: "Material completo para os anos iniciais",
+      icone: <BookOpen className="text-school-orange" size={40} />,
+      link: "#fundamental-1",
+      imagem: img2
     },
     {
-      id: "fundamental-2",
-      title: "Ensino Fundamental II",
-      subtitle: "6º ao 9º ano",
-      icon: FileText,
-      color: "from-green-500 to-emerald-500",
-      description: "Preparação para os desafios do ensino médio"
+      titulo: "Fundamental II",
+      descricao: "Material específico para os anos finais",
+      icone: <Backpack className="text-school-orange" size={40} />,
+      link: "#fundamental-2",
+      imagem: img3
     },
     {
-      id: "ensino-medio",
-      title: "Ensino Médio",
-      subtitle: "1ª à 3ª série",
-      icon: GraduationCap,
-      color: "from-purple-500 to-violet-500",
-      description: "Preparação completa para vestibulares e ENEM"
+      titulo: "Ensino Médio",
+      descricao: "Material preparatório para vestibular e ENEM",
+      icone: <FileText className="text-school-orange" size={40} />,
+      link: "#ensino-medio",
+      imagem: img4
     }
   ];
-
-  const handleSegmentClick = (segmentId: string) => {
-    setSelectedSegment(segmentId);
-    // Aqui você pode implementar a lógica para mostrar a lista específica
-    // ou redirecionar para um PDF/documento específico
-  };
 
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Lista de Material
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              2025
-            </h2>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-              Clique no Ano/Série para 2025
-            </p>
-            <p className="text-lg max-w-3xl mx-auto opacity-95">
-              Confira os materiais necessários para cada segmento educacional e 
-              prepare-se para um ano letivo de sucesso.
-            </p>
+      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                Lista de <span className="text-school-orange">Material</span>
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 leading-relaxed">
+                Material <strong>organizado</strong> para o <strong>sucesso acadêmico</strong>
+              </p>
+              <p className="text-lg mb-8 opacity-90">
+                Confira as listas de material escolar por segmento. Materiais cuidadosamente 
+                selecionados para apoiar o desenvolvimento educacional e criativo dos nossos alunos.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-school-orange font-semibold px-8 py-3"
+                  onClick={() => document.getElementById('listas')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  📋 Ver Listas
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-white font-semibold px-8 py-3"
+                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                >
+                  📅 Agende uma Visita
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
+                <div className="text-center">
+                  <FileText className="text-white/80 mx-auto mb-4" size={80} />
+                  <p className="text-white/70 text-lg font-medium">Lista de Material</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Segments Section */}
-      <section className="py-20">
+      {/* Informações Importantes */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-slate-800 mb-6">
-              Selecione o Segmento
-            </h3>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Escolha o ano ou série do seu filho para acessar a lista de material completa
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+              Informações <span className="text-school-orange">Importantes</span>
+            </h2>
+            <p className="text-xl text-slate-600">
+              Tudo que você precisa saber sobre o material escolar
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {segments.map((segment) => (
-              <Card 
-                key={segment.id}
-                className="hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer"
-                onClick={() => handleSegmentClick(segment.id)}
-              >
-                <CardHeader className="text-center">
-                  <div className={`w-20 h-20 rounded-full bg-gradient-to-r ${segment.color} flex items-center justify-center mx-auto mb-4`}>
-                    <segment.icon className="text-white" size={36} />
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="bg-slate-50 p-8 rounded-xl text-center">
+              <Calendar className="text-school-orange mx-auto mb-4" size={48} />
+              <h3 className="text-xl font-bold text-slate-800 mb-4">Prazo</h3>
+              <p className="text-slate-600">
+                Listas disponíveis a partir de dezembro para o ano letivo seguinte
+              </p>
+            </div>
+
+            <div className="bg-slate-50 p-8 rounded-xl text-center">
+              <Download className="text-school-orange mx-auto mb-4" size={48} />
+              <h3 className="text-xl font-bold text-slate-800 mb-4">Download</h3>
+              <p className="text-slate-600">
+                Baixe as listas em PDF para facilitar suas compras
+              </p>
+            </div>
+
+            <div className="bg-slate-50 p-8 rounded-xl text-center">
+              <FileText className="text-school-orange mx-auto mb-4" size={48} />
+              <h3 className="text-xl font-bold text-slate-800 mb-4">Organização</h3>
+              <p className="text-slate-600">
+                Material organizado por disciplina e período letivo
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Listas por Segmento */}
+      <section id="listas" className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Listas por <span className="text-school-orange">Segmento</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              Selecione o segmento para acessar a lista de material específica
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {segmentos.map((segmento, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <div className="relative h-48">
+                  <OptimizedImage 
+                    src={segmento.imagem} 
+                    alt={`Material ${segmento.titulo}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/40" />
+                  <div className="absolute top-4 left-4">
+                    {segmento.icone}
                   </div>
-                  <CardTitle className="text-2xl font-bold text-slate-800">
-                    {segment.title}
-                  </CardTitle>
-                  <CardDescription className="text-lg font-semibold text-school-orange">
-                    {segment.subtitle}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-slate-600 mb-6">{segment.description}</p>
-                  <Button className="bg-school-orange hover:bg-school-orange/90 text-white">
-                    <Download className="mr-2" size={16} />
-                    Baixar Lista de Material
-                  </Button>
-                </CardContent>
-              </Card>
+                </div>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-slate-800 mb-4">{segmento.titulo}</h3>
+                  <p className="text-slate-600 mb-6">{segmento.descricao}</p>
+                  <div className="flex gap-4">
+                    <Button 
+                      className="bg-school-orange hover:bg-school-orange/90 text-white flex-1"
+                      onClick={() => alert('Lista será disponibilizada em dezembro')}
+                    >
+                      <Download className="mr-2" size={16} />
+                      Baixar Lista
+                    </Button>
+                    <Button 
+                      variant="outline"
+                      className="border-school-orange text-school-orange hover:bg-school-orange/10"
+                      onClick={() => window.location.href = segmento.link}
+                    >
+                      Saiba Mais
+                    </Button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* Information Section */}
-          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 rounded-xl p-8 md:p-12">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-slate-800 mb-4">
-                Informações Importantes
-              </h3>
-              <p className="text-xl text-slate-600">
-                Orientações para Aquisição dos Materiais
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-lg">
-                <h4 className="font-bold text-slate-800 mb-2">📅 Prazo</h4>
-                <p className="text-sm text-slate-600">
-                  Os materiais devem ser adquiridos até o início das aulas
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg">
-                <h4 className="font-bold text-slate-800 mb-2">📚 Material Didático</h4>
-                <p className="text-sm text-slate-600">
-                  Plataforma Amplia com recursos digitais integrados
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg">
-                <h4 className="font-bold text-slate-800 mb-2">🛍️ Onde Comprar</h4>
-                <p className="text-sm text-slate-600">
-                  Livrarias parceiras ou através do portal da escola
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg">
-                <h4 className="font-bold text-slate-800 mb-2">👕 Uniforme</h4>
-                <p className="text-sm text-slate-600">
-                  Disponível na loja oficial da escola
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg">
-                <h4 className="font-bold text-slate-800 mb-2">💰 Parcelamento</h4>
-                <p className="text-sm text-slate-600">
-                  Consulte condições especiais de pagamento
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg">
-                <h4 className="font-bold text-slate-800 mb-2">📞 Dúvidas</h4>
-                <p className="text-sm text-slate-600">
-                  Entre em contato com a secretaria da escola
+          {/* Aviso */}
+          <div className="mt-12 bg-school-orange/10 border-l-4 border-school-orange p-6 rounded-r-lg">
+            <div className="flex items-start">
+              <FileText className="text-school-orange mt-1 mr-3 flex-shrink-0" size={20} />
+              <div>
+                <h4 className="font-bold text-slate-800 mb-2">Importante</h4>
+                <p className="text-slate-700">
+                  As listas de material para 2025 estarão disponíveis a partir de dezembro de 2024. 
+                  Fique atento aos nossos canais de comunicação para mais informações.
                 </p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Contact Section */}
-          <div className="mt-16 text-center">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              Precisa de Ajuda?
-            </h3>
-            <p className="text-lg text-slate-600 mb-6">
-              Nossa equipe está pronta para esclarecer suas dúvidas sobre a lista de material
+      {/* Dicas para Pais */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+              Dicas para <span className="text-school-orange">Pais</span>
+            </h2>
+            <p className="text-xl text-slate-600">
+              Como organizar e economizar na compra do material escolar
             </p>
-            <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-              <Button 
-                size="lg"
-                className="bg-school-orange hover:bg-school-orange/90 text-white"
-                onClick={() => window.open('tel:(15)2101-3800')}
-              >
-                📞 (15) 2101-3800
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-school-orange text-school-orange hover:bg-school-orange hover:text-white"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                📧 Enviar Mensagem
-              </Button>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div className="flex items-start">
+                <div className="bg-school-orange text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 mt-1 flex-shrink-0">1</div>
+                <div>
+                  <h4 className="font-bold text-slate-800 mb-2">Planeje com Antecedência</h4>
+                  <p className="text-slate-600">Baixe a lista assim que disponível e compare preços em diferentes fornecedores.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="bg-school-orange text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 mt-1 flex-shrink-0">2</div>
+                <div>
+                  <h4 className="font-bold text-slate-800 mb-2">Reaproveite Materiais</h4>
+                  <p className="text-slate-600">Verifique quais materiais do ano anterior ainda podem ser utilizados.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="bg-school-orange text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 mt-1 flex-shrink-0">3</div>
+                <div>
+                  <h4 className="font-bold text-slate-800 mb-2">Compras Coletivas</h4>
+                  <p className="text-slate-600">Organize compras em grupo com outros pais para conseguir melhores preços.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <OptimizedImage 
+                src={img5} 
+                alt="Organização de material escolar"
+                className="w-full h-64 object-cover rounded-lg shadow-lg"
+              />
             </div>
           </div>
         </div>
