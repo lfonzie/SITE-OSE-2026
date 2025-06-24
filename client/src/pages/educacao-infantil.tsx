@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Heart, Users, BookOpen, Palette } from "lucide-react";
@@ -173,7 +172,6 @@ export default function EducacaoInfantil() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

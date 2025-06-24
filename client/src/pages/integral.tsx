@@ -1,7 +1,6 @@
 
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Heart, Music, Dumbbell, Globe, TreePine, Clock } from "lucide-react";
@@ -178,7 +177,6 @@ export default function Integral() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

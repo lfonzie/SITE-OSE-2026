@@ -1,7 +1,6 @@
 
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
 import { updateSEO } from "@/lib/seo";
 import { Heart, Target, Users, Award, Star, Globe } from "lucide-react";
 
@@ -160,7 +159,6 @@ export default function MissaoValores() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

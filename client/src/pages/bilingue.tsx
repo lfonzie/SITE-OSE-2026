@@ -1,7 +1,6 @@
 
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Globe, Users, BookOpen, Target, Lightbulb, Award } from "lucide-react";
@@ -172,7 +171,6 @@ export default function Bilingue() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

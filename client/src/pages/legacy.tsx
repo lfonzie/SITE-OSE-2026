@@ -1,7 +1,6 @@
 
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
 import { updateSEO } from "@/lib/seo";
 import LegacySection from "@/components/legacy-section";
 
@@ -37,7 +36,6 @@ export default function Legacy() {
 
       <LegacySection />
       
-      <Footer />
     </div>
   );
 }

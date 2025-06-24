@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
 import { 
   TrendingUp, 
   Calendar, 
@@ -393,7 +392,6 @@ export default function PortalPais() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

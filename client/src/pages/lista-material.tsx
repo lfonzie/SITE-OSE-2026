@@ -1,7 +1,6 @@
 
 import { useEffect, useState } from "react";
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -204,7 +203,6 @@ export default function ListaMaterial() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

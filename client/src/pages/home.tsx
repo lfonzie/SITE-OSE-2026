@@ -9,7 +9,7 @@ import GallerySection from "@/components/gallery-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import SocialFeedsSection from "@/components/social-feeds-section";
 import ContactSection from "@/components/contact-section";
-import Footer from "@/components/footer";
+
 
 export default function Home() {
   return (
@@ -25,7 +25,6 @@ export default function Home() {
       <TestimonialsSection />
       <SocialFeedsSection />
       <ContactSection />
-      <Footer />
     </div>
   );
 }

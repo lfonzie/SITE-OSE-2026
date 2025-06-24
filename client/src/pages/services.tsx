@@ -1,5 +1,4 @@
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
 import { 
   BookOpen, 
   Users, 
@@ -295,7 +294,6 @@ export default function Services() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

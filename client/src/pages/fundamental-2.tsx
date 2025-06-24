@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Brain, Target, Users, Shield, Lightbulb, BookOpen } from "lucide-react";
@@ -266,7 +265,6 @@ export default function Fundamental2() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

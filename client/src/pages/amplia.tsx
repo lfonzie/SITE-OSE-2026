@@ -1,7 +1,6 @@
 
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Brain, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
@@ -224,7 +223,6 @@ export default function Amplia() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

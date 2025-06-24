@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Target, Users, BookOpen, Award, TrendingUp } from "lucide-react";
@@ -195,7 +194,6 @@ export default function EnsinoMedio() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }
