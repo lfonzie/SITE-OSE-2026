@@ -52,7 +52,7 @@ export default function EducacaoInfantil() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
+      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -186,7 +186,7 @@ export default function EducacaoInfantil() {
           </div>
 
           {/* Laboratory Section */}
-          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 rounded-xl p-8 md:p-12">
+          <div className="bg-gradient-to-r from-slate-100 to-gray-50 rounded-xl p-8 md:p-12">
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-slate-800 mb-4">
                 Laboratório de Inteligência de Vida

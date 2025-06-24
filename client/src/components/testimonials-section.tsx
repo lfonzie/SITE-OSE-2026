@@ -41,7 +41,7 @@ export default function TestimonialsSection() {
           {testimonials?.map((testimonial) => (
             <div key={testimonial.id} className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-school-orange hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-school-orange to-school-brown rounded-full flex items-center justify-center text-white font-bold text-lg mr-4 shadow-lg">
+                  <div className="w-16 h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4 shadow-lg">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div>

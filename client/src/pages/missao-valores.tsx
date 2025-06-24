@@ -51,7 +51,7 @@ export default function MissaoValores() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-school-brown to-school-orange text-white py-20">
+      <section className="relative bg-gradient-to-r from-slate-800 to-slate-700 text-white py-20">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
@@ -147,7 +147,7 @@ export default function MissaoValores() {
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Faça Parte da Nossa História
           </h2>
-          <p className="text-xl mb-8 text-orange-100">
+          <p className="text-xl mb-8 text-slate-100">
             Venha conhecer de perto como nossos valores e missão se traduzem em uma educação transformadora
           </p>
           <button

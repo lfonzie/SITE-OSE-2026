@@ -27,7 +27,7 @@ export default function Legacy() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
+      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-2xl">
