@@ -57,66 +57,80 @@ export default function CodeOSE() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/attached_assets/1068_1750717790205.jpg" 
-            alt="CODE OSE - Programação"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FF4F00]/90 via-[#FF4F00]/80 to-[#FF6B00]/85">
-            <div className="absolute inset-0 bg-black/30" />
-          </div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="mb-8">
-              <img 
-                src="/attached_assets/codeose23_1750779294902.png" 
-                alt="CODE OSE"
-                className="h-32 mx-auto mb-4"
-              />
+      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                CODE <span className="text-yellow-300">OSE</span>
+              </h1>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+                Alfabetização Digital Integrada
+              </h2>
+              <p className="text-xl md:text-2xl mb-6">
+                Preparando jovens para o futuro digital
+              </p>
+              <p className="text-lg mb-8 opacity-95">
+                CODE OSE é um programa de alfabetização digital integrado ao currículo do Ensino Fundamental I, 
+                desenvolvendo pensamento computacional e habilidades essenciais para o século XXI.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg"
+                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                >
+                  📅 Agende uma Visita
+                </Button>
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  onClick={() => document.getElementById('detalhes')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Saiba Mais
+                </Button>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              {"{CODE.OSE}"}
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              Linguagem de Programação
-            </h2>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-              Alfabetização Digital Integrada ao Ensino Fundamental I
-            </p>
-            <p className="text-lg max-w-3xl mx-auto opacity-95">
-              Em uma era digitalmente avançada, o {"{CODE.OSE}"} não é uma matéria opcional; 
-              é um componente fundamental da grade curricular do Ensino Fundamental I no Colégio OSE.
-            </p>
+            <div className="relative">
+              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
+                <img 
+                  src="/images/codeose23_1750779294902.png" 
+                  alt="CODE OSE Logo"
+                  className="h-40 w-auto"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Applications Section */}
-      <section className="py-20">
+      {/* Features Section */}
+      <section id="detalhes" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-slate-800 mb-6">
-              A Programação Transforma o Mundo
-            </h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Programação que <span className="text-school-orange">Transforma</span>
+            </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto">
               Este curso inovador vai além de ensinar programação, preparando nossos alunos 
-              para a vida e as carreiras do futuro.
+              para a vida e as carreiras do futuro
             </p>
           </div>
 
-          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {applications.map((application, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="bg-school-orange/10 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <application.icon className="text-school-orange" size={36} />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="bg-school-orange text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+                    <Icon size={28} />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
+                  <p className="text-slate-600">{feature.description}</p>
                 </div>
-                <h4 className="text-2xl font-bold text-slate-800 mb-4 text-center">{application.title}</h4>
-                <p className="text-slate-600 leading-relaxed text-center">{application.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Features Section */}

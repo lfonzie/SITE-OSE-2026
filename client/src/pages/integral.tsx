@@ -87,29 +87,32 @@ export default function Integral() {
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-20">
+      {/* Features Section */}
+      <section id="detalhes" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-slate-800 mb-6">
-              Cultivando Mente, Corpo e Espírito
-            </h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Desenvolvimento <span className="text-school-orange">Integral</span>
+            </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Este programa foi desenvolvido para cultivar a mente, o corpo e o espírito do aluno, 
-              proporcionando uma experiência educacional verdadeiramente integral.
+              Das 12h às 17h30, oferecemos um programa completo que vai além do apoio acadêmico, 
+              promovendo o desenvolvimento integral de cada aluno
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {features.map((feature, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="bg-school-orange/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                  <feature.icon className="text-school-orange" size={28} />
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="bg-school-orange text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+                    <Icon size={28} />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
+                  <p className="text-slate-600">{feature.description}</p>
                 </div>
-                <h4 className="text-xl font-bold text-slate-800 mb-3">{feature.title}</h4>
-                <p className="text-slate-600 leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Educational Approach */}

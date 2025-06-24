@@ -87,66 +87,102 @@ export default function Amplia() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/attached_assets/1105_1750717790206.jpg" 
-            alt="Plataforma Amplia"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FF4F00]/90 via-[#FF4F00]/80 to-[#FF6B00]/85">
-            <div className="absolute inset-0 bg-black/30" />
-          </div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="mb-8">
-              <img 
-                src="/attached_assets/AMPLIA_Logotipo-versoes_1750779294903.png" 
-                alt="Plataforma Amplia"
-                className="h-32 mx-auto mb-4"
-              />
+      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                <span className="text-yellow-300">Amplia</span>
+              </h1>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+                Plataforma de Ensino Completa
+              </h2>
+              <p className="text-xl md:text-2xl mb-6">
+                Currículo contextualizado e inovador
+              </p>
+              <p className="text-lg mb-8 opacity-95">
+                Ao proporcionar um currículo completo, incluindo habilidades acadêmicas e socioemocionais, 
+                o Amplia oferece material contextualizado com tecnologia educacional de ponta.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                >
+                  📅 Agende uma Visita
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  onClick={() => document.getElementById('detalhes')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Saiba Mais
+                </Button>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Amplia
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              Plataforma de Ensino
-            </h2>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-              Uma Evolução em Termos de Ensino e Aprendizado
-            </p>
-            <p className="text-lg max-w-3xl mx-auto opacity-95">
-              Proporcionando um currículo completo, incluindo habilidades acadêmicas e socioemocionais, 
-              personalização do estudo por meio da tecnologia e material didático atualizado e contextualizado.
-            </p>
+            <div className="relative">
+              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
+                <img 
+                  src="/images/AMPLIA_Logotipo-versoes_1750779294903.png" 
+                  alt="Amplia Logo"
+                  className="h-40 w-auto"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Pillars Section */}
-      <section className="py-20">
+      {/* Features Section */}
+      <section id="detalhes" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-slate-800 mb-6">
-              Pilares da Nossa Educação Completa
-            </h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Pilares da <span className="text-school-orange">Educação Completa</span>
+            </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Nossa plataforma é fundamentada em três pilares essenciais para a formação integral do aluno
+              Nossa plataforma é fundamentada em três pilares essenciais 
+              para a formação integral do aluno
             </p>
           </div>
 
-          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {pillars.map((pillar, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="bg-school-orange/10 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <pillar.icon className="text-school-orange" size={36} />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {pillars.map((pillar, index) => {
+              const Icon = pillar.icon;
+              return (
+                <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="bg-school-orange text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+                    <Icon size={28} />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-4">{pillar.title}</h3>
+                  <p className="text-slate-600">{pillar.description}</p>
                 </div>
-                <h4 className="text-2xl font-bold text-slate-800 mb-4 text-center">{pillar.title}</h4>
-                <p className="text-slate-600 leading-relaxed text-center">{pillar.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
+
+          {/* Image Gallery */}
+          <div className="grid md:grid-cols-3 gap-6">
+            <OptimizedImage
+              src={img1}
+              alt="Material didático Amplia"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
+            <OptimizedImage
+              src={img5}
+              alt="Tecnologia educacional"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
+            <OptimizedImage
+              src={img6}
+              alt="Metodologia Amplia"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
 
           {/* Resources Section */}
           <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 rounded-xl p-8 md:p-12 mb-16">
