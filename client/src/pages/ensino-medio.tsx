@@ -200,17 +200,17 @@ export default function EnsinoMedio() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-[#FF4F00] to-[#FF6B00] text-white">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h3 className="text-3xl md:text-4xl font-bold mb-6">
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 bg-white p-8 md:p-12 rounded-xl shadow-lg border border-gray-100">
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-slate-800">
             Prepare-se para o Futuro com a OSE
           </h3>
-          <p className="text-xl mb-8">
+          <p className="text-xl mb-8 text-slate-600">
             Há 100 anos formando cidadãos preparados para transformar o mundo
           </p>
           <Button 
             size="lg" 
-            className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+            className="bg-school-orange text-white hover:bg-school-orange/90 font-semibold px-8 py-3"
             onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
           >
             Agende sua Visita e Conheça Nossa Proposta
