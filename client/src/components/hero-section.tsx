@@ -35,8 +35,16 @@ export default function HeroSection() {
             Tradição e uma rica história.
           </h3>
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-xl">
-            Educando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania.
+            Venha conhecer a OSE. Agende uma visita e descubra por que somos referência em educação há mais de 100 anos.
           </p>
+          <div className="flex gap-4 justify-center">
+            <a 
+              href="/agendamento" 
+              className="bg-school-orange hover:bg-school-orange/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-xl hover:shadow-2xl"
+            >
+              Agendar Visita
+            </a>
+          </div>
         </div>
       </div>
     </section>

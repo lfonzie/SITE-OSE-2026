@@ -1,24 +1,24 @@
-import { CheckCircle, Heart, Award, Users } from "lucide-react";
+
 
 export default function WhyOSESection() {
   const reasons = [
     {
-      icon: Award,
+      image: "/images/0354_1750717790205.jpg",
       title: "100 Anos de Tradição",
       description: "A OSE possui um diferencial que poucos colégios no Brasil têm: tradição secular e rica história educacional."
     },
     {
-      icon: Heart,
+      image: "/images/0312_1750717790204.jpg",
       title: "Formação Integral",
       description: "Educamos com base em valores éticos sólidos, preparando gerações para o sucesso e a cidadania."
     },
     {
-      icon: Users,
+      image: "/images/0700_1750717790204.jpg",
       title: "Ambiente Acolhedor",
       description: "Criamos espaços seguros onde cada aluno pode crescer individualmente e socialmente."
     },
     {
-      icon: CheckCircle,
+      image: "/images/0905_1750717790206.jpg",
       title: "Excelência Reconhecida",
       description: "98% de satisfação das famílias comprova nosso compromisso com a qualidade educacional."
     }
@@ -38,12 +38,18 @@ export default function WhyOSESection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
-              <div className="bg-school-orange/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                <reason.icon className="text-school-orange" size={28} />
+            <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 overflow-hidden">
+              <div className="h-48">
+                <img 
+                  src={reason.image} 
+                  alt={reason.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="text-xl font-bold text-slate-800 mb-3">{reason.title}</h3>
-              <p className="text-slate-600 leading-relaxed">{reason.description}</p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-800 mb-3">{reason.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{reason.description}</p>
+              </div>
             </div>
           ))}
         </div>

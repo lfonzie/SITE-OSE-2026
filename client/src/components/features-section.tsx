@@ -60,7 +60,7 @@ export default function FeaturesSection() {
                   <OptimizedImage
                     src={feature.logo}
                     alt={feature.title}
-                    className="w-16 h-16 object-contain"
+                    className={feature.title === "Educação Bilíngue MacMillan" ? "w-20 h-12 object-contain" : "w-16 h-16 object-contain"}
                   />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>

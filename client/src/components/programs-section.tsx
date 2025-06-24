@@ -31,6 +31,16 @@ const colorMap = {
   }
 };
 
+const getImageForProgram = (title: string) => {
+  const imageMap: Record<string, string> = {
+    'Educação Infantil': '/images/0354_1750717790205.jpg',
+    'Ensino Fundamental I': '/images/0934_1750717790206.jpg',
+    'Ensino Fundamental II': '/images/0023_1750717790208.jpg',
+    'Ensino Médio': '/images/0312_1750719589609.jpg'
+  };
+  return imageMap[title] || '/images/0354_1750717790205.jpg';
+};
+
 export default function ProgramsSection() {
   const { data: programs, isLoading } = useQuery<Program[]>({
     queryKey: ["/api/programs"],
@@ -77,8 +87,12 @@ export default function ProgramsSection() {
                 key={program.id}
                 className={`${colors.bg} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border ${colors.border}`}
               >
-                <div className={`${colors.iconBg} text-white w-16 h-16 rounded-xl flex items-center justify-center mb-6`}>
-                  <IconComponent size={32} />
+                <div className="h-48 mb-6 rounded-xl overflow-hidden">
+                  <img 
+                    src={getImageForProgram(program.title)}
+                    alt={program.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-4">{program.title}</h3>
                 <p className="text-slate-600 mb-6">{program.description}</p>
