@@ -83,23 +83,62 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div className="mt-8 bg-school-orange/10 rounded-xl p-6">
-          <h4 className="text-lg font-bold text-white mb-6">Contato</h4>
+          <h4 className="text-lg font-bold text-white mb-6">Contato e Localização</h4>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-white/90">
             <div className="flex items-start">
               <MapPin className="mr-2 mt-1 flex-shrink-0 text-school-orange" size={16} />
-              <span className="text-sm">Rua Comendador Oetterer, 758<br />Centro, Sorocaba - SP</span>
+              <div className="text-sm">
+                <strong>Endereço:</strong><br />
+                Rua Comendador Oetterer, 758<br />
+                Centro - Sorocaba/SP<br />
+                CEP: 18010-260
+              </div>
             </div>
-            <div className="flex items-center">
-              <Phone className="mr-2 flex-shrink-0 text-school-orange" size={16} />
-              <span className="text-sm">(15) 3231-5588</span>
+            <div className="flex items-start">
+              <Phone className="mr-2 mt-1 flex-shrink-0 text-school-orange" size={16} />
+              <div className="text-sm">
+                <strong>Telefones:</strong><br />
+                (15) 3231-5588<br />
+                (15) 3212-2020<br />
+                WhatsApp: (15) 99999-9999
+              </div>
             </div>
-            <div className="flex items-center">
-              <Mail className="mr-2 flex-shrink-0 text-school-orange" size={16} />
-              <span className="text-sm">contato@colegioose.com.br</span>
+            <div className="flex items-start">
+              <Mail className="mr-2 mt-1 flex-shrink-0 text-school-orange" size={16} />
+              <div className="text-sm">
+                <strong>E-mails:</strong><br />
+                contato@colegioose.com.br<br />
+                secretaria@colegioose.com.br<br />
+                diretoria@colegioose.com.br
+              </div>
             </div>
-            <div className="flex items-center">
-              <Clock className="mr-2 flex-shrink-0 text-school-orange" size={16} />
-              <span className="text-sm">Segunda a Sexta: 7h30 às 17h30</span>
+            <div className="flex items-start">
+              <Clock className="mr-2 mt-1 flex-shrink-0 text-school-orange" size={16} />
+              <div className="text-sm">
+                <strong>Horário de Funcionamento:</strong><br />
+                Segunda a Sexta: 7h às 18h<br />
+                Secretaria: 7h30 às 17h30<br />
+                Sábados: 8h às 12h (eventos)
+              </div>
+            </div>
+          </div>
+          
+          {/* Redes Sociais */}
+          <div className="mt-6 pt-6 border-t border-white/20">
+            <h5 className="text-white font-semibold mb-3">Siga-nos nas Redes Sociais:</h5>
+            <div className="flex space-x-4">
+              <a href="https://instagram.com/colegioose" target="_blank" rel="noopener noreferrer" 
+                 className="text-white/80 hover:text-school-orange transition-colors">
+                📸 @colegioose
+              </a>
+              <a href="https://facebook.com/colegioose" target="_blank" rel="noopener noreferrer"
+                 className="text-white/80 hover:text-school-orange transition-colors">
+                📘 Colégio OSE
+              </a>
+              <a href="https://youtube.com/@colegioose" target="_blank" rel="noopener noreferrer"
+                 className="text-white/80 hover:text-school-orange transition-colors">
+                📺 Canal OSE
+              </a>
             </div>
           </div>
         </div>

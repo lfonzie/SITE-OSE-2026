@@ -13,12 +13,12 @@ export default function HeroSection() {
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         <img 
-          src="/attached_assets/0491_1750717790207.jpg" 
-          alt="Colégio OSE - Fachada histórica"
+          src="/attached_assets/1295_1750717790207.jpg" 
+          alt="Colégio OSE - Campus e estudantes"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-school-orange/80 via-school-orange/70 to-school-brown/80">
-          <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-school-orange/85 via-school-orange/75 to-school-brown/85">
+          <div className="absolute inset-0 bg-black/40" />
         </div>
       </div>
       

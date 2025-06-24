@@ -3,8 +3,16 @@ import { Heart, Users, Target, Award, BookOpen } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section id="sobre" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="sobre" className="py-20 relative bg-slate-50">
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 opacity-10">
+        <img 
+          src="/attached_assets/0934_1750717790206.jpg" 
+          alt="Colégio OSE - Ambiente escolar"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
@@ -20,7 +28,7 @@ export default function AboutSection() {
               e no desenvolvimento pessoal e emocional de cada aluno, oferecendo um ambiente que prepara 
               cidadãos completos para o futuro.
             </p>
-            
+
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <Lightbulb className="text-2xl text-yellow-500 mb-3" size={32} />
@@ -33,12 +41,12 @@ export default function AboutSection() {
                 <p className="text-slate-600 text-sm">Cuidado integral com cada estudante</p>
               </div>
             </div>
-            
+
             <Button className="bg-school-orange hover:bg-school-orange/90 text-white">
               Conheça Nossa Proposta Pedagógica
             </Button>
           </div>
-          
+
           <div className="relative">
             <div className="w-full h-96 bg-gradient-to-br from-school-orange/20 to-school-brown/20 rounded-2xl shadow-2xl flex items-center justify-center">
               <div className="text-center">
@@ -46,7 +54,7 @@ export default function AboutSection() {
                 <p className="text-school-brown font-medium">Ambiente Educacional da OSE</p>
               </div>
             </div>
-            
+
             {/* Floating achievement card */}
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border-l-4 border-school-orange">
               <div className="flex items-center">

@@ -64,45 +64,81 @@ export default function SocialFeedsSection() {
             <h3 className="text-2xl font-bold text-slate-800">@colegioose</h3>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center">
-              <Camera className="text-school-orange" size={32} />
+          {instagramPosts.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {instagramPosts.slice(0, 8).map((post, index) => (
+                <a 
+                  key={post.id}
+                  href={post.permalink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all"
+                  style={{ display: index >= 4 ? 'none' : 'block' }}
+                >
+                  <img 
+                    src={post.media_url}
+                    alt={post.caption.split(' ').slice(0, 5).join(' ')}
+                    className="w-full h-full object-cover group-hover:brightness-110 transition-all"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <Camera className="text-white" size={24} />
+                  </div>
+                </a>
+              ))}
+              {/* Mostrar mais posts em desktop */}
+              {instagramPosts.slice(4, 8).map((post, index) => (
+                <a 
+                  key={post.id}
+                  href={post.permalink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all hidden md:block"
+                >
+                  <img 
+                    src={post.media_url}
+                    alt={post.caption.split(' ').slice(0, 5).join(' ')}
+                    className="w-full h-full object-cover group-hover:brightness-110 transition-all"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <Camera className="text-white" size={24} />
+                  </div>
+                </a>
+              ))}
             </div>
-            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center">
-              <Camera className="text-school-orange" size={32} />
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {Array.from({ length: 8 }).map((_, index) => (
+                <div 
+                  key={index}
+                  className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center"
+                  style={{ display: index >= 4 ? 'none' : 'flex' }}
+                >
+                  <Camera className="text-school-orange" size={32} />
+                </div>
+              ))}
             </div>
-            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center">
-              <Camera className="text-school-orange" size={32} />
-            </div>
-            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center">
-              <Camera className="text-school-orange" size={32} />
-            </div>
-            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center md:block hidden">
-              <Camera className="text-school-orange" size={32} />
-            </div>
-            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center md:block hidden">
-              <Camera className="text-school-orange" size={32} />
-            </div>
-            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center md:block hidden">
-              <Camera className="text-school-orange" size={32} />
-            </div>
-            <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center md:block hidden">
-              <Camera className="text-school-orange" size={32} />
-            </div>
-          </div>
+          )}
           
           <div className="text-center">
-            <p className="text-slate-600 mb-4">
-              Acompanhe o dia a dia dos nossos alunos e eventos especiais
+            <p className="text-slate-600 mb-2">
+              📸 Feed em tempo real do Instagram @colegioose
             </p>
-            <a 
-              href="https://instagram.com/colegioose" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-school-orange text-white px-6 py-2 rounded-full hover:bg-school-orange/90 transition-colors"
-            >
-              Siga @colegioose
-            </a>
+            <p className="text-slate-500 text-sm mb-4">
+              Acompanhe o dia a dia dos nossos alunos, eventos especiais e conquistas da família OSE
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+              <a 
+                href="https://instagram.com/colegioose" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-school-orange text-white px-6 py-2 rounded-full hover:bg-school-orange/90 transition-colors"
+              >
+                Siga @colegioose
+              </a>
+              <span className="text-slate-400 text-sm">
+                {instagramPosts.length > 0 ? `${instagramPosts.length} posts recentes` : 'Carregando posts...'}
+              </span>
+            </div>
           </div>
         </div>
 

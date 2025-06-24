@@ -1,4 +1,3 @@
-// Social Media Feeds (substitui Smash Balloon Instagram Feed)
 
 export interface InstagramPost {
   id: string;
@@ -7,101 +6,119 @@ export interface InstagramPost {
   media_type: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM';
   permalink: string;
   timestamp: string;
+  thumbnail_url?: string;
 }
 
-export interface FacebookPost {
-  id: string;
-  message: string;
-  picture?: string;
-  link?: string;
-  created_time: string;
-}
+// Simulação de posts do Instagram do Colégio OSE
+const mockInstagramPosts: InstagramPost[] = [
+  {
+    id: "1",
+    caption: "🏆 Nossos alunos brilhando nos Jogos Escolares de Sorocaba! Muito orgulho dessa dedicação! #OSE100Anos #JogosEscolares #Sorocaba",
+    media_url: "/attached_assets/0581_1750717790206.jpg",
+    media_type: "IMAGE",
+    permalink: "https://instagram.com/p/example1",
+    timestamp: "2025-01-24T10:00:00Z"
+  },
+  {
+    id: "2", 
+    caption: "📚 Biblioteca renovada! Espaço moderno para incentivar ainda mais o amor pela leitura. #BibliotecaOSE #Educação #Leitura",
+    media_url: "/attached_assets/1068_1750717790205.jpg",
+    media_type: "IMAGE",
+    permalink: "https://instagram.com/p/example2",
+    timestamp: "2025-01-23T14:30:00Z"
+  },
+  {
+    id: "3",
+    caption: "🎨 Arte e criatividade em cada projeto! Nossos pequenos artistas da Educação Infantil surpreendem sempre! #ArteOSE #EducaçãoInfantil",
+    media_url: "/attached_assets/0378_1750717790208.jpg", 
+    media_type: "IMAGE",
+    permalink: "https://instagram.com/p/example3",
+    timestamp: "2025-01-22T16:15:00Z"
+  },
+  {
+    id: "4",
+    caption: "🏫 Nossa fachada histórica que conta 100 anos de tradição educacional em Sorocaba! #OSETradição #100Anos #Sorocaba",
+    media_url: "/attached_assets/1295_1750717790207.jpg",
+    media_type: "IMAGE", 
+    permalink: "https://instagram.com/p/example4",
+    timestamp: "2025-01-21T09:00:00Z"
+  },
+  {
+    id: "5",
+    caption: "⚽ Esporte e educação caminhando juntos! Time de futebol OSE em ação! #EsporteOSE #FutebolEscolar #VidaSaudável",
+    media_url: "/attached_assets/0700_1750717790204.jpg",
+    media_type: "IMAGE",
+    permalink: "https://instagram.com/p/example5", 
+    timestamp: "2025-01-20T11:45:00Z"
+  },
+  {
+    id: "6",
+    caption: "🎓 Formatura do Ensino Médio 2024! Momento especial para nossas famílias OSE! #Formatura2024 #EnsinoMédio #OSEFamília",
+    media_url: "/attached_assets/0905_1750717790206.jpg",
+    media_type: "IMAGE",
+    permalink: "https://instagram.com/p/example6",
+    timestamp: "2025-01-19T19:00:00Z"
+  },
+  {
+    id: "7",
+    caption: "🔬 Laboratório de Ciências: onde a curiosidade vira descoberta! #CiênciasOSE #LaboratórioEscolar #Aprendizado",
+    media_url: "/attached_assets/1105_1750717790206.jpg",
+    media_type: "IMAGE",
+    permalink: "https://instagram.com/p/example7",
+    timestamp: "2025-01-18T13:20:00Z"
+  },
+  {
+    id: "8",
+    caption: "🎪 Festa Junina OSE 2024! Tradição, diversão e união da nossa comunidade escolar! #FestaJuninaOSE #Tradição #ComunidadeOSE",
+    media_url: "/attached_assets/0541_1750717790207.jpg",
+    media_type: "IMAGE",
+    permalink: "https://instagram.com/p/example8",
+    timestamp: "2025-01-17T17:30:00Z"
+  }
+];
 
-// Mock Instagram feed (replace with real API integration)
+// Função para buscar feed do Instagram (simulada)
 export const getInstagramFeed = async (): Promise<InstagramPost[]> => {
-  // This would connect to Instagram Basic Display API
-  // For now, returning mock data that represents typical school posts
-  return [
-    {
-      id: '1',
-      caption: 'Festa Junina 2025 foi um sucesso! 🎉 #ColegioOSE #FestaJunina',
-      media_url: '/images/festa-junina.jpg',
-      media_type: 'IMAGE',
-      permalink: 'https://instagram.com/p/example1',
-      timestamp: '2025-06-23T10:00:00Z'
-    },
-    {
-      id: '2',
-      caption: 'Alunos do 3º ano em visita ao laboratório de ciências 🔬 #Educacao #Ciencias',
-      media_url: '/images/laboratorio.jpg',
-      media_type: 'IMAGE',
-      permalink: 'https://instagram.com/p/example2',
-      timestamp: '2025-06-22T14:30:00Z'
-    },
-    {
-      id: '3',
-      caption: 'Projeto de leitura da Educação Infantil 📚 #Leitura #EducacaoInfantil',
-      media_url: '/images/leitura.jpg',
-      media_type: 'IMAGE',
-      permalink: 'https://instagram.com/p/example3',
-      timestamp: '2025-06-21T09:15:00Z'
-    }
-  ];
+  // Em produção, aqui seria feita a chamada para a API do Instagram
+  // Por enquanto, retornamos posts simulados com as imagens disponíveis
+  
+  try {
+    // Simula delay de API
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Retorna os posts ordenados por data (mais recentes primeiro)
+    return mockInstagramPosts.sort((a, b) => 
+      new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+    );
+  } catch (error) {
+    console.error('Erro ao buscar feed do Instagram:', error);
+    return [];
+  }
 };
 
-// Facebook feed integration
-export const getFacebookFeed = async (): Promise<FacebookPost[]> => {
-  // This would connect to Facebook Graph API
-  return [
-    {
-      id: '1',
-      message: 'Inscrições abertas para o ano letivo 2026! Venha conhecer nossa tradição centenária.',
-      picture: '/images/inscricoes.jpg',
-      created_time: '2025-06-23T08:00:00Z'
-    },
-    {
-      id: '2',
-      message: 'Parabéns aos nossos alunos aprovados no vestibular! 🎓',
-      created_time: '2025-06-22T16:00:00Z'
-    }
-  ];
+// Função para configurar Instagram Basic Display API (para implementação futura)
+export const setupInstagramAPI = () => {
+  const config = {
+    appId: process.env.REACT_APP_INSTAGRAM_APP_ID,
+    appSecret: process.env.REACT_APP_INSTAGRAM_APP_SECRET,
+    redirectUri: `${window.location.origin}/auth/instagram/callback`,
+    scope: 'user_profile,user_media'
+  };
+  
+  return config;
 };
 
-// Social media embed component
-export const createSocialEmbed = (platform: 'instagram' | 'facebook', posts: InstagramPost[] | FacebookPost[]) => {
-  const container = document.createElement('div');
-  container.className = 'social-feed-container grid grid-cols-1 md:grid-cols-3 gap-4';
-
-  posts.forEach(post => {
-    const postElement = document.createElement('div');
-    postElement.className = 'bg-white rounded-lg shadow-md overflow-hidden';
-
-    if (platform === 'instagram') {
-      const igPost = post as InstagramPost;
-      postElement.innerHTML = `
-        <img src="${igPost.media_url}" alt="Instagram post" class="w-full h-48 object-cover">
-        <div class="p-4">
-          <p class="text-sm text-gray-600 mb-2">${igPost.caption}</p>
-          <a href="${igPost.permalink}" target="_blank" class="text-school-orange hover:underline text-sm">
-            Ver no Instagram
-          </a>
-        </div>
-      `;
-    } else {
-      const fbPost = post as FacebookPost;
-      postElement.innerHTML = `
-        ${fbPost.picture ? `<img src="${fbPost.picture}" alt="Facebook post" class="w-full h-48 object-cover">` : ''}
-        <div class="p-4">
-          <p class="text-sm text-gray-600 mb-2">${fbPost.message}</p>
-          <span class="text-xs text-gray-400">
-            ${new Date(fbPost.created_time).toLocaleDateString('pt-BR')}
-          </span>
-        </div>
-      `;
-    }
-
-    container.appendChild(postElement);
-  });
-
-  return container;
+// Função para processar e otimizar posts do Instagram
+export const processInstagramPosts = (posts: InstagramPost[]) => {
+  return posts.map(post => ({
+    ...post,
+    caption: post.caption.length > 150 ? 
+      post.caption.substring(0, 150) + '...' : 
+      post.caption,
+    formattedDate: new Date(post.timestamp).toLocaleDateString('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    })
+  }));
 };
