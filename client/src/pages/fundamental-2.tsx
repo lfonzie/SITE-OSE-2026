@@ -62,32 +62,48 @@ export default function Fundamental2() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/attached_assets/0023_1750717790208.jpg" 
-            alt="Ensino Fundamental II OSE"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FF4F00]/90 via-[#FF4F00]/80 to-[#FF6B00]/85">
-            <div className="absolute inset-0 bg-black/30" />
-          </div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
-              Ensino Fundamental II
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4 drop-shadow-lg">
-              Anos Finais - 6º ao 9º ano
-            </h2>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto drop-shadow-lg">
-              Formando Líderes Conscientes para um Mundo em Transformação
-            </p>
-            <p className="text-lg max-w-3xl mx-auto opacity-95 drop-shadow-lg">
-              Uma fase empolgante e transformadora onde nossos alunos passam por rápido desenvolvimento 
-              cognitivo e emocional. Nosso foco está além do currículo acadêmico.
-            </p>
+      <section className="relative py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Ensino Fundamental <span className="text-yellow-300">II</span>
+              </h1>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+                Anos Finais - 6º ao 9º ano
+              </h2>
+              <p className="text-xl md:text-2xl mb-6">
+                Formando Líderes Conscientes para um Mundo em Transformação
+              </p>
+              <p className="text-lg mb-8 opacity-95">
+                Uma fase empolgante e transformadora onde nossos alunos passam por rápido desenvolvimento 
+                cognitivo e emocional. Nosso foco está além do currículo acadêmico.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg"
+                  className="bg-white text-school-orange hover:bg-gray-100"
+                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                >
+                  📅 Agende uma Visita
+                </Button>
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-school-orange"
+                  onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  📞 Entre em Contato
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <img 
+                src="/images/0023_1750717790208.jpg" 
+                alt="Ensino Fundamental II OSE"
+                className="rounded-lg shadow-2xl w-full h-[400px] object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>

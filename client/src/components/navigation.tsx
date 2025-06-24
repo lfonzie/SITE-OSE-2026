@@ -63,8 +63,7 @@ export default function Navigation() {
       submenu: [
         { label: "Árvore (Livros Digitais)", id: "/arvore", isSection: false },
         { label: "Portal do Aluno", id: "/portal-aluno", isSection: false },
-        { label: "ISAAC (Financeiro)", id: "/isaac", isSection: false },
-        { label: "Contato", id: "contato", isSection: true }
+        { label: "ISAAC (Financeiro)", id: "/isaac", isSection: false }
       ]
     }
   ];
