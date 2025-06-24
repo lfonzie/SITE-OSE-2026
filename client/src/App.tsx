@@ -24,8 +24,9 @@ import PortalPais from "./pages/portal-pais";
 import Bilingue from "./pages/bilingue";
 import Integral from "./pages/integral";
 import CodeOSE from "./pages/code-ose";
-import Amplia from "./pages/amplia";
-import ListaMaterial from "./pages/lista-material";
+import Amplia from "@/pages/amplia";
+import SocioEmocional from "@/pages/socioemocional";
+import ListaMaterial from "@/pages/lista-material";
 import Arvore from "./pages/arvore";
 import Isaac from "@/pages/isaac";
 import MissaoValores from "@/pages/missao-valores";
@@ -51,6 +52,7 @@ function Router() {
       <Route path="/integral" component={Integral} />
       <Route path="/code-ose" component={CodeOSE} />
       <Route path="/amplia" component={Amplia} />
+      <Route path="/socioemocional" component={SocioEmocional} />
       <Route path="/lista-material" component={ListaMaterial} />
       <Route path="/arvore" component={Arvore} />
       <Route path="/isaac" component={Isaac} />

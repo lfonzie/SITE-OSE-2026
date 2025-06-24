@@ -53,6 +53,7 @@ export default function Navigation() {
         { label: "CODE OSE", id: "/code-ose", isSection: false },
         { label: "Integral", id: "/integral", isSection: false },
         { label: "Amplia", id: "/amplia", isSection: false },
+        { label: "SócioEmocional", id: "/socioemocional", isSection: false },
         { label: "Lista de Material", id: "/lista-material", isSection: false },
         { label: "Professores", id: "/professores", isSection: false }
       ]
