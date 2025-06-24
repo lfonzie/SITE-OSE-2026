@@ -55,7 +55,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a 
-                    href="https://www.activesoft.com.br/intranet/familia/login/index.php?co_entidade=9989" 
+                    href="https://siga03.activesoft.com.br/login/?instituicao=COLEGIOOSE" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white/80 hover:text-white transition-colors"

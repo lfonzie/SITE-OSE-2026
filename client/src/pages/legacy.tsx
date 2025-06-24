@@ -27,19 +27,48 @@ export default function Legacy() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-2xl">
-            Nosso Legado
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto drop-shadow-xl">
-            100 Anos de Tradição e Excelência Educacional
-          </p>
-          <p className="text-lg max-w-3xl mx-auto opacity-95 drop-shadow-xl">
-            Desde 1924, a OSE representa mais que uma escola - somos guardiões de 
-            uma tradição educacional que atravessa gerações.
-          </p>
+      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                Nosso <span className="text-school-orange">Legado</span>
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 leading-relaxed">
+                Construindo <strong>futuro</strong> com base na <strong>tradição</strong>
+              </p>
+              <p className="text-lg mb-8 opacity-90">
+                Desde 1924, a OSE representa mais que uma escola - somos guardiões de 
+                uma tradição educacional que atravessa gerações, moldando líderes e cidadãos exemplares.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+                  onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
+                >
+                  📅 Agende uma Visita
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
+                  onClick={() => document.getElementById('legado')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Saiba Mais
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
+                <div className="text-center">
+                  <Award className="text-white/80 mx-auto mb-4" size={80} />
+                  <p className="text-white/70 text-lg font-medium">100 Anos de Tradição</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
