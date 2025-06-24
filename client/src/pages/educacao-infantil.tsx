@@ -190,6 +190,8 @@ export default function EducacaoInfantil() {
         </div>
       </section>
 
+      <WhyOSESection />
+      <ContactSection />
     </div>
   );
 }
