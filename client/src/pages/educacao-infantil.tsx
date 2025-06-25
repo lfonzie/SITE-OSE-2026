@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
@@ -10,6 +11,7 @@ import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
+import ImageManager from "@/components/ImageManager";
 
 // Importando imagens para Educação Infantil
 import { newImages } from "@/lib/image-verification";
@@ -21,6 +23,7 @@ const img5 = newImages.img16;
 const img6 = newImages.img17;
 
 export default function EducacaoInfantil() {
+  const [selectedImage, setSelectedImage] = useState(null);
   useEffect(() => {
     updateSEO({
       title: "Educação Infantil - Jardim I e II | a OSE",
@@ -61,13 +64,14 @@ export default function EducacaoInfantil() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src={img1}
+            src={selectedImage || img1}
             alt="Educação Infantil - OSE"
             className="w-full h-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <ImageManager onImageSelect={setSelectedImage} category="educacao-infantil" />
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">

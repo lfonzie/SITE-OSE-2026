@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Upload, Image as ImageIcon, Trash2, Eye } from "lucide-react";
-import { OptimizedImage } from "@/components/ui/optimized-image";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface InstagramPost {
   id: string;
@@ -16,7 +16,7 @@ interface InstagramPost {
 }
 
 export default function AdminPage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated, login, logout } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
@@ -25,20 +25,15 @@ export default function AdminPage() {
 
   // Verificar se já está autenticado
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem("admin_authenticated") === "true";
-    setIsAuthenticated(isLoggedIn);
-    
-    if (isLoggedIn) {
+    if (isAuthenticated) {
       loadInstagramPosts();
     }
-  }, []);
+  }, [isAuthenticated]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (email === "fonseca@colegioose.com.br" && password === "19082018!") {
-      setIsAuthenticated(true);
-      localStorage.setItem("admin_authenticated", "true");
+    if (login(email, password)) {
       loadInstagramPosts();
       toast({
         title: "Login realizado com sucesso!",
@@ -54,8 +49,7 @@ export default function AdminPage() {
   };
 
   const handleLogout = () => {
-    setIsAuthenticated(false);
-    localStorage.removeItem("admin_authenticated");
+    logout();
     setEmail("");
     setPassword("");
   };

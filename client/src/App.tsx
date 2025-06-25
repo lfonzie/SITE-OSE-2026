@@ -1,6 +1,6 @@
 import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import { useEffect } from "react";
 import { initAllTracking } from "./lib/analytics";
@@ -36,6 +36,7 @@ import MissaoValores from "@/pages/missao-valores";
 import Agendamento from "@/pages/agendamento";
 import NotFound from "@/pages/not-found";
 import CV from "@/pages/cv";
+import { AuthProvider } from "./contexts/AuthContext";
 
 function Router() {
   // Track page views when routes change
@@ -93,11 +94,13 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <WhatsAppWidget />
-        <Toaster />
-        <Router />
-      </TooltipProvider>
+      <AuthProvider>
+        <TooltipProvider>
+          <WhatsAppWidget />
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
