@@ -6,7 +6,7 @@ export const setupCSP = () => {
   meta.setAttribute('http-equiv', 'Content-Security-Policy');
   meta.content = `
     default-src 'self';
-    script-src 'self' 'unsafe-inline' 
+    script-src 'self' 'unsafe-inline' 'unsafe-eval'
       https://www.googletagmanager.com 
       https://connect.facebook.net 
       https://assets.calendly.com 
@@ -14,13 +14,20 @@ export const setupCSP = () => {
       https://googleads.g.doubleclick.net 
       https://ssl.google-analytics.com
       https://sdk.dfktv2.com
-      https://www.uchat.com.au;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com;
+      https://www.uchat.com.au
+      https://ipapi.co;
+    style-src 'self' 'unsafe-inline' 
+      https://fonts.googleapis.com 
+      https://assets.calendly.com;
     img-src 'self' data: https: blob: 
       https://www.facebook.com 
       https://www.google-analytics.com 
-      https://googleads.g.doubleclick.net;
-    font-src 'self' https://fonts.gstatic.com;
+      https://googleads.g.doubleclick.net
+      https://chatbot.ewr1.vultrobjects.com;
+    font-src 'self' 
+      https://fonts.gstatic.com;
+    media-src 'self'
+      https://sdk.dfktv2.com;
     connect-src 'self' 
       https://www.google-analytics.com 
       https://api.calendly.com 
@@ -29,14 +36,16 @@ export const setupCSP = () => {
       https://www.google.com 
       https://connect.facebook.net
       https://sdk.dfktv2.com
-      https://www.uchat.com.au;
+      https://www.uchat.com.au
+      https://ipapi.co;
     frame-src 'self' 
       https://calendly.com 
       https://*.calendly.com
       https://www.googletagmanager.com
       https://td.doubleclick.net
       https://*.doubleclick.net
-      https://googleads.g.doubleclick.net;
+      https://googleads.g.doubleclick.net
+      https://sdk.dfktv2.com;
   `.replace(/\s+/g, ' ').trim();
   document.head.appendChild(meta);
 };

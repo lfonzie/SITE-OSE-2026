@@ -133,6 +133,7 @@ Changelog:
 - June 25, 2025: Analytics fixes: Updated CSP to allow Google Analytics and Facebook Pixel scripts, disabled analytics in development mode to prevent blocking, configured authentic OSE tracking IDs
 - June 25, 2025: WhatsApp widget management: Fixed duplicate widget issues, installed UChatWidget globally for production domain, custom development button with correct number (15) 2101-3812
 - June 25, 2025: SEO implementation: Added comprehensive meta tags, Open Graph, Twitter Cards, structured data (JSON-LD), canonical URLs, and proper page titles for search engine optimization
+- June 25, 2025: UChatWidget production fix: Updated CSP to allow all UChatWidget resources (sdk.dfktv2.com, ipapi.co, media-src), fixed deprecated mobile app meta tag, resolved widget loading issues on deployed site
 ```
 
 ## User Preferences
