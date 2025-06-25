@@ -108,13 +108,6 @@ export default function EnsinoMedio() {
               </motion.p>
 
             </div>
-            <div className="relative">
-              <OptimizedImage
-                src={img1}
-                alt="Alunos do Ensino Médio da OSE"
-                className="w-full h-96 rounded-2xl shadow-2xl"
-              />
-            </div>
           </div>
         </div>
       </section>

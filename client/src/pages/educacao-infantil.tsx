@@ -85,13 +85,6 @@ export default function EducacaoInfantil() {
               </p>
 
             </div>
-            <div className="relative">
-              <img 
-                src="/images/0354_1750717790205.jpg" 
-                alt="Educação Infantil OSE"
-                className="rounded-lg shadow-2xl w-full h-[400px] object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>

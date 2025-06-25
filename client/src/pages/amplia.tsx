@@ -140,15 +140,6 @@ export default function Amplia() {
               </motion.p>
 
             </div>
-            <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
-                <img 
-                  src="/images/AMPLIA_Logotipo-versoes_1750779294903.png" 
-                  alt="Amplia Logo"
-                  className="h-40 w-auto"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>

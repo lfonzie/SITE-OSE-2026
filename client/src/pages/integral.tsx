@@ -97,14 +97,6 @@ export default function Integral() {
               </motion.p>
 
             </div>
-            <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <Clock className="text-white/80 mx-auto mb-4" size={80} />
-                  <p className="text-white/70 text-lg font-medium">12h00 às 17h30</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

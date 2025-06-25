@@ -115,13 +115,6 @@ export default function Fundamental2() {
               </motion.p>
 
             </div>
-            <div className="relative">
-              <img 
-                src="/images/0023_1750717790208.jpg" 
-                alt="Ensino Fundamental II OSE"
-                className="rounded-lg shadow-2xl w-full h-[400px] object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>
