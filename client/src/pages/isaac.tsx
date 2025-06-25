@@ -6,7 +6,7 @@ import ContactSection from "@/components/contact-section";
 import { CreditCard, ExternalLink, FileText, Calculator, Clock, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { logos } from "@/lib/image-verification";
+import { logos, newImages } from "@/lib/image-verification";
 
 export default function Isaac() {
   useEffect(() => {
