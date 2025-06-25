@@ -133,7 +133,7 @@ Changelog:
 - June 25, 2025: Analytics fixes: Updated CSP to allow Google Analytics and Facebook Pixel scripts, disabled analytics in development mode to prevent blocking, configured authentic OSE tracking IDs
 - June 25, 2025: SEO implementation: Created automatic sitemap generation system with XML sitemap, robots.txt, cache management, and auto-regeneration when content changes
 - June 25, 2025: Chat system update: Replaced WhatsApp widget with UChat live chat system for better customer support integration
-- June 25, 2025: Domain-specific chat: Updated UChat widget to only load on colegioose.com.br domain, completely removed old WhatsApp code
+- June 25, 2025: Chat system: Replaced WhatsApp with UChat widget, removed domain restrictions for universal access
 - June 25, 2025: ISAAC portal update: Changed ISAAC portal links to https://isaac.com.br/meu-isaac for direct access
 ```
 
