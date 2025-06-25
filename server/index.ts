@@ -41,6 +41,9 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Serve static images in all environments FIRST
+  app.use('/images', express.static(path.join(process.cwd(), 'client/public/images')));
+  
   // Register API routes
   registerRoutes(app);
 
@@ -63,6 +66,8 @@ app.use((req, res, next) => {
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
+    // Serve static files from client/public in production
+    app.use(express.static(path.join(process.cwd(), 'client/public')));
     serveStatic(app);
   }
 

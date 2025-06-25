@@ -167,6 +167,22 @@ export function registerRoutes(app: Express) {
     }
   });
 
+  // Serve images from public/images directly (for development)
+  app.get("/images/:filename", (req, res) => {
+    try {
+      const filename = req.params.filename;
+      const imagePath = path.join(process.cwd(), 'client/public/images', filename);
+      
+      if (!fs.existsSync(imagePath)) {
+        return res.status(404).json({ error: 'Image not found' });
+      }
+
+      res.sendFile(imagePath);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   // Serve images from IG folder
   app.get("/api/images/IG/:filename", (req, res) => {
     try {
