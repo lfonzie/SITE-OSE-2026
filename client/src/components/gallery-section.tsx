@@ -4,25 +4,18 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
-// Importando as imagens disponíveis
-import img1 from "@assets/0354_1750717790205.jpg";
-import img2 from "@assets/1068_1750717790205.jpg";
-import img3 from "@assets/0312_1750717790204.jpg";
-import img4 from "@assets/0700_1750717790204.jpg";
-import img5 from "@assets/0905_1750717790206.jpg";
-import img6 from "@assets/0934_1750717790206.jpg";
-import img7 from "@assets/1092_1750717790205.jpg";
-import img8 from "@assets/1105_1750717790206.jpg";
+// Importando as novas imagens organizadas
+import { newImages } from "@/lib/image-verification";
 
 const galeriaImagens = [
-  { src: img1, alt: "Atividades pedagógicas da OSE", categoria: "Ensino" },
-  { src: img2, alt: "Espaços de aprendizagem modernos", categoria: "Estrutura" },
-  { src: img3, alt: "Vida escolar e convivência", categoria: "Convivência" },
-  { src: img4, alt: "Laboratórios e tecnologia", categoria: "Tecnologia" },
-  { src: img5, alt: "Atividades esportivas", categoria: "Esportes" },
-  { src: img6, alt: "Eventos e celebrações", categoria: "Eventos" },
-  { src: img7, alt: "Projetos educacionais", categoria: "Projetos" },
-  { src: img8, alt: "Momentos especiais da OSE", categoria: "Tradição" }
+  { src: newImages.img1, alt: "Atividades pedagógicas da OSE", categoria: "Ensino" },
+  { src: newImages.img2, alt: "Espaços de aprendizagem modernos", categoria: "Estrutura" },
+  { src: newImages.img3, alt: "Vida escolar e convivência", categoria: "Convivência" },
+  { src: newImages.img4, alt: "Laboratórios e tecnologia", categoria: "Tecnologia" },
+  { src: newImages.img5, alt: "Atividades esportivas", categoria: "Esportes" },
+  { src: newImages.img6, alt: "Eventos e celebrações", categoria: "Eventos" },
+  { src: newImages.img7, alt: "Projetos educacionais", categoria: "Projetos" },
+  { src: newImages.img8, alt: "Momentos especiais da OSE", categoria: "Tradição" }
 ];
 
 const categorias = ["Todas", "Ensino", "Estrutura", "Convivência", "Tecnologia", "Esportes", "Eventos", "Projetos", "Tradição"];

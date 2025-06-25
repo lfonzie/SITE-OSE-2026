@@ -4,6 +4,7 @@ import type { Program } from "@shared/schema";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection, AnimatedItem } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
+import { newImages } from "@/lib/image-verification";
 
 const iconMap = {
   baby: Baby,
@@ -36,12 +37,12 @@ const colorMap = {
 
 const getImageForProgram = (title: string) => {
   const imageMap: Record<string, string> = {
-    'Educação Infantil': '/images/0354_1750717790205.jpg',
-    'Ensino Fundamental I': '/images/0934_1750717790206.jpg',
+    'Educação Infantil': newImages.img9,
+    'Ensino Fundamental I': newImages.img10,
     'Ensino Fundamental II': '/images/0023_1750717790208.jpg',
     'Ensino Médio': '/images/0312_1750719589609.jpg'
   };
-  return imageMap[title] || '/images/0354_1750717790205.jpg';
+  return imageMap[title] || newImages.img1;
 };
 
 export default function ProgramsSection() {

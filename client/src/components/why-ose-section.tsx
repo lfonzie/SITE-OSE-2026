@@ -1,26 +1,27 @@
 
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
+import { newImages } from "@/lib/image-verification";
 
 export default function WhyOSESection() {
   const reasons = [
     {
-      image: "/images/0354_1750717790205.jpg",
+      image: newImages.horizontal2,
       title: "100 Anos de Tradição",
       description: "A OSE possui um diferencial que poucos colégios no Brasil têm: tradição secular e rica história educacional."
     },
     {
-      image: "/images/0312_1750717790204.jpg",
+      image: newImages.horizontal3,
       title: "Formação Integral",
       description: "Educamos com base em valores éticos sólidos, preparando gerações para o sucesso e a cidadania."
     },
     {
-      image: "/images/0700_1750717790204.jpg",
+      image: newImages.horizontal4,
       title: "Ambiente Acolhedor",
       description: "Criamos espaços seguros onde cada aluno pode crescer individualmente e socialmente."
     },
     {
-      image: "/images/0905_1750717790206.jpg",
+      image: newImages.horizontal5,
       title: "Excelência Reconhecida",
       description: "98% de satisfação das famílias comprova nosso compromisso com a qualidade educacional."
     }

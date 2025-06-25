@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
+import { newImages } from "@/lib/image-verification";
 
 export default function HeroSection() {
   const scrollToNext = () => {
@@ -14,7 +15,7 @@ export default function HeroSection() {
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         <img 
-          src="/images/0023_1750717790208.jpg" 
+          src={newImages.horizontal1} 
           alt="Colégio OSE - Campus e estudantes"
           className="w-full h-full object-cover"
         />
