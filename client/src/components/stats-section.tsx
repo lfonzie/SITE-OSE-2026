@@ -1,5 +1,6 @@
 
 import { Users, Calendar, Trophy, BookOpen } from "lucide-react";
+import AnimatedCard from "./animated/AnimatedCard";
 
 const stats = [
   { 
@@ -44,7 +45,7 @@ export default function StatsSection() {
           {stats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
-              <div key={index} className="text-center">
+              <AnimatedCard key={index} delay={index * 0.1} className="text-center">
                 <div className={`${stat.bgColor} rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4`}>
                   <IconComponent className={`${stat.color}`} size={32} />
                 </div>
@@ -57,7 +58,7 @@ export default function StatsSection() {
                 <div className="text-sm text-slate-500">
                   {stat.description}
                 </div>
-              </div>
+              </AnimatedCard>
             );
           })}
         </div>

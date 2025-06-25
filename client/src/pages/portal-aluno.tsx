@@ -42,22 +42,32 @@ const assignments = [
     status: "pending",
     priority: "high"
   },
+  {
     id: 2,
     title: "Lista de Exercícios - Função Quadrática",
     subject: "Matemática",
     dueDate: "2024-01-12",
     status: "completed",
     priority: "medium"
+  },
+  {
     id: 3,
     title: "Relatório de Laboratório",
     subject: "Química",
     dueDate: "2024-01-20",
+    status: "pending",
+    priority: "low"
+  },
+  {
     id: 4,
     title: "Seminário - Revolução Industrial",
     subject: "História",
     dueDate: "2024-01-18",
     status: "submitted",
+    priority: "high"
   }
+];
+
 const schedule = [
   { time: "07:30 - 08:20", subject: "Matemática", room: "Sala 201", teacher: "Prof. João Santos" },
   { time: "08:20 - 09:10", subject: "Português", room: "Sala 105", teacher: "Profa. Maria Silva" },
@@ -65,6 +75,8 @@ const schedule = [
   { time: "09:30 - 10:20", subject: "Física", room: "Lab. Física", teacher: "Prof. Carlos Lima" },
   { time: "10:20 - 11:10", subject: "Química", room: "Lab. Química", teacher: "Profa. Ana Costa" },
   { time: "11:10 - 12:00", subject: "Educação Física", room: "Quadra", teacher: "Prof. Pedro Oliveira" }
+];
+
 const notifications = [
     title: "Simulado ENEM - Inscrições Abertas",
     message: "As inscrições para o simulado ENEM estão abertas até 20/01",

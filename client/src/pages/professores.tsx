@@ -29,6 +29,7 @@ const professores = [
     sobre: "Especialista em metodologias ativas para o ensino de matemática, com foco no desenvolvimento do raciocínio lógico.",
     foto: "/images/0905_1750717790206.jpg"
   },
+  {
     id: 2,
     nome: "Profa. Maria Santos",
     disciplina: "Português",
@@ -36,6 +37,8 @@ const professores = [
     experiencia: "20 anos de experiência",
     sobre: "Especializada em literatura brasileira e produção textual, promovendo o amor pela leitura e escrita.",
     foto: "/images/0934_1750717790206.jpg"
+  },
+  {
     id: 3,
     nome: "Prof. Carlos Lima",
     disciplina: "Física",
@@ -43,6 +46,8 @@ const professores = [
     experiencia: "12 anos de experiência",
     sobre: "Apaixonado por ensinar física através de experimentos práticos e aplicações do cotidiano.",
     foto: "/images/1068_1750717790205.jpg"
+  },
+  {
     id: 4,
     nome: "Profa. Ana Costa",
     disciplina: "Química",
@@ -50,6 +55,8 @@ const professores = [
     experiencia: "18 anos de experiência",
     sobre: "Especialista em química orgânica e inorgânica, utilizando laboratório para aprendizado prático.",
     foto: "/images/0023_1750717790208.jpg"
+  },
+  {
     id: 5,
     nome: "Prof. Roberto Ferreira",
     disciplina: "História",
@@ -57,6 +64,8 @@ const professores = [
     experiencia: "16 anos de experiência",
     sobre: "Dedicado ao ensino de história brasileira e mundial, conectando passado e presente.",
     foto: "/images/0312_1750717790204.jpg"
+  },
+  {
     id: 6,
     nome: "Profa. Lúcia Oliveira",
     disciplina: "Geografia",

@@ -1,5 +1,6 @@
 
-
+import AnimatedSection from "./animated/AnimatedSection";
+import AnimatedCard from "./animated/AnimatedCard";
 
 export default function WhyOSESection() {
   const reasons = [
@@ -26,20 +27,21 @@ export default function WhyOSESection() {
   ];
 
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
-            Por que escolher <span className="text-school-orange">a OSE</span>?
-          </h2>
-          <p className="text-xl max-w-4xl mx-auto text-slate-600">
-            Conheça os diferenciais que fazem da OSE a escolha ideal para a educação do seu filho.
-          </p>
-        </div>
+    <AnimatedSection>
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
+              Por que escolher <span className="text-school-orange">a OSE</span>?
+            </h2>
+            <p className="text-xl max-w-4xl mx-auto text-slate-600">
+              Conheça os diferenciais que fazem da OSE a escolha ideal para a educação do seu filho.
+            </p>
+          </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 overflow-hidden">
+            <AnimatedCard key={index} delay={index * 0.1} hover={true} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 overflow-hidden">
               <div className="relative h-48 overflow-hidden">
                 <img 
                   src={reason.image} 
@@ -56,7 +58,7 @@ export default function WhyOSESection() {
                   {reason.description}
                 </p>
               </div>
-            </div>
+            </AnimatedCard>
           ))}
         </div>
 
@@ -74,7 +76,8 @@ export default function WhyOSESection() {
             Agendar Visita
           </button>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </AnimatedSection>
   );
 }
