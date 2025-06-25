@@ -1,27 +1,14 @@
-import { Helmet } from "react-helmet-async";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import "./index.css";
 
-function Home() {
-  return (
-    <div>
-      <Helmet>
-        <title>Home - Colégio OSE</title>
-        <meta
-          name="description"
-          content="Bem-vindo ao novo site do Colégio OSE"
-        />
-      </Helmet>
-      <h1>Bem-vindo ao Colégio OSE</h1>
-      <div
-        id="uchat-widget"
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          zIndex: 1000,
-        }}
-      ></div>
-    </div>
-  );
-}
+const container = document.getElementById("root");
+if (!container) throw new Error("Root element not found");
 
-export default Home;
+const root = createRoot(container);
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
