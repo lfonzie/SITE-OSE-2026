@@ -152,7 +152,6 @@ export default function ContactSection() {
                 </Button>
                 <p className="text-school-brown mt-4">
                   Estamos prontos para atendê-lo!<br/>
-                  <span className="font-semibold">(15) 2101-3812</span>
                 </p>
               </div>
             </div>
