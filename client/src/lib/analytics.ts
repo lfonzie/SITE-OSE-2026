@@ -8,13 +8,10 @@ declare global {
 
 // Initialize Google Analytics
 export const initGA = () => {
-  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
+  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-524DC3R';
 
-  if (!measurementId) {
-    if (import.meta.env.DEV) {
-      console.warn('Google Analytics ID não configurado');
-    }
-    return;
+  if (import.meta.env.DEV) {
+    console.log('Google Analytics configurado:', measurementId);
   }
 
   // Add Google Analytics script
@@ -38,8 +35,7 @@ export const initGA = () => {
 export const trackPageView = (url: string) => {
   if (typeof window === 'undefined' || !window.gtag) return;
   
-  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-  if (!measurementId) return;
+  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-524DC3R';
   
   window.gtag('config', measurementId, {
     page_path: url
@@ -64,14 +60,10 @@ export const trackEvent = (
 
 // Facebook Pixel Implementation
 export const initFacebookPixel = () => {
-  const pixelId = import.meta.env.VITE_FACEBOOK_PIXEL_ID;
+  const pixelId = import.meta.env.VITE_FACEBOOK_PIXEL_ID || '303393036895689';
   
-  if (!pixelId) {
-    // Only warn in development mode
-    if (import.meta.env.DEV) {
-      console.warn('Facebook Pixel ID não configurado');
-    }
-    return;
+  if (import.meta.env.DEV) {
+    console.log('Facebook Pixel configurado:', pixelId);
   }
 
   // Facebook Pixel Code
@@ -105,14 +97,13 @@ export const trackFBEvent = (eventName: string, parameters?: object) => {
 
 // Google Tag Manager Implementation
 export const initGTM = () => {
-  const gtmId = import.meta.env.VITE_GTM_ID;
+  const gtmId = import.meta.env.VITE_GTM_ID || 'GTM-524DC3R';
   
-  if (!gtmId) {
-    // Use development mode handling
+  if (!gtmId || gtmId === 'GTM-524DC3R') {
+    // Using default OSE GTM ID
     if (import.meta.env.DEV) {
-      console.warn('Google Tag Manager ID não configurado - usando modo desenvolvimento');
+      console.log('Google Tag Manager configurado com ID padrão OSE');
     }
-    return;
   }
 
   // GTM Script
