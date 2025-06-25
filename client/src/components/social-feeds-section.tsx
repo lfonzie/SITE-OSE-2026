@@ -22,34 +22,29 @@ export default function SocialFeedsSection() {
       try {
         const posts = JSON.parse(savedPosts);
         if (posts.length > 0) {
-          // Validar se as imagens existem antes de usar
-          const validatedImages: string[] = [];
+          // Extrair URLs das imagens dos posts salvos
+          const uploadedImages = posts.map((post: any) => post.imageUrl).filter(Boolean);
+          // Combinar com imagens padrão, priorizando as uploadadas
+          const defaultImages = [
+            "/api/images/IG/0312_1750717790204.jpg",
+            "/api/images/IG/0354_1750717790205.jpg",
+            "/api/images/IG/0581_1750717790206.jpg",
+            "/api/images/IG/0700_1750717790204.jpg",
+            "/api/images/IG/0905_1750717790206.jpg",
+            "/api/images/IG/0934_1750717790206.jpg",
+            "/api/images/IG/1068_1750717790205.jpg",
+            "/api/images/IG/1105_1750717790206.jpg"
+          ];
           
-          posts.forEach((post: any) => {
-            if (post.imageUrl) {
-              // Testar se a imagem existe
-              const img = new Image();
-              img.onload = () => {
-                if (!validatedImages.includes(post.imageUrl)) {
-                  validatedImages.push(post.imageUrl);
-                  // Atualizar state com imagens válidas
-                  const combinedImages = [...validatedImages, ...instagramImages.filter(img => !validatedImages.includes(img))];
-                  setInstagramImages(combinedImages);
-                }
-              };
-              img.onerror = () => {
-                console.log(`Imagem inválida removida: ${post.imageUrl}`);
-                // Remover posts com imagens inválidas do localStorage
-                const validPosts = posts.filter((p: any) => p.imageUrl !== post.imageUrl);
-                localStorage.setItem("instagram_posts", JSON.stringify(validPosts));
-              };
-              img.src = post.imageUrl;
-            }
-          });
+          // Criar array final: imagens uploadadas primeiro, depois padrão até 8 total
+          const combinedImages = [...uploadedImages, ...defaultImages]
+            .filter((url, index, arr) => arr.indexOf(url) === index) // Remove duplicatas
+            .slice(0, 8); // Máximo 8 imagens
+          
+          setInstagramImages(combinedImages);
         }
       } catch (error) {
         console.error('Erro ao carregar posts do localStorage:', error);
-        // Limpar localStorage em caso de erro
         localStorage.removeItem("instagram_posts");
       }
     }
