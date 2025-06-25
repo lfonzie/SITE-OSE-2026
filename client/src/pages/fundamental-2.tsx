@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
+import { useVisualComposer } from '@/hooks/useVisualComposer';
 
 // Importando imagens para Fundamental II
 import { newImages } from "@/lib/image-verification";
@@ -21,6 +22,7 @@ const img5 = newImages.img11;
 const img6 = newImages.img12;
 
 export default function Fundamental2() {
+  const { VisualComposerComponent } = useVisualComposer('Fundamental II');
   useEffect(() => {
     updateSEO({
       title: "Ensino Fundamental II - Anos Finais | a OSE",
@@ -325,6 +327,9 @@ export default function Fundamental2() {
       </section>
       <WhyOSESection />
       <ContactSection />
+      
+      {/* Visual Composer */}
+      <VisualComposerComponent />
     </div>
   );
 }

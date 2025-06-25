@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
+import { useVisualComposer } from '@/hooks/useVisualComposer';
 
 // Importando imagens para página Ensino Médio
 import { newImages } from "@/lib/image-verification";
@@ -18,6 +19,7 @@ const img2 = newImages.img8;
 const img3 = newImages.img9;
 
 export default function EnsinoMedio() {
+  const { VisualComposerComponent } = useVisualComposer('Ensino Médio');
   useEffect(() => {
     updateSEO({
       title: "Ensino Médio - Novo Ensino Médio | a OSE",
@@ -334,6 +336,9 @@ export default function EnsinoMedio() {
 
       <WhyOSESection />
       <ContactSection />
+      
+      {/* Visual Composer */}
+      <VisualComposerComponent />
     </div>
   );
 }

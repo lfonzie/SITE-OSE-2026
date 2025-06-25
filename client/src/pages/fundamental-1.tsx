@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
+import { useVisualComposer } from '@/hooks/useVisualComposer';
 
 // Usando imagens da pasta public/images
 import { newImages } from "@/lib/image-verification";
@@ -21,6 +22,7 @@ const img5 = newImages.img20;
 const img6 = newImages.img21;
 
 export default function Fundamental1() {
+  const { VisualComposerComponent } = useVisualComposer('Fundamental I');
   useEffect(() => {
     updateSEO({
       title: "Ensino Fundamental I - Anos Iniciais | OSE",
@@ -225,6 +227,9 @@ export default function Fundamental1() {
 
       <WhyOSESection />
       <ContactSection />
+      
+      {/* Visual Composer */}
+      <VisualComposerComponent />
     </div>
   );
 }

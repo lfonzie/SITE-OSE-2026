@@ -13,6 +13,7 @@ import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import InlineImageSelector from '@/components/InlineImageSelector';
 import { useAuth } from '@/contexts/AuthContext';
+import { useVisualComposer } from '@/hooks/useVisualComposer';
 
 // Importando imagens para Educação Infantil
 import { newImages } from "@/lib/image-verification";
@@ -25,6 +26,7 @@ const img6 = newImages.img17;
 
 export default function EducacaoInfantil() {
   const { isAuthenticated } = useAuth();
+  const { VisualComposerComponent } = useVisualComposer('Educação Infantil');
   const [heroImage, setHeroImage] = useState('/images/horizontal_1.png');
   const [activityImages, setActivityImages] = useState([
     '/images/horizontal_2.png',
@@ -68,7 +70,7 @@ export default function EducacaoInfantil() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 text-white py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-slate-600 via-slate-500 to-slate-400 text-white py-20 overflow-hidden">
         <div className="absolute inset-0">
           <div className="relative w-full h-full">
             <img 
@@ -84,7 +86,7 @@ export default function EducacaoInfantil() {
               />
             )}
           </div>
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-800/80 to-pink-700/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -290,6 +292,9 @@ export default function EducacaoInfantil() {
 
       <WhyOSESection />
       <ContactSection />
+      
+      {/* Visual Composer - only shown when authenticated */}
+      <VisualComposerComponent />
     </div>
   );
 }
