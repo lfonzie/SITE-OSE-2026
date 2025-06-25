@@ -8,7 +8,7 @@ const features = [
     color: "bg-blue-600"
   },
   {
-    logo: "/images/logo-ose.png",
+    logo: "/images/0378_1750717790208.jpg",
     title: "Corpo Docente Experiente",
     description: "Equipe altamente qualificada com vasta experiência acadêmica e prática, sempre atualizada com as melhores práticas pedagógicas.",
     color: "bg-green-600"
@@ -56,11 +56,17 @@ export default function FeaturesSection() {
           {features.map((feature, index) => {
             return (
               <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="w-20 h-20 flex items-center justify-center mb-6 bg-gray-50 rounded-lg">
+                <div className="w-20 h-20 flex items-center justify-center mb-6 bg-gray-50 rounded-lg overflow-hidden">
                   <OptimizedImage
                     src={feature.logo}
                     alt={feature.title}
-                    className={feature.title === "Educação Bilíngue MacMillan" ? "w-20 h-12 object-contain" : "w-16 h-16 object-contain"}
+                    className={
+                      feature.title === "Educação Bilíngue MacMillan" 
+                        ? "w-full h-auto max-h-12 object-contain" 
+                        : feature.title === "Corpo Docente Experiente"
+                        ? "w-16 h-16 object-cover rounded-lg"
+                        : "w-16 h-16 object-contain"
+                    }
                   />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
