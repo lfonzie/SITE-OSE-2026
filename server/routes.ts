@@ -144,8 +144,40 @@ export function registerRoutes(app: Express) {
       res.json({ 
         success: true, 
         fileName: req.file.filename,
-        path: `/images/IG/${req.file.filename}`
+        path: `/api/images/IG/${req.file.filename}`
       });
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Serve uploaded images via API
+  app.get("/api/images/:filename", (req, res) => {
+    try {
+      const filename = req.params.filename;
+      const imagePath = path.join(process.cwd(), 'client/public/images', filename);
+      
+      if (!fs.existsSync(imagePath)) {
+        return res.status(404).json({ error: 'Image not found' });
+      }
+
+      res.sendFile(imagePath);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Serve images from IG folder
+  app.get("/api/images/IG/:filename", (req, res) => {
+    try {
+      const filename = req.params.filename;
+      const imagePath = path.join(process.cwd(), 'client/public/images/IG', filename);
+      
+      if (!fs.existsSync(imagePath)) {
+        return res.status(404).json({ error: 'Image not found' });
+      }
+
+      res.sendFile(imagePath);
     } catch (error: any) {
       res.status(500).json({ error: error.message });
     }
