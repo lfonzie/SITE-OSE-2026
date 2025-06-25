@@ -6,11 +6,26 @@ export const setupCSP = () => {
   meta.setAttribute('http-equiv', 'Content-Security-Policy');
   meta.content = `
     default-src 'self';
-    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://assets.calendly.com;
+    script-src 'self' 'unsafe-inline' 
+      https://www.googletagmanager.com 
+      https://connect.facebook.net 
+      https://assets.calendly.com 
+      https://www.google-analytics.com 
+      https://googleads.g.doubleclick.net 
+      https://ssl.google-analytics.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com;
-    img-src 'self' data: https: blob:;
+    img-src 'self' data: https: blob: 
+      https://www.facebook.com 
+      https://www.google-analytics.com 
+      https://googleads.g.doubleclick.net;
     font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self' https://www.google-analytics.com https://api.calendly.com;
+    connect-src 'self' 
+      https://www.google-analytics.com 
+      https://api.calendly.com 
+      https://analytics.google.com 
+      https://stats.g.doubleclick.net 
+      https://www.google.com 
+      https://connect.facebook.net;
     frame-src 'self' https://calendly.com https://*.calendly.com;
   `.replace(/\s+/g, ' ').trim();
   document.head.appendChild(meta);

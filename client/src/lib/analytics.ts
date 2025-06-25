@@ -125,7 +125,12 @@ export const initGTM = () => {
 
 // Initialize all tracking
 export const initAllTracking = () => {
-  initGA();
-  initFacebookPixel();
-  initGTM();
+  // Only initialize analytics in production or when explicitly enabled
+  if (import.meta.env.PROD || import.meta.env.VITE_ENABLE_ANALYTICS === 'true') {
+    initGA();
+    initFacebookPixel();
+    initGTM();
+  } else if (import.meta.env.DEV) {
+    console.log('Analytics disabled in development mode - add VITE_ENABLE_ANALYTICS=true to enable');
+  }
 };

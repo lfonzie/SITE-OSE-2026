@@ -130,6 +130,7 @@ Changelog:
 - June 24, 2025: Image system: Created comprehensive image handling system with @assets imports, optimized image component, gallery with modal viewer, responsive image examples
 - June 25, 2025: Admin panel fixes: Fixed server startup errors, implemented proper image serving via API endpoints
 - June 25, 2025: Instagram management: Created complete IG image management system with server-side file operations, admin panel loads directly from IG folder, real-time image upload/delete functionality
+- June 25, 2025: Analytics fixes: Updated CSP to allow Google Analytics and Facebook Pixel scripts, disabled analytics in development mode to prevent blocking, configured authentic OSE tracking IDs
 ```
 
 ## User Preferences
