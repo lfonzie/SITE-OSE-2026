@@ -227,34 +227,4 @@ export function registerRoutes(app: Express) {
       res.status(500).json({ error: error.message });
     }
   });
-
-  // SEO Routes
-  app.get('/sitemap.xml', async (req, res) => {
-    try {
-      const sitemap = await getCachedSitemap();
-      res.set('Content-Type', 'application/xml');
-      res.send(sitemap);
-    } catch (error) {
-      console.error('Error generating sitemap:', error);
-      res.status(500).send('Error generating sitemap');
-    }
-  });
-
-  app.get('/robots.txt', (req, res) => {
-    const robotsTxt = generateRobotsTxt();
-    res.set('Content-Type', 'text/plain');
-    res.send(robotsTxt);
-  });
-
-  // API endpoint to manually regenerate sitemap
-  app.post('/api/sitemap/regenerate', async (req, res) => {
-    try {
-      invalidateSitemapCache();
-      const sitemap = await getCachedSitemap();
-      res.json({ message: 'Sitemap regenerated successfully', urls: sitemap.split('<url>').length - 1 });
-    } catch (error) {
-      console.error('Error regenerating sitemap:', error);
-      res.status(500).json({ error: 'Error regenerating sitemap' });
-    }
-  });
 }

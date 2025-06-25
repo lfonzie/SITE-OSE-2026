@@ -38,7 +38,7 @@ export default function Isaac() {
               Gerencie suas informações financeiras de forma simples e segura
             </p>
             <Button 
-              onClick={() => window.open('https://isaac.com.br/meu-isaac', '_blank')}
+              onClick={() => window.open('https://isaac.com.br', '_blank')}
               className="bg-white text-school-brown hover:bg-gray-100 text-lg px-8 py-3"
             >
               Acessar Portal
@@ -157,7 +157,7 @@ export default function Isaac() {
             <Button 
                   size="lg"
                   className="bg-school-orange hover:bg-school-orange/90"
-                  onClick={() => window.open('https://isaac.com.br/meu-isaac', '_blank')}
+                  onClick={() => window.open('https://isaac.com.br/', '_blank')}
                 >
                   <ExternalLink className="mr-2" size={20} />
                   Acessar Portal ISAAC

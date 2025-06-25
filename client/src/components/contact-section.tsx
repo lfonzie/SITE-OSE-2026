@@ -139,15 +139,19 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Chat Widget Info */}
-            <div className="bg-blue-50 p-8 rounded-xl border-2 border-blue-200">
-              <h3 className="text-2xl font-bold text-school-brown mb-6 text-center">Converse Conosco</h3>
+            {/* Botão WhatsApp */}
+            <div className="bg-green-50 p-8 rounded-xl border-2 border-green-200">
+              <h3 className="text-2xl font-bold text-school-brown mb-6 text-center">Fale Conosco no WhatsApp</h3>
               <div className="text-center">
-                <p className="text-school-brown mb-4">
-                  Use o chat ao vivo no canto da tela para tirar suas dúvidas instantaneamente!
-                </p>
-                <p className="text-school-brown text-sm">
-                  Nossa equipe está pronta para atendê-lo.
+                <Button 
+                  size="lg"
+                  className="w-full bg-green-500 text-white font-semibold px-8 py-4 text-lg"
+                  onClick={() => window.open('https://wa.me/551521013812', '_blank')}
+                >
+                  📱 Conversar no WhatsApp
+                </Button>
+                <p className="text-school-brown mt-4">
+                  Estamos prontos para atendê-lo!<br/>
                 </p>
               </div>
             </div>

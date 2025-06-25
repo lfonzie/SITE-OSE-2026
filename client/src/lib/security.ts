@@ -2,22 +2,32 @@
 
 // Content Security Policy
 export const setupCSP = () => {
-  // Configuração de Content Security Policy
   const meta = document.createElement('meta');
-  meta.httpEquiv = 'Content-Security-Policy';
-  meta.content = [
-    "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://assets.calendly.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://ssl.google-analytics.com https://www.uchat.com.au https://*.uchat.com.au https://sdk.dfktv2.com https://*.dfktv2.com https://replit.com https://ipapi.co",
-    "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://assets.calendly.com https://fonts.googleapis.com",
-    "font-src 'self' https://fonts.gstatic.com https://assets.calendly.com",
-    "img-src 'self' data: https: blob:",
-    "media-src 'self' https://sdk.dfktv2.com https://*.dfktv2.com",
-    "connect-src 'self' https://www.google-analytics.com https://api.calendly.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://connect.facebook.net https://www.facebook.com https://www.uchat.com.au https://*.uchat.com.au https://sdk.dfktv2.com https://*.dfktv2.com https://ipapi.co",
-    "frame-src 'self' https://calendly.com https://*.calendly.com https://www.googletagmanager.com https://td.doubleclick.net https://*.doubleclick.net https://sdk.dfktv2.com https://*.dfktv2.com",
-    "object-src 'none'",
-    "base-uri 'self'"
-  ].join('; ');
-
+  meta.setAttribute('http-equiv', 'Content-Security-Policy');
+  meta.content = `
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 
+      https://www.googletagmanager.com 
+      https://connect.facebook.net 
+      https://assets.calendly.com 
+      https://www.google-analytics.com 
+      https://googleads.g.doubleclick.net 
+      https://ssl.google-analytics.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com;
+    img-src 'self' data: https: blob: 
+      https://www.facebook.com 
+      https://www.google-analytics.com 
+      https://googleads.g.doubleclick.net;
+    font-src 'self' https://fonts.gstatic.com;
+    connect-src 'self' 
+      https://www.google-analytics.com 
+      https://api.calendly.com 
+      https://analytics.google.com 
+      https://stats.g.doubleclick.net 
+      https://www.google.com 
+      https://connect.facebook.net;
+    frame-src 'self' https://calendly.com https://*.calendly.com;
+  `.replace(/\s+/g, ' ').trim();
   document.head.appendChild(meta);
 };
 
@@ -59,18 +69,18 @@ const formSubmissions = new Map<string, number[]>();
 export const checkRateLimit = (identifier: string, maxRequests = 5, windowMs = 300000): boolean => {
   const now = Date.now();
   const windowStart = now - windowMs;
-
+  
   if (!formSubmissions.has(identifier)) {
     formSubmissions.set(identifier, []);
   }
-
+  
   const submissions = formSubmissions.get(identifier)!;
   const recentSubmissions = submissions.filter(time => time > windowStart);
-
+  
   if (recentSubmissions.length >= maxRequests) {
     return false;
   }
-
+  
   recentSubmissions.push(now);
   formSubmissions.set(identifier, recentSubmissions);
   return true;

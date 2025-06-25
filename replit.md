@@ -131,13 +131,6 @@ Changelog:
 - June 25, 2025: Admin panel fixes: Fixed server startup errors, implemented proper image serving via API endpoints
 - June 25, 2025: Instagram management: Created complete IG image management system with server-side file operations, admin panel loads directly from IG folder, real-time image upload/delete functionality
 - June 25, 2025: Analytics fixes: Updated CSP to allow Google Analytics and Facebook Pixel scripts, disabled analytics in development mode to prevent blocking, configured authentic OSE tracking IDs
-- June 25, 2025: SEO implementation: Created automatic sitemap generation system with XML sitemap, robots.txt, cache management, and auto-regeneration when content changes
-- June 25, 2025: Chat system update: Replaced WhatsApp widget with UChat live chat system for better customer support integration
-- June 25, 2025: Chat system: Replaced WhatsApp with UChat widget, removed domain restrictions for universal access
-- June 25, 2025: ISAAC portal update: Changed ISAAC portal links to https://isaac.com.br/meu-isaac for direct access
-- June 25, 2025: SEO optimization: Implemented comprehensive SEO for home page with structured data, school schema, local business markup, FAQ schema, and optimized meta tags
-- June 25, 2025: Favicon implementation: Created complete favicon package from OSE logo including ICO, PNG formats, Apple touch icon, Android chrome icons, and web app manifest
-- June 25, 2025: Debug fixes: Fixed UChat widget syntax error, updated CSP to allow Google Tag Manager frames and UChat domains, added comprehensive logging for chat widget troubleshooting
 ```
 
 ## User Preferences
