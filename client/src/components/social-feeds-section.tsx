@@ -14,7 +14,11 @@ export default function SocialFeedsSection() {
         const response = await fetch('/api/instagram-images');
         if (response.ok) {
           const images = await response.json();
-          const imageUrls = images.map((img: any) => `/api/images/IG/${img.filename}`);
+          // Ordenar por data de modificação (mais recentes primeiro)
+          const sortedImages = images.sort((a: any, b: any) => 
+            new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
+          );
+          const imageUrls = sortedImages.map((img: any) => `/api/images/IG/${img.filename}`);
           setInstagramImages(imageUrls.slice(0, 8)); // Máximo 8 imagens
         } else {
           // Fallback para imagens padrão se API falhar

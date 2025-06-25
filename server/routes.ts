@@ -203,7 +203,7 @@ export function registerRoutes(app: Express) {
           filename,
           uploadedAt: stats.mtime.toISOString()
         };
-      });
+      }).sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime());
 
       res.json(images);
     } catch (error: any) {
