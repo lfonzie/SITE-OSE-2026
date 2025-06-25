@@ -50,6 +50,7 @@ function Router() {
       <Route path="/professores" component={Professores} />
       <Route path="/services" component={Services} />
       <Route path="/legacy" component={Legacy} />
+      <Route path="/admin" component={Admin} />
       <Route path="/portal-aluno" component={PortalAluno} />
       <Route path="/portal-pais" component={PortalPais} />
       <Route path="/bilingue" component={Bilingue} />
