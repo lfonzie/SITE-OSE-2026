@@ -28,7 +28,7 @@ import Integral from "./pages/integral";
 import CodeOSE from "./pages/code-ose";
 import Amplia from "@/pages/amplia";
 import SocioEmocional from "@/pages/socioemocional";
-import CleanupScripts from "@/components/cleanup-scripts";
+import UChatWidget from "@/components/uchat-widget";
 import ListaMaterial from "@/pages/lista-material";
 import Arvore from "./pages/arvore";
 import Isaac from "@/pages/isaac";
@@ -94,7 +94,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <CleanupScripts />
+        <UChatWidget />
         <Toaster />
         <Router />
       </TooltipProvider>
