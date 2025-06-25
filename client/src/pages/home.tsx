@@ -22,6 +22,10 @@ export default function Home() {
       description: "Há mais de 100 anos formando gerações com excelência educacional. Conheça nossa tradição, nossos valores e nossos programas educacionais únicos.",
       keywords: "colégio ose, educação, tradição, ensino, escola, são paulo"
     });
+    
+    // Add structured data for better SEO
+    addSchoolSchema();
+    addStructuredData();
   }, []);
 
   return (
