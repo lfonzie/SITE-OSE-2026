@@ -15,6 +15,8 @@ interface ImagePositionControlsProps {
 
 export interface ImagePosition {
   objectPosition: string; // CSS object-position
+  horizontalPosition: number; // Horizontal position (-100 to 100)
+  verticalPosition: number; // Vertical position (-100 to 100)
   scale: number; // Scale factor (1 = 100%)
   opacity: number; // Opacity (0-1)
   filter: string; // CSS filter
@@ -22,7 +24,9 @@ export interface ImagePosition {
 }
 
 const defaultPosition: ImagePosition = {
-  objectPosition: 'center',
+  objectPosition: 'center center',
+  horizontalPosition: 0,
+  verticalPosition: 0,
   scale: 1,
   opacity: 1,
   filter: 'none',
@@ -30,15 +34,15 @@ const defaultPosition: ImagePosition = {
 };
 
 const positionPresets = [
-  { label: 'Centro', value: 'center' },
-  { label: 'Topo', value: 'top' },
-  { label: 'Topo Esquerda', value: 'top left' },
-  { label: 'Topo Direita', value: 'top right' },
-  { label: 'Centro Esquerda', value: 'center left' },
-  { label: 'Centro Direita', value: 'center right' },
-  { label: 'Base', value: 'bottom' },
-  { label: 'Base Esquerda', value: 'bottom left' },
-  { label: 'Base Direita', value: 'bottom right' },
+  { label: 'Centro', value: 'center center' },
+  { label: 'Topo', value: 'center top' },
+  { label: 'Topo Esquerda', value: 'left top' },
+  { label: 'Topo Direita', value: 'right top' },
+  { label: 'Centro Esquerda', value: 'left center' },
+  { label: 'Centro Direita', value: 'right center' },
+  { label: 'Base', value: 'center bottom' },
+  { label: 'Base Esquerda', value: 'left bottom' },
+  { label: 'Base Direita', value: 'right bottom' },
 ];
 
 const filterPresets = [
@@ -137,6 +141,43 @@ export default function ImagePositionControls({
                   <SelectItem value="none">Nenhum</SelectItem>
                 </SelectContent>
               </Select>
+            </div>
+
+            {/* Precise Positioning */}
+            <div className="space-y-3">
+              <Label className="text-sm font-medium">Posicionamento Preciso</Label>
+              <div>
+                <Label className="text-xs text-gray-600 mb-1 block">
+                  Horizontal: {position.horizontalPosition}%
+                </Label>
+                <Slider
+                  value={[position.horizontalPosition]}
+                  onValueChange={([value]) => handlePositionUpdate({ 
+                    horizontalPosition: value,
+                    objectPosition: `${50 + value}% ${50 + position.verticalPosition}%`
+                  })}
+                  min={-50}
+                  max={50}
+                  step={1}
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <Label className="text-xs text-gray-600 mb-1 block">
+                  Vertical: {position.verticalPosition}%
+                </Label>
+                <Slider
+                  value={[position.verticalPosition]}
+                  onValueChange={([value]) => handlePositionUpdate({ 
+                    verticalPosition: value,
+                    objectPosition: `${50 + position.horizontalPosition}% ${50 + value}%`
+                  })}
+                  min={-50}
+                  max={50}
+                  step={1}
+                  className="w-full"
+                />
+              </div>
             </div>
 
             {/* Scale */}

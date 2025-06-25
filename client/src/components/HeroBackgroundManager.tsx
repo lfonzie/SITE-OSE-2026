@@ -109,7 +109,7 @@ export default function HeroBackgroundManager({
           uploadedAt: img.uploadedAt,
           url: `/api/images/IG/${img.filename}`
         }));
-        setUploadedImages(images.sort((a, b) => 
+        setUploadedImages(images.sort((a: any, b: any) => 
           new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
         ));
       }
