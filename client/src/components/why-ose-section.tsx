@@ -63,7 +63,7 @@ export default function WhyOSESection() {
           </p>
           <button
             className="bg-school-orange text-white px-8 py-3 rounded-lg font-semibold hover:bg-school-orange/90 transition-colors shadow-lg"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => window.location.href = '/agendamento'}
           >
             Agendar Visita
           </button>
