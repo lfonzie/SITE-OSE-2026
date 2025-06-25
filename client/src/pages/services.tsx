@@ -1,8 +1,4 @@
-import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
-import { updateSEO } from "@/lib/seo";
-import UChatWidget from "@/components/uchat-widget";
 import { 
   BookOpen, 
   Users, 
@@ -19,17 +15,17 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
-export default function Services() {
-  useEffect(() => {
-    updateSEO({
-      title: "Serviços Digitais - Colégio OSE",
-      description: "Conheça todos os serviços digitais que o Colégio OSE oferece para facilitar o dia a dia escolar.",
-      keywords: "serviços digitais, portal do aluno, portal dos pais, colégio ose"
-    });
-  }, []);
+// Importando imagens para serviços
+import img1 from "@assets/0023_1750717790208.jpg";
+import img2 from "@assets/0378_1750717790208.jpg";
+import img3 from "@assets/1285_1750717790208.jpg";
+import img4 from "@assets/0023_1750719589611.jpg";
+import img5 from "@assets/0378_1750719589611.jpg";
+import img6 from "@assets/1285_1750719589611.jpg";
 
-  const services = [
+const services = [
   {
     id: "portal-aluno",
     title: "Portal do Aluno",
@@ -81,6 +77,7 @@ export default function Services() {
     description: "Planejamento completo do ano letivo com todas as datas importantes",
     icon: Calendar,
     features: [
+      "Cronograma de provas e trabalhos",
       "Feriados e recessos",
       "Eventos e atividades especiais",
       "Reuniões pedagógicas",
@@ -211,44 +208,69 @@ export default function Services() {
   }
 ];
 
+export default function Services() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-50">
       <Navigation />
-      <div className="pt-20 pb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
-              Nossos <span className="text-school-orange">Serviços</span>
-            </h1>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Conheça todos os serviços digitais que o Colégio OSE oferece para facilitar o dia a dia escolar.
-            </p>
+
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-br from-school-blue to-blue-700 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center mb-8">
+            <img 
+              src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png"
+              alt="Colégio OSE - 100 Anos"
+              className="h-20 w-auto object-contain filter brightness-0 invert"
+            />
           </div>
-          
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Nossos <span className="text-school-orange">Serviços</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
+            Oferecemos uma gama completa de serviços digitais e presenciais para facilitar 
+            o dia a dia escolar de alunos, pais e responsáveis.
+          </p>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
+            {services.map((service) => {
+              const Icon = service.icon;
               return (
-                <Card key={service.id} className="hover:shadow-xl transition-shadow">
+                <Card key={service.id} className="hover:shadow-xl transition-all transform hover:-translate-y-1">
                   <CardHeader>
-                    <div className={`w-12 h-12 ${service.color} rounded-lg flex items-center justify-center mb-4`}>
-                      <IconComponent className="text-white" size={24} />
+                    <div className={`${service.color} text-white w-16 h-16 rounded-xl flex items-center justify-center mb-4`}>
+                      <Icon size={32} />
                     </div>
-                    <CardTitle className="text-xl text-slate-800">{service.title}</CardTitle>
-                    <CardDescription>{service.description}</CardDescription>
+                    <CardTitle className="text-2xl text-slate-800">{service.title}</CardTitle>
+                    <CardDescription className="text-slate-600">
+                      {service.description}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 mb-6">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="text-sm text-slate-600 flex items-center">
-                          <span className="w-1.5 h-1.5 bg-school-orange rounded-full mr-3"></span>
-                          {feature}
+                      {service.features.map((feature, index) => (
+                        <li key={index} className="flex items-center text-slate-600">
+                          <div className="w-2 h-2 bg-school-blue rounded-full mr-3 flex-shrink-0"></div>
+                          <span className="text-sm">{feature}</span>
                         </li>
                       ))}
                     </ul>
                     <Button 
-                      className="w-full bg-school-orange hover:bg-school-orange/90 text-white"
-                      onClick={() => window.open(service.link, '_blank')}
+                      onClick={() => {
+                        if (service.id === 'portal-aluno') {
+                          window.open('https://siga03.activesoft.com.br/login/?instituicao=COLEGIOOSE', '_blank');
+                        } else if (service.id === 'portal-pais') {
+                          window.location.href = '/portal-pais';
+                        } else {
+                          // Placeholder for other services
+                          alert('Serviço em desenvolvimento');
+                        }
+                      }}
+                      className={`w-full ${service.color} hover:opacity-90 text-white`}
                     >
                       Acessar Serviço
                     </Button>
@@ -258,9 +280,29 @@ export default function Services() {
             })}
           </div>
         </div>
-      </div>
-      <Footer />
-      <UChatWidget />
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-slate-700 to-slate-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Precisa de Ajuda com Nossos Serviços?
+          </h2>
+          <p className="text-xl mb-8 text-slate-100">
+            Nossa equipe de suporte está sempre disponível para ajudar você a aproveitar 
+            ao máximo todos os nossos serviços digitais.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-white text-school-orange hover:bg-gray-100">
+              Central de Ajuda
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-school-orange">
+              Entrar em Contato
+            </Button>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

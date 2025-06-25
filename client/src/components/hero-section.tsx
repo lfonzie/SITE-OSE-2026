@@ -1,8 +1,9 @@
 import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   const scrollToNext = () => {
-    const element = document.getElementById("sobre");
+    const element = document.getElementById("stats");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -24,14 +25,29 @@ export default function HeroSection() {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-2xl">
-            <span className="block text-white">
+          <motion.h1 
+            className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-2xl"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <motion.span 
+              className="block text-white"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               Tradição Secular de Ensino:
-            </span>
-            <span className="block text-white">
+            </motion.span>
+            <motion.span 
+              className="block text-white"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
               Celebrando 100 Anos
-            </span>
-          </h1>
+            </motion.span>
+          </motion.h1>
           <h2 className="text-lg md:text-xl text-white/95 mb-4 max-w-4xl mx-auto font-medium drop-shadow-xl">
             a OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem:
           </h2>
@@ -42,13 +58,6 @@ export default function HeroSection() {
             Educando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania.
           </p>
         </div>
-      </div>
-      
-      {/* Scroll down arrow */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <button onClick={scrollToNext} className="text-white/80 hover:text-white transition-colors">
-          <ChevronDown size={32} />
-        </button>
       </div>
     </section>
   );

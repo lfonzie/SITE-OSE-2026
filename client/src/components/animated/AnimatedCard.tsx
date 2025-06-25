@@ -1,29 +1,55 @@
-import { ReactNode } from "react";
+import { motion } from 'framer-motion';
+import { ReactNode } from 'react';
 
 interface AnimatedCardProps {
   children: ReactNode;
+  className?: string;
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right';
-  hover?: boolean;
   scale?: boolean;
-  className?: string;
+  hover?: boolean;
 }
 
-export default function AnimatedCard({ 
+export function AnimatedCard({ 
   children, 
+  className = "", 
   delay = 0, 
   direction = 'up',
-  hover = false,
   scale = false,
-  className = ""
+  hover = true
 }: AnimatedCardProps) {
-  const hoverClass = hover ? "hover:transform hover:-translate-y-1 transition-transform duration-200" : "";
-  
+  const directionVariants = {
+    up: { y: 50, opacity: 0 },
+    down: { y: -50, opacity: 0 },
+    left: { x: -50, opacity: 0 },
+    right: { x: 50, opacity: 0 }
+  };
+
+  const hoverVariants = hover ? {
+    scale: scale ? 1.02 : 1,
+    y: -5,
+    transition: { duration: 0.2, ease: "easeOut" }
+  } : {};
+
   return (
-    <div className={`${className} ${hoverClass}`}>
+    <motion.div
+      className={className}
+      initial={directionVariants[direction]}
+      whileInView={{ 
+        x: 0, 
+        y: 0, 
+        opacity: 1,
+        scale: 1
+      }}
+      whileHover={hoverVariants}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ 
+        duration: 0.6, 
+        delay,
+        ease: "easeOut"
+      }}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }
-
-export { AnimatedCard };

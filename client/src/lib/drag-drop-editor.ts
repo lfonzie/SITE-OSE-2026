@@ -96,48 +96,157 @@ export const componentTemplates: Partial<EditorComponent>[] = [
   }
 ];
 
-// Simplified Drag and Drop Manager
+// Drag and Drop Manager
 export class DragDropManager {
   private draggedElement: HTMLElement | null = null;
+  private dropZones: HTMLElement[] = [];
+  private onComponentMove?: (componentId: string, newParent?: string, index?: number) => void;
 
-  constructor() {
-    // Simplified initialization
+  constructor(onMove?: typeof this.onComponentMove) {
+    this.onComponentMove = onMove;
+    this.initializeDragDrop();
   }
 
-  handleDragStart(componentId: string) {
-    // Simple drag start handler
+  private initializeDragDrop() {
+    document.addEventListener('dragstart', this.handleDragStart.bind(this));
+    document.addEventListener('dragover', this.handleDragOver.bind(this));
+    document.addEventListener('drop', this.handleDrop.bind(this));
+    document.addEventListener('dragend', this.handleDragEnd.bind(this));
   }
 
-  handleDrop(componentId: string, targetId?: string) {
-    // Simple drop handler
+  private handleDragStart(e: DragEvent) {
+    this.draggedElement = e.target as HTMLElement;
+    if (this.draggedElement?.dataset.componentId) {
+      e.dataTransfer?.setData('text/plain', this.draggedElement.dataset.componentId);
+      this.draggedElement.style.opacity = '0.5';
+    }
+  }
+
+  private handleDragOver(e: DragEvent) {
+    e.preventDefault();
+    const dropZone = (e.target as HTMLElement).closest('[data-drop-zone]');
+    if (dropZone) {
+      dropZone.classList.add('drag-over');
+    }
+  }
+
+  private handleDrop(e: DragEvent) {
+    e.preventDefault();
+    const componentId = e.dataTransfer?.getData('text/plain');
+    const dropZone = (e.target as HTMLElement).closest('[data-drop-zone]');
+    
+    if (componentId && dropZone) {
+      const parentId = dropZone.dataset.parentId;
+      const index = parseInt(dropZone.dataset.index || '0');
+      this.onComponentMove?.(componentId, parentId, index);
+    }
+
+    // Clean up visual feedback
+    document.querySelectorAll('.drag-over').forEach(el => {
+      el.classList.remove('drag-over');
+    });
+  }
+
+  private handleDragEnd() {
+    if (this.draggedElement) {
+      this.draggedElement.style.opacity = '1';
+      this.draggedElement = null;
+    }
+    
+    document.querySelectorAll('.drag-over').forEach(el => {
+      el.classList.remove('drag-over');
+    });
+  }
+
+  registerDropZone(element: HTMLElement) {
+    element.setAttribute('data-drop-zone', 'true');
+    this.dropZones.push(element);
+  }
+
+  unregisterDropZone(element: HTMLElement) {
+    element.removeAttribute('data-drop-zone');
+    this.dropZones = this.dropZones.filter(zone => zone !== element);
   }
 }
 
-// Simplified Page Builder
+// Page Builder State Management
 export class PageBuilder {
   private pages: Map<string, PageStructure> = new Map();
   private currentPage: string | null = null;
+  private dragDropManager: DragDropManager;
+  private listeners: Array<() => void> = [];
 
   constructor() {
-    // Simplified constructor
+    this.dragDropManager = new DragDropManager(this.moveComponent.bind(this));
+    this.loadFromStorage();
   }
 
-  // Basic page management methods
+  // Page Management
+  createPage(name: string, slug: string): PageStructure {
+    const page: PageStructure = {
+      id: this.generateId(),
+      name,
+      slug,
+      components: [],
+      seo: {
+        title: name,
+        description: '',
+        keywords: ''
+      },
+      status: 'draft',
+      lastModified: new Date()
+    };
+    
+    this.pages.set(page.id, page);
+    this.saveToStorage();
+    this.notifyListeners();
+    return page;
+  }
+
+  getPage(id: string): PageStructure | undefined {
+    return this.pages.get(id);
+  }
+
   getAllPages(): PageStructure[] {
-    return [];
+    return Array.from(this.pages.values());
+  }
+
+  setCurrentPage(id: string) {
+    this.currentPage = id;
+    this.notifyListeners();
   }
 
   getCurrentPage(): PageStructure | undefined {
-    return undefined;
+    return this.currentPage ? this.pages.get(this.currentPage) : undefined;
   }
 
-  addComponent(type: string): void {
-    // Simplified add component
-  }
+  // Component Management
+  addComponent(type: EditorComponent['type'], parentId?: string): EditorComponent {
+    const template = componentTemplates.find(t => t.type === type);
+    const component: EditorComponent = {
+      id: this.generateId(),
+      type,
+      content: template?.content || {},
+      styles: template?.styles || {},
+      position: template?.position || { x: 0, y: 0, width: 100, height: 'auto' as any },
+      parent: parentId,
+      children: []
+    };
 
-  updateComponent(id: string, updates: any): void {
-    // Simplified update component
-  }
+    const page = this.getCurrentPage();
+    if (page) {
+      page.components.push(component);
+      if (parentId) {
+        const parent = page.components.find(c => c.id === parentId);
+        if (parent) {
+          parent.children = parent.children || [];
+          parent.children.push(component.id);
+        }
+      }
+      page.lastModified = new Date();
+      this.saveToStorage();
+      this.notifyListeners();
+    }
 
     return component;
   }
