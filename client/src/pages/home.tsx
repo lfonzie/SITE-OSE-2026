@@ -32,10 +32,11 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Navigation />
       <HeroSection />
+      <StatsSection />
+      <WhyOSESection />
       <AboutSection />
       <ProgramsSection />
-      <WhyOSESection />
-      <StatsSection />
+      <FeaturesSection />
       <FacultySection />
       <TestimonialsSection />
       <SocialFeedsSection />

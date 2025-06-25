@@ -2,7 +2,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function HeroSection() {
   const scrollToNext = () => {
-    const element = document.getElementById("stats");
+    const element = document.getElementById("sobre");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -47,7 +47,7 @@ export default function HeroSection() {
       {/* Scroll down arrow */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <button onClick={scrollToNext} className="text-white/80 hover:text-white transition-colors">
-          <ChevronDown size={32} className="animate-bounce" />
+          <ChevronDown size={32} />
         </button>
       </div>
     </section>
