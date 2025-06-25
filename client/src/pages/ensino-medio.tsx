@@ -13,6 +13,8 @@ import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import { useVisualComposer } from '@/hooks/useVisualComposer';
 import { usePageData } from '@/hooks/usePageData';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import { useAuth } from '@/contexts/AuthContext';
 
 // Importando imagens para página Ensino Médio
@@ -23,9 +25,29 @@ export default function EnsinoMedio() {
   const { VisualComposerComponent } = useVisualComposer('Ensino Médio');
   
   // Initialize page data with auto-save functionality
-  const { heroImage, images, updateHeroImage, updateImage } = usePageData('Ensino Médio', {
+  const { 
+    heroImage, 
+    heroBackground,
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('Ensino Médio', {
     heroImage: newImages.img7,
-    images: [newImages.img7, newImages.img8, newImages.img9]
+    images: [newImages.img7, newImages.img8, newImages.img9],
+    heroBackground: {
+      type: 'gradient',
+      gradientColors: ['#475569', '#64748b'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.8,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
   });
   useEffect(() => {
     updateSEO({
@@ -113,25 +135,75 @@ export default function EnsinoMedio() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <div className="relative w-full h-full">
-            <img 
-              src={heroImage}
-              alt="Ensino Médio OSE"
-              className="w-full h-full object-cover opacity-30"
-            />
-            {isAuthenticated && (
-              <EnhancedImageSelector
-                currentImage={heroImage}
-                onImageSelect={updateHeroImage}
-                className="absolute inset-0"
+      <section 
+        className="relative py-20 text-white overflow-hidden"
+        style={{
+          background: heroBackground?.type === 'gradient' 
+            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
+            : heroBackground?.type === 'color'
+            ? heroBackground.solidColor
+            : heroBackground?.type === 'image' && heroBackground.imageUrl
+            ? `url(${heroBackground.imageUrl})`
+            : 'linear-gradient(135deg, #475569, #64748b)',
+          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
+          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
+          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+          opacity: heroBackground?.opacity || 1
+        }}
+      >
+        {/* Background Image Layer */}
+        {heroBackground?.type === 'image' && heroImage && (
+          <div className="absolute inset-0">
+            <div className="relative w-full h-full">
+              <img 
+                src={heroImage}
+                alt="Ensino Médio OSE"
+                className="w-full h-full object-cover opacity-30"
+                style={{
+                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
+                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
+                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
+                  opacity: getImagePosition('hero')?.opacity || 0.3,
+                  filter: getImagePosition('hero')?.filter || 'none'
+                }}
               />
-            )}
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={heroImage}
+                    onImageSelect={updateHeroImage}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('hero')}
+                    onPositionChange={(position) => updateImagePosition('hero', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
-        </div>
+        )}
+        
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
+          />
+        )}
+        
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.8
+            }}
+          ></div>
+        )}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -332,45 +404,105 @@ export default function EnsinoMedio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             <div className="relative">
-              <OptimizedImage
-                src={images[0] || newImages.img7}
-                alt="Novo Ensino Médio na OSE"
-                className="w-full h-48 rounded-lg shadow-lg"
-              />
-              {isAuthenticated && (
-                <EnhancedImageSelector
-                  currentImage={images[0] || newImages.img7}
-                  onImageSelect={(url) => updateImage(0, url)}
-                  className="absolute inset-0"
+              <div 
+                className="w-full h-48 rounded-lg shadow-lg overflow-hidden"
+                style={{
+                  transform: `scale(${getImagePosition('gallery-0')?.scale || 1})`,
+                  opacity: getImagePosition('gallery-0')?.opacity || 1,
+                  filter: getImagePosition('gallery-0')?.filter || 'none'
+                }}
+              >
+                <img
+                  src={images[0] || newImages.img7}
+                  alt="Novo Ensino Médio na OSE"
+                  className="w-full h-full"
+                  style={{
+                    objectPosition: getImagePosition('gallery-0')?.objectPosition || 'center',
+                    objectFit: getImagePosition('gallery-0')?.objectFit || 'cover'
+                  }}
                 />
+              </div>
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[0] || newImages.img7}
+                    onImageSelect={(url) => updateImage(0, url)}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-0')}
+                    onPositionChange={(position) => updateImagePosition('gallery-0', position)}
+                    className="absolute inset-0"
+                  />
+                </>
               )}
             </div>
             <div className="relative">
-              <OptimizedImage
-                src={images[1] || newImages.img8}
-                alt="Projetos integradores"
-                className="w-full h-48 rounded-lg shadow-lg"
-              />
-              {isAuthenticated && (
-                <EnhancedImageSelector
-                  currentImage={images[1] || newImages.img8}
-                  onImageSelect={(url) => updateImage(1, url)}
-                  className="absolute inset-0"
+              <div 
+                className="w-full h-48 rounded-lg shadow-lg overflow-hidden"
+                style={{
+                  transform: `scale(${getImagePosition('gallery-1')?.scale || 1})`,
+                  opacity: getImagePosition('gallery-1')?.opacity || 1,
+                  filter: getImagePosition('gallery-1')?.filter || 'none'
+                }}
+              >
+                <img
+                  src={images[1] || newImages.img8}
+                  alt="Projetos integradores"
+                  className="w-full h-full"
+                  style={{
+                    objectPosition: getImagePosition('gallery-1')?.objectPosition || 'center',
+                    objectFit: getImagePosition('gallery-1')?.objectFit || 'cover'
+                  }}
                 />
+              </div>
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[1] || newImages.img8}
+                    onImageSelect={(url) => updateImage(1, url)}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-1')}
+                    onPositionChange={(position) => updateImagePosition('gallery-1', position)}
+                    className="absolute inset-0"
+                  />
+                </>
               )}
             </div>
             <div className="relative">
-              <OptimizedImage
-                src={images[2] || newImages.img9}
-                alt="Itinerários formativos"
-                className="w-full h-48 rounded-lg shadow-lg"
-              />
-              {isAuthenticated && (
-                <EnhancedImageSelector
-                  currentImage={images[2] || newImages.img9}
-                  onImageSelect={(url) => updateImage(2, url)}
-                  className="absolute inset-0"
+              <div 
+                className="w-full h-48 rounded-lg shadow-lg overflow-hidden"
+                style={{
+                  transform: `scale(${getImagePosition('gallery-2')?.scale || 1})`,
+                  opacity: getImagePosition('gallery-2')?.opacity || 1,
+                  filter: getImagePosition('gallery-2')?.filter || 'none'
+                }}
+              >
+                <img
+                  src={images[2] || newImages.img9}
+                  alt="Itinerários formativos"
+                  className="w-full h-full"
+                  style={{
+                    objectPosition: getImagePosition('gallery-2')?.objectPosition || 'center',
+                    objectFit: getImagePosition('gallery-2')?.objectFit || 'cover'
+                  }}
                 />
+              </div>
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[2] || newImages.img9}
+                    onImageSelect={(url) => updateImage(2, url)}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-2')}
+                    onPositionChange={(position) => updateImagePosition('gallery-2', position)}
+                    className="absolute inset-0"
+                  />
+                </>
               )}
             </div>
           </div>

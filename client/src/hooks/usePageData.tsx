@@ -1,11 +1,15 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useAutoSave } from './useAutoSave';
 import { useToast } from '@/hooks/use-toast';
+import { ImagePosition } from '@/components/ImagePositionControls';
+import { HeroBackground } from '@/components/HeroBackgroundManager';
 
 interface PageData {
   pageName: string;
   heroImage?: string;
+  heroBackground?: HeroBackground;
   images?: string[];
+  imagePositions?: { [key: string]: ImagePosition };
   content?: any;
   lastModified?: string;
   autoSaved?: boolean;
@@ -77,6 +81,32 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
     }));
   }, []);
 
+  // Update hero background
+  const updateHeroBackground = useCallback((background: HeroBackground) => {
+    setPageData(prev => ({
+      ...prev,
+      heroBackground: background,
+      lastModified: new Date().toISOString()
+    }));
+  }, []);
+
+  // Update image position
+  const updateImagePosition = useCallback((imageKey: string, position: ImagePosition) => {
+    setPageData(prev => ({
+      ...prev,
+      imagePositions: {
+        ...prev.imagePositions,
+        [imageKey]: position
+      },
+      lastModified: new Date().toISOString()
+    }));
+  }, []);
+
+  // Get image position
+  const getImagePosition = useCallback((imageKey: string): ImagePosition | undefined => {
+    return pageData.imagePositions?.[imageKey];
+  }, [pageData.imagePositions]);
+
   // Manual save function
   const saveManually = useCallback(() => {
     const saveData = {
@@ -96,12 +126,17 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
   return {
     pageData,
     heroImage: pageData.heroImage,
+    heroBackground: pageData.heroBackground,
     images: pageData.images || [],
+    imagePositions: pageData.imagePositions || {},
     content: pageData.content,
     updateHeroImage,
     updateImage,
     updateImages,
     updateContent,
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition,
     saveManually,
     setPageData
   };
