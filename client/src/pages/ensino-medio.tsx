@@ -211,8 +211,11 @@ export default function EnsinoMedio() {
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
               <span className="text-school-orange">Itinerários Formativos</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              O grande diferencial do Ensino Médio são os itinerários formativos: Exatas ou Humanas
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto mb-4">
+              <strong className="text-school-orange">O grande diferencial do Ensino Médio são os itinerários formativos: Exatas ou Humanas</strong>
+            </p>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Explore caminhos personalizados que fazem sentido para suas ambições pessoais e profissionais
             </p>
           </div>
 

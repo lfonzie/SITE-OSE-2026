@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
@@ -238,7 +237,7 @@ export default function Amplia() {
                   não só para o <strong>ENEM</strong>, mas também para o mercado de trabalho e para a vida.
                 </p>
               </div>
-              
+
             </div>
             <div className="grid grid-cols-2 gap-4">
               <OptimizedImage 
@@ -269,7 +268,7 @@ export default function Amplia() {
                 Conheça a Trajetória Educacional Completa
               </p>
             </div>
-            
+
             {segments.map((segment, index) => (
               <div key={index} className="bg-white p-8 rounded-xl shadow-lg">
                 <h4 className="text-2xl font-bold text-slate-800 mb-4">{segment.title}</h4>
@@ -285,7 +284,7 @@ export default function Amplia() {
               </div>
             ))}
           </div>
-          
+
           <div className="mt-16 text-center">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
               Plataforma de Excelência

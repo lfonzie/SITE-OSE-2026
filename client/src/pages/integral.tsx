@@ -29,7 +29,7 @@ export default function Integral() {
     {
       icon: Heart,
       title: "Nutrição e Bem-Estar",
-      description: "Cardápio planejado por nutricionistas, assegurando que cada refeição e lanche seja nutricionalmente balanceado e contribua para a saúde e desempenho acadêmico dos alunos."
+      description: "Cardápio planejado por nutricionistas, assegurando que cada refeição e lanche seja nutricionalmente balanceado e contribui para a saúde e desempenho acadêmico dos alunos."
     },
     {
       icon: Music,
@@ -152,7 +152,7 @@ export default function Integral() {
                 </p>
               </div>
               <div className="mt-8">
-                
+
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">

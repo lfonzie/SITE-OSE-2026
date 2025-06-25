@@ -128,31 +128,33 @@ export default function SocioEmocional() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="text-center">
+          
+        <div className="text-center">
             <motion.h1 
-              className="text-5xl md:text-6xl font-bold mb-6"
+              className="text-4xl md:text-6xl font-bold mb-6"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              Programa <span className="text-school-orange">SócioEmocional</span>
+              Programa <span className="text-school-orange">Socioemocional</span>
             </motion.h1>
             <motion.p 
-              className="text-xl md:text-2xl mb-8 leading-relaxed max-w-4xl mx-auto"
+              className="text-xl md:text-2xl mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Desenvolvendo <strong>inteligência emocional</strong> e <strong>habilidades sociais</strong>
+              Desenvolvimento Integral da Pessoa
             </motion.p>
             <motion.p 
-              className="text-lg opacity-90 max-w-3xl mx-auto"
+              className="text-lg mb-8 opacity-95 max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               O Programa Socioemocional da nossa escola é uma iniciativa integrada ao currículo escolar, 
-              voltada para o desenvolvimento integral de alunos da Educação Infantil ao Ensino Médio.
+              voltada para o desenvolvimento integral de alunos da Educação Infantil ao Ensino Médio. 
+              Com aulas semanais, o programa promove habilidades essenciais para a vida.
             </motion.p>
           </div>
         </div>

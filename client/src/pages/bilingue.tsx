@@ -98,8 +98,10 @@ export default function Bilingue() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                Nossa educação bilíngue integral com MacMillan Education oferece uma abordagem 
-                holística e interdisciplinar, preparando alunos para um mundo interconectado.
+                Na OSE, a educação bilíngue é mais que uma metodologia - é uma janela para o mundo. 
+                <strong className="text-school-orange"> As aulas são diárias após as aulas tradicionais</strong>, 
+                oferecendo uma imersão completa no idioma inglês e preparando nossos alunos 
+                para serem verdadeiros cidadãos globais.
               </motion.p>
             </div>
           </div>
