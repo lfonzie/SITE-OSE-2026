@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
-import { Heart, Target, Users, Award, Star, Globe } from "lucide-react";
+import { Heart, Target, Users, Award, Star, Globe, BookOpen, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import { newImages } from "@/lib/image-verification";
 
 export default function MissaoValores() {

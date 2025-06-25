@@ -117,7 +117,7 @@ export default function SocioEmocional() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
+      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
@@ -127,53 +127,33 @@ export default function SocioEmocional() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                Programa <span className="text-school-orange">SócioEmocional</span>
-              </motion.h1>
-              <motion.h2 
-                className="text-2xl md:text-3xl font-semibold mb-4"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                Formação Integral do Ser Humano
-              </motion.h2>
-              <motion.p 
-                className="text-xl md:text-2xl mb-6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                Desenvolvimento integral do ser humano
-              </motion.p>
-              <motion.p 
-                className="text-lg mb-8 opacity-95"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                Programa educacional voltado para o desenvolvimento de competências socioemocionais, 
-                formando cidadãos conscientes e emocionalmente inteligentes.
-              </motion.p>
-
-            </div>
-            <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <Heart className="text-white/80 mx-auto mb-4" size={80} />
-                  <p className="text-white/70 text-lg font-medium">Inteligência Emocional</p>
-                  <p className="text-white/60 text-sm">Desenvolvimento Integral</p>
-                </div>
-              </div>
-            </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="text-center">
+            <motion.h1 
+              className="text-5xl md:text-6xl font-bold mb-6"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Programa <span className="text-school-orange">SócioEmocional</span>
+            </motion.h1>
+            <motion.p 
+              className="text-xl md:text-2xl mb-8 leading-relaxed max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Desenvolvendo <strong>inteligência emocional</strong> e <strong>habilidades sociais</strong>
+            </motion.p>
+            <motion.p 
+              className="text-lg opacity-90 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              O Programa Socioemocional da nossa escola é uma iniciativa integrada ao currículo escolar, 
+              voltada para o desenvolvimento integral de alunos da Educação Infantil ao Ensino Médio.
+            </motion.p>
           </div>
         </div>
       </section>

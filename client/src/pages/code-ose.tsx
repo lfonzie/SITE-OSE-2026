@@ -80,7 +80,7 @@ export default function CodeOSE() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                {CODE.OSE}
+                <span className="text-school-orange">{"{CODE.OSE}"}</span>
               </motion.h1>
               <motion.h2 
                 className="text-2xl md:text-3xl font-semibold mb-4"
@@ -96,7 +96,7 @@ export default function CodeOSE() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                Preparando jovens para o futuro digital
+                <strong>Linguagem de Programação</strong> - Alfabetização Digital Integrada ao <strong>Ensino Fundamental I</strong>
               </motion.p>
               <motion.p 
                 className="text-lg mb-8 opacity-95"
@@ -104,8 +104,9 @@ export default function CodeOSE() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                CODE OSE é um programa de alfabetização digital integrado ao currículo do Ensino Fundamental I, 
-                desenvolvendo pensamento computacional e habilidades essenciais para o século XXI.
+                Em uma era digitalmente avançada, o {"{CODE.OSE}"} não é uma matéria opcional; é um componente fundamental 
+                da grade curricular do Ensino Fundamental I no Colégio OSE. Este curso inovador vai além de ensinar 
+                programação, preparando nossos alunos para a vida e as carreiras do futuro.
               </motion.p>
 
             </div>
