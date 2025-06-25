@@ -15,6 +15,8 @@ export const setupCSP = () => {
       https://ssl.google-analytics.com
       https://www.uchat.com.au
       https://*.uchat.com.au
+      https://sdk.dfktv2.com
+      https://*.dfktv2.com
       https://replit.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com;
     img-src 'self' data: https: blob: 
@@ -30,7 +32,9 @@ export const setupCSP = () => {
       https://www.google.com 
       https://connect.facebook.net
       https://www.uchat.com.au
-      https://*.uchat.com.au;
+      https://*.uchat.com.au
+      https://sdk.dfktv2.com
+      https://*.dfktv2.com;
     frame-src 'self' https://calendly.com https://*.calendly.com https://www.googletagmanager.com https://td.doubleclick.net https://*.doubleclick.net;
   `.replace(/\s+/g, ' ').trim();
   document.head.appendChild(meta);

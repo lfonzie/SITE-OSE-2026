@@ -146,13 +146,50 @@ export const commonSnippets: CodeSnippet[] = [
         
         script.onload = function() {
           console.log('UChat script loaded successfully');
+          
+          // Check immediately
+          if (window.UChat) {
+            console.log('UChat found immediately');
+          }
+          
+          // Check after 1 second
           setTimeout(() => {
+            console.log('Checking for UChat after 1s...');
             if (window.UChat) {
               console.log('UChat widget initialized');
+            } else if (window.DF_Widget) {
+              console.log('DF Widget (UChat) found');
             } else {
               console.warn('UChat widget not found after script load');
+              console.log('Available window objects containing chat/DF/widget:', 
+                Object.keys(window).filter(k => 
+                  k.toLowerCase().includes('chat') || 
+                  k.includes('DF') || 
+                  k.toLowerCase().includes('widget') ||
+                  k.toLowerCase().includes('uchat')
+                )
+              );
+              
+              // Check for any scripts loaded
+              const scripts = Array.from(document.scripts);
+              const uchatScripts = scripts.filter(s => s.src && s.src.includes('uchat'));
+              console.log('UChat scripts found:', uchatScripts.length);
+              
+              // Check for widget containers
+              const widgets = document.querySelectorAll('[id*="chat"], [class*="chat"], [id*="widget"], [class*="widget"]');
+              console.log('Potential widget elements:', widgets.length);
             }
           }, 2000);
+          
+          // Final check after 5 seconds
+          setTimeout(() => {
+            console.log('Final UChat check after 5s...');
+            if (window.UChat || window.DF_Widget) {
+              console.log('UChat/DF Widget found in final check');
+            } else {
+              console.error('UChat widget failed to initialize after 5 seconds');
+            }
+          }, 5000);
         };
         
         script.onerror = function() {
