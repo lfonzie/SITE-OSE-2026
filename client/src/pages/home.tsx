@@ -66,7 +66,6 @@ export default function Home() {
       <TestimonialsSection />
       <SocialFeedsSection />
       <ContactSection />
-      <Footer />
     </div>
   );
 }
