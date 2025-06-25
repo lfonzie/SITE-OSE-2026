@@ -42,7 +42,7 @@ export default function PedagogicalProposalSection() {
             Nossa <span className="text-school-orange">Proposta Pedagógica</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-            a OSE desenvolve uma metodologia única que combina tradição educacional com inovação pedagógica, 
+            A OSE desenvolve uma metodologia única que combina tradição educacional com inovação pedagógica, 
             preparando alunos para os desafios do futuro
           </p>
         </div>

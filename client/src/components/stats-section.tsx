@@ -19,7 +19,7 @@ const stats = [
     color: "text-school-brown"
   },
   { 
-    number: "95%", 
+    number: "98%", 
     label: "Aprovação Vestibular", 
     description: "Índice de sucesso",
     icon: Trophy,
@@ -27,7 +27,7 @@ const stats = [
     color: "text-school-orange"
   },
   { 
-    number: "40+", 
+    number: "50+", 
     label: "Professores", 
     description: "Especializados",
     icon: BookOpen,
