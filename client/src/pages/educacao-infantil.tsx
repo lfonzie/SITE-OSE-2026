@@ -6,6 +6,10 @@ import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Heart, Play, Users, BookOpen, Lightbulb, Target, Palette } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { motion } from "framer-motion";
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { AnimatedSection } from "@/components/animated/AnimatedSection";
+import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 // Importando imagens para Educação Infantil
 const img1 = "/images/0354_1750717790205.jpg";

@@ -7,6 +7,7 @@ import ContactSection from "@/components/contact-section";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { Button } from "@/components/ui/button";
 import { Award } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Legacy() {
   useEffect(() => {

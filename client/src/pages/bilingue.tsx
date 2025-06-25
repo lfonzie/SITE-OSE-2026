@@ -4,6 +4,10 @@ import Navigation from '@/components/navigation';
 import WhyOSESection from '@/components/why-ose-section';
 import ContactSection from '@/components/contact-section';
 import { OptimizedImage } from '@/components/ui/optimized-image';
+import { motion } from "framer-motion";
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { AnimatedSection } from "@/components/animated/AnimatedSection";
+import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 // Import images
 const img1 = "/images/0312_1750717790204.jpg";

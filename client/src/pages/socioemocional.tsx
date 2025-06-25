@@ -5,6 +5,10 @@ import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Heart, Brain, Users, Target, Award, BookOpen, Shield, Lightbulb } from "lucide-react";
+import { motion } from "framer-motion";
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { AnimatedSection } from "@/components/animated/AnimatedSection";
+import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 export default function SocioEmocional() {
   useEffect(() => {

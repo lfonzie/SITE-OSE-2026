@@ -6,6 +6,10 @@ import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Heart, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { motion } from "framer-motion";
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { AnimatedSection } from "@/components/animated/AnimatedSection";
+import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 // Usando imagens da pasta public/images
 const img1 = "/images/0934_1750717790206.jpg";
