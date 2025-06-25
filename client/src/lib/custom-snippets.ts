@@ -127,8 +127,15 @@ export const commonSnippets: CodeSnippet[] = [
     active: false
   },
   {
-    id: 'whatsapp-chat',
-    name: 'WhatsApp Chat Widget',
+    id: 'uchat-widget',
+    name: 'UChat Chat Widget',
+    code: `<script async defer src="https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/full.js"></script>`,
+    location: 'body',
+    active: true
+  },
+  {
+    id: 'whatsapp-chat-old',
+    name: 'WhatsApp Chat Widget (Disabled)',
     code: `
       <div id="whatsapp-chat" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
         <a href="https://wa.me/5515210138000" target="_blank" 
