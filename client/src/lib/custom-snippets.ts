@@ -201,7 +201,7 @@ export const commonSnippets: CodeSnippet[] = [
       })();
     </script>`,
     location: 'body',
-    active: true
+    active: false
   }
 ];
 
