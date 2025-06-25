@@ -108,9 +108,9 @@ export const initGTM = () => {
   const gtmId = import.meta.env.VITE_GTM_ID;
   
   if (!gtmId) {
-    // Only warn in development mode
+    // Use development mode handling
     if (import.meta.env.DEV) {
-      console.warn('Google Tag Manager ID não configurado');
+      console.warn('Google Tag Manager ID não configurado - usando modo desenvolvimento');
     }
     return;
   }

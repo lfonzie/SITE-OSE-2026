@@ -6,11 +6,12 @@ export const setupCSP = () => {
   meta.setAttribute('http-equiv', 'Content-Security-Policy');
   meta.content = `
     default-src 'self';
-    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://assets.calendly.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com;
     img-src 'self' data: https: blob:;
     font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self' https://www.google-analytics.com;
+    connect-src 'self' https://www.google-analytics.com https://api.calendly.com;
+    frame-src 'self' https://calendly.com https://*.calendly.com;
   `.replace(/\s+/g, ' ').trim();
   document.head.appendChild(meta);
 };
