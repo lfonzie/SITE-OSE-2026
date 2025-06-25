@@ -9,10 +9,12 @@ import TestimonialsSection from "@/components/testimonials-section";
 import SocialFeedsSection from "@/components/social-feeds-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
+import CleanupScripts from "@/components/cleanup-scripts";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
+      <CleanupScripts />
       <Navigation />
       <HeroSection />
       <StatsSection />
