@@ -9,7 +9,6 @@ import TestimonialsSection from "@/components/testimonials-section";
 import SocialFeedsSection from "@/components/social-feeds-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
-import UChatWidget from "@/components/uchat-widget";
 
 export default function Home() {
   return (
@@ -25,7 +24,6 @@ export default function Home() {
       <SocialFeedsSection />
       <ContactSection />
       <Footer />
-      <UChatWidget />
     </div>
   );
 }
