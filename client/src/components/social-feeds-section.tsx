@@ -23,14 +23,14 @@ export default function SocialFeedsSection() {
         } else {
           // Fallback para imagens padrão se API falhar
           const defaultImages = [
-            "/api/images/IG/0312_1750717790204.jpg",
-            "/api/images/IG/0354_1750717790205.jpg",
-            "/api/images/IG/0581_1750717790206.jpg",
-            "/api/images/IG/0700_1750717790204.jpg",
-            "/api/images/IG/0905_1750717790206.jpg",
-            "/api/images/IG/0934_1750717790206.jpg",
-            "/api/images/IG/1068_1750717790205.jpg",
-            "/api/images/IG/1105_1750717790206.jpg"
+            "/images/1.png",
+            "/images/2.png",
+            "/images/3.png",
+            "/images/4.png",
+            "/images/5.png",
+            "/images/6.png",
+            "/images/7.png",
+            "/images/8.png"
           ];
           setInstagramImages(defaultImages);
         }
@@ -38,11 +38,11 @@ export default function SocialFeedsSection() {
         console.error('Erro ao carregar imagens do Instagram:', error);
         // Usar imagens padrão em caso de erro
         const defaultImages = [
-          "/api/images/IG/0312_1750717790204.jpg",
-          "/api/images/IG/0354_1750717790205.jpg",
-          "/api/images/IG/0581_1750717790206.jpg",
-          "/api/images/IG/0700_1750717790204.jpg",
-          "/api/images/IG/0905_1750717790206.jpg",
+          "/images/1.png",
+          "/images/2.png",
+          "/images/3.png",
+          "/images/4.png",
+          "/images/5.png",
           "/api/images/IG/0934_1750717790206.jpg",
           "/api/images/IG/1068_1750717790205.jpg",
           "/api/images/IG/1105_1750717790206.jpg"

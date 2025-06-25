@@ -2,30 +2,30 @@
 // Verificação de Imagens - OSE
 // Este arquivo lista todas as imagens disponíveis e como usá-las
 
-// Imagens Principais (primeira série)
+// Imagens Principais (ATUALIZADAS - usando novos arquivos)
 export const mainImages = {
   // Educação Infantil e atividades gerais
-  infantil1: "/images/0354_1750717790205.jpg", // Atividades educacionais
-  infantil2: "/images/0312_1750717790204.jpg", // Ambiente escolar
-  infantil3: "/images/0700_1750717790204.jpg", // Interação alunos
+  infantil1: "/images/1.png", // Atividades educacionais
+  infantil2: "/images/2.png", // Ambiente escolar
+  infantil3: "/images/3.png", // Interação alunos
   
   // Fundamental I
-  fund1_1: "/images/0934_1750717790206.jpg", // Sala de aula
-  fund1_2: "/images/1105_1750717790206.jpg", // Atividades colaborativas
-  fund1_3: "/images/0581_1750717790206.jpg", // Projetos educacionais
-  fund1_4: "/images/0491_1750717790207.jpg", // Aprendizado
-  fund1_5: "/images/0541_1750717790207.jpg", // Desenvolvimento
-  fund1_6: "/images/1295_1750717790207.jpg", // Atividades culturais
+  fund1_1: "/images/4.png", // Sala de aula
+  fund1_2: "/images/5.png", // Atividades colaborativas
+  fund1_3: "/images/6.png", // Projetos educacionais
+  fund1_4: "/images/7.png", // Aprendizado
+  fund1_5: "/images/8.png", // Desenvolvimento
+  fund1_6: "/images/9.png", // Atividades culturais
   
   // Fundamental II
-  fund2_1: "/images/0023_1750717790208.jpg", // Estudos avançados
-  fund2_2: "/images/0378_1750717790208.jpg", // Tecnologia educacional
-  fund2_3: "/images/1285_1750717790208.jpg", // Preparação acadêmica
+  fund2_1: "/images/10.png", // Estudos avançados
+  fund2_2: "/images/11.png", // Tecnologia educacional
+  fund2_3: "/images/12.png", // Preparação acadêmica
   
   // Geral/Institucional
-  campus1: "/images/0905_1750717790206.jpg", // Campus e instalações
-  materiais: "/images/1068_1750717790205.jpg", // Material didático
-  tecnologia: "/images/1092_1750717790205.jpg", // Recursos tecnológicos
+  campus1: "/images/13.png", // Campus e instalações
+  materiais: "/images/14.png", // Material didático
+  tecnologia: "/images/15.png", // Recursos tecnológicos
 };
 
 // Imagens Secundárias (segunda série - mais recentes)

@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
-import { logos } from "@/lib/image-verification";
+import { logos, newImages } from "@/lib/image-verification";
 
 export default function CodeOSE() {
   useEffect(() => {

@@ -18,7 +18,7 @@ const img2 = newImages.img8;
 const img3 = newImages.img9;
 const img4 = newImages.img10;
 const img5 = newImages.img11;
-const img6 = "/images/1285_1750719589611.jpg";
+const img6 = newImages.img12;
 
 export default function Fundamental2() {
   useEffect(() => {

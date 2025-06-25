@@ -39,8 +39,8 @@ const getImageForProgram = (title: string) => {
   const imageMap: Record<string, string> = {
     'Educação Infantil': newImages.img9,
     'Ensino Fundamental I': newImages.img10,
-    'Ensino Fundamental II': '/images/0023_1750717790208.jpg',
-    'Ensino Médio': '/images/0312_1750719589609.jpg'
+    'Ensino Fundamental II': newImages.img11,
+    'Ensino Médio': newImages.img12
   };
   return imageMap[title] || newImages.img1;
 };

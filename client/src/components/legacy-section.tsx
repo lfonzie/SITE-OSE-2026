@@ -1,6 +1,7 @@
 
 import { Calendar, Award, Users, BookOpen, GraduationCap, Building2, Heart, Star, Trophy, Map } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { newImages } from "@/lib/image-verification";
 
 export default function LegacySection() {
   return (
@@ -44,7 +45,7 @@ export default function LegacySection() {
               </div>
               <div className="space-y-4">
                 <OptimizedImage 
-                  src="/images/1105_1750717790206.jpg" 
+                  src={newImages.horizontal6} 
                   alt="Fundação da Escola do Comércio de Sorocaba em 1924"
                   className="w-full rounded-lg shadow-lg"
                 />
@@ -138,7 +139,7 @@ export default function LegacySection() {
               </div>
 
               <OptimizedImage 
-                src="/images/0905_1750717790206.jpg" 
+                src={newImages.horizontal9} 
                 alt="Dr. Arthur Cyrillo Freire e família"
                 className="w-full h-48 object-cover rounded-lg shadow-lg"
               />
@@ -165,7 +166,7 @@ export default function LegacySection() {
                 </div>
               </div>
               <OptimizedImage 
-                src="/images/0700_1750717790204.jpg" 
+                src={newImages.horizontal10} 
                 alt="Mudança para Rua Benedito Pires em 1941"
                 className="w-full h-64 object-cover rounded-lg shadow-lg"
               />
@@ -220,12 +221,12 @@ export default function LegacySection() {
             
             <div className="space-y-4">
               <OptimizedImage 
-                src="/images/0934_1750717790206.jpg" 
+                src={newImages.horizontal11} 
                 alt="Consolidação da OSE em 1946"
                 className="w-full h-40 object-cover rounded-lg shadow-lg"
               />
               <OptimizedImage 
-                src="/images/1068_1750717790205.jpg" 
+                src={newImages.horizontal12} 
                 alt="Filosofia educacional OSE"
                 className="w-full h-40 object-cover rounded-lg shadow-lg"
               />
@@ -374,17 +375,17 @@ export default function LegacySection() {
             
             <div className="space-y-4">
               <OptimizedImage 
-                src="/images/0934_1750717790206.jpg" 
+                src={newImages.horizontal13} 
                 alt="Expansão da OSE nos anos 1955-1980"
                 className="w-full h-40 object-cover rounded-lg shadow-lg"
               />
               <OptimizedImage 
-                src="/images/1068_1750717790205.jpg" 
+                src={newImages.horizontal14} 
                 alt="Modernização das instalações OSE"
                 className="w-full h-40 object-cover rounded-lg shadow-lg"
               />
               <OptimizedImage 
-                src="/images/0581_1750717790206.jpg" 
+                src={newImages.horizontal15} 
                 alt="Crescimento estudantil OSE"
                 className="w-full h-40 object-cover rounded-lg shadow-lg"
               />
@@ -545,12 +546,12 @@ export default function LegacySection() {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <OptimizedImage 
-              src="/images/0905_1750717790206.jpg" 
+              src={newImages.horizontal16} 
               alt="Momentos históricos da OSE"
               className="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             />
             <OptimizedImage 
-              src="/images/0700_1750717790204.jpg" 
+              src={newImages.horizontal17} 
               alt="Ambiente educacional da OSE"
               className="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             />
