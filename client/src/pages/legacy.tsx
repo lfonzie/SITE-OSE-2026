@@ -40,14 +40,6 @@ export default function Legacy() {
               </p>
 
             </div>
-            <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <Award className="text-white/80 mx-auto mb-4" size={80} />
-                  <p className="text-white/70 text-lg font-medium">100 Anos de Tradição</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

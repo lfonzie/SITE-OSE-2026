@@ -152,13 +152,7 @@ export default function Integral() {
                 </p>
               </div>
               <div className="mt-8">
-                <Button 
-                  size="lg"
-                  className="bg-school-orange text-white font-semibold px-8 py-3"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Conheça o Integral Flex
-                </Button>
+                
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">

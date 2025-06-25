@@ -207,32 +207,7 @@ export default function Professores() {
                 de tradição em educação, dedicados ao desenvolvimento integral e sucesso acadêmico 
                 de cada aluno.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-school-orange font-semibold px-8 py-3"
-                  onClick={() => window.location.href = '/agendamento'}
-                >
-                  📅 Agende uma Visita
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-white text-white font-semibold px-8 py-3"
-                  onClick={() => document.getElementById('mural')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Saiba Mais
-                </Button>
               </div>
-            </div>
-            <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <GraduationCap className="text-white/80 mx-auto mb-4" size={80} />
-                  <p className="text-white/70 text-lg font-medium">Nossos Professores</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

@@ -238,15 +238,7 @@ export default function Amplia() {
                   não só para o <strong>ENEM</strong>, mas também para o mercado de trabalho e para a vida.
                 </p>
               </div>
-              <div className="mt-8">
-                <Button 
-                  size="lg"
-                  className="bg-school-orange hover:bg-school-orange/90 text-white"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Conheça a Plataforma Amplia
-                </Button>
-              </div>
+              
             </div>
             <div className="grid grid-cols-2 gap-4">
               <OptimizedImage 

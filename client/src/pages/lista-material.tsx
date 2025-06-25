@@ -75,32 +75,7 @@ export default function ListaMaterial() {
                 Confira as listas de material escolar por segmento. Materiais cuidadosamente 
                 selecionados para apoiar o desenvolvimento educacional e criativo dos nossos alunos.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-school-orange font-semibold px-8 py-3"
-                  onClick={() => document.getElementById('listas')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  📋 Ver Listas
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-white text-white font-semibold px-8 py-3"
-                  onClick={() => window.location.href = '/agendamento'}
-                >
-                  📅 Agende uma Visita
-                </Button>
               </div>
-            </div>
-            <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <FileText className="text-white/80 mx-auto mb-4" size={80} />
-                  <p className="text-white/70 text-lg font-medium">Lista de Material</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -182,13 +157,7 @@ export default function ListaMaterial() {
                       <Download className="mr-2" size={16} />
                       Baixar Lista
                     </Button>
-                    <Button 
-                      variant="outline"
-                      className="border-school-orange text-school-orange hover:bg-school-orange/10"
-                      onClick={() => window.location.href = segmento.link}
-                    >
-                      Saiba Mais
-                    </Button>
+                    
                   </div>
                 </div>
               </div>

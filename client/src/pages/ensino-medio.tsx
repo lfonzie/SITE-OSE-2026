@@ -1,194 +1,205 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { GraduationCap, Users, BookOpen, Target, Award, Lightbulb, Brain, Heart, Globe, Calculator, Microscope, PenTool } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { motion } from "framer-motion";
-import { 
-  Users, 
-  BookOpen, 
-  Target, 
-  Lightbulb,
-  Calendar,
-  ArrowRight,
-  GraduationCap,
-  TrendingUp,
-  Globe,
-  Briefcase
-} from "lucide-react";
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { AnimatedSection } from "@/components/animated/AnimatedSection";
+import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
+
+// Importando imagens para página Ensino Médio
+import { newImages } from "@/lib/image-verification";
+const img1 = newImages.img7;
+const img2 = newImages.img8;
+const img3 = newImages.img9;
 
 export default function EnsinoMedio() {
   useEffect(() => {
     updateSEO({
-      title: "Novo Ensino Médio - Preparando para o Futuro | a OSE",
-      description: "Novo Ensino Médio na OSE: educação personalizada e flexível com itinerários formativos. Formação integral preparando alunos para o futuro.",
-      keywords: "novo ensino médio, itinerários formativos, educação personalizada, ensino médio OSE, formação geral básica"
+      title: "Ensino Médio - Novo Ensino Médio | a OSE",
+      description: "Novo Ensino Médio na OSE: educação personalizada e flexível com itinerários formativos, formação geral básica e projetos integradores.",
+      keywords: "novo ensino médio, itinerários formativos, educação personalizada, ENEM, vestibular, OSE sorocaba"
     });
   }, []);
 
-  const years = [
-    { year: "1º Ano", path: "/ensino-medio/1-ano" },
-    { year: "2º Ano", path: "/ensino-medio/2-ano" },
-    { year: "3º Ano", path: "/ensino-medio/3-ano" }
+  const pillars = [
+    {
+      icon: BookOpen,
+      title: "Formação Geral Básica",
+      description: "60% da carga horária com disciplinas essenciais alinhadas à BNCC, oferecendo uma fundação sólida em Matemática, Português e Ciências.",
+      color: "bg-blue-500"
+    },
+    {
+      icon: Target,
+      title: "Projetos Integradores",
+      description: "Pedra angular da abordagem interdisciplinar, permitindo aplicação prática do conhecimento e desenvolvimento de pensamento crítico.",
+      color: "bg-green-500"
+    },
+    {
+      icon: Globe,
+      title: "Itinerários Formativos",
+      description: "Exploração aprofundada de paixões e interesses com modelos específicos e integrados para atender necessidades educacionais e de carreira.",
+      color: "bg-purple-500"
+    },
+    {
+      icon: Heart,
+      title: "Projeto de Vida",
+      description: "Desenvolvimento do autoprotagonismo em esferas pessoal, acadêmica, profissional e cidadã, servindo como mapa orientador para o futuro.",
+      color: "bg-red-500"
+    }
   ];
 
   const itinerarios = [
     {
       title: "Narrativas do Mundo",
-      description: "Linguagens e Humanidades",
-      color: "bg-blue-500"
+      description: "Linguagens e Ciências Humanas",
+      icon: PenTool,
+      color: "from-blue-500 to-purple-500",
+      areas: ["Português", "História", "Geografia", "Filosofia", "Sociologia", "Inglês", "Artes"]
     },
     {
-      title: "Rota Exata", 
-      description: "Matemática e Ciências da Natureza",
-      color: "bg-green-500"
+      title: "Rota Exata",
+      description: "Matemática e Ciências da Natureza", 
+      icon: Calculator,
+      color: "from-green-500 to-blue-500",
+      areas: ["Matemática", "Física", "Química", "Biologia"]
     }
   ];
 
-  const projetoVidaEsferas = [
+  const projetoVida = [
     {
       title: "Esfera Pessoal",
       description: "Comportamentos, relações, hábitos",
+      icon: Heart
+    },
+    {
+      title: "Esfera Cidadã", 
+      description: "Ética, atitudes",
       icon: Users
     },
     {
-      title: "Esfera Cidadã",
-      description: "Ética, atitudes",
-      icon: Globe
-    },
-    {
-      title: "Esfera Acadêmica", 
-      description: "Estudos, pesquisas",
+      title: "Esfera Acadêmica",
+      description: "Estudos, pesquisas", 
       icon: BookOpen
     },
     {
       title: "Esfera Profissional",
       description: "Trabalho, carreira",
-      icon: Briefcase
+      icon: Target
     }
+  ];
+
+  const years = [
+    { year: "1º Ano", description: "Base sólida e introdução aos itinerários" },
+    { year: "2º Ano", description: "Aprofundamento e projetos práticos" },
+    { year: "3º Ano", description: "Preparação ENEM e definição profissional" }
   ];
 
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-school-orange via-orange-500 to-orange-600 text-white py-20">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={img1}
+            alt="Ensino Médio OSE"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Novo Ensino Médio
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-95">
-              Preparando Alunos para o Futuro com Educação Personalizada e Flexível
-            </p>
-            <p className="text-lg opacity-90 max-w-3xl mx-auto">
-              O Novo Ensino Médio na OSE representa uma revolução na forma como abordamos a educação.
-              Com uma abordagem centrada no aluno e baseada na nova legislação, oferecemos uma experiência 
-              educacional que é tanto abrangente quanto personalizada.
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <motion.h1 
+                className="text-4xl md:text-6xl font-bold mb-6"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <span className="text-school-orange">Novo Ensino Médio</span>
+              </motion.h1>
+              <motion.h2 
+                className="text-2xl md:text-3xl font-semibold mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Preparando Alunos para o Futuro
+              </motion.h2>
+              <motion.p 
+                className="text-xl md:text-2xl mb-6"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                Educação Personalizada e Flexível
+              </motion.p>
+              <motion.p 
+                className="text-lg mb-8 opacity-95"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                O Novo Ensino Médio na OSE representa uma revolução na forma como abordamos a educação. 
+                Com uma abordagem centrada no aluno e baseada na nova legislação, oferecemos uma experiência 
+                educacional que é tanto abrangente quanto personalizada.
+              </motion.p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Navegação por Anos */}
-      <section className="py-12 bg-white">
+      {/* Years Navigation */}
+      <section className="py-12 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">Anos do Ensino Médio</h2>
+          </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {years.map((year, index) => (
-              <motion.div
-                key={year.year}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="w-full h-20 text-lg font-semibold border-2 border-school-orange hover:bg-school-orange hover:text-white transition-all duration-300"
-                  onClick={() => window.location.href = year.path}
-                >
-                  {year.year}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </motion.div>
+            {years.map((item, index) => (
+              <div key={index} className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-6 rounded-xl text-center">
+                <h3 className="text-xl font-bold text-slate-800 mb-2">{item.year}</h3>
+                <p className="text-slate-600">{item.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Formação Geral Básica */}
-      <section className="py-20 bg-slate-50">
+      {/* Main Features */}
+      <section id="detalhes" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
-              Formação Geral Básica
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Pilares do <span className="text-school-orange">Novo Ensino Médio</span>
             </h2>
-            <p className="text-xl max-w-4xl mx-auto text-slate-600">
-              A Formação Geral Básica (FGB) constitui o cerne da educação no Novo Ensino Médio, 
-              abrangendo 60% da carga horária total e oferecendo uma fundação sólida nas disciplinas essenciais.
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              Modelo híbrido que une base comum robusta à flexibilidade de itinerários formativos
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <OptimizedImage 
-                src="/images/ensino-medio-fgb.jpg" 
-                alt="Formação Geral Básica"
-                className="w-full h-80 object-cover rounded-xl shadow-lg"
-              />
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-school-orange text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
-                    <BookOpen size={24} />
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {pillars.map((pillar, index) => {
+              const Icon = pillar.icon;
+              return (
+                <AnimatedCard key={index} delay={index * 0.1} className="h-full">
+                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                    <div className={`${pillar.color} text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6`}>
+                      <Icon size={28} />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-800 mb-4">{pillar.title}</h3>
+                    <p className="text-slate-600">{pillar.description}</p>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">Base Curricular Sólida</h3>
-                    <p className="text-slate-600">
-                      Disciplinas essenciais como Matemática, Português e Ciências, 
-                      integradas com competências da BNCC.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="bg-school-orange text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
-                    <Target size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">Formação Equilibrada</h3>
-                    <p className="text-slate-600">
-                      Preparação abrangente para os desafios multifacetados do século 21.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+                </AnimatedCard>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -196,193 +207,129 @@ export default function EnsinoMedio() {
       {/* Itinerários Formativos */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
-              Itinerários Formativos
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              <span className="text-school-orange">Itinerários Formativos</span>
             </h2>
-            <p className="text-xl max-w-4xl mx-auto text-slate-600 mb-4">
-              Os Itinerários Formativos permitem aos alunos explorar suas paixões e interesses de forma mais aprofundada.
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              O grande diferencial do Ensino Médio são os itinerários formativos: Exatas ou Humanas
             </p>
-            <p className="text-lg max-w-3xl mx-auto text-school-orange font-semibold">
-              O grande diferencial do médio são os itinerários formativos: exatas ou humanas
-            </p>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {itinerarios.map((itinerario, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <Card className="h-full hover:shadow-xl transition-shadow border-2 border-gray-100">
-                  <CardHeader className={`${itinerario.color} text-white rounded-t-lg`}>
-                    <CardTitle className="text-2xl text-center">{itinerario.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-8 text-center">
-                    <p className="text-lg text-slate-600 mb-6">{itinerario.description}</p>
-                    <div className="space-y-4">
-                      <div className="bg-slate-50 p-4 rounded-lg">
-                        <p className="text-sm text-slate-600">
-                          Educação relevante que responde às exigências do mundo atual 
-                          e às ambições dos alunos
-                        </p>
-                      </div>
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {itinerarios.map((itinerario, index) => {
+              const Icon = itinerario.icon;
+              return (
+                <AnimatedCard key={index} delay={index * 0.2} className="h-full">
+                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-school-orange/20 h-full">
+                    <div className={`bg-gradient-to-r ${itinerario.color} text-white w-16 h-16 rounded-lg flex items-center justify-center mb-6`}>
+                      <Icon size={32} />
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                    <h3 className="text-2xl font-bold text-slate-800 mb-2">{itinerario.title}</h3>
+                    <p className="text-lg text-school-orange font-semibold mb-4">{itinerario.description}</p>
+                    <div className="space-y-2">
+                      {itinerario.areas.map((area, i) => (
+                        <div key={i} className="flex items-center">
+                          <div className="w-2 h-2 bg-school-orange rounded-full mr-3"></div>
+                          <span className="text-slate-600">{area}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </AnimatedCard>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Projeto de Vida */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
-              Projeto de Vida
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              <span className="text-school-orange">Projeto de Vida</span>
             </h2>
-            <p className="text-xl max-w-4xl mx-auto text-slate-600">
-              Uma inovação central do Novo Ensino Médio que visa desenvolver o autoprotagonismo 
-              do aluno em diversas esferas da vida.
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              Desenvolvimento do autoprotagonismo em diversas esferas da vida
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {projetoVidaEsferas.map((esfera, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="h-full text-center hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <esfera.icon size={28} />
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {projetoVida.map((esfera, index) => {
+              const Icon = esfera.icon;
+              return (
+                <AnimatedCard key={index} delay={index * 0.1} className="h-full">
+                  <div className="bg-white p-6 rounded-xl shadow-lg text-center h-full">
+                    <div className="bg-school-orange text-white w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                      <Icon size={24} />
                     </div>
-                    <h3 className="text-lg font-bold text-slate-800 mb-3">{esfera.title}</h3>
-                    <p className="text-slate-600">{esfera.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                    <h4 className="font-bold text-slate-800 mb-2">{esfera.title}</h4>
+                    <p className="text-sm text-slate-600">{esfera.description}</p>
+                  </div>
+                </AnimatedCard>
+              );
+            })}
+          </div>
+
+          <div className="bg-white p-8 rounded-xl shadow-lg">
+            <p className="text-lg text-slate-700 text-center">
+              Este é um processo continuado que ajuda o aluno a planejar e tomar decisões conscientes sobre seu futuro. 
+              Ele serve como um mapa orientador que é revisitado e adaptado ao longo do curso.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Amplia Eletivas */}
+      {/* Eletivas */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
-              Amplia Eletivas
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              <span className="text-school-orange">Amplia Eletivas</span>
             </h2>
-            <p className="text-xl max-w-4xl mx-auto text-slate-600">
-              Componentes curriculares que oferecem aos alunos a oportunidade de estudar 
-              assuntos relevantes no mundo atual com abordagem prática e aplicada.
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              Componentes curriculares altamente interativos e engajantes
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Card className="h-full hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 text-center">
-                  <div className="bg-blue-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Lightbulb size={28} />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">Interativas</h3>
-                  <p className="text-slate-600">
-                    Cursos altamente interativos e engajantes
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Card className="h-full hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 text-center">
-                  <div className="bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <TrendingUp size={28} />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">Práticas</h3>
-                  <p className="text-slate-600">
-                    Abordagem mais prática e aplicada ao aprendizado
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <Card className="h-full hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 text-center">
-                  <div className="bg-purple-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <GraduationCap size={28} />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">Relevantes</h3>
-                  <p className="text-slate-600">
-                    Assuntos extremamente relevantes no mundo atual
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 p-8 rounded-xl">
+            <p className="text-lg text-slate-700 mb-6">
+              As Eletivas são componentes curriculares que oferecem aos alunos a oportunidade de estudar 
+              assuntos que estão fora do currículo padrão, mas que são extremamente relevantes no mundo atual.
+            </p>
+            <p className="text-slate-600">
+              Estes cursos são desenvolvidos para serem altamente interativos e engajantes, 
+              fornecendo uma abordagem mais prática e aplicada ao aprendizado.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section className="py-20 bg-gradient-to-r from-school-orange to-orange-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Transformação Educacional
-            </h2>
-            <p className="text-xl max-w-4xl mx-auto mb-8 opacity-95">
-              O Novo Ensino Médio do Colégio OSE não é apenas uma etapa educacional, 
-              mas uma jornada de autodescobrimento, crescimento e preparação para o futuro.
-            </p>
-            <Button size="lg" variant="secondary" className="bg-white text-school-orange hover:bg-gray-100">
-              <Calendar className="mr-2 h-5 w-5" />
-              Agendar Avaliação Pedagógica
-            </Button>
-          </motion.div>
+      {/* Image Gallery */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-6">
+            <OptimizedImage
+              src={img1}
+              alt="Novo Ensino Médio na OSE"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
+            <OptimizedImage
+              src={img2}
+              alt="Projetos integradores"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
+            <OptimizedImage
+              src={img3}
+              alt="Itinerários formativos"
+              className="w-full h-48 rounded-lg shadow-lg"
+            />
+          </div>
         </div>
       </section>
 
+      <WhyOSESection />
       <ContactSection />
     </div>
   );
