@@ -106,23 +106,7 @@ export default function Agendamento() {
                 somos referência em educação há mais de 100 anos. Nossa equipe está pronta para 
                 apresentar nossa estrutura, metodologia e proposta pedagógica.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-school-orange font-semibold px-8 py-3"
-                  onClick={() => document.getElementById('agendamento')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  📅 Agendar Agora
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-white text-white font-semibold px-8 py-3"
-                  onClick={() => document.getElementById('beneficios')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Saiba Mais
-                </Button>
-              </div>
+              
             </div>
             <div className="relative">
               <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
