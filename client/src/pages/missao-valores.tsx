@@ -52,48 +52,22 @@ export default function MissaoValores() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Missão e <span className="text-school-orange">Valores</span>
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-                Construindo <strong>líderes transformadores</strong> com <strong>valores sólidos</strong>
-              </p>
-              <p className="text-lg mb-8 opacity-90">
-                Há mais de 100 anos, a OSE é guiada por princípios fundamentais que moldam 
-                cada aspecto de nossa educação. Valores que perduram, excelência que se renova.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-school-orange font-semibold px-8 py-3"
-                  onClick={() => window.location.href = '/agendamento'}
-                >
-                  📅 Agende uma Visita
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="border-white text-white font-semibold px-8 py-3"
-                  onClick={() => document.getElementById('missao')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Saiba Mais
-                </Button>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <Heart className="text-white/80 mx-auto mb-4" size={80} />
-                  <p className="text-white/70 text-lg font-medium">Missão e Valores</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <section className="relative bg-gradient-to-br from-school-orange via-orange-500 to-orange-600 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Missão e Valores
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 opacity-95">
+              Os princípios que guiam nossa jornada educacional há 100 anos
+            </p>
+          </motion.div>
         </div>
       </section>
 
