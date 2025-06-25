@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface AnimatedCardProps {
@@ -18,33 +17,12 @@ export default function AnimatedCard({
   scale = false,
   className = ""
 }: AnimatedCardProps) {
-  const directionVariants = {
-    up: { y: 50, opacity: 0 },
-    down: { y: -50, opacity: 0 },
-    left: { x: 50, opacity: 0 },
-    right: { x: -50, opacity: 0 }
-  };
-
-  const hoverVariants = hover ? {
-    hover: { 
-      y: -5,
-      scale: scale ? 1.02 : 1,
-      transition: { duration: 0.2 }
-    }
-  } : {};
-
+  const hoverClass = hover ? "hover:transform hover:-translate-y-1 transition-transform duration-200" : "";
+  
   return (
-    <motion.div
-      className={className}
-      initial={directionVariants[direction]}
-      whileInView={{ x: 0, y: 0, opacity: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, delay }}
-      variants={hoverVariants}
-      whileHover="hover"
-    >
+    <div className={`${className} ${hoverClass}`}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
