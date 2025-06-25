@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
 import { updateSEO } from "@/lib/seo";
 import LegacySection from "@/components/legacy-section";
 import WhyOSESection from "@/components/why-ose-section";
@@ -8,7 +9,6 @@ import UChatWidget from "@/components/uchat-widget";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { Button } from "@/components/ui/button";
 import { Award } from "lucide-react";
-import UChatWidget from "@/components/uchat-widget";
 import { motion } from "framer-motion";
 
 export default function Legacy() {

@@ -1,6 +1,6 @@
 
 import { Users, Calendar, Trophy, BookOpen } from "lucide-react";
-import AnimatedCard from "./animated/AnimatedCard";
+import AnimatedCard from "@/components/animated/AnimatedCard";
 
 const stats = [
   { 

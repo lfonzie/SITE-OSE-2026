@@ -2,7 +2,6 @@
 import { useEffect } from "react";
 import UChatWidget from "@/components/uchat-widget";
 import Navigation from "@/components/navigation";
-import UChatWidget from "@/components/uchat-widget";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";

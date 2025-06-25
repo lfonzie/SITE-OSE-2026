@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Heart, Users, Target, Award, BookOpen } from "lucide-react";
+import { Heart, Users, Target, Award, BookOpen, Lightbulb } from "lucide-react";
 
 export default function AboutSection() {
   return (

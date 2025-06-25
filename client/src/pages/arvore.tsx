@@ -1,12 +1,9 @@
 import { useEffect } from "react";
 import UChatWidget from "@/components/uchat-widget";
 import { updateSEO } from "@/lib/seo";
-import UChatWidget from "@/components/uchat-widget";
 import Navigation from "@/components/navigation";
-import UChatWidget from "@/components/uchat-widget";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
-import UChatWidget from "@/components/uchat-widget";
 import { Book, ExternalLink, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";

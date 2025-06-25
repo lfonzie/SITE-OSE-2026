@@ -47,3 +47,5 @@ export default function AnimatedCard({
     </motion.div>
   );
 }
+
+export { AnimatedCard };

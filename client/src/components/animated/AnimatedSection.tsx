@@ -24,3 +24,5 @@ export default function AnimatedSection({
     </motion.div>
   );
 }
+
+export { AnimatedSection };

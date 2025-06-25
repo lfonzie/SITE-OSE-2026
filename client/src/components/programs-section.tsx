@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { Baby, Book, GraduationCap, ArrowRight, Check, Heart, Brain } from "lucide-react";
 import type { Program } from "@shared/schema";
-import { AnimatedCard } from "@/components/animated/AnimatedCard";
-import { AnimatedSection, AnimatedItem } from "@/components/animated/AnimatedSection";
+import AnimatedCard from "@/components/animated/AnimatedCard";
+import AnimatedSection from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 const iconMap = {

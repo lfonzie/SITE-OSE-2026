@@ -1,6 +1,6 @@
 
-import AnimatedSection from "./animated/AnimatedSection";
-import AnimatedCard from "./animated/AnimatedCard";
+import AnimatedSection from "@/components/animated/AnimatedSection";
+import AnimatedCard from "@/components/animated/AnimatedCard";
 
 export default function WhyOSESection() {
   const reasons = [

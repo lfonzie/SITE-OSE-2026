@@ -2,17 +2,12 @@
 import { useEffect } from "react";
 import UChatWidget from "@/components/uchat-widget";
 import Navigation from "@/components/navigation";
-import UChatWidget from "@/components/uchat-widget";
 import WhyOSESection from "@/components/why-ose-section";
-import UChatWidget from "@/components/uchat-widget";
 import ContactSection from "@/components/contact-section";
-import UChatWidget from "@/components/uchat-widget";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import UChatWidget from "@/components/uchat-widget";
 import { FileText, Download, Calendar, BookOpen, Backpack, Palette } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
-import UChatWidget from "@/components/uchat-widget";
 // Usando imagens da pasta public/images
 export default function ListaMaterial() {
   useEffect(() => {
