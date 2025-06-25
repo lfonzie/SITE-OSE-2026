@@ -116,19 +116,39 @@ export default function SocioEmocional() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <motion.h1 
+                className="text-4xl md:text-6xl font-bold mb-6"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
                 Programa <span className="text-school-orange">SócioEmocional</span>
-              </h1>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+              </motion.h1>
+              <motion.h2 
+                className="text-2xl md:text-3xl font-semibold mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 Laboratório de Inteligência de Vida
-              </h2>
-              <p className="text-xl md:text-2xl mb-6">
+              </motion.h2>
+              <motion.p 
+                className="text-xl md:text-2xl mb-6"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 Desenvolvimento integral do ser humano
-              </p>
-              <p className="text-lg mb-8 opacity-95">
+              </motion.p>
+              <motion.p 
+                className="text-lg mb-8 opacity-95"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
                 Programa educacional voltado para o desenvolvimento de competências socioemocionais, 
                 formando cidadãos conscientes e emocionalmente inteligentes.
-              </p>
+              </motion.p>
 
             </div>
             <div className="relative">

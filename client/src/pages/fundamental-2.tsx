@@ -66,19 +66,39 @@ export default function Fundamental2() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <motion.h1 
+                className="text-4xl md:text-6xl font-bold mb-6"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
                 Ensino Fundamental <span className="text-school-orange">II</span>
-              </h1>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+              </motion.h1>
+              <motion.h2 
+                className="text-2xl md:text-3xl font-semibold mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 Anos Finais - 6º ao 9º ano
-              </h2>
-              <p className="text-xl md:text-2xl mb-6">
+              </motion.h2>
+              <motion.p 
+                className="text-xl md:text-2xl mb-6"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 Formando Líderes Conscientes para um Mundo em Transformação
-              </p>
-              <p className="text-lg mb-8 opacity-95">
+              </motion.p>
+              <motion.p 
+                className="text-lg mb-8 opacity-95"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
                 Uma fase empolgante e transformadora onde nossos alunos passam por rápido desenvolvimento 
                 cognitivo e emocional. Nosso foco está além do currículo acadêmico.
-              </p>
+              </motion.p>
 
             </div>
             <div className="relative">

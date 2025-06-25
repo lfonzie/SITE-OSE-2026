@@ -54,19 +54,39 @@ export default function Bilingue() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <motion.h1 
+                className="text-4xl md:text-6xl font-bold mb-6"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
                 Global <span className="text-school-orange">Citizens</span>
-              </h1>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+              </motion.h1>
+              <motion.h2 
+                className="text-2xl md:text-3xl font-semibold mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 Educação Bilíngue Integral
-              </h2>
-              <p className="text-xl md:text-2xl mb-6">
+              </motion.h2>
+              <motion.p 
+                className="text-xl md:text-2xl mb-6"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 Formando cidadãos globais conscientes
-              </p>
-              <p className="text-lg mb-8 opacity-95">
+              </motion.p>
+              <motion.p 
+                className="text-lg mb-8 opacity-95"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
                 Nossa educação bilíngue integral com MacMillan Education oferece uma abordagem 
                 holística e interdisciplinar, preparando alunos para um mundo interconectado.
-              </p>
+              </motion.p>
             </div>
             <div className="relative">
               <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
