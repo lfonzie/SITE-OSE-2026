@@ -17,8 +17,10 @@ import Fundamental1 from "@/pages/fundamental-1";
 import Fundamental2 from "@/pages/fundamental-2";
 import EnsinoMedio from "@/pages/ensino-medio";
 import Professores from "@/pages/professores";
-import Services from "@/pages/services";
-import Legacy from "@/pages/legacy";
+import Services from "./pages/services";
+import Legacy from "./pages/legacy";
+import Dash from "./pages/dash";
+import Admin from "./pages/admin";
 import PortalAluno from "@/pages/portal-aluno";
 import PortalPais from "./pages/portal-pais";
 import Bilingue from "./pages/bilingue";
@@ -31,7 +33,6 @@ import Arvore from "./pages/arvore";
 import Isaac from "@/pages/isaac";
 import MissaoValores from "@/pages/missao-valores";
 import Agendamento from "@/pages/agendamento";
-import Dash from "@/pages/dash";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -61,6 +62,7 @@ function Router() {
       <Route path="/missao-valores" component={MissaoValores} />
       <Route path="/agendamento" component={Agendamento} />
       <Route path="/dash" component={Dash} />
+      <Route path="/admin" component={Admin} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,10 +1,31 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Camera, Users } from "lucide-react";
 import { getInstagramFeed, type InstagramPost } from "@/lib/social-feeds";
 
 export default function SocialFeedsSection() {
   const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [instagramImages, setInstagramImages] = useState([
+    "/images/0312_1750717790204.jpg",
+    "/images/0354_1750717790205.jpg",
+    "/images/0581_1750717790206.jpg",
+    "/images/0700_1750717790204.jpg",
+    "/images/0905_1750717790206.jpg",
+    "/images/0934_1750717790206.jpg",
+    "/images/1068_1750717790205.jpg",
+    "/images/1105_1750717790206.jpg"
+  ]);
+
+  useEffect(() => {
+    const savedPosts = localStorage.getItem("instagram_posts");
+    if (savedPosts) {
+      const posts = JSON.parse(savedPosts);
+      if (posts.length > 0) {
+        const adminImages = posts.map((post: any) => post.imageUrl);
+        setInstagramImages(adminImages);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -63,7 +84,7 @@ export default function SocialFeedsSection() {
             <Camera className="text-school-orange mr-3" size={32} />
             <h3 className="text-2xl font-bold text-slate-800">@colegioose</h3>
           </div>
-          
+
           {instagramPosts.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {instagramPosts.slice(0, 8).map((post, index) => (
@@ -118,7 +139,7 @@ export default function SocialFeedsSection() {
               ))}
             </div>
           )}
-          
+
           <div className="text-center">
             <p className="text-slate-600 mb-2">
               📸 Feed em tempo real do Instagram @colegioose
