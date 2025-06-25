@@ -5,6 +5,7 @@ export default function WhatsAppWidget() {
     // Only load UChatWidget on production domain
     if (window.location.hostname === 'colegioose.com.br' || 
         window.location.hostname.includes('colegioose.com.br')) {
+      
       const loadUChatScript = () => {
         const existingScript = document.querySelector('script[src="https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js"]');
         if (existingScript) return;
@@ -20,13 +21,10 @@ export default function WhatsAppWidget() {
       };
 
       loadUChatScript();
-      const timeout = setTimeout(loadUChatScript, 1000);
-      
-      return () => clearTimeout(timeout);
     }
   }, []);
 
-  // Show custom WhatsApp button for development/other domains
+  // Show custom WhatsApp button only for development/other domains
   if (window.location.hostname !== 'colegioose.com.br' && 
       !window.location.hostname.includes('colegioose.com.br')) {
     return (
