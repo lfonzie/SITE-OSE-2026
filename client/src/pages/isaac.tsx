@@ -23,7 +23,16 @@ export default function Isaac() {
 
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={newImages.horizontal30}
+            alt="ISAAC - Sistema Financeiro"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="mb-8">
               <img 
