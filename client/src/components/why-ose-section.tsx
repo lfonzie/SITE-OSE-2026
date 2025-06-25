@@ -48,17 +48,22 @@ export default function WhyOSESection() {
               scale={true}
             >
               <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 overflow-hidden">
-              <div className="h-48">
-                <img 
-                  src={reason.image} 
-                  alt={reason.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-800 mb-3">{reason.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{reason.description}</p>
-              </div>
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={reason.image} 
+                    alt={reason.title}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3 text-slate-800">
+                    {reason.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {reason.description}
+                  </p>
+                </div>
               </div>
             </AnimatedCard>
           ))}

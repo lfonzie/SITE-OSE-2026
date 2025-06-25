@@ -1,69 +1,24 @@
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
-  className?: string;
-  stagger?: boolean;
   delay?: number;
+  className?: string;
 }
 
 export function AnimatedSection({ 
   children, 
-  className = "", 
-  stagger = false,
-  delay = 0
+  delay = 0,
+  className = ""
 }: AnimatedSectionProps) {
-  const containerVariants = stagger ? {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: delay
-      }
-    }
-  } : {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6, delay, ease: "easeOut" }
-    }
-  };
-
   return (
     <motion.div
       className={className}
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-interface AnimatedItemProps {
-  children: ReactNode;
-  className?: string;
-}
-
-export function AnimatedItem({ children, className = "" }: AnimatedItemProps) {
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.4, ease: "easeOut" }
-    }
-  };
-
-  return (
-    <motion.div
-      className={className}
-      variants={itemVariants}
+      transition={{ duration: 0.8, delay }}
     >
       {children}
     </motion.div>

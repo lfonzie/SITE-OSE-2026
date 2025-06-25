@@ -1,53 +1,47 @@
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 interface AnimatedCardProps {
   children: ReactNode;
-  className?: string;
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right';
-  scale?: boolean;
   hover?: boolean;
+  scale?: boolean;
+  className?: string;
 }
 
 export function AnimatedCard({ 
   children, 
-  className = "", 
   delay = 0, 
   direction = 'up',
+  hover = false,
   scale = false,
-  hover = true
+  className = ""
 }: AnimatedCardProps) {
   const directionVariants = {
     up: { y: 50, opacity: 0 },
     down: { y: -50, opacity: 0 },
-    left: { x: -50, opacity: 0 },
-    right: { x: 50, opacity: 0 }
+    left: { x: 50, opacity: 0 },
+    right: { x: -50, opacity: 0 }
   };
 
   const hoverVariants = hover ? {
-    scale: scale ? 1.02 : 1,
-    y: -5,
-    transition: { duration: 0.2, ease: "easeOut" }
+    hover: { 
+      y: -5,
+      scale: scale ? 1.02 : 1,
+      transition: { duration: 0.2 }
+    }
   } : {};
 
   return (
     <motion.div
       className={className}
       initial={directionVariants[direction]}
-      whileInView={{ 
-        x: 0, 
-        y: 0, 
-        opacity: 1,
-        scale: 1
-      }}
-      whileHover={hoverVariants}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ 
-        duration: 0.6, 
-        delay,
-        ease: "easeOut"
-      }}
+      whileInView={{ x: 0, y: 0, opacity: 1 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, delay }}
+      variants={hoverVariants}
+      whileHover="hover"
     >
       {children}
     </motion.div>
