@@ -130,6 +130,15 @@ export const commonSnippets: CodeSnippet[] = [
     id: 'whatsapp-chat',
     name: 'WhatsApp Chat Widget',
     code: `
+      <!-- WhatsApp widget disabled - UChatWidget handles this globally -->
+    `,
+    location: 'body',
+    active: false
+  },
+  {
+    id: 'whatsapp-chat-old',
+    name: 'WhatsApp Chat Widget (Backup)',
+    code: `
       <div id="whatsapp-chat" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
         <a href="https://wa.me/5515210138000" target="_blank" 
            style="background: #25d366; color: white; padding: 12px; border-radius: 50px; text-decoration: none; display: flex; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
@@ -141,7 +150,7 @@ export const commonSnippets: CodeSnippet[] = [
       </div>
     `,
     location: 'body',
-    active: true,
+    active: false,
     conditions: {
       devices: ['desktop', 'mobile']
     }
