@@ -9,27 +9,32 @@ export default function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const handleNavigation = (item: { id: string; isSection: boolean }) => {
-    if (item.isSection) {
-      // If we're not on home page, navigate to home first
-      if (location !== "/") {
-        window.location.href = `/#${item.id}`;
+    try {
+      if (item.isSection) {
+        // If we're not on home page, navigate to home first
+        if (location !== "/") {
+          window.location.href = `/#${item.id}`;
+        } else {
+          const element = document.getElementById(item.id);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }
       } else {
-        const element = document.getElementById(item.id);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+        // Check if it's an external link
+        if (item.id.startsWith('http')) {
+          window.open(item.id, '_blank', 'noopener,noreferrer');
+        } else {
+          // Use wouter navigation for internal pages
+          window.location.href = item.id;
         }
       }
-    } else {
-      // Check if it's an external link
-      if (item.id.startsWith('http')) {
-        window.open(item.id, '_blank', 'noopener,noreferrer');
-      } else {
-        // Use wouter navigation for internal pages
-        window.location.href = item.id;
-      }
+    } catch (error) {
+      console.error('Navigation error:', error);
+    } finally {
+      setMobileMenuOpen(false);
+      setActiveDropdown(null);
     }
-    setMobileMenuOpen(false);
-    setActiveDropdown(null);
   };
 
   const navigationItems = [
@@ -94,8 +99,20 @@ export default function Navigation() {
                 {item.submenu ? (
                   <div 
                     className="relative group"
-                    onMouseEnter={() => setActiveDropdown(item.label)}
-                    onMouseLeave={() => setActiveDropdown(null)}
+                    onMouseEnter={() => {
+                      try {
+                        setActiveDropdown(item.label);
+                      } catch (e) {
+                        console.error('Dropdown error:', e);
+                      }
+                    }}
+                    onMouseLeave={() => {
+                      try {
+                        setActiveDropdown(null);
+                      } catch (e) {
+                        console.error('Dropdown error:', e);
+                      }
+                    }}
                   >
                     <button className="text-slate-700 hover:text-school-orange transition-colors font-medium flex items-center">
                       {item.label}
