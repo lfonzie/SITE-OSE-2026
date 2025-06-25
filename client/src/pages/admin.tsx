@@ -63,13 +63,40 @@ export default function AdminPage() {
   const loadInstagramPosts = () => {
     const savedPosts = localStorage.getItem("instagram_posts");
     if (savedPosts) {
-      const posts = JSON.parse(savedPosts).map((post: any) => ({
-        ...post,
-        uploadedAt: new Date(post.uploadedAt)
-      }));
-      setInstagramPosts(posts.sort((a: InstagramPost, b: InstagramPost) => 
-        b.uploadedAt.getTime() - a.uploadedAt.getTime()
-      ));
+      try {
+        const posts = JSON.parse(savedPosts).map((post: any) => ({
+          ...post,
+          uploadedAt: new Date(post.uploadedAt)
+        }));
+        
+        // Validar se as imagens existem
+        const validPosts: InstagramPost[] = [];
+        
+        posts.forEach((post: InstagramPost) => {
+          const img = new Image();
+          img.onload = () => {
+            if (!validPosts.find(p => p.id === post.id)) {
+              validPosts.push(post);
+              setInstagramPosts(validPosts.sort((a, b) => 
+                b.uploadedAt.getTime() - a.uploadedAt.getTime()
+              ));
+            }
+          };
+          img.onerror = () => {
+            console.log(`Imagem inválida removida do admin: ${post.imageUrl}`);
+          };
+          img.src = post.imageUrl;
+        });
+
+        // Se não há posts válidos, limpar localStorage
+        if (posts.length === 0) {
+          localStorage.removeItem("instagram_posts");
+        }
+      } catch (error) {
+        console.error('Erro ao carregar posts do localStorage:', error);
+        localStorage.removeItem("instagram_posts");
+        setInstagramPosts([]);
+      }
     }
   };
 
@@ -277,6 +304,22 @@ export default function AdminPage() {
                   <p className="text-sm text-gray-600 mt-2">
                     Máximo 8 fotos. Formatos: JPG, PNG, GIF. Tamanho máximo: 5MB.
                   </p>
+                  <div className="mt-4">
+                    <Button 
+                      variant="outline"
+                      onClick={() => {
+                        localStorage.removeItem("instagram_posts");
+                        setInstagramPosts([]);
+                        toast({
+                          title: "Cache limpo",
+                          description: "Todas as fotos do cache foram removidas.",
+                        });
+                      }}
+                      className="text-red-600 border-red-600 hover:bg-red-50"
+                    >
+                      🗑️ Limpar Cache do Instagram
+                    </Button>
+                  </div>
                 </div>
 
                 {/* Grid de fotos */}

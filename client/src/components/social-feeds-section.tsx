@@ -19,13 +19,38 @@ export default function SocialFeedsSection() {
   useEffect(() => {
     const savedPosts = localStorage.getItem("instagram_posts");
     if (savedPosts) {
-      const posts = JSON.parse(savedPosts);
-      if (posts.length > 0) {
-        // Usar as imagens do admin que foram salvas na pasta public/images/IG
-        const adminImages = posts.map((post: any) => post.imageUrl);
-        // Combinar com as imagens padrão, priorizando as do admin
-        const combinedImages = [...adminImages, ...instagramImages.filter(img => !adminImages.includes(img))];
-        setInstagramImages(combinedImages);
+      try {
+        const posts = JSON.parse(savedPosts);
+        if (posts.length > 0) {
+          // Validar se as imagens existem antes de usar
+          const validatedImages: string[] = [];
+          
+          posts.forEach((post: any) => {
+            if (post.imageUrl) {
+              // Testar se a imagem existe
+              const img = new Image();
+              img.onload = () => {
+                if (!validatedImages.includes(post.imageUrl)) {
+                  validatedImages.push(post.imageUrl);
+                  // Atualizar state com imagens válidas
+                  const combinedImages = [...validatedImages, ...instagramImages.filter(img => !validatedImages.includes(img))];
+                  setInstagramImages(combinedImages);
+                }
+              };
+              img.onerror = () => {
+                console.log(`Imagem inválida removida: ${post.imageUrl}`);
+                // Remover posts com imagens inválidas do localStorage
+                const validPosts = posts.filter((p: any) => p.imageUrl !== post.imageUrl);
+                localStorage.setItem("instagram_posts", JSON.stringify(validPosts));
+              };
+              img.src = post.imageUrl;
+            }
+          });
+        }
+      } catch (error) {
+        console.error('Erro ao carregar posts do localStorage:', error);
+        // Limpar localStorage em caso de erro
+        localStorage.removeItem("instagram_posts");
       }
     }
   }, []);
