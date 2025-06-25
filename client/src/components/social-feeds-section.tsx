@@ -21,9 +21,11 @@ export default function SocialFeedsSection() {
     if (savedPosts) {
       const posts = JSON.parse(savedPosts);
       if (posts.length > 0) {
-        // Usar as imagens do admin que foram salvas na pasta public/images
+        // Usar as imagens do admin que foram salvas na pasta public/images/IG
         const adminImages = posts.map((post: any) => post.imageUrl);
-        setInstagramImages(adminImages);
+        // Combinar com as imagens padrão, priorizando as do admin
+        const combinedImages = [...adminImages, ...instagramImages.filter(img => !adminImages.includes(img))];
+        setInstagramImages(combinedImages);
       }
     }
   }, []);
@@ -90,13 +92,17 @@ export default function SocialFeedsSection() {
             {instagramImages.slice(0, 8).map((imageUrl, index) => (
               <div 
                 key={index}
-                className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all"
+                className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all relative"
                 style={{ display: index >= 4 ? 'none' : 'block' }}
               >
                 <img 
                   src={imageUrl}
                   alt={`Foto ${index + 1} do Instagram OSE`}
                   className="w-full h-full object-cover group-hover:brightness-110 transition-all"
+                  onError={(e) => {
+                    console.log(`Erro ao carregar imagem: ${imageUrl}`);
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <Camera className="text-white" size={24} />
@@ -107,12 +113,16 @@ export default function SocialFeedsSection() {
             {instagramImages.slice(4, 8).map((imageUrl, index) => (
               <div 
                 key={index + 4}
-                className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all hidden md:block"
+                className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all hidden md:block relative"
               >
                 <img 
                   src={imageUrl}
                   alt={`Foto ${index + 5} do Instagram OSE`}
                   className="w-full h-full object-cover group-hover:brightness-110 transition-all"
+                  onError={(e) => {
+                    console.log(`Erro ao carregar imagem: ${imageUrl}`);
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <Camera className="text-white" size={24} />

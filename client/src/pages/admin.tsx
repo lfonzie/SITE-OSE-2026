@@ -283,10 +283,14 @@ export default function AdminPage() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {instagramPosts.map((post) => (
                     <div key={post.id} className="relative group">
-                      <OptimizedImage
+                      <img
                         src={post.imageUrl}
                         alt="Instagram post"
-                        className="w-full h-48 rounded-lg shadow-lg"
+                        className="w-full h-48 rounded-lg shadow-lg object-cover"
+                        onError={(e) => {
+                          console.log(`Erro ao carregar imagem no admin: ${post.imageUrl}`);
+                          e.currentTarget.src = '/images/placeholder.jpg';
+                        }}
                       />
                       <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <Button
