@@ -52,9 +52,17 @@ export default function TestimonialsSection() {
               "/images/0934_1750717790206.jpg"
             ];
             
-            // Seleciona uma foto baseada no índice do depoimento
-            const photoIndex = index % genericPhotos.length;
-            const selectedPhoto = genericPhotos[photoIndex];
+            // Fotos específicas para pessoas específicas
+            let selectedPhoto;
+            if (testimonial.name.includes("Samanta")) {
+              selectedPhoto = "/images/samanta_photo.jpg";
+            } else if (testimonial.name.includes("Fernando")) {
+              selectedPhoto = "/images/fernando_photo.jpg";
+            } else {
+              // Seleciona uma foto baseada no índice do depoimento para outros
+              const photoIndex = index % genericPhotos.length;
+              selectedPhoto = genericPhotos[photoIndex];
+            }
             
             return (
               <div key={testimonial.id} className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-school-orange hover:shadow-xl transition-shadow">
