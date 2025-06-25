@@ -233,7 +233,7 @@ export default function Agendamento() {
                 className="border-school-orange text-school-orange hover:bg-school-orange/10"
                 onClick={() => window.open('https://calendly.com/colegioose/apresentacao', '_blank')}
               >
-                Abrir Calendly Diretamente
+                Abrir Agendamento Diretamente
               </Button>
             </div>
           </div>
