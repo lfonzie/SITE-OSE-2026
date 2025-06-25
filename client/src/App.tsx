@@ -34,6 +34,7 @@ import Isaac from "@/pages/isaac";
 import MissaoValores from "@/pages/missao-valores";
 import Agendamento from "@/pages/agendamento";
 import NotFound from "@/pages/not-found";
+import CV from "@/pages/cv";
 
 function Router() {
   // Track page views when routes change
@@ -61,8 +62,7 @@ function Router() {
       <Route path="/isaac" component={Isaac} />
       <Route path="/missao-valores" component={MissaoValores} />
       <Route path="/agendamento" component={Agendamento} />
-      <Route path="/dash" component={Dash} />
-      <Route path="/admin" component={Admin} />
+      <Route path="/cv" component={CV} />
       <Route component={NotFound} />
     </Switch>
   );
