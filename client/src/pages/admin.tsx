@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,8 +5,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Upload, Image as ImageIcon, Trash2, Eye } from "lucide-react";
+import { Upload, Image as ImageIcon, Trash2, Eye, Edit } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import ImageManager from '@/components/ImageManager';
+import SimpleVisualComposer from '@/components/SimpleVisualComposer';
 
 interface InstagramPost {
   id: string;
@@ -32,7 +33,7 @@ export default function AdminPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (login(email, password)) {
       loadInstagramPosts();
       toast({
@@ -65,7 +66,7 @@ export default function AdminPage() {
           imageUrl: `/api/images/IG/${image.filename}`,
           uploadedAt: new Date(image.uploadedAt)
         }));
-        
+
         setInstagramPosts(posts.sort((a, b) => 
           b.uploadedAt.getTime() - a.uploadedAt.getTime()
         ));
@@ -73,7 +74,7 @@ export default function AdminPage() {
     } catch (error) {
       console.error('Erro ao carregar imagens do IG:', error);
     }
-    
+
     // Fallback: carregar do localStorage se API falhar
     const savedPosts = localStorage.getItem("instagram_posts");
     if (savedPosts && instagramPosts.length === 0) {
@@ -125,7 +126,7 @@ export default function AdminPage() {
       const timestamp = Date.now();
       const extension = file.name.split('.').pop() || 'jpg';
       const fileName = `instagram_${timestamp}.${extension}`;
-      
+
       // Criar FormData para envio
       const formData = new FormData();
       formData.append('file', file);
@@ -143,7 +144,7 @@ export default function AdminPage() {
 
       const result = await response.json();
       const imageUrl = result.path; // Use the path returned by the server
-      
+
       const newPost: InstagramPost = {
         id: timestamp.toString(),
         imageUrl,
@@ -178,7 +179,7 @@ export default function AdminPage() {
     try {
       // Extrair nome do arquivo da URL
       const filename = postToDelete.imageUrl.split('/').pop();
-      
+
       // Deletar arquivo no servidor
       const response = await fetch(`/api/delete-image/${filename}`, {
         method: 'DELETE'
@@ -189,7 +190,7 @@ export default function AdminPage() {
         const updatedPosts = instagramPosts.filter(post => post.id !== postId);
         setInstagramPosts(updatedPosts);
         saveInstagramPosts(updatedPosts);
-        
+
         toast({
           title: "Foto removida",
           description: "A foto foi removida do servidor e do feed.",
@@ -364,7 +365,7 @@ export default function AdminPage() {
                       </p>
                     </div>
                   ))}
-                  
+
                   {/* Placeholders para fotos vazias */}
                   {Array.from({ length: Math.max(0, 8 - instagramPosts.length) }).map((_, index) => (
                     <div 
@@ -379,22 +380,20 @@ export default function AdminPage() {
             </Card>
           </TabsContent>
 
+          {/* Editor Visual Tab */}
           <TabsContent value="editor" className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle>Editor Visual do Site</CardTitle>
+                <CardTitle className="flex items-center gap-2">
+                  <Edit size={24} />
+                  Editor Visual de Páginas
+                </CardTitle>
+                <p className="text-gray-600">
+                  Editor simplificado para personalizar textos e imagens das páginas
+                </p>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Funcionalidade em desenvolvimento. Em breve você poderá editar o conteúdo 
-                  do site usando um editor visual drag & drop.
-                </p>
-                <Button 
-                  onClick={() => window.open('/editor', '_blank')}
-                  className="bg-school-orange text-white"
-                >
-                  Ir para Editor (Beta)
-                </Button>
+                <SimpleVisualComposer />
               </CardContent>
             </Card>
           </TabsContent>

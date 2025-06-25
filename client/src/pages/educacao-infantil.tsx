@@ -11,7 +11,8 @@ import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
-import ImageManager from "@/components/ImageManager";
+import InlineImageSelector from '@/components/InlineImageSelector';
+import { useAuth } from '@/contexts/AuthContext';
 
 // Importando imagens para Educação Infantil
 import { newImages } from "@/lib/image-verification";
@@ -23,12 +24,19 @@ const img5 = newImages.img16;
 const img6 = newImages.img17;
 
 export default function EducacaoInfantil() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const { isAuthenticated } = useAuth();
+  const [heroImage, setHeroImage] = useState('/images/horizontal_1.png');
+  const [activityImages, setActivityImages] = useState([
+    '/images/horizontal_2.png',
+    '/images/horizontal_3.png',
+    '/images/horizontal_4.png'
+  ]);
+
   useEffect(() => {
     updateSEO({
-      title: "Educação Infantil - Jardim I e II | a OSE",
-      description: "Educação Infantil na OSE: desenvolvimento socioemocional e cognitivo para crianças de 4 a 6 anos. Ambiente seguro com pedagogia finlandesa.",
-      keywords: "educação infantil sorocaba, jardim I jardim II, desenvolvimento infantil, pedagogia finlandesa"
+      title: "Educação Infantil - Colégio OSE",
+      description: "Desenvolvimento integral e criativo para crianças de 3 a 5 anos no Colégio OSE",
+      keywords: "educação infantil, desenvolvimento infantil, Sorocaba, colégio",
     });
   }, []);
 
@@ -60,18 +68,25 @@ export default function EducacaoInfantil() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
-        {/* Background Image */}
+      <section className="relative bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 text-white py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src={selectedImage || img1}
-            alt="Educação Infantil - OSE"
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
+          <div className="relative w-full h-full">
+            <img 
+              src={heroImage} 
+              alt="Crianças na educação infantil" 
+              className="w-full h-full object-cover opacity-30"
+            />
+            {isAuthenticated && (
+              <InlineImageSelector
+                currentImage={heroImage}
+                onImageSelect={(url) => setHeroImage(url)}
+                className="absolute inset-0"
+              />
+            )}
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-800/80 to-pink-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-             <ImageManager onImageSelect={setSelectedImage} category="educacao-infantil" />
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -192,22 +207,84 @@ export default function EducacaoInfantil() {
 
           {/* Galeria de Imagens */}
           <div className="grid md:grid-cols-3 gap-6 mb-16">
-            <OptimizedImage
-              src={img6}
-              alt="Ambiente de aprendizado lúdico"
-              className="w-full h-64 object-cover rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={img1}
-              alt="Sala de aula da Educação Infantil"
-              className="w-full h-64 object-cover rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={img2}
-              alt="Crianças em atividades pedagógicas"
-              className="w-full h-64 object-cover rounded-lg shadow-lg"
-            />
-          </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="text-center"
+                >
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-4 relative">
+                    <img 
+                      src={activityImages[0]} 
+                      alt="Atividades lúdicas" 
+                      className="w-full h-48 object-cover"
+                    />
+                    {isAuthenticated && (
+                      <InlineImageSelector
+                        currentImage={activityImages[0]}
+                        onImageSelect={(url) => setActivityImages(prev => [url, prev[1], prev[2]])}
+                        className="absolute inset-0"
+                      />
+                    )}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Atividades Lúdicas</h3>
+                  <p className="text-gray-600">
+                    Brincadeiras educativas que estimulam a criatividade e o desenvolvimento motor
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-center"
+                >
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-4 relative">
+                    <img 
+                      src={activityImages[1]} 
+                      alt="Arte e expressão" 
+                      className="w-full h-48 object-cover"
+                    />
+                    {isAuthenticated && (
+                      <InlineImageSelector
+                        currentImage={activityImages[1]}
+                        onImageSelect={(url) => setActivityImages(prev => [prev[0], url, prev[2]])}
+                        className="absolute inset-0"
+                      />
+                    )}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Arte e Expressão</h3>
+                  <p className="text-gray-600">
+                    Atividades artísticas para desenvolver a expressão pessoal e habilidades motoras finas
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="text-center"
+                >
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-4 relative">
+                    <img 
+                      src={activityImages[2]} 
+                      alt="Desenvolvimento social" 
+                      className="w-full h-48 object-cover"
+                    />
+                    {isAuthenticated && (
+                      <InlineImageSelector
+                        currentImage={activityImages[2]}
+                        onImageSelect={(url) => setActivityImages(prev => [prev[0], prev[1], url])}
+                        className="absolute inset-0"
+                      />
+                    )}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Desenvolvimento Social</h3>
+                  <p className="text-gray-600">
+                    Interações que promovem habilidades sociais e trabalho em equipe
+                  </p>
+                </motion.div>
+              </div>
         </div>
       </section>
 
