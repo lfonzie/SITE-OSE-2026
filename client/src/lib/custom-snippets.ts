@@ -129,7 +129,40 @@ export const commonSnippets: CodeSnippet[] = [
   {
     id: 'uchat-widget',
     name: 'UChat Chat Widget',
-    code: `<script async defer src="https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/full.js"></script>`,
+    code: `<script>
+      (function() {
+        console.log('UChat widget loading...');
+        
+        // Check if UChat script already exists
+        if (document.querySelector('script[src*="uchat.com.au"]')) {
+          console.log('UChat script already loaded');
+          return;
+        }
+        
+        const script = document.createElement('script');
+        script.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/full.js';
+        script.async = true;
+        script.defer = true;
+        
+        script.onload = function() {
+          console.log('UChat script loaded successfully');
+          setTimeout(() => {
+            if (window.UChat) {
+              console.log('UChat widget initialized');
+            } else {
+              console.warn('UChat widget not found after script load');
+            }
+          }, 2000);
+        };
+        
+        script.onerror = function() {
+          console.error('Failed to load UChat script');
+        };
+        
+        document.head.appendChild(script);
+        console.log('UChat script added to DOM');
+      })();
+    </script>`,
     location: 'body',
     active: true
   }
