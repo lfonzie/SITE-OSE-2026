@@ -36,6 +36,15 @@
     
     <!-- UChatWidget Global Installation - Sempre presente -->
     <script>
+      // Remove CSP temporarily for widget testing
+      window.addEventListener('DOMContentLoaded', function() {
+        const cspMeta = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
+        if (cspMeta) {
+          cspMeta.remove();
+          console.log('CSP temporarily disabled for UChatWidget');
+        }
+      });
+      
       (function() {
         var script = document.createElement('script');
         script.async = true;
@@ -43,20 +52,20 @@
         script.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js';
         script.onload = function() {
           console.log('UChatWidget loaded successfully');
+          // Check if widget is actually visible
+          setTimeout(function() {
+            const widget = document.querySelector('[id*="chatbot"], [class*="uchat"], [class*="widget"]');
+            if (widget) {
+              console.log('UChatWidget widget found in DOM');
+            } else {
+              console.warn('UChatWidget script loaded but widget not found in DOM');
+            }
+          }, 2000);
         };
         script.onerror = function() {
           console.error('Failed to load UChatWidget');
         };
         document.head.appendChild(script);
-        
-        // Also add via direct script tag as backup
-        if (!document.querySelector('script[src*="uchat"]')) {
-          var backup = document.createElement('script');
-          backup.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js';
-          backup.async = true;
-          backup.defer = true;
-          document.head.appendChild(backup);
-        }
       })();
     </script>
     <script async defer src="https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js"></script>
