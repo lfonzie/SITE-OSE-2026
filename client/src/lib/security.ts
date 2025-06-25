@@ -12,7 +12,9 @@ export const setupCSP = () => {
       https://assets.calendly.com 
       https://www.google-analytics.com 
       https://googleads.g.doubleclick.net 
-      https://ssl.google-analytics.com;
+      https://ssl.google-analytics.com
+      https://sdk.dfktv2.com
+      https://www.uchat.com.au;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com;
     img-src 'self' data: https: blob: 
       https://www.facebook.com 
@@ -25,8 +27,16 @@ export const setupCSP = () => {
       https://analytics.google.com 
       https://stats.g.doubleclick.net 
       https://www.google.com 
-      https://connect.facebook.net;
-    frame-src 'self' https://calendly.com https://*.calendly.com;
+      https://connect.facebook.net
+      https://sdk.dfktv2.com
+      https://www.uchat.com.au;
+    frame-src 'self' 
+      https://calendly.com 
+      https://*.calendly.com
+      https://www.googletagmanager.com
+      https://td.doubleclick.net
+      https://*.doubleclick.net
+      https://googleads.g.doubleclick.net;
   `.replace(/\s+/g, ' ').trim();
   document.head.appendChild(meta);
 };

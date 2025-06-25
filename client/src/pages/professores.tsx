@@ -5,10 +5,10 @@ import WhyOSESection from '@/components/why-ose-section';
 import ContactSection from '@/components/contact-section';
 import { OptimizedImage } from '@/components/ui/optimized-image';
 
-// Import images
-import img1 from '/images/0905_1750717790206.jpg';
-import img2 from '/images/0934_1750717790206.jpg';
-import img3 from '/images/1068_1750717790205.jpg';
+// Use direct image paths since images are in root directory
+const img1 = "/0905_1750717790206.jpg";
+const img2 = "/0934_1750717790206.jpg";
+const img3 = "/1068_1750717790205.jpg";
 
 // Dados dos professores - expandir conforme necessário
 const professores = [
@@ -19,7 +19,7 @@ const professores = [
     formacao: "Mestre em Matemática - USP",
     experiencia: "15 anos de experiência",
     sobre: "Especialista em metodologias ativas para o ensino de matemática, com foco no desenvolvimento do raciocínio lógico.",
-    foto: "/images/0905_1750717790206.jpg"
+    foto: img1
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const professores = [
     formacao: "Doutora em Letras - UNICAMP",
     experiencia: "20 anos de experiência",
     sobre: "Especializada em literatura brasileira e produção textual, promovendo o amor pela leitura e escrita.",
-    foto: "/images/0934_1750717790206.jpg"
+    foto: img2
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const professores = [
     formacao: "Mestre em Física - UNESP",
     experiencia: "12 anos de experiência",
     sobre: "Apaixonado por ensinar física através de experimentos práticos e aplicações do cotidiano.",
-    foto: "/images/1068_1750717790205.jpg"
+    foto: img3
   },
   {
     id: 4,
