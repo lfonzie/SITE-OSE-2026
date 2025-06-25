@@ -128,6 +128,8 @@ Changelog:
 - June 23, 2025: Final adjustments: improved readability with shadows, corrected naming to "a OSE", removed LinkedIn/emails from teachers, updated testimonials background, removed news section, updated footer
 - June 24, 2025: Bug fixes: Fixed analytics warnings, navigation issues, missing school colors, 404 page improvements, image asset handling
 - June 24, 2025: Image system: Created comprehensive image handling system with @assets imports, optimized image component, gallery with modal viewer, responsive image examples
+- June 25, 2025: Admin panel fixes: Fixed server startup errors, implemented proper image serving via API endpoints
+- June 25, 2025: Instagram management: Created complete IG image management system with server-side file operations, admin panel loads directly from IG folder, real-time image upload/delete functionality
 ```
 
 ## User Preferences

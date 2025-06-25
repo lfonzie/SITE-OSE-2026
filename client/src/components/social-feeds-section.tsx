@@ -5,26 +5,19 @@ import { getInstagramFeed, type InstagramPost } from "@/lib/social-feeds";
 export default function SocialFeedsSection() {
   const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const [instagramImages, setInstagramImages] = useState([
-    "/api/images/IG/0312_1750717790204.jpg",
-    "/api/images/IG/0354_1750717790205.jpg",
-    "/api/images/IG/0581_1750717790206.jpg",
-    "/api/images/IG/0700_1750717790204.jpg",
-    "/api/images/IG/0905_1750717790206.jpg",
-    "/api/images/IG/0934_1750717790206.jpg",
-    "/api/images/IG/1068_1750717790205.jpg",
-    "/api/images/IG/1105_1750717790206.jpg"
-  ]);
+  const [instagramImages, setInstagramImages] = useState<string[]>([]);
 
   useEffect(() => {
-    const savedPosts = localStorage.getItem("instagram_posts");
-    if (savedPosts) {
+    const loadInstagramImages = async () => {
       try {
-        const posts = JSON.parse(savedPosts);
-        if (posts.length > 0) {
-          // Extrair URLs das imagens dos posts salvos
-          const uploadedImages = posts.map((post: any) => post.imageUrl).filter(Boolean);
-          // Combinar com imagens padrão, priorizando as uploadadas
+        // Carregar imagens do servidor
+        const response = await fetch('/api/instagram-images');
+        if (response.ok) {
+          const images = await response.json();
+          const imageUrls = images.map((img: any) => `/api/images/IG/${img.filename}`);
+          setInstagramImages(imageUrls.slice(0, 8)); // Máximo 8 imagens
+        } else {
+          // Fallback para imagens padrão se API falhar
           const defaultImages = [
             "/api/images/IG/0312_1750717790204.jpg",
             "/api/images/IG/0354_1750717790205.jpg",
@@ -35,19 +28,26 @@ export default function SocialFeedsSection() {
             "/api/images/IG/1068_1750717790205.jpg",
             "/api/images/IG/1105_1750717790206.jpg"
           ];
-          
-          // Criar array final: imagens uploadadas primeiro, depois padrão até 8 total
-          const combinedImages = [...uploadedImages, ...defaultImages]
-            .filter((url, index, arr) => arr.indexOf(url) === index) // Remove duplicatas
-            .slice(0, 8); // Máximo 8 imagens
-          
-          setInstagramImages(combinedImages);
+          setInstagramImages(defaultImages);
         }
       } catch (error) {
-        console.error('Erro ao carregar posts do localStorage:', error);
-        localStorage.removeItem("instagram_posts");
+        console.error('Erro ao carregar imagens do Instagram:', error);
+        // Usar imagens padrão em caso de erro
+        const defaultImages = [
+          "/api/images/IG/0312_1750717790204.jpg",
+          "/api/images/IG/0354_1750717790205.jpg",
+          "/api/images/IG/0581_1750717790206.jpg",
+          "/api/images/IG/0700_1750717790204.jpg",
+          "/api/images/IG/0905_1750717790206.jpg",
+          "/api/images/IG/0934_1750717790206.jpg",
+          "/api/images/IG/1068_1750717790205.jpg",
+          "/api/images/IG/1105_1750717790206.jpg"
+        ];
+        setInstagramImages(defaultImages);
       }
-    }
+    };
+
+    loadInstagramImages();
   }, []);
 
   useEffect(() => {
