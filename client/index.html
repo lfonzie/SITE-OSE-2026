@@ -34,7 +34,31 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     
-    <!-- UChatWidget Global Installation -->
+    <!-- UChatWidget Global Installation - Sempre presente -->
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.defer = true;
+        script.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js';
+        script.onload = function() {
+          console.log('UChatWidget loaded successfully');
+        };
+        script.onerror = function() {
+          console.error('Failed to load UChatWidget');
+        };
+        document.head.appendChild(script);
+        
+        // Also add via direct script tag as backup
+        if (!document.querySelector('script[src*="uchat"]')) {
+          var backup = document.createElement('script');
+          backup.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js';
+          backup.async = true;
+          backup.defer = true;
+          document.head.appendChild(backup);
+        }
+      })();
+    </script>
     <script async defer src="https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js"></script>
   </head>
   <body>
