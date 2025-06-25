@@ -135,6 +135,7 @@ Changelog:
 - June 25, 2025: SEO implementation: Added comprehensive meta tags, Open Graph, Twitter Cards, structured data (JSON-LD), canonical URLs, and proper page titles for search engine optimization
 - June 25, 2025: UChatWidget production fix: Updated CSP to allow all UChatWidget resources (sdk.dfktv2.com, ipapi.co, media-src), fixed deprecated mobile app meta tag, resolved widget loading issues on deployed site
 - June 25, 2025: Auto-save system implementation: Created comprehensive auto-save hooks (useAutoSave, usePageData) for automatic saving of image changes, integrated Visual Composer with floating editor button on all education pages, restored grey gradient backgrounds to match site theme
+- June 25, 2025: Enhanced image selection: Created EnhancedImageSelector with dual functionality - server image browser (all images from client/public/images) and upload capability, organized by directories with file size display, auto-save integration for seamless image management across all education pages
 ```
 
 ## User Preferences

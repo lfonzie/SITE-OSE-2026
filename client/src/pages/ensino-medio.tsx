@@ -12,7 +12,7 @@ import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import { useVisualComposer } from '@/hooks/useVisualComposer';
 import { usePageData } from '@/hooks/usePageData';
-import InlineImageSelector from '@/components/InlineImageSelector';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import { useAuth } from '@/contexts/AuthContext';
 
 // Importando imagens para página Ensino Médio
@@ -123,7 +123,7 @@ export default function EnsinoMedio() {
               className="w-full h-full object-cover opacity-30"
             />
             {isAuthenticated && (
-              <InlineImageSelector
+              <EnhancedImageSelector
                 currentImage={heroImage}
                 onImageSelect={updateHeroImage}
                 className="absolute inset-0"
@@ -338,7 +338,7 @@ export default function EnsinoMedio() {
                 className="w-full h-48 rounded-lg shadow-lg"
               />
               {isAuthenticated && (
-                <InlineImageSelector
+                <EnhancedImageSelector
                   currentImage={images[0] || newImages.img7}
                   onImageSelect={(url) => updateImage(0, url)}
                   className="absolute inset-0"
@@ -352,7 +352,7 @@ export default function EnsinoMedio() {
                 className="w-full h-48 rounded-lg shadow-lg"
               />
               {isAuthenticated && (
-                <InlineImageSelector
+                <EnhancedImageSelector
                   currentImage={images[1] || newImages.img8}
                   onImageSelect={(url) => updateImage(1, url)}
                   className="absolute inset-0"
@@ -366,7 +366,7 @@ export default function EnsinoMedio() {
                 className="w-full h-48 rounded-lg shadow-lg"
               />
               {isAuthenticated && (
-                <InlineImageSelector
+                <EnhancedImageSelector
                   currentImage={images[2] || newImages.img9}
                   onImageSelect={(url) => updateImage(2, url)}
                   className="absolute inset-0"

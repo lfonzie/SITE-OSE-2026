@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
-import InlineImageSelector from '@/components/InlineImageSelector';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import { useAuth } from '@/contexts/AuthContext';
 import { useVisualComposer } from '@/hooks/useVisualComposer';
 import { usePageData } from '@/hooks/usePageData';
@@ -80,7 +80,7 @@ export default function EducacaoInfantil() {
               className="w-full h-full object-cover opacity-30"
             />
             {isAuthenticated && (
-              <InlineImageSelector
+              <EnhancedImageSelector
                 currentImage={heroImage}
                 onImageSelect={updateHeroImage}
                 className="absolute inset-0"
@@ -223,7 +223,7 @@ export default function EducacaoInfantil() {
                       className="w-full h-48 object-cover"
                     />
                     {isAuthenticated && (
-                      <InlineImageSelector
+                      <EnhancedImageSelector
                         currentImage={images[0] || '/images/horizontal_2.png'}
                         onImageSelect={(url) => updateImage(0, url)}
                         className="absolute inset-0"
@@ -249,7 +249,7 @@ export default function EducacaoInfantil() {
                       className="w-full h-48 object-cover"
                     />
                     {isAuthenticated && (
-                      <InlineImageSelector
+                      <EnhancedImageSelector
                         currentImage={images[1] || '/images/horizontal_3.png'}
                         onImageSelect={(url) => updateImage(1, url)}
                         className="absolute inset-0"
@@ -275,7 +275,7 @@ export default function EducacaoInfantil() {
                       className="w-full h-48 object-cover"
                     />
                     {isAuthenticated && (
-                      <InlineImageSelector
+                      <EnhancedImageSelector
                         currentImage={images[2] || '/images/horizontal_4.png'}
                         onImageSelect={(url) => updateImage(2, url)}
                         className="absolute inset-0"

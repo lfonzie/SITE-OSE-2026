@@ -244,6 +244,55 @@ export function registerRoutes(app: Express) {
     }
   });
 
+  // Get all images from public/images directory
+  app.get("/api/server-images", (req, res) => {
+    try {
+      const imagesDir = path.join(process.cwd(), 'client', 'public', 'images');
+      
+      const getImagesRecursively = (dir: string, baseDir: string = ''): any[] => {
+        const items = fs.readdirSync(dir);
+        let images: any[] = [];
+        
+        for (const item of items) {
+          const fullPath = path.join(dir, item);
+          const relativePath = path.join(baseDir, item);
+          const stat = fs.statSync(fullPath);
+          
+          if (stat.isDirectory()) {
+            if (item !== 'IG') {
+              images = images.concat(getImagesRecursively(fullPath, relativePath));
+            }
+          } else if (item.match(/\.(jpg|jpeg|png|gif|webp|svg)$/i)) {
+            images.push({
+              filename: item,
+              path: relativePath.replace(/\\/g, '/'),
+              url: `/images/${relativePath.replace(/\\/g, '/')}`,
+              directory: baseDir || 'root',
+              size: stat.size,
+              lastModified: stat.mtime.toISOString()
+            });
+          }
+        }
+        
+        return images;
+      };
+      
+      const images = getImagesRecursively(imagesDir);
+      
+      images.sort((a, b) => {
+        if (a.directory !== b.directory) {
+          return a.directory.localeCompare(b.directory);
+        }
+        return a.filename.localeCompare(b.filename);
+      });
+      
+      res.json(images);
+    } catch (error: any) {
+      console.error('Error loading server images:', error);
+      res.status(500).json({ error: 'Failed to load server images' });
+    }
+  });
+
   // Serve dashboard.html at /dash route
   app.get('/dash', (req, res) => {
     const dashboardPath = path.join(process.cwd(), 'client/public/dashboard.html');
