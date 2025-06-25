@@ -14,8 +14,8 @@ import { logos, newImages } from "@/lib/image-verification";
 export default function CodeOSE() {
   useEffect(() => {
     updateSEO({
-      title: "CODE OSE - Alfabetização Digital | a OSE",
-      description: "CODE OSE: alfabetização digital integrada ao Ensino Fundamental I. Programação, pensamento computacional e preparação para o futuro digital.",
+      title: "{CODE.OSE} - Linguagem de Programação | a OSE",
+      description: "{CODE.OSE}: alfabetização digital integrada ao Ensino Fundamental I. Programação, pensamento computacional e preparação para o futuro digital.",
       keywords: "programação para crianças sorocaba, alfabetização digital, pensamento computacional, CODE OSE"
     });
   }, []);

@@ -55,8 +55,8 @@ export default function Navigation() {
       label: "Acadêmico",
       submenu: [
         { label: "Global Citizens - Bilíngue", id: "/bilingue", isSection: false },
-        { label: "CODE OSE", id: "/code-ose", isSection: false },
-        { label: "Integral", id: "/integral", isSection: false },
+        { label: "{CODE.OSE}", id: "/code-ose", isSection: false },
+        { label: "Integral Flex", id: "/integral", isSection: false },
         { label: "Amplia", id: "/amplia", isSection: false },
         { label: "SócioEmocional", id: "/socioemocional", isSection: false },
         { label: "Lista de Material", id: "/lista-material", isSection: false },

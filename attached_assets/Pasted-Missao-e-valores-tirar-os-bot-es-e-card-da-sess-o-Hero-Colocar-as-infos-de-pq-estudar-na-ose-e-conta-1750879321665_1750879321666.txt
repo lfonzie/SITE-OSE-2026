@@ -1,0 +1,177 @@
+Missao e valores tirar os botões e card da sessão Hero
+Colocar as infos de pq estudar na ose e contato
+Tirar “Faça Parte da Nossa História
+Venha conhecer de pero como nossos valores e missão se traduzem em uma educação transformadora''
+
+Infantil melhorar o layout para evitar buracos, preencher com as fotos 
+Nao utilizar 'Laboratório de Inteligência de Vida'
+Fundamental 2 fiz as imagens em preparando lideres para o futuro
+Medio deve refazer usando esse conteúdo "Novo Ensino Médio
+
+Preparando Alunos para o Futuro com Educação Personalizada e Flexível
+
+O Novo Ensino Médio na OSE representa uma revolução na forma como abordamos a educação.
+Com uma abordagem centrada no aluno e baseada na nova legislação, oferecemos uma experiência educacional que é tanto abrangente quanto personalizada.
+Trabalhamos com um modelo híbrido, que une uma base comum robusta à flexibilidade de itinerários formativos, permitindo que nossos alunos trilhem caminhos que façam sentido para suas ambições pessoais e profissionais.
+Agendamento Avaliação Pedagógica
+
+Formação Geral Básica:
+A Formação Geral Básica (FGB) constitui o cerne da educação no Novo Ensino Médio, abrangendo 60% da carga horária total.
+
+A FGB não apenas oferece uma fundação sólida nas disciplinas essenciais como Matemática, Português e Ciências, mas também integra competências e habilidades que estão alinhadas com a Base Nacional Comum Curricular (BNCC).
+
+A ideia é fornecer uma formação equilibrada e abrangente que prepare o aluno para os desafios multifacetados do século 21.
+
+A FGB corresponde a 60% da carga horária do Novo Ensino Médio e as disciplinas obrigatórias que a compõem são as seguintes:
+
+
+Projetos Integradores:
+Os Projetos Integradores são a pedra angular da nossa abordagem interdisciplinar, permitindo que os alunos apliquem o conhecimento de várias disciplinas em situações práticas.
+
+Estes projetos são concebidos para incentivar o pensamento crítico, a criatividade e a comunicação eficaz. Os alunos têm a oportunidade de trabalhar em conjunto para resolver problemas reais, o que também serve para desenvolver suas habilidades de colaboração e de liderança.
+
+
+Itinerários Formativos:
+Os Itinerários Formativos permitem aos alunos explorar suas paixões e interesses de forma mais aprofundada. Oferecemos dois modelos distintos: o específico e o integrado.
+
+Ambos são projetados para oferecer uma educação relevante que responda tanto às exigências do mundo atual como aos desejos e ambições dos alunos. Assim, os estudantes podem escolher caminhos que melhor atendam às suas necessidades educacionais e de carreira.
+
+Narrativas do mundo
+
+Linguagens e humanas
+
+Rota Exata
+
+Matemática e ciências da natureza
+
+
+Projeto de Vida:
+O Projeto de Vida é uma inovação central do Novo Ensino Médio e visa a desenvolver o autoprotagonismo do aluno em diversas esferas da vida: pessoal, acadêmica, profissional e cidadã.
+
+Este é um processo continuado que ajuda o aluno a planejar e tomar decisões conscientes sobre seu futuro. Ele serve como um mapa orientador que é revisitado e adaptado ao longo do curso.
+
+Esfera Pessoal
+
+Comportamentos, relações, hábitos.
+
+Cidadã
+
+Ética, atitudes.
+
+Acadêmica
+
+Estudos, pesquisas.
+
+Profissional
+
+Trabalho, carreira.
+
+
+Amplia Eletivas
+As Eletivas são componentes curriculares que oferecem aos alunos a oportunidade de estudar assuntos que estão fora do currículo padrão, mas que são extremamente relevantes no mundo atual. Estes cursos são desenvolvidos para serem altamente interativos e engajantes, fornecendo uma abordagem mais prática e aplicada ao aprendizado.
+
+
+O Novo Ensino Médio do Colégio OSE não é apenas uma etapa educacional, mas uma jornada de autodescobrimento, crescimento e preparação para o futuro. Nosso compromisso vai além do currículo, pois aspiramos a formar indivíduos preparados para os desafios da vida moderna e para contribuir positivamente com a sociedade. Acreditamos que a educação é uma poderosa ferramenta de transformação e, nesse espírito, convidamos você a explorar conosco este excitante novo capítulo no mundo educacional.
+
+"
+O grande diferencial do medio sao os itenarios formativos: exatas ou humanas
+Bilingue as aulas sao diárias após as aulas tradicionais
+Utilizar no menu e na pagina {CODE.OSE}
+Contends de code "{CODE.OSE} - Linguagem de Programação
+Alfabetização Digital Integrada ao Ensino Fundamental I
+
+Em uma era digitalmente avançada, o {CODE.OSE} não é uma matéria opcional; é um componente fundamental da grade curricular do Ensino Fundamental I no Colégio OSE.
+Este curso inovador vai além de ensinar programação, preparando nossos alunos para a vida e as carreiras do futuro.
+Navegando pelo Universo: Exploração Espacial
+
+No auge da corrida espacial na década de 1960, a missão Apollo alcançou a Lua graças aos primeiros computadores. Hoje, a ciência da computação continua a desempenhar um papel fundamental no avanço da exploração espacial. Cientistas e astrônomos utilizam complexos programas de computador para analisar a gravidade dos planetas, mapear o cosmos e buscar novas estrelas, galáxias e formas de vida em potencial.
+
+ 
+
+Decifrando a Vida: Aplicações Médicas
+
+No campo da medicina, a ciência da computação nos permitiu decifrar o genoma humano, abrindo caminho para uma melhor compreensão de nossa biologia e novos avanços na medicina personalizada. As habilidades de programação alimentam tecnologias de ponta, como máquinas de ressonância magnética e diagnósticos assistidos por IA, ajudando a entender o corpo humano de maneiras que nunca pudemos antes.
+
+Trazendo a Imaginação à Vida: Cinema e Animação
+
+O mundo do entretenimento também foi transformado pela ciência da computação. De trazer à vida dinossauros em 'Jurassic Park' com robótica a criar mundos fantásticos com animações detalhadas da Dreamworks e da Pixar, a magia dos filmes de hoje é em grande parte graças aos criativos digitais e a suas habilidades de ciência da computação.
+
+Integração Curricular: Mais do que uma Matéria Isolada
+
+{CODE.OSE} não é um extra; ele é intrínseco à grade curricular do Ensino Fundamental I. A programação é integrada a outras disciplinas, tornando o aprendizado mais contextual e relevante para os alunos.
+
+Aprendizado Lúdico: O Código Através do Jogo
+
+Utilizamos uma abordagem lúdica e interativa para tornar a aprendizagem da programação envolvente e divertida. Os alunos constroem jogos, animações e histórias, tornando cada lição uma aventura emocionante.
+
+Equidade e Inclusão: A Programação é para Todos
+
+O curso é estruturado para ser inclusivo e equitativo, assegurando que todos os alunos, independentemente de sua origem ou gênero, tenham acesso às habilidades digitais vitais para o futuro.
+
+Pensamento Computacional: Formação Integral desde Cedo
+
+Iniciar o ensino de programação no Ensino Fundamental I não é apenas sobre codificação, mas também sobre desenvolver habilidades cruciais como lógica, resolução de problemas e pensamento crítico.
+
+Preparo para o Futuro: Alfabetização Digital é Alfabetização Básica
+
+Na era atual, saber programar é tão fundamental quanto saber ler e escrever. {CODE.OSE} oferece uma base sólida para as crianças, preparando-as para um mundo que é cada vez mais regido pela tecnologia.
+
+O {CODE.OSE} não é apenas uma adição ao currículo tradicional; é uma transformação na forma como vemos a educação e preparamos nossos jovens para o futuro. Estamos criando não apenas estudantes, mas cidadãos globais prontos para enfrentar os desafios e as oportunidades do mundo digital.
+
+Construindo Habilidades Críticas para o Século 21
+
+Com a vida cada vez mais digitalizada, é essencial equipar nossas crianças com as habilidades necessárias para navegar neste mundo digital. Aulas de programação integradas à grade curricular não só ensinam as crianças a codificar, mas também aprimoram habilidades de pensamento crítico, resiliência e resolução de problemas - todas vitais para o século 21.
+
+A Maneira mais envolvente de aprender código
+
+Nossos alunos aprendem codificação de uma maneira envolvente e empolgante. O currículo abrange material alinhado com os padrões do currículo nacional, onde os alunos irão programar algoritmos, construir websites e até criar seus próprios jogos, tornando a aprendizagem do código uma aventura estimulante, ao invés de um exercício tedioso.
+
+Preparando-se para o Futuro
+
+Uma pesquisa feita nos EUA em 2016 revelou que 64% das meninas no 3º ao 5º ano queriam aprender a codificar, uma indicação do interesse crescente e da importância dessa habilidade. Em 2015, haviam 7 milhões de vagas que exigiam habilidades de codificação. Equipar nossas crianças com essas habilidades não apenas as prepara para o futuro, mas também ajuda a preencher uma crescente lacuna de habilidades que só aumentará à medida que nos movemos para um futuro cada vez mais digital.""
+Tirar botão conhece o code ose
+Corrigir imagens de integral
+Chamar de Integral Flex no menu tbm
+Tirar botão conhece o integral flex
+Tirar botão conhece a plataforma amplia
+Socioemocional tirar card do hero
+Contenudo socio emocional "Resumo do Programa Socioemocional da Escola
+O Programa Socioemocional da nossa escola é uma iniciativa integrada ao currículo escolar, voltada para o desenvolvimento integral de alunos da Educação Infantil ao Ensino Médio. Com aulas semanais, o programa promove habilidades essenciais para a vida, como autoconhecimento, autorregulação, empatia, pensamento crítico, colaboração, comunicação, perseverança, proatividade e criatividade, preparando os estudantes para os desafios do século XXI.
+Objetivos
+O programa busca criar um ambiente acolhedor de fala e escuta, incentivando os alunos a compreenderem e gerirem suas emoções, construírem relacionamentos saudáveis e desenvolverem competências socioemocionais que complementem o aprendizado acadêmico. A proposta valoriza a formação de cidadãos conscientes, respeitando as singularidades de cada indivíduo e promovendo uma educação alinhada às demandas de um mundo em transformação.
+Metodologia
+As atividades são adaptadas a cada faixa etária, utilizando recursos lúdicos como livros, músicas, séries audiovisuais, jogos e personagens que dialogam com o cotidiano dos alunos. O programa é baseado em teorias da inteligência emocional e dos cinco grandes traços de personalidade, promovendo reflexões práticas sobre sentimentos e experiências. As aulas estão alinhadas aos eixos da BNCC, incluindo investigação científica, criatividade, intervenção sociocultural e empreendedorismo.
+
+Educação Infantil: Foco na identificação de emoções básicas (alegria, tristeza, raiva, medo, amor) por meio de histórias e personagens, criando um espaço seguro para expressão emocional.
+Ensino Fundamental – Anos Iniciais (1º ao 3º ano): Desenvolvimento de autoconhecimento, autorregulação, empatia e relacionamento, abordando emoções complexas como frustração e ciúme.
+Ensino Fundamental – Anos Finais (4º ao 9º ano): Ênfase em criatividade, colaboração, pensamento crítico e proatividade, com projetos que estimulam debates e questionamentos.
+Ensino Médio: Apoio ao autoconhecimento e à gestão de pressões sociais, com foco em escolhas profissionais e projetos de vida.
+
+Recursos e Envolvimento
+
+Materiais Didáticos: Livros físicos e digitais, séries, músicas e jogos adaptados a cada faixa etária.
+Formação de Educadores: Treinamentos e mentorias pedagógicas para professores, garantindo a qualidade das aulas.
+Participação das Famílias: Atividades que promovem o diálogo socioemocional em casa, fortalecendo a parceria entre escola e família.
+
+Benefícios
+
+Melhoria da saúde mental e estabilidade emocional dos alunos.
+Redução de problemas comportamentais, como bullying e ansiedade.
+Desenvolvimento de competências para o mercado de trabalho e convivência social.
+Fortalecimento de laços entre escola, alunos e famílias, promovendo respeito às diferenças.
+
+Impacto
+O programa transforma a escola em um espaço de acolhimento, onde os alunos aprendem a enfrentar desafios com confiança e empatia. Por meio de culminâncias anuais, como apresentações e portfólios, celebramos o progresso dos estudantes, envolvendo toda a comunidade escolar.
+Diferenciais
+
+Abordagem lúdica e adequada a cada fase do desenvolvimento.
+Espaços de reflexão sem julgamentos, incentivando o diálogo.
+Integração com a BNCC e foco na formação integral.
+Envolvimento ativo de professores e famílias.
+
+O Programa Socioemocional da nossa escola é um compromisso com a formação de indivíduos emocionalmente inteligentes, preparados para construir um futuro mais colaborativo e consciente."
+Tirar botões e card do hero lista de material
+Arrume as imagens dos cards lista de material
+Apagar botões de saiba mais
+Para fund I , ii e medio deve ter botões para cada ano/serie
+Tirar botões e card do Hero professores
