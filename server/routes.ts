@@ -182,4 +182,49 @@ export function registerRoutes(app: Express) {
       res.status(500).json({ error: error.message });
     }
   });
+
+  // List all images in IG folder
+  app.get("/api/instagram-images", (req, res) => {
+    try {
+      const igPath = path.join(process.cwd(), 'client/public/images/IG');
+      
+      if (!fs.existsSync(igPath)) {
+        return res.json([]);
+      }
+
+      const files = fs.readdirSync(igPath).filter(file => 
+        /\.(jpg|jpeg|png|gif)$/i.test(file)
+      );
+
+      const images = files.map(filename => {
+        const filePath = path.join(igPath, filename);
+        const stats = fs.statSync(filePath);
+        return {
+          filename,
+          uploadedAt: stats.mtime.toISOString()
+        };
+      });
+
+      res.json(images);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Delete image from IG folder
+  app.delete("/api/delete-image/:filename", (req, res) => {
+    try {
+      const filename = req.params.filename;
+      const imagePath = path.join(process.cwd(), 'client/public/images/IG', filename);
+      
+      if (!fs.existsSync(imagePath)) {
+        return res.status(404).json({ error: 'Image not found' });
+      }
+
+      fs.unlinkSync(imagePath);
+      res.json({ success: true, message: 'Image deleted successfully' });
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
 }

@@ -60,42 +60,37 @@ export default function AdminPage() {
     setPassword("");
   };
 
-  const loadInstagramPosts = () => {
+  const loadInstagramPosts = async () => {
+    // Carregar imagens da pasta IG via API
+    try {
+      const response = await fetch('/api/instagram-images');
+      if (response.ok) {
+        const images = await response.json();
+        const posts: InstagramPost[] = images.map((image: any) => ({
+          id: image.filename.replace(/\.[^/.]+$/, ""), // Remove extensão para usar como ID
+          imageUrl: `/api/images/IG/${image.filename}`,
+          uploadedAt: new Date(image.uploadedAt)
+        }));
+        
+        setInstagramPosts(posts.sort((a, b) => 
+          b.uploadedAt.getTime() - a.uploadedAt.getTime()
+        ));
+      }
+    } catch (error) {
+      console.error('Erro ao carregar imagens do IG:', error);
+    }
+    
+    // Fallback: carregar do localStorage se API falhar
     const savedPosts = localStorage.getItem("instagram_posts");
-    if (savedPosts) {
+    if (savedPosts && instagramPosts.length === 0) {
       try {
         const posts = JSON.parse(savedPosts).map((post: any) => ({
           ...post,
           uploadedAt: new Date(post.uploadedAt)
         }));
-        
-        // Validar se as imagens existem
-        const validPosts: InstagramPost[] = [];
-        
-        posts.forEach((post: InstagramPost) => {
-          const img = new Image();
-          img.onload = () => {
-            if (!validPosts.find(p => p.id === post.id)) {
-              validPosts.push(post);
-              setInstagramPosts(validPosts.sort((a, b) => 
-                b.uploadedAt.getTime() - a.uploadedAt.getTime()
-              ));
-            }
-          };
-          img.onerror = () => {
-            console.log(`Imagem inválida removida do admin: ${post.imageUrl}`);
-          };
-          img.src = post.imageUrl;
-        });
-
-        // Se não há posts válidos, limpar localStorage
-        if (posts.length === 0) {
-          localStorage.removeItem("instagram_posts");
-        }
+        setInstagramPosts(posts);
       } catch (error) {
-        console.error('Erro ao carregar posts do localStorage:', error);
         localStorage.removeItem("instagram_posts");
-        setInstagramPosts([]);
       }
     }
   };
@@ -161,8 +156,8 @@ export default function AdminPage() {
         uploadedAt: new Date()
       };
 
-      const updatedPosts = [newPost, ...instagramPosts].slice(0, 8); // Manter apenas 8 fotos
-      saveInstagramPosts(updatedPosts);
+      // Recarregar lista de imagens do servidor
+      await loadInstagramPosts();
 
       toast({
         title: "Foto enviada com sucesso!",
@@ -182,14 +177,39 @@ export default function AdminPage() {
     }
   };
 
-  const deletePost = (postId: string) => {
-    const updatedPosts = instagramPosts.filter(post => post.id !== postId);
-    saveInstagramPosts(updatedPosts);
-    
-    toast({
-      title: "Foto removida",
-      description: "A foto foi removida do feed do Instagram.",
-    });
+  const deletePost = async (postId: string) => {
+    const postToDelete = instagramPosts.find(post => post.id === postId);
+    if (!postToDelete) return;
+
+    try {
+      // Extrair nome do arquivo da URL
+      const filename = postToDelete.imageUrl.split('/').pop();
+      
+      // Deletar arquivo no servidor
+      const response = await fetch(`/api/delete-image/${filename}`, {
+        method: 'DELETE'
+      });
+
+      if (response.ok) {
+        // Remover da lista local
+        const updatedPosts = instagramPosts.filter(post => post.id !== postId);
+        setInstagramPosts(updatedPosts);
+        saveInstagramPosts(updatedPosts);
+        
+        toast({
+          title: "Foto removida",
+          description: "A foto foi removida do servidor e do feed.",
+        });
+      } else {
+        throw new Error('Erro ao deletar imagem no servidor');
+      }
+    } catch (error) {
+      toast({
+        title: "Erro ao deletar",
+        description: "Não foi possível remover a foto do servidor.",
+        variant: "destructive",
+      });
+    }
   };
 
   if (!isAuthenticated) {
