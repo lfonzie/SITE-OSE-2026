@@ -1,6 +1,6 @@
 import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { useEffect } from "react";
 import { initAllTracking } from "./lib/analytics";
@@ -11,6 +11,7 @@ import { addSchoolSchema } from "./lib/seo";
 import { preloadResources, initLazyLoading } from "./lib/performance";
 import { snippetManager } from "./lib/custom-snippets";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { queryClient } from "./lib/queryClient";
 import Home from "@/pages/home";
 import EducacaoInfantil from "@/pages/educacao-infantil";
 import Fundamental1 from "@/pages/fundamental-1";
@@ -22,7 +23,7 @@ import Legacy from "./pages/legacy";
 import Dash from "./pages/dash";
 import Admin from "./pages/admin";
 import PortalAluno from "@/pages/portal-aluno";
-import PortalPais from "./pages/portal-pais";
+import PortalPais from "@/pages/portal-pais";
 import Bilingue from "./pages/bilingue";
 import Integral from "./pages/integral";
 import CodeOSE from "./pages/code-ose";
@@ -37,7 +38,6 @@ import NotFound from "@/pages/not-found";
 import CV from "@/pages/cv";
 
 function Router() {
-  // Track page views when routes change
   useAnalytics();
 
   return (
@@ -50,8 +50,7 @@ function Router() {
       <Route path="/professores" component={Professores} />
       <Route path="/services" component={Services} />
       <Route path="/legacy" component={Legacy} />
-      <Route path="/admin" component={Admin} />
-      <Route path="/portal-aluno" component={PortalAluno} />
+      <Route path="/portal-aluno" 掉 component={PortalAluno} />
       <Route path="/portal-pais" component={PortalPais} />
       <Route path="/bilingue" component={Bilingue} />
       <Route path="/integral" component={Integral} />
@@ -70,33 +69,25 @@ function Router() {
 }
 
 function App() {
-  // Initialize all systems when app loads
   useEffect(() => {
-    // Analytics and tracking
     initAllTracking();
-
-    // SEO and metadata
     setupFavicons();
     addSchoolSchema();
-
-    // Security
     setupCSP();
-
-    // Performance optimizations
     preloadResources();
     initLazyLoading();
-
-    // Custom snippets
     snippetManager.executeSnippets();
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 }
 
