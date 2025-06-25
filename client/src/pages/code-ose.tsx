@@ -188,17 +188,17 @@ export default function CodeOSE() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img 
-                src="/attached_assets/1068_1750717790205.jpg" 
+                src={newImages.img27} 
                 alt="Alunos aprendendo programação"
                 className="w-full h-48 object-cover rounded-lg shadow-lg"
               />
               <img 
-                src="/attached_assets/1092_1750717790205.jpg" 
+                src={newImages.img28} 
                 alt="Laboratório de informática"
                 className="w-full h-48 object-cover rounded-lg shadow-lg"
               />
               <img 
-                src="/attached_assets/1105_1750717790206.jpg" 
+                src={newImages.img29} 
                 alt="Atividades de programação"
                 className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
               />

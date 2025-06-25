@@ -5,10 +5,11 @@ import WhyOSESection from '@/components/why-ose-section';
 import ContactSection from '@/components/contact-section';
 import { OptimizedImage } from '@/components/ui/optimized-image';
 
-// Use direct image paths since images are in root directory
-const img1 = "/0905_1750717790206.jpg";
-const img2 = "/0934_1750717790206.jpg";
-const img3 = "/1068_1750717790205.jpg";
+// Use new image paths from updated folder
+import { newImages } from "@/lib/image-verification";
+const img1 = newImages.img1;
+const img2 = newImages.img2;
+const img3 = newImages.img3;
 
 // Dados dos professores - expandir conforme necessário
 const professores = [

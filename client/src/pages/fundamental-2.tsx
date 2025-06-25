@@ -12,11 +12,12 @@ import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 // Importando imagens para Fundamental II
-const img1 = "/images/0023_1750717790208.jpg";
-const img2 = "/images/0378_1750717790208.jpg";
-const img3 = "/images/1285_1750717790208.jpg";
-const img4 = "/images/0023_1750719589611.jpg";
-const img5 = "/images/0378_1750719589611.jpg";
+import { newImages } from "@/lib/image-verification";
+const img1 = newImages.img7;
+const img2 = newImages.img8;
+const img3 = newImages.img9;
+const img4 = newImages.img10;
+const img5 = newImages.img11;
 const img6 = "/images/1285_1750719589611.jpg";
 
 export default function Fundamental2() {

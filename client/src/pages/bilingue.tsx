@@ -10,10 +10,11 @@ import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 // Import images
-const img1 = "/images/0312_1750717790204.jpg";
-const img2 = "/images/0354_1750717790205.jpg";
-const img3 = "/images/0581_1750717790206.jpg";
-const img4 = "/images/0700_1750717790204.jpg";
+import { newImages } from "@/lib/image-verification";
+const img1 = newImages.horizontal1;
+const img2 = newImages.horizontal2;
+const img3 = newImages.horizontal3;
+const img4 = newImages.horizontal4;
 
 export default function Bilingue() {
   const features = [

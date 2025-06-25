@@ -13,10 +13,10 @@ import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 // Importando imagens para página Amplia
-import { logos } from "@/lib/image-verification";
-const img1 = "/images/1105_1750717790206.jpg";
-const img5 = "/images/1068_1750717790205.jpg";
-const img6 = "/images/1092_1750717790205.jpg";
+import { logos, newImages } from "@/lib/image-verification";
+const img1 = newImages.img4;
+const img5 = newImages.img5;
+const img6 = newImages.img6;
 
 export default function Amplia() {
   useEffect(() => {
@@ -175,17 +175,17 @@ export default function Amplia() {
           {/* Image Gallery */}
           <div className="grid md:grid-cols-3 gap-6">
             <OptimizedImage
-              src="/images/0354_1750717790205.jpg"
+              src={newImages.img24}
               alt="Material didático Amplia"
               className="w-full h-48 rounded-lg shadow-lg"
             />
             <OptimizedImage
-              src="/images/0905_1750717790206.jpg"
+              src={newImages.img25}
               alt="Tecnologia educacional"
               className="w-full h-48 rounded-lg shadow-lg"
             />
             <OptimizedImage
-              src="/images/0934_1750717790206.jpg"
+              src={newImages.img26}
               alt="Metodologia Amplia"
               className="w-full h-48 rounded-lg shadow-lg"
             />

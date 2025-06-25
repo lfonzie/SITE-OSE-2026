@@ -2,7 +2,7 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 
-import { logos } from "@/lib/image-verification";
+import { logos, newImages } from "@/lib/image-verification";
 
 const features = [
   {
@@ -12,7 +12,7 @@ const features = [
     color: "bg-blue-600"
   },
   {
-    logo: "/images/0378_1750717790208.jpg",
+    logo: newImages.img30,
     title: "Corpo Docente Experiente",
     description: "Equipe altamente qualificada com vasta experiência acadêmica e prática, sempre atualizada com as melhores práticas pedagógicas.",
     color: "bg-green-600"
