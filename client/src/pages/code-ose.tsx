@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
+import { logos } from "@/lib/image-verification";
 
 export default function CodeOSE() {
   useEffect(() => {
@@ -102,7 +103,7 @@ export default function CodeOSE() {
             <div className="relative">
               <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
                 <img 
-                  src="/images/codeose23_1750779294902.png" 
+                  src={logos.codeose} 
                   alt="CODE OSE Logo"
                   className="h-40 w-auto"
                 />

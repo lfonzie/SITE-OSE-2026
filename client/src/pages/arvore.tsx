@@ -6,6 +6,7 @@ import ContactSection from "@/components/contact-section";
 import { Book, ExternalLink, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { logos } from "@/lib/image-verification";
 
 export default function Arvore() {
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function Arvore() {
           <div className="text-center">
             <div className="mb-8">
               <img 
-                src="/images/LogoArvore_1750797550181.png" 
+                src={logos.arvore} 
                 alt="Árvore"
                 className="h-32 mx-auto mb-4"
               />

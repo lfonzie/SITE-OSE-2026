@@ -52,9 +52,9 @@ export const secondaryImages = {
   geral6: "/images/1295_1750719589611.jpg",
 };
 
-// Logos e Assets Especiais
+// Logos e Assets Especiais - ATUALIZADOS
 export const logos = {
-  amplia: "/images/AMPLIA_Logotipo-versoes_1750779294903.png",
+  amplia: "/images/AMPLIA_Logotipo-versoes_1750779294903_1750801133345.png",
   isaac: "/images/616841d439101013bdc4c67c_isaac-log0-01_1750779294900.png",
   arvore: "/images/LogoArvore_1750797550181.png",
   codeose: "/images/codeose23_1750779294902.png",

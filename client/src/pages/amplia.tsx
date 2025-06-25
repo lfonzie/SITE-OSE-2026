@@ -13,6 +13,7 @@ import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 // Importando imagens para página Amplia
+import { logos } from "@/lib/image-verification";
 const img1 = "/images/1105_1750717790206.jpg";
 const img5 = "/images/1068_1750717790205.jpg";
 const img6 = "/images/1092_1750717790205.jpg";
