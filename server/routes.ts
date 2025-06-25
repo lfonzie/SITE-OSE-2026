@@ -243,4 +243,10 @@ export function registerRoutes(app: Express) {
       res.status(500).json({ error: error.message });
     }
   });
+
+  // Serve dashboard.html at /dash route
+  app.get('/dash', (req, res) => {
+    const dashboardPath = path.join(process.cwd(), 'client/public/dashboard.html');
+    res.sendFile(dashboardPath);
+  });
 }
