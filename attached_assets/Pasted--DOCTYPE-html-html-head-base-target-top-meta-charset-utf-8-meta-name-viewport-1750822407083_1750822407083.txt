@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema de Envio de Currículos</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      margin-top: 30px;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #0d6efd;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background-color: #d4edda;
+      color: #155724;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .error-message {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background-color: #f8d7da;
+      color: #721c24;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Envio de Currículo</h1>
+    
+    <form id="curriculo-form">
+      <div class="form-group">
+        <label for="nome">Nome Completo:</label>
+        <input type="text" class="form-control" id="nome" name="nome" required>
+      </div>
+      
+      <!-- Campo de data de nascimento removido pois não existe na planilha -->
+      
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@email.com" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="telefone">Telefone Celular:</label>
+        <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(00) 00000-0000" pattern="\(\d{2}\)\s\d{5}-\d{4}" required>
+        <small class="form-text text-muted">Formato: (00) 00000-0000</small>
+      </div>
+      
+      <!-- Campo de área de interesse removido pois não existe na planilha -->
+      
+      <div class="form-group">
+        <label for="curriculo">Envie seu CV aqui:</label>
+        <input type="file" class="form-control" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx" required>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Enviar Currículo</button>
+    </form>
+    
+    <div id="loading" class="loading">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Carregando...</span>
+      </div>
+      <p>Enviando seu currículo, por favor aguarde...</p>
+    </div>
+    
+    <div id="success-message" class="success-message">
+      Seu currículo foi enviado com sucesso! Agradecemos o seu interesse.
+    </div>
+    
+    <div id="error-message" class="error-message">
+      Houve um erro ao enviar seu currículo. Por favor, tente novamente.
+    </div>
+  </div>
+
+  <!-- Bootstrap & jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Formatação do telefone no padrão brasileiro
+    $(document).ready(function() {
+      $('#telefone').on('input', function() {
+        let value = $(this).val().replace(/\D/g, '');
+        if (value.length > 11) {
+          value = value.slice(0, 11);
+        }
+        
+        let formattedValue = '';
+        if (value.length > 0) {
+          formattedValue = '(' + value.slice(0, 2);
+          if (value.length > 2) {
+            formattedValue += ') ' + value.slice(2, 7);
+            if (value.length > 7) {
+              formattedValue += '-' + value.slice(7, 11);
+            }
+          }
+        }
+        
+        $(this).val(formattedValue);
+      });
+    });
+    
+    // ID da planilha e da pasta do Drive
+    const SHEET_ID = '1iKmNZ7hddwFCZWpPJ52diA-k1CUMeJ_qqMPUm0ztzG0';
+    const FOLDER_ID = '1K5xlEGI8ti_i0_qrAElnSVcl4CMaf_-w';
+    
+    // URL do Google Apps Script que será criado
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0JrXfnvB2nYzyFUfcm72rMRNe7R92_4rWVZ0p5JzRSPEF2otw4dyXByM8aNPcAeTu/exec';
+    
+    $(document).ready(function() {
+      $('#curriculo-form').on('submit', function(e) {
+        e.preventDefault();
+        
+        // Mostrar mensagem de carregamento
+        $('#loading').show();
+        $('#curriculo-form').hide();
+        
+        // Obter dados do formulário
+        const nome = $('#nome').val();
+        // Campo de data de nascimento removido
+        const email = $('#email').val();
+        const telefone = $('#telefone').val();
+        // Campo de área removido
+        const curriculoFile = $('#curriculo')[0].files[0];
+        
+        // Verificar se o arquivo foi selecionado
+        if (!curriculoFile) {
+          $('#loading').hide();
+          $('#error-message').text('Por favor, selecione um arquivo de currículo.').show();
+          $('#curriculo-form').show();
+          return;
+        }
+        
+        // Ler o arquivo como base64 para envio
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const fileData = e.target.result; // Dados do arquivo em base64
+          
+          // Criar FormData para enviar os dados
+          const formData = new FormData();
+          formData.append('nome', nome);
+          // Campo de data de nascimento removido
+          formData.append('email', email);
+          formData.append('telefone', telefone);
+          // Campo de área removido
+          formData.append('curriculo', fileData);
+          formData.append('sheetId', SHEET_ID);
+          formData.append('folderId', FOLDER_ID);
+        
+          // Enviar dados para o Google Apps Script
+          $.ajax({
+            url: SCRIPT_URL,
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+              $('#loading').hide();
+              
+              try {
+                // Tentar interpretar a resposta como JSON
+                if (typeof response === 'string') {
+                  response = JSON.parse(response);
+                }
+                
+                if (response.success) {
+                  $('#success-message').show();
+                } else {
+                  $('#error-message').text('Erro no processamento: ' + (response.error || 'Erro desconhecido')).show();
+                  console.error('Erro retornado pelo servidor:', response.error);
+                  $('#curriculo-form').show();
+                }
+              } catch (e) {
+                $('#error-message').text('Erro ao interpretar resposta do servidor.').show();
+                console.error('Erro ao processar resposta:', e, response);
+                $('#curriculo-form').show();
+              }
+            },
+            error: function(error) {
+              $('#loading').hide();
+              $('#error-message').text('Erro ao enviar formulário: ' + error.statusText).show();
+              console.error('Erro na requisição AJAX:', error);
+              $('#curriculo-form').show();
+            }
+          });
+        };
+        
+        // Iniciar leitura do arquivo
+        reader.readAsDataURL(curriculoFile);
+      });
+    });
+  </script>
+</body>
+</html>
