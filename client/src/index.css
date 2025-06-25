@@ -30,59 +30,7 @@
   --school-white: hsl(0, 0%, 100%);
 }
 
-/* Simple animations to replace Framer Motion */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-.animate-fade-in {
-  animation: fade-in 1s ease-out;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-
-.animate-bounce {
-  animation: bounce 2s infinite;
-}
-
-/* Smooth transitions */
-* {
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-}
-
-/* School color utilities */
-.text-school-orange {
-  color: hsl(25, 95%, 53%);
-}
-
-.bg-school-orange {
-  background-color: hsl(25, 95%, 53%);
-}
-
-.text-school-brown {
-  color: hsl(30, 67%, 35%);
-}
-
-.bg-school-brown {
-  background-color: hsl(30, 67%, 35%);
-}
 
 .dark {
   --background: hsl(240, 10%, 3.9%);
