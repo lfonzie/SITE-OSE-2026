@@ -2,6 +2,63 @@ import { useEffect } from "react";
 
 export default function WhatsAppWidget() {
   useEffect(() => {
+    // Add CSS to hide any existing chat widgets in development
+    if (window.location.hostname !== 'colegioose.com.br' && 
+        !window.location.hostname.includes('colegioose.com.br')) {
+      
+      const hideStyle = document.createElement('style');
+      hideStyle.textContent = `
+        /* Hide any floating chat widgets that are not our custom one */
+        div[style*="position: fixed"][style*="bottom"]:not([data-custom-whatsapp]) {
+          display: none !important;
+        }
+        
+        /* Hide elements containing "Fale Conosco" text */
+        *:not(a):not([data-custom-whatsapp]) {
+          ${''/* Check for elements with "Fale Conosco" text */}
+        }
+        
+        /* Specifically target common chat widget patterns */
+        iframe[src*="uchat"],
+        iframe[src*="whatsapp"],
+        div[class*="chat-widget"],
+        div[id*="chat-widget"],
+        div[class*="whatsapp"],
+        div[id*="whatsapp"]:not([data-custom-whatsapp]) {
+          display: none !important;
+        }
+      `;
+      document.head.appendChild(hideStyle);
+      
+      // Also periodically remove chat elements
+      const removeUnwantedWidgets = () => {
+        document.querySelectorAll('*').forEach(element => {
+          if (element.getAttribute('data-custom-whatsapp')) return; // Skip our widget
+          
+          const text = element.textContent?.trim() || '';
+          const style = element.getAttribute('style') || '';
+          
+          // Remove elements with "Fale Conosco" text that aren't our button
+          if (text === 'Fale Conosco' && element.tagName !== 'A') {
+            element.remove();
+          }
+          
+          // Remove floating green elements that look like chat widgets
+          if (style.includes('position: fixed') && 
+              style.includes('background') && 
+              (style.includes('green') || style.includes('25d366')) &&
+              !element.getAttribute('data-custom-whatsapp')) {
+            element.remove();
+          }
+        });
+      };
+      
+      removeUnwantedWidgets();
+      const interval = setInterval(removeUnwantedWidgets, 2000);
+      
+      return () => clearInterval(interval);
+    }
+
     // Only load UChatWidget on production domain
     if (window.location.hostname === 'colegioose.com.br' || 
         window.location.hostname.includes('colegioose.com.br')) {
@@ -31,6 +88,7 @@ export default function WhatsAppWidget() {
       <div 
         className="fixed bottom-6 right-6 z-50"
         style={{ zIndex: 9999 }}
+        data-custom-whatsapp="true"
       >
         <a
           href="https://wa.me/551521013812"
@@ -38,6 +96,7 @@ export default function WhatsAppWidget() {
           rel="noopener noreferrer"
           className="flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
           title="Fale Conosco no WhatsApp"
+          data-custom-whatsapp="true"
         >
           <svg
             width="28"
