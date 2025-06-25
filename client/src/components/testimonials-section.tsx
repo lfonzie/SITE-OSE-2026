@@ -38,11 +38,33 @@ export default function TestimonialsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials?.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-school-orange hover:shadow-xl transition-shadow">
+          {testimonials?.map((testimonial, index) => {
+            // Array de fotos genéricas para os depoimentos
+            const genericPhotos = [
+              "/images/0023_1750717790208.jpg",
+              "/images/0312_1750717790204.jpg", 
+              "/images/0354_1750717790205.jpg",
+              "/images/0491_1750717790207.jpg",
+              "/images/0541_1750717790207.jpg",
+              "/images/0581_1750717790206.jpg",
+              "/images/0700_1750717790204.jpg",
+              "/images/0905_1750717790206.jpg",
+              "/images/0934_1750717790206.jpg"
+            ];
+            
+            // Seleciona uma foto baseada no índice do depoimento
+            const photoIndex = index % genericPhotos.length;
+            const selectedPhoto = genericPhotos[photoIndex];
+            
+            return (
+              <div key={testimonial.id} className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-school-orange hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4 shadow-lg">
-                    {testimonial.name.charAt(0)}
+                  <div className="w-16 h-16 rounded-full overflow-hidden mr-4 shadow-lg">
+                    <img 
+                      src={selectedPhoto}
+                      alt={`Foto de ${testimonial.name}`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-800 text-lg">{testimonial.name}</h4>
@@ -62,7 +84,8 @@ export default function TestimonialsSection() {
                 </div>
                 <p className="text-slate-700 italic leading-relaxed">"{testimonial.content}"</p>
               </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
