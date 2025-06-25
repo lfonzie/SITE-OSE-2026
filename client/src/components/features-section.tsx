@@ -1,4 +1,6 @@
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { AnimatedSection } from "@/components/animated/AnimatedSection";
 
 const features = [
   {

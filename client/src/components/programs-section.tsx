@@ -1,6 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { Baby, Book, GraduationCap, ArrowRight, Check, Heart, Brain } from "lucide-react";
 import type { Program } from "@shared/schema";
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { AnimatedSection, AnimatedItem } from "@/components/animated/AnimatedSection";
+import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 const iconMap = {
   baby: Baby,
@@ -67,7 +70,7 @@ export default function ProgramsSection() {
   return (
     <section id="programas" className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
             Nossos <span className="text-school-orange">Programas</span>
           </h2>
@@ -75,18 +78,22 @@ export default function ProgramsSection() {
             Oferecemos uma educação completa desde a Educação Infantil até o Ensino Médio, 
             preparando nossos alunos para um futuro brilhante.
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {programs?.map((program) => {
+          {programs?.map((program, index) => {
             const IconComponent = iconMap[program.icon as keyof typeof iconMap] || Book;
             const colors = colorMap[program.color as keyof typeof colorMap] || colorMap.blue;
 
             return (
-              <div 
+              <AnimatedCard 
                 key={program.id}
-                className={`${colors.bg} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border ${colors.border}`}
+                delay={index * 0.1}
+                direction="up"
+                hover={true}
+                scale={true}
               >
+                <div className={`${colors.bg} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border ${colors.border}`}>
                 <div className="h-48 mb-6 rounded-xl overflow-hidden">
                   <img 
                     src={getImageForProgram(program.title)}
@@ -97,9 +104,14 @@ export default function ProgramsSection() {
                 <h3 className="text-2xl font-bold text-slate-800 mb-4">{program.title}</h3>
                 <p className="text-slate-600 mb-6">{program.description}</p>
                 <ul className="space-y-2 mb-6">
-                  {program.features.map((feature, index) => (
-                    <li key={index} className="flex items-center text-slate-600">
-                      <Check className="text-school-brown mr-2" size={16} />
+                  {program.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center text-slate-600">
+                      <AnimatedIcon 
+                        delay={(index * 0.1) + (featureIndex * 0.05)}
+                        pulse={true}
+                      >
+                        <Check className="text-school-brown mr-2" size={16} />
+                      </AnimatedIcon>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -121,7 +133,8 @@ export default function ProgramsSection() {
                 >
                   Saiba Mais <ArrowRight className="ml-1" size={16} />
                 </button>
-              </div>
+                </div>
+              </AnimatedCard>
             );
           })}
         </div>

@@ -1,5 +1,8 @@
 
 import { Users, Calendar, Trophy, BookOpen } from "lucide-react";
+import { AnimatedCounter } from "@/components/animated/AnimatedCounter";
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 const stats = [
   { 
@@ -44,14 +47,30 @@ export default function StatsSection() {
           {stats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
-              <div key={index} className="text-center">
-                <div className={`${stat.bgColor} rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4`}>
-                  <IconComponent className={`${stat.color}`} size={32} />
+              <AnimatedCard key={index} delay={index * 0.1} direction="up">
+                <div className="text-center">
+                  <AnimatedIcon 
+                    className={`${stat.bgColor} rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4`}
+                    delay={index * 0.15}
+                    bounce={true}
+                  >
+                    <IconComponent className={`${stat.color}`} size={32} />
+                  </AnimatedIcon>
+                  <div className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
+                    <AnimatedCounter 
+                      to={parseInt(stat.number.replace(/[^0-9]/g, '')) || 0} 
+                      suffix={stat.number.replace(/[0-9]/g, '')}
+                      duration={2}
+                    />
+                  </div>
+                  <div className="text-lg font-semibold text-slate-700 mb-1">
+                    {stat.label}
+                  </div>
+                  <div className="text-sm text-slate-500">
+                    {stat.description}
+                  </div>
                 </div>
-                <h3 className="text-4xl font-bold text-slate-800">{stat.number}</h3>
-                <p className="text-slate-600 font-medium">{stat.label}</p>
-                <p className="text-sm text-slate-500">{stat.description}</p>
-              </div>
+              </AnimatedCard>
             );
           })}
         </div>

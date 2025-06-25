@@ -1,4 +1,6 @@
 
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { AnimatedSection } from "@/components/animated/AnimatedSection";
 
 export default function WhyOSESection() {
   const reasons = [
@@ -27,18 +29,25 @@ export default function WhyOSESection() {
   return (
     <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
             Por que escolher <span className="text-school-orange">a OSE</span>?
           </h2>
           <p className="text-xl max-w-4xl mx-auto text-slate-600">
             Conheça os diferenciais que fazem da OSE a escolha ideal para a educação do seu filho.
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 overflow-hidden">
+            <AnimatedCard 
+              key={index}
+              delay={index * 0.15}
+              direction="up"
+              hover={true}
+              scale={true}
+            >
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 overflow-hidden">
               <div className="h-48">
                 <img 
                   src={reason.image} 
@@ -50,7 +59,8 @@ export default function WhyOSESection() {
                 <h3 className="text-xl font-bold text-slate-800 mb-3">{reason.title}</h3>
                 <p className="text-slate-600 leading-relaxed">{reason.description}</p>
               </div>
-            </div>
+              </div>
+            </AnimatedCard>
           ))}
         </div>
 
