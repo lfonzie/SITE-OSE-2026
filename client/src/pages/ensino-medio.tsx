@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
@@ -11,15 +11,21 @@ import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import { useVisualComposer } from '@/hooks/useVisualComposer';
+import { useEditableImages } from '@/hooks/useEditableImages';
+import InlineImageSelector from '@/components/InlineImageSelector';
+import { useAuth } from '@/contexts/AuthContext';
 
 // Importando imagens para página Ensino Médio
 import { newImages } from "@/lib/image-verification";
-const img1 = newImages.img7;
-const img2 = newImages.img8;
-const img3 = newImages.img9;
 
 export default function EnsinoMedio() {
+  const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Ensino Médio');
+  
+  const [heroImage, setHeroImage] = useState(newImages.img7);
+  const { images: galleryImages, updateImage: updateGalleryImage } = useEditableImages({
+    initialImages: [newImages.img7, newImages.img8, newImages.img9]
+  });
   useEffect(() => {
     updateSEO({
       title: "Ensino Médio - Novo Ensino Médio | a OSE",
@@ -109,11 +115,20 @@ export default function EnsinoMedio() {
       <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
-            src={img1}
-            alt="Ensino Médio OSE"
-            className="w-full h-full object-cover opacity-30"
-          />
+          <div className="relative w-full h-full">
+            <img 
+              src={heroImage}
+              alt="Ensino Médio OSE"
+              className="w-full h-full object-cover opacity-30"
+            />
+            {isAuthenticated && (
+              <InlineImageSelector
+                currentImage={heroImage}
+                onImageSelect={(url) => setHeroImage(url)}
+                className="absolute inset-0"
+              />
+            )}
+          </div>
           <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -315,21 +330,48 @@ export default function EnsinoMedio() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
-            <OptimizedImage
-              src={img1}
-              alt="Novo Ensino Médio na OSE"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={img2}
-              alt="Projetos integradores"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={img3}
-              alt="Itinerários formativos"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
+            <div className="relative">
+              <OptimizedImage
+                src={galleryImages[0]}
+                alt="Novo Ensino Médio na OSE"
+                className="w-full h-48 rounded-lg shadow-lg"
+              />
+              {isAuthenticated && (
+                <InlineImageSelector
+                  currentImage={galleryImages[0]}
+                  onImageSelect={(url) => updateGalleryImage(0, url)}
+                  className="absolute inset-0"
+                />
+              )}
+            </div>
+            <div className="relative">
+              <OptimizedImage
+                src={galleryImages[1]}
+                alt="Projetos integradores"
+                className="w-full h-48 rounded-lg shadow-lg"
+              />
+              {isAuthenticated && (
+                <InlineImageSelector
+                  currentImage={galleryImages[1]}
+                  onImageSelect={(url) => updateGalleryImage(1, url)}
+                  className="absolute inset-0"
+                />
+              )}
+            </div>
+            <div className="relative">
+              <OptimizedImage
+                src={galleryImages[2]}
+                alt="Itinerários formativos"
+                className="w-full h-48 rounded-lg shadow-lg"
+              />
+              {isAuthenticated && (
+                <InlineImageSelector
+                  currentImage={galleryImages[2]}
+                  onImageSelect={(url) => updateGalleryImage(2, url)}
+                  className="absolute inset-0"
+                />
+              )}
+            </div>
           </div>
         </div>
       </section>

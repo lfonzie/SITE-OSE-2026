@@ -121,8 +121,8 @@ export default function InlineImageSelector({ currentImage, onImageSelect, class
     onImageSelect(imageUrl);
     setDialogOpen(false);
     toast({
-      title: "Imagem alterada",
-      description: "A imagem foi atualizada com sucesso.",
+      title: "✅ Imagem alterada",
+      description: "A nova imagem foi aplicada com sucesso!",
     });
   };
 
@@ -132,13 +132,18 @@ export default function InlineImageSelector({ currentImage, onImageSelect, class
 
   return (
     <div className={`relative group ${className}`}>
+      {/* Indicador de imagem editável */}
+      <div className="absolute top-2 right-2 bg-school-orange text-white rounded-full p-1 opacity-70 group-hover:opacity-100 transition-opacity z-20">
+        <Edit3 size={12} />
+      </div>
+      
       {/* Overlay de edição */}
-      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center rounded-lg">
+      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center rounded-lg z-10">
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
             <Button 
               size="sm" 
-              className="bg-white/90 text-gray-900 hover:bg-white"
+              className="bg-school-orange text-white hover:bg-school-orange/90 shadow-lg"
             >
               <Edit3 size={16} className="mr-2" />
               Alterar Imagem
