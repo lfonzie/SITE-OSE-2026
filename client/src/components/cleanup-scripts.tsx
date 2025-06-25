@@ -7,7 +7,7 @@ export default function CleanupScripts() {
       const styleId = 'hide-chat-widgets';
       let style = document.getElementById(styleId);
       
-      if (!style) {
+      if (!style && document.head) {
         style = document.createElement('style');
         style.id = styleId;
         style.textContent = `
@@ -20,10 +20,7 @@ export default function CleanupScripts() {
           div[style*="position: fixed"][style*="bottom"],
           div[style*="position: fixed"][style*="right"],
           div[style*="z-index: 999"],
-          div[style*="z-index: 9999"],
-          *[style*="position: fixed"]:has(img[src*="whatsapp"]),
-          *:contains("Fale Conosco"),
-          *:contains("WhatsApp") {
+          div[style*="z-index: 9999"] {
             display: none !important;
             visibility: hidden !important;
             opacity: 0 !important;
