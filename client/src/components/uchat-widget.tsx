@@ -2,43 +2,31 @@ import { useEffect } from "react";
 
 export default function WhatsAppWidget() {
   useEffect(() => {
-    // Hide UChatWidget in development and show our custom button
+    // Only hide our custom button on production domain (colegioose.com.br)
+    // UChatWidget script is loaded globally and will handle production
     if (window.location.hostname !== 'colegioose.com.br' && 
         !window.location.hostname.includes('colegioose.com.br')) {
       
+      // In development, hide any UChatWidget elements that might appear
       const hideStyle = document.createElement('style');
       hideStyle.textContent = `
         /* Hide UChatWidget in development */
         iframe[src*="uchat"],
         div[class*="uchat"],
-        div[id*="uchat"],
-        div[style*="position: fixed"][style*="bottom"]:not([data-custom-whatsapp]) {
+        div[id*="uchat"] {
           display: none !important;
         }
       `;
       document.head.appendChild(hideStyle);
-      
-      // Periodically hide any UChatWidget elements that appear
-      const hideUChatWidgets = () => {
-        document.querySelectorAll('*').forEach(element => {
-          if (element.getAttribute('data-custom-whatsapp')) return; // Skip our widget
-          
-          const className = element.className?.toString().toLowerCase() || '';
-          const id = element.id?.toLowerCase() || '';
-          const text = element.textContent?.trim() || '';
-          
-          // Hide UChatWidget elements
-          if (className.includes('uchat') || id.includes('uchat') || 
-              (text === 'Fale Conosco' && element.tagName !== 'A')) {
-            element.style.display = 'none';
-          }
-        });
-      };
-      
-      hideUChatWidgets();
-      const interval = setInterval(hideUChatWidgets, 1000);
-      
-      return () => clearInterval(interval);
+    } else {
+      // In production, hide our custom button
+      const hideCustomButton = document.createElement('style');
+      hideCustomButton.textContent = `
+        [data-custom-whatsapp] {
+          display: none !important;
+        }
+      `;
+      document.head.appendChild(hideCustomButton);
     }
   }, []);
 
