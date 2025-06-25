@@ -56,19 +56,20 @@ export default function MissaoValores() {
       <section className="relative bg-gradient-to-br from-school-orange via-orange-500 to-orange-600 text-white py-20 overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Missão e Valores
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-95">
-              Os princípios que guiam nossa jornada educacional há 100 anos
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                Missão e Valores
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 opacity-95">
+                Os princípios que guiam nossa jornada educacional há 100 anos
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 

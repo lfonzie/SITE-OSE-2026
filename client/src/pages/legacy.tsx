@@ -159,18 +159,20 @@ export default function Legacy() {
           <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Um Século de <span className="text-school-orange">Excelência</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-              <strong>1924 - 2024:</strong> 100 Anos de <strong>Tradição Educacional</strong>
-            </p>
-            <p className="text-lg mb-8 opacity-90 max-w-4xl mx-auto">
-              A Organização Sorocabana de Ensino é uma instituição que há um século desempenha papel 
-              fundamental na formação de milhares de estudantes em Sorocaba e região, contribuindo 
-              para o desenvolvimento social, econômico e cultural da cidade.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                Um Século de <span className="text-school-orange">Excelência</span>
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 leading-relaxed">
+                <strong>1924 - 2024:</strong> 100 Anos de <strong>Tradição Educacional</strong>
+              </p>
+              <p className="text-lg mb-8 opacity-90">
+                A Organização Sorocabana de Ensino é uma instituição que há um século desempenha papel 
+                fundamental na formação de milhares de estudantes em Sorocaba e região, contribuindo 
+                para o desenvolvimento social, econômico e cultural da cidade.
+              </p>
+            </div>
           </div>
         </div>
       </section>
