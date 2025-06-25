@@ -2,82 +2,43 @@ import { useEffect } from "react";
 
 export default function WhatsAppWidget() {
   useEffect(() => {
-    // Add CSS to hide any existing chat widgets in development
+    // Hide UChatWidget in development and show our custom button
     if (window.location.hostname !== 'colegioose.com.br' && 
         !window.location.hostname.includes('colegioose.com.br')) {
       
       const hideStyle = document.createElement('style');
       hideStyle.textContent = `
-        /* Hide any floating chat widgets that are not our custom one */
-        div[style*="position: fixed"][style*="bottom"]:not([data-custom-whatsapp]) {
-          display: none !important;
-        }
-        
-        /* Hide elements containing "Fale Conosco" text */
-        *:not(a):not([data-custom-whatsapp]) {
-          ${''/* Check for elements with "Fale Conosco" text */}
-        }
-        
-        /* Specifically target common chat widget patterns */
+        /* Hide UChatWidget in development */
         iframe[src*="uchat"],
-        iframe[src*="whatsapp"],
-        div[class*="chat-widget"],
-        div[id*="chat-widget"],
-        div[class*="whatsapp"],
-        div[id*="whatsapp"]:not([data-custom-whatsapp]) {
+        div[class*="uchat"],
+        div[id*="uchat"],
+        div[style*="position: fixed"][style*="bottom"]:not([data-custom-whatsapp]) {
           display: none !important;
         }
       `;
       document.head.appendChild(hideStyle);
       
-      // Also periodically remove chat elements
-      const removeUnwantedWidgets = () => {
+      // Periodically hide any UChatWidget elements that appear
+      const hideUChatWidgets = () => {
         document.querySelectorAll('*').forEach(element => {
           if (element.getAttribute('data-custom-whatsapp')) return; // Skip our widget
           
+          const className = element.className?.toString().toLowerCase() || '';
+          const id = element.id?.toLowerCase() || '';
           const text = element.textContent?.trim() || '';
-          const style = element.getAttribute('style') || '';
           
-          // Remove elements with "Fale Conosco" text that aren't our button
-          if (text === 'Fale Conosco' && element.tagName !== 'A') {
-            element.remove();
-          }
-          
-          // Remove floating green elements that look like chat widgets
-          if (style.includes('position: fixed') && 
-              style.includes('background') && 
-              (style.includes('green') || style.includes('25d366')) &&
-              !element.getAttribute('data-custom-whatsapp')) {
-            element.remove();
+          // Hide UChatWidget elements
+          if (className.includes('uchat') || id.includes('uchat') || 
+              (text === 'Fale Conosco' && element.tagName !== 'A')) {
+            element.style.display = 'none';
           }
         });
       };
       
-      removeUnwantedWidgets();
-      const interval = setInterval(removeUnwantedWidgets, 2000);
+      hideUChatWidgets();
+      const interval = setInterval(hideUChatWidgets, 1000);
       
       return () => clearInterval(interval);
-    }
-
-    // Only load UChatWidget on production domain
-    if (window.location.hostname === 'colegioose.com.br' || 
-        window.location.hostname.includes('colegioose.com.br')) {
-      
-      const loadUChatScript = () => {
-        const existingScript = document.querySelector('script[src="https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js"]');
-        if (existingScript) return;
-
-        const script = document.createElement('script');
-        script.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js';
-        script.async = true;
-        script.defer = true;
-        
-        if (document.head) {
-          document.head.appendChild(script);
-        }
-      };
-
-      loadUChatScript();
     }
   }, []);
 
