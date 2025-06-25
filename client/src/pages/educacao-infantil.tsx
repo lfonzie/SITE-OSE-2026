@@ -14,6 +14,7 @@ import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import InlineImageSelector from '@/components/InlineImageSelector';
 import { useAuth } from '@/contexts/AuthContext';
 import { useVisualComposer } from '@/hooks/useVisualComposer';
+import { usePageData } from '@/hooks/usePageData';
 
 // Importando imagens para Educação Infantil
 import { newImages } from "@/lib/image-verification";
@@ -27,12 +28,12 @@ const img6 = newImages.img17;
 export default function EducacaoInfantil() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Educação Infantil');
-  const [heroImage, setHeroImage] = useState('/images/horizontal_1.png');
-  const [activityImages, setActivityImages] = useState([
-    '/images/horizontal_2.png',
-    '/images/horizontal_3.png',
-    '/images/horizontal_4.png'
-  ]);
+  
+  // Initialize page data with auto-save functionality
+  const { heroImage, images, updateHeroImage, updateImage } = usePageData('Educação Infantil', {
+    heroImage: '/images/horizontal_1.png',
+    images: ['/images/horizontal_2.png', '/images/horizontal_3.png', '/images/horizontal_4.png']
+  });
 
   useEffect(() => {
     updateSEO({
@@ -81,7 +82,7 @@ export default function EducacaoInfantil() {
             {isAuthenticated && (
               <InlineImageSelector
                 currentImage={heroImage}
-                onImageSelect={(url) => setHeroImage(url)}
+                onImageSelect={updateHeroImage}
                 className="absolute inset-0"
               />
             )}
@@ -217,14 +218,14 @@ export default function EducacaoInfantil() {
                 >
                   <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-4 relative">
                     <img 
-                      src={activityImages[0]} 
+                      src={images[0] || '/images/horizontal_2.png'} 
                       alt="Atividades lúdicas" 
                       className="w-full h-48 object-cover"
                     />
                     {isAuthenticated && (
                       <InlineImageSelector
-                        currentImage={activityImages[0]}
-                        onImageSelect={(url) => setActivityImages(prev => [url, prev[1], prev[2]])}
+                        currentImage={images[0] || '/images/horizontal_2.png'}
+                        onImageSelect={(url) => updateImage(0, url)}
                         className="absolute inset-0"
                       />
                     )}
@@ -243,14 +244,14 @@ export default function EducacaoInfantil() {
                 >
                   <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-4 relative">
                     <img 
-                      src={activityImages[1]} 
+                      src={images[1] || '/images/horizontal_3.png'} 
                       alt="Arte e expressão" 
                       className="w-full h-48 object-cover"
                     />
                     {isAuthenticated && (
                       <InlineImageSelector
-                        currentImage={activityImages[1]}
-                        onImageSelect={(url) => setActivityImages(prev => [prev[0], url, prev[2]])}
+                        currentImage={images[1] || '/images/horizontal_3.png'}
+                        onImageSelect={(url) => updateImage(1, url)}
                         className="absolute inset-0"
                       />
                     )}
@@ -269,14 +270,14 @@ export default function EducacaoInfantil() {
                 >
                   <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-4 relative">
                     <img 
-                      src={activityImages[2]} 
+                      src={images[2] || '/images/horizontal_4.png'} 
                       alt="Desenvolvimento social" 
                       className="w-full h-48 object-cover"
                     />
                     {isAuthenticated && (
                       <InlineImageSelector
-                        currentImage={activityImages[2]}
-                        onImageSelect={(url) => setActivityImages(prev => [prev[0], prev[1], url])}
+                        currentImage={images[2] || '/images/horizontal_4.png'}
+                        onImageSelect={(url) => updateImage(2, url)}
                         className="absolute inset-0"
                       />
                     )}

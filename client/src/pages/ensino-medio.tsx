@@ -11,7 +11,7 @@ import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import { useVisualComposer } from '@/hooks/useVisualComposer';
-import { useEditableImages } from '@/hooks/useEditableImages';
+import { usePageData } from '@/hooks/usePageData';
 import InlineImageSelector from '@/components/InlineImageSelector';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -22,9 +22,10 @@ export default function EnsinoMedio() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Ensino Médio');
   
-  const [heroImage, setHeroImage] = useState(newImages.img7);
-  const { images: galleryImages, updateImage: updateGalleryImage } = useEditableImages({
-    initialImages: [newImages.img7, newImages.img8, newImages.img9]
+  // Initialize page data with auto-save functionality
+  const { heroImage, images, updateHeroImage, updateImage } = usePageData('Ensino Médio', {
+    heroImage: newImages.img7,
+    images: [newImages.img7, newImages.img8, newImages.img9]
   });
   useEffect(() => {
     updateSEO({
@@ -124,7 +125,7 @@ export default function EnsinoMedio() {
             {isAuthenticated && (
               <InlineImageSelector
                 currentImage={heroImage}
-                onImageSelect={(url) => setHeroImage(url)}
+                onImageSelect={updateHeroImage}
                 className="absolute inset-0"
               />
             )}
@@ -332,42 +333,42 @@ export default function EnsinoMedio() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="relative">
               <OptimizedImage
-                src={galleryImages[0]}
+                src={images[0] || newImages.img7}
                 alt="Novo Ensino Médio na OSE"
                 className="w-full h-48 rounded-lg shadow-lg"
               />
               {isAuthenticated && (
                 <InlineImageSelector
-                  currentImage={galleryImages[0]}
-                  onImageSelect={(url) => updateGalleryImage(0, url)}
+                  currentImage={images[0] || newImages.img7}
+                  onImageSelect={(url) => updateImage(0, url)}
                   className="absolute inset-0"
                 />
               )}
             </div>
             <div className="relative">
               <OptimizedImage
-                src={galleryImages[1]}
+                src={images[1] || newImages.img8}
                 alt="Projetos integradores"
                 className="w-full h-48 rounded-lg shadow-lg"
               />
               {isAuthenticated && (
                 <InlineImageSelector
-                  currentImage={galleryImages[1]}
-                  onImageSelect={(url) => updateGalleryImage(1, url)}
+                  currentImage={images[1] || newImages.img8}
+                  onImageSelect={(url) => updateImage(1, url)}
                   className="absolute inset-0"
                 />
               )}
             </div>
             <div className="relative">
               <OptimizedImage
-                src={galleryImages[2]}
+                src={images[2] || newImages.img9}
                 alt="Itinerários formativos"
                 className="w-full h-48 rounded-lg shadow-lg"
               />
               {isAuthenticated && (
                 <InlineImageSelector
-                  currentImage={galleryImages[2]}
-                  onImageSelect={(url) => updateGalleryImage(2, url)}
+                  currentImage={images[2] || newImages.img9}
+                  onImageSelect={(url) => updateImage(2, url)}
                   className="absolute inset-0"
                 />
               )}

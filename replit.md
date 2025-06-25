@@ -134,6 +134,7 @@ Changelog:
 - June 25, 2025: WhatsApp widget management: Fixed duplicate widget issues, installed UChatWidget globally for production domain, custom development button with correct number (15) 2101-3812
 - June 25, 2025: SEO implementation: Added comprehensive meta tags, Open Graph, Twitter Cards, structured data (JSON-LD), canonical URLs, and proper page titles for search engine optimization
 - June 25, 2025: UChatWidget production fix: Updated CSP to allow all UChatWidget resources (sdk.dfktv2.com, ipapi.co, media-src), fixed deprecated mobile app meta tag, resolved widget loading issues on deployed site
+- June 25, 2025: Auto-save system implementation: Created comprehensive auto-save hooks (useAutoSave, usePageData) for automatic saving of image changes, integrated Visual Composer with floating editor button on all education pages, restored grey gradient backgrounds to match site theme
 ```
 
 ## User Preferences
