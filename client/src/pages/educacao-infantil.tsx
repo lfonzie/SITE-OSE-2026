@@ -43,7 +43,7 @@ export default function EducacaoInfantil() {
     {
       icon: Users,
       title: "Desenvolvimento Socioemocional",
-      description: "Laboratório de Inteligência de Vida que cultiva inteligência emocional, empatia e resiliência desde cedo."
+      description: "Programa que cultiva inteligência emocional, empatia e resiliência desde cedo através de atividades lúdicas."
     },
     {
       icon: Palette,
@@ -112,46 +112,48 @@ export default function EducacaoInfantil() {
               <div className="mt-8">
                 <Button 
                   size="lg"
-                  className="bg-school-orange hover:bg-school-orange/90 text-white"
+                  className="bg-school-orange hover:bg-school-orange/90 text-white mr-4"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Agendamento Avaliação Pedagógica
                 </Button>
-                 <Button 
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-school-orange font-semibold px-8 py-3"
-                  onClick={() => document.getElementById('detalhes')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Saiba Mais
-                </Button>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <OptimizedImage
-                  src={img2}
-                  alt="Crianças da Educação Infantil em ambiente de aprendizado"
-                  className="w-full h-48 rounded-lg shadow-lg"
-                />
-                <OptimizedImage
-                  src={img1}
-                  alt="Sala de aula da Educação Infantil"
-                  className="w-full h-48 rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="grid grid-cols-1 gap-4">
-                {features.map((feature, index) => (
-                  <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
-                    <div className="bg-school-orange/10 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                      <feature.icon className="text-school-orange" size={20} />
-                    </div>
-                    <h4 className="font-bold text-slate-800 mb-2">{feature.title}</h4>
-                    <p className="text-sm text-slate-600">{feature.description}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 gap-4">
+              <OptimizedImage
+                src={img2}
+                alt="Crianças da Educação Infantil em ambiente de aprendizado"
+                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              />
+              <OptimizedImage
+                src={img3}
+                alt="Atividades lúdicas na Educação Infantil"
+                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              />
+              <OptimizedImage
+                src={img4}
+                alt="Desenvolvimento socioemocional"
+                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              />
+              <OptimizedImage
+                src={img5}
+                alt="Pedagogia finlandesa em prática"
+                className="w-full h-48 object-cover rounded-lg shadow-lg"
+              />
             </div>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {features.map((feature, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-lg text-center">
+                <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <feature.icon size={24} />
+                </div>
+                <h4 className="font-bold text-slate-800 mb-3">{feature.title}</h4>
+                <p className="text-slate-600 text-sm">{feature.description}</p>
+              </div>
+            ))}
           </div>
 
           {/* Diferenciais */}
@@ -184,26 +186,23 @@ export default function EducacaoInfantil() {
             </div>
           </div>
 
-          {/* Laboratory Section */}
-          <div className="bg-gradient-to-r from-slate-100 to-gray-50 rounded-xl p-8 md:p-12">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-slate-800 mb-4">
-                Laboratório de Inteligência de Vida
-              </h3>
-              <p className="text-xl text-slate-600">
-                Desenvolvimento Socioemocional desde a Primeira Infância
-              </p>
-            </div>
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-lg text-slate-600 mb-6">
-                Nossa abordagem centrada no aluno busca cultivar inteligência emocional, 
-                empoderando crianças e jovens a compreender e gerir suas emoções de forma eficaz.
-              </p>
-              <p className="text-lg text-slate-600">
-                Além disso, promovemos a construção de habilidades essenciais como empatia e resiliência, 
-                preparando-os para enfrentar os desafios da vida de maneira equilibrada e consciente.
-              </p>
-            </div>
+          {/* Galeria de Imagens */}
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            <OptimizedImage
+              src={img6}
+              alt="Ambiente de aprendizado lúdico"
+              className="w-full h-64 object-cover rounded-lg shadow-lg"
+            />
+            <OptimizedImage
+              src={img1}
+              alt="Sala de aula da Educação Infantil"
+              className="w-full h-64 object-cover rounded-lg shadow-lg"
+            />
+            <OptimizedImage
+              src={img2}
+              alt="Crianças em atividades pedagógicas"
+              className="w-full h-64 object-cover rounded-lg shadow-lg"
+            />
           </div>
         </div>
       </section>

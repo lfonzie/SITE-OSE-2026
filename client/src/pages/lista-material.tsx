@@ -29,29 +29,29 @@ export default function ListaMaterial() {
       titulo: "Educação Infantil",
       descricao: "Material lúdico e pedagógico para os primeiros anos",
       icone: <Palette className="text-school-orange" size={40} />,
-      link: "#educacao-infantil",
-      imagem: img1
+      series: ["Jardim I", "Jardim II"],
+      imagem: "/images/12.png"
     },
     {
       titulo: "Fundamental I",
       descricao: "Material completo para os anos iniciais",
       icone: <BookOpen className="text-school-orange" size={40} />,
-      link: "#fundamental-1",
-      imagem: img2
+      series: ["1º Ano", "2º Ano", "3º Ano", "4º Ano", "5º Ano"],
+      imagem: "/images/6.png"
     },
     {
       titulo: "Fundamental II",
       descricao: "Material específico para os anos finais",
       icone: <Backpack className="text-school-orange" size={40} />,
-      link: "#fundamental-2",
-      imagem: img3
+      series: ["6º Ano", "7º Ano", "8º Ano", "9º Ano"],
+      imagem: "/images/9.png"
     },
     {
       titulo: "Ensino Médio",
       descricao: "Material preparatório para vestibular e ENEM",
       icone: <FileText className="text-school-orange" size={40} />,
-      link: "#ensino-medio",
-      imagem: img4
+      series: ["1ª Série", "2ª Série", "3ª Série"],
+      imagem: "/images/2.png"
     }
   ];
 
@@ -149,15 +149,19 @@ export default function ListaMaterial() {
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-slate-800 mb-4">{segmento.titulo}</h3>
                   <p className="text-slate-600 mb-6">{segmento.descricao}</p>
-                  <div className="flex gap-4">
-                    <Button 
-                      className="bg-school-orange hover:bg-school-orange/90 text-white flex-1"
-                      onClick={() => alert('Lista será disponibilizada em dezembro')}
-                    >
-                      <Download className="mr-2" size={16} />
-                      Baixar Lista
-                    </Button>
-                    
+                  <div className="grid grid-cols-2 gap-2">
+                    {segmento.series.map((serie, serieIndex) => (
+                      <Button 
+                        key={serieIndex}
+                        size="sm"
+                        variant="outline"
+                        className="border-school-orange text-school-orange hover:bg-school-orange hover:text-white"
+                        onClick={() => alert(`Lista do ${serie} será disponibilizada em dezembro`)}
+                      >
+                        <Download className="mr-1" size={12} />
+                        {serie}
+                      </Button>
+                    ))}
                   </div>
                 </div>
               </div>

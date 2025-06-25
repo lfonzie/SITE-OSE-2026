@@ -156,18 +156,18 @@ export default function Integral() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img 
-                src="/attached_assets/0934_1750717790206.jpg" 
+              <OptimizedImage
+                src={newImages.horizontal30}
                 alt="Atividades do Integral Flex"
                 className="w-full h-48 object-cover rounded-lg shadow-lg"
               />
-              <img 
-                src="/attached_assets/0905_1750717790206.jpg" 
+              <OptimizedImage
+                src={newImages.horizontal31}
                 alt="Apoio acadêmico"
                 className="w-full h-48 object-cover rounded-lg shadow-lg"
               />
-              <img 
-                src="/attached_assets/0700_1750717790204.jpg" 
+              <OptimizedImage
+                src={newImages.horizontal32}
                 alt="Atividades complementares"
                 className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
               />

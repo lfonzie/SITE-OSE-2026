@@ -256,18 +256,18 @@ export default function Fundamental2() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img 
-                src="/attached_assets/1068_1750717790205.jpg" 
+              <OptimizedImage
+                src={img5}
                 alt="Alunos do Fundamental II em laboratório"
                 className="w-full h-48 object-cover rounded-lg shadow-lg"
               />
-              <img 
-                src="/attached_assets/1092_1750717790205.jpg" 
+              <OptimizedImage
+                src={img6}
                 alt="Sala de aula do Fundamental II"
                 className="w-full h-48 object-cover rounded-lg shadow-lg"
               />
-              <img 
-                src="/attached_assets/1105_1750717790206.jpg" 
+              <OptimizedImage
+                src={img2}
                 alt="Projeto pedagógico Fundamental II"
                 className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
               />
