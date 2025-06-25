@@ -10,7 +10,7 @@ import fs from "fs";
 const upload = multer({
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
-      const uploadPath = path.join(process.cwd(), 'client/public/images');
+      const uploadPath = path.join(process.cwd(), 'client/public/images/IG');
       // Criar diretório se não existir
       if (!fs.existsSync(uploadPath)) {
         fs.mkdirSync(uploadPath, { recursive: true });
@@ -144,7 +144,7 @@ export function registerRoutes(app: Express) {
       res.json({ 
         success: true, 
         fileName: req.file.filename,
-        path: `/images/${req.file.filename}`
+        path: `/images/IG/${req.file.filename}`
       });
     } catch (error: any) {
       res.status(500).json({ error: error.message });

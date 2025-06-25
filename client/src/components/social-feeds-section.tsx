@@ -6,14 +6,14 @@ export default function SocialFeedsSection() {
   const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [instagramImages, setInstagramImages] = useState([
-    "/images/0312_1750717790204.jpg",
-    "/images/0354_1750717790205.jpg",
-    "/images/0581_1750717790206.jpg",
-    "/images/0700_1750717790204.jpg",
-    "/images/0905_1750717790206.jpg",
-    "/images/0934_1750717790206.jpg",
-    "/images/1068_1750717790205.jpg",
-    "/images/1105_1750717790206.jpg"
+    "/images/IG/0312_1750717790204.jpg",
+    "/images/IG/0354_1750717790205.jpg",
+    "/images/IG/0581_1750717790206.jpg",
+    "/images/IG/0700_1750717790204.jpg",
+    "/images/IG/0905_1750717790206.jpg",
+    "/images/IG/0934_1750717790206.jpg",
+    "/images/IG/1068_1750717790205.jpg",
+    "/images/IG/1105_1750717790206.jpg"
   ]);
 
   useEffect(() => {

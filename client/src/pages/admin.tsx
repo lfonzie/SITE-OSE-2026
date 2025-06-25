@@ -126,7 +126,7 @@ export default function AdminPage() {
       }
 
       const result = await response.json();
-      const imageUrl = `/images/${fileName}`;
+      const imageUrl = `/images/IG/${fileName}`;
       
       const newPost: InstagramPost = {
         id: timestamp.toString(),
