@@ -139,7 +139,7 @@ export const commonSnippets: CodeSnippet[] = [
           return;
         }
         
-        const script = document.createElement('script');
+        var script = document.createElement('script');
         script.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/full.js';
         script.async = true;
         script.defer = true;
@@ -153,7 +153,7 @@ export const commonSnippets: CodeSnippet[] = [
           }
           
           // Check after 1 second
-          setTimeout(() => {
+          setTimeout(function() {
             console.log('Checking for UChat after 1s...');
             if (window.UChat) {
               console.log('UChat widget initialized');
@@ -162,27 +162,27 @@ export const commonSnippets: CodeSnippet[] = [
             } else {
               console.warn('UChat widget not found after script load');
               console.log('Available window objects containing chat/DF/widget:', 
-                Object.keys(window).filter(k => 
-                  k.toLowerCase().includes('chat') || 
-                  k.includes('DF') || 
-                  k.toLowerCase().includes('widget') ||
-                  k.toLowerCase().includes('uchat')
-                )
+                Object.keys(window).filter(function(k) {
+                  return k.toLowerCase().includes('chat') || 
+                    k.includes('DF') || 
+                    k.toLowerCase().includes('widget') ||
+                    k.toLowerCase().includes('uchat');
+                })
               );
               
               // Check for any scripts loaded
-              const scripts = Array.from(document.scripts);
-              const uchatScripts = scripts.filter(s => s.src && s.src.includes('uchat'));
+              var scripts = Array.from(document.scripts);
+              var uchatScripts = scripts.filter(function(s) { return s.src && s.src.includes('uchat'); });
               console.log('UChat scripts found:', uchatScripts.length);
               
               // Check for widget containers
-              const widgets = document.querySelectorAll('[id*="chat"], [class*="chat"], [id*="widget"], [class*="widget"]');
+              var widgets = document.querySelectorAll('[id*="chat"], [class*="chat"], [id*="widget"], [class*="widget"]');
               console.log('Potential widget elements:', widgets.length);
             }
           }, 2000);
           
           // Final check after 5 seconds
-          setTimeout(() => {
+          setTimeout(function() {
             console.log('Final UChat check after 5s...');
             if (window.UChat || window.DF_Widget) {
               console.log('UChat/DF Widget found in final check');
