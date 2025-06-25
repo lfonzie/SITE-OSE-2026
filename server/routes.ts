@@ -1,9 +1,40 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { storage } from "./storage.js";
+import { z } from "zod";
 import { insertContactSchema } from "@shared/schema";
+import multer from "multer";
+import path from "path";
+import fs from "fs";
 
-export async function registerRoutes(app: Express): Promise<Server> {
+// Configurar multer para upload de imagens
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      const uploadPath = path.join(process.cwd(), 'client/public/images');
+      // Criar diretório se não existir
+      if (!fs.existsSync(uploadPath)) {
+        fs.mkdirSync(uploadPath, { recursive: true });
+      }
+      cb(null, uploadPath);
+    },
+    filename: (req, file, cb) => {
+      const fileName = req.body.fileName || `instagram_${Date.now()}.${file.originalname.split('.').pop()}`;
+      cb(null, fileName);
+    }
+  }),
+  limits: {
+    fileSize: 5 * 1024 * 1024 // 5MB
+  },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.startsWith('image/')) {
+      cb(null, true);
+    } else {
+      cb(new Error('Apenas arquivos de imagem são permitidos'));
+    }
+  }
+});
+
+export function registerRoutes(app: Express) {
   // Programs
   app.get("/api/programs", async (req, res) => {
     try {
@@ -83,18 +114,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Contacts
+  // Contact form
   app.post("/api/contacts", async (req, res) => {
     try {
-      const validatedData = insertContactSchema.parse(req.body);
-      const contact = await storage.createContact(validatedData);
-      res.status(201).json(contact);
-    } catch (error) {
-      if (error instanceof Error) {
-        res.status(400).json({ message: error.message });
-      } else {
-        res.status(500).json({ message: "Failed to create contact" });
-      }
+      const contact = insertContactSchema.parse(req.body);
+      const newContact = await storage.createContact(contact);
+      res.json(newContact);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
     }
   });
 
@@ -102,11 +129,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const contacts = await storage.getContacts();
       res.json(contacts);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch contacts" });
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
     }
   });
 
-  const httpServer = createServer(app);
-  return httpServer;
+  // Upload de imagens
+  app.post("/api/upload-image", upload.single('file'), (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: 'Nenhum arquivo enviado' });
+      }
+
+      res.json({ 
+        success: true, 
+        fileName: req.file.filename,
+        path: `/images/${req.file.filename}`
+      });
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
 }

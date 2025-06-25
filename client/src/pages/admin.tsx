@@ -105,30 +105,45 @@ export default function AdminPage() {
     setUploading(true);
 
     try {
-      // Converter para base64 para armazenar localmente
-      const reader = new FileReader();
-      reader.onload = () => {
-        const imageUrl = reader.result as string;
-        
-        const newPost: InstagramPost = {
-          id: Date.now().toString(),
-          imageUrl,
-          uploadedAt: new Date()
-        };
-
-        const updatedPosts = [newPost, ...instagramPosts].slice(0, 8); // Manter apenas 8 fotos
-        saveInstagramPosts(updatedPosts);
-
-        toast({
-          title: "Foto enviada com sucesso!",
-          description: "A foto foi adicionada ao feed do Instagram.",
-        });
-
-        // Limpar input
-        e.target.value = '';
-      };
+      // Criar nome único para o arquivo
+      const timestamp = Date.now();
+      const extension = file.name.split('.').pop() || 'jpg';
+      const fileName = `instagram_${timestamp}.${extension}`;
       
-      reader.readAsDataURL(file);
+      // Criar FormData para envio
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('fileName', fileName);
+
+      // Enviar arquivo para o servidor
+      const response = await fetch('/api/upload-image', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro ao fazer upload da imagem');
+      }
+
+      const result = await response.json();
+      const imageUrl = `/images/${fileName}`;
+      
+      const newPost: InstagramPost = {
+        id: timestamp.toString(),
+        imageUrl,
+        uploadedAt: new Date()
+      };
+
+      const updatedPosts = [newPost, ...instagramPosts].slice(0, 8); // Manter apenas 8 fotos
+      saveInstagramPosts(updatedPosts);
+
+      toast({
+        title: "Foto enviada com sucesso!",
+        description: "A foto foi adicionada ao feed do Instagram.",
+      });
+
+      // Limpar input
+      e.target.value = '';
     } catch (error) {
       toast({
         title: "Erro no upload",

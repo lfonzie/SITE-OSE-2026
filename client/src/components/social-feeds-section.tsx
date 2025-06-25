@@ -21,6 +21,7 @@ export default function SocialFeedsSection() {
     if (savedPosts) {
       const posts = JSON.parse(savedPosts);
       if (posts.length > 0) {
+        // Usar as imagens do admin que foram salvas na pasta public/images
         const adminImages = posts.map((post: any) => post.imageUrl);
         setInstagramImages(adminImages);
       }
@@ -85,60 +86,51 @@ export default function SocialFeedsSection() {
             <h3 className="text-2xl font-bold text-slate-800">@colegioose</h3>
           </div>
 
-          {instagramPosts.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              {instagramPosts.slice(0, 8).map((post, index) => (
-                <a 
-                  key={post.id}
-                  href={post.permalink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all"
-                  style={{ display: index >= 4 ? 'none' : 'block' }}
-                >
-                  <img 
-                    src={post.media_url}
-                    alt={post.caption.split(' ').slice(0, 5).join(' ')}
-                    className="w-full h-full object-cover group-hover:brightness-110 transition-all"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <Camera className="text-white" size={24} />
-                  </div>
-                </a>
-              ))}
-              {/* Mostrar mais posts em desktop */}
-              {instagramPosts.slice(4, 8).map((post, index) => (
-                <a 
-                  key={post.id}
-                  href={post.permalink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all hidden md:block"
-                >
-                  <img 
-                    src={post.media_url}
-                    alt={post.caption.split(' ').slice(0, 5).join(' ')}
-                    className="w-full h-full object-cover group-hover:brightness-110 transition-all"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <Camera className="text-white" size={24} />
-                  </div>
-                </a>
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              {Array.from({ length: 8 }).map((_, index) => (
-                <div 
-                  key={index}
-                  className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center"
-                  style={{ display: index >= 4 ? 'none' : 'flex' }}
-                >
-                  <Camera className="text-school-orange" size={32} />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            {instagramImages.slice(0, 8).map((imageUrl, index) => (
+              <div 
+                key={index}
+                className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all"
+                style={{ display: index >= 4 ? 'none' : 'block' }}
+              >
+                <img 
+                  src={imageUrl}
+                  alt={`Foto ${index + 1} do Instagram OSE`}
+                  className="w-full h-full object-cover group-hover:brightness-110 transition-all"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                  <Camera className="text-white" size={24} />
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+            {/* Mostrar mais fotos em desktop */}
+            {instagramImages.slice(4, 8).map((imageUrl, index) => (
+              <div 
+                key={index + 4}
+                className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all hidden md:block"
+              >
+                <img 
+                  src={imageUrl}
+                  alt={`Foto ${index + 5} do Instagram OSE`}
+                  className="w-full h-full object-cover group-hover:brightness-110 transition-all"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                  <Camera className="text-white" size={24} />
+                </div>
+              </div>
+            ))}
+            
+            {/* Placeholders para slots vazios */}
+            {Array.from({ length: Math.max(0, 8 - instagramImages.length) }).map((_, index) => (
+              <div 
+                key={`placeholder-${index}`}
+                className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center"
+                style={{ display: (instagramImages.length + index) >= 4 ? 'none' : 'flex' }}
+              >
+                <Camera className="text-school-orange" size={32} />
+              </div>
+            ))}
+          </div>
 
           <div className="text-center">
             <p className="text-slate-600 mb-2">
