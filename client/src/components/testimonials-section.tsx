@@ -55,9 +55,9 @@ export default function TestimonialsSection() {
             // Fotos específicas para pessoas específicas
             let selectedPhoto;
             if (testimonial.name.includes("Fernando")) {
-              selectedPhoto = "/images/fernando_photo.jpg";
-            } else if (testimonial.name.includes("Samanta")) {
               selectedPhoto = "/images/samanta_photo.jpg";
+            } else if (testimonial.name.includes("Samanta")) {
+              selectedPhoto = "/images/fernando_photo.jpg";
             } else {
               // Seleciona uma foto baseada no índice do depoimento para outros
               const photoIndex = index % genericPhotos.length;
