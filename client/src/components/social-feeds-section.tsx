@@ -43,9 +43,9 @@ export default function SocialFeedsSection() {
           "/images/3.png",
           "/images/4.png",
           "/images/5.png",
-          "/api/images/IG/0934_1750717790206.jpg",
-          "/api/images/IG/1068_1750717790205.jpg",
-          "/api/images/IG/1105_1750717790206.jpg"
+          "/images/6.png",
+          "/images/7.png",
+          "/images/8.png"
         ];
         setInstagramImages(defaultImages);
       }

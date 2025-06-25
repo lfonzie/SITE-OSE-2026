@@ -7,7 +7,7 @@ export default function AboutSection() {
       {/* Background image with overlay */}
       <div className="absolute inset-0 opacity-10">
         <img 
-          src="/attached_assets/0934_1750717790206.jpg" 
+          src="/images/horizontal_27.png" 
           alt="Colégio OSE - Ambiente escolar"
           className="w-full h-full object-cover"
         />

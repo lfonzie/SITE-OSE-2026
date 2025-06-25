@@ -12,12 +12,13 @@ import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 // Importando imagens para Educação Infantil
-const img1 = "/images/0354_1750717790205.jpg";
-const img2 = "/images/0312_1750717790204.jpg";
-const img3 = "/images/0700_1750717790204.jpg";
-const img4 = "/images/0905_1750717790206.jpg";
-const img5 = "/images/1068_1750717790205.jpg";
-const img6 = "/images/1092_1750717790205.jpg";
+import { newImages } from "@/lib/image-verification";
+const img1 = newImages.img12;
+const img2 = newImages.img13;
+const img3 = newImages.img14;
+const img4 = newImages.img15;
+const img5 = newImages.img16;
+const img6 = newImages.img17;
 
 export default function EducacaoInfantil() {
   useEffect(() => {

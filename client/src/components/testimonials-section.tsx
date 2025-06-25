@@ -41,15 +41,15 @@ export default function TestimonialsSection() {
           {testimonials?.map((testimonial, index) => {
             // Array de fotos genéricas para os depoimentos
             const genericPhotos = [
-              "/images/0023_1750717790208.jpg",
-              "/images/0312_1750717790204.jpg", 
-              "/images/0354_1750717790205.jpg",
-              "/images/0491_1750717790207.jpg",
-              "/images/0541_1750717790207.jpg",
-              "/images/0581_1750717790206.jpg",
-              "/images/0700_1750717790204.jpg",
-              "/images/0905_1750717790206.jpg",
-              "/images/0934_1750717790206.jpg"
+              "/images/horizontal_18.png",
+              "/images/horizontal_19.png", 
+              "/images/horizontal_20.png",
+              "/images/horizontal_21.png",
+              "/images/horizontal_22.png",
+              "/images/horizontal_23.png",
+              "/images/horizontal_24.png",
+              "/images/horizontal_25.png",
+              "/images/horizontal_26.png"
             ];
             
             // Fotos específicas para pessoas específicas

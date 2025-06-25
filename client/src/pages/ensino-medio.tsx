@@ -12,12 +12,13 @@ import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 // Usando imagens da pasta public/images
-const img1 = "/images/0312_1750719589609.jpg";
-const img2 = "/images/0354_1750719589610.jpg";
-const img3 = "/images/0491_1750719589611.jpg";
-const img4 = "/images/0541_1750719589611.jpg";
-const img5 = "/images/0581_1750719589610.jpg";
-const img6 = "/images/0700_1750719589609.jpg";
+import { newImages } from "@/lib/image-verification";
+const img1 = newImages.img20;
+const img2 = newImages.img21;
+const img3 = newImages.img22;
+const img4 = newImages.img23;
+const img5 = newImages.img24;
+const img6 = newImages.img25;
 
 export default function EnsinoMedio() {
   useEffect(() => {

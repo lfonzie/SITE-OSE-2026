@@ -12,12 +12,13 @@ import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 
 // Usando imagens da pasta public/images
-const img1 = "/images/0934_1750717790206.jpg";
-const img2 = "/images/1105_1750717790206.jpg";
-const img3 = "/images/0581_1750717790206.jpg";
-const img4 = "/images/0491_1750717790207.jpg";
-const img5 = "/images/0541_1750717790207.jpg";
-const img6 = "/images/1295_1750717790207.jpg";
+import { newImages } from "@/lib/image-verification";
+const img1 = newImages.img16;
+const img2 = newImages.img17;
+const img3 = newImages.img18;
+const img4 = newImages.img19;
+const img5 = newImages.img20;
+const img6 = newImages.img21;
 
 export default function Fundamental1() {
   useEffect(() => {
