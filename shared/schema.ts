@@ -50,20 +50,33 @@ export const contacts = pgTable("contacts", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+export const materialLists = pgTable("material_lists", {
+  id: serial("id").primaryKey(),
+  segment: text("segment").notNull(), // "infantil", "fundamental1", "fundamental2", "medio"
+  grade: text("grade").notNull(), // "jardim1", "1ano", "2ano", etc.
+  year: integer("year").notNull(), // 2025, 2026
+  googleDriveLink: text("google_drive_link"),
+  fileName: text("file_name"),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
 export const insertProgramSchema = createInsertSchema(programs).omit({ id: true });
 export const insertFacultySchema = createInsertSchema(faculty).omit({ id: true });
 export const insertNewsSchema = createInsertSchema(news).omit({ id: true });
 export const insertTestimonialSchema = createInsertSchema(testimonials).omit({ id: true });
 export const insertContactSchema = createInsertSchema(contacts).omit({ id: true, createdAt: true });
+export const insertMaterialListSchema = createInsertSchema(materialLists).omit({ id: true, updatedAt: true });
 
 export type Program = typeof programs.$inferSelect;
 export type Faculty = typeof faculty.$inferSelect;
 export type News = typeof news.$inferSelect;
 export type Testimonial = typeof testimonials.$inferSelect;
 export type Contact = typeof contacts.$inferSelect;
+export type MaterialList = typeof materialLists.$inferSelect;
 
 export type InsertProgram = z.infer<typeof insertProgramSchema>;
 export type InsertFaculty = z.infer<typeof insertFacultySchema>;
 export type InsertNews = z.infer<typeof insertNewsSchema>;
 export type InsertTestimonial = z.infer<typeof insertTestimonialSchema>;
 export type InsertContact = z.infer<typeof insertContactSchema>;
+export type InsertMaterialList = z.infer<typeof insertMaterialListSchema>;

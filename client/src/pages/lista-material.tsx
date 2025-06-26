@@ -12,6 +12,11 @@ import DragImagePosition from '@/components/DragImagePosition';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import ImagePositionControls from '@/components/ImagePositionControls';
 import { usePageData } from '@/hooks/usePageData';
+import LogoutButton from '@/components/LogoutButton';
+import MaterialListManager from '@/components/MaterialListManager';
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 
 // Usando imagens da pasta public/images
 const img1 = "/images/0934_1750717790206.jpg";
@@ -23,6 +28,7 @@ const img5 = "/images/0541_1750717790207.jpg";
 export default function ListaMaterial() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Lista de Material');
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
   
   const { 
     heroImage, 
@@ -34,6 +40,14 @@ export default function ListaMaterial() {
   } = usePageData('Lista de Material', {
     heroImage: img1,
     images: [img2, img3, img4, img5]
+  });
+
+  const { data: materialLists = [] } = useQuery({
+    queryKey: ['/api/material-lists'],
+    queryFn: async () => {
+      const response = await fetch('/api/material-lists');
+      return response.json();
+    }
   });
 
   useEffect(() => {
@@ -77,6 +91,9 @@ export default function ListaMaterial() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      {/* Logout button for authenticated users */}
+      {isAuthenticated && <LogoutButton />}
+      
       <Navigation />
 
       {/* Hero Section */}

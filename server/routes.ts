@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { storage } from "./storage.js";
 import { z } from "zod";
-import { insertContactSchema } from "@shared/schema";
+import { insertContactSchema, insertMaterialListSchema } from "@shared/schema";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
@@ -304,6 +304,49 @@ export function registerRoutes(app: Express) {
     } catch (error: any) {
       console.error('Error loading server images:', error);
       res.status(500).json({ error: 'Failed to load server images' });
+    }
+  });
+
+  // Material Lists API
+  app.get("/api/material-lists", async (req, res) => {
+    try {
+      const lists = await storage.getMaterialLists();
+      res.json(lists);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch material lists" });
+    }
+  });
+
+  app.get("/api/material-lists/:segment", async (req, res) => {
+    try {
+      const lists = await storage.getMaterialListsBySegment(req.params.segment);
+      res.json(lists);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch material lists" });
+    }
+  });
+
+  app.post("/api/material-lists", async (req, res) => {
+    try {
+      const validatedData = insertMaterialListSchema.parse(req.body);
+      const materialList = await storage.createMaterialList(validatedData);
+      res.status(201).json(materialList);
+    } catch (error) {
+      res.status(400).json({ message: "Invalid material list data" });
+    }
+  });
+
+  app.patch("/api/material-lists/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const updates = req.body;
+      const updated = await storage.updateMaterialList(id, updates);
+      if (!updated) {
+        return res.status(404).json({ message: "Material list not found" });
+      }
+      res.json(updated);
+    } catch (error) {
+      res.status(400).json({ message: "Failed to update material list" });
     }
   });
 

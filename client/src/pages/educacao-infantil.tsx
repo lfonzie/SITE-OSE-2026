@@ -15,6 +15,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import DragImagePosition from '@/components/DragImagePosition';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import ImagePositionControls from '@/components/ImagePositionControls';
+import LogoutButton from '@/components/LogoutButton';
 
 
 // Usando imagens da pasta public/images
@@ -75,53 +76,89 @@ export default function EducacaoInfantil() {
       {/* Visual Composer - floating edit button for authenticated users */}
       <VisualComposerComponent />
       
+      {/* Logout button for authenticated users */}
+      {isAuthenticated && <LogoutButton />}
+      
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden">
+      {/* Hero Section - Equal to Fund 1 */}
+      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
+          <DragImagePosition
             src={heroImage || '/images/horizontal_1.png'}
-            alt="Educação Infantil OSE"
-            className="w-full h-full object-cover"
+            alt="Educação Infantil - OSE"
+            className="w-full h-full opacity-30"
+            editable={isAuthenticated}
+            initialPosition={{
+              x: getImagePosition('hero-bg')?.horizontalPosition || 0,
+              y: getImagePosition('hero-bg')?.verticalPosition || 0
+            }}
+            onPositionChange={(position: { x: number; y: number }) => {
+              const currentPos = getImagePosition('hero-bg') || {
+                objectPosition: 'center center',
+                horizontalPosition: 0,
+                verticalPosition: 0,
+                scale: 1,
+                opacity: 1,
+                filter: 'none',
+                objectFit: 'cover' as const
+              };
+              updateImagePosition('hero-bg', {
+                ...currentPos,
+                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                horizontalPosition: position.x,
+                verticalPosition: position.y
+              });
+            }}
           />
-          <div className="absolute inset-0 bg-slate-800/70"></div>
+          {isAuthenticated && (
+            <>
+              <EnhancedImageSelector
+                currentImage={heroImage || '/images/horizontal_1.png'}
+                onImageSelect={updateHeroImage}
+                className="absolute top-4 right-4 z-10"
+              />
+              <ImagePositionControls
+                currentPosition={getImagePosition('hero-bg')}
+                onPositionChange={(position) => updateImagePosition('hero-bg', position)}
+                className="absolute top-4 left-4 z-10"
+              />
+            </>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
         </div>
-        
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <motion.h1 
+                className="text-5xl md:text-6xl font-bold mb-6"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
                 Educação <span className="text-school-orange">Infantil</span>
-                <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
-                  Jardim I e Jardim II - Onde Cada Descoberta é uma Nova Aventura
-                </span>
-              </h1>
-              <p className="text-xl text-white mb-8 leading-relaxed">
-                Na OSE, oferecemos uma educação infantil que vai além do cuidar. Para crianças de 4 a 6 anos, 
-                desenvolvemos um programa completo que combina aprendizado lúdico, desenvolvimento socioemocional 
-                e preparação acadêmica em um ambiente seguro e estimulante.
-              </p>
-              <p className="text-lg text-white/90 mb-8">
-                Nossa metodologia única respeita o ritmo natural de cada criança, promovendo autonomia, 
-                criatividade e o prazer de aprender através de experiências significativas e brincadeiras dirigidas.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-                  <span className="text-white font-semibold">Jardim I: 4-5 anos</span>
-                </div>
-                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-                  <span className="text-white font-semibold">Jardim II: 5-6 anos</span>
-                </div>
-              </div>
-              
-            </motion.div>
+              </motion.h1>
+              <motion.p 
+                className="text-xl md:text-2xl mb-8 leading-relaxed"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Desenvolvendo <strong>mentes curiosas</strong> e <strong>corações compassivos</strong>
+              </motion.p>
+              <motion.p 
+                className="text-lg mb-8 opacity-90"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                A Educação Infantil da OSE é onde cada descoberta se torna uma nova aventura. 
+                Para crianças de 4 a 6 anos, oferecemos um programa completo que combina 
+                aprendizado lúdico e desenvolvimento socioemocional em um ambiente seguro e estimulante.
+              </motion.p>
 
-            
+            </div>
           </div>
         </div>
       </section>

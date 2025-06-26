@@ -1,7 +1,7 @@
 import { 
-  programs, faculty, news, testimonials, contacts,
-  type Program, type Faculty, type News, type Testimonial, type Contact,
-  type InsertProgram, type InsertFaculty, type InsertNews, type InsertTestimonial, type InsertContact
+  programs, faculty, news, testimonials, contacts, materialLists,
+  type Program, type Faculty, type News, type Testimonial, type Contact, type MaterialList,
+  type InsertProgram, type InsertFaculty, type InsertNews, type InsertTestimonial, type InsertContact, type InsertMaterialList
 } from "@shared/schema";
 
 export interface IStorage {
@@ -28,6 +28,12 @@ export interface IStorage {
   // Contacts
   createContact(contact: InsertContact): Promise<Contact>;
   getContacts(): Promise<Contact[]>;
+  
+  // Material Lists
+  getMaterialLists(): Promise<MaterialList[]>;
+  getMaterialListsBySegment(segment: string): Promise<MaterialList[]>;
+  createMaterialList(materialList: InsertMaterialList): Promise<MaterialList>;
+  updateMaterialList(id: number, updates: Partial<MaterialList>): Promise<MaterialList | undefined>;
 }
 
 export class MemStorage implements IStorage {
@@ -36,6 +42,7 @@ export class MemStorage implements IStorage {
   private news: Map<number, News> = new Map();
   private testimonials: Map<number, Testimonial> = new Map();
   private contacts: Map<number, Contact> = new Map();
+  private materialLists: Map<number, MaterialList> = new Map();
   private currentId = 1;
 
   constructor() {
@@ -292,6 +299,44 @@ export class MemStorage implements IStorage {
 
   async getContacts(): Promise<Contact[]> {
     return Array.from(this.contacts.values()).sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+  }
+
+  // Material Lists
+  async getMaterialLists(): Promise<MaterialList[]> {
+    return Array.from(this.materialLists.values()).sort((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime());
+  }
+
+  async getMaterialListsBySegment(segment: string): Promise<MaterialList[]> {
+    return Array.from(this.materialLists.values())
+      .filter(list => list.segment === segment)
+      .sort((a, b) => b.year - a.year);
+  }
+
+  async createMaterialList(materialList: InsertMaterialList): Promise<MaterialList> {
+    const id = this.currentId++;
+    const newMaterialList: MaterialList = { 
+      ...materialList,
+      googleDriveLink: materialList.googleDriveLink || null,
+      fileName: materialList.fileName || null,
+      id,
+      updatedAt: new Date()
+    };
+    this.materialLists.set(id, newMaterialList);
+    return newMaterialList;
+  }
+
+  async updateMaterialList(id: number, updates: Partial<MaterialList>): Promise<MaterialList | undefined> {
+    const existing = this.materialLists.get(id);
+    if (!existing) return undefined;
+    
+    const updated: MaterialList = { 
+      ...existing, 
+      ...updates, 
+      id,
+      updatedAt: new Date()
+    };
+    this.materialLists.set(id, updated);
+    return updated;
   }
 }
 
