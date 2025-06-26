@@ -52,13 +52,14 @@ export default function ProgramsSection() {
   });
 
   const getImageForProgram = (title: string, index: number) => {
+    const currentImages = images || [];
     const imageMap: Record<string, string> = {
-      'Educação Infantil': images?.[0] || newImages.img9,
-      'Ensino Fundamental I': images?.[1] || newImages.img10,
-      'Ensino Fundamental II': images?.[2] || newImages.img11,
-      'Ensino Médio': images?.[3] || newImages.img12
+      'Educação Infantil': currentImages[0] || newImages.img9,
+      'Ensino Fundamental I': currentImages[1] || newImages.img10,
+      'Ensino Fundamental II': currentImages[2] || newImages.img11,
+      'Ensino Médio': currentImages[3] || newImages.img12
     };
-    return imageMap[title] || images?.[index] || newImages.img1;
+    return imageMap[title] || currentImages[index] || newImages.img1;
   };
   
   const { data: programs, isLoading } = useQuery<Program[]>({
