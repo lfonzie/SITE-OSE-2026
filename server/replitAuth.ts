@@ -67,12 +67,15 @@ async function upsertUser(
 }
 
 export async function setupAuth(app: Express) {
+  console.log("Setting up Replit Auth...");
   app.set("trust proxy", 1);
   app.use(getSession());
   app.use(passport.initialize());
   app.use(passport.session());
 
+  console.log("Getting OIDC config...");
   const config = await getOidcConfig();
+  console.log("OIDC config obtained successfully");
 
   const verify: VerifyFunction = async (
     tokens: client.TokenEndpointResponse & client.TokenEndpointResponseHelpers,
@@ -86,36 +89,51 @@ export async function setupAuth(app: Express) {
 
   for (const domain of process.env
     .REPLIT_DOMAINS!.split(",")) {
+    console.log("Registering strategy for domain:", domain);
     const strategy = new Strategy(
       {
         name: `replitauth:${domain}`,
         config,
         scope: "openid email profile offline_access",
-        callbackURL: `https://${domain}/api/callback`,
+        callbackURL: `https://${domain}/auth/callback`,
       },
       verify,
     );
     passport.use(strategy);
+    console.log("Strategy registered:", `replitauth:${domain}`);
   }
+  
+  console.log("Registering login and callback routes...");
 
   passport.serializeUser((user: Express.User, cb) => cb(null, user));
   passport.deserializeUser((user: Express.User, cb) => cb(null, user));
+  
+  // Test route to verify API routing works
+  app.get("/api/auth-test", (req, res) => {
+    res.json({ message: "Auth routes working", hostname: req.hostname });
+  });
 
-  app.get("/api/login", (req, res, next) => {
-    passport.authenticate(`replitauth:${req.hostname}`, {
+  app.get("/auth/login", (req, res, next) => {
+    console.log("Login request - hostname:", req.hostname);
+    console.log("Available strategies:", (passport as any)._strategies ? Object.keys((passport as any)._strategies) : "none");
+    
+    const strategyName = `replitauth:${req.hostname}`;
+    console.log("Using strategy:", strategyName);
+    
+    passport.authenticate(strategyName, {
       prompt: "login consent",
       scope: ["openid", "email", "profile", "offline_access"],
     })(req, res, next);
   });
 
-  app.get("/api/callback", (req, res, next) => {
+  app.get("/auth/callback", (req, res, next) => {
     passport.authenticate(`replitauth:${req.hostname}`, {
       successReturnToOrRedirect: "/",
-      failureRedirect: "/api/login",
+      failureRedirect: "/auth/login",
     })(req, res, next);
   });
 
-  app.get("/api/logout", (req, res) => {
+  app.get("/auth/logout", (req, res) => {
     req.logout(() => {
       res.redirect(
         client.buildEndSessionUrl(config, {

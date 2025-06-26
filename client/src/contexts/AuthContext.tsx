@@ -20,7 +20,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const isAuthorized = isAuthenticated && user?.email === AUTHORIZED_EMAIL;
 
   const logout = () => {
-    window.location.href = "/api/logout";
+    window.location.href = "/auth/logout";
   };
 
   return (

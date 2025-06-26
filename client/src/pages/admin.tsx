@@ -224,14 +224,11 @@ export default function AdminPage() {
           </CardHeader>
           <CardContent>
             <Button 
-              onClick={() => window.location.href = "/api/login"}
+              onClick={() => window.location.href = "/auth/login"}
               className="w-full bg-school-orange text-white font-semibold"
             >
               Fazer Login com Google
             </Button>
-            <p className="text-xs text-slate-500 text-center mt-4 font-body">
-              Apenas fonseca@colegioose.com.br é autorizado
-            </p>
           </CardContent>
         </Card>
       </div>
