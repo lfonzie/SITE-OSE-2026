@@ -249,7 +249,7 @@ export default function Legacy() {
       <section 
         className="py-20 text-white overflow-hidden relative"
         style={{
-          backgroundImage: `linear-gradient(${heroBackground?.gradientColors?.join(', ') || '#475569, #64748b'}), url('${heroImage || newImages.horizontal1}')`,
+          backgroundImage: `linear-gradient(rgba(71, 85, 105, 0.6), rgba(100, 116, 139, 0.6)), url('${heroImage || newImages.horizontal1}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

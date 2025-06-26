@@ -145,6 +145,8 @@ export default function EnhancedImageSelector({ currentImage, onImageSelect, cla
   };
 
   const handleImageSelect = (imageUrl: string) => {
+    console.log('Selecionando imagem:', imageUrl);
+    console.log('Função onImageSelect:', onImageSelect);
     onImageSelect(imageUrl);
     setDialogOpen(false);
     toast({

@@ -43,11 +43,17 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
 
   // Update hero image
   const updateHeroImage = useCallback((imageUrl: string) => {
-    setPageData(prev => ({
-      ...prev,
-      heroImage: imageUrl,
-      lastModified: new Date().toISOString()
-    }));
+    console.log('updateHeroImage chamado com:', imageUrl);
+    setPageData(prev => {
+      console.log('Dados anteriores:', prev);
+      const newData = {
+        ...prev,
+        heroImage: imageUrl,
+        lastModified: new Date().toISOString()
+      };
+      console.log('Novos dados:', newData);
+      return newData;
+    });
   }, []);
 
   // Update images array
