@@ -40,23 +40,33 @@ export default function EducacaoInfantil() {
   const features = [
     {
       icon: Heart,
-      title: "Ambiente Seguro e Respeitoso para o Desenvolvimento Emocional",
-      description: "A segurança e o desenvolvimento emocional são primordiais em nossa abordagem. Criamos espaços acolhedores onde as crianças podem crescer individualmente e socialmente, fortalecendo sua autoestima e sua percepção sobre si e seu lugar no mundo."
+      title: "Ambiente Seguro e Acolhedor",
+      description: "Criamos um ambiente onde cada criança se sente segura, respeitada e amada. Nossos espaços são cuidadosamente planejados para estimular a exploração e o descobrimento, com profissionais especializados que acompanham cada passo do desenvolvimento infantil. Promovemos a autoestima e a confiança através de atividades que valorizam as conquistas individuais."
     },
     {
       icon: BookOpen,
-      title: "Coleção AMPLIA: Pedagogia Finlandesa e Aprendizado Integral",
-      description: "Combinando as melhores práticas da educação finlandesa e brasileira, nossa coleção incentiva a participação ativa da criança e valoriza seu crescimento pessoal e social. Utilizamos abordagens lúdicas e práticas para estimular a curiosidade e a criatividade, oferecendo um desenvolvimento equilibrado e completo."
+      title: "Coleção AMPLIA - Pedagogia de Excelência",
+      description: "Utilizamos a renomada Coleção AMPLIA, que combina as melhores práticas educacionais mundiais com a realidade brasileira. Nossa metodologia estimula a curiosidade natural das crianças através de projetos interdisciplinares, brincadeiras dirigidas e atividades que desenvolvem múltiplas inteligências de forma lúdica e significativa."
     },
     {
       icon: Users,
-      title: "Aulas Diárias de Inglês: Aprendizado Flexível e Opcional",
-      description: "Oferecemos aulas diárias de inglês, proporcionando uma introdução ponderada à língua estrangeira. Esta opção, disponível mediante um custo adicional, permite que seu filho se beneficie de um ensino de idiomas sem a pressão de um ambiente bilíngue."
+      title: "Introdução ao Inglês de Forma Natural",
+      description: "Oferecemos contato diário com o inglês através de músicas, jogos e atividades lúdicas. Nosso programa de inglês infantil respeita o desenvolvimento natural da linguagem, criando um ambiente bilíngue não-pressionado onde as crianças absorvem o idioma de forma espontânea e prazerosa."
     },
     {
       icon: Target,
-      title: "Desenvolvimento Socioemocional",
-      description: "Nossa abordagem centrada no aluno busca cultivar inteligência emocional, empoderando crianças e jovens a compreender e gerir suas emoções de forma eficaz. Além disso, promovemos a construção de habilidades essenciais como empatia e resiliência, preparando-os para enfrentar os desafios da vida de maneira equilibrada e consciente."
+      title: "Programa Socioemocional Especializado",
+      description: "Desenvolvemos habilidades socioemocionais essenciais através do nosso programa específico para educação infantil. Trabalhamos autoconhecimento, empatia, resolução de conflitos e inteligência emocional de forma adaptada à faixa etária, preparando as crianças para relacionamentos saudáveis e enfrentamento de desafios."
+    },
+    {
+      icon: Award,
+      title: "Preparação para o Ensino Fundamental",
+      description: "Nossa transição cuidadosa prepara as crianças para o próximo ciclo educacional. Desenvolvemos habilidades de pré-alfabetização, conceitos matemáticos básicos, coordenação motora e autonomia pessoal, garantindo que chegiem ao Ensino Fundamental I com confiança e bases sólidas para o aprendizado."
+    },
+    {
+      icon: Lightbulb,
+      title: "Estímulo à Criatividade e Expressão",
+      description: "Valorizamos a expressão artística e criativa através de ateliês de artes, música, teatro e movimento. Nossas crianças exploram diferentes linguagens expressivas, desenvolvem coordenação motora fina e grossa, e descobrem seus talentos naturais em um ambiente estimulante e livre de julgamentos."
     }
   ];
 
@@ -88,17 +98,26 @@ export default function EducacaoInfantil() {
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
                 Educação <span className="text-school-orange">Infantil</span>
                 <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
-                  Jardim I e Jardim II - Crescimento e Exploração na Primeira Infância
+                  Jardim I e Jardim II - Onde Cada Descoberta é uma Nova Aventura
                 </span>
               </h1>
               <p className="text-xl text-white mb-8 leading-relaxed">
-                Para os grupos de Jardim I e Jardim II, destinados a crianças de 4 a 6 anos, 
-                oferecemos uma abordagem única que foca no desenvolvimento socioemocional e cognitivo.
+                Na OSE, oferecemos uma educação infantil que vai além do cuidar. Para crianças de 4 a 6 anos, 
+                desenvolvemos um programa completo que combina aprendizado lúdico, desenvolvimento socioemocional 
+                e preparação acadêmica em um ambiente seguro e estimulante.
               </p>
               <p className="text-lg text-white/90 mb-8">
-                Nosso currículo é cuidadosamente planejado para estimular o crescimento pessoal e social 
-                de cada aluno, proporcionando uma base sólida para as futuras etapas educacionais.
+                Nossa metodologia única respeita o ritmo natural de cada criança, promovendo autonomia, 
+                criatividade e o prazer de aprender através de experiências significativas e brincadeiras dirigidas.
               </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <span className="text-white font-semibold">Jardim I: 4-5 anos</span>
+                </div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <span className="text-white font-semibold">Jardim II: 5-6 anos</span>
+                </div>
+              </div>
               
             </motion.div>
 
