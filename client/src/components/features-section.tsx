@@ -24,9 +24,9 @@ const features = [
     color: "bg-purple-600"
   },
   {
-    logo: logos.codeose,
-    title: "{CODE.OSE} - Programação",
-    description: "Programa inovador de ensino de programação e pensamento computacional, preparando alunos para o futuro digital.",
+    logo: newImages.img31,
+    title: "Facilidade de Acesso",
+    description: "Tornamos o dia a dia de nossas famílias mais prático através do estacionamento Pau Brasil, que oferece acesso direto ao colégio. Esta facilidade logística permite que os pais e responsáveis tenham mais tranquilidade na rotina de levar e buscar seus filhos.",
     color: "bg-red-600"
   },
   {
