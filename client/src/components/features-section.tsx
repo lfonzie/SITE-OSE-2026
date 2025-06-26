@@ -62,10 +62,10 @@ export default function FeaturesSection() {
           <p className="text-xl text-slate-600 max-w-4xl mx-auto">
             Oferecemos uma educação de excelência com recursos modernos e parcerias estratégicas
           </p>
-        </div></div>
-    </section>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </section>
           {features.map((feature, index) => {
             return (
               <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
