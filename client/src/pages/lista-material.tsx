@@ -18,6 +18,16 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 
+interface MaterialList {
+  id: number;
+  segment: string;
+  grade: string;
+  year: number;
+  googleDriveUrl: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 // Usando imagens da pasta public/images
 const img1 = "/images/0934_1750717790206.jpg";
 const img2 = "/images/1105_1750717790206.jpg";
@@ -42,7 +52,7 @@ export default function ListaMaterial() {
     images: [img2, img3, img4, img5]
   });
 
-  const { data: materialLists = [] } = useQuery({
+  const { data: materialLists = [] } = useQuery<MaterialList[]>({
     queryKey: ['/api/material-lists'],
     queryFn: async () => {
       const response = await fetch('/api/material-lists');
@@ -271,8 +281,83 @@ export default function ListaMaterial() {
                         key={serieIndex}
                         size="sm"
                         variant="outline"
-                        className="border-school-orange text-school-orange hover:bg-school-orange hover:text-white"
-                        onClick={() => alert(`Lista do ${serie} será disponibilizada em dezembro`)}
+                        className={`border-school-orange hover:bg-school-orange hover:text-white ${
+                          (() => {
+                            const segmentMap = {
+                              'Educação Infantil': 'educacao-infantil',
+                              'Ensino Fundamental I': 'fundamental-1', 
+                              'Ensino Fundamental II': 'fundamental-2',
+                              'Ensino Médio': 'ensino-medio'
+                            };
+                            
+                            const gradeMap: { [key: string]: string } = {
+                              'Jardim I': 'jardim-1',
+                              'Jardim II': 'jardim-2',
+                              '1º Ano': '1-ano',
+                              '2º Ano': '2-ano', 
+                              '3º Ano': '3-ano',
+                              '4º Ano': '4-ano',
+                              '5º Ano': '5-ano',
+                              '6º Ano': '6-ano',
+                              '7º Ano': '7-ano',
+                              '8º Ano': '8-ano',
+                              '9º Ano': '9-ano',
+                              '1ª Série': '1-serie',
+                              '2ª Série': '2-serie',
+                              '3ª Série': '3-serie'
+                            };
+                            
+                            const segmentKey = segmentMap[segmento.titulo as keyof typeof segmentMap];
+                            const gradeKey = gradeMap[serie];
+                            
+                            const materialItem = materialLists.find((item: MaterialList) => 
+                              item.segment === segmentKey && item.grade === gradeKey
+                            );
+                            
+                            return materialItem?.googleDriveUrl 
+                              ? 'bg-green-100 text-green-700 border-green-400' 
+                              : 'text-school-orange';
+                          })()
+                        }`}
+                        onClick={() => {
+                          // Buscar URL do material list baseado no segmento e série
+                          const segmentMap = {
+                            'Educação Infantil': 'educacao-infantil',
+                            'Ensino Fundamental I': 'fundamental-1', 
+                            'Ensino Fundamental II': 'fundamental-2',
+                            'Ensino Médio': 'ensino-medio'
+                          };
+                          
+                          const gradeMap: { [key: string]: string } = {
+                            'Jardim I': 'jardim-1',
+                            'Jardim II': 'jardim-2',
+                            '1º Ano': '1-ano',
+                            '2º Ano': '2-ano', 
+                            '3º Ano': '3-ano',
+                            '4º Ano': '4-ano',
+                            '5º Ano': '5-ano',
+                            '6º Ano': '6-ano',
+                            '7º Ano': '7-ano',
+                            '8º Ano': '8-ano',
+                            '9º Ano': '9-ano',
+                            '1ª Série': '1-serie',
+                            '2ª Série': '2-serie',
+                            '3ª Série': '3-serie'
+                          };
+                          
+                          const segmentKey = segmentMap[segmento.titulo as keyof typeof segmentMap];
+                          const gradeKey = gradeMap[serie];
+                          
+                          const materialItem = materialLists.find((item: MaterialList) => 
+                            item.segment === segmentKey && item.grade === gradeKey
+                          );
+                          
+                          if (materialItem?.googleDriveUrl) {
+                            window.open(materialItem.googleDriveUrl, '_blank');
+                          } else {
+                            alert(`Lista do ${serie} será disponibilizada em dezembro`);
+                          }
+                        }}
                       >
                         <Download className="mr-1" size={12} />
                         {serie}
