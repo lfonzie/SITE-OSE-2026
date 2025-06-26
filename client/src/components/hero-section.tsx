@@ -60,54 +60,42 @@ export default function HeroSection() {
       id="hero" 
       className="relative py-20 text-white overflow-hidden"
       style={{
-        // Reset all background properties first, then apply the specific type
-        background: 'none',
-        backgroundColor: 'transparent',
-        backgroundImage: heroBackground?.type === 'gradient' 
-          ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
-          : heroBackground?.type === 'image' && heroBackground.imageUrl
-          ? `url(${heroBackground.imageUrl})`
-          : 'linear-gradient(135deg, #475569, #64748b)',
-        backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'cover',
-        backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
-        backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
-        backgroundColor: heroBackground?.type === 'color' ? heroBackground.solidColor : 'transparent',
+        ...(heroBackground?.type === 'gradient' && {
+          background: `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`,
+          backgroundImage: 'none',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: 'transparent'
+        }),
+        ...(heroBackground?.type === 'image' && heroBackground.imageUrl && {
+          background: 'none',
+          backgroundImage: `url(${heroBackground.imageUrl})`,
+          backgroundSize: heroBackground.size || 'cover',
+          backgroundPosition: heroBackground.position || 'center',
+          backgroundRepeat: heroBackground.repeat || 'no-repeat',
+          backgroundColor: 'transparent'
+        }),
+        ...(heroBackground?.type === 'color' && {
+          background: 'none',
+          backgroundImage: 'none',
+          backgroundSize: 'auto',
+          backgroundPosition: 'initial',
+          backgroundRepeat: 'repeat',
+          backgroundColor: heroBackground.solidColor || '#475569'
+        }),
+        ...(!heroBackground?.type && {
+          background: 'linear-gradient(135deg, #475569, #64748b)',
+          backgroundImage: 'none',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: 'transparent'
+        }),
         opacity: heroBackground?.opacity || 1
       }}
     >
-      {/* Background Image Layer */}
-      {heroBackground?.type === 'image' && heroImage && (
-        <div className="absolute inset-0">
-          <div className="relative w-full h-full">
-            <img 
-              src={heroImage}
-              alt="Hero OSE"
-              className="w-full h-full object-cover opacity-30"
-              style={{
-                objectPosition: getImagePosition('hero')?.objectPosition || 'center',
-                objectFit: getImagePosition('hero')?.objectFit || 'cover',
-                transform: `scale(${getImagePosition('hero')?.scale || 1})`,
-                opacity: getImagePosition('hero')?.opacity || 0.3,
-                filter: getImagePosition('hero')?.filter || 'none'
-              }}
-            />
-            {isAuthenticated && (
-              <>
-                <EnhancedImageSelector
-                  currentImage={heroImage}
-                  onImageSelect={updateHeroImage}
-                  className="absolute inset-0"
-                />
-                <ImagePositionControls
-                  currentPosition={getImagePosition('hero')}
-                  onPositionChange={(position) => updateImagePosition('hero', position)}
-                  className="absolute inset-0"
-                />
-              </>
-            )}
-          </div>
-        </div>
-      )}
+      
 
       {/* Hero Background Manager */}
       {isAuthenticated && (
