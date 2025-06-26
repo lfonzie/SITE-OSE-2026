@@ -216,11 +216,50 @@ export default function ListaMaterial() {
             {segmentos.map((segmento, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
-                  <OptimizedImage 
+                  <DragImagePosition
                     src={segmento.imagem} 
                     alt={`Material ${segmento.titulo}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full"
+                    editable={isAuthenticated}
+                    initialPosition={{
+                      x: getImagePosition(`segmento-${index}`)?.horizontalPosition || 0,
+                      y: getImagePosition(`segmento-${index}`)?.verticalPosition || 0
+                    }}
+                    onPositionChange={(position: { x: number; y: number }) => {
+                      const currentPos = getImagePosition(`segmento-${index}`) || {
+                        objectPosition: 'center center',
+                        horizontalPosition: 0,
+                        verticalPosition: 0,
+                        scale: 1,
+                        opacity: 1,
+                        filter: 'none',
+                        objectFit: 'cover' as const
+                      };
+                      updateImagePosition(`segmento-${index}`, {
+                        ...currentPos,
+                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                        horizontalPosition: position.x,
+                        verticalPosition: position.y
+                      });
+                    }}
                   />
+                  {isAuthenticated && (
+                    <>
+                      <EnhancedImageSelector
+                        currentImage={segmento.imagem}
+                        onImageSelect={(url) => {
+                          // Update the segmento image
+                          segmentos[index].imagem = url;
+                        }}
+                        className="absolute top-2 right-2 z-10"
+                      />
+                      <ImagePositionControls
+                        currentPosition={getImagePosition(`segmento-${index}`)}
+                        onPositionChange={(position) => updateImagePosition(`segmento-${index}`, position)}
+                        className="absolute inset-0"
+                      />
+                    </>
+                  )}
                   <div className="absolute inset-0 bg-black/40" />
                   <div className="absolute top-4 left-4">
                     {segmento.icone}
@@ -313,6 +352,23 @@ export default function ListaMaterial() {
           </div>
         </div>
       </section>
+
+      {/* Material List Management for Admin */}
+      {isAuthenticated && (
+        <section className="py-16 bg-slate-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-slate-800 mb-4">
+                Gerenciar <span className="text-school-orange">Links dos Materiais</span>
+              </h2>
+              <p className="text-lg text-slate-600">
+                Configure os links do Google Drive para cada ano/série
+              </p>
+            </div>
+            <MaterialListManager />
+          </div>
+        </section>
+      )}
 
       <WhyOSESection />
       <ContactSection />

@@ -3,32 +3,34 @@ import {
   type Program, type Faculty, type News, type Testimonial, type Contact, type MaterialList,
   type InsertProgram, type InsertFaculty, type InsertNews, type InsertTestimonial, type InsertContact, type InsertMaterialList
 } from "@shared/schema";
+import path from 'path';
+import fs from 'fs/promises';
 
 export interface IStorage {
   // Programs
   getPrograms(): Promise<Program[]>;
   getProgram(id: number): Promise<Program | undefined>;
   createProgram(program: InsertProgram): Promise<Program>;
-  
+
   // Faculty
   getFaculty(): Promise<Faculty[]>;
   getFacultyMember(id: number): Promise<Faculty | undefined>;
   createFacultyMember(faculty: InsertFaculty): Promise<Faculty>;
-  
+
   // News
   getNews(): Promise<News[]>;
   getNewsArticle(id: number): Promise<News | undefined>;
   createNews(news: InsertNews): Promise<News>;
-  
+
   // Testimonials
   getTestimonials(): Promise<Testimonial[]>;
   createTestimonial(testimonial: InsertTestimonial): Promise<Testimonial>;
   updateTestimonial(id: number, updates: Partial<Testimonial>): Promise<Testimonial | undefined>;
-  
+
   // Contacts
   createContact(contact: InsertContact): Promise<Contact>;
   getContacts(): Promise<Contact[]>;
-  
+
   // Material Lists
   getMaterialLists(): Promise<MaterialList[]>;
   getMaterialListsBySegment(segment: string): Promise<MaterialList[]>;
@@ -44,6 +46,10 @@ export class MemStorage implements IStorage {
   private contacts: Map<number, Contact> = new Map();
   private materialLists: Map<number, MaterialList> = new Map();
   private currentId = 1;
+  private dataDir = path.join(process.cwd(), 'data');
+  private instagramPath = path.join(this.dataDir, 'instagram.json');
+  private testimonialsPath = path.join(this.dataDir, 'testimonials.json');
+  private materialsPath = path.join(this.dataDir, 'materials.json');
 
   constructor() {
     this.seedData();
@@ -279,7 +285,7 @@ export class MemStorage implements IStorage {
   async updateTestimonial(id: number, updates: Partial<Testimonial>): Promise<Testimonial | undefined> {
     const existing = this.testimonials.get(id);
     if (!existing) return undefined;
-    
+
     const updated = { ...existing, ...updates };
     this.testimonials.set(id, updated);
     return updated;
@@ -303,7 +309,12 @@ export class MemStorage implements IStorage {
 
   // Material Lists
   async getMaterialLists(): Promise<MaterialList[]> {
-    return Array.from(this.materialLists.values()).sort((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime());
+    try {
+      const data = await fs.readFile(this.materialsPath, 'utf-8');
+      return JSON.parse(data) || [];
+    } catch (error) {
+      return [];
+    }
   }
 
   async getMaterialListsBySegment(segment: string): Promise<MaterialList[]> {
@@ -328,7 +339,7 @@ export class MemStorage implements IStorage {
   async updateMaterialList(id: number, updates: Partial<MaterialList>): Promise<MaterialList | undefined> {
     const existing = this.materialLists.get(id);
     if (!existing) return undefined;
-    
+
     const updated: MaterialList = { 
       ...existing, 
       ...updates, 

@@ -1,200 +1,324 @@
-import { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { apiRequest } from '@/lib/queryClient';
-import { Save, ExternalLink, Plus, Trash2 } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Trash2, Plus, Save, ExternalLink } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-interface MaterialListManagerProps {
+interface MaterialList {
+  id?: number;
   segment: string;
-  grades: string[];
+  grade: string;
+  year: number;
+  googleDriveLink: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
-export default function MaterialListManager({ segment, grades }: MaterialListManagerProps) {
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
-  const currentYear = new Date().getFullYear() + 1; // Next school year
-  
-  const [newLinks, setNewLinks] = useState<{ [key: string]: string }>({});
-
-  const { data: materialLists = [] } = useQuery({
-    queryKey: ['/api/material-lists', segment],
-    queryFn: async () => {
-      const response = await fetch(`/api/material-lists?segment=${segment}`);
-      return response.json();
-    }
+const MaterialListManager: React.FC = () => {
+  const [materialLists, setMaterialLists] = useState<MaterialList[]>([]);
+  const [newItem, setNewItem] = useState<MaterialList>({
+    segment: '',
+    grade: '',
+    year: new Date().getFullYear(),
+    googleDriveLink: ''
   });
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
 
-  const createMutation = useMutation({
-    mutationFn: async (data: { segment: string; grade: string; year: number; googleDriveLink: string }) => {
-      const response = await fetch('/api/material-lists', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      return response.json();
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/material-lists'] });
-      toast({
-        title: "Link salvo",
-        description: "Link do Google Drive salvo com sucesso!"
-      });
-    },
-    onError: () => {
+  const segments = [
+    { value: 'educacao-infantil', label: 'Educação Infantil' },
+    { value: 'fundamental-1', label: 'Ensino Fundamental I' },
+    { value: 'fundamental-2', label: 'Ensino Fundamental II' },
+    { value: 'ensino-medio', label: 'Ensino Médio' }
+  ];
+
+  const gradesBySegment: Record<string, string[]> = {
+    'educacao-infantil': ['Jardim I', 'Jardim II'],
+    'fundamental-1': ['1º Ano', '2º Ano', '3º Ano', '4º Ano', '5º Ano'],
+    'fundamental-2': ['6º Ano', '7º Ano', '8º Ano', '9º Ano'],
+    'ensino-medio': ['1ª Série', '2ª Série', '3ª Série']
+  };
+
+  useEffect(() => {
+    fetchMaterialLists();
+  }, []);
+
+  const fetchMaterialLists = async () => {
+    try {
+      const response = await fetch('/api/material-lists');
+      if (response.ok) {
+        const data = await response.json();
+        setMaterialLists(data);
+      }
+    } catch (error) {
+      console.error('Error fetching material lists:', error);
       toast({
         title: "Erro",
-        description: "Erro ao salvar link do Google Drive.",
+        description: "Erro ao carregar listas de material",
         variant: "destructive"
       });
     }
-  });
+  };
 
-  const updateMutation = useMutation({
-    mutationFn: async ({ id, ...data }: { id: number; googleDriveLink: string }) => {
+  const handleSave = async () => {
+    if (!newItem.segment || !newItem.grade || !newItem.googleDriveLink) {
+      toast({
+        title: "Erro",
+        description: "Preencha todos os campos obrigatórios",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch('/api/material-lists', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newItem),
+      });
+
+      if (response.ok) {
+        const saved = await response.json();
+        setMaterialLists([...materialLists, saved]);
+        setNewItem({
+          segment: '',
+          grade: '',
+          year: new Date().getFullYear(),
+          googleDriveLink: ''
+        });
+        toast({
+          title: "Sucesso",
+          description: "Lista de material salva com sucesso!"
+        });
+      } else {
+        throw new Error('Failed to save');
+      }
+    } catch (error) {
+      console.error('Error saving material list:', error);
+      toast({
+        title: "Erro",
+        description: "Erro ao salvar lista de material",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async (id: number) => {
+    try {
+      const response = await fetch(`/api/material-lists/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        setMaterialLists(materialLists.filter(item => item.id !== id));
+        toast({
+          title: "Sucesso",
+          description: "Lista de material removida com sucesso!"
+        });
+      } else {
+        throw new Error('Failed to delete');
+      }
+    } catch (error) {
+      console.error('Error deleting material list:', error);
+      toast({
+        title: "Erro",
+        description: "Erro ao remover lista de material",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handleUpdate = async (id: number, updatedItem: Partial<MaterialList>) => {
+    try {
       const response = await fetch(`/api/material-lists/${id}`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedItem),
       });
-      return response.json();
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/material-lists'] });
+
+      if (response.ok) {
+        const updated = await response.json();
+        setMaterialLists(materialLists.map(item => 
+          item.id === id ? updated : item
+        ));
+        toast({
+          title: "Sucesso",
+          description: "Lista de material atualizada com sucesso!"
+        });
+      } else {
+        throw new Error('Failed to update');
+      }
+    } catch (error) {
+      console.error('Error updating material list:', error);
       toast({
-        title: "Link atualizado",
-        description: "Link do Google Drive atualizado com sucesso!"
+        title: "Erro",
+        description: "Erro ao atualizar lista de material",
+        variant: "destructive"
       });
     }
-  });
-
-  const deleteMutation = useMutation({
-    mutationFn: async (id: number) => {
-      const response = await fetch(`/api/material-lists/${id}`, {
-        method: 'DELETE'
-      });
-      return response.json();
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['/api/material-lists'] });
-      toast({
-        title: "Link removido",
-        description: "Link do Google Drive removido com sucesso!"
-      });
-    }
-  });
-
-  const handleSaveLink = (grade: string) => {
-    const link = newLinks[grade];
-    if (!link) return;
-
-    const existingList = materialLists.find((list: any) => 
-      list.segment === segment && list.grade === grade && list.year === currentYear
-    );
-
-    if (existingList) {
-      updateMutation.mutate({
-        id: existingList.id,
-        googleDriveLink: link
-      });
-    } else {
-      createMutation.mutate({
-        segment,
-        grade,
-        year: currentYear,
-        googleDriveLink: link
-      });
-    }
-
-    setNewLinks(prev => ({ ...prev, [grade]: '' }));
-  };
-
-  const getExistingLink = (grade: string) => {
-    const existing = materialLists.find((list: any) => 
-      list.segment === segment && list.grade === grade && list.year === currentYear
-    );
-    return existing?.googleDriveLink || '';
-  };
-
-  const getExistingId = (grade: string) => {
-    const existing = materialLists.find((list: any) => 
-      list.segment === segment && list.grade === grade && list.year === currentYear
-    );
-    return existing?.id;
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-lg">
-          {segment.charAt(0).toUpperCase() + segment.slice(1)} - {currentYear}
-        </CardTitle>
-        <CardDescription>
-          Gerenciar links do Google Drive para listas de material
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        {grades.map((grade) => {
-          const existingLink = getExistingLink(grade);
-          const existingId = getExistingId(grade);
-          
-          return (
-            <div key={grade} className="space-y-2">
-              <Label className="text-sm font-medium">
-                {grade.charAt(0).toUpperCase() + grade.slice(1)}
-              </Label>
-              
-              {existingLink ? (
-                <div className="flex items-center gap-2">
-                  <div className="flex-1 p-2 bg-green-50 border border-green-200 rounded-md">
-                    <p className="text-sm text-green-800 truncate">
-                      {existingLink}
-                    </p>
-                  </div>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => window.open(existingLink, '_blank')}
-                  >
-                    <ExternalLink className="w-3 h-3" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="destructive"
-                    onClick={() => existingId && deleteMutation.mutate(existingId)}
-                    disabled={deleteMutation.isPending}
-                  >
-                    <Trash2 className="w-3 h-3" />
-                  </Button>
-                </div>
-              ) : (
-                <div className="flex items-center gap-2">
-                  <Input
-                    placeholder="https://drive.google.com/..."
-                    value={newLinks[grade] || ''}
-                    onChange={(e) => setNewLinks(prev => ({ 
-                      ...prev, 
-                      [grade]: e.target.value 
-                    }))}
-                    className="flex-1"
-                  />
-                  <Button
-                    size="sm"
-                    onClick={() => handleSaveLink(grade)}
-                    disabled={!newLinks[grade] || createMutation.isPending}
-                  >
-                    <Plus className="w-3 h-3 mr-1" />
-                    Adicionar
-                  </Button>
-                </div>
-              )}
+    <div className="space-y-6">
+      {/* Add New Material List */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Adicionar Nova Lista de Material</CardTitle>
+          <CardDescription>
+            Configure o link do Google Drive para uma nova lista de material
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+            <div>
+              <label className="block text-sm font-medium mb-2">Segmento</label>
+              <select
+                value={newItem.segment}
+                onChange={(e) => setNewItem({...newItem, segment: e.target.value, grade: ''})}
+                className="w-full p-2 border rounded-md"
+              >
+                <option value="">Selecione...</option>
+                {segments.map(segment => (
+                  <option key={segment.value} value={segment.value}>
+                    {segment.label}
+                  </option>
+                ))}
+              </select>
             </div>
-          );
-        })}
-      </CardContent>
-    </Card>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Série/Ano</label>
+              <select
+                value={newItem.grade}
+                onChange={(e) => setNewItem({...newItem, grade: e.target.value})}
+                className="w-full p-2 border rounded-md"
+                disabled={!newItem.segment}
+              >
+                <option value="">Selecione...</option>
+                {newItem.segment && gradesBySegment[newItem.segment]?.map(grade => (
+                  <option key={grade} value={grade}>
+                    {grade}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Ano</label>
+              <Input
+                type="number"
+                value={newItem.year}
+                onChange={(e) => setNewItem({...newItem, year: parseInt(e.target.value)})}
+                min={2020}
+                max={2030}
+              />
+            </div>
+
+            <div className="flex items-end">
+              <Button
+                onClick={handleSave}
+                disabled={loading}
+                className="w-full"
+              >
+                <Plus className="w-4 h-4 mr-2" />
+                {loading ? 'Salvando...' : 'Adicionar'}
+              </Button>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2">Link do Google Drive</label>
+            <Input
+              value={newItem.googleDriveLink}
+              onChange={(e) => setNewItem({...newItem, googleDriveLink: e.target.value})}
+              placeholder="https://drive.google.com/file/d/..."
+              className="w-full"
+            />
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Existing Material Lists */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Listas de Material Configuradas</CardTitle>
+          <CardDescription>
+            Gerencie os links existentes das listas de material
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          {materialLists.length === 0 ? (
+            <p className="text-slate-500 text-center py-8">
+              Nenhuma lista de material configurada ainda.
+            </p>
+          ) : (
+            <div className="space-y-4">
+              {materialLists.map((item) => (
+                <div key={item.id} className="border rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline">
+                        {segments.find(s => s.value === item.segment)?.label}
+                      </Badge>
+                      <Badge variant="secondary">
+                        {item.grade}
+                      </Badge>
+                      <Badge variant="outline">
+                        {item.year}
+                      </Badge>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => window.open(item.googleDriveLink, '_blank')}
+                      >
+                        <ExternalLink className="w-4 h-4 mr-1" />
+                        Abrir
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="destructive"
+                        onClick={() => item.id && handleDelete(item.id)}
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                  <Input
+                    value={item.googleDriveLink}
+                    onChange={(e) => {
+                      const updated = {...item, googleDriveLink: e.target.value};
+                      setMaterialLists(materialLists.map(i => 
+                        i.id === item.id ? updated : i
+                      ));
+                    }}
+                    onBlur={() => {
+                      if (item.id) {
+                        handleUpdate(item.id, {googleDriveLink: item.googleDriveLink});
+                      }
+                    }}
+                    placeholder="Link do Google Drive"
+                    className="text-sm"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </div>
   );
-}
+};
+
+export default MaterialListManager;

@@ -6,8 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExternalLink, BookOpen, Users, Computer, Target, Clock, Award } from "lucide-react";
 import { motion } from "framer-motion";
+import { useAuth } from '@/contexts/AuthContext';
+import LogoutButton from '@/components/LogoutButton';
+import WhyOSESection from '@/components/why-ose-section';
+import PedagogicalProposalSection from '@/components/pedagogical-proposal-section';
+import ProgramsSection from '@/components/programs-section';
+import FeaturesSection from '@/components/features-section';
+import TestimonialsSection from '@/components/testimonials-section';
+import SocialFeedsSection from '@/components/social-feeds-section';
 
 export default function Plurall() {
+  const { isAuthenticated } = useAuth();
+  
   useEffect(() => {
     updateSEO({
       title: "Plurall - Colégio OSE | Plataforma Digital de Aprendizagem",
@@ -51,6 +61,13 @@ export default function Plurall() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      {/* Admin Logout Button */}
+      {isAuthenticated && (
+        <div className="fixed top-4 right-4 z-50">
+          <LogoutButton />
+        </div>
+      )}
+      
       <Navigation />
       
       {/* Hero Section */}
@@ -213,22 +230,12 @@ export default function Plurall() {
         </div>
       </section>
 
-      {/* Por que OSE */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">
-              Por que escolher <span className="text-school-orange">a OSE</span>?
-            </h2>
-          </div>
-          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 p-8 rounded-xl text-center">
-            <p className="text-lg text-slate-700">
-              A OSE oferece uma educação de excelência há 100 anos em Sorocaba, 
-              combinando tradição com inovação tecnológica através de plataformas como o Plurall.
-            </p>
-          </div>
-        </div>
-      </section>
+      <WhyOSESection />
+      <PedagogicalProposalSection />
+      <ProgramsSection />
+      <FeaturesSection />
+      <TestimonialsSection />
+      <SocialFeedsSection />
 
       {/* Contato */}
       <section className="py-16 bg-slate-50">

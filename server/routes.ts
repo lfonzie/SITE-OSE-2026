@@ -308,45 +308,69 @@ export function registerRoutes(app: Express) {
   });
 
   // Material Lists API
-  app.get("/api/material-lists", async (req, res) => {
+  app.get('/api/material-lists', async (req, res) => {
     try {
-      const lists = await storage.getMaterialLists();
-      res.json(lists);
+      const materialLists = await storage.getMaterialLists();
+      res.json(materialLists);
     } catch (error) {
-      res.status(500).json({ message: "Failed to fetch material lists" });
+      console.error('Error fetching material lists:', error);
+      res.status(500).json({ error: 'Failed to fetch material lists' });
     }
   });
 
-  app.get("/api/material-lists/:segment", async (req, res) => {
+  app.post('/api/material-lists', async (req, res) => {
     try {
-      const lists = await storage.getMaterialListsBySegment(req.params.segment);
-      res.json(lists);
+      const { segment, grade, year, googleDriveLink } = req.body;
+
+      if (!segment || !grade || !year || !googleDriveLink) {
+        return res.status(400).json({ error: 'Missing required fields' });
+      }
+
+      const materialList = await storage.createMaterialList({
+        segment,
+        grade,
+        year,
+        googleDriveLink
+      });
+
+      res.json(materialList);
     } catch (error) {
-      res.status(500).json({ message: "Failed to fetch material lists" });
+      console.error('Error creating material list:', error);
+      res.status(500).json({ error: 'Failed to create material list' });
     }
   });
 
-  app.post("/api/material-lists", async (req, res) => {
-    try {
-      const validatedData = insertMaterialListSchema.parse(req.body);
-      const materialList = await storage.createMaterialList(validatedData);
-      res.status(201).json(materialList);
-    } catch (error) {
-      res.status(400).json({ message: "Invalid material list data" });
-    }
-  });
-
-  app.patch("/api/material-lists/:id", async (req, res) => {
+  app.patch('/api/material-lists/:id', async (req, res) => {
     try {
       const id = parseInt(req.params.id);
       const updates = req.body;
-      const updated = await storage.updateMaterialList(id, updates);
-      if (!updated) {
-        return res.status(404).json({ message: "Material list not found" });
+
+      const materialList = await storage.updateMaterialList(id, updates);
+
+      if (!materialList) {
+        return res.status(404).json({ error: 'Material list not found' });
       }
-      res.json(updated);
+
+      res.json(materialList);
     } catch (error) {
-      res.status(400).json({ message: "Failed to update material list" });
+      console.error('Error updating material list:', error);
+      res.status(500).json({ error: 'Failed to update material list' });
+    }
+  });
+
+  app.delete('/api/material-lists/:id', async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await storage.deleteMaterialList(id);
+
+      if (!success) {
+        return res.status(404).json({ error: 'Material list not found' });
+      }
+
+      res.json({ success: true });
+    } catch (error) {
+      console.error('Error deleting material list:', error);
+      res.status(500).json({ error: 'Failed to delete material list' });
     }
   });
 
