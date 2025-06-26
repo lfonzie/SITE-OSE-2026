@@ -48,6 +48,7 @@ export class MemStorage implements IStorage {
         id: 1,
         title: "Educação Infantil",
         description: "Desenvolvimento socioemocional e cognitivo para crianças de 4 a 6 anos, com ambiente seguro e pedagogia finlandesa.",
+        ageRange: "4 a 6 anos",
         features: [
           "Jardim I e Jardim II",
           "Pedagogia Finlandesa",
@@ -61,11 +62,12 @@ export class MemStorage implements IStorage {
         id: 2,
         title: "Ensino Fundamental I",
         description: "Desenvolvendo mentes curiosas e corações compassivos através de metodologias ativas e pensamento crítico.",
+        ageRange: "6 a 10 anos",
         features: [
           "1º ao 5º ano",
           "Metodologias Ativas",
           "Pensamento Crítico",
-          "CODE OSE Programação"
+          "{CODE.OSE} Linguagem Programação"
         ],
         icon: "graduation-cap",
         color: "green"
@@ -74,6 +76,7 @@ export class MemStorage implements IStorage {
         id: 3,
         title: "Ensino Fundamental II",
         description: "Formando líderes conscientes para um mundo em transformação, com foco em cidadania e ética.",
+        ageRange: "11 a 14 anos",
         features: [
           "6º ao 9º ano",
           "Formação de Líderes",
@@ -87,6 +90,7 @@ export class MemStorage implements IStorage {
         id: 4,
         title: "Ensino Médio",
         description: "Preparação para o futuro com excelência acadêmica e formação integral, focando em vestibulares e vida.",
+        ageRange: "15 a 17 anos",
         features: [
           "1ª a 3ª série",
           "Preparação Vestibular",
