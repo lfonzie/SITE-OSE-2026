@@ -2,8 +2,14 @@
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { newImages } from "@/lib/image-verification";
+import DragImagePosition from '@/components/DragImagePosition';
+import { useAuth } from '@/contexts/AuthContext';
+import { usePageData } from '@/hooks/usePageData';
 
 export default function WhyOSESection() {
+  const { isAuthenticated } = useAuth();
+  const { getImagePosition, updateImagePosition } = usePageData('Home', {});
+  
   const reasons = [
     {
       image: newImages.horizontal2,
@@ -50,10 +56,32 @@ export default function WhyOSESection() {
             >
               <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 overflow-hidden">
               <div className="h-48">
-                <img 
+                <DragImagePosition
                   src={reason.image} 
                   alt={reason.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition(`why-ose-${index}`)?.horizontalPosition || 0,
+                    y: getImagePosition(`why-ose-${index}`)?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition(`why-ose-${index}`) || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition(`why-ose-${index}`, {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
                 />
               </div>
               <div className="p-6">

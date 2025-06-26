@@ -1,8 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { Star, Users } from "lucide-react";
 import type { Testimonial } from "@shared/schema";
+import DragImagePosition from '@/components/DragImagePosition';
+import { useAuth } from '@/contexts/AuthContext';
+import { usePageData } from '@/hooks/usePageData';
 
 export default function TestimonialsSection() {
+  const { isAuthenticated } = useAuth();
+  const { getImagePosition, updateImagePosition } = usePageData('Home', {});
   const { data: testimonials, isLoading } = useQuery<Testimonial[]>({
     queryKey: ["/api/testimonials"],
   });
@@ -70,10 +75,32 @@ export default function TestimonialsSection() {
               <div key={testimonial.id} className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-school-orange hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-4">
                   <div className="w-16 h-16 rounded-full overflow-hidden mr-4 shadow-lg">
-                    <img 
+                    <DragImagePosition
                       src={selectedPhoto}
                       alt={`Foto de ${testimonial.name}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full"
+                      editable={isAuthenticated}
+                      initialPosition={{
+                        x: getImagePosition(`testimonial-${index}`)?.horizontalPosition || 0,
+                        y: getImagePosition(`testimonial-${index}`)?.verticalPosition || 0
+                      }}
+                      onPositionChange={(position: { x: number; y: number }) => {
+                        const currentPos = getImagePosition(`testimonial-${index}`) || {
+                          objectPosition: 'center center',
+                          horizontalPosition: 0,
+                          verticalPosition: 0,
+                          scale: 1,
+                          opacity: 1,
+                          filter: 'none',
+                          objectFit: 'cover' as const
+                        };
+                        updateImagePosition(`testimonial-${index}`, {
+                          ...currentPos,
+                          objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                          horizontalPosition: position.x,
+                          verticalPosition: position.y
+                        });
+                      }}
                     />
                   </div>
                   <div>

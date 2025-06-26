@@ -124,13 +124,31 @@ export default function SocialFeedsSection() {
                 className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all relative"
                 style={{ display: index >= 4 ? 'none' : 'block' }}
               >
-                <img 
+                <DragImagePosition
                   src={imageUrl}
                   alt={`Foto ${index + 1} do Instagram OSE`}
-                  className="w-full h-full object-cover group-hover:brightness-110 transition-all"
-                  onError={(e) => {
-                    console.log(`Erro ao carregar imagem: ${imageUrl}`);
-                    e.currentTarget.style.display = 'none';
+                  className="w-full h-full group-hover:brightness-110 transition-all"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition(`instagram-${index}`)?.horizontalPosition || 0,
+                    y: getImagePosition(`instagram-${index}`)?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition(`instagram-${index}`) || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition(`instagram-${index}`, {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
                   }}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -144,13 +162,31 @@ export default function SocialFeedsSection() {
                 key={index + 4}
                 className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all hidden md:block relative"
               >
-                <img 
+                <DragImagePosition
                   src={imageUrl}
                   alt={`Foto ${index + 5} do Instagram OSE`}
-                  className="w-full h-full object-cover group-hover:brightness-110 transition-all"
-                  onError={(e) => {
-                    console.log(`Erro ao carregar imagem: ${imageUrl}`);
-                    e.currentTarget.style.display = 'none';
+                  className="w-full h-full group-hover:brightness-110 transition-all"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition(`instagram-${index + 4}`)?.horizontalPosition || 0,
+                    y: getImagePosition(`instagram-${index + 4}`)?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition(`instagram-${index + 4}`) || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition(`instagram-${index + 4}`, {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
                   }}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">

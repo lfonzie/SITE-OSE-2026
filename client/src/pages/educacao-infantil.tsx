@@ -76,20 +76,33 @@ export default function EducacaoInfantil() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-slate-600 via-slate-500 to-slate-400 text-white py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="relative w-full h-full">
-            <img 
-              src={heroImage} 
-              alt="Crianças na educação infantil" 
-              className="w-full h-full object-cover opacity-30"
-            />
-            {isAuthenticated && (
-              <EnhancedImageSelector
-                currentImage={heroImage}
-                onImageSelect={updateHeroImage}
-                className="absolute inset-0"
-              />
-            )}
-          </div>
+          <DragImagePosition
+            src={heroImage || '/images/horizontal_1.png'} 
+            alt="Crianças na educação infantil" 
+            className="w-full h-full opacity-30"
+            editable={isAuthenticated}
+            initialPosition={{
+              x: getImagePosition('hero-bg')?.horizontalPosition || 0,
+              y: getImagePosition('hero-bg')?.verticalPosition || 0
+            }}
+            onPositionChange={(position: { x: number; y: number }) => {
+              const currentPos = getImagePosition('hero-bg') || {
+                objectPosition: 'center center',
+                horizontalPosition: 0,
+                verticalPosition: 0,
+                scale: 1,
+                opacity: 1,
+                filter: 'none',
+                objectFit: 'cover' as const
+              };
+              updateImagePosition('hero-bg', {
+                ...currentPos,
+                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                horizontalPosition: position.x,
+                verticalPosition: position.y
+              });
+            }}
+          />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -145,25 +158,113 @@ export default function EducacaoInfantil() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <OptimizedImage
+              <DragImagePosition
                 src={img2}
                 alt="Crianças da Educação Infantil em ambiente de aprendizado"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('hero-grid-0')?.horizontalPosition || 0,
+                  y: getImagePosition('hero-grid-0')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('hero-grid-0') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('hero-grid-0', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
               />
-              <OptimizedImage
+              <DragImagePosition
                 src={img3}
                 alt="Atividades lúdicas na Educação Infantil"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('hero-grid-1')?.horizontalPosition || 0,
+                  y: getImagePosition('hero-grid-1')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('hero-grid-1') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('hero-grid-1', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
               />
-              <OptimizedImage
+              <DragImagePosition
                 src={img4}
                 alt="Desenvolvimento socioemocional"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('hero-grid-2')?.horizontalPosition || 0,
+                  y: getImagePosition('hero-grid-2')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('hero-grid-2') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('hero-grid-2', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
               />
-              <OptimizedImage
+              <DragImagePosition
                 src={img5}
                 alt="Pedagogia finlandesa em prática"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('hero-grid-3')?.horizontalPosition || 0,
+                  y: getImagePosition('hero-grid-3')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('hero-grid-3') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('hero-grid-3', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
               />
             </div>
           </div>

@@ -101,10 +101,32 @@ export default function ProgramsSection() {
               >
                 <div className={`${colors.bg} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border ${colors.border}`}>
                 <div className="h-48 mb-6 rounded-xl overflow-hidden">
-                  <img 
+                  <DragImagePosition
                     src={getImageForProgram(program.title)}
                     alt={program.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full"
+                    editable={isAuthenticated}
+                    initialPosition={{
+                      x: getImagePosition(`program-${index}`)?.horizontalPosition || 0,
+                      y: getImagePosition(`program-${index}`)?.verticalPosition || 0
+                    }}
+                    onPositionChange={(position: { x: number; y: number }) => {
+                      const currentPos = getImagePosition(`program-${index}`) || {
+                        objectPosition: 'center center',
+                        horizontalPosition: 0,
+                        verticalPosition: 0,
+                        scale: 1,
+                        opacity: 1,
+                        filter: 'none',
+                        objectFit: 'cover' as const
+                      };
+                      updateImagePosition(`program-${index}`, {
+                        ...currentPos,
+                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                        horizontalPosition: position.x,
+                        verticalPosition: position.y
+                      });
+                    }}
                   />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-4">{program.title}</h3>

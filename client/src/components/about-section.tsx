@@ -1,15 +1,43 @@
 import { Button } from "@/components/ui/button";
-import { Heart, Users, Target, Award, BookOpen } from "lucide-react";
+import { Heart, Users, Target, Award, BookOpen, Lightbulb } from "lucide-react";
+import DragImagePosition from '@/components/DragImagePosition';
+import { useAuth } from '@/contexts/AuthContext';
+import { usePageData } from '@/hooks/usePageData';
 
 export default function AboutSection() {
+  const { isAuthenticated } = useAuth();
+  const { getImagePosition, updateImagePosition } = usePageData('Home', {});
+
   return (
     <section id="sobre" className="py-20 relative bg-slate-50">
       {/* Background image with overlay */}
       <div className="absolute inset-0 opacity-10">
-        <img 
+        <DragImagePosition
           src="/images/horizontal_27.png" 
           alt="Colégio OSE - Ambiente escolar"
-          className="w-full h-full object-cover"
+          className="w-full h-full"
+          editable={isAuthenticated}
+          initialPosition={{
+            x: getImagePosition('about-bg')?.horizontalPosition || 0,
+            y: getImagePosition('about-bg')?.verticalPosition || 0
+          }}
+          onPositionChange={(position: { x: number; y: number }) => {
+            const currentPos = getImagePosition('about-bg') || {
+              objectPosition: 'center center',
+              horizontalPosition: 0,
+              verticalPosition: 0,
+              scale: 1,
+              opacity: 1,
+              filter: 'none',
+              objectFit: 'cover' as const
+            };
+            updateImagePosition('about-bg', {
+              ...currentPos,
+              objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+              horizontalPosition: position.x,
+              verticalPosition: position.y
+            });
+          }}
         />
       </div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
