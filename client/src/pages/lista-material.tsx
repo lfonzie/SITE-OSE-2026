@@ -60,6 +60,42 @@ export default function ListaMaterial() {
     }
   });
 
+  // Function to get material link for a specific segment and grade
+  const getMaterialLink = (segmentTitle: string, serie: string): string | null => {
+    const segmentMap = {
+      'Educação Infantil': 'educacao-infantil',
+      'Fundamental I': 'fundamental-1', 
+      'Fundamental II': 'fundamental-2',
+      'Ensino Médio': 'ensino-medio'
+    };
+    
+    const gradeMap: { [key: string]: string } = {
+      'Jardim I': 'jardim-1',
+      'Jardim II': 'jardim-2',
+      '1º Ano': '1-ano',
+      '2º Ano': '2-ano', 
+      '3º Ano': '3-ano',
+      '4º Ano': '4-ano',
+      '5º Ano': '5-ano',
+      '6º Ano': '6-ano',
+      '7º Ano': '7-ano',
+      '8º Ano': '8-ano',
+      '9º Ano': '9-ano',
+      '1ª Série': '1-serie',
+      '2ª Série': '2-serie',
+      '3ª Série': '3-serie'
+    };
+    
+    const segmentKey = segmentMap[segmentTitle as keyof typeof segmentMap];
+    const gradeKey = gradeMap[serie];
+    
+    const materialItem = materialLists.find((item: MaterialList) => 
+      item.segment === segmentKey && item.grade === gradeKey
+    );
+    
+    return materialItem?.googleDriveUrl || null;
+  };
+
   useEffect(() => {
     updateSEO({
       title: "Lista de Material Escolar | Colégio OSE",
@@ -276,93 +312,33 @@ export default function ListaMaterial() {
                   <h3 className="text-2xl font-bold text-slate-800 mb-4">{segmento.titulo}</h3>
                   <p className="text-slate-600 mb-6">{segmento.descricao}</p>
                   <div className="grid grid-cols-2 gap-2">
-                    {segmento.series.map((serie, serieIndex) => (
-                      <Button 
-                        key={serieIndex}
-                        size="sm"
-                        variant="outline"
-                        className={`border-school-orange hover:bg-school-orange hover:text-white ${
-                          (() => {
-                            const segmentMap = {
-                              'Educação Infantil': 'educacao-infantil',
-                              'Ensino Fundamental I': 'fundamental-1', 
-                              'Ensino Fundamental II': 'fundamental-2',
-                              'Ensino Médio': 'ensino-medio'
-                            };
-                            
-                            const gradeMap: { [key: string]: string } = {
-                              'Jardim I': 'jardim-1',
-                              'Jardim II': 'jardim-2',
-                              '1º Ano': '1-ano',
-                              '2º Ano': '2-ano', 
-                              '3º Ano': '3-ano',
-                              '4º Ano': '4-ano',
-                              '5º Ano': '5-ano',
-                              '6º Ano': '6-ano',
-                              '7º Ano': '7-ano',
-                              '8º Ano': '8-ano',
-                              '9º Ano': '9-ano',
-                              '1ª Série': '1-serie',
-                              '2ª Série': '2-serie',
-                              '3ª Série': '3-serie'
-                            };
-                            
-                            const segmentKey = segmentMap[segmento.titulo as keyof typeof segmentMap];
-                            const gradeKey = gradeMap[serie];
-                            
-                            const materialItem = materialLists.find((item: MaterialList) => 
-                              item.segment === segmentKey && item.grade === gradeKey
-                            );
-                            
-                            return materialItem?.googleDriveUrl 
-                              ? 'bg-green-100 text-green-700 border-green-400' 
-                              : 'text-school-orange';
-                          })()
-                        }`}
-                        onClick={() => {
-                          // Buscar URL do material list baseado no segmento e série
-                          const segmentMap = {
-                            'Educação Infantil': 'educacao-infantil',
-                            'Ensino Fundamental I': 'fundamental-1', 
-                            'Ensino Fundamental II': 'fundamental-2',
-                            'Ensino Médio': 'ensino-medio'
-                          };
-                          
-                          const gradeMap: { [key: string]: string } = {
-                            'Jardim I': 'jardim-1',
-                            'Jardim II': 'jardim-2',
-                            '1º Ano': '1-ano',
-                            '2º Ano': '2-ano', 
-                            '3º Ano': '3-ano',
-                            '4º Ano': '4-ano',
-                            '5º Ano': '5-ano',
-                            '6º Ano': '6-ano',
-                            '7º Ano': '7-ano',
-                            '8º Ano': '8-ano',
-                            '9º Ano': '9-ano',
-                            '1ª Série': '1-serie',
-                            '2ª Série': '2-serie',
-                            '3ª Série': '3-serie'
-                          };
-                          
-                          const segmentKey = segmentMap[segmento.titulo as keyof typeof segmentMap];
-                          const gradeKey = gradeMap[serie];
-                          
-                          const materialItem = materialLists.find((item: MaterialList) => 
-                            item.segment === segmentKey && item.grade === gradeKey
-                          );
-                          
-                          if (materialItem?.googleDriveUrl) {
-                            window.open(materialItem.googleDriveUrl, '_blank');
-                          } else {
-                            alert(`Lista do ${serie} será disponibilizada em dezembro`);
-                          }
-                        }}
-                      >
-                        <Download className="mr-1" size={12} />
-                        {serie}
-                      </Button>
-                    ))}
+                    {segmento.series.map((serie, serieIndex) => {
+                      const materialLink = getMaterialLink(segmento.titulo, serie);
+                      const hasLink = !!materialLink;
+                      
+                      return (
+                        <Button 
+                          key={serieIndex}
+                          size="sm"
+                          variant="outline"
+                          className={`border-school-orange hover:bg-school-orange hover:text-white transition-all ${
+                            hasLink 
+                              ? 'bg-school-orange text-white border-school-orange shadow-md' 
+                              : 'text-school-orange bg-white border-school-orange'
+                          }`}
+                          onClick={() => {
+                            if (hasLink) {
+                              window.open(materialLink, '_blank');
+                            } else {
+                              alert(`Lista do ${serie} será disponibilizada em dezembro`);
+                            }
+                          }}
+                        >
+                          <Download className="mr-1" size={12} />
+                          {serie}
+                        </Button>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -425,11 +401,47 @@ export default function ListaMaterial() {
             </div>
 
             <div className="relative">
-              <OptimizedImage 
-                src={img5} 
+              <DragImagePosition
+                src={images[4] || img5} 
                 alt="Organização de material escolar"
-                className="w-full h-64 object-cover rounded-lg shadow-lg"
+                className="w-full h-64 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('dicas-pais')?.horizontalPosition || 0,
+                  y: getImagePosition('dicas-pais')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('dicas-pais') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('dicas-pais', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
               />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[4] || img5}
+                    onImageSelect={(url) => updateImage(4, url)}
+                    className="absolute top-2 right-2 z-10"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('dicas-pais')}
+                    onPositionChange={(position) => updateImagePosition('dicas-pais', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
             </div>
           </div>
         </div>
