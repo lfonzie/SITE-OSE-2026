@@ -1,7 +1,7 @@
 import { 
-  programs, faculty, news, testimonials, contacts, materialLists,
-  type Program, type Faculty, type News, type Testimonial, type Contact, type MaterialList,
-  type InsertProgram, type InsertFaculty, type InsertNews, type InsertTestimonial, type InsertContact, type InsertMaterialList
+  programs, faculty, news, testimonials, contacts, materialLists, users,
+  type Program, type Faculty, type News, type Testimonial, type Contact, type MaterialList, type User,
+  type InsertProgram, type InsertFaculty, type InsertNews, type InsertTestimonial, type InsertContact, type InsertMaterialList, type UpsertUser
 } from "@shared/schema";
 import path from 'path';
 import fs from 'fs/promises';
@@ -36,6 +36,10 @@ export interface IStorage {
   getMaterialListsBySegment(segment: string): Promise<MaterialList[]>;
   createMaterialList(materialList: InsertMaterialList): Promise<MaterialList>;
   updateMaterialList(id: number, updates: Partial<MaterialList>): Promise<MaterialList | undefined>;
+
+  // User operations for Replit Auth
+  getUser(id: string): Promise<User | undefined>;
+  upsertUser(user: UpsertUser): Promise<User>;
 }
 
 export class MemStorage implements IStorage {
@@ -348,6 +352,26 @@ export class MemStorage implements IStorage {
     };
     this.materialLists.set(id, updated);
     return updated;
+  }
+
+  // User operations for Replit Auth
+  async getUser(id: string): Promise<User | undefined> {
+    // In memory storage - would use database in production
+    return undefined;
+  }
+
+  async upsertUser(userData: UpsertUser): Promise<User> {
+    // In memory storage - would use database in production
+    const user: User = {
+      id: userData.id!,
+      email: userData.email || null,
+      firstName: userData.firstName || null,
+      lastName: userData.lastName || null,
+      profileImageUrl: userData.profileImageUrl || null,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+    return user;
   }
 }
 

@@ -40,14 +40,25 @@ import { AuthProvider } from "./contexts/AuthContext";
 import TestUChat from "@/pages/test-uchat";
 import AgendaEdu from "@/pages/agendaedu";
 import Plurall from "@/pages/plurall";
+import Landing from "@/pages/landing";
+import { useAuth } from "@/hooks/useAuth";
 
 function Router() {
   // Track page views when routes change
   useAnalytics();
+  const { isAuthenticated, isLoading } = useAuth();
 
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      {isLoading || !isAuthenticated ? (
+        <Route path="/" component={Landing} />
+      ) : (
+        <>
+          <Route path="/" component={Home} />
+          <Route path="/admin" component={Admin} />
+        </>
+      )}
+      {/* Public routes available to all users */}
       <Route path="/educacao-infantil" component={EducacaoInfantil} />
       <Route path="/fundamental-1" component={Fundamental1} />
       <Route path="/fundamental-2" component={Fundamental2} />
@@ -55,7 +66,6 @@ function Router() {
       <Route path="/professores" component={Professores} />
       <Route path="/services" component={Services} />
       <Route path="/legacy" component={Legacy} />
-      <Route path="/admin" component={Admin} />
       <Route path="/portal-aluno" component={PortalAluno} />
       <Route path="/portal-pais" component={PortalPais} />
       <Route path="/bilingue" component={Bilingue} />

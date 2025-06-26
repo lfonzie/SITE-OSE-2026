@@ -7,7 +7,6 @@ export default function LogoutButton({ className = "" }: { className?: string })
 
   const handleLogout = () => {
     logout();
-    window.location.reload();
   };
 
   return (
