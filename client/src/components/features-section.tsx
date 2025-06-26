@@ -45,8 +45,16 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      className="py-20 bg-slate-50 relative"
+      style={{
+        backgroundImage: `linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.9)), url('/images/horizontal_20.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
             Nossos <span className="text-school-orange">Diferenciais</span>
@@ -54,7 +62,8 @@ export default function FeaturesSection() {
           <p className="text-xl text-slate-600 max-w-4xl mx-auto">
             Oferecemos uma educação de excelência com recursos modernos e parcerias estratégicas
           </p>
-        </div>
+        </div></div>
+    </section>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {
