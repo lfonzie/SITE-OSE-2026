@@ -93,10 +93,10 @@ export default function ProgramsSection() {
     <section id="programas" className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4 font-headline">
             Nossos <span className="text-school-orange">Programas</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto font-body">
             Oferecemos uma educação completa desde a Educação Infantil até o Ensino Médio, 
             preparando nossos alunos para um futuro brilhante.
           </p>
@@ -159,13 +159,13 @@ export default function ProgramsSection() {
                     </>
                   )}
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-4">
+                <h3 className="text-2xl font-bold text-slate-800 mb-4 font-headline">
                   {program.title}
                   {program.title === "Ensino Fundamental I" && (
                     <span className="block text-lg font-normal text-school-orange"></span>
                   )}
                 </h3>
-                <p className="text-slate-600 mb-6">{program.description}</p>
+                <p className="text-slate-600 mb-6 font-body">{program.description}</p>
                 <ul className="space-y-2 mb-6">
                   {program.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-slate-600">
@@ -175,7 +175,7 @@ export default function ProgramsSection() {
                       >
                         <Check className="text-school-brown mr-2" size={16} />
                       </AnimatedIcon>
-                      <span>{feature}</span>
+                      <span className="font-body">{feature}</span>
                     </li>
                   ))}
                 </ul>

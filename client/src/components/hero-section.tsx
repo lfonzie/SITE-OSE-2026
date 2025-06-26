@@ -156,7 +156,7 @@ export default function HeroSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <motion.h1 
-            className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-2xl"
+            className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-2xl font-headline"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -178,13 +178,13 @@ export default function HeroSection() {
               Celebrando 100 Anos
             </motion.span>
           </motion.h1>
-          <h2 className="text-lg md:text-xl text-white/95 mb-4 max-w-4xl mx-auto font-medium drop-shadow-xl">
+          <h2 className="text-lg md:text-xl text-white/95 mb-4 max-w-4xl mx-auto font-medium drop-shadow-xl font-body">
             a OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem:
           </h2>
-          <h3 className="text-xl md:text-2xl text-white font-bold mb-8 drop-shadow-xl">
+          <h3 className="text-xl md:text-2xl text-white font-bold mb-8 drop-shadow-xl font-headline">
             Tradição e uma rica história.
           </h3>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-xl">
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-xl font-body">
             Educando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania.
           </p>
         </div>

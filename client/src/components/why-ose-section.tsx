@@ -45,10 +45,10 @@ export default function WhyOSESection() {
     <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800 font-headline">
             Por que escolher <span className="text-school-orange">a OSE</span>?
           </h2>
-          <p className="text-xl max-w-4xl mx-auto text-slate-600">
+          <p className="text-xl max-w-4xl mx-auto text-slate-600 font-body">
             Conheça os diferenciais que fazem da OSE a escolha ideal para a educação do seu filho.
           </p>
         </AnimatedSection>
@@ -100,8 +100,8 @@ export default function WhyOSESection() {
                 )}
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-800 mb-3">{reason.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{reason.description}</p>
+                <h3 className="text-xl font-bold text-slate-800 mb-3 font-headline">{reason.title}</h3>
+                <p className="text-slate-600 leading-relaxed font-body">{reason.description}</p>
               </div>
               </div>
             </AnimatedCard>
@@ -109,10 +109,10 @@ export default function WhyOSESection() {
         </div>
 
         <div className="mt-16 bg-white rounded-xl p-8 md:p-12 text-center shadow-lg border border-gray-100">
-          <h3 className="text-3xl font-bold mb-4 text-slate-800">
+          <h3 className="text-3xl font-bold mb-4 text-slate-800 font-headline">
             Venha conhecer a OSE
           </h3>
-          <p className="text-xl mb-6 text-slate-600">
+          <p className="text-xl mb-6 text-slate-600 font-body">
             Agende uma visita e descubra por que somos referência em educação há mais de 100 anos
           </p>
           <button

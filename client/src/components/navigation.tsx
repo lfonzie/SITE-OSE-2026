@@ -99,7 +99,7 @@ export default function Navigation() {
                     onMouseEnter={() => setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <button className="text-slate-700 hover:text-school-orange transition-colors font-medium flex items-center">
+                    <button className="text-slate-700 hover:text-school-orange transition-colors font-medium flex items-center font-body">
                       {item.label}
                       <ChevronDown size={16} className="ml-1" />
                     </button>
@@ -110,7 +110,7 @@ export default function Navigation() {
                         <button
                           key={subIndex}
                           onClick={() => handleNavigation(subItem)}
-                          className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-school-orange hover:text-white transition-colors"
+                          className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-school-orange hover:text-white transition-colors font-body"
                         >
                           {subItem.label}
                         </button>
@@ -120,7 +120,7 @@ export default function Navigation() {
                 ) : (
                   <button
                     onClick={() => handleNavigation(item)}
-                    className="text-slate-700 hover:text-school-orange transition-colors font-medium"
+                    className="text-slate-700 hover:text-school-orange transition-colors font-medium font-body"
                   >
                     {item.label}
                   </button>

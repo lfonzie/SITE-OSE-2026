@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,6 +31,59 @@
   --school-brown: hsl(30, 67%, 35%);
   --school-white: hsl(0, 0%, 100%);
 }
+
+/* IEEE Spectrum Typography System */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans Pro', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headlines using Merriweather */
+h1, h2, h3, h4, h5, h6, .headline {
+  font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Body text using Source Sans Pro */
+p, .body-text, .text-base, .text-sm, .text-lg, .text-xl {
+  font-family: 'Source Sans Pro', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* Navigation and UI elements */
+nav, .nav, button, .button, .btn, input, textarea, select {
+  font-family: 'Source Sans Pro', system-ui, sans-serif;
+  font-weight: 400;
+}
+
+/* Strengthen headlines */
+.text-3xl, .text-4xl, .text-5xl, .text-6xl {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Cards and content blocks */
+.card h3, .card h4, .card h5, .card h6 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 600;
+}
+
+/* Professional spacing and sizing */
+h1 { font-size: 2.5rem; font-weight: 900; }
+h2 { font-size: 2rem; font-weight: 700; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+h4 { font-size: 1.25rem; font-weight: 600; }
+h5 { font-size: 1.125rem; font-weight: 600; }
+h6 { font-size: 1rem; font-weight: 600; }
 
 .dark {
   --background: hsl(240, 10%, 3.9%);
