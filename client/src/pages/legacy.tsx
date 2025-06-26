@@ -44,7 +44,7 @@ const timeline = [
   {
     year: "1980",
     title: "Pico de Crescimento",
-    description: "A OSE atinge mais de 2.000 alunos apenas na unidade central, consolidando-se como referência educacional em Sorocaba e região.",
+    description: "A OSE consolida-se como referência educacional em Sorocaba e região, com significativo crescimento no número de alunos.",
     icon: <Trophy size={24} />
   },
   {
@@ -78,7 +78,7 @@ const timeline = [
     icon: <Award size={24} />
   },
   {
-    year: "2010",
+    year: "2011",
     title: "Nova Direção e Consolidação",
     description: "Kiko Fonseca assume a direção geral da OSE, promovendo modernização tecnológica e mantendo os valores tradicionais da instituição. Consolidação das unidades independentes.",
     icon: <Heart size={24} />
