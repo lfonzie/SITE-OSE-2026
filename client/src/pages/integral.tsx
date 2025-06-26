@@ -172,21 +172,135 @@ export default function Integral() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <OptimizedImage
-                src={newImages.horizontal30}
-                alt="Atividades do Integral Flex"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
-              />
-              <OptimizedImage
-                src={newImages.horizontal31}
-                alt="Apoio acadêmico"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
-              />
-              <OptimizedImage
-                src={newImages.horizontal32}
-                alt="Atividades complementares"
-                className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
-              />
+              <div className="relative">
+                <DragImagePosition
+                  src={newImages.horizontal30}
+                  alt="Atividades do Integral Flex"
+                  className="w-full h-48 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('hero-grid-0')?.horizontalPosition || 0,
+                    y: getImagePosition('hero-grid-0')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('hero-grid-0') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('hero-grid-0', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={newImages.horizontal30}
+                      onImageSelect={(url) => updateImage(0, url)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero-grid-0')}
+                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-0', newPosition)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
+                  </>
+                )}
+              </div>
+              <div className="relative">
+                <DragImagePosition
+                  src={newImages.horizontal31}
+                  alt="Apoio acadêmico"
+                  className="w-full h-48 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('hero-grid-1')?.horizontalPosition || 0,
+                    y: getImagePosition('hero-grid-1')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('hero-grid-1') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('hero-grid-1', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={newImages.horizontal31}
+                      onImageSelect={(url) => updateImage(1, url)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero-grid-1')}
+                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-1', newPosition)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
+                  </>
+                )}
+              </div>
+              <div className="relative col-span-2">
+                <DragImagePosition
+                  src={newImages.horizontal32}
+                  alt="Atividades complementares"
+                  className="w-full h-48 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('hero-grid-2')?.horizontalPosition || 0,
+                    y: getImagePosition('hero-grid-2')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('hero-grid-2') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('hero-grid-2', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={newImages.horizontal32}
+                      onImageSelect={(url) => updateImage(2, url)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero-grid-2')}
+                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-2', newPosition)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
+                  </>
+                )}
+              </div>
             </div>
           </div>
 

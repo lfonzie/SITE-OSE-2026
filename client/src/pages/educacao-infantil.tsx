@@ -349,11 +349,18 @@ export default function EducacaoInfantil() {
                       }}
                     />
                     {isAuthenticated && (
-                      <EnhancedImageSelector
-                        currentImage={images[0] || '/images/horizontal_2.png'}
-                        onImageSelect={(url) => updateImage(0, url)}
-                        className="absolute top-2 right-2 z-10"
-                      />
+                      <>
+                        <EnhancedImageSelector
+                          currentImage={images[0] || '/images/horizontal_2.png'}
+                          onImageSelect={(url) => updateImage(0, url)}
+                          className="absolute top-2 right-2 z-10"
+                        />
+                        <ImagePositionControls
+                          currentPosition={getImagePosition('gallery-0')}
+                          onPositionChange={(newPosition) => updateImagePosition('gallery-0', newPosition)}
+                          className="absolute bottom-2 right-2 z-10"
+                        />
+                      </>
                     )}
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Atividades Lúdicas</h3>
@@ -397,11 +404,18 @@ export default function EducacaoInfantil() {
                       }}
                     />
                     {isAuthenticated && (
-                      <EnhancedImageSelector
-                        currentImage={images[1] || '/images/horizontal_3.png'}
-                        onImageSelect={(url) => updateImage(1, url)}
-                        className="absolute top-2 right-2 z-10"
-                      />
+                      <>
+                        <EnhancedImageSelector
+                          currentImage={images[1] || '/images/horizontal_3.png'}
+                          onImageSelect={(url) => updateImage(1, url)}
+                          className="absolute top-2 right-2 z-10"
+                        />
+                        <ImagePositionControls
+                          currentPosition={getImagePosition('gallery-1')}
+                          onPositionChange={(newPosition) => updateImagePosition('gallery-1', newPosition)}
+                          className="absolute bottom-2 right-2 z-10"
+                        />
+                      </>
                     )}
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Arte e Expressão</h3>
@@ -445,11 +459,18 @@ export default function EducacaoInfantil() {
                       }}
                     />
                     {isAuthenticated && (
-                      <EnhancedImageSelector
-                        currentImage={images[2] || '/images/horizontal_4.png'}
-                        onImageSelect={(url) => updateImage(2, url)}
-                        className="absolute top-2 right-2 z-10"
-                      />
+                      <>
+                        <EnhancedImageSelector
+                          currentImage={images[2] || '/images/horizontal_4.png'}
+                          onImageSelect={(url) => updateImage(2, url)}
+                          className="absolute top-2 right-2 z-10"
+                        />
+                        <ImagePositionControls
+                          currentPosition={getImagePosition('gallery-2')}
+                          onPositionChange={(newPosition) => updateImagePosition('gallery-2', newPosition)}
+                          className="absolute bottom-2 right-2 z-10"
+                        />
+                      </>
                     )}
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Desenvolvimento Social</h3>

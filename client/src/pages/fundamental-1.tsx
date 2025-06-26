@@ -204,16 +204,92 @@ export default function Fundamental1() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <OptimizedImage
-                src={img5}
-                alt="Desenvolvimento das crianças"
-                className="w-full h-48 rounded-lg shadow-lg"
-              />
-              <OptimizedImage
-                src={img6}
-                alt="Atividades culturais e educativas"
-                className="w-full h-48 rounded-lg shadow-lg"
-              />
+              <div className="relative">
+                <DragImagePosition
+                  src={img5}
+                  alt="Desenvolvimento das crianças"
+                  className="w-full h-48 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('hero-grid-0')?.horizontalPosition || 0,
+                    y: getImagePosition('hero-grid-0')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('hero-grid-0') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('hero-grid-0', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={img5}
+                      onImageSelect={(url) => updateImage(0, url)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero-grid-0')}
+                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-0', newPosition)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
+                  </>
+                )}
+              </div>
+              <div className="relative">
+                <DragImagePosition
+                  src={img6}
+                  alt="Atividades culturais e educativas"
+                  className="w-full h-48 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('hero-grid-1')?.horizontalPosition || 0,
+                    y: getImagePosition('hero-grid-1')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('hero-grid-1') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('hero-grid-1', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={img6}
+                      onImageSelect={(url) => updateImage(1, url)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero-grid-1')}
+                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-1', newPosition)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>

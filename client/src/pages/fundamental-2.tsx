@@ -271,25 +271,100 @@ export default function Fundamental2() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <OptimizedImage
-                src={img5}
-                alt="Alunos do Fundamental II em laboratório"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
-              />
-              <OptimizedImage
-                src={img6}
-                alt="Sala de aula do Fundamental II"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
-              />
-              <OptimizedImage
-                src={img2}
-                alt="Projeto pedagógico Fundamental II"
-                className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
-              />
+              <div className="relative">
+                <DragImagePosition
+                  src={img5}
+                  alt="Alunos do Fundamental II em laboratório"
+                  className="w-full h-48 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('hero-grid-0')?.horizontalPosition || 0,
+                    y: getImagePosition('hero-grid-0')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('hero-grid-0') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('hero-grid-0', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={img5}
+                      onImageSelect={(url) => updateImage(0, url)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero-grid-0')}
+                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-0', newPosition)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
+                  </>
+                )}
+              </div>
+              <div className="relative">
+                <DragImagePosition
+                  src={img6}
+                  alt="Sala de aula do Fundamental II"
+                  className="w-full h-48 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('hero-grid-1')?.horizontalPosition || 0,
+                    y: getImagePosition('hero-grid-1')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('hero-grid-1') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('hero-grid-1', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={img6}
+                      onImageSelect={(url) => updateImage(1, url)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero-grid-1')}
+                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-1', newPosition)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
+                  </>
+                )}
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Curriculum Section */}
+      {/* Curriculum Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 rounded-xl p-8 md:p-12">
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-slate-800 mb-4">
@@ -338,6 +413,7 @@ export default function Fundamental2() {
           </div>
         </div>
       </section>
+
       <WhyOSESection />
       <ContactSection />
       
