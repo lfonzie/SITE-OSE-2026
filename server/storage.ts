@@ -201,7 +201,7 @@ export class MemStorage implements IStorage {
         name: "Samanta Chibau Mileze",
         role: "Ex-aluna e Médica Veterinária",
         content: "Uma vida de OSE me fez ir direto para uma universidade federal. O melhor ensino, a melhor equipe e as melhores lembranças. Obrigada!",
-        image: "https://images.unsplash.com/photo-1494790108755-2616b612b17c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100",
+        image: "/images/samanta.jpg",
         rating: 5
       },
       {
@@ -209,7 +209,7 @@ export class MemStorage implements IStorage {
         name: "Fernando Proença",
         role: "Médico e pai orgulhoso de 3 filhos",
         content: "Estudei na OSE de 1984 a 1996. Foram 12 anos de muitas amizades e aprendizado. Grande escola. Amigos que mantenho até hoje.",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100",
+        image: "/images/fernando.jpeg",
         rating: 5
       },
       {
@@ -217,7 +217,7 @@ export class MemStorage implements IStorage {
         name: "Edna J. Paulo",
         role: "Ex-aluna e mãe orgulhosa do Richard",
         content: "Hoje com muita satisfação e alegria meu filho começará a trilhar sua história nesta tão sonhada escola. Parabéns ao gestor da OSE sempre oferecendo grandes oportunidades aos alunos que desejam um futuro brilhante!",
-        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100",
+        image: "/images/edna.jpg",
         rating: 5
       }
     ];
