@@ -314,12 +314,7 @@ export class MemStorage implements IStorage {
 
   // Material Lists
   async getMaterialLists(): Promise<MaterialList[]> {
-    try {
-      const data = await fs.readFile(this.materialsPath, 'utf-8');
-      return JSON.parse(data) || [];
-    } catch (error) {
-      return [];
-    }
+    return Array.from(this.materialLists.values()).sort((a, b) => b.year - a.year);
   }
 
   async getMaterialListsBySegment(segment: string): Promise<MaterialList[]> {
@@ -338,6 +333,7 @@ export class MemStorage implements IStorage {
       updatedAt: new Date()
     };
     this.materialLists.set(id, newMaterialList);
+    await this.saveMaterialLists();
     return newMaterialList;
   }
 
@@ -352,11 +348,16 @@ export class MemStorage implements IStorage {
       updatedAt: new Date()
     };
     this.materialLists.set(id, updated);
+    await this.saveMaterialLists();
     return updated;
   }
 
   async deleteMaterialList(id: number): Promise<boolean> {
-    return this.materialLists.delete(id);
+    const deleted = this.materialLists.delete(id);
+    if (deleted) {
+      await this.saveMaterialLists();
+    }
+    return deleted;
   }
 
   // User operations for Replit Auth
@@ -397,15 +398,49 @@ export class MemStorage implements IStorage {
       return [];
     }
   }
+  private async saveMaterialLists(): Promise<void> {
+    try {
+      const lists = Array.from(this.materialLists.values());
+      await fs.writeFile(this.materialsPath, JSON.stringify(lists, null, 2), 'utf-8');
+    } catch (error) {
+      console.error('Error saving material lists:', error);
+    }
+  }
+
+  private async loadPages(): Promise<any[]> {
+    return [];
+  }
+
+  private async loadUploads(): Promise<any[]> {
+    return [];
+  }
+
+  private async loadPrograms(): Promise<any[]> {
+    return [];
+  }
+
+  private async loadTestimonials(): Promise<any[]> {
+    return [];
+  }
+
+  private async loadInstagramImages(): Promise<any[]> {
+    return [];
+  }
+
+  private async ensureDataDir(): Promise<void> {
+    try {
+      await fs.mkdir(this.dataDir, { recursive: true });
+    } catch (error) {
+      // Directory already exists
+    }
+  }
+
   private async init() {
-    // Load existing data
-    this.pages = await this.loadPages();
-    this.uploads = await this.loadUploads();
-    this.programs = await this.loadPrograms();
-    this.testimonials = await this.loadTestimonials();
-    this.instagramImages = await this.loadInstagramImages();
+    await this.ensureDataDir();
     await this.loadMaterialLists();
   }
 }
 
 export const storage = new MemStorage();
+// Initialize storage on startup
+storage['init']?.();

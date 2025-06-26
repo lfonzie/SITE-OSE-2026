@@ -20,19 +20,27 @@ export default function SocialFeedsSection() {
         const response = await fetch('/api/instagram-images');
         if (response.ok) {
           const images = await response.json();
-          // Ordenar por data de modificação (mais recentes primeiro)
-          const sortedImages = images.sort((a: any, b: any) => 
+          console.log('Imagens carregadas da pasta IG:', images);
+          
+          // Filtrar apenas imagens válidas e ordenar por data
+          const validImages = images.filter((img: any) => 
+            img.filename && img.filename.match(/\.(jpg|jpeg|png|gif|webp)$/i)
+          );
+          
+          const sortedImages = validImages.sort((a: any, b: any) => 
             new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
           );
+          
           const imageUrls = sortedImages.map((img: any) => `/api/images/IG/${img.filename}`);
           setInstagramImages(imageUrls.slice(0, 8)); // Máximo 8 imagens
+          
+          console.log('URLs das imagens do Instagram:', imageUrls);
         } else {
-          // Se não conseguir carregar, não exibir nenhuma imagem
+          console.warn('Falha ao carregar imagens da API:', response.status);
           setInstagramImages([]);
         }
       } catch (error) {
         console.error('Erro ao carregar imagens do Instagram:', error);
-        // Em caso de erro, não exibir nenhuma imagem
         setInstagramImages([]);
       }
     };

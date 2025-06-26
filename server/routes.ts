@@ -43,7 +43,7 @@ export async function registerRoutes(app: Express) {
   // Programs
   app.get("/api/programs", async (req, res) => {
     try {
-      const programs = await await storage.getPrograms();
+      const programs = await storage.getPrograms();
       res.json(programs);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch programs" });
