@@ -1,32 +1,54 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Heart, Brain, Users, Target, Award, BookOpen, Shield, Lightbulb, Gamepad2, Monitor, Music, GraduationCap, Home, Star } from "lucide-react";
+import { Heart, Users, Brain, Target, Lightbulb, Award } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
-import DragImagePosition from '@/components/DragImagePosition';
-import { useAuth } from '@/contexts/AuthContext';
+import { useVisualComposer } from '@/hooks/useVisualComposer';
 import { usePageData } from '@/hooks/usePageData';
+import { useAuth } from '@/contexts/AuthContext';
+import DragImagePosition from '@/components/DragImagePosition';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import ImagePositionControls from '@/components/ImagePositionControls';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
-import { useVisualComposer } from '@/hooks/useVisualComposer';
+
+// Importando imagens para Programa Socioemocional  
 import { newImages } from "@/lib/image-verification";
 
-export default function SocioEmocional() {
+export default function Socioemocional() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Programa Socioemocional');
-  
+
   // Initialize page data with auto-save functionality
-  const { heroImage, images, updateHeroImage, updateImage, getImagePosition, updateImagePosition } = usePageData('Programa Socioemocional', {
-    heroImage: '/images/horizontal_1.png',
-    images: ['/images/horizontal_2.png', '/images/horizontal_3.png', '/images/horizontal_4.png']
+  const { 
+    heroImage, 
+    heroBackground,
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('Programa Socioemocional', {
+    heroImage: newImages.img26,
+    images: [newImages.img27, newImages.img28, newImages.img29],
+    heroBackground: {
+      type: 'gradient',
+      gradientColors: ['#475569', '#64748b'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.8,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
   });
   useEffect(() => {
     updateSEO({
@@ -43,7 +65,7 @@ export default function SocioEmocional() {
       description: "Compreensão das próprias emoções, fortalezas e limitações"
     },
     {
-      icon: Shield,
+      icon: Heart,
       title: "Autorregulação",
       description: "Gestão emocional e comportamental diante de diferentes situações"
     },
@@ -91,7 +113,7 @@ export default function SocioEmocional() {
         "Emoções complexas: frustração e ciúme",
         "Atividades lúdicas e reflexivas"
       ],
-      icon: BookOpen,
+      icon: Heart,
       color: "from-blue-500 to-purple-500"
     },
     {
@@ -115,14 +137,14 @@ export default function SocioEmocional() {
         "Escolhas profissionais",
         "Projetos de vida"
       ],
-      icon: GraduationCap,
+      icon: Heart,
       color: "from-purple-500 to-pink-500"
     }
   ];
 
   const recursos = [
     {
-      icon: BookOpen,
+      icon: Heart,
       title: "Materiais Didáticos",
       description: "Livros físicos e digitais, séries, músicas e jogos adaptados a cada faixa etária"
     },
@@ -132,7 +154,7 @@ export default function SocioEmocional() {
       description: "Treinamentos e mentorias pedagógicas para professores, garantindo a qualidade das aulas"
     },
     {
-      icon: Home,
+      icon: Heart,
       title: "Participação das Famílias",
       description: "Atividades que promovem o diálogo socioemocional em casa, fortalecendo a parceria escola-família"
     }
@@ -145,7 +167,7 @@ export default function SocioEmocional() {
       description: "Melhoria da saúde mental e estabilidade emocional dos alunos"
     },
     {
-      icon: Shield,
+      icon: Heart,
       title: "Prevenção de Problemas",
       description: "Redução de problemas comportamentais, como bullying e ansiedade"
     },
@@ -420,7 +442,7 @@ export default function SocioEmocional() {
               <div className="space-y-4">
                 {diferenciais.map((diferencial, index) => (
                   <div key={index} className="flex items-start">
-                    <Star className="text-school-orange w-5 h-5 mt-1 mr-3 flex-shrink-0" />
+                    <Heart className="text-school-orange w-5 h-5 mt-1 mr-3 flex-shrink-0" />
                     <span className="text-slate-600">{diferencial}</span>
                   </div>
                 ))}

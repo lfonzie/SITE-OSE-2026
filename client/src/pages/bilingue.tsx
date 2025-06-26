@@ -26,11 +26,31 @@ const img4 = newImages.horizontal4;
 export default function Bilingue() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Programa Bilíngue');
-  
+
   // Initialize page data with auto-save functionality
-  const { heroImage, images, updateHeroImage, updateImage, getImagePosition, updateImagePosition } = usePageData('Programa Bilíngue', {
-    heroImage: '/images/horizontal_1.png',
-    images: ['/images/horizontal_2.png', '/images/horizontal_3.png', '/images/horizontal_4.png']
+  const { 
+    heroImage, 
+    heroBackground,
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('Programa Bilíngue', {
+    heroImage: newImages.img22,
+    images: [newImages.img23, newImages.img24, newImages.img25],
+    heroBackground: {
+      type: 'gradient',
+      gradientColors: ['#475569', '#64748b'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.8,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
   });
   const features = [
     {
@@ -70,16 +90,75 @@ export default function Bilingue() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src={img1}
-            alt="Educação Bilíngue - Global Citizens"
-            className="w-full h-full object-cover opacity-30"
+      <section 
+        className="relative pt-20 pb-16 text-white overflow-hidden"
+        style={{
+          background: heroBackground?.type === 'gradient' 
+            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
+            : heroBackground?.type === 'color'
+            ? heroBackground.solidColor
+            : heroBackground?.type === 'image' && heroBackground.imageUrl
+            ? `url(${heroBackground.imageUrl})`
+            : 'linear-gradient(135deg, #475569, #64748b)',
+          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
+          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
+          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+          opacity: heroBackground?.opacity || 1
+        }}
+      >
+        {/* Background Image Layer */}
+        {heroBackground?.type === 'image' && heroImage && (
+          <div className="absolute inset-0">
+            <div className="relative w-full h-full">
+              <img 
+                src={heroImage}
+                alt="Programa Bilíngue OSE"
+                className="w-full h-full object-cover opacity-30"
+                style={{
+                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
+                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
+                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
+                  opacity: getImagePosition('hero')?.opacity || 0.3,
+                  filter: getImagePosition('hero')?.filter || 'none'
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={heroImage}
+                    onImageSelect={updateHeroImage}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('hero')}
+                    onPositionChange={(position) => updateImagePosition('hero', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
-        </div>
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.8
+            }}
+          ></div>
+        )}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -153,21 +232,135 @@ export default function Bilingue() {
 
           {/* Image Gallery */}
           <div className="grid md:grid-cols-3 gap-6">
-            <OptimizedImage
-              src={img2}
-              alt="Atividades bilíngues na OSE"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={img3}
-              alt="Material MacMillan Education"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={img4}
-              alt="Cidadania global em prática"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
+            <div className="relative">
+              <DragImagePosition
+                src={images[0] || newImages.img23}
+                alt="Aula de inglês no programa bilíngue"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-0')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-0')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-0') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-0', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[0] || newImages.img23}
+                    onImageSelect={(url) => updateImage(0, url)}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-0')}
+                    onPositionChange={(position) => updateImagePosition('gallery-0', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
+            <div className="relative">
+              <DragImagePosition
+                src={images[1] || newImages.img24}
+                alt="Atividades culturais internacionais"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-1')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-1')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-1') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-1', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[1] || newImages.img24}
+                    onImageSelect={(url) => updateImage(1, url)}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-1')}
+                    onPositionChange={(position) => updateImagePosition('gallery-1', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
+            <div className="relative">
+              <DragImagePosition
+                src={images[2] || newImages.img25}
+                alt="Intercâmbio cultural e cidadania global"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-2')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-2')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-2') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-2', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[2] || newImages.img25}
+                    onImageSelect={(url) => updateImage(2, url)}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-2')}
+                    onPositionChange={(position) => updateImagePosition('gallery-2', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
           </div>
         </div>
       </section>
