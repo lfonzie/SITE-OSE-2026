@@ -206,33 +206,33 @@ export default function Socioemocional() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          
-<div className="relative z-10 flex items-center min-h-[80vh]">
-              <div className="text-left text-white px-6 max-w-4xl">
-                <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                  Programa Socioemocional
-                  <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
-                    Desenvolvendo Competências para a Vida
-                  </span>
-                </h1>
-            <motion.p 
-              className="text-xl md:text-2xl mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Desenvolvimento Integral da Educação Infantil ao Ensino Médio
-            </motion.p>
-            <motion.p 
-              className="text-lg mb-8 opacity-95 max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              O Programa Socioemocional da nossa escola é uma iniciativa integrada ao currículo escolar, 
-              voltada para o desenvolvimento integral de alunos da Educação Infantil ao Ensino Médio. 
-              Com aulas semanais, o programa promove habilidades essenciais para a vida.
-            </motion.p>
+          <div className="relative z-10 flex items-center min-h-[80vh]">
+            <div className="text-left text-white px-6 max-w-4xl">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Programa Socioemocional
+                <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                  Desenvolvendo Competências para a Vida
+                </span>
+              </h1>
+              <motion.p 
+                className="text-xl md:text-2xl mb-6"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Desenvolvimento Integral da Educação Infantil ao Ensino Médio
+              </motion.p>
+              <motion.p 
+                className="text-lg mb-8 opacity-95 max-w-4xl mx-auto"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                O Programa Socioemocional da nossa escola é uma iniciativa integrada ao currículo escolar, 
+                voltada para o desenvolvimento integral de alunos da Educação Infantil ao Ensino Médio. 
+                Com aulas semanais, o programa promove habilidades essenciais para a vida.
+              </motion.p>
+            </div>
           </div>
         </div>
       </section>

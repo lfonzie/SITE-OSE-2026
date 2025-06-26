@@ -52,7 +52,7 @@ export default function ProgramsSection() {
   });
 
   const getImageForProgram = (title: string, index: number) => {
-    const currentImages = images || [];
+    const currentImages = pageData?.images || [];
     const imageMap: Record<string, string> = {
       'Educação Infantil': currentImages[0] || newImages.img9,
       'Ensino Fundamental I': currentImages[1] || newImages.img10,
