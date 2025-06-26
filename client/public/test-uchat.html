@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste UChatWidget - OSE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .warning { background: #fff3cd; color: #856404; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        #widget-status {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background: white;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Teste UChatWidget - Colégio OSE</h1>
+        
+        <div id="widget-status">
+            <strong>Status do Widget:</strong>
+            <div id="status-content">Carregando...</div>
+        </div>
+
+        <h2>Informações do Teste</h2>
+        <div class="status info">
+            <strong>Objetivo:</strong> Verificar se o UChatWidget está carregando e funcionando corretamente.
+        </div>
+
+        <h3>Checklist de Verificação:</h3>
+        <ul>
+            <li>✅ Script UChatWidget carregado</li>
+            <li>🔍 Widget visível no DOM</li>
+            <li>🔍 Widget funcionalmente ativo</li>
+            <li>🔍 Posicionamento correto</li>
+        </ul>
+
+        <h3>Logs do Console:</h3>
+        <div id="console-logs" style="background: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">
+        </div>
+
+        <h3>Fallback WhatsApp (caso necessário):</h3>
+        <div style="margin: 20px 0;">
+            <a href="https://wa.me/5515021013812" target="_blank" 
+               style="background: #25D366; color: white; padding: 15px 20px; text-decoration: none; border-radius: 25px; display: inline-block;">
+                💬 WhatsApp Direto
+            </a>
+        </div>
+
+        <h3>Teste de Conteúdo</h3>
+        <p>Esta é uma página de teste para verificar o funcionamento do UChatWidget. O widget deve aparecer no canto inferior direito da tela.</p>
+        <p>Se você não conseguir ver o widget do chat, verifique:</p>
+        <ul>
+            <li>Se há bloqueadores de anúncios ativos</li>
+            <li>Se o JavaScript está habilitado</li>
+            <li>Se há erros no console do navegador</li>
+        </ul>
+    </div>
+
+    <!-- UChatWidget Script - Mesmo do site principal -->
+    <script>
+        (function() {
+            let logContainer = document.getElementById('console-logs');
+            let statusContainer = document.getElementById('status-content');
+            let logs = [];
+
+            // Função para adicionar logs
+            function addLog(message, type = 'info') {
+                const timestamp = new Date().toLocaleTimeString();
+                const logEntry = `[${timestamp}] ${message}`;
+                logs.push(logEntry);
+                
+                console.log(logEntry);
+                
+                // Atualizar interface
+                logContainer.innerHTML = logs.slice(-10).map(log => `<div>${log}</div>`).join('');
+                logContainer.scrollTop = logContainer.scrollHeight;
+            }
+
+            // Função para verificar widget
+            function checkUChatWidget() {
+                const selectors = [
+                    '[id*="uchat"]',
+                    '[class*="uchat"]', 
+                    '[id*="chat"]',
+                    '[class*="chat"]',
+                    '.uchat-widget',
+                    '#uchat-widget',
+                    'iframe[src*="uchat"]',
+                    'iframe[src*="widget"]'
+                ];
+                
+                let found = false;
+                let details = [];
+                
+                selectors.forEach(selector => {
+                    const elements = document.querySelectorAll(selector);
+                    if (elements.length > 0) {
+                        found = true;
+                        elements.forEach((el, index) => {
+                            const styles = window.getComputedStyle(el);
+                            details.push(`${selector}[${index}]: display=${styles.display}, visibility=${styles.visibility}, zIndex=${styles.zIndex}`);
+                        });
+                    }
+                });
+                
+                if (found) {
+                    statusContainer.innerHTML = `<span style="color: green;">✅ Widget encontrado!</span><br><small>${details.join('<br>')}</small>`;
+                    addLog(`UChatWidget encontrado: ${details.length} elementos`, 'success');
+                } else {
+                    statusContainer.innerHTML = '<span style="color: red;">❌ Widget não encontrado</span>';
+                    addLog('UChatWidget não encontrado no DOM', 'error');
+                }
+                
+                return found;
+            }
+
+            // Load UChatWidget
+            function loadUChatWidget() {
+                addLog('Iniciando carregamento do UChatWidget...');
+                
+                var script = document.createElement('script');
+                script.async = true;
+                script.defer = true;
+                script.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js';
+                
+                script.onload = function() {
+                    addLog('UChatWidget script carregado com sucesso!', 'success');
+                    
+                    // Verificar widget após carregamento
+                    setTimeout(() => {
+                        checkUChatWidget();
+                        
+                        // Verificar novamente após 3 segundos
+                        setTimeout(() => {
+                            if (!checkUChatWidget()) {
+                                addLog('Widget não apareceu após 3 segundos - criando fallback', 'warning');
+                                createFallbackWidget();
+                            }
+                        }, 3000);
+                    }, 1000);
+                };
+                
+                script.onerror = function() {
+                    addLog('ERRO: Falha ao carregar script UChatWidget', 'error');
+                    createFallbackWidget();
+                };
+                
+                document.head.appendChild(script);
+            }
+
+            function createFallbackWidget() {
+                addLog('Criando widget fallback...', 'warning');
+                
+                const fallbackWidget = document.createElement('div');
+                fallbackWidget.id = 'uchat-fallback-widget';
+                fallbackWidget.innerHTML = `
+                    <a href="https://wa.me/5515021013812" target="_blank" 
+                       style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999999; font-size: 16px; animation: bounce 2s infinite;">
+                        💬 WhatsApp
+                    </a>
+                `;
+                document.body.appendChild(fallbackWidget);
+                
+                // Add bounce animation
+                const style = document.createElement('style');
+                style.textContent = '@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }';
+                document.head.appendChild(style);
+                
+                statusContainer.innerHTML = '<span style="color: orange;">⚠️ Usando fallback</span>';
+            }
+
+            // Verificação periódica
+            setInterval(checkUChatWidget, 5000);
+            
+            // Carregar widget quando DOM estiver pronto
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', loadUChatWidget);
+            } else {
+                loadUChatWidget();
+            }
+            
+            addLog('Sistema de teste iniciado');
+        })();
+    </script>
+</body>
+</html>

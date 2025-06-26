@@ -37,6 +37,7 @@ import Agendamento from "@/pages/agendamento";
 import NotFound from "@/pages/not-found";
 import CV from "@/pages/cv";
 import { AuthProvider } from "./contexts/AuthContext";
+import TestUChat from "@/pages/test-uchat";
 
 function Router() {
   // Track page views when routes change
@@ -66,6 +67,7 @@ function Router() {
       <Route path="/missao-valores" component={MissaoValores} />
       <Route path="/agendamento" component={Agendamento} />
       <Route path="/cv" component={CV} />
+      <Route path="/test-uchat" component={TestUChat} />
       <Route component={NotFound} />
     </Switch>
   );

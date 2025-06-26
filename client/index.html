@@ -41,8 +41,78 @@
     <!-- UChatWidget Global Installation - Sempre presente -->
     <script>
       (function() {
+        let retryCount = 0;
+        const maxRetries = 3;
+        let widgetCheckInterval;
+        
+        // Enhanced widget detection
+        function findUChatWidget() {
+          const selectors = [
+            '[id*="uchat"]',
+            '[class*="uchat"]',
+            '[id*="chat"]',
+            '[class*="chat"]',
+            '.uchat-widget',
+            '#uchat-widget',
+            'iframe[src*="uchat"]',
+            'iframe[src*="widget"]',
+            'div[data-uchat]',
+            '[data-widget-id]'
+          ];
+          
+          for (let selector of selectors) {
+            const elements = document.querySelectorAll(selector);
+            if (elements.length > 0) {
+              return Array.from(elements);
+            }
+          }
+          return [];
+        }
+        
+        // Force widget visibility
+        function forceWidgetVisibility(widgets) {
+          widgets.forEach(widget => {
+            if (widget instanceof HTMLElement) {
+              widget.style.display = 'block !important';
+              widget.style.visibility = 'visible !important';
+              widget.style.opacity = '1 !important';
+              widget.style.zIndex = '999999';
+              widget.style.position = 'fixed';
+              console.log('UChatWidget forced visible:', widget);
+            }
+          });
+        }
+        
+        // Check widget periodically
+        function checkWidgetPeriodically() {
+          widgetCheckInterval = setInterval(function() {
+            const widgets = findUChatWidget();
+            if (widgets.length > 0) {
+              console.log('UChatWidget widget found in DOM');
+              forceWidgetVisibility(widgets);
+              clearInterval(widgetCheckInterval);
+            } else {
+              console.log('UChatWidget still not found, checking again...');
+            }
+          }, 2000);
+          
+          // Stop checking after 30 seconds
+          setTimeout(() => {
+            if (widgetCheckInterval) {
+              clearInterval(widgetCheckInterval);
+              const widgets = findUChatWidget();
+              if (widgets.length === 0) {
+                console.warn('UChatWidget not found after 30 seconds - creating fallback');
+                createFallbackWidget();
+              }
+            }
+          }, 30000);
+        }
+        
         // Load UChatWidget with enhanced error handling and retry mechanism
         function loadUChatWidget() {
+          console.log(`UChatWidget loading attempt ${retryCount + 1}/${maxRetries}`);
+          
           var script = document.createElement('script');
           script.async = true;
           script.defer = true;
@@ -51,48 +121,56 @@
           script.onload = function() {
             console.log('UChatWidget loaded successfully');
             
-            // Force widget initialization if needed
+            // Start periodic checking
+            checkWidgetPeriodically();
+            
+            // Force widget initialization if available
             setTimeout(function() {
               if (window.UChatWidget && typeof window.UChatWidget.init === 'function') {
-                window.UChatWidget.init();
+                try {
+                  window.UChatWidget.init();
+                  console.log('UChatWidget manually initialized');
+                } catch (e) {
+                  console.error('Error initializing UChatWidget:', e);
+                }
               }
-              
-              // Check if widget is visible with broader selectors
-              const widget = document.querySelector('[id*="uchat"], [class*="uchat"], [id*="chat"], [class*="chat"], .uchat-widget, #uchat-widget, iframe[src*="uchat"]');
-              if (widget) {
-                console.log('UChatWidget widget found in DOM');
-                widget.style.zIndex = '999999';
-                widget.style.position = 'fixed';
-              } else {
-                console.warn('UChatWidget script loaded but widget not found in DOM - attempting manual initialization');
-                
-                // Manual fallback widget creation
-                const fallbackWidget = document.createElement('div');
-                fallbackWidget.id = 'uchat-fallback-widget';
-                fallbackWidget.innerHTML = '<a href="https://wa.me/5515021013812" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999999; font-size: 16px;">💬 WhatsApp</a>';
-                document.body.appendChild(fallbackWidget);
-              }
-            }, 3000);
+            }, 1000);
           };
           
           script.onerror = function() {
-            console.error('Failed to load UChatWidget - creating fallback');
-            createFallbackWidget();
+            console.error(`Failed to load UChatWidget (attempt ${retryCount + 1})`);
+            retryCount++;
+            
+            if (retryCount < maxRetries) {
+              setTimeout(loadUChatWidget, 2000 * retryCount);
+            } else {
+              console.error('UChatWidget failed after all retries - creating fallback');
+              createFallbackWidget();
+            }
           };
           
           document.head.appendChild(script);
         }
         
         function createFallbackWidget() {
+          // Remove existing fallbacks
+          const existing = document.getElementById('uchat-fallback-widget');
+          if (existing) existing.remove();
+          
           const fallbackWidget = document.createElement('div');
           fallbackWidget.id = 'uchat-fallback-widget';
           fallbackWidget.innerHTML = '<a href="https://wa.me/5515021013812" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999999; font-size: 16px; animation: bounce 2s infinite;">💬 WhatsApp</a>';
           document.body.appendChild(fallbackWidget);
           
           // Add bounce animation
-          const style = document.createElement('style');
-          style.textContent = '@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }';
-          document.head.appendChild(style);
+          if (!document.getElementById('uchat-fallback-styles')) {
+            const style = document.createElement('style');
+            style.id = 'uchat-fallback-styles';
+            style.textContent = '@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }';
+            document.head.appendChild(style);
+          }
+          
+          console.log('UChatWidget fallback widget created');
         }
         
         // Load when DOM is ready
