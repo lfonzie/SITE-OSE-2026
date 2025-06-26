@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Play, Award, Users, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import { newImages } from "@/lib/image-verification";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from '@/contexts/AuthContext';
