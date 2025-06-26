@@ -31,8 +31,8 @@ export default function WhyOSESection() {
       description: "Criamos espaços seguros onde cada aluno pode crescer individualmente e socialmente."
     },
     {
-      title: "{CODE.OSE} - Programação",
-      description: "Programa inovador de ensino de programação e pensamento computacional, preparando alunos para o futuro digital desde os anos iniciais."
+      title: "Excelência Reconhecida",
+      description: "98% de satisfação das famílias comprova nosso compromisso com a qualidade educacional."
     }
   ];
 
