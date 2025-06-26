@@ -49,8 +49,8 @@ const timeline = [
   },
   {
     year: "1989",
-    title: "Colégio Uirapuru",
-    description: "Arthur Fonseca Filho, Kiko Fonseca e Nelson Raul criam o Colégio Uirapuru como extensão da OSE, unindo tradição e inovação pedagógica.",
+    title: "OSE Uirapuru",
+    description: "Arthur Fonseca Filho, Kiko Fonseca e Nelson Raul criam a OSE Uirapuru como extensão da OSE, unindo tradição e inovação pedagógica.",
     icon: <GraduationCap size={24} />
   },
   {
@@ -62,7 +62,7 @@ const timeline = [
   {
     year: "1999",
     title: "Independência do Uirapuru",
-    description: "O Colégio Uirapuru torna-se administrativamente independente, mantendo os princípios educacionais e colaboração com a OSE.",
+    description: "A OSE Uirapuru torna-se administrativamente independente como Colégio Uirapuru, mantendo os princípios educacionais e colaboração com a OSE.",
     icon: <Award size={24} />
   },
   {
@@ -109,7 +109,7 @@ const historicalFigures = [
 
 const institutions = [
   {
-    name: "Colégio Uirapuru",
+    name: "OSE Uirapuru",
     period: "1989-1999",
     description: "Criado como extensão da OSE por Arthur Fonseca Filho, Kiko Fonseca e Nelson Raul. Iniciou com 130 alunos de 4 a 10 anos, focando na união entre tradição e inovação pedagógica.",
     impact: "Tornou-se referência em qualidade docente e formação continuada de professores."
