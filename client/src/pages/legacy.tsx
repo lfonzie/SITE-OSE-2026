@@ -317,38 +317,61 @@ export default function Legacy() {
           </div>
 
           <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-school-orange"></div>
+            {/* Timeline Line - Desktop (center) and Mobile (left) */}
+            <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-px h-full w-0.5 bg-school-orange"></div>
             
             {timeline.map((event, index) => (
               <motion.div 
                 key={index}
-                className={`relative flex items-center mb-16 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                className="relative flex items-start mb-12 md:mb-16"
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                  <div className={`p-6 rounded-xl shadow-lg border-l-4 ${
+                {/* Mobile Layout: Single column with left timeline */}
+                <div className="block md:hidden w-full pl-16">
+                  <div className={`p-4 rounded-xl shadow-lg border-l-4 ${
                     event.highlight 
                       ? 'bg-gradient-to-r from-school-orange/10 to-school-orange/5 border-school-orange' 
                       : 'bg-white border-slate-300'
                   }`}>
-                    <div className={`text-3xl font-bold mb-2 ${
+                    <div className={`text-2xl font-bold mb-2 ${
                       event.highlight ? 'text-school-orange' : 'text-slate-700'
                     }`}>
                       {event.year}
                     </div>
-                    <h3 className="text-xl font-bold text-slate-800 mb-3">{event.title}</h3>
-                    <p className="text-slate-600 leading-relaxed">{event.description}</p>
+                    <h3 className="text-lg font-bold text-slate-800 mb-2">{event.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{event.description}</p>
+                  </div>
+                </div>
+
+                {/* Desktop Layout: Two columns alternating */}
+                <div className={`hidden md:flex md:items-center md:w-full ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
+                  <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'}`}>
+                    <div className={`p-6 rounded-xl shadow-lg border-l-4 ${
+                      event.highlight 
+                        ? 'bg-gradient-to-r from-school-orange/10 to-school-orange/5 border-school-orange' 
+                        : 'bg-white border-slate-300'
+                    }`}>
+                      <div className={`text-3xl font-bold mb-2 ${
+                        event.highlight ? 'text-school-orange' : 'text-slate-700'
+                      }`}>
+                        {event.year}
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-800 mb-3">{event.title}</h3>
+                      <p className="text-slate-600 leading-relaxed">{event.description}</p>
+                    </div>
                   </div>
                 </div>
                 
-                {/* Timeline Dot */}
-                <div className={`absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg ${
+                {/* Timeline Dot - Mobile (left) and Desktop (center) */}
+                <div className={`absolute w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg 
+                  left-0 md:left-1/2 md:transform md:-translate-x-1/2 ${
                   event.highlight ? 'bg-school-orange' : 'bg-slate-600'
                 }`}>
-                  {event.icon}
+                  <div className="text-sm md:text-base">
+                    {event.icon}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -368,7 +391,7 @@ export default function Legacy() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {historicalFigures.map((figure, index) => (
               <motion.div 
                 key={index} 
@@ -404,23 +427,24 @@ export default function Legacy() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {institutions.map((institution, index) => (
               <motion.div 
                 key={index}
-                className="bg-slate-50 rounded-xl p-8"
+                className="bg-slate-50 rounded-xl p-4 md:p-8"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <div className="h-48 bg-gradient-to-b from-slate-200 to-slate-300 rounded-lg mb-6 flex items-center justify-center">
-                  <BookOpen size={48} className="text-slate-400" />
+                <div className="h-32 md:h-48 bg-gradient-to-b from-slate-200 to-slate-300 rounded-lg mb-4 md:mb-6 flex items-center justify-center">
+                  <BookOpen size={32} className="md:hidden text-slate-400" />
+                  <BookOpen size={48} className="hidden md:block text-slate-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-2">{institution.name}</h3>
-                <p className="text-school-orange font-semibold mb-4">{institution.period}</p>
-                <p className="text-slate-600 mb-4 leading-relaxed">{institution.description}</p>
-                <div className="border-t border-slate-200 pt-4">
-                  <p className="text-sm text-slate-500 italic">{institution.impact}</p>
+                <h3 className="text-lg md:text-2xl font-bold text-slate-800 mb-2">{institution.name}</h3>
+                <p className="text-school-orange font-semibold mb-3 md:mb-4 text-sm md:text-base">{institution.period}</p>
+                <p className="text-slate-600 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">{institution.description}</p>
+                <div className="border-t border-slate-200 pt-3 md:pt-4">
+                  <p className="text-xs md:text-sm text-slate-500 italic">{institution.impact}</p>
                 </div>
               </motion.div>
             ))}
