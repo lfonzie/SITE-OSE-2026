@@ -56,7 +56,7 @@ const timeline = [
   {
     year: "1997",
     title: "OSE Santa Rosália",
-    description: "Inauguração da unidade Santa Rosália na Avenida Roberto Simonsen, expandindo a presença da OSE para atender mais famílias da região.",
+    description: "Inauguração da unidade OSE Santa Rosália na Avenida Roberto Simonsen, expandindo a presença da OSE para atender mais famílias da região.",
     icon: <Map size={24} />
   },
   {
@@ -73,8 +73,14 @@ const timeline = [
   },
   {
     year: "2010",
-    title: "Nova Direção",
-    description: "Kiko Fonseca assume a direção geral da OSE, promovendo modernização tecnológica e mantendo os valores tradicionais da instituição.",
+    title: "Independência Santa Rosália",
+    description: "A OSE Santa Rosália torna-se administrativamente independente como Colégio Santa Rosália, mantendo os princípios educacionais e colaboração com a OSE.",
+    icon: <Award size={24} />
+  },
+  {
+    year: "2010",
+    title: "Nova Direção e Consolidação",
+    description: "Kiko Fonseca assume a direção geral da OSE, promovendo modernização tecnológica e mantendo os valores tradicionais da instituição. Consolidação das unidades independentes.",
     icon: <Heart size={24} />
   },
   {
@@ -117,7 +123,7 @@ const institutions = [
   {
     name: "OSE Santa Rosália",
     period: "1997-2010",
-    description: "Inaugurada no bairro Santa Rosália, começou em uma casa na Av. Roberto Simonsen e depois se mudou para a Rua Manoel Pereira e Silva. Implantou o Ensino Fundamental II em 2004.",
+    description: "Inaugurada no bairro Santa Rosália, começou em uma casa na Av. Roberto Simonsen e depois se mudou para a Rua Manoel Pereira e Silva. Implantou o Ensino Fundamental II em 2004. Em 2010 tornou-se independente como Colégio Santa Rosália.",
     impact: "Expandiu a presença da OSE para uma região nobre de Sorocaba, atendendo mais famílias."
   },
   {
