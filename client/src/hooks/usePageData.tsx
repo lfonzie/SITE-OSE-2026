@@ -126,7 +126,17 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
   return {
     pageData,
     heroImage: pageData.heroImage,
-    heroBackground: pageData.heroBackground,
+    heroBackground: pageData.heroBackground || {
+      type: 'gradient' as const,
+      gradientColors: ['#475569', '#64748b'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.8,
+      position: 'center',
+      size: 'cover' as const,
+      repeat: 'no-repeat' as const
+    },
     images: pageData.images || [],
     imagePositions: pageData.imagePositions || {},
     content: pageData.content,

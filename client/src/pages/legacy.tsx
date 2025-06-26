@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import WhyOSESection from "@/components/why-ose-section";
@@ -18,7 +18,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { newImages } from "@/lib/image-verification";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 import { useInlineTextEditor } from '@/hooks/useInlineTextEditor';
 import { useInlineImageEditor } from '@/hooks/useInlineImageEditor';
 import { useInlineHeroEditor } from '@/hooks/useInlineHeroEditor';
@@ -172,6 +172,7 @@ export default function Legacy() {
 
   // Initialize page data with auto-save functionality
   const { 
+    pageData,
     heroImage, 
     heroBackground,
     images, 
@@ -184,19 +185,19 @@ export default function Legacy() {
     heroImage: newImages.horizontal1,
     images: [newImages.horizontal2, newImages.horizontal3, newImages.horizontal4],
     heroBackground: {
-      type: 'gradient',
+      type: 'gradient' as const,
       gradientColors: ['#475569', '#64748b'],
       opacity: 1,
       overlay: true,
       overlayColor: '#1e293b',
       overlayOpacity: 0.8,
       position: 'center',
-      size: 'cover',
-      repeat: 'no-repeat'
+      size: 'cover' as const,
+      repeat: 'no-repeat' as const
     }
   });
 
-  const [content, setContent] = React.useState({
+  const [content, setContent] = useState({
     title: "Legado OSE",
     subtitle: "100 Anos de Tradição em Educação",
     description: "Uma história centenária de excelência educacional que continua a moldar o futuro de gerações",
@@ -321,7 +322,7 @@ export default function Legacy() {
             </div>
             <div className="relative">
               <InlineImageEditor
-                src={pageData.images[0] || newImages.horizontal2}
+                src={images[0] || newImages.horizontal2}
                 alt="História OSE"
                 onImageChange={(src) => updateImage(0, src)}
                 className="w-full h-96 object-cover rounded-lg shadow-lg"
