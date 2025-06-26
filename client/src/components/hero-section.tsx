@@ -1,8 +1,17 @@
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { newImages } from "@/lib/image-verification";
+import DragImagePosition from '@/components/DragImagePosition';
+import { useAuth } from '@/contexts/AuthContext';
+import { usePageData } from '@/hooks/usePageData';
 
 export default function HeroSection() {
+  const { isAuthenticated } = useAuth();
+  const { getImagePosition, updateImagePosition } = usePageData('Home', {
+    heroImage: newImages.horizontal1,
+    images: []
+  });
+
   const scrollToNext = () => {
     const element = document.getElementById("stats");
     if (element) {
@@ -14,10 +23,32 @@ export default function HeroSection() {
     <section id="hero" className="relative min-h-screen flex items-center">
       {/* Background image with overlay */}
       <div className="absolute inset-0">
-        <img 
+        <DragImagePosition
           src={newImages.horizontal1} 
           alt="Colégio OSE - Campus e estudantes"
-          className="w-full h-full object-cover"
+          className="w-full h-full"
+          editable={isAuthenticated}
+          initialPosition={{
+            x: getImagePosition('hero-bg')?.horizontalPosition || 0,
+            y: getImagePosition('hero-bg')?.verticalPosition || 0
+          }}
+          onPositionChange={(position: { x: number; y: number }) => {
+            const currentPos = getImagePosition('hero-bg') || {
+              objectPosition: 'center center',
+              horizontalPosition: 0,
+              verticalPosition: 0,
+              scale: 1,
+              opacity: 1,
+              filter: 'none',
+              objectFit: 'cover' as const
+            };
+            updateImagePosition('hero-bg', {
+              ...currentPos,
+              objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+              horizontalPosition: position.x,
+              verticalPosition: position.y
+            });
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-school-brown/90 via-school-orange/80 to-white/85">
           <div className="absolute inset-0 bg-black/20" />

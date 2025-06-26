@@ -10,6 +10,12 @@ import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
+import DragImagePosition from '@/components/DragImagePosition';
+import { useAuth } from '@/contexts/AuthContext';
+import { usePageData } from '@/hooks/usePageData';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 
 // Importando imagens para página Amplia
 import { logos, newImages } from "@/lib/image-verification";

@@ -10,9 +10,24 @@ import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
+import DragImagePosition from '@/components/DragImagePosition';
+import { useAuth } from '@/contexts/AuthContext';
+import { usePageData } from '@/hooks/usePageData';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
+import { useVisualComposer } from '@/hooks/useVisualComposer';
 import { newImages } from "@/lib/image-verification";
 
 export default function SocioEmocional() {
+  const { isAuthenticated } = useAuth();
+  const { VisualComposerComponent } = useVisualComposer('Programa Socioemocional');
+  
+  // Initialize page data with auto-save functionality
+  const { heroImage, images, updateHeroImage, updateImage, getImagePosition, updateImagePosition } = usePageData('Programa Socioemocional', {
+    heroImage: '/images/horizontal_1.png',
+    images: ['/images/horizontal_2.png', '/images/horizontal_3.png', '/images/horizontal_4.png']
+  });
   useEffect(() => {
     updateSEO({
       title: "Programa SócioEmocional | a OSE",

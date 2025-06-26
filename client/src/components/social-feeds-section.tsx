@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import { Camera, Users } from "lucide-react";
 import { getInstagramFeed, type InstagramPost } from "@/lib/social-feeds";
+import DragImagePosition from '@/components/DragImagePosition';
+import { useAuth } from '@/contexts/AuthContext';
+import { usePageData } from '@/hooks/usePageData';
 
 export default function SocialFeedsSection() {
+  const { isAuthenticated } = useAuth();
+  const { getImagePosition, updateImagePosition } = usePageData('Home', {});
   const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [instagramImages, setInstagramImages] = useState<string[]>([]);

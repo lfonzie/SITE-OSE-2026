@@ -5,6 +5,9 @@ import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection, AnimatedItem } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import { newImages } from "@/lib/image-verification";
+import DragImagePosition from '@/components/DragImagePosition';
+import { useAuth } from '@/contexts/AuthContext';
+import { usePageData } from '@/hooks/usePageData';
 
 const iconMap = {
   baby: Baby,
@@ -46,6 +49,8 @@ const getImageForProgram = (title: string) => {
 };
 
 export default function ProgramsSection() {
+  const { isAuthenticated } = useAuth();
+  const { getImagePosition, updateImagePosition } = usePageData('Home', {});
   const { data: programs, isLoading } = useQuery<Program[]>({
     queryKey: ["/api/programs"],
   });
