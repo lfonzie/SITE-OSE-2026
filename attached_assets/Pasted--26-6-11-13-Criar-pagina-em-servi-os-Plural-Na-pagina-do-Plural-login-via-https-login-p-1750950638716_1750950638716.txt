@@ -1,0 +1,44 @@
+——————
+26/6 11:13
+- Criar pagina em serviços Plural
+- Na pagina do Plural, login via https://login.plurall.net/
+- Foto de Edna apenas em Testimonials
+- Da parte de feed social tirar os cards de instagram e Facebook
+- Em programas, Card de ensino fund 1 deve ter {CODE.OSE}
+- Hero do Infantil nao deve ter card com foto - Aplicar layer fosco na imagem
+- Refaça o conteúdo do infantil Educação Infantil no Jardim I e Jardim II
+* CRESCIMENTO E EXPLORAÇÃO NA PRIMEIRA INFÂNCIA
+* Para os grupos de Jardim I e Jardim II, destinados a crianças de 4 a 6 anos, oferecemos uma abordagem única que foca no desenvolvimento socioemocional e cognitivo.
+* Nosso currículo é cuidadosamente planejado para estimular o crescimento pessoal e social de cada aluno, proporcionando uma base sólida para as futuras etapas educacionais.
+* AMBIENTE SEGURO E RESPEITOSO PARA O DESENVOLVIMENTO EMOCIONAL
+* A segurança e o desenvolvimento emocional são primordiais em nossa abordagem. Criamos espaços acolhedores onde as crianças podem crescer individualmente e socialmente, fortalecendo sua autoestima e sua percepção sobre si e seu lugar no mundo.
+* cOLEÇÃO AMPLIA: PEDAGOGIA FINLANDESA E APRENDIZADO INTEGRAL
+* Combinando as melhores práticas da educação finlandesa e brasileira, nossa coleção incentiva a participação ativa da criança e valoriza seu crescimento pessoal e social. Utilizamos abordagens lúdicas e práticas para estimular a curiosidade e a criatividade, oferecendo um desenvolvimento equilibrado e completo.
+* Aulas Diárias de Inglês: Aprendizado Flexível e Opcional
+* Oferecemos aulas diárias de inglês, proporcionando uma introdução ponderada à língua estrangeira. Esta opção, disponível mediante um custo adicional, permite que seu filho se beneficie de um ensino de idiomas sem a pressão de um ambiente bilíngue.
+* LABORATÓRIO DE INTELIGÊNCIA DE VIDA: DESENVOLVIMENTO SOCIOEMOCIONAL
+* Nossa abordagem centrada no aluno busca cultivar inteligência emocional, empoderando crianças e jovens a compreender e gerir suas emoções de forma eficaz. Além disso, promovemos a construção de habilidades essenciais como empatia e resiliência, preparando-os para enfrentar os desafios da vida de maneira equilibrada e consciente.
+- Em ensino Médio, arrumar de ano para série 1º Ano
+* Base sólida e introdução aos itinerários
+* 2º Ano
+* Aprofundamento e projetos práticos
+* 3º Ano
+* Preparação ENEM e definição profissional
+- Bilingue esta sem foto de fundo no hero - Hero do socioemocioonal deve ser igual aos demais (bilingue por ex)
+- Retirar essa parte de socioemocioal Recursos e Envolvimento
+* Materiais especializados e parceria com as famílias
+* 
+* Materiais Didáticos
+* Livros físicos e digitais, séries, músicas e jogos adaptados a cada faixa etária
+* 
+* Formação de Educadores
+* Treinamentos e mentorias pedagógicas para professores, garantindo a qualidade das aulas
+* 
+* Participação das Famílias
+* Atividades que promovem o diálogo socioemocional em casa, fortalecendo a parceria escola-família
+- Em lista de material, implementar recurso qdo logado no admin que possibilite indicar o LINK de cada lista de material (por ano). Geralmente é fornecido um link do google drive
+- Permitir alteração de fotos no tesmimonials como no restante da pagina
+- O bilíngue eh opcional para os estudantes 
+- Lista de material eh para 2026
+- Incluir no menu de serviços AgendaEdu
+- Adicione pagina sobre Agenda Edu com login em https://web.agendaedu.com/ 
