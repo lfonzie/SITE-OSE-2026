@@ -14,6 +14,7 @@ import { useVisualComposer } from '@/hooks/useVisualComposer';
 import { usePageData } from '@/hooks/usePageData';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import ImagePositionControls from '@/components/ImagePositionControls';
+import DragImagePosition from '@/components/DragImagePosition';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -404,24 +405,33 @@ export default function EnsinoMedio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             <div className="relative">
-              <div 
-                className="w-full h-48 rounded-lg shadow-lg overflow-hidden"
-                style={{
-                  transform: `scale(${getImagePosition('gallery-0')?.scale || 1})`,
-                  opacity: getImagePosition('gallery-0')?.opacity || 1,
-                  filter: getImagePosition('gallery-0')?.filter || 'none'
+              <DragImagePosition
+                src={images[0] || newImages.img7}
+                alt="Novo Ensino Médio na OSE"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-0')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-0')?.verticalPosition || 0
                 }}
-              >
-                <img
-                  src={images[0] || newImages.img7}
-                  alt="Novo Ensino Médio na OSE"
-                  className="w-full h-full"
-                  style={{
-                    objectPosition: getImagePosition('gallery-0')?.objectPosition || 'center',
-                    objectFit: getImagePosition('gallery-0')?.objectFit || 'cover'
-                  }}
-                />
-              </div>
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-0') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-0', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
               {isAuthenticated && (
                 <>
                   <EnhancedImageSelector
@@ -438,24 +448,33 @@ export default function EnsinoMedio() {
               )}
             </div>
             <div className="relative">
-              <div 
-                className="w-full h-48 rounded-lg shadow-lg overflow-hidden"
-                style={{
-                  transform: `scale(${getImagePosition('gallery-1')?.scale || 1})`,
-                  opacity: getImagePosition('gallery-1')?.opacity || 1,
-                  filter: getImagePosition('gallery-1')?.filter || 'none'
+              <DragImagePosition
+                src={images[1] || newImages.img8}
+                alt="Projetos integradores"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-1')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-1')?.verticalPosition || 0
                 }}
-              >
-                <img
-                  src={images[1] || newImages.img8}
-                  alt="Projetos integradores"
-                  className="w-full h-full"
-                  style={{
-                    objectPosition: getImagePosition('gallery-1')?.objectPosition || 'center',
-                    objectFit: getImagePosition('gallery-1')?.objectFit || 'cover'
-                  }}
-                />
-              </div>
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-1') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-1', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
               {isAuthenticated && (
                 <>
                   <EnhancedImageSelector
@@ -472,24 +491,33 @@ export default function EnsinoMedio() {
               )}
             </div>
             <div className="relative">
-              <div 
-                className="w-full h-48 rounded-lg shadow-lg overflow-hidden"
-                style={{
-                  transform: `scale(${getImagePosition('gallery-2')?.scale || 1})`,
-                  opacity: getImagePosition('gallery-2')?.opacity || 1,
-                  filter: getImagePosition('gallery-2')?.filter || 'none'
+              <DragImagePosition
+                src={images[2] || newImages.img9}
+                alt="Itinerários formativos"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-2')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-2')?.verticalPosition || 0
                 }}
-              >
-                <img
-                  src={images[2] || newImages.img9}
-                  alt="Itinerários formativos"
-                  className="w-full h-full"
-                  style={{
-                    objectPosition: getImagePosition('gallery-2')?.objectPosition || 'center',
-                    objectFit: getImagePosition('gallery-2')?.objectFit || 'cover'
-                  }}
-                />
-              </div>
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-2') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-2', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
               {isAuthenticated && (
                 <>
                   <EnhancedImageSelector
