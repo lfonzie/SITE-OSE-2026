@@ -113,11 +113,18 @@ export default function Fundamental1() {
             }}
           />
           {isAuthenticated && (
-            <EnhancedImageSelector
-              currentImage={heroImage || img1}
-              onImageSelect={updateHeroImage}
-              className="absolute top-4 right-4 z-10"
-            />
+            <>
+              <EnhancedImageSelector
+                currentImage={heroImage || img1}
+                onImageSelect={updateHeroImage}
+                className="absolute top-4 right-4 z-10"
+              />
+              <ImagePositionControls
+                currentPosition={getImagePosition('hero-bg')}
+                onPositionChange={(position) => updateImagePosition('hero-bg', position)}
+                className="absolute top-4 left-4 z-10"
+              />
+            </>
           )}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
         </div>
@@ -186,21 +193,135 @@ export default function Fundamental1() {
 
           {/* Image Gallery */}
           <div className="grid md:grid-cols-3 gap-6">
-            <OptimizedImage
-              src={img2}
-              alt="Atividades colaborativas no Fundamental I"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={img3}
-              alt="Projetos educacionais criativos"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={img4}
-              alt="Ambiente de aprendizado estimulante"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
+            <div className="relative">
+              <DragImagePosition
+                src={images[0] || img2}
+                alt="Atividades colaborativas no Fundamental I"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-0')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-0')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-0') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-0', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[0] || img2}
+                    onImageSelect={(url) => updateImage(0, url)}
+                    className="absolute top-2 right-2 z-10"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-0')}
+                    onPositionChange={(position) => updateImagePosition('gallery-0', position)}
+                    className="absolute bottom-2 right-2 z-10"
+                  />
+                </>
+              )}
+            </div>
+            <div className="relative">
+              <DragImagePosition
+                src={images[1] || img3}
+                alt="Projetos educacionais criativos"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-1')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-1')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-1') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-1', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[1] || img3}
+                    onImageSelect={(url) => updateImage(1, url)}
+                    className="absolute top-2 right-2 z-10"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-1')}
+                    onPositionChange={(position) => updateImagePosition('gallery-1', position)}
+                    className="absolute bottom-2 right-2 z-10"
+                  />
+                </>
+              )}
+            </div>
+            <div className="relative">
+              <DragImagePosition
+                src={images[2] || img4}
+                alt="Ambiente de aprendizado estimulante"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-2')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-2')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-2') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-2', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[2] || img4}
+                    onImageSelect={(url) => updateImage(2, url)}
+                    className="absolute top-2 right-2 z-10"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-2')}
+                    onPositionChange={(position) => updateImagePosition('gallery-2', position)}
+                    className="absolute bottom-2 right-2 z-10"
+                  />
+                </>
+              )}
+            </div>
           </div>
         </div>
       </section>

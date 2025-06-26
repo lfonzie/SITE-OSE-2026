@@ -254,7 +254,8 @@ export default function Legacy() {
               opacity: heroBackground.overlayOpacity || 0.8
             }}
           ></div>
-        )}</div>
+        )}
+        </div>
         <div className="absolute inset-0">
           <DragImagePosition
             src={heroImage || newImages.horizontal1}

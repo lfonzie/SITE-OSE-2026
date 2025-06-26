@@ -85,11 +85,47 @@ export default function Fundamental2() {
       <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
-            src={img1}
+          <DragImagePosition
+            src={heroImage || img1}
             alt="Ensino Fundamental II - OSE"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full opacity-30"
+            editable={isAuthenticated}
+            initialPosition={{
+              x: getImagePosition('hero-bg')?.horizontalPosition || 0,
+              y: getImagePosition('hero-bg')?.verticalPosition || 0
+            }}
+            onPositionChange={(position: { x: number; y: number }) => {
+              const currentPos = getImagePosition('hero-bg') || {
+                objectPosition: 'center center',
+                horizontalPosition: 0,
+                verticalPosition: 0,
+                scale: 1,
+                opacity: 1,
+                filter: 'none',
+                objectFit: 'cover' as const
+              };
+              updateImagePosition('hero-bg', {
+                ...currentPos,
+                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                horizontalPosition: position.x,
+                verticalPosition: position.y
+              });
+            }}
           />
+          {isAuthenticated && (
+            <>
+              <EnhancedImageSelector
+                currentImage={heroImage || img1}
+                onImageSelect={updateHeroImage}
+                className="absolute top-4 right-4 z-10"
+              />
+              <ImagePositionControls
+                currentPosition={getImagePosition('hero-bg')}
+                onPositionChange={(position) => updateImagePosition('hero-bg', position)}
+                className="absolute top-4 left-4 z-10"
+              />
+            </>
+          )}
           <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -163,21 +199,135 @@ export default function Fundamental2() {
             <div>
               {/* Galeria de Imagens do Fundamental II */}
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <OptimizedImage
-                  src={img2}
-                  alt="Estudantes do Fundamental II em atividades"
-                  className="w-full h-32 rounded-lg shadow-lg"
-                />
-                <OptimizedImage
-                  src={img3}
-                  alt="Projetos colaborativos"
-                  className="w-full h-32 rounded-lg shadow-lg"
-                />
-                <OptimizedImage
-                  src={img4}
-                  alt="Desenvolvimento de liderança"
-                  className="w-full h-32 rounded-lg shadow-lg col-span-2"
-                />
+                <div className="relative">
+                  <DragImagePosition
+                    src={images[0] || img2}
+                    alt="Estudantes do Fundamental II em atividades"
+                    className="w-full h-32 rounded-lg shadow-lg"
+                    editable={isAuthenticated}
+                    initialPosition={{
+                      x: getImagePosition('main-gallery-0')?.horizontalPosition || 0,
+                      y: getImagePosition('main-gallery-0')?.verticalPosition || 0
+                    }}
+                    onPositionChange={(position: { x: number; y: number }) => {
+                      const currentPos = getImagePosition('main-gallery-0') || {
+                        objectPosition: 'center center',
+                        horizontalPosition: 0,
+                        verticalPosition: 0,
+                        scale: 1,
+                        opacity: 1,
+                        filter: 'none',
+                        objectFit: 'cover' as const
+                      };
+                      updateImagePosition('main-gallery-0', {
+                        ...currentPos,
+                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                        horizontalPosition: position.x,
+                        verticalPosition: position.y
+                      });
+                    }}
+                  />
+                  {isAuthenticated && (
+                    <>
+                      <EnhancedImageSelector
+                        currentImage={images[0] || img2}
+                        onImageSelect={(url) => updateImage(0, url)}
+                        className="absolute top-1 right-1 z-10"
+                      />
+                      <ImagePositionControls
+                        currentPosition={getImagePosition('main-gallery-0')}
+                        onPositionChange={(position) => updateImagePosition('main-gallery-0', position)}
+                        className="absolute bottom-1 right-1 z-10"
+                      />
+                    </>
+                  )}
+                </div>
+                <div className="relative">
+                  <DragImagePosition
+                    src={images[1] || img3}
+                    alt="Projetos colaborativos"
+                    className="w-full h-32 rounded-lg shadow-lg"
+                    editable={isAuthenticated}
+                    initialPosition={{
+                      x: getImagePosition('main-gallery-1')?.horizontalPosition || 0,
+                      y: getImagePosition('main-gallery-1')?.verticalPosition || 0
+                    }}
+                    onPositionChange={(position: { x: number; y: number }) => {
+                      const currentPos = getImagePosition('main-gallery-1') || {
+                        objectPosition: 'center center',
+                        horizontalPosition: 0,
+                        verticalPosition: 0,
+                        scale: 1,
+                        opacity: 1,
+                        filter: 'none',
+                        objectFit: 'cover' as const
+                      };
+                      updateImagePosition('main-gallery-1', {
+                        ...currentPos,
+                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                        horizontalPosition: position.x,
+                        verticalPosition: position.y
+                      });
+                    }}
+                  />
+                  {isAuthenticated && (
+                    <>
+                      <EnhancedImageSelector
+                        currentImage={images[1] || img3}
+                        onImageSelect={(url) => updateImage(1, url)}
+                        className="absolute top-1 right-1 z-10"
+                      />
+                      <ImagePositionControls
+                        currentPosition={getImagePosition('main-gallery-1')}
+                        onPositionChange={(position) => updateImagePosition('main-gallery-1', position)}
+                        className="absolute bottom-1 right-1 z-10"
+                      />
+                    </>
+                  )}
+                </div>
+                <div className="relative col-span-2">
+                  <DragImagePosition
+                    src={images[2] || img4}
+                    alt="Desenvolvimento de liderança"
+                    className="w-full h-32 rounded-lg shadow-lg"
+                    editable={isAuthenticated}
+                    initialPosition={{
+                      x: getImagePosition('main-gallery-2')?.horizontalPosition || 0,
+                      y: getImagePosition('main-gallery-2')?.verticalPosition || 0
+                    }}
+                    onPositionChange={(position: { x: number; y: number }) => {
+                      const currentPos = getImagePosition('main-gallery-2') || {
+                        objectPosition: 'center center',
+                        horizontalPosition: 0,
+                        verticalPosition: 0,
+                        scale: 1,
+                        opacity: 1,
+                        filter: 'none',
+                        objectFit: 'cover' as const
+                      };
+                      updateImagePosition('main-gallery-2', {
+                        ...currentPos,
+                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                        horizontalPosition: position.x,
+                        verticalPosition: position.y
+                      });
+                    }}
+                  />
+                  {isAuthenticated && (
+                    <>
+                      <EnhancedImageSelector
+                        currentImage={images[2] || img4}
+                        onImageSelect={(url) => updateImage(2, url)}
+                        className="absolute top-1 right-1 z-10"
+                      />
+                      <ImagePositionControls
+                        currentPosition={getImagePosition('main-gallery-2')}
+                        onPositionChange={(position) => updateImagePosition('main-gallery-2', position)}
+                        className="absolute bottom-1 right-1 z-10"
+                      />
+                    </>
+                  )}
+                </div>
               </div>
               <h3 className="text-3xl font-bold text-slate-800 mb-6">
                 Formação de Líderes Éticos

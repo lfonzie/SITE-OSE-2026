@@ -103,6 +103,20 @@ export default function EducacaoInfantil() {
               });
             }}
           />
+          {isAuthenticated && (
+            <>
+              <EnhancedImageSelector
+                currentImage={heroImage || '/images/horizontal_1.png'}
+                onImageSelect={updateHeroImage}
+                className="absolute top-4 right-4 z-10"
+              />
+              <ImagePositionControls
+                currentPosition={getImagePosition('hero-bg')}
+                onPositionChange={(position) => updateImagePosition('hero-bg', position)}
+                className="absolute top-4 left-4 z-10"
+              />
+            </>
+          )}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -158,114 +172,178 @@ export default function EducacaoInfantil() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <DragImagePosition
-                src={img2}
-                alt="Crianças da Educação Infantil em ambiente de aprendizado"
-                className="w-full h-48 rounded-lg shadow-lg"
-                editable={isAuthenticated}
-                initialPosition={{
-                  x: getImagePosition('hero-grid-0')?.horizontalPosition || 0,
-                  y: getImagePosition('hero-grid-0')?.verticalPosition || 0
-                }}
-                onPositionChange={(position: { x: number; y: number }) => {
-                  const currentPos = getImagePosition('hero-grid-0') || {
-                    objectPosition: 'center center',
-                    horizontalPosition: 0,
-                    verticalPosition: 0,
-                    scale: 1,
-                    opacity: 1,
-                    filter: 'none',
-                    objectFit: 'cover' as const
-                  };
-                  updateImagePosition('hero-grid-0', {
-                    ...currentPos,
-                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                    horizontalPosition: position.x,
-                    verticalPosition: position.y
-                  });
-                }}
-              />
-              <DragImagePosition
-                src={img3}
-                alt="Atividades lúdicas na Educação Infantil"
-                className="w-full h-48 rounded-lg shadow-lg"
-                editable={isAuthenticated}
-                initialPosition={{
-                  x: getImagePosition('hero-grid-1')?.horizontalPosition || 0,
-                  y: getImagePosition('hero-grid-1')?.verticalPosition || 0
-                }}
-                onPositionChange={(position: { x: number; y: number }) => {
-                  const currentPos = getImagePosition('hero-grid-1') || {
-                    objectPosition: 'center center',
-                    horizontalPosition: 0,
-                    verticalPosition: 0,
-                    scale: 1,
-                    opacity: 1,
-                    filter: 'none',
-                    objectFit: 'cover' as const
-                  };
-                  updateImagePosition('hero-grid-1', {
-                    ...currentPos,
-                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                    horizontalPosition: position.x,
-                    verticalPosition: position.y
-                  });
-                }}
-              />
-              <DragImagePosition
-                src={img4}
-                alt="Desenvolvimento socioemocional"
-                className="w-full h-48 rounded-lg shadow-lg"
-                editable={isAuthenticated}
-                initialPosition={{
-                  x: getImagePosition('hero-grid-2')?.horizontalPosition || 0,
-                  y: getImagePosition('hero-grid-2')?.verticalPosition || 0
-                }}
-                onPositionChange={(position: { x: number; y: number }) => {
-                  const currentPos = getImagePosition('hero-grid-2') || {
-                    objectPosition: 'center center',
-                    horizontalPosition: 0,
-                    verticalPosition: 0,
-                    scale: 1,
-                    opacity: 1,
-                    filter: 'none',
-                    objectFit: 'cover' as const
-                  };
-                  updateImagePosition('hero-grid-2', {
-                    ...currentPos,
-                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                    horizontalPosition: position.x,
-                    verticalPosition: position.y
-                  });
-                }}
-              />
-              <DragImagePosition
-                src={img5}
-                alt="Pedagogia finlandesa em prática"
-                className="w-full h-48 rounded-lg shadow-lg"
-                editable={isAuthenticated}
-                initialPosition={{
-                  x: getImagePosition('hero-grid-3')?.horizontalPosition || 0,
-                  y: getImagePosition('hero-grid-3')?.verticalPosition || 0
-                }}
-                onPositionChange={(position: { x: number; y: number }) => {
-                  const currentPos = getImagePosition('hero-grid-3') || {
-                    objectPosition: 'center center',
-                    horizontalPosition: 0,
-                    verticalPosition: 0,
-                    scale: 1,
-                    opacity: 1,
-                    filter: 'none',
-                    objectFit: 'cover' as const
-                  };
-                  updateImagePosition('hero-grid-3', {
-                    ...currentPos,
-                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                    horizontalPosition: position.x,
-                    verticalPosition: position.y
-                  });
-                }}
-              />
+              <div className="relative">
+                <DragImagePosition
+                  src={img2}
+                  alt="Crianças da Educação Infantil em ambiente de aprendizado"
+                  className="w-full h-48 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('hero-grid-0')?.horizontalPosition || 0,
+                    y: getImagePosition('hero-grid-0')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('hero-grid-0') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('hero-grid-0', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={img2}
+                      onImageSelect={(url) => updateImage(0, url)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero-grid-0')}
+                      onPositionChange={(position) => updateImagePosition('hero-grid-0', position)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
+                  </>
+                )}
+              </div>
+              <div className="relative">
+                <DragImagePosition
+                  src={img3}
+                  alt="Atividades lúdicas na Educação Infantil"
+                  className="w-full h-48 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('hero-grid-1')?.horizontalPosition || 0,
+                    y: getImagePosition('hero-grid-1')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('hero-grid-1') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('hero-grid-1', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={img3}
+                      onImageSelect={(url) => updateImage(1, url)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero-grid-1')}
+                      onPositionChange={(position) => updateImagePosition('hero-grid-1', position)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
+                  </>
+                )}
+              </div>
+              <div className="relative">
+                <DragImagePosition
+                  src={img4}
+                  alt="Desenvolvimento socioemocional"
+                  className="w-full h-48 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('hero-grid-2')?.horizontalPosition || 0,
+                    y: getImagePosition('hero-grid-2')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('hero-grid-2') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('hero-grid-2', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={img4}
+                      onImageSelect={(url) => updateImage(2, url)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero-grid-2')}
+                      onPositionChange={(position) => updateImagePosition('hero-grid-2', position)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
+                  </>
+                )}
+              </div>
+              <div className="relative">
+                <DragImagePosition
+                  src={img5}
+                  alt="Pedagogia finlandesa em prática"
+                  className="w-full h-48 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('hero-grid-3')?.horizontalPosition || 0,
+                    y: getImagePosition('hero-grid-3')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('hero-grid-3') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('hero-grid-3', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={img5}
+                      onImageSelect={(url) => updateImage(3, url)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero-grid-3')}
+                      onPositionChange={(position) => updateImagePosition('hero-grid-3', position)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
+                  </>
+                )}
+              </div>
             </div>
           </div>
 
