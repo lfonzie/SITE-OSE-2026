@@ -40,16 +40,6 @@ const colorMap = {
   }
 };
 
-const getImageForProgram = (title: string, index: number) => {
-  const imageMap: Record<string, string> = {
-    'Educação Infantil': images[0] || newImages.img9,
-    'Ensino Fundamental I': images[1] || newImages.img10,
-    'Ensino Fundamental II': images[2] || newImages.img11,
-    'Ensino Médio': images[3] || newImages.img12
-  };
-  return imageMap[title] || images[index] || newImages.img1;
-};
-
 export default function ProgramsSection() {
   const { isAuthenticated } = useAuth();
   const { 
@@ -60,6 +50,16 @@ export default function ProgramsSection() {
   } = usePageData('Programs Section', {
     images: [newImages.img9, newImages.img10, newImages.img11, newImages.img12]
   });
+
+  const getImageForProgram = (title: string, index: number) => {
+    const imageMap: Record<string, string> = {
+      'Educação Infantil': images?.[0] || newImages.img9,
+      'Ensino Fundamental I': images?.[1] || newImages.img10,
+      'Ensino Fundamental II': images?.[2] || newImages.img11,
+      'Ensino Médio': images?.[3] || newImages.img12
+    };
+    return imageMap[title] || images?.[index] || newImages.img1;
+  };
   
   const { data: programs, isLoading } = useQuery<Program[]>({
     queryKey: ["/api/programs"],
