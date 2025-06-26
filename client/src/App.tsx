@@ -11,7 +11,7 @@ import { addSchoolSchema } from "./lib/seo";
 import { preloadResources, initLazyLoading } from "./lib/performance";
 import { snippetManager } from "./lib/custom-snippets";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
+
 import Home from "@/pages/home";
 import EducacaoInfantil from "@/pages/educacao-infantil";
 import Fundamental1 from "@/pages/fundamental-1";
@@ -98,7 +98,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <TooltipProvider>
-          <WhatsAppWidget />
           <Toaster />
           <Router />
         </TooltipProvider>
