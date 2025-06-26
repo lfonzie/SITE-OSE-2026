@@ -193,9 +193,9 @@ export default function Legacy() {
   });
 
   const [content, setContent] = useState({
-    title: "Legado OSE",
-    subtitle: "100 Anos de Tradição em Educação",
-    description: "Uma história centenária de excelência educacional que continua a moldar o futuro de gerações",
+    title: "Um Século de Excelência",
+    subtitle: "1924 - 2024: 100 Anos de Tradição Educacional",
+    description: "A Organização Sorocabana de Ensino é uma instituição que há um século desempenha papel fundamental na formação de milhares de estudantes em Sorocaba e região, contribuindo para o desenvolvimento social, econômico e cultural da cidade.",
     historyTitle: "Nossa História",
     historyText: "Fundada em 1924, a Organização Sorocabana de Ensino nasceu com o propósito de oferecer educação de qualidade para a comunidade sorocabana. Ao longo de um século, construímos uma trajetória sólida baseada em valores como excelência acadêmica, formação integral e inovação pedagógica.",
     milestonesTitle: "Marcos Importantes",
