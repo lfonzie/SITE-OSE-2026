@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Star, Quote } from "lucide-react";
 import type { Testimonial } from "@shared/schema";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
@@ -9,13 +9,30 @@ import DragImagePosition from '@/components/DragImagePosition';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import ImagePositionControls from '@/components/ImagePositionControls';
 import { usePageData } from '@/hooks/usePageData';
+import { apiRequest } from '@/lib/queryClient';
 
 export default function TestimonialsSection() {
   const { isAuthenticated } = useAuth();
-  const { updateImage, getImagePosition, updateImagePosition } = usePageData('Testimonials');
+  const { getImagePosition, updateImagePosition } = usePageData('Testimonials');
+  const queryClient = useQueryClient();
 
   const { data: testimonials, isLoading } = useQuery<Testimonial[]>({
     queryKey: ["/api/testimonials"],
+  });
+
+  const updateTestimonialMutation = useMutation({
+    mutationFn: async ({ id, updates }: { id: number; updates: Partial<Testimonial> }) => {
+      const response = await fetch(`/api/testimonials/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updates),
+      });
+      if (!response.ok) throw new Error('Failed to update testimonial');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/testimonials"] });
+    },
   });
 
   if (isLoading) {
@@ -84,7 +101,12 @@ export default function TestimonialsSection() {
                     <>
                       <EnhancedImageSelector
                         currentImage={testimonial.image}
-                        onImageSelect={(url) => updateImage(testimonial.id, url)}
+                        onImageSelect={(url) => {
+                          updateTestimonialMutation.mutate({
+                            id: testimonial.id,
+                            updates: { image: url }
+                          });
+                        }}
                         className="absolute -top-2 -right-2 z-10"
                       />
                       <ImagePositionControls

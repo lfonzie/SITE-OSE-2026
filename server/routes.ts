@@ -114,6 +114,20 @@ export function registerRoutes(app: Express) {
     }
   });
 
+  app.patch("/api/testimonials/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const updates = req.body;
+      const updated = await storage.updateTestimonial(id, updates);
+      if (!updated) {
+        return res.status(404).json({ message: "Testimonial not found" });
+      }
+      res.json(updated);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update testimonial" });
+    }
+  });
+
   // Contact form
   app.post("/api/contacts", async (req, res) => {
     try {

@@ -23,6 +23,7 @@ export interface IStorage {
   // Testimonials
   getTestimonials(): Promise<Testimonial[]>;
   createTestimonial(testimonial: InsertTestimonial): Promise<Testimonial>;
+  updateTestimonial(id: number, updates: Partial<Testimonial>): Promise<Testimonial | undefined>;
   
   // Contacts
   createContact(contact: InsertContact): Promise<Contact>;
@@ -266,6 +267,15 @@ export class MemStorage implements IStorage {
     const newTestimonial: Testimonial = { ...testimonial, id };
     this.testimonials.set(id, newTestimonial);
     return newTestimonial;
+  }
+
+  async updateTestimonial(id: number, updates: Partial<Testimonial>): Promise<Testimonial | undefined> {
+    const existing = this.testimonials.get(id);
+    if (!existing) return undefined;
+    
+    const updated = { ...existing, ...updates };
+    this.testimonials.set(id, updated);
+    return updated;
   }
 
   // Contacts
