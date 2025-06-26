@@ -60,16 +60,18 @@ export default function HeroSection() {
       id="hero" 
       className="relative py-20 text-white overflow-hidden"
       style={{
-        background: heroBackground?.type === 'gradient' 
+        // Reset all background properties first, then apply the specific type
+        background: 'none',
+        backgroundColor: 'transparent',
+        backgroundImage: heroBackground?.type === 'gradient' 
           ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
-          : heroBackground?.type === 'color'
-          ? heroBackground.solidColor
           : heroBackground?.type === 'image' && heroBackground.imageUrl
           ? `url(${heroBackground.imageUrl})`
           : 'linear-gradient(135deg, #475569, #64748b)',
-        backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
+        backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'cover',
         backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
         backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+        backgroundColor: heroBackground?.type === 'color' ? heroBackground.solidColor : 'transparent',
         opacity: heroBackground?.opacity || 1
       }}
     >
