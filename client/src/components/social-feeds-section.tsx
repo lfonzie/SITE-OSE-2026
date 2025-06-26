@@ -16,7 +16,7 @@ export default function SocialFeedsSection() {
   useEffect(() => {
     const loadInstagramImages = async () => {
       try {
-        // Carregar imagens do servidor
+        // Carregar EXCLUSIVAMENTE imagens da pasta /IG
         const response = await fetch('/api/instagram-images');
         if (response.ok) {
           const images = await response.json();
@@ -27,33 +27,13 @@ export default function SocialFeedsSection() {
           const imageUrls = sortedImages.map((img: any) => `/api/images/IG/${img.filename}`);
           setInstagramImages(imageUrls.slice(0, 8)); // Máximo 8 imagens
         } else {
-          // Fallback para imagens padrão se API falhar
-          const defaultImages = [
-            "/images/1.png",
-            "/images/2.png",
-            "/images/3.png",
-            "/images/4.png",
-            "/images/5.png",
-            "/images/6.png",
-            "/images/7.png",
-            "/images/8.png"
-          ];
-          setInstagramImages(defaultImages);
+          // Se não conseguir carregar, não exibir nenhuma imagem
+          setInstagramImages([]);
         }
       } catch (error) {
         console.error('Erro ao carregar imagens do Instagram:', error);
-        // Usar imagens padrão em caso de erro
-        const defaultImages = [
-          "/images/1.png",
-          "/images/2.png",
-          "/images/3.png",
-          "/images/4.png",
-          "/images/5.png",
-          "/images/6.png",
-          "/images/7.png",
-          "/images/8.png"
-        ];
-        setInstagramImages(defaultImages);
+        // Em caso de erro, não exibir nenhuma imagem
+        setInstagramImages([]);
       }
     };
 
@@ -118,104 +98,69 @@ export default function SocialFeedsSection() {
             <h3 className="text-2xl font-bold text-slate-800">@colegioose</h3>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            {instagramImages.slice(0, 8).map((imageUrl, index) => (
-              <div 
-                key={index}
-                className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all relative"
-                style={{ display: index >= 4 ? 'none' : 'block' }}
-              >
-                <DragImagePosition
-                  src={imageUrl}
-                  alt={`Foto ${index + 1} do Instagram OSE`}
-                  className="w-full h-full group-hover:brightness-110 transition-all"
-                  editable={isAuthenticated}
-                  initialPosition={{
-                    x: getImagePosition(`instagram-${index}`)?.horizontalPosition || 0,
-                    y: getImagePosition(`instagram-${index}`)?.verticalPosition || 0
-                  }}
-                  onPositionChange={(position: { x: number; y: number }) => {
-                    const currentPos = getImagePosition(`instagram-${index}`) || {
-                      objectPosition: 'center center',
-                      horizontalPosition: 0,
-                      verticalPosition: 0,
-                      scale: 1,
-                      opacity: 1,
-                      filter: 'none',
-                      objectFit: 'cover' as const
-                    };
-                    updateImagePosition(`instagram-${index}`, {
-                      ...currentPos,
-                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                      horizontalPosition: position.x,
-                      verticalPosition: position.y
-                    });
-                  }}
-                />
-                {isAuthenticated && (
-                  <EnhancedImageSelector
-                    currentImage={imageUrl}
-                    onImageSelect={(url) => {
-                      console.log(`Update Instagram image ${index} to ${url}`);
+          {instagramImages.length === 0 ? (
+            <div className="text-center py-12">
+              <Camera className="text-gray-400 mx-auto mb-4" size={48} />
+              <h3 className="text-xl font-semibold text-gray-600 mb-2">Nenhuma imagem encontrada</h3>
+              <p className="text-gray-500">
+                As imagens do Instagram são carregadas exclusivamente da pasta /IG
+              </p>
+              {isAuthenticated && (
+                <p className="text-school-orange mt-2">
+                  Faça upload de imagens no painel administrativo
+                </p>
+              )}
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {instagramImages.slice(0, 8).map((imageUrl, index) => (
+                <div 
+                  key={index}
+                  className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all relative"
+                >
+                  <DragImagePosition
+                    src={imageUrl}
+                    alt={`Foto ${index + 1} do Instagram OSE`}
+                    className="w-full h-full group-hover:brightness-110 transition-all"
+                    editable={isAuthenticated}
+                    initialPosition={{
+                      x: getImagePosition(`instagram-${index}`)?.horizontalPosition || 0,
+                      y: getImagePosition(`instagram-${index}`)?.verticalPosition || 0
                     }}
-                    className="absolute top-1 right-1 z-10 scale-75"
+                    onPositionChange={(position: { x: number; y: number }) => {
+                      const currentPos = getImagePosition(`instagram-${index}`) || {
+                        objectPosition: 'center center',
+                        horizontalPosition: 0,
+                        verticalPosition: 0,
+                        scale: 1,
+                        opacity: 1,
+                        filter: 'none',
+                        objectFit: 'cover' as const
+                      };
+                      updateImagePosition(`instagram-${index}`, {
+                        ...currentPos,
+                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                        horizontalPosition: position.x,
+                        verticalPosition: position.y
+                      });
+                    }}
                   />
-                )}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <Camera className="text-white" size={24} />
+                  {isAuthenticated && (
+                    <EnhancedImageSelector
+                      currentImage={imageUrl}
+                      onImageSelect={(url) => {
+                        console.log(`Update Instagram image ${index} to ${url}`);
+                      }}
+                      className="absolute top-1 right-1 z-10 scale-75"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <Camera className="text-white" size={24} />
+                  </div>
                 </div>
-              </div>
-            ))}
-            {/* Mostrar mais fotos em desktop */}
-            {instagramImages.slice(4, 8).map((imageUrl, index) => (
-              <div 
-                key={index + 4}
-                className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all hidden md:block relative"
-              >
-                <DragImagePosition
-                  src={imageUrl}
-                  alt={`Foto ${index + 5} do Instagram OSE`}
-                  className="w-full h-full group-hover:brightness-110 transition-all"
-                  editable={isAuthenticated}
-                  initialPosition={{
-                    x: getImagePosition(`instagram-${index + 4}`)?.horizontalPosition || 0,
-                    y: getImagePosition(`instagram-${index + 4}`)?.verticalPosition || 0
-                  }}
-                  onPositionChange={(position: { x: number; y: number }) => {
-                    const currentPos = getImagePosition(`instagram-${index + 4}`) || {
-                      objectPosition: 'center center',
-                      horizontalPosition: 0,
-                      verticalPosition: 0,
-                      scale: 1,
-                      opacity: 1,
-                      filter: 'none',
-                      objectFit: 'cover' as const
-                    };
-                    updateImagePosition(`instagram-${index + 4}`, {
-                      ...currentPos,
-                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                      horizontalPosition: position.x,
-                      verticalPosition: position.y
-                    });
-                  }}
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <Camera className="text-white" size={24} />
-                </div>
-              </div>
-            ))}
-
-            {/* Placeholders para slots vazios */}
-            {Array.from({ length: Math.max(0, 8 - instagramImages.length) }).map((_, index) => (
-              <div 
-                key={`placeholder-${index}`}
-                className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-school-orange/20 to-school-brown/20 flex items-center justify-center"
-                style={{ display: (instagramImages.length + index) >= 4 ? 'none' : 'flex' }}
-              >
-                <Camera className="text-school-orange" size={32} />
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           <div className="text-center">
             <p className="text-slate-600 mb-2">
