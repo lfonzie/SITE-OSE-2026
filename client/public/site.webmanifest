@@ -1,27 +1,32 @@
 {
-  "name": "Colégio OSE",
-  "short_name": "OSE",
-  "description": "Colégio OSE - Tradição Secular de Ensino em Sorocaba desde 1924",
+  "name": "Colégio OSE - Tradição Secular de Ensino",
+  "short_name": "Colégio OSE",
+  "description": "100 anos de excelência educacional em Sorocaba. Educação Infantil, Ensino Fundamental e Médio.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#D97706",
+  "orientation": "portrait-primary",
+  "scope": "/",
   "icons": [
-    {
-      "src": "/favicon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
     {
       "src": "/favicon-16x16.png",
       "sizes": "16x16",
       "type": "image/png"
     },
     {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
       "src": "/apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "theme_color": "#ff7f00",
-  "background_color": "#ffffff",
-  "display": "standalone",
-  "start_url": "/",
-  "scope": "/"
+  "categories": ["education", "school"],
+  "lang": "pt-BR",
+  "dir": "ltr"
 }
