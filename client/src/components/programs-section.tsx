@@ -7,6 +7,7 @@ import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import { newImages } from "@/lib/image-verification";
 import DragImagePosition from '@/components/DragImagePosition';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
 import { useAuth } from '@/contexts/AuthContext';
 import { usePageData } from '@/hooks/usePageData';
 
@@ -39,19 +40,27 @@ const colorMap = {
   }
 };
 
-const getImageForProgram = (title: string) => {
+const getImageForProgram = (title: string, index: number) => {
   const imageMap: Record<string, string> = {
-    'Educação Infantil': newImages.img9,
-    'Ensino Fundamental I': newImages.img10,
-    'Ensino Fundamental II': newImages.img11,
-    'Ensino Médio': newImages.img12
+    'Educação Infantil': images[0] || newImages.img9,
+    'Ensino Fundamental I': images[1] || newImages.img10,
+    'Ensino Fundamental II': images[2] || newImages.img11,
+    'Ensino Médio': images[3] || newImages.img12
   };
-  return imageMap[title] || newImages.img1;
+  return imageMap[title] || images[index] || newImages.img1;
 };
 
 export default function ProgramsSection() {
   const { isAuthenticated } = useAuth();
-  const { getImagePosition, updateImagePosition } = usePageData('Home', {});
+  const { 
+    images, 
+    updateImage, 
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('Programs Section', {
+    images: [newImages.img9, newImages.img10, newImages.img11, newImages.img12]
+  });
+  
   const { data: programs, isLoading } = useQuery<Program[]>({
     queryKey: ["/api/programs"],
   });
@@ -103,7 +112,7 @@ export default function ProgramsSection() {
                 <div className={`${colors.bg} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border ${colors.border}`}>
                 <div className="h-48 mb-6 rounded-xl overflow-hidden relative">
                   <DragImagePosition
-                    src={getImageForProgram(program.title)}
+                    src={getImageForProgram(program.title, index)}
                     alt={program.title}
                     className="w-full h-full"
                     editable={isAuthenticated}
@@ -130,13 +139,18 @@ export default function ProgramsSection() {
                     }}
                   />
                   {isAuthenticated && (
-                    <EnhancedImageSelector
-                      currentImage={getImageForProgram(program.title)}
-                      onImageSelect={(url) => {
-                        console.log(`Update program ${index} image to ${url}`);
-                      }}
-                      className="absolute top-2 right-2 z-10"
-                    />
+                    <>
+                      <EnhancedImageSelector
+                        currentImage={getImageForProgram(program.title, index)}
+                        onImageSelect={(url) => updateImage(index, url)}
+                        className="absolute top-2 right-2 z-10"
+                      />
+                      <ImagePositionControls
+                        currentPosition={getImagePosition(`program-${index}`)}
+                        onPositionChange={(position) => updateImagePosition(`program-${index}`, position)}
+                        className="absolute inset-0"
+                      />
+                    </>
                   )}
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-4">{program.title}</h3>

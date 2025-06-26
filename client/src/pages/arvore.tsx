@@ -7,8 +7,43 @@ import { Book, ExternalLink, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { logos, newImages } from "@/lib/image-verification";
+import { useVisualComposer } from '@/hooks/useVisualComposer';
+import { usePageData } from '@/hooks/usePageData';
+import { useAuth } from '@/contexts/AuthContext';
+import DragImagePosition from '@/components/DragImagePosition';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 
 export default function Arvore() {
+  const { isAuthenticated } = useAuth();
+  const { VisualComposerComponent } = useVisualComposer('Árvore');
+  
+  const { 
+    heroImage, 
+    heroBackground,
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('Árvore', {
+    heroImage: newImages.horizontal31,
+    images: [newImages.horizontal31],
+    heroBackground: {
+      type: 'gradient',
+      gradientColors: ['#475569', '#64748b'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.8,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
+  });
+
   useEffect(() => {
     updateSEO({
       title: "Árvore - Livros Digitais | Colégio OSE",
@@ -22,16 +57,75 @@ export default function Arvore() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src={newImages.horizontal31}
-            alt="Árvore - Biblioteca Digital"
-            className="w-full h-full object-cover opacity-30"
+      <section 
+        className="relative py-20 text-white overflow-hidden"
+        style={{
+          background: heroBackground?.type === 'gradient' 
+            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
+            : heroBackground?.type === 'color'
+            ? heroBackground.solidColor
+            : heroBackground?.type === 'image' && heroBackground.imageUrl
+            ? `url(${heroBackground.imageUrl})`
+            : 'linear-gradient(135deg, #475569, #64748b)',
+          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
+          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
+          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+          opacity: heroBackground?.opacity || 1
+        }}
+      >
+        {/* Background Image Layer */}
+        {heroBackground?.type === 'image' && heroImage && (
+          <div className="absolute inset-0">
+            <div className="relative w-full h-full">
+              <img 
+                src={heroImage}
+                alt="Árvore - Biblioteca Digital"
+                className="w-full h-full object-cover opacity-30"
+                style={{
+                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
+                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
+                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
+                  opacity: getImagePosition('hero')?.opacity || 0.3,
+                  filter: getImagePosition('hero')?.filter || 'none'
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={heroImage}
+                    onImageSelect={updateHeroImage}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('hero')}
+                    onPositionChange={(position) => updateImagePosition('hero', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
+          </div>
+        )}
+        
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
-        </div>
+        )}
+        
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.8
+            }}
+          ></div>
+        )}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="mb-8">
@@ -145,6 +239,9 @@ export default function Arvore() {
 
       <WhyOSESection />
       <ContactSection />
+      
+      {/* Visual Composer */}
+      <VisualComposerComponent />
     </div>
   );
 }
