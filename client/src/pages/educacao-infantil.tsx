@@ -42,32 +42,22 @@ export default function EducacaoInfantil() {
     {
       icon: Heart,
       title: "Ambiente Seguro e Acolhedor",
-      description: "Criamos um ambiente onde cada criança se sente segura, respeitada e amada. Nossos espaços são cuidadosamente planejados para estimular a exploração e o descobrimento, com profissionais especializados que acompanham cada passo do desenvolvimento infantil. Promovemos a autoestima e a confiança através de atividades que valorizam as conquistas individuais."
+      description: "A segurança física e emocional são pilares fundamentais de nossa proposta pedagógica. Criamos ambientes cuidadosamente planejados onde as crianças se sentem protegidas e valorizadas, permitindo que explorem suas identidades e desenvolvam autoconfiança. Nossos espaços são pensados para promover interações positivas, onde cada criança pode expressar-se livremente e construir relacionamentos saudáveis com colegas e educadores."
     },
     {
       icon: BookOpen,
-      title: "Coleção AMPLIA - Pedagogia de Excelência",
-      description: "Utilizamos a renomada Coleção AMPLIA, que combina as melhores práticas educacionais mundiais com a realidade brasileira. Nossa metodologia estimula a curiosidade natural das crianças através de projetos interdisciplinares, brincadeiras dirigidas e atividades que desenvolvem múltiplas inteligências de forma lúdica e significativa."
+      title: "Pedagogia Finlandesa e Aprendizado Integral",
+      description: "Nossa metodologia combina as reconhecidas práticas da educação finlandesa com elementos da pedagogia brasileira, criando uma abordagem educacional equilibrada e contextualizada. Utilizamos estratégias lúdicas e práticas pedagógicas inovadoras para despertar a curiosidade natural e estimular a criatividade. Através de jogos, brincadeiras dirigidas, arte e exploração sensorial, oferecemos um desenvolvimento completo que abrange aspectos cognitivos, motores, sociais e emocionais."
     },
     {
       icon: Users,
-      title: "Introdução ao Inglês de Forma Natural",
-      description: "Oferecemos contato diário com o inglês através de músicas, jogos e atividades lúdicas. Nosso programa de inglês infantil respeita o desenvolvimento natural da linguagem, criando um ambiente bilíngue não-pressionado onde as crianças absorvem o idioma de forma espontânea e prazerosa."
+      title: "Programa de Inglês: Introdução Natural ao Idioma",
+      description: "Oferecemos aulas diárias de inglês como parte de nosso compromisso com a educação global. Nossa abordagem para o ensino de língua estrangeira é natural e descontraída, introduzindo o idioma através de músicas, histórias, jogos e atividades práticas que fazem parte do cotidiano escolar. Este programa, disponível mediante investimento adicional, proporciona às crianças uma familiarização gradual e prazerosa com o inglês."
     },
     {
       icon: Target,
-      title: "Programa Socioemocional Especializado",
-      description: "Desenvolvemos habilidades socioemocionais essenciais através do nosso programa específico para educação infantil. Trabalhamos autoconhecimento, empatia, resolução de conflitos e inteligência emocional de forma adaptada à faixa etária, preparando as crianças para relacionamentos saudáveis e enfrentamento de desafios."
-    },
-    {
-      icon: Award,
-      title: "Preparação para o Ensino Fundamental",
-      description: "Nossa transição cuidadosa prepara as crianças para o próximo ciclo educacional. Desenvolvemos habilidades de pré-alfabetização, conceitos matemáticos básicos, coordenação motora e autonomia pessoal, garantindo que chegiem ao Ensino Fundamental I com confiança e bases sólidas para o aprendizado."
-    },
-    {
-      icon: Lightbulb,
-      title: "Estímulo à Criatividade e Expressão",
-      description: "Valorizamos a expressão artística e criativa através de ateliês de artes, música, teatro e movimento. Nossas crianças exploram diferentes linguagens expressivas, desenvolvem coordenação motora fina e grossa, e descobrem seus talentos naturais em um ambiente estimulante e livre de julgamentos."
+      title: "Desenvolvimento Socioemocional como Prioridade",
+      description: "Nossa abordagem centrada na criança busca cultivar a inteligência emocional desde os primeiros anos escolares. Trabalhamos para que cada aluno desenvolva a capacidade de reconhecer, compreender e expressar suas emoções de forma saudável e construtiva. Promovemos ativamente o desenvolvimento de habilidades socioemocionais essenciais como empatia, colaboração, resiliência e autocontrole."
     }
   ];
 
@@ -145,7 +135,7 @@ export default function EducacaoInfantil() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Desenvolvendo <strong>mentes curiosas</strong> e <strong>corações compassivos</strong>
+                <strong>Crescimento</strong> e <strong>exploração</strong> na primeira infância
               </motion.p>
               <motion.p 
                 className="text-lg mb-8 opacity-90"
@@ -153,9 +143,9 @@ export default function EducacaoInfantil() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                A Educação Infantil da OSE é onde cada descoberta se torna uma nova aventura. 
-                Para crianças de 4 a 6 anos, oferecemos um programa completo que combina 
-                aprendizado lúdico e desenvolvimento socioemocional em um ambiente seguro e estimulante.
+                Para os grupos de Jardim I e Jardim II, destinados a crianças de 4 a 6 anos, oferecemos uma 
+                abordagem educacional única que prioriza o desenvolvimento integral da criança. Nosso foco está 
+                no crescimento socioemocional e cognitivo, respeitando o ritmo individual de cada aluno.
               </motion.p>
 
             </div>
@@ -175,7 +165,7 @@ export default function EducacaoInfantil() {
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
               <AnimatedCard 
                 key={index}
