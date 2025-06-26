@@ -156,7 +156,7 @@ export function registerRoutes(app: Express) {
     try {
       const filename = req.params.filename;
       const imagePath = path.join(process.cwd(), 'client/public/images', filename);
-      
+
       if (!fs.existsSync(imagePath)) {
         return res.status(404).json({ error: 'Image not found' });
       }
@@ -172,7 +172,7 @@ export function registerRoutes(app: Express) {
     try {
       const filename = req.params.filename;
       const imagePath = path.join(process.cwd(), 'client/public/images', filename);
-      
+
       if (!fs.existsSync(imagePath)) {
         return res.status(404).json({ error: 'Image not found' });
       }
@@ -188,7 +188,7 @@ export function registerRoutes(app: Express) {
     try {
       const filename = req.params.filename;
       const imagePath = path.join(process.cwd(), 'client/public/images/IG', filename);
-      
+
       if (!fs.existsSync(imagePath)) {
         return res.status(404).json({ error: 'Image not found' });
       }
@@ -203,7 +203,7 @@ export function registerRoutes(app: Express) {
   app.get("/api/instagram-images", (req, res) => {
     try {
       const igPath = path.join(process.cwd(), 'client/public/images/IG');
-      
+
       if (!fs.existsSync(igPath)) {
         return res.json([]);
       }
@@ -232,7 +232,7 @@ export function registerRoutes(app: Express) {
     try {
       const filename = req.params.filename;
       const imagePath = path.join(process.cwd(), 'client/public/images/IG', filename);
-      
+
       if (!fs.existsSync(imagePath)) {
         return res.status(404).json({ error: 'Image not found' });
       }
@@ -248,16 +248,16 @@ export function registerRoutes(app: Express) {
   app.get("/api/server-images", (req, res) => {
     try {
       const imagesDir = path.join(process.cwd(), 'client', 'public', 'images');
-      
+
       const getImagesRecursively = (dir: string, baseDir: string = ''): any[] => {
         const items = fs.readdirSync(dir);
         let images: any[] = [];
-        
+
         for (const item of items) {
           const fullPath = path.join(dir, item);
           const relativePath = path.join(baseDir, item);
           const stat = fs.statSync(fullPath);
-          
+
           if (stat.isDirectory()) {
             if (item !== 'IG') {
               images = images.concat(getImagesRecursively(fullPath, relativePath));
@@ -273,19 +273,19 @@ export function registerRoutes(app: Express) {
             });
           }
         }
-        
+
         return images;
       };
-      
+
       const images = getImagesRecursively(imagesDir);
-      
+
       images.sort((a, b) => {
         if (a.directory !== b.directory) {
           return a.directory.localeCompare(b.directory);
         }
         return a.filename.localeCompare(b.filename);
       });
-      
+
       res.json(images);
     } catch (error: any) {
       console.error('Error loading server images:', error);

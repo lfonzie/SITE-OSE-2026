@@ -8,30 +8,38 @@ import { usePageData } from '@/hooks/usePageData';
 
 export default function WhyOSESection() {
   const { isAuthenticated } = useAuth();
-  const { getImagePosition, updateImagePosition } = usePageData('Home', {});
+  const { 
+    images, 
+    updateImage, 
+    getImagePosition, 
+    updateImagePosition 
+  } = usePageData('Why OSE Section', {
+    images: [newImages.horizontal2, newImages.horizontal3, newImages.horizontal4, newImages.horizontal5]
+  });
 
-  const reasons = [
+  const baseReasons = [
     {
-      image: newImages.horizontal2,
       title: "100 Anos de Tradição",
       description: "A OSE possui um diferencial que poucos colégios no Brasil têm: tradição secular e rica história educacional."
     },
     {
-      image: newImages.horizontal3,
       title: "Formação Integral",
       description: "Educamos com base em valores éticos sólidos, preparando gerações para o sucesso e a cidadania."
     },
     {
-      image: newImages.horizontal4,
       title: "Ambiente Acolhedor",
       description: "Criamos espaços seguros onde cada aluno pode crescer individualmente e socialmente."
     },
     {
-      image: newImages.horizontal5,
       title: "Facilidade de Acesso",
       description: "Tornamos o dia a dia de nossas famílias mais prático através do estacionamento Pau Brasil, que oferece acesso direto ao colégio. Esta facilidade logística permite que os pais e responsáveis tenham mais tranquilidade na rotina de levar e buscar seus filhos."
     }
   ];
+
+  const reasons = baseReasons.map((reason, index) => ({
+    ...reason,
+    image: images[index] || newImages.horizontal2
+  }));
 
   return (
     <section className="py-20 bg-slate-50">
@@ -86,10 +94,7 @@ export default function WhyOSESection() {
                 {isAuthenticated && (
                   <EnhancedImageSelector
                     currentImage={reason.image}
-                    onImageSelect={(url) => {
-                      // Update reason image - this would need to be handled by a more comprehensive system
-                      console.log(`Update image ${index} to ${url}`);
-                    }}
+                    onImageSelect={(url) => updateImage(index, url)}
                     className="absolute top-2 right-2 z-10"
                   />
                 )}
