@@ -12,7 +12,7 @@ const features = [
     color: "bg-blue-600"
   },
   {
-    logo: newImages.img30,
+    logo: "/images/horizontal_20.png",
     title: "Corpo Docente Experiente",
     description: "Equipe altamente qualificada com vasta experiência acadêmica e prática, sempre atualizada com as melhores práticas pedagógicas.",
     color: "bg-green-600"

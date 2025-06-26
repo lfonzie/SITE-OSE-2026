@@ -414,7 +414,7 @@ export default function LegacySection() {
                   <div className="bg-school-orange/10 p-4 rounded-lg mb-4">
                     <blockquote className="text-school-brown italic">
                       "Percebemos que havia a necessidade de criar um ambiente educacional que unisse tradição e inovação. 
-                      O Uirapuru nasceu desse sonho."
+                      A OSE Uirapuru nasceu desse sonho."
                       <footer className="text-sm mt-2">- Arthur Fonseca Filho</footer>
                     </blockquote>
                   </div>
