@@ -7,6 +7,9 @@ import ProgramsSection from '@/components/programs-section';
 import StatsSection from '@/components/stats-section';
 import TestimonialsSection from '@/components/testimonials-section';
 import ContactSection from '@/components/contact-section';
+import PedagogicalProposalSection from '@/components/pedagogical-proposal-section';
+import FeaturesSection from '@/components/features-section';
+import SocialFeedsSection from '@/components/social-feeds-section';
 
 export default function Home() {
   return (
@@ -15,8 +18,11 @@ export default function Home() {
       <HeroSection />
       <StatsSection />
       <WhyOseSection />
+      <PedagogicalProposalSection />
       <ProgramsSection />
+      <FeaturesSection />
       <TestimonialsSection />
+      <SocialFeedsSection />
       <ContactSection />
     </div>
   );
