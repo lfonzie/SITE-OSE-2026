@@ -255,7 +255,6 @@ export default function Legacy() {
             }}
           ></div>
         )}
-        </div>
         <div className="absolute inset-0">
           <DragImagePosition
             src={heroImage || newImages.horizontal1}
