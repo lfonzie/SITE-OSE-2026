@@ -29,7 +29,7 @@ export default function ListaMaterial() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Lista de Material');
   const [showAdminPanel, setShowAdminPanel] = useState(false);
-  
+
   const { 
     heroImage, 
     images, 
@@ -93,7 +93,7 @@ export default function ListaMaterial() {
     <div className="min-h-screen bg-slate-50">
       {/* Logout button for authenticated users */}
       {isAuthenticated && <LogoutButton />}
-      
+
       <Navigation />
 
       {/* Hero Section */}
@@ -246,11 +246,8 @@ export default function ListaMaterial() {
                   {isAuthenticated && (
                     <>
                       <EnhancedImageSelector
-                        currentImage={segmento.imagem}
-                        onImageSelect={(url) => {
-                          // Update the segmento image
-                          segmentos[index].imagem = url;
-                        }}
+                        currentImage={images[index] || segmento.imagem}
+                        onImageSelect={(url) => updateImage(index, url)}
                         className="absolute top-2 right-2 z-10"
                       />
                       <ImagePositionControls
