@@ -6,7 +6,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Upload, Image as ImageIcon, Trash2, Eye, Edit } from "lucide-react";
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "@/hooks/useAuth";
+import { useForm } from "react-hook-form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import HeroImageManager from '@/components/HeroImageManager';
 
 interface InstagramPost {
@@ -15,35 +17,52 @@ interface InstagramPost {
   uploadedAt: Date;
 }
 
+interface LoginFormData {
+  email: string;
+  password: string;
+}
+
 export default function AdminPage() {
-  const { isAuthenticated, user, isLoading, isAuthorized, logout } = useAuth();
+  const { isAuthenticated, user, isLoading, loginMutation, logoutMutation } = useAuth();
   const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
   const [uploading, setUploading] = useState(false);
   const { toast } = useToast();
+  
+  // Form de login
+  const form = useForm<LoginFormData>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
-  // Email autorizado
-  const AUTHORIZED_EMAIL = "fonseca@colegioose.com.br";
-
-  useEffect(() => {
-    if (isAuthorized) {
-      loadInstagramPosts();
-    }
-  }, [isAuthorized]);
-
-  // Verificar se o usuário não está autorizado mas está logado
-  useEffect(() => {
-    if (isAuthenticated && user?.email && user.email !== AUTHORIZED_EMAIL) {
-      toast({
-        title: "Acesso negado",
-        description: `Email ${user.email} não autorizado para administração.`,
-        variant: "destructive",
-      });
-    }
-  }, [isAuthenticated, user, toast]);
+  const onLogin = (data: LoginFormData) => {
+    loginMutation.mutate(data, {
+      onError: (error) => {
+        toast({
+          title: "Erro no Login",
+          description: error.message || "Credenciais inválidas",
+          variant: "destructive",
+        });
+      },
+      onSuccess: () => {
+        toast({
+          title: "Login realizado",
+          description: "Bem-vindo ao painel administrativo",
+        });
+      },
+    });
+  };
 
   const handleLogout = () => {
-    logout();
+    logoutMutation.mutate();
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      loadInstagramPosts();
+    }
+  }, [isAuthenticated]);
 
   const loadInstagramPosts = async () => {
     // Carregar imagens da pasta IG via API
@@ -219,49 +238,55 @@ export default function AdminPage() {
               Admin OSE
             </CardTitle>
             <p className="text-center text-slate-600 font-body">
-              Acesso via Google/Replit Auth
+              Login Administrativo
             </p>
           </CardHeader>
           <CardContent>
-            <Button 
-              onClick={() => {
-                console.log("Redirecting to /auth/login");
-                window.location.href = "/auth/login";
-              }}
-              className="w-full bg-school-orange text-white font-semibold"
-            >
-              Fazer Login com Google
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
-  // Mostrar erro se estiver autenticado mas não autorizado
-  if (isAuthenticated && user?.email !== AUTHORIZED_EMAIL) {
-    return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-        <Card className="w-full max-w-md">
-          <CardHeader>
-            <CardTitle className="text-center text-2xl font-bold text-red-600 font-headline">
-              Acesso Negado
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-slate-600 mb-4 font-body">
-              Email <strong>{user?.email}</strong> não autorizado.
-            </p>
-            <p className="text-slate-500 mb-6 font-body">
-              Apenas fonseca@colegioose.com.br tem acesso administrativo.
-            </p>
-            <Button 
-              onClick={logout}
-              variant="outline"
-              className="w-full"
-            >
-              Fazer Logout
-            </Button>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onLogin)} className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="email" 
+                          placeholder="fonseca@colegioose.com.br"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Senha</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="password" 
+                          placeholder="Digite sua senha"
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button 
+                  type="submit"
+                  className="w-full bg-school-orange text-white font-semibold"
+                  disabled={loginMutation.isPending}
+                >
+                  {loginMutation.isPending ? "Entrando..." : "Fazer Login"}
+                </Button>
+              </form>
+            </Form>
           </CardContent>
         </Card>
       </div>
