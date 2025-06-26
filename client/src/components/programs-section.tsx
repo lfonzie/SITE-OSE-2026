@@ -43,10 +43,10 @@ const colorMap = {
 export default function ProgramsSection() {
   const { isAuthenticated } = useAuth();
   const { 
-    images, 
+    pageData, 
     updateImage, 
-    updateImagePosition,
-    getImagePosition 
+    getImagePosition, 
+    updateImagePosition 
   } = usePageData('Programs Section', {
     images: [newImages.img9, newImages.img10, newImages.img11, newImages.img12]
   });
@@ -61,7 +61,7 @@ export default function ProgramsSection() {
     };
     return imageMap[title] || currentImages[index] || newImages.img1;
   };
-  
+
   const { data: programs, isLoading } = useQuery<Program[]>({
     queryKey: ["/api/programs"],
   });
@@ -82,6 +82,10 @@ export default function ProgramsSection() {
         </div>
       </section>
     );
+  }
+
+  const CODE = {
+    OSE: 'CODE.OSE'
   }
 
   return (

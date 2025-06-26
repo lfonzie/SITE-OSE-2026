@@ -24,7 +24,7 @@ import { newImages } from "@/lib/image-verification";
 export default function EnsinoMedio() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Ensino Médio');
-  
+
   // Initialize page data with auto-save functionality
   const { 
     heroImage, 
@@ -185,7 +185,7 @@ export default function EnsinoMedio() {
             </div>
           </div>
         )}
-        
+
         {/* Hero Background Manager */}
         {isAuthenticated && (
           <HeroBackgroundManager
@@ -194,7 +194,7 @@ export default function EnsinoMedio() {
             className="absolute inset-0"
           />
         )}
-        
+
         {/* Overlay */}
         {heroBackground?.overlay && (
           <div 
@@ -217,13 +217,20 @@ export default function EnsinoMedio() {
                 <span className="text-school-orange">Novo Ensino Médio</span>
               </motion.h1>
               <motion.h2 
-                className="text-2xl md:text-3xl font-semibold mb-4"
+                className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Ensino Médio
+                  <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                    1ª, 2ª e 3ª Séries - Preparação para o Futuro
+                  </span>
+                </motion.h2>
+              <motion.p 
+                className="text-xl md:text-2xl font-semibold mb-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 Preparando Alunos para o Futuro
-              </motion.h2>
+              </motion.p>
               <motion.p 
                 className="text-xl md:text-2xl mb-6"
                 initial={{ opacity: 0, y: 30 }}
@@ -303,7 +310,7 @@ export default function EnsinoMedio() {
               <span className="text-school-orange">Itinerários Formativos</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto mb-4">
-              <strong className="text-school-orange">O grande diferencial do Ensino Médio são os itinerários formativos: Exatas ou Humanas</strong>
+              
             </p>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
               Explore caminhos personalizados que fazem sentido para suas ambições pessoais e profissionais
@@ -539,7 +546,7 @@ export default function EnsinoMedio() {
 
       <WhyOSESection />
       <ContactSection />
-      
+
       {/* Visual Composer */}
       <VisualComposerComponent />
     </div>

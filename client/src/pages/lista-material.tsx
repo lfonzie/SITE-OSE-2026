@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
@@ -21,7 +20,7 @@ const img5 = "/images/0541_1750717790207.jpg";
 export default function ListaMaterial() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Lista de Material');
-  
+
   useEffect(() => {
     updateSEO({
       title: "Lista de Material Escolar | Colégio OSE",
@@ -255,7 +254,7 @@ export default function ListaMaterial() {
 
       <WhyOSESection />
       <ContactSection />
-      
+
       {/* Visual Composer */}
       <VisualComposerComponent />
     </div>

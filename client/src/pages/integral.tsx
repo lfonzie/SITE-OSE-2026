@@ -21,7 +21,7 @@ import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 export default function Integral() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Programa Integral');
-  
+
   // Initialize page data with auto-save functionality
   const { heroImage, images, updateHeroImage, updateImage, getImagePosition, updateImagePosition } = usePageData('Programa Integral', {
     heroImage: '/images/horizontal_1.png',
@@ -349,34 +349,20 @@ export default function Integral() {
                 atividades de leitura e jogos educativos que, além de engajar os alunos, 
                 contribuem para o desenvolvimento de habilidades sociais e cognitivas.
               </p>
-              <p className="text-lg text-slate-600">
+              <p className="text-lg text-slate-600 mb-6">
                 Em um mundo globalizado, ser bilíngue é uma habilidade valiosa. O Integral Flex 
                 inclui ensino bilíngue diário, além de passeios culturais que expandem o horizonte 
                 educacional.
               </p>
             </div>
           </div>
-          <div className="mt-16 text-center">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              Parceria de Excelência
-            </h3>
-            <p className="text-lg text-slate-600 mb-6">
-              Ginásio e atividades da ACM (YMCA) disponíveis para nossos alunos. Famílias podem frequentar pagando apenas a mensalidade, sem compra de título
-            </p>
-            <div className="flex justify-center items-center mt-8">
-              <img 
-                src="/images/LogoACM_1750801133344.jpg" 
-                alt="ACM - YMCA Sorocaba"
-                className="h-20"
-              />
-            </div>
-          </div>
+          
         </div>
       </section>
 
       <WhyOSESection />
       <ContactSection />
-      
+
       {/* Visual Composer */}
       <VisualComposerComponent />
     </div>

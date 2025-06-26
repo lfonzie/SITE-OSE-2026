@@ -1,4 +1,3 @@
-
 // Verificação de Imagens - OSE
 // Este arquivo lista todas as imagens disponíveis e como usá-las
 
@@ -8,7 +7,7 @@ export const mainImages = {
   infantil1: "/images/1.png", // Atividades educacionais
   infantil2: "/images/2.png", // Ambiente escolar
   infantil3: "/images/3.png", // Interação alunos
-  
+
   // Fundamental I
   fund1_1: "/images/4.png", // Sala de aula
   fund1_2: "/images/5.png", // Atividades colaborativas
@@ -16,12 +15,12 @@ export const mainImages = {
   fund1_4: "/images/7.png", // Aprendizado
   fund1_5: "/images/8.png", // Desenvolvimento
   fund1_6: "/images/9.png", // Atividades culturais
-  
+
   // Fundamental II
   fund2_1: "/images/10.png", // Estudos avançados
   fund2_2: "/images/11.png", // Tecnologia educacional
   fund2_3: "/images/12.png", // Preparação acadêmica
-  
+
   // Geral/Institucional
   campus1: "/images/13.png", // Campus e instalações
   materiais: "/images/14.png", // Material didático
@@ -37,12 +36,12 @@ export const secondaryImages = {
   medio4: "/images/0541_1750719589611.jpg",
   medio5: "/images/0581_1750719589610.jpg",
   medio6: "/images/0700_1750719589609.jpg",
-  
+
   // Fundamental II (série 2)
   fund2_alt1: "/images/0023_1750719589611.jpg",
   fund2_alt2: "/images/0378_1750719589611.jpg", 
   fund2_alt3: "/images/1285_1750719589611.jpg",
-  
+
   // Outros
   geral1: "/images/0905_1750719589610.jpg",
   geral2: "/images/0934_1750719589610.jpg",
@@ -101,7 +100,7 @@ export const newImages = {
   img33: "/images/33.png",
   img34: "/images/34.png",
   img35: "/images/35.png",
-  
+
   // Imagens horizontais
   horizontal1: "/images/horizontal_1.png",
   horizontal2: "/images/horizontal_2.png",

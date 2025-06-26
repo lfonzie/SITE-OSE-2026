@@ -126,7 +126,7 @@ export default function ContactSection() {
                 })}
               </div>
 
-              
+
 
               <div className="mt-8">
                 <Button 
@@ -179,7 +179,53 @@ export default function ContactSection() {
               Tradição secular de ensino desde 1924. Formando cidadãos críticos e preparados para os desafios do futuro há 100 anos.
             </p>
 
-            
+          {/* Redes Sociais */}
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold text-slate-800 mb-4 text-center">
+              Conecte-se Conosco
+            </h3>
+            <div className="flex justify-center gap-6">
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => window.open('https://www.instagram.com/colegioose/', '_blank')}
+                className="flex items-center gap-2 border-pink-600 text-pink-600 hover:bg-pink-50"
+              >
+                <Instagram className="w-5 h-5" />
+                Instagram
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => window.open('https://www.facebook.com/colegioose', '_blank')}
+                className="flex items-center gap-2 border-blue-600 text-blue-600 hover:bg-blue-50"
+              >
+                <Facebook className="w-5 h-5" />
+                Facebook
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => window.open('https://www.youtube.com/@colegioose', '_blank')}
+                className="flex items-center gap-2 border-red-600 text-red-600 hover:bg-red-50"
+              >
+                <Youtube className="w-5 h-5" />
+                YouTube
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => window.open('https://twitter.com/colegioose', '_blank')}
+                className="flex items-center gap-2 border-gray-600 text-gray-600 hover:bg-gray-50"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                X (Twitter)
+              </Button>
+            </div>
+          </div>
+
 
             <div className="border-t border-gray-200 pt-6">
               <p className="text-school-brown/70">

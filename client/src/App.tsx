@@ -24,7 +24,7 @@ import Dash from "./pages/dash";
 import Admin from "./pages/admin";
 import PortalAluno from "@/pages/portal-aluno";
 import PortalPais from "./pages/portal-pais";
-import Bilingue from "./pages/bilingue";
+import Bilingue from "@/pages/bilingue";
 import Integral from "./pages/integral";
 import CodeOSE from "./pages/code-ose";
 import Amplia from "@/pages/amplia";
@@ -38,6 +38,7 @@ import NotFound from "@/pages/not-found";
 import CV from "@/pages/cv";
 import { AuthProvider } from "./contexts/AuthContext";
 import TestUChat from "@/pages/test-uchat";
+import AgendaEdu from "@/pages/agendaedu";
 
 function Router() {
   // Track page views when routes change
@@ -68,6 +69,7 @@ function Router() {
       <Route path="/agendamento" component={Agendamento} />
       <Route path="/cv" component={CV} />
       <Route path="/test-uchat" component={TestUChat} />
+      <Route path="/agendaedu" component={AgendaEdu} />
       <Route component={NotFound} />
     </Switch>
   );

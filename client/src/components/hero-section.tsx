@@ -1,17 +1,39 @@
-import { ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Play } from "lucide-react";
 import { motion } from "framer-motion";
 import { newImages } from "@/lib/image-verification";
-import DragImagePosition from '@/components/DragImagePosition';
-import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import { useToast } from "@/hooks/use-toast";
 import { useAuth } from '@/contexts/AuthContext';
 import { usePageData } from '@/hooks/usePageData';
+import DragImagePosition from '@/components/DragImagePosition';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 
 export default function HeroSection() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { toast } = useToast();
   const { isAuthenticated } = useAuth();
-  const { heroImage, getImagePosition, updateImagePosition, updateHeroImage } = usePageData('Home', {
-    heroImage: newImages.horizontal1,
-    images: []
-  });
+  const { 
+    pageData, 
+    updatePageData, 
+    updateImage, 
+    getImagePosition, 
+    updateImagePosition,
+    updateHeroImage,
+    updateHeroBackground,
+    heroImage,
+    heroBackground 
+  } = usePageData('Home');
+
+  const backgroundImages = [
+    heroImage || newImages.horizontal_1,
+    newImages.horizontal_2,
+    newImages.horizontal_3,
+    newImages.horizontal_4,
+    newImages.horizontal_5
+  ];
 
   const scrollToNext = () => {
     const element = document.getElementById("stats");
@@ -24,47 +46,110 @@ export default function HeroSection() {
     <section id="hero" className="relative min-h-screen flex items-center">
       {/* Background image with overlay */}
       <div className="absolute inset-0">
-        <div className="relative w-full h-full">
-          <DragImagePosition
-            src={heroImage || newImages.horizontal1} 
-            alt="Colégio OSE - Campus e estudantes"
-            className="w-full h-full"
-            editable={isAuthenticated}
-            initialPosition={{
-              x: getImagePosition('hero-bg')?.horizontalPosition || 0,
-              y: getImagePosition('hero-bg')?.verticalPosition || 0
-            }}
-            onPositionChange={(position: { x: number; y: number }) => {
-              const currentPos = getImagePosition('hero-bg') || {
-                objectPosition: 'center center',
-                horizontalPosition: 0,
-                verticalPosition: 0,
-                scale: 1,
-                opacity: 1,
-                filter: 'none',
-                objectFit: 'cover' as const
-              };
-              updateImagePosition('hero-bg', {
-                ...currentPos,
-                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                horizontalPosition: position.x,
-                verticalPosition: position.y
-              });
-            }}
-          />
-          {isAuthenticated && (
-            <EnhancedImageSelector
-              currentImage={heroImage || newImages.horizontal1}
-              onImageSelect={updateHeroImage}
-              className="absolute top-4 right-4 z-10"
+        <div className="absolute inset-0">
+          {heroBackground?.type === 'image' && heroBackground.imageUrl ? (
+            <div
+              className="absolute inset-0 transition-all duration-1000 ease-in-out"
+              style={{
+                backgroundImage: `url(${heroBackground.imageUrl})`,
+                backgroundSize: heroBackground.size || 'cover',
+                backgroundPosition: heroBackground.position || 'center',
+                backgroundRepeat: heroBackground.repeat || 'no-repeat',
+                opacity: heroBackground.opacity || 1
+              }}
             />
+          ) : heroBackground?.type === 'gradient' && heroBackground.gradientColors ? (
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
+                opacity: heroBackground.opacity || 1
+              }}
+            />
+          ) : heroBackground?.type === 'color' && heroBackground.solidColor ? (
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundColor: heroBackground.solidColor,
+                opacity: heroBackground.opacity || 1
+              }}
+            />
+          ) : (
+            <div className="relative">
+              <DragImagePosition
+                src={backgroundImages[currentImageIndex]}
+                alt="Hero background"
+                className="w-full h-full object-cover transition-all duration-1000 ease-in-out"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('hero')?.horizontalPosition || 0,
+                  y: getImagePosition('hero')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('hero') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('hero', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+                style={{
+                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
+                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
+                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
+                  opacity: getImagePosition('hero')?.opacity || 1,
+                  filter: getImagePosition('hero')?.filter || 'none'
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={heroImage}
+                    onImageSelect={updateHeroImage}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('hero')}
+                    onPositionChange={(position) => updateImagePosition('hero', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
           )}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-school-brown/90 via-school-orange/80 to-white/85">
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
+
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
+          />
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.8
+            }}
+          ></div>
+        )}
+        {!heroBackground?.overlay && <div className="absolute inset-0 bg-slate-900/80"></div>}
       </div>
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <motion.h1 
