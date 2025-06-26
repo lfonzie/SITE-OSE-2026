@@ -27,7 +27,7 @@ export default function HeroSection() {
   const [heroContent, setHeroContent] = useState({
     title: "Tradição Secular de Ensino:",
     subtitle: "Celebrando 100 Anos",
-    description: "Desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem: Tradição e uma rica história.\n\nEducando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania."
+    description: "A OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem:\nTradição e uma rica história.\n\nEducando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania."
   });
   
   // Estados temporários para edição
@@ -270,13 +270,7 @@ export default function HeroSection() {
               </div>
             ) : (
               <>
-                <h2 className="text-lg md:text-xl text-white/95 mb-4 max-w-4xl mx-auto font-medium drop-shadow-xl font-body">
-                  a OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem:
-                </h2>
-                <h3 className="text-xl md:text-2xl text-white font-bold mb-8 drop-shadow-xl font-headline">
-                  Tradição e uma rica história.
-                </h3>
-                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-xl font-body">
+                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-xl font-body whitespace-pre-line">
                   {heroContent.description}
                 </p>
                 {isAuthenticated && (
