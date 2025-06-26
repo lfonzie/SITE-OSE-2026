@@ -61,13 +61,14 @@ export default function EnhancedImageSelector({ currentImage, onImageSelect, cla
 
   const loadUploadedImages = async () => {
     try {
-      const response = await fetch('/api/instagram-images');
+      // Carregar apenas imagens da pasta /images para uploads gerais
+      const response = await fetch('/api/general-images');
       if (response.ok) {
         const imageData = await response.json();
         const images: UploadedImage[] = imageData.map((img: any) => ({
           filename: img.filename,
           uploadedAt: img.uploadedAt,
-          url: `/api/images/IG/${img.filename}`
+          url: `/api/images/${img.filename}`
         }));
         setUploadedImages(images.sort((a, b) => 
           new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
@@ -122,7 +123,7 @@ export default function EnhancedImageSelector({ currentImage, onImageSelect, cla
 
       await loadUploadedImages();
       
-      const newImageUrl = `/api/images/IG/${fileName}`;
+      const newImageUrl = `/api/images/${fileName}`;
       onImageSelect(newImageUrl);
       setDialogOpen(false);
 

@@ -7,8 +7,36 @@ import path from "path";
 import fs from "fs";
 import { setupSimpleAuth, isAuthenticated } from "./simpleAuth";
 
-// Configurar multer para upload de imagens
-const upload = multer({
+// Configurar multer para upload geral de imagens (pasta /images)
+const uploadGeneral = multer({
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      const uploadPath = path.join(process.cwd(), 'client/public/images');
+      // Criar diretório se não existir
+      if (!fs.existsSync(uploadPath)) {
+        fs.mkdirSync(uploadPath, { recursive: true });
+      }
+      cb(null, uploadPath);
+    },
+    filename: (req, file, cb) => {
+      const fileName = req.body.fileName || `upload_${Date.now()}.${file.originalname.split('.').pop()}`;
+      cb(null, fileName);
+    }
+  }),
+  limits: {
+    fileSize: 5 * 1024 * 1024 // 5MB
+  },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.startsWith('image/')) {
+      cb(null, true);
+    } else {
+      cb(new Error('Apenas arquivos de imagem são permitidos'));
+    }
+  }
+});
+
+// Configurar multer EXCLUSIVAMENTE para upload do Instagram (pasta /IG)
+const uploadInstagram = multer({
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
       const uploadPath = path.join(process.cwd(), 'client/public/images/IG');
@@ -153,8 +181,8 @@ export async function registerRoutes(app: Express) {
     }
   });
 
-  // Upload de imagens
-  app.post("/api/upload-image", upload.single('file'), (req, res) => {
+  // Upload geral de imagens (vai para /images)
+  app.post("/api/upload-image", uploadGeneral.single('file'), (req, res) => {
     try {
       if (!req.file) {
         return res.status(400).json({ error: 'Nenhum arquivo enviado' });
@@ -163,7 +191,7 @@ export async function registerRoutes(app: Express) {
       res.json({ 
         success: true, 
         fileName: req.file.filename,
-        path: `/api/images/IG/${req.file.filename}`
+        path: `/api/images/${req.file.filename}`
       });
     } catch (error: any) {
       res.status(500).json({ error: error.message });
@@ -218,7 +246,36 @@ export async function registerRoutes(app: Express) {
     }
   });
 
-  // List all images in IG folder
+  // List all images in general /images folder (não /IG)
+  app.get("/api/general-images", (req, res) => {
+    try {
+      const imagesPath = path.join(process.cwd(), 'client/public/images');
+
+      if (!fs.existsSync(imagesPath)) {
+        return res.json([]);
+      }
+
+      const files = fs.readdirSync(imagesPath).filter(file => 
+        /\.(jpg|jpeg|png|gif)$/i.test(file) && !fs.statSync(path.join(imagesPath, file)).isDirectory()
+      );
+
+      const images = files.map(file => {
+        const filePath = path.join(imagesPath, file);
+        const stats = fs.statSync(filePath);
+        return {
+          filename: file,
+          uploadedAt: stats.mtime.toISOString(),
+          url: `/api/images/${file}`
+        };
+      });
+
+      res.json(images);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // List all images in IG folder (EXCLUSIVO para Instagram)
   app.get("/api/instagram-images", (req, res) => {
     try {
       const igPath = path.join(process.cwd(), 'client/public/images/IG');
@@ -246,8 +303,8 @@ export async function registerRoutes(app: Express) {
     }
   });
 
-  // Upload Instagram image (new dedicated endpoint)
-  app.post("/api/upload-instagram", upload.single('image'), (req, res) => {
+  // Upload Instagram image EXCLUSIVO (vai para /IG)
+  app.post("/api/upload-instagram", uploadInstagram.single('image'), (req, res) => {
     try {
       if (!req.file) {
         return res.status(400).json({ error: "No image file provided" });
