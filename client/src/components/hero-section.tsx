@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
+import { ArrowRight, Play, Award, Users, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
-import { motion } from "framer-motion";
 import { newImages } from "@/lib/image-verification";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from '@/contexts/AuthContext';
@@ -25,7 +24,10 @@ export default function HeroSection() {
     updateHeroBackground,
     heroImage,
     heroBackground 
-  } = usePageData('Home');
+  } = usePageData('Home', {
+    heroImage: newImages.horizontal1,
+    images: []
+  });
 
   const backgroundImages = [
     heroImage || newImages.horizontal_1,

@@ -9,6 +9,9 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 import { useVisualComposer } from '@/hooks/useVisualComposer';
 import { useAuth } from '@/contexts/AuthContext';
 import DragImagePosition from '@/components/DragImagePosition';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import { usePageData } from '@/hooks/usePageData';
 
 // Usando imagens da pasta public/images
 const img1 = "/images/0934_1750717790206.jpg";
@@ -20,6 +23,18 @@ const img5 = "/images/0541_1750717790207.jpg";
 export default function ListaMaterial() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Lista de Material');
+  
+  const { 
+    heroImage, 
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    getImagePosition, 
+    updateImagePosition 
+  } = usePageData('Lista de Material', {
+    heroImage: img1,
+    images: [img2, img3, img4, img5]
+  });
 
   useEffect(() => {
     updateSEO({
@@ -68,16 +83,46 @@ export default function ListaMaterial() {
       <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
         <div className="absolute inset-0">
           <DragImagePosition
-            src={img1}
+            src={heroImage || img1}
             alt="Lista de Material OSE"
             className="w-full h-full opacity-30"
             editable={isAuthenticated}
             initialPosition={{
-              x: 0,
-              y: 0
+              x: getImagePosition('hero')?.horizontalPosition || 0,
+              y: getImagePosition('hero')?.verticalPosition || 0
             }}
-            onPositionChange={() => {}}
+            onPositionChange={(position: { x: number; y: number }) => {
+              const currentPos = getImagePosition('hero') || {
+                objectPosition: 'center center',
+                horizontalPosition: 0,
+                verticalPosition: 0,
+                scale: 1,
+                opacity: 1,
+                filter: 'none',
+                objectFit: 'cover' as const
+              };
+              updateImagePosition('hero', {
+                ...currentPos,
+                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                horizontalPosition: position.x,
+                verticalPosition: position.y
+              });
+            }}
           />
+          {isAuthenticated && (
+            <>
+              <EnhancedImageSelector
+                currentImage={heroImage || img1}
+                onImageSelect={updateHeroImage}
+                className="absolute top-2 right-2 z-10"
+              />
+              <ImagePositionControls
+                currentPosition={getImagePosition('hero')}
+                onPositionChange={(position) => updateImagePosition('hero', position)}
+                className="absolute inset-0"
+              />
+            </>
+          )}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">

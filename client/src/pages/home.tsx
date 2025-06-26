@@ -65,6 +65,26 @@ export default function Home() {
       <FeaturesSection />
       <TestimonialsSection />
       <SocialFeedsSection />
+      
+      {/* Uniforme Section */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-8">
+              <span className="text-school-orange">UNIFORME 2025</span>
+            </h2>
+            <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold text-slate-800 mb-4">Venda exclusiva na</h3>
+              <h4 className="text-xl font-semibold text-school-orange mb-6">Origem Confecções</h4>
+              <div className="space-y-2 text-slate-600">
+                <p className="text-lg">Av. Gen. Osório, 1079 - Vila Trujillo, Sorocaba - SP</p>
+                <p className="text-lg font-semibold text-school-orange">(15) 3233-3305</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <ContactSection />
     </div>
   );

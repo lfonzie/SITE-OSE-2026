@@ -187,7 +187,7 @@ export default function Plurall() {
                       </p>
                       <p className="text-slate-600">
                         <strong>Telefone:</strong><br />
-                        (15) 2101-3812
+                        (15) 2101-3800
                       </p>
                       <p className="text-slate-600">
                         <strong>Horário de atendimento:</strong><br />
@@ -210,6 +210,41 @@ export default function Plurall() {
               </CardContent>
             </Card>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Por que OSE */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">
+              Por que escolher <span className="text-school-orange">a OSE</span>?
+            </h2>
+          </div>
+          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 p-8 rounded-xl text-center">
+            <p className="text-lg text-slate-700">
+              A OSE oferece uma educação de excelência há 100 anos em Sorocaba, 
+              combinando tradição com inovação tecnológica através de plataformas como o Plurall.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contato */}
+      <section className="py-16 bg-slate-50">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold text-slate-800 mb-8">Entre em Contato</h2>
+          <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
+            <p className="text-lg text-slate-600 mb-4">
+              <strong>Telefone:</strong> (15) 2101-3800
+            </p>
+            <p className="text-lg text-slate-600 mb-4">
+              <strong>WhatsApp:</strong> (15) 2101-3812
+            </p>
+            <p className="text-slate-600">
+              Horário de atendimento: Segunda a sexta, das 7h às 17h
+            </p>
+          </div>
         </div>
       </section>
     </div>

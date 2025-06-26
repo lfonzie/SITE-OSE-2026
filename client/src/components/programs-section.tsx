@@ -86,7 +86,7 @@ export default function ProgramsSection() {
   }
 
   const CODE = {
-    OSE: 'CODE.OSE'
+    OSE: '{CODE.OSE}'
   }
 
   return (

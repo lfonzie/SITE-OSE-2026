@@ -1,4 +1,3 @@
-
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { newImages } from "@/lib/image-verification";
@@ -10,7 +9,7 @@ import { usePageData } from '@/hooks/usePageData';
 export default function WhyOSESection() {
   const { isAuthenticated } = useAuth();
   const { getImagePosition, updateImagePosition } = usePageData('Home', {});
-  
+
   const reasons = [
     {
       image: newImages.horizontal2,
@@ -29,8 +28,8 @@ export default function WhyOSESection() {
     },
     {
       image: newImages.horizontal5,
-      title: "Excelência Reconhecida",
-      description: "98% de satisfação das famílias comprova nosso compromisso com a qualidade educacional."
+      title: "Facilidade de Acesso",
+      description: "Tornamos o dia a dia de nossas famílias mais prático através do estacionamento Pau Brasil, que oferece acesso direto ao colégio. Esta facilidade logística permite que os pais e responsáveis tenham mais tranquilidade na rotina de levar e buscar seus filhos."
     }
   ];
 

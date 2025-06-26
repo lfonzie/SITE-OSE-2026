@@ -40,33 +40,23 @@ export default function EducacaoInfantil() {
   const features = [
     {
       icon: Heart,
-      title: "Ambiente Seguro e Respeitoso",
-      description: "Criamos espaços acolhedores onde as crianças podem crescer individualmente e socialmente, fortalecendo sua autoestima."
+      title: "Ambiente Seguro e Respeitoso para o Desenvolvimento Emocional",
+      description: "A segurança e o desenvolvimento emocional são primordiais em nossa abordagem. Criamos espaços acolhedores onde as crianças podem crescer individualmente e socialmente, fortalecendo sua autoestima e sua percepção sobre si e seu lugar no mundo."
     },
     {
       icon: BookOpen,
-      title: "Coleção AMPLIA",
-      description: "Pedagogia finlandesa e aprendizado integral, combinando as melhores práticas educacionais com abordagens lúdicas."
+      title: "Coleção AMPLIA: Pedagogia Finlandesa e Aprendizado Integral",
+      description: "Combinando as melhores práticas da educação finlandesa e brasileira, nossa coleção incentiva a participação ativa da criança e valoriza seu crescimento pessoal e social. Utilizamos abordagens lúdicas e práticas para estimular a curiosidade e a criatividade, oferecendo um desenvolvimento equilibrado e completo."
     },
     {
       icon: Users,
-      title: "Aulas Diárias de Inglês",
-      description: "Aprendizado flexível e opcional, proporcionando introdução ponderada à língua estrangeira."
+      title: "Aulas Diárias de Inglês: Aprendizado Flexível e Opcional",
+      description: "Oferecemos aulas diárias de inglês, proporcionando uma introdução ponderada à língua estrangeira. Esta opção, disponível mediante um custo adicional, permite que seu filho se beneficie de um ensino de idiomas sem a pressão de um ambiente bilíngue."
     },
     {
       icon: Target,
-      title: "Laboratório de Inteligência de Vida",
-      description: "Desenvolvimento socioemocional cultivando inteligência emocional, empatia e resiliência."
-    },
-    {
-      icon: Lightbulb,
-      title: "Participação Ativa",
-      description: "Abordagem que incentiva a participação ativa da criança e valoriza seu crescimento pessoal e social."
-    },
-    {
-      icon: Award,
-      title: "Desenvolvimento Integral",
-      description: "Estímulo à curiosidade e criatividade, oferecendo um desenvolvimento equilibrado e completo."
+      title: "Desenvolvimento Socioemocional",
+      description: "Nossa abordagem centrada no aluno busca cultivar inteligência emocional, empoderando crianças e jovens a compreender e gerir suas emoções de forma eficaz. Além disso, promovemos a construção de habilidades essenciais como empatia e resiliência, preparando-os para enfrentar os desafios da vida de maneira equilibrada e consciente."
     }
   ];
 
@@ -109,14 +99,7 @@ export default function EducacaoInfantil() {
                 Nosso currículo é cuidadosamente planejado para estimular o crescimento pessoal e social 
                 de cada aluno, proporcionando uma base sólida para as futuras etapas educacionais.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-school-orange hover:bg-school-orange/90 text-white px-8 py-4 rounded-full font-semibold text-lg">
-                  Agendar Visita
-                </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-slate-800 px-8 py-4 rounded-full font-semibold text-lg">
-                  Conhecer Programa
-                </Button>
-              </div>
+              
             </motion.div>
 
             
