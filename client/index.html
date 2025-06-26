@@ -41,29 +41,68 @@
     <!-- UChatWidget Global Installation - Sempre presente -->
     <script>
       (function() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.defer = true;
-        script.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js';
-        script.onload = function() {
-          console.log('UChatWidget loaded successfully');
-          // Check if widget is actually visible
-          setTimeout(function() {
-            const widget = document.querySelector('[id*="chatbot"], [class*="uchat"], [class*="widget"]');
-            if (widget) {
-              console.log('UChatWidget widget found in DOM');
-            } else {
-              console.warn('UChatWidget script loaded but widget not found in DOM');
-            }
-          }, 2000);
-        };
-        script.onerror = function() {
-          console.error('Failed to load UChatWidget');
-        };
-        document.head.appendChild(script);
+        // Load UChatWidget with enhanced error handling and retry mechanism
+        function loadUChatWidget() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.defer = true;
+          script.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js';
+          
+          script.onload = function() {
+            console.log('UChatWidget loaded successfully');
+            
+            // Force widget initialization if needed
+            setTimeout(function() {
+              if (window.UChatWidget && typeof window.UChatWidget.init === 'function') {
+                window.UChatWidget.init();
+              }
+              
+              // Check if widget is visible with broader selectors
+              const widget = document.querySelector('[id*="uchat"], [class*="uchat"], [id*="chat"], [class*="chat"], .uchat-widget, #uchat-widget, iframe[src*="uchat"]');
+              if (widget) {
+                console.log('UChatWidget widget found in DOM');
+                widget.style.zIndex = '999999';
+                widget.style.position = 'fixed';
+              } else {
+                console.warn('UChatWidget script loaded but widget not found in DOM - attempting manual initialization');
+                
+                // Manual fallback widget creation
+                const fallbackWidget = document.createElement('div');
+                fallbackWidget.id = 'uchat-fallback-widget';
+                fallbackWidget.innerHTML = '<a href="https://wa.me/5515021013812" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999999; font-size: 16px;">💬 WhatsApp</a>';
+                document.body.appendChild(fallbackWidget);
+              }
+            }, 3000);
+          };
+          
+          script.onerror = function() {
+            console.error('Failed to load UChatWidget - creating fallback');
+            createFallbackWidget();
+          };
+          
+          document.head.appendChild(script);
+        }
+        
+        function createFallbackWidget() {
+          const fallbackWidget = document.createElement('div');
+          fallbackWidget.id = 'uchat-fallback-widget';
+          fallbackWidget.innerHTML = '<a href="https://wa.me/5515021013812" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999999; font-size: 16px; animation: bounce 2s infinite;">💬 WhatsApp</a>';
+          document.body.appendChild(fallbackWidget);
+          
+          // Add bounce animation
+          const style = document.createElement('style');
+          style.textContent = '@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }';
+          document.head.appendChild(style);
+        }
+        
+        // Load when DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', loadUChatWidget);
+        } else {
+          loadUChatWidget();
+        }
       })();
     </script>
-    <script async defer src="https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js"></script>
   </head>
   <body>
     <div id="root"></div>
