@@ -104,21 +104,21 @@ const initialHistoricalFigures = [
     name: "Dr. Arthur Cyrillo Freire",
     role: "Fundador e Visionário",
     description: "Nascido em 1878, em Fortaleza. Advogado, educador, jornalista e ativista social. Promotor Público no Amazonas, advogado da Companhia Antártica Paulista e defensor dos trabalhadores das docas de Santos.",
-    image: "/images/arthur_cyrilo.jpg",
+    image: newImages.horizontal7,
     details: "Participou da Revolução Constitucionalista de 1932 e recebeu o título de Cidadão Sorocabano. Uma escola estadual em Sorocaba leva seu nome."
   },
   {
     name: "Professor Arthur Fonseca",
     role: "Diretor e Político",
     description: "Nascido em 1922, modernizou e expandiu a OSE. Vereador de Sorocaba (1947-1950), Secretário de Educação e Saúde (1969-1970) e Deputado Federal (1971-1975).",
-    image: "/images/arthur_fonseca.jpg",
+    image: newImages.horizontal8,
     details: "Defensor da educação técnica, tem uma avenida em Sorocaba nomeada em sua homenagem."
   },
   {
     name: "Nelson Fonseca",
     role: "Gestor Financeiro",
     description: "Nascido em 1924, foi fundamental na gestão financeira e administrativa da OSE. Garantiu a sustentabilidade econômica e participou ativamente da comunidade sorocabana.",
-    image: "/images/nelson_fonseca.jpg",
+    image: newImages.horizontal9,
     details: "O Centro de Educação Infantil (CEI) Nelson Fonseca leva seu nome em reconhecimento à sua contribuição educacional."
   }
 ];
@@ -128,21 +128,21 @@ const initialInstitutions = [
     name: "Colégio Uirapuru",
     period: "1989-1999",
     description: "Criado como extensão da OSE por Arthur Fonseca Filho, Kiko Fonseca e Nelson Raul. Iniciou com 130 alunos de 4 a 10 anos, focando na união entre tradição e inovação pedagógica.",
-    image: "/images/uirapuru_college.jpg",
+    image: newImages.horizontal10,
     impact: "Tornou-se referência em qualidade docente e formação continuada de professores."
   },
   {
     name: "OSE Santa Rosália",
     period: "1997-2010",
     description: "Inaugurada no bairro Santa Rosália, começou em uma casa na Av. Roberto Simonsen e depois se mudou para a Rua Manoel Pereira e Silva. Implantou o Ensino Fundamental II em 2004.",
-    image: "/images/santa_rosalia.jpg",
+    image: newImages.horizontal11,
     impact: "Expandiu a presença da OSE para uma região nobre de Sorocaba, atendendo mais famílias."
   },
   {
     name: "Faculdade IMAPES",
     period: "2000-2010",
     description: "Instituto Manchester Paulista de Ensino Superior oferecia cursos de Administração (RH e Comércio Exterior), Biblioteconomia e Química. Chegou a ter 1.500 alunos.",
-    image: "/images/imapes.jpg",
+    image: newImages.horizontal12,
     impact: "Formou profissionais qualificados e ampliou o legado educacional da OSE para o ensino superior."
   }
 ];
@@ -629,14 +629,54 @@ export default function Legacy() {
                   </Button>
                 )}
 
-                <div className="h-64 bg-gradient-to-b from-slate-200 to-slate-300 flex items-center justify-center relative">
-                  <Users size={64} className="text-slate-400" />
-                  {isAuthenticated && (
-                    <EnhancedImageSelector
-                      currentImage=""
-                      onImageSelect={(url) => updateImage(index + 100, url)} // Offset para não conflitar
-                      className="absolute inset-0"
+                <div className="h-64 bg-gradient-to-b from-slate-200 to-slate-300 flex items-center justify-center relative overflow-hidden">
+                  {isAuthenticated ? (
+                    <DragImagePosition
+                      src={figure.image}
+                      alt={figure.name}
+                      className="w-full h-full object-cover"
+                      editable={true}
+                      initialPosition={{
+                        x: getImagePosition(`figure-${index}`)?.horizontalPosition || 0,
+                        y: getImagePosition(`figure-${index}`)?.verticalPosition || 0
+                      }}
+                      onPositionChange={(position: { x: number; y: number }) => {
+                        const currentPos = getImagePosition(`figure-${index}`) || {
+                          objectPosition: 'center center',
+                          horizontalPosition: 0,
+                          verticalPosition: 0,
+                          scale: 1,
+                          opacity: 1,
+                          filter: 'none',
+                          borderRadius: 0,
+                          objectFit: 'cover' as const
+                        };
+                        updateImagePosition(`figure-${index}`, {
+                          ...currentPos,
+                          horizontalPosition: position.x,
+                          verticalPosition: position.y
+                        });
+                      }}
                     />
+                  ) : (
+                    <img
+                      src={figure.image}
+                      alt={figure.name}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  {isAuthenticated && (
+                    <div className="absolute top-2 left-2">
+                      <EnhancedImageSelector
+                        currentImage={figure.image}
+                        onImageSelect={(url) => {
+                          const newFigures = [...historicalFigures];
+                          newFigures[index] = { ...newFigures[index], image: url };
+                          setHistoricalFigures(newFigures);
+                        }}
+                        className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg"
+                      />
+                    </div>
                   )}
                 </div>
                 <div className="p-6">
@@ -739,15 +779,54 @@ export default function Legacy() {
                   </Button>
                 )}
 
-                <div className="h-32 md:h-48 bg-gradient-to-b from-slate-200 to-slate-300 rounded-lg mb-4 md:mb-6 flex items-center justify-center relative">
-                  <BookOpen size={32} className="md:hidden text-slate-400" />
-                  <BookOpen size={48} className="hidden md:block text-slate-400" />
-                  {isAuthenticated && (
-                    <EnhancedImageSelector
-                      currentImage=""
-                      onImageSelect={(url) => updateImage(index + 200, url)} // Offset para não conflitar
-                      className="absolute inset-0"
+                <div className="h-32 md:h-48 bg-gradient-to-b from-slate-200 to-slate-300 rounded-lg mb-4 md:mb-6 flex items-center justify-center relative overflow-hidden">
+                  {isAuthenticated ? (
+                    <DragImagePosition
+                      src={institution.image || newImages.horizontal10}
+                      alt={institution.name}
+                      className="w-full h-full object-cover rounded-lg"
+                      editable={true}
+                      initialPosition={{
+                        x: getImagePosition(`institution-${index}`)?.horizontalPosition || 0,
+                        y: getImagePosition(`institution-${index}`)?.verticalPosition || 0
+                      }}
+                      onPositionChange={(position: { x: number; y: number }) => {
+                        const currentPos = getImagePosition(`institution-${index}`) || {
+                          objectPosition: 'center center',
+                          horizontalPosition: 0,
+                          verticalPosition: 0,
+                          scale: 1,
+                          opacity: 1,
+                          filter: 'none',
+                          borderRadius: 0,
+                          objectFit: 'cover' as const
+                        };
+                        updateImagePosition(`institution-${index}`, {
+                          ...currentPos,
+                          horizontalPosition: position.x,
+                          verticalPosition: position.y
+                        });
+                      }}
                     />
+                  ) : (
+                    <img
+                      src={institution.image || newImages.horizontal10}
+                      alt={institution.name}
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  )}
+                  {isAuthenticated && (
+                    <div className="absolute top-2 left-2">
+                      <EnhancedImageSelector
+                        currentImage={institution.image || newImages.horizontal10}
+                        onImageSelect={(url) => {
+                          const newInstitutions = [...institutions];
+                          newInstitutions[index] = { ...newInstitutions[index], image: url };
+                          setInstitutions(newInstitutions);
+                        }}
+                        className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg"
+                      />
+                    </div>
                   )}
                 </div>
 
