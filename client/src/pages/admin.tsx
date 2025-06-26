@@ -224,7 +224,10 @@ export default function AdminPage() {
           </CardHeader>
           <CardContent>
             <Button 
-              onClick={() => window.location.href = "/auth/login"}
+              onClick={() => {
+                console.log("Redirecting to /auth/login");
+                window.location.href = "/auth/login";
+              }}
               className="w-full bg-school-orange text-white font-semibold"
             >
               Fazer Login com Google

@@ -114,7 +114,9 @@ export async function setupAuth(app: Express) {
   });
 
   app.get("/auth/login", (req, res, next) => {
-    console.log("Login request - hostname:", req.hostname);
+    console.log("🔐 Auth login request received");
+    console.log("Hostname:", req.hostname);
+    console.log("User-Agent:", req.get('User-Agent'));
     console.log("Available strategies:", (passport as any)._strategies ? Object.keys((passport as any)._strategies) : "none");
     
     const strategyName = `replitauth:${req.hostname}`;
