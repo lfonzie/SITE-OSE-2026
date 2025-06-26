@@ -125,11 +125,12 @@ export default function HeroBackgroundManager({
   };
 
   const handleImageSelect = (imageUrl: string) => {
+    // Completely reset background to default values first, then apply new image
     const newBackground: HeroBackground = {
-      ...background,
+      ...defaultBackground,
       type: 'image',
       imageUrl,
-      // Clear any gradient properties when switching to image
+      // Explicitly clear all other background types
       gradientColors: undefined,
       solidColor: undefined
     };
