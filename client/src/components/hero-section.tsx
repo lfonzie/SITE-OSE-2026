@@ -27,7 +27,7 @@ export default function HeroSection() {
   const [heroContent, setHeroContent] = useState({
     title: "Tradição Secular de Ensino:",
     subtitle: "Celebrando 100 Anos",
-    description: "A OSE desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem: Tradição e uma rica história.\n\nEducando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania."
+    description: "Desenvolve-se a partir de um diferencial que poucos colégios no Brasil possuem: Tradição e uma rica história.\n\nEducando com excelência há mais de 100 anos em Sorocaba. Com base em valores éticos e formação integral, preparamos gerações para o sucesso e a cidadania."
   });
   
   // Estados temporários para edição
