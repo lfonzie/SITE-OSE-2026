@@ -10,8 +10,24 @@ import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import { newImages } from "@/lib/image-verification";
+import { useVisualComposer } from '@/hooks/useVisualComposer';
+import { usePageData } from '@/hooks/usePageData';
+import { useAuth } from '@/contexts/AuthContext';
+import DragImagePosition from '@/components/DragImagePosition';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 
 export default function Integral() {
+  const { isAuthenticated } = useAuth();
+  const { VisualComposerComponent } = useVisualComposer('Programa Integral');
+  
+  // Initialize page data with auto-save functionality
+  const { heroImage, images, updateHeroImage, updateImage, getImagePosition, updateImagePosition } = usePageData('Programa Integral', {
+    heroImage: '/images/horizontal_1.png',
+    images: ['/images/horizontal_2.png', '/images/horizontal_3.png', '/images/horizontal_4.png']
+  });
+
   useEffect(() => {
     updateSEO({
       title: "Integral Flex - Período Integral Flexível | a OSE",

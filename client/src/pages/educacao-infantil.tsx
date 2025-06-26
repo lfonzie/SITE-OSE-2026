@@ -12,6 +12,9 @@ import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import DragImagePosition from '@/components/DragImagePosition';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import { useAuth } from '@/contexts/AuthContext';
 import { useVisualComposer } from '@/hooks/useVisualComposer';
 import { usePageData } from '@/hooks/usePageData';
@@ -30,7 +33,7 @@ export default function EducacaoInfantil() {
   const { VisualComposerComponent } = useVisualComposer('Educação Infantil');
   
   // Initialize page data with auto-save functionality
-  const { heroImage, images, updateHeroImage, updateImage } = usePageData('Educação Infantil', {
+  const { heroImage, images, updateHeroImage, updateImage, getImagePosition, updateImagePosition } = usePageData('Educação Infantil', {
     heroImage: '/images/horizontal_1.png',
     images: ['/images/horizontal_2.png', '/images/horizontal_3.png', '/images/horizontal_4.png']
   });
@@ -217,16 +220,38 @@ export default function EducacaoInfantil() {
                   className="text-center"
                 >
                   <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-4 relative">
-                    <img 
-                      src={images[0] || '/images/horizontal_2.png'} 
-                      alt="Atividades lúdicas" 
-                      className="w-full h-48 object-cover"
+                    <DragImagePosition
+                      src={images[0] || '/images/horizontal_2.png'}
+                      alt="Atividades lúdicas"
+                      className="w-full h-48"
+                      editable={isAuthenticated}
+                      initialPosition={{
+                        x: getImagePosition('gallery-0')?.horizontalPosition || 0,
+                        y: getImagePosition('gallery-0')?.verticalPosition || 0
+                      }}
+                      onPositionChange={(position: { x: number; y: number }) => {
+                        const currentPos = getImagePosition('gallery-0') || {
+                          objectPosition: 'center center',
+                          horizontalPosition: 0,
+                          verticalPosition: 0,
+                          scale: 1,
+                          opacity: 1,
+                          filter: 'none',
+                          objectFit: 'cover' as const
+                        };
+                        updateImagePosition('gallery-0', {
+                          ...currentPos,
+                          objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                          horizontalPosition: position.x,
+                          verticalPosition: position.y
+                        });
+                      }}
                     />
                     {isAuthenticated && (
                       <EnhancedImageSelector
                         currentImage={images[0] || '/images/horizontal_2.png'}
                         onImageSelect={(url) => updateImage(0, url)}
-                        className="absolute inset-0"
+                        className="absolute top-2 right-2 z-10"
                       />
                     )}
                   </div>
@@ -243,16 +268,38 @@ export default function EducacaoInfantil() {
                   className="text-center"
                 >
                   <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-4 relative">
-                    <img 
-                      src={images[1] || '/images/horizontal_3.png'} 
-                      alt="Arte e expressão" 
-                      className="w-full h-48 object-cover"
+                    <DragImagePosition
+                      src={images[1] || '/images/horizontal_3.png'}
+                      alt="Arte e expressão"
+                      className="w-full h-48"
+                      editable={isAuthenticated}
+                      initialPosition={{
+                        x: getImagePosition('gallery-1')?.horizontalPosition || 0,
+                        y: getImagePosition('gallery-1')?.verticalPosition || 0
+                      }}
+                      onPositionChange={(position: { x: number; y: number }) => {
+                        const currentPos = getImagePosition('gallery-1') || {
+                          objectPosition: 'center center',
+                          horizontalPosition: 0,
+                          verticalPosition: 0,
+                          scale: 1,
+                          opacity: 1,
+                          filter: 'none',
+                          objectFit: 'cover' as const
+                        };
+                        updateImagePosition('gallery-1', {
+                          ...currentPos,
+                          objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                          horizontalPosition: position.x,
+                          verticalPosition: position.y
+                        });
+                      }}
                     />
                     {isAuthenticated && (
                       <EnhancedImageSelector
                         currentImage={images[1] || '/images/horizontal_3.png'}
                         onImageSelect={(url) => updateImage(1, url)}
-                        className="absolute inset-0"
+                        className="absolute top-2 right-2 z-10"
                       />
                     )}
                   </div>
@@ -269,16 +316,38 @@ export default function EducacaoInfantil() {
                   className="text-center"
                 >
                   <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-4 relative">
-                    <img 
-                      src={images[2] || '/images/horizontal_4.png'} 
-                      alt="Desenvolvimento social" 
-                      className="w-full h-48 object-cover"
+                    <DragImagePosition
+                      src={images[2] || '/images/horizontal_4.png'}
+                      alt="Desenvolvimento social"
+                      className="w-full h-48"
+                      editable={isAuthenticated}
+                      initialPosition={{
+                        x: getImagePosition('gallery-2')?.horizontalPosition || 0,
+                        y: getImagePosition('gallery-2')?.verticalPosition || 0
+                      }}
+                      onPositionChange={(position: { x: number; y: number }) => {
+                        const currentPos = getImagePosition('gallery-2') || {
+                          objectPosition: 'center center',
+                          horizontalPosition: 0,
+                          verticalPosition: 0,
+                          scale: 1,
+                          opacity: 1,
+                          filter: 'none',
+                          objectFit: 'cover' as const
+                        };
+                        updateImagePosition('gallery-2', {
+                          ...currentPos,
+                          objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                          horizontalPosition: position.x,
+                          verticalPosition: position.y
+                        });
+                      }}
                     />
                     {isAuthenticated && (
                       <EnhancedImageSelector
                         currentImage={images[2] || '/images/horizontal_4.png'}
                         onImageSelect={(url) => updateImage(2, url)}
-                        className="absolute inset-0"
+                        className="absolute top-2 right-2 z-10"
                       />
                     )}
                   </div>

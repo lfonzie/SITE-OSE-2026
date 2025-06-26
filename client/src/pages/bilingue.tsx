@@ -8,6 +8,13 @@ import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
+import { useVisualComposer } from '@/hooks/useVisualComposer';
+import { usePageData } from '@/hooks/usePageData';
+import { useAuth } from '@/contexts/AuthContext';
+import DragImagePosition from '@/components/DragImagePosition';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 
 // Import images
 import { newImages } from "@/lib/image-verification";
@@ -17,6 +24,14 @@ const img3 = newImages.horizontal3;
 const img4 = newImages.horizontal4;
 
 export default function Bilingue() {
+  const { isAuthenticated } = useAuth();
+  const { VisualComposerComponent } = useVisualComposer('Programa Bilíngue');
+  
+  // Initialize page data with auto-save functionality
+  const { heroImage, images, updateHeroImage, updateImage, getImagePosition, updateImagePosition } = usePageData('Programa Bilíngue', {
+    heroImage: '/images/horizontal_1.png',
+    images: ['/images/horizontal_2.png', '/images/horizontal_3.png', '/images/horizontal_4.png']
+  });
   const features = [
     {
       icon: Globe,

@@ -11,6 +11,12 @@ import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import { useVisualComposer } from '@/hooks/useVisualComposer';
+import { usePageData } from '@/hooks/usePageData';
+import { useAuth } from '@/contexts/AuthContext';
+import DragImagePosition from '@/components/DragImagePosition';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 
 // Usando imagens da pasta public/images
 import { newImages } from "@/lib/image-verification";
@@ -22,7 +28,14 @@ const img5 = newImages.img20;
 const img6 = newImages.img21;
 
 export default function Fundamental1() {
+  const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Fundamental I');
+  
+  // Initialize page data with auto-save functionality
+  const { heroImage, images, updateHeroImage, updateImage, getImagePosition, updateImagePosition } = usePageData('Fundamental I', {
+    heroImage: '/images/horizontal_16.png',
+    images: ['/images/horizontal_17.png', '/images/horizontal_18.png', '/images/horizontal_19.png']
+  });
   useEffect(() => {
     updateSEO({
       title: "Ensino Fundamental I - Anos Iniciais | OSE",
