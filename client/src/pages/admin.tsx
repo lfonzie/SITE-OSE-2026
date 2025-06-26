@@ -1,15 +1,14 @@
-import { useState, useEffect } from "react";
+
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Upload, Image as ImageIcon, Trash2, Eye, Edit } from "lucide-react";
+import { Eye, Instagram } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import HeroImageManager from '@/components/HeroImageManager';
+import { Input } from "@/components/ui/input";
 import InstagramUploadManager from '@/components/InstagramUploadManager';
 
 interface LoginFormData {
@@ -37,7 +36,7 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
-    document.title = "Admin - a OSE";
+    document.title = "Admin - OSE";
   }, []);
 
   if (isLoading) {
@@ -120,9 +119,14 @@ export default function AdminPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-school-brown">
-            Painel Administrativo OSE
-          </h1>
+          <div>
+            <h1 className="text-3xl font-bold text-school-brown">
+              Painel Administrativo OSE
+            </h1>
+            <p className="text-gray-600 mt-2">
+              Gerencie o conteúdo do site da escola
+            </p>
+          </div>
           <div className="flex gap-4">
             <Button 
               onClick={() => window.open('/', '_blank')}
@@ -141,47 +145,55 @@ export default function AdminPage() {
           </div>
         </div>
 
-        <Tabs defaultValue="instagram" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="instagram">Feed Instagram</TabsTrigger>
-            <TabsTrigger value="editor">Editor Visual</TabsTrigger>
-            <TabsTrigger value="configuracoes">Configurações</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="instagram" className="space-y-6">
+        {/* Instagram Management Section */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Instagram className="w-6 h-6 text-pink-600" />
+              Gerenciamento do Feed Instagram
+            </CardTitle>
+            <p className="text-gray-600">
+              Faça upload e gerencie as imagens que aparecem no feed do Instagram no site
+            </p>
+          </CardHeader>
+          <CardContent>
             <InstagramUploadManager />
-          </TabsContent>
+          </CardContent>
+        </Card>
 
-          <TabsContent value="editor" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Edit size={24} />
-                  Editor Visual de Páginas
-                </CardTitle>
-                <p className="text-gray-600">
-                  Editor simplificado para personalizar textos e imagens das páginas
-                </p>
-              </CardHeader>
-              <CardContent>
-                <HeroImageManager />
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="configuracoes" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Configurações Gerais</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Configurações adicionais serão implementadas conforme necessário.
-                </p>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
+        {/* Future Features Placeholder */}
+        <div className="mt-8">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-gray-500">Próximas Funcionalidades</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg text-center">
+                  <div className="w-12 h-12 bg-gray-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                    <span className="text-gray-400 text-xl">📝</span>
+                  </div>
+                  <h3 className="font-medium text-gray-700">Editor de Conteúdo</h3>
+                  <p className="text-sm text-gray-500 mt-1">Em breve</p>
+                </div>
+                <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg text-center">
+                  <div className="w-12 h-12 bg-gray-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                    <span className="text-gray-400 text-xl">⚙️</span>
+                  </div>
+                  <h3 className="font-medium text-gray-700">Configurações</h3>
+                  <p className="text-sm text-gray-500 mt-1">Em breve</p>
+                </div>
+                <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg text-center">
+                  <div className="w-12 h-12 bg-gray-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                    <span className="text-gray-400 text-xl">📊</span>
+                  </div>
+                  <h3 className="font-medium text-gray-700">Relatórios</h3>
+                  <p className="text-sm text-gray-500 mt-1">Em breve</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
