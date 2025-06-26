@@ -3,6 +3,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube, Send } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -198,6 +199,13 @@ export default function ContactSection() {
                 title="Facebook"
               >
                 <Facebook className="w-6 h-6" />
+              </button>
+              <button
+                onClick={() => window.open('https://twitter.com/colegioose', '_blank')}
+                className="w-12 h-12 rounded-full bg-black hover:bg-gray-800 flex items-center justify-center text-white transition-colors duration-200 shadow-lg hover:shadow-xl"
+                title="Twitter/X"
+              >
+                <FaXTwitter className="w-5 h-5" />
               </button>
               <button
                 onClick={() => window.open('https://www.youtube.com/@colegioose', '_blank')}

@@ -125,10 +125,16 @@ export default function HeroBackgroundManager({
   };
 
   const handleImageSelect = (imageUrl: string) => {
-    handleBackgroundUpdate({
+    const newBackground: HeroBackground = {
+      ...background,
       type: 'image',
-      imageUrl
-    });
+      imageUrl,
+      // Clear any gradient properties when switching to image
+      gradientColors: undefined,
+      solidColor: undefined
+    };
+    setBackground(newBackground);
+    onBackgroundChange(newBackground);
     toast({
       title: "Imagem de fundo alterada",
       description: "A nova imagem foi aplicada como fundo do hero.",
@@ -213,8 +219,14 @@ export default function HeroBackgroundManager({
   };
 
   const resetBackground = () => {
-    setBackground(defaultBackground);
-    onBackgroundChange(defaultBackground);
+    const cleanBackground: HeroBackground = {
+      ...defaultBackground,
+      imageUrl: undefined,
+      gradientColors: ['#475569', '#64748b'],
+      solidColor: undefined
+    };
+    setBackground(cleanBackground);
+    onBackgroundChange(cleanBackground);
   };
 
   if (!isAuthenticated) {
