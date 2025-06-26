@@ -26,7 +26,18 @@ export default function HeroSection() {
     heroBackground 
   } = usePageData('Home', {
     heroImage: newImages.horizontal1,
-    images: []
+    images: [],
+    heroBackground: {
+      type: 'gradient',
+      gradientColors: ['#475569', '#64748b'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.8,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
   });
 
   const backgroundImages = [
@@ -45,114 +56,78 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0">
+    <section 
+      id="hero" 
+      className="relative py-20 text-white overflow-hidden"
+      style={{
+        background: heroBackground?.type === 'gradient' 
+          ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
+          : heroBackground?.type === 'color'
+          ? heroBackground.solidColor
+          : heroBackground?.type === 'image' && heroBackground.imageUrl
+          ? `url(${heroBackground.imageUrl})`
+          : 'linear-gradient(135deg, #475569, #64748b)',
+        backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
+        backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
+        backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+        opacity: heroBackground?.opacity || 1
+      }}
+    >
+      {/* Background Image Layer */}
+      {heroBackground?.type === 'image' && heroImage && (
         <div className="absolute inset-0">
-          {heroBackground?.type === 'image' && heroBackground.imageUrl ? (
-            <div
-              className="absolute inset-0 transition-all duration-1000 ease-in-out"
+          <div className="relative w-full h-full">
+            <img 
+              src={heroImage}
+              alt="Hero OSE"
+              className="w-full h-full object-cover opacity-30"
               style={{
-                backgroundImage: `url(${heroBackground.imageUrl})`,
-                backgroundSize: heroBackground.size || 'cover',
-                backgroundPosition: heroBackground.position || 'center',
-                backgroundRepeat: heroBackground.repeat || 'no-repeat',
-                opacity: heroBackground.opacity || 1
+                objectPosition: getImagePosition('hero')?.objectPosition || 'center',
+                objectFit: getImagePosition('hero')?.objectFit || 'cover',
+                transform: `scale(${getImagePosition('hero')?.scale || 1})`,
+                opacity: getImagePosition('hero')?.opacity || 0.3,
+                filter: getImagePosition('hero')?.filter || 'none'
               }}
             />
-          ) : heroBackground?.type === 'gradient' && heroBackground.gradientColors ? (
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
-                opacity: heroBackground.opacity || 1
-              }}
-            />
-          ) : heroBackground?.type === 'color' && heroBackground.solidColor ? (
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundColor: heroBackground.solidColor,
-                opacity: heroBackground.opacity || 1
-              }}
-            />
-          ) : (
-            <div className="relative">
-              <DragImagePosition
-                src={backgroundImages[currentImageIndex]}
-                alt="Hero background"
-                className="w-full h-full object-cover transition-all duration-1000 ease-in-out"
-                editable={isAuthenticated}
-                initialPosition={{
-                  x: getImagePosition('hero')?.horizontalPosition || 0,
-                  y: getImagePosition('hero')?.verticalPosition || 0
-                }}
-                onPositionChange={(position: { x: number; y: number }) => {
-                  const currentPos = getImagePosition('hero') || {
-                    objectPosition: 'center center',
-                    horizontalPosition: 0,
-                    verticalPosition: 0,
-                    scale: 1,
-                    opacity: 1,
-                    filter: 'none',
-                    objectFit: 'cover' as const
-                  };
-                  updateImagePosition('hero', {
-                    ...currentPos,
-                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                    horizontalPosition: position.x,
-                    verticalPosition: position.y
-                  });
-                }}
-                style={{
-                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
-                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
-                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
-                  opacity: getImagePosition('hero')?.opacity || 1,
-                  filter: getImagePosition('hero')?.filter || 'none'
-                }}
-              />
-              {isAuthenticated && (
-                <>
-                  <EnhancedImageSelector
-                    currentImage={heroImage}
-                    onImageSelect={updateHeroImage}
-                    className="absolute inset-0"
-                  />
-                  <ImagePositionControls
-                    currentPosition={getImagePosition('hero')}
-                    onPositionChange={(position) => updateImagePosition('hero', position)}
-                    className="absolute inset-0"
-                  />
-                </>
-              )}
-            </div>
-          )}
+            {isAuthenticated && (
+              <>
+                <EnhancedImageSelector
+                  currentImage={heroImage}
+                  onImageSelect={updateHeroImage}
+                  className="absolute inset-0"
+                />
+                <ImagePositionControls
+                  currentPosition={getImagePosition('hero')}
+                  onPositionChange={(position) => updateImagePosition('hero', position)}
+                  className="absolute inset-0"
+                />
+              </>
+            )}
+          </div>
         </div>
+      )}
 
-        {/* Hero Background Manager */}
-        {isAuthenticated && (
-          <HeroBackgroundManager
-            currentBackground={heroBackground}
-            onBackgroundChange={updateHeroBackground}
-            className="absolute inset-0"
-          />
-        )}
+      {/* Hero Background Manager */}
+      {isAuthenticated && (
+        <HeroBackgroundManager
+          currentBackground={heroBackground}
+          onBackgroundChange={updateHeroBackground}
+          className="absolute inset-0"
+        />
+      )}
 
-        {/* Overlay */}
-        {heroBackground?.overlay && (
-          <div 
-            className="absolute inset-0"
-            style={{
-              backgroundColor: heroBackground.overlayColor || '#1e293b',
-              opacity: heroBackground.overlayOpacity || 0.8
-            }}
-          ></div>
-        )}
-        {!heroBackground?.overlay && <div className="absolute inset-0 bg-slate-900/80"></div>}
-      </div>
+      {/* Overlay */}
+      {heroBackground?.overlay && (
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundColor: heroBackground.overlayColor || '#1e293b',
+            opacity: heroBackground.overlayOpacity || 0.8
+          }}
+        ></div>
+      )}
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
           <motion.h1 
             className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-2xl font-headline"

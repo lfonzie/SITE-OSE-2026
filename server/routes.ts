@@ -246,8 +246,57 @@ export async function registerRoutes(app: Express) {
     }
   });
 
-  // Delete image from IG folder
+  // Upload Instagram image (new dedicated endpoint)
+  app.post("/api/upload-instagram", upload.single('image'), (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No image file provided" });
+      }
+
+      const timestamp = Date.now();
+      const fileExtension = path.extname(req.file.originalname);
+      const filename = `instagram_${timestamp}${fileExtension}`;
+      const igPath = path.join(process.cwd(), 'client/public/images/IG');
+      const filepath = path.join(igPath, filename);
+
+      // Ensure IG directory exists
+      if (!fs.existsSync(igPath)) {
+        fs.mkdirSync(igPath, { recursive: true });
+      }
+
+      // Move uploaded file to IG directory with new name
+      fs.renameSync(req.file.path, filepath);
+
+      res.json({
+        success: true,
+        filename,
+        url: `/api/images/IG/${filename}`
+      });
+    } catch (error: any) {
+      console.error("Error uploading Instagram image:", error);
+      res.status(500).json({ error: "Failed to upload image" });
+    }
+  });
+
+  // Delete image from IG folder (keep existing endpoint)
   app.delete("/api/delete-image/:filename", (req, res) => {
+    try {
+      const filename = req.params.filename;
+      const imagePath = path.join(process.cwd(), 'client/public/images/IG', filename);
+
+      if (!fs.existsSync(imagePath)) {
+        return res.status(404).json({ error: 'Image not found' });
+      }
+
+      fs.unlinkSync(imagePath);
+      res.json({ success: true, message: 'Image deleted successfully' });
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Delete Instagram image (new dedicated endpoint)
+  app.delete("/api/instagram-images/:filename", (req, res) => {
     try {
       const filename = req.params.filename;
       const imagePath = path.join(process.cwd(), 'client/public/images/IG', filename);

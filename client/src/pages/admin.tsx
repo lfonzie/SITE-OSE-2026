@@ -10,12 +10,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import HeroImageManager from '@/components/HeroImageManager';
-
-interface InstagramPost {
-  id: string;
-  imageUrl: string;
-  uploadedAt: Date;
-}
+import InstagramUploadManager from '@/components/InstagramUploadManager';
 
 interface LoginFormData {
   email: string;
@@ -24,226 +19,53 @@ interface LoginFormData {
 
 export default function AdminPage() {
   const { isAuthenticated, user, isLoading, loginMutation, logoutMutation } = useAuth();
-  const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
-  const [uploading, setUploading] = useState(false);
   const { toast } = useToast();
-  
-  // Form de login
+
   const form = useForm<LoginFormData>({
     defaultValues: {
       email: "",
-      password: "",
-    },
+      password: ""
+    }
   });
-
-  const onLogin = (data: LoginFormData) => {
-    loginMutation.mutate(data, {
-      onError: (error) => {
-        toast({
-          title: "Erro no Login",
-          description: error.message || "Credenciais inválidas",
-          variant: "destructive",
-        });
-      },
-      onSuccess: () => {
-        toast({
-          title: "Login realizado",
-          description: "Bem-vindo ao painel administrativo",
-        });
-      },
-    });
-  };
 
   const handleLogout = () => {
     logoutMutation.mutate();
   };
 
+  const onSubmit = (data: LoginFormData) => {
+    loginMutation.mutate(data);
+  };
+
   useEffect(() => {
-    if (isAuthenticated) {
-      loadInstagramPosts();
-    }
-  }, [isAuthenticated]);
+    document.title = "Admin - a OSE";
+  }, []);
 
-  const loadInstagramPosts = async () => {
-    // Carregar imagens da pasta IG via API
-    try {
-      const response = await fetch('/api/instagram-images');
-      if (response.ok) {
-        const images = await response.json();
-        const posts: InstagramPost[] = images.map((image: any) => ({
-          id: image.filename.replace(/\.[^/.]+$/, ""), // Remove extensão para usar como ID
-          imageUrl: `/api/images/IG/${image.filename}`,
-          uploadedAt: new Date(image.uploadedAt)
-        }));
-
-        setInstagramPosts(posts.sort((a, b) => 
-          b.uploadedAt.getTime() - a.uploadedAt.getTime()
-        ));
-      }
-    } catch (error) {
-      console.error('Erro ao carregar imagens do IG:', error);
-    }
-
-    // Fallback: carregar do localStorage se API falhar
-    const savedPosts = localStorage.getItem("instagram_posts");
-    if (savedPosts && instagramPosts.length === 0) {
-      try {
-        const posts = JSON.parse(savedPosts).map((post: any) => ({
-          ...post,
-          uploadedAt: new Date(post.uploadedAt)
-        }));
-        setInstagramPosts(posts);
-      } catch (error) {
-        localStorage.removeItem("instagram_posts");
-      }
-    }
-  };
-
-  const saveInstagramPosts = (posts: InstagramPost[]) => {
-    localStorage.setItem("instagram_posts", JSON.stringify(posts));
-    setInstagramPosts(posts);
-  };
-
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    // Validar tipo de arquivo
-    if (!file.type.startsWith('image/')) {
-      toast({
-        title: "Erro no upload",
-        description: "Por favor, selecione apenas arquivos de imagem.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Validar tamanho (máximo 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      toast({
-        title: "Erro no upload",
-        description: "O arquivo deve ter no máximo 5MB.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setUploading(true);
-
-    try {
-      // Criar nome único para o arquivo
-      const timestamp = Date.now();
-      const extension = file.name.split('.').pop() || 'jpg';
-      const fileName = `instagram_${timestamp}.${extension}`;
-
-      // Criar FormData para envio
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('fileName', fileName);
-
-      // Enviar arquivo para o servidor
-      const response = await fetch('/api/upload-image', {
-        method: 'POST',
-        body: formData
-      });
-
-      if (!response.ok) {
-        throw new Error('Erro ao fazer upload da imagem');
-      }
-
-      const result = await response.json();
-      const imageUrl = result.path; // Use the path returned by the server
-
-      const newPost: InstagramPost = {
-        id: timestamp.toString(),
-        imageUrl,
-        uploadedAt: new Date()
-      };
-
-      // Recarregar lista de imagens do servidor
-      await loadInstagramPosts();
-
-      toast({
-        title: "Foto enviada com sucesso!",
-        description: "A foto foi adicionada ao feed do Instagram.",
-      });
-
-      // Limpar input
-      e.target.value = '';
-    } catch (error) {
-      toast({
-        title: "Erro no upload",
-        description: "Ocorreu um erro ao enviar a foto.",
-        variant: "destructive",
-      });
-    } finally {
-      setUploading(false);
-    }
-  };
-
-  const deletePost = async (postId: string) => {
-    const postToDelete = instagramPosts.find(post => post.id === postId);
-    if (!postToDelete) return;
-
-    try {
-      // Extrair nome do arquivo da URL
-      const filename = postToDelete.imageUrl.split('/').pop();
-
-      // Deletar arquivo no servidor
-      const response = await fetch(`/api/delete-image/${filename}`, {
-        method: 'DELETE'
-      });
-
-      if (response.ok) {
-        // Remover da lista local
-        const updatedPosts = instagramPosts.filter(post => post.id !== postId);
-        setInstagramPosts(updatedPosts);
-        saveInstagramPosts(updatedPosts);
-
-        toast({
-          title: "Foto removida",
-          description: "A foto foi removida do servidor e do feed.",
-        });
-      } else {
-        throw new Error('Erro ao deletar imagem no servidor');
-      }
-    } catch (error) {
-      toast({
-        title: "Erro ao deletar",
-        description: "Não foi possível remover a foto do servidor.",
-        variant: "destructive",
-      });
-    }
-  };
-
-  // Mostrar loading enquanto verifica autenticação
   if (isLoading) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-8 h-8 border-4 border-school-orange border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-slate-600 font-body">Verificando autenticação...</p>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-school-orange mx-auto mb-4"></div>
+          <p className="text-gray-600">Carregando...</p>
         </div>
       </div>
     );
   }
 
-  // Mostrar login se não estiver autenticado
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-school-orange via-school-brown to-orange-900 flex items-center justify-center">
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
         <Card className="w-full max-w-md">
-          <CardHeader>
-            <CardTitle className="text-center text-2xl font-bold text-school-brown font-headline">
-              Admin OSE
-            </CardTitle>
-            <p className="text-center text-slate-600 font-body">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl font-bold text-school-brown">
               Login Administrativo
+            </CardTitle>
+            <p className="text-gray-600">
+              Acesse o painel de controle da OSE
             </p>
           </CardHeader>
           <CardContent>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onLogin)} className="space-y-4">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField
                   control={form.control}
                   name="email"
@@ -327,100 +149,9 @@ export default function AdminPage() {
           </TabsList>
 
           <TabsContent value="instagram" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <ImageIcon className="text-school-orange" />
-                  Gerenciar Feed do Instagram
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="mb-6">
-                  <Label htmlFor="photo-upload" className="block mb-2">
-                    Adicionar Nova Foto
-                  </Label>
-                  <div className="flex items-center gap-4">
-                    <Input
-                      id="photo-upload"
-                      type="file"
-                      accept="image/*"
-                      onChange={handleFileUpload}
-                      disabled={uploading}
-                      className="flex-1"
-                    />
-                    <Button 
-                      disabled={uploading}
-                      className="bg-school-orange text-white"
-                    >
-                      <Upload className="w-4 h-4 mr-2" />
-                      {uploading ? 'Enviando...' : 'Upload'}
-                    </Button>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-2">
-                    Máximo 8 fotos. Formatos: JPG, PNG, GIF. Tamanho máximo: 5MB.
-                  </p>
-                  <div className="mt-4">
-                    <Button 
-                      variant="outline"
-                      onClick={() => {
-                        localStorage.removeItem("instagram_posts");
-                        setInstagramPosts([]);
-                        toast({
-                          title: "Cache limpo",
-                          description: "Todas as fotos do cache foram removidas.",
-                        });
-                      }}
-                      className="text-red-600 border-red-600 hover:bg-red-50"
-                    >
-                      🗑️ Limpar Cache do Instagram
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Grid de fotos */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {instagramPosts.map((post) => (
-                    <div key={post.id} className="relative group">
-                      <img
-                        src={post.imageUrl}
-                        alt="Instagram post"
-                        className="w-full h-48 rounded-lg shadow-lg object-cover"
-                        onError={(e) => {
-                          console.log(`Erro ao carregar imagem no admin: ${post.imageUrl}`);
-                          e.currentTarget.src = '/images/placeholder.jpg';
-                        }}
-                      />
-                      <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Button
-                          size="sm"
-                          variant="destructive"
-                          onClick={() => deletePost(post.id)}
-                          className="h-8 w-8 p-0"
-                        >
-                          <Trash2 size={16} />
-                        </Button>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-2">
-                        {post.uploadedAt.toLocaleDateString('pt-BR')}
-                      </p>
-                    </div>
-                  ))}
-
-                  {/* Placeholders para fotos vazias */}
-                  {Array.from({ length: Math.max(0, 8 - instagramPosts.length) }).map((_, index) => (
-                    <div 
-                      key={`placeholder-${index}`}
-                      className="w-full h-48 bg-gray-200 rounded-lg flex items-center justify-center"
-                    >
-                      <ImageIcon className="text-gray-400" size={32} />
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <InstagramUploadManager />
           </TabsContent>
 
-          {/* Editor Visual Tab */}
           <TabsContent value="editor" className="space-y-6">
             <Card>
               <CardHeader>
