@@ -68,7 +68,9 @@ export default function Navigation() {
       submenu: [
         { label: "Árvore (Livros Digitais)", id: "/arvore", isSection: false },
         { label: "Portal do Aluno", id: "https://siga03.activesoft.com.br/login/?instituicao=COLEGIOOSE", isSection: false },
-        { label: "ISAAC (Financeiro)", id: "/isaac", isSection: false }
+        { label: "ISAAC (Financeiro)", id: "/isaac", isSection: false },
+        { label: "Plurall", id: "/plurall", isSection: false },
+        { label: "AgendaEdu", id: "/agendaedu", isSection: false }
       ]
     }
   ];

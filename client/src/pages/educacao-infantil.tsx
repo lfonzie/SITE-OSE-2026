@@ -40,33 +40,33 @@ export default function EducacaoInfantil() {
   const features = [
     {
       icon: Heart,
-      title: "Desenvolvimento Emocional",
-      description: "Cultivamos a inteligência emocional desde os primeiros anos."
-    },
-    {
-      icon: Users,
-      title: "Socialização",
-      description: "Ambientes que promovem a interação e o trabalho em equipe."
-    },
-    {
-      icon: Award,
-      title: "Reconhecimento Individual",
-      description: "Cada criança é única e merece atenção especial."
+      title: "Ambiente Seguro e Respeitoso",
+      description: "Criamos espaços acolhedores onde as crianças podem crescer individualmente e socialmente, fortalecendo sua autoestima."
     },
     {
       icon: BookOpen,
-      title: "Alfabetização Lúdica",
-      description: "Aprendizado através de brincadeiras e descobertas."
+      title: "Coleção AMPLIA",
+      description: "Pedagogia finlandesa e aprendizado integral, combinando as melhores práticas educacionais com abordagens lúdicas."
+    },
+    {
+      icon: Users,
+      title: "Aulas Diárias de Inglês",
+      description: "Aprendizado flexível e opcional, proporcionando introdução ponderada à língua estrangeira."
     },
     {
       icon: Target,
-      title: "Objetivos Claros",
-      description: "Metas de desenvolvimento adaptadas a cada faixa etária."
+      title: "Laboratório de Inteligência de Vida",
+      description: "Desenvolvimento socioemocional cultivando inteligência emocional, empatia e resiliência."
     },
     {
       icon: Lightbulb,
-      title: "Criatividade",
-      description: "Estímulo à imaginação e expressão artística."
+      title: "Participação Ativa",
+      description: "Abordagem que incentiva a participação ativa da criança e valoriza seu crescimento pessoal e social."
+    },
+    {
+      icon: Award,
+      title: "Desenvolvimento Integral",
+      description: "Estímulo à curiosidade e criatividade, oferecendo um desenvolvimento equilibrado e completo."
     }
   ];
 
@@ -85,7 +85,7 @@ export default function EducacaoInfantil() {
             alt="Educação Infantil OSE"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/60 to-slate-700/60"></div>
+          <div className="absolute inset-0 bg-slate-800/70"></div>
         </div>
         
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
@@ -95,73 +95,31 @@ export default function EducacaoInfantil() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
                 Educação <span className="text-school-orange">Infantil</span>
+                <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                  Jardim I e Jardim II - Crescimento e Exploração na Primeira Infância
+                </span>
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                Onde cada descoberta é uma aventura e cada sorriso é uma conquista. 
-                Na OSE, cultivamos o amor pelo aprender desde os primeiros passos.
+              <p className="text-xl text-white mb-8 leading-relaxed">
+                Para os grupos de Jardim I e Jardim II, destinados a crianças de 4 a 6 anos, 
+                oferecemos uma abordagem única que foca no desenvolvimento socioemocional e cognitivo.
+              </p>
+              <p className="text-lg text-white/90 mb-8">
+                Nosso currículo é cuidadosamente planejado para estimular o crescimento pessoal e social 
+                de cada aluno, proporcionando uma base sólida para as futuras etapas educacionais.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button className="bg-school-orange hover:bg-school-orange/90 text-white px-8 py-4 rounded-full font-semibold text-lg">
                   Agendar Visita
                 </Button>
-                <Button variant="outline" className="border-school-brown text-school-brown hover:bg-school-brown hover:text-white px-8 py-4 rounded-full font-semibold text-lg">
+                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-slate-800 px-8 py-4 rounded-full font-semibold text-lg">
                   Conhecer Programa
                 </Button>
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                <DragImagePosition
-                  src={images[0] || '/images/horizontal_2.png'}
-                  alt="Educação Infantil OSE"
-                  className="w-full h-full object-cover"
-                  editable={isAuthenticated}
-                  initialPosition={{
-                    x: getImagePosition('hero-main')?.horizontalPosition || 0,
-                    y: getImagePosition('hero-main')?.verticalPosition || 0
-                  }}
-                  onPositionChange={(position: { x: number; y: number }) => {
-                    const currentPos = getImagePosition('hero-main') || {
-                      objectPosition: 'center center',
-                      horizontalPosition: 0,
-                      verticalPosition: 0,
-                      scale: 1,
-                      opacity: 1,
-                      filter: 'none',
-                      objectFit: 'cover' as const
-                    };
-                    updateImagePosition('hero-main', {
-                      ...currentPos,
-                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                      horizontalPosition: position.x,
-                      verticalPosition: position.y
-                    });
-                  }}
-                />
-                {isAuthenticated && (
-                  <>
-                    <EnhancedImageSelector
-                      currentImage={images[0] || '/images/horizontal_2.png'}
-                      onImageSelect={(url) => updateImage(0, url)}
-                      className="absolute top-4 right-4 z-10"
-                    />
-                    <ImagePositionControls
-                      currentPosition={getImagePosition('hero-main')}
-                      onPositionChange={(position) => updateImagePosition('hero-main', position)}
-                      className="absolute inset-0"
-                    />
-                  </>
-                )}
-              </div>
-            </motion.div>
+            
           </div>
         </div>
       </section>

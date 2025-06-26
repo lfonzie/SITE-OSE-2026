@@ -39,6 +39,7 @@ import CV from "@/pages/cv";
 import { AuthProvider } from "./contexts/AuthContext";
 import TestUChat from "@/pages/test-uchat";
 import AgendaEdu from "@/pages/agendaedu";
+import Plurall from "@/pages/plurall";
 
 function Router() {
   // Track page views when routes change
@@ -70,6 +71,7 @@ function Router() {
       <Route path="/cv" component={CV} />
       <Route path="/test-uchat" component={TestUChat} />
       <Route path="/agendaedu" component={AgendaEdu} />
+      <Route path="/plurall" component={Plurall} />
       <Route component={NotFound} />
     </Switch>
   );

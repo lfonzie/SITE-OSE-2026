@@ -204,7 +204,7 @@ export default function SocialFeedsSection() {
                 </div>
               </div>
             ))}
-            
+
             {/* Placeholders para slots vazios */}
             {Array.from({ length: Math.max(0, 8 - instagramImages.length) }).map((_, index) => (
               <div 
@@ -241,35 +241,7 @@ export default function SocialFeedsSection() {
         </div>
 
         {/* Social Media CTAs */}
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl p-8 text-white text-center">
-            <Camera size={48} className="mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-2">Instagram</h3>
-            <p className="mb-4">Acompanhe o dia a dia dos nossos alunos</p>
-            <a 
-              href="https://instagram.com/colegioose" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-white text-purple-600 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors"
-            >
-              Seguir @colegioose
-            </a>
-          </div>
-
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-8 text-white text-center">
-            <Users size={48} className="mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-2">Facebook</h3>
-            <p className="mb-4">Novidades e comunicados oficiais</p>
-            <a 
-              href="https://facebook.com/colegioose" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-white text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors"
-            >
-              Curtir Página
-            </a>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

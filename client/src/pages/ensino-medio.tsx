@@ -126,9 +126,9 @@ export default function EnsinoMedio() {
   ];
 
   const years = [
-    { year: "1º Ano", description: "Base sólida e introdução aos itinerários" },
-    { year: "2º Ano", description: "Aprofundamento e projetos práticos" },
-    { year: "3º Ano", description: "Preparação ENEM e definição profissional" }
+    { year: "1ª Série", description: "Base sólida e introdução aos itinerários" },
+    { year: "2ª Série", description: "Aprofundamento e projetos práticos" },
+    { year: "3ª Série", description: "Preparação ENEM e definição profissional" }
   ];
 
   return (
@@ -258,7 +258,7 @@ export default function EnsinoMedio() {
       <section className="py-12 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">Anos do Ensino Médio</h2>
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">Séries do Ensino Médio</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {years.map((item, index) => (

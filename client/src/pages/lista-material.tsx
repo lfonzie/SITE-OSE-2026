@@ -193,9 +193,9 @@ export default function ListaMaterial() {
               <div>
                 <h4 className="font-bold text-slate-800 mb-2">Importante</h4>
                 <p className="text-slate-700">
-                  As listas de material para 2025 estarão disponíveis a partir de dezembro de 2024. 
-                  Fique atento aos nossos canais de comunicação para mais informações.
-                </p>
+                As listas de material para 2026 estarão disponíveis a partir de dezembro de 2025. 
+                Fique atento aos nossos canais de comunicação para mais informações.
+              </p>
               </div>
             </div>
           </div>

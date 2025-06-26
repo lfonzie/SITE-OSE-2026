@@ -51,15 +51,16 @@ export default function ProgramsSection() {
     images: [newImages.img9, newImages.img10, newImages.img11, newImages.img12]
   });
 
+  const images = pageData?.images || [newImages.img9, newImages.img10, newImages.img11, newImages.img12];
+
   const getImageForProgram = (title: string, index: number) => {
-    const currentImages = pageData?.images || [];
     const imageMap: Record<string, string> = {
-      'Educação Infantil': currentImages[0] || newImages.img9,
-      'Ensino Fundamental I': currentImages[1] || newImages.img10,
-      'Ensino Fundamental II': currentImages[2] || newImages.img11,
-      'Ensino Médio': currentImages[3] || newImages.img12
+      'Educação Infantil': images[0] || newImages.img9,
+      'Ensino Fundamental I': images[1] || newImages.img10,
+      'Ensino Fundamental II': images[2] || newImages.img11,
+      'Ensino Médio': images[3] || newImages.img12
     };
-    return imageMap[title] || currentImages[index] || newImages.img1;
+    return imageMap[title] || images[index] || newImages.img1;
   };
 
   const { data: programs, isLoading } = useQuery<Program[]>({
@@ -158,7 +159,12 @@ export default function ProgramsSection() {
                     </>
                   )}
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-4">{program.title}</h3>
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">
+                  {program.title}
+                  {program.title === "Ensino Fundamental I" && (
+                    <span className="block text-lg font-normal text-school-orange">{CODE.OSE}</span>
+                  )}
+                </h3>
                 <p className="text-slate-600 mb-6">{program.description}</p>
                 <ul className="space-y-2 mb-6">
                   {program.features.map((feature, featureIndex) => (

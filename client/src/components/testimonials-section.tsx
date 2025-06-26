@@ -1,14 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-import { Star, Users } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 import type { Testimonial } from "@shared/schema";
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { AnimatedSection } from "@/components/animated/AnimatedSection";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+import { useAuth } from '@/contexts/AuthContext';
 import DragImagePosition from '@/components/DragImagePosition';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
-import { useAuth } from '@/contexts/AuthContext';
+import ImagePositionControls from '@/components/ImagePositionControls';
 import { usePageData } from '@/hooks/usePageData';
 
 export default function TestimonialsSection() {
   const { isAuthenticated } = useAuth();
-  const { getImagePosition, updateImagePosition } = usePageData('Home', {});
+  const { updateImage, getImagePosition, updateImagePosition } = usePageData('Testimonials');
+
   const { data: testimonials, isLoading } = useQuery<Testimonial[]>({
     queryKey: ["/api/testimonials"],
   });
@@ -44,95 +49,74 @@ export default function TestimonialsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials?.map((testimonial, index) => {
-            // Array de fotos genéricas para os depoimentos
-            const genericPhotos = [
-              "/images/horizontal_18.png",
-              "/images/horizontal_19.png", 
-              "/images/horizontal_20.png",
-              "/images/horizontal_21.png",
-              "/images/horizontal_22.png",
-              "/images/horizontal_23.png",
-              "/images/horizontal_24.png",
-              "/images/horizontal_25.png",
-              "/images/horizontal_26.png"
-            ];
-            
-            // Fotos específicas para pessoas específicas
-            let selectedPhoto;
-            if (testimonial.name.includes("Fernando")) {
-              selectedPhoto = "/images/samanta_photo.jpg";
-            } else if (testimonial.name.includes("Samanta")) {
-              selectedPhoto = "/images/fernando_photo.jpg";
-            } else if (testimonial.name.includes("Edna")) {
-              selectedPhoto = "/images/image_1750817580121.jpg";
-            } else {
-              // Seleciona uma foto baseada no índice do depoimento para outros
-              const photoIndex = index % genericPhotos.length;
-              selectedPhoto = genericPhotos[photoIndex];
-            }
-            
-            return (
-              <div key={testimonial.id} className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-school-orange hover:shadow-xl transition-shadow">
-                <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mr-4 shadow-lg relative">
-                    <DragImagePosition
-                      src={selectedPhoto}
-                      alt={`Foto de ${testimonial.name}`}
-                      className="w-full h-full"
-                      editable={isAuthenticated}
-                      initialPosition={{
-                        x: getImagePosition(`testimonial-${index}`)?.horizontalPosition || 0,
-                        y: getImagePosition(`testimonial-${index}`)?.verticalPosition || 0
-                      }}
-                      onPositionChange={(position: { x: number; y: number }) => {
-                        const currentPos = getImagePosition(`testimonial-${index}`) || {
-                          objectPosition: 'center center',
-                          horizontalPosition: 0,
-                          verticalPosition: 0,
-                          scale: 1,
-                          opacity: 1,
-                          filter: 'none',
-                          objectFit: 'cover' as const
-                        };
-                        updateImagePosition(`testimonial-${index}`, {
-                          ...currentPos,
-                          objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                          horizontalPosition: position.x,
-                          verticalPosition: position.y
-                        });
-                      }}
-                    />
-                    {isAuthenticated && (
+          {testimonials?.map((testimonial) => (
+            <AnimatedCard key={testimonial.id} className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center mb-6">
+                <div className="relative w-16 h-16 mr-4">
+                  <DragImagePosition
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg"
+                    editable={isAuthenticated}
+                    initialPosition={{
+                      x: getImagePosition(`testimonial-${testimonial.id}`)?.horizontalPosition || 0,
+                      y: getImagePosition(`testimonial-${testimonial.id}`)?.verticalPosition || 0
+                    }}
+                    onPositionChange={(position: { x: number; y: number }) => {
+                      const currentPos = getImagePosition(`testimonial-${testimonial.id}`) || {
+                        objectPosition: 'center center',
+                        horizontalPosition: 0,
+                        verticalPosition: 0,
+                        scale: 1,
+                        opacity: 1,
+                        filter: 'none',
+                        objectFit: 'cover' as const
+                      };
+                      updateImagePosition(`testimonial-${testimonial.id}`, {
+                        ...currentPos,
+                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                        horizontalPosition: position.x,
+                        verticalPosition: position.y
+                      });
+                    }}
+                  />
+                  {isAuthenticated && (
+                    <>
                       <EnhancedImageSelector
-                        currentImage={selectedPhoto}
-                        onImageSelect={(url) => {
-                          console.log(`Update testimonial ${index} photo to ${url}`);
-                        }}
-                        className="absolute -top-2 -right-2 z-10 scale-75"
+                        currentImage={testimonial.image}
+                        onImageSelect={(url) => updateImage(testimonial.id, url)}
+                        className="absolute -top-2 -right-2 z-10"
                       />
-                    )}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-800 text-lg">{testimonial.name}</h4>
-                    <p className="text-school-orange text-sm font-medium">{testimonial.role}</p>
-                  </div>
+                      <ImagePositionControls
+                        currentPosition={getImagePosition(`testimonial-${testimonial.id}`)}
+                        onPositionChange={(position) => updateImagePosition(`testimonial-${testimonial.id}`, position)}
+                        className="absolute inset-0"
+                      />
+                    </>
+                  )}
                 </div>
-                <div className="flex mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`${
-                        i < testimonial.rating ? "text-yellow-400 fill-current" : "text-slate-300"
-                      }`}
-                      size={20}
-                    />
-                  ))}
+                <div>
+                  <h4 className="font-bold text-slate-800">{testimonial.name}</h4>
+                  <p className="text-slate-600 text-sm">{testimonial.role}</p>
                 </div>
-                <p className="text-slate-700 italic leading-relaxed">"{testimonial.content}"</p>
               </div>
-            );
-          })}
+              <div className="flex mb-4">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className={`${i < testimonial.rating ? "text-yellow-400" : "text-slate-300"}`}
+                    size={20}
+                  />
+                ))}
+              </div>
+              <div className="relative">
+                <Quote className="absolute -top-4 -left-2 text-slate-400" size={24} />
+                <p className="text-slate-700 italic leading-relaxed">
+                  {testimonial.content}
+                </p>
+              </div>
+            </AnimatedCard>
+          ))}
         </div>
       </div>
     </section>

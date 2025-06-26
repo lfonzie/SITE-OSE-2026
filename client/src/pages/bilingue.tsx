@@ -193,7 +193,7 @@ export default function Bilingue() {
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
                 Na OSE, a educação bilíngue é mais que uma metodologia - é uma janela para o mundo. 
-                <strong className="text-school-orange"> As aulas são diárias após as aulas tradicionais</strong>, 
+                <strong className="text-school-orange"> As aulas são diárias após as aulas tradicionais e são opcionais</strong>, 
                 oferecendo uma imersão completa no idioma inglês e preparando nossos alunos 
                 para serem verdadeiros cidadãos globais.
               </motion.p>

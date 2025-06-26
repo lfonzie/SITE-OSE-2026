@@ -337,52 +337,7 @@ export default function Socioemocional() {
         </div>
       </section>
 
-      {/* Recursos e Envolvimento */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Recursos e <span className="text-school-orange">Envolvimento</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Materiais especializados e parceria com as famílias
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {recursos.map((recurso, index) => {
-              const Icon = recurso.icon;
-              return (
-                <AnimatedCard key={index} delay={index * 0.2} className="h-full">
-                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center h-full">
-                    <div className="bg-school-orange text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6 mx-auto">
-                      <Icon size={28} />
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-800 mb-4">{recurso.title}</h3>
-                    <p className="text-slate-600">{recurso.description}</p>
-                  </div>
-                </AnimatedCard>
-              );
-            })}
-          </div>
-
-          {/* Metodologia Detalhada */}
-          <div className="bg-white p-8 md:p-12 rounded-xl shadow-lg">
-            <h3 className="text-2xl font-bold text-slate-800 mb-6 text-center">
-              Base Metodológica
-            </h3>
-            <p className="text-lg text-slate-600 mb-6 text-center">
-              As atividades utilizam recursos lúdicos como livros, músicas, séries audiovisuais, jogos e personagens 
-              que dialogam com o cotidiano dos alunos. O programa é baseado em teorias da inteligência emocional 
-              e dos cinco grandes traços de personalidade.
-            </p>
-            <p className="text-slate-600 text-center">
-              As aulas estão alinhadas aos eixos da BNCC, incluindo <strong>investigação científica</strong>, 
-              <strong>criatividade</strong>, <strong>intervenção sociocultural</strong> e <strong>empreendedorismo</strong>.
-            </p>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Benefícios */}
       <section className="py-20 bg-white">
