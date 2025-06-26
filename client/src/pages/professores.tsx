@@ -4,6 +4,9 @@ import Navigation from '@/components/navigation';
 import WhyOSESection from '@/components/why-ose-section';
 import ContactSection from '@/components/contact-section';
 import { OptimizedImage } from '@/components/ui/optimized-image';
+import { useVisualComposer } from '@/hooks/useVisualComposer';
+import { useAuth } from '@/contexts/AuthContext';
+import DragImagePosition from '@/components/DragImagePosition';
 
 // Use new image paths from updated folder
 import { newImages } from "@/lib/image-verification";
@@ -153,6 +156,8 @@ const professores = [
 ];
 
 export default function Professores() {
+  const { isAuthenticated } = useAuth();
+  const { VisualComposerComponent } = useVisualComposer('Professores');
   const diferenciais = [
     {
       icon: GraduationCap,
@@ -192,7 +197,20 @@ export default function Professores() {
 
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0">
+          <DragImagePosition
+            src={img1}
+            alt="Professores OSE"
+            className="w-full h-full opacity-30"
+            editable={isAuthenticated}
+            initialPosition={{
+              x: 0,
+              y: 0
+            }}
+            onPositionChange={() => {}}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -328,6 +346,9 @@ export default function Professores() {
 
       <WhyOSESection />
       <ContactSection />
+      
+      {/* Visual Composer */}
+      <VisualComposerComponent />
     </div>
   );
 }

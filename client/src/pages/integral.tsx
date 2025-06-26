@@ -77,11 +77,40 @@ export default function Integral() {
       <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
-            src={newImages.horizontal29}
+          <DragImagePosition
+            src={heroImage || newImages.horizontal29}
             alt="Integral Flex - Período Integral"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full opacity-30"
+            editable={isAuthenticated}
+            initialPosition={{
+              x: getImagePosition('hero-bg')?.horizontalPosition || 0,
+              y: getImagePosition('hero-bg')?.verticalPosition || 0
+            }}
+            onPositionChange={(position: { x: number; y: number }) => {
+              const currentPos = getImagePosition('hero-bg') || {
+                objectPosition: 'center center',
+                horizontalPosition: 0,
+                verticalPosition: 0,
+                scale: 1,
+                opacity: 1,
+                filter: 'none',
+                objectFit: 'cover' as const
+              };
+              updateImagePosition('hero-bg', {
+                ...currentPos,
+                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                horizontalPosition: position.x,
+                verticalPosition: position.y
+              });
+            }}
           />
+          {isAuthenticated && (
+            <EnhancedImageSelector
+              currentImage={heroImage || newImages.horizontal29}
+              onImageSelect={updateHeroImage}
+              className="absolute top-4 right-4 z-10"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -347,6 +376,9 @@ export default function Integral() {
 
       <WhyOSESection />
       <ContactSection />
+      
+      {/* Visual Composer */}
+      <VisualComposerComponent />
     </div>
   );
 }

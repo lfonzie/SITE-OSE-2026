@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Camera, Users } from "lucide-react";
 import { getInstagramFeed, type InstagramPost } from "@/lib/social-feeds";
 import DragImagePosition from '@/components/DragImagePosition';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import { useAuth } from '@/contexts/AuthContext';
 import { usePageData } from '@/hooks/usePageData';
 
@@ -151,6 +152,15 @@ export default function SocialFeedsSection() {
                     });
                   }}
                 />
+                {isAuthenticated && (
+                  <EnhancedImageSelector
+                    currentImage={imageUrl}
+                    onImageSelect={(url) => {
+                      console.log(`Update Instagram image ${index} to ${url}`);
+                    }}
+                    className="absolute top-1 right-1 z-10 scale-75"
+                  />
+                )}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <Camera className="text-white" size={24} />
                 </div>

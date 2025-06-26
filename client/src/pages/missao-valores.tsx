@@ -5,8 +5,46 @@ import { Heart, Target, Users, Award, Star, Globe, BookOpen, Lightbulb } from "l
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { newImages } from "@/lib/image-verification";
+import { useVisualComposer } from '@/hooks/useVisualComposer';
+import { usePageData } from '@/hooks/usePageData';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import DragImagePosition from '@/components/DragImagePosition';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
+import { useAuth } from '@/contexts/AuthContext';
+import WhyOSESection from "@/components/why-ose-section";
+import ContactSection from "@/components/contact-section";
 
 export default function MissaoValores() {
+  const { isAuthenticated } = useAuth();
+  const { VisualComposerComponent } = useVisualComposer('Missão e Valores');
+  
+  // Initialize page data with auto-save functionality
+  const { 
+    heroImage, 
+    heroBackground,
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('Missão e Valores', {
+    heroImage: newImages.horizontal5,
+    images: [newImages.horizontal6, newImages.horizontal7, newImages.horizontal8],
+    heroBackground: {
+      type: 'gradient',
+      gradientColors: ['#ff7f00', '#ff8f20'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#000000',
+      overlayOpacity: 0.2,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
+  });
+
   useEffect(() => {
     updateSEO({
       title: "Missão e Valores | a OSE",
@@ -53,8 +91,75 @@ export default function MissaoValores() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-school-orange via-orange-500 to-orange-600 text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section 
+        className="relative text-white py-20 overflow-hidden"
+        style={{
+          background: heroBackground?.type === 'gradient' 
+            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#ff7f00, #ff8f20'})`
+            : heroBackground?.type === 'color'
+            ? heroBackground.solidColor
+            : heroBackground?.type === 'image' && heroBackground.imageUrl
+            ? `url(${heroBackground.imageUrl})`
+            : 'linear-gradient(135deg, #ff7f00, #ff8f20)',
+          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
+          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
+          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+          opacity: heroBackground?.opacity || 1
+        }}
+      >
+        {/* Background Image Layer */}
+        {heroBackground?.type === 'image' && heroImage && (
+          <div className="absolute inset-0">
+            <div className="relative w-full h-full">
+              <img 
+                src={heroImage}
+                alt="Missão e Valores OSE"
+                className="w-full h-full object-cover opacity-30"
+                style={{
+                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
+                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
+                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
+                  opacity: getImagePosition('hero')?.opacity || 0.3,
+                  filter: getImagePosition('hero')?.filter || 'none'
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={heroImage}
+                    onImageSelect={updateHeroImage}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('hero')}
+                    onPositionChange={(position) => updateImagePosition('hero', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
+          />
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#000000',
+              opacity: heroBackground.overlayOpacity || 0.2
+            }}
+          ></div>
+        )}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div 
@@ -169,6 +274,11 @@ export default function MissaoValores() {
         </div>
       </section>
 
+      <WhyOSESection />
+      <ContactSection />
+      
+      {/* Visual Composer */}
+      <VisualComposerComponent />
     </div>
   );
 }

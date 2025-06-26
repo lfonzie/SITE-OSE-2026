@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Star, Users } from "lucide-react";
 import type { Testimonial } from "@shared/schema";
 import DragImagePosition from '@/components/DragImagePosition';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import { useAuth } from '@/contexts/AuthContext';
 import { usePageData } from '@/hooks/usePageData';
 
@@ -74,7 +75,7 @@ export default function TestimonialsSection() {
             return (
               <div key={testimonial.id} className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-school-orange hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mr-4 shadow-lg">
+                  <div className="w-16 h-16 rounded-full overflow-hidden mr-4 shadow-lg relative">
                     <DragImagePosition
                       src={selectedPhoto}
                       alt={`Foto de ${testimonial.name}`}
@@ -102,6 +103,15 @@ export default function TestimonialsSection() {
                         });
                       }}
                     />
+                    {isAuthenticated && (
+                      <EnhancedImageSelector
+                        currentImage={selectedPhoto}
+                        onImageSelect={(url) => {
+                          console.log(`Update testimonial ${index} photo to ${url}`);
+                        }}
+                        className="absolute -top-2 -right-2 z-10 scale-75"
+                      />
+                    )}
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-800 text-lg">{testimonial.name}</h4>

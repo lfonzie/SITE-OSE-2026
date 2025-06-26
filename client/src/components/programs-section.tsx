@@ -6,6 +6,7 @@ import { AnimatedSection, AnimatedItem } from "@/components/animated/AnimatedSec
 import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import { newImages } from "@/lib/image-verification";
 import DragImagePosition from '@/components/DragImagePosition';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import { useAuth } from '@/contexts/AuthContext';
 import { usePageData } from '@/hooks/usePageData';
 
@@ -100,7 +101,7 @@ export default function ProgramsSection() {
                 scale={true}
               >
                 <div className={`${colors.bg} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border ${colors.border}`}>
-                <div className="h-48 mb-6 rounded-xl overflow-hidden">
+                <div className="h-48 mb-6 rounded-xl overflow-hidden relative">
                   <DragImagePosition
                     src={getImageForProgram(program.title)}
                     alt={program.title}
@@ -128,6 +129,15 @@ export default function ProgramsSection() {
                       });
                     }}
                   />
+                  {isAuthenticated && (
+                    <EnhancedImageSelector
+                      currentImage={getImageForProgram(program.title)}
+                      onImageSelect={(url) => {
+                        console.log(`Update program ${index} image to ${url}`);
+                      }}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                  )}
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-4">{program.title}</h3>
                 <p className="text-slate-600 mb-6">{program.description}</p>

@@ -10,6 +10,13 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
+import { useVisualComposer } from '@/hooks/useVisualComposer';
+import { usePageData } from '@/hooks/usePageData';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import DragImagePosition from '@/components/DragImagePosition';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
+import { useAuth } from '@/contexts/AuthContext';
 
 // Importando imagens para página Code OSE
 import { newImages } from "@/lib/image-verification";
@@ -18,6 +25,35 @@ const img2 = newImages.img17;
 const img3 = newImages.img18;
 
 export default function CodeOSE() {
+  const { isAuthenticated } = useAuth();
+  const { VisualComposerComponent } = useVisualComposer('CODE.OSE');
+  
+  // Initialize page data with auto-save functionality
+  const { 
+    heroImage, 
+    heroBackground,
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('CODE.OSE', {
+    heroImage: newImages.img16,
+    images: [newImages.img17, newImages.img18, newImages.img19],
+    heroBackground: {
+      type: 'gradient',
+      gradientColors: ['#475569', '#64748b'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.8,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
+  });
+
   useEffect(() => {
     updateSEO({
       title: "CODE.OSE - Programação no Fundamental I | OSE",
@@ -84,11 +120,40 @@ export default function CodeOSE() {
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
         <div className="absolute inset-0">
-          <img 
-            src={img1}
+          <DragImagePosition
+            src={heroImage || img1}
             alt="CODE.OSE Programação"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full opacity-30"
+            editable={isAuthenticated}
+            initialPosition={{
+              x: getImagePosition('hero-bg')?.horizontalPosition || 0,
+              y: getImagePosition('hero-bg')?.verticalPosition || 0
+            }}
+            onPositionChange={(position: { x: number; y: number }) => {
+              const currentPos = getImagePosition('hero-bg') || {
+                objectPosition: 'center center',
+                horizontalPosition: 0,
+                verticalPosition: 0,
+                scale: 1,
+                opacity: 1,
+                filter: 'none',
+                objectFit: 'cover' as const
+              };
+              updateImagePosition('hero-bg', {
+                ...currentPos,
+                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                horizontalPosition: position.x,
+                verticalPosition: position.y
+              });
+            }}
           />
+          {isAuthenticated && (
+            <EnhancedImageSelector
+              currentImage={heroImage || img1}
+              onImageSelect={updateHeroImage}
+              className="absolute top-4 right-4 z-10"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -278,6 +343,9 @@ export default function CodeOSE() {
 
       <WhyOSESection />
       <ContactSection />
+      
+      {/* Visual Composer */}
+      <VisualComposerComponent />
     </div>
   );
 }

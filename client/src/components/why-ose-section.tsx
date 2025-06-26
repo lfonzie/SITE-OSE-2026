@@ -3,6 +3,7 @@ import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { newImages } from "@/lib/image-verification";
 import DragImagePosition from '@/components/DragImagePosition';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import { useAuth } from '@/contexts/AuthContext';
 import { usePageData } from '@/hooks/usePageData';
 
@@ -55,7 +56,7 @@ export default function WhyOSESection() {
               scale={true}
             >
               <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 overflow-hidden">
-              <div className="h-48">
+              <div className="h-48 relative">
                 <DragImagePosition
                   src={reason.image} 
                   alt={reason.title}
@@ -83,6 +84,16 @@ export default function WhyOSESection() {
                     });
                   }}
                 />
+                {isAuthenticated && (
+                  <EnhancedImageSelector
+                    currentImage={reason.image}
+                    onImageSelect={(url) => {
+                      // Update reason image - this would need to be handled by a more comprehensive system
+                      console.log(`Update image ${index} to ${url}`);
+                    }}
+                    className="absolute top-2 right-2 z-10"
+                  />
+                )}
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-slate-800 mb-3">{reason.title}</h3>
