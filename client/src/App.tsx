@@ -46,18 +46,11 @@ import { useAuth } from "@/hooks/useAuth";
 function Router() {
   // Track page views when routes change
   useAnalytics();
-  const { isAuthenticated, isLoading } = useAuth();
 
   return (
     <Switch>
-      {isLoading || !isAuthenticated ? (
-        <Route path="/" component={Landing} />
-      ) : (
-        <>
-          <Route path="/" component={Home} />
-          <Route path="/admin" component={Admin} />
-        </>
-      )}
+      <Route path="/" component={Home} />
+      <Route path="/admin" component={Admin} />
       {/* Public routes available to all users */}
       <Route path="/educacao-infantil" component={EducacaoInfantil} />
       <Route path="/fundamental-1" component={Fundamental1} />

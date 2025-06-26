@@ -16,42 +16,33 @@ interface InstagramPost {
 }
 
 export default function AdminPage() {
-  const { isAuthenticated, login, logout } = useAuth();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { isAuthenticated, user, isLoading, isAuthorized, logout } = useAuth();
   const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
   const [uploading, setUploading] = useState(false);
   const { toast } = useToast();
 
-  // Verificar se já está autenticado
+  // Email autorizado
+  const AUTHORIZED_EMAIL = "fonseca@colegioose.com.br";
+
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthorized) {
       loadInstagramPosts();
     }
-  }, [isAuthenticated]);
+  }, [isAuthorized]);
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (login(email, password)) {
-      loadInstagramPosts();
+  // Verificar se o usuário não está autorizado mas está logado
+  useEffect(() => {
+    if (isAuthenticated && user?.email && user.email !== AUTHORIZED_EMAIL) {
       toast({
-        title: "Login realizado com sucesso!",
-        description: "Bem-vindo ao painel administrativo.",
-      });
-    } else {
-      toast({
-        title: "Erro no login",
-        description: "E-mail ou senha incorretos.",
+        title: "Acesso negado",
+        description: `Email ${user.email} não autorizado para administração.`,
         variant: "destructive",
       });
     }
-  };
+  }, [isAuthenticated, user, toast]);
 
   const handleLogout = () => {
     logout();
-    setEmail("");
-    setPassword("");
   };
 
   const loadInstagramPosts = async () => {
@@ -206,46 +197,71 @@ export default function AdminPage() {
     }
   };
 
+  // Mostrar loading enquanto verifica autenticação
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-8 h-8 border-4 border-school-orange border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-slate-600 font-body">Verificando autenticação...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Mostrar login se não estiver autenticado
   if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-school-orange via-school-brown to-orange-900 flex items-center justify-center">
+        <Card className="w-full max-w-md">
+          <CardHeader>
+            <CardTitle className="text-center text-2xl font-bold text-school-brown font-headline">
+              Admin OSE
+            </CardTitle>
+            <p className="text-center text-slate-600 font-body">
+              Acesso via Google/Replit Auth
+            </p>
+          </CardHeader>
+          <CardContent>
+            <Button 
+              onClick={() => window.location.href = "/api/login"}
+              className="w-full bg-school-orange text-white font-semibold"
+            >
+              Fazer Login com Google
+            </Button>
+            <p className="text-xs text-slate-500 text-center mt-4 font-body">
+              Apenas fonseca@colegioose.com.br é autorizado
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  // Mostrar erro se estiver autenticado mas não autorizado
+  if (isAuthenticated && user?.email !== AUTHORIZED_EMAIL) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <Card className="w-full max-w-md">
           <CardHeader>
-            <CardTitle className="text-center text-2xl font-bold text-school-brown">
-              Painel Administrativo OSE
+            <CardTitle className="text-center text-2xl font-bold text-red-600 font-headline">
+              Acesso Negado
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <form onSubmit={handleLogin} className="space-y-4">
-              <div>
-                <Label htmlFor="email">E-mail</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="seu-email@colegioose.com.br"
-                  required
-                />
-              </div>
-              <div>
-                <Label htmlFor="password">Senha</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Digite sua senha"
-                  required
-                />
-              </div>
-              <Button 
-                type="submit" 
-                className="w-full bg-school-orange text-white font-semibold"
-              >
-                Entrar
-              </Button>
-            </form>
+          <CardContent className="text-center">
+            <p className="text-slate-600 mb-4 font-body">
+              Email <strong>{user?.email}</strong> não autorizado.
+            </p>
+            <p className="text-slate-500 mb-6 font-body">
+              Apenas fonseca@colegioose.com.br tem acesso administrativo.
+            </p>
+            <Button 
+              onClick={logout}
+              variant="outline"
+              className="w-full"
+            >
+              Fazer Logout
+            </Button>
           </CardContent>
         </Card>
       </div>
