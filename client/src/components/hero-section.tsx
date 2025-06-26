@@ -17,7 +17,6 @@ export default function HeroSection() {
   const { isAuthenticated } = useAuth();
   const { 
     pageData, 
-    updatePageData, 
     updateImage, 
     getImagePosition, 
     updateImagePosition,
@@ -31,11 +30,11 @@ export default function HeroSection() {
   });
 
   const backgroundImages = [
-    heroImage || newImages.horizontal_1,
-    newImages.horizontal_2,
-    newImages.horizontal_3,
-    newImages.horizontal_4,
-    newImages.horizontal_5
+    heroImage || newImages.horizontal1,
+    newImages.horizontal2,
+    newImages.horizontal3,
+    newImages.horizontal4,
+    newImages.horizontal5
   ];
 
   const scrollToNext = () => {
