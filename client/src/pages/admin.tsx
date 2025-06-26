@@ -253,7 +253,7 @@ export default function AdminPage() {
                       <FormControl>
                         <Input 
                           type="email" 
-                          placeholder="fonseca@colegioose.com.br"
+                          placeholder="Digite seu email"
                           {...field} 
                         />
                       </FormControl>

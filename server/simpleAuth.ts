@@ -5,7 +5,7 @@ import connectPg from "connect-pg-simple";
 // Credenciais hardcoded para o admin
 const ADMIN_CREDENTIALS = {
   email: "fonseca@colegioose.com.br",
-  password: "admin123"
+  password: "19082018!"
 };
 
 // Configurar sessões
