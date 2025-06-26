@@ -1,0 +1,30 @@
+- Hero na pagina inicial esta com a imagem quebrada - Plural: telefone deve ser usado 2101-3800 pois o 3812 é somente WhatsApp
+- Adicione no plural por que estudar na ose e info de contato 
+- Agenda edu telefone deve ser usado 2101-3800 pois e  Adicione no agendaedu por que estudar na ose e info de contato  - Em Difenreicais, tirar o code ose e colocar  Facilidade de Acesso
+* Tornamos o dia a dia de nossas famílias mais prático através do estacionamento Pau Brasil, que oferece acesso direto ao colégio. Esta facilidade logística permite que os pais e responsáveis tenham mais tranquilidade na rotina de levar e buscar seus filhos.
+* Criar sessão na home com essa info: UNIFORME 2025
+* Venda exclusiva na
+* Origem Confecções
+* Av. Gen. Osório, 1079 - Vila Trujillo, Sorocaba - SP
+* (15) 3233-3305
+* No final de contatos junto com as demais redes sociais add LinkedIn https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjuy6CMjs36AhWes5UCHQ6bCZ8QFnoECA4QAQ&url=https%3A%2F%2Fbr.linkedin.com%2Fschool%2Forganiza%25C3%25A7%25C3%25A3o-sorocabana-de-ensino%2F&usg=AOvVaw1Tc5qogdrC82fEtcJOHwnx
+- Em porque escolher a ose a seleção de imagens nao funciona (nao é aplicado na imagem)
+- Em testimonials tbm , vc seleciona a imagem e nao é atualizao - AS ALTERACOES NA POSICAO DA IMAGEM DEVEM SER COMO NA SPAGINAS (CLICAR COM O MOUSE E ARRASTAR)
+- Em programas, TIRAR CODE OSE DO FUND 1 E ALTERAR O QUE ESTA ABAIXO PARA {CODE.OSE}
+- Em programas, Card de ensino fund 1 deve ter {CODE.OSE} AO INVÉS DE CODE.OSE (SOMENTE UMA VEZ_ Hero do Infantil TIRAR BOTOES
+- COMPARA HERO DO INFANTIL COM FUND 1, DEVE SER IGUAL DO FUND 1
+- 
+- Refaça o conteúdo do infantil Educação Infantil no Jardim I e Jardim II
+* CRESCIMENTO E EXPLORAÇÃO NA PRIMEIRA INFÂNCIA
+* Para os grupos de Jardim I e Jardim II, destinados a crianças de 4 a 6 anos, oferecemos uma abordagem única que foca no desenvolvimento socioemocional e cognitivo.
+* Nosso currículo é cuidadosamente planejado para estimular o crescimento pessoal e social de cada aluno, proporcionando uma base sólida para as futuras etapas educacionais.
+* AMBIENTE SEGURO E RESPEITOSO PARA O DESENVOLVIMENTO EMOCIONAL
+* A segurança e o desenvolvimento emocional são primordiais em nossa abordagem. Criamos espaços acolhedores onde as crianças podem crescer individualmente e socialmente, fortalecendo sua autoestima e sua percepção sobre si e seu lugar no mundo.
+* cOLEÇÃO AMPLIA: PEDAGOGIA FINLANDESA E APRENDIZADO INTEGRAL
+* Combinando as melhores práticas da educação finlandesa e brasileira, nossa coleção incentiva a participação ativa da criança e valoriza seu crescimento pessoal e social. Utilizamos abordagens lúdicas e práticas para estimular a curiosidade e a criatividade, oferecendo um desenvolvimento equilibrado e completo.
+* Aulas Diárias de Inglês: Aprendizado Flexível e Opcional
+* Oferecemos aulas diárias de inglês, proporcionando uma introdução ponderada à língua estrangeira. Esta opção, disponível mediante um custo adicional, permite que seu filho se beneficie de um ensino de idiomas sem a pressão de um ambiente bilíngue.
+*  DESENVOLVIMENTO SOCIOEMOCIONAL
+* Nossa abordagem centrada no aluno busca cultivar inteligência emocional, empoderando crianças e jovens a compreender e gerir suas emoções de forma eficaz. Além disso, promovemos a construção de habilidades essenciais como empatia e resiliência, preparando-os para enfrentar os desafios da vida de maneira equilibrada e consciente.
+- LISTA DE MATERIAL DEVE PODER TROCAR AS IMAGENS E REPOSICIONAR COM O MOUSE
+- 
