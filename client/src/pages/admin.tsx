@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Upload, Image as ImageIcon, Trash2, Eye, Edit } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import HeroImageManager from '@/components/HeroImageManager';
 
 interface InstagramPost {
   id: string;
@@ -392,14 +392,7 @@ export default function AdminPage() {
                 </p>
               </CardHeader>
               <CardContent>
-                <EnhancedImageSelector
-                  onImageSelect={(imageUrl) => {
-                    toast({
-                      title: "Imagem selecionada",
-                      description: `Imagem: ${imageUrl}`,
-                    });
-                  }}
-                />
+                <HeroImageManager />
               </CardContent>
             </Card>
           </TabsContent>
