@@ -1,266 +1,274 @@
-import { useEffect } from "react";
-import Navigation from "@/components/navigation";
-import WhyOSESection from "@/components/why-ose-section";
-import ContactSection from "@/components/contact-section";
-import { updateSEO } from "@/lib/seo";
-import { Button } from "@/components/ui/button";
-import { Heart, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
-import { motion } from "framer-motion";
-import { AnimatedCard } from "@/components/animated/AnimatedCard";
-import { AnimatedSection } from "@/components/animated/AnimatedSection";
-import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
-import { useVisualComposer } from '@/hooks/useVisualComposer';
+
+import React from 'react';
+import { ArrowLeft, Users, Clock, BookOpen, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { useInlineTextEditor } from '@/hooks/useInlineTextEditor';
+import { useInlineImageEditor } from '@/hooks/useInlineImageEditor';
+import { useInlineHeroEditor } from '@/hooks/useInlineHeroEditor';
 import { usePageData } from '@/hooks/usePageData';
-import { useAuth } from '@/contexts/AuthContext';
-import DragImagePosition from '@/components/DragImagePosition';
-import EnhancedImageSelector from '@/components/EnhancedImageSelector';
-import ImagePositionControls from '@/components/ImagePositionControls';
-import LogoutButton from '@/components/LogoutButton';
-
-
-// Usando imagens da pasta public/images
+import { newImages } from '@/lib/image-verification';
 
 export default function EducacaoInfantil() {
-  const { isAuthenticated } = useAuth();
-  const { VisualComposerComponent } = useVisualComposer('Educação Infantil');
-  
-  // Initialize page data with auto-save functionality
-  const { heroImage, images, updateHeroImage, updateImage, getImagePosition, updateImagePosition } = usePageData('Educação Infantil', {
-    heroImage: '/images/horizontal_1.png',
-    images: ['/images/horizontal_2.png', '/images/horizontal_3.png', '/images/horizontal_4.png']
+  const { InlineTextEditor } = useInlineTextEditor();
+  const { InlineImageEditor } = useInlineImageEditor();
+  const { InlineHeroEditor } = useInlineHeroEditor();
+
+  const { 
+    pageData, 
+    updateHeroImage,
+    updateHeroBackground,
+    heroImage,
+    heroBackground 
+  } = usePageData('Educacao Infantil', {
+    heroImage: newImages.horizontal1,
+    heroBackground: {
+      type: 'gradient',
+      gradientColors: ['#ff4f00', '#ff8533'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.6
+    }
   });
 
-  useEffect(() => {
-    updateSEO({
-      title: "Educação Infantil - Primeiros Passos | OSE",
-      description: "Educação Infantil na OSE: desenvolvendo mentes curiosas e corações compassivos. Ambiente acolhedor para crianças de 2 a 5 anos.",
-      keywords: "educação infantil sorocaba, berçário, maternal, pré-escola, desenvolvimento infantil"
-    });
-  }, []);
+  const [content, setContent] = React.useState({
+    title: "Educação Infantil",
+    subtitle: "Jardim I e II - 4 a 5 anos",
+    description: "Um ambiente acolhedor e estimulante onde cada criança é valorizada em sua individualidade, desenvolvendo habilidades sociais, emocionais e cognitivas através do brincar.",
+    methodology: "Nossa metodologia é baseada no desenvolvimento integral da criança, respeitando seu ritmo e estimulando sua curiosidade natural através de atividades lúdicas e educativas.",
+    differentials: [
+      {
+        icon: Heart,
+        title: "Ambiente Acolhedor",
+        description: "Espaços pensados especialmente para o desenvolvimento infantil"
+      },
+      {
+        icon: Users,
+        title: "Turmas Reduzidas",
+        description: "Atenção individualizada para cada criança"
+      },
+      {
+        icon: Clock,
+        title: "Horário Flexível",
+        description: "Período integral ou meio período conforme a necessidade"
+      },
+      {
+        icon: BookOpen,
+        title: "Aprendizado Lúdico",
+        description: "Desenvolvimento através do brincar e da experiência"
+      }
+    ]
+  });
 
-  const features = [
-    {
-      icon: Heart,
-      title: "Ambiente Seguro e Acolhedor",
-      description: "A segurança física e emocional são pilares fundamentais de nossa proposta pedagógica. Criamos ambientes cuidadosamente planejados onde as crianças se sentem protegidas e valorizadas, permitindo que explorem suas identidades e desenvolvam autoconfiança. Nossos espaços são pensados para promover interações positivas, onde cada criança pode expressar-se livremente e construir relacionamentos saudáveis com colegas e educadores."
-    },
-    {
-      icon: BookOpen,
-      title: "Pedagogia Finlandesa e Aprendizado Integral",
-      description: "Nossa metodologia combina as reconhecidas práticas da educação finlandesa com elementos da pedagogia brasileira, criando uma abordagem educacional equilibrada e contextualizada. Utilizamos estratégias lúdicas e práticas pedagógicas inovadoras para despertar a curiosidade natural e estimular a criatividade. Através de jogos, brincadeiras dirigidas, arte e exploração sensorial, oferecemos um desenvolvimento completo que abrange aspectos cognitivos, motores, sociais e emocionais."
-    },
-    {
-      icon: Users,
-      title: "Programa de Inglês: Introdução Natural ao Idioma",
-      description: "Oferecemos aulas diárias de inglês como parte de nosso compromisso com a educação global. Nossa abordagem para o ensino de língua estrangeira é natural e descontraída, introduzindo o idioma através de músicas, histórias, jogos e atividades práticas que fazem parte do cotidiano escolar. Este programa, disponível mediante investimento adicional, proporciona às crianças uma familiarização gradual e prazerosa com o inglês."
-    },
-    {
-      icon: Target,
-      title: "Desenvolvimento Socioemocional como Prioridade",
-      description: "Nossa abordagem centrada na criança busca cultivar a inteligência emocional desde os primeiros anos escolares. Trabalhamos para que cada aluno desenvolva a capacidade de reconhecer, compreender e expressar suas emoções de forma saudável e construtiva. Promovemos ativamente o desenvolvimento de habilidades socioemocionais essenciais como empatia, colaboração, resiliência e autocontrole."
-    }
-  ];
+  const updateContent = (key: string, value: any) => {
+    setContent(prev => ({ ...prev, [key]: value }));
+  };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Visual Composer - floating edit button for authenticated users */}
-      <VisualComposerComponent />
-      
-      {/* Logout button for authenticated users */}
-      {isAuthenticated && <LogoutButton />}
-      
-      <Navigation />
-      
-      {/* Hero Section - Equal to Fund 1 */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <DragImagePosition
-            src={heroImage || '/images/horizontal_1.png'}
-            alt="Educação Infantil - OSE"
-            className="w-full h-full opacity-30"
-            editable={isAuthenticated}
-            initialPosition={{
-              x: getImagePosition('hero-bg')?.horizontalPosition || 0,
-              y: getImagePosition('hero-bg')?.verticalPosition || 0
-            }}
-            onPositionChange={(position: { x: number; y: number }) => {
-              const currentPos = getImagePosition('hero-bg') || {
-                objectPosition: 'center center',
-                horizontalPosition: 0,
-                verticalPosition: 0,
-                scale: 1,
-                opacity: 1,
-                filter: 'none',
-                objectFit: 'cover' as const
-              };
-              updateImagePosition('hero-bg', {
-                ...currentPos,
-                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                horizontalPosition: position.x,
-                verticalPosition: position.y
-              });
-            }}
-          />
-          {isAuthenticated && (
-            <>
-              <EnhancedImageSelector
-                currentImage={heroImage || '/images/horizontal_1.png'}
-                onImageSelect={updateHeroImage}
-                className="absolute top-4 right-4 z-10"
-              />
-              <ImagePositionControls
-                currentPosition={getImagePosition('hero-bg')}
-                onPositionChange={(position) => updateImagePosition('hero-bg', position)}
-                className="absolute top-4 left-4 z-10"
-              />
-            </>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <InlineHeroEditor
+        heroImage={heroImage}
+        heroBackground={heroBackground}
+        onHeroImageChange={updateHeroImage}
+        onHeroBackgroundChange={updateHeroBackground}
+        className="py-20 text-white overflow-hidden"
+        saveKey="educacao_infantil_hero"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center mb-6">
+            <Link to="/" className="inline-flex items-center text-white/80 hover:text-white transition-colors">
+              <ArrowLeft size={20} className="mr-2" />
+              Voltar
+            </Link>
+          </div>
+          
+          <div className="max-w-4xl">
+            <InlineTextEditor
+              value={content.title}
+              onSave={(value) => updateContent('title', value)}
+              as="h1"
+              className="text-4xl md:text-6xl font-bold mb-4 font-headline"
+              placeholder="Título da página"
+              saveKey="educacao_infantil_title"
+            />
+            <InlineTextEditor
+              value={content.subtitle}
+              onSave={(value) => updateContent('subtitle', value)}
+              as="h2"
+              className="text-xl md:text-2xl text-white/90 mb-6 font-body"
+              placeholder="Subtítulo da página"
+              saveKey="educacao_infantil_subtitle"
+            />
+            <InlineTextEditor
+              value={content.description}
+              onSave={(value) => updateContent('description', value)}
+              as="p"
+              className="text-lg md:text-xl text-white/80 max-w-3xl font-body"
+              placeholder="Descrição da educação infantil"
+              multiline
+              saveKey="educacao_infantil_description"
+            />
+          </div>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <motion.h1 
-                className="text-5xl md:text-6xl font-bold mb-6"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                Educação <span className="text-school-orange">Infantil</span>
-              </motion.h1>
-              <motion.p 
-                className="text-xl md:text-2xl mb-8 leading-relaxed"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <strong>Crescimento</strong> e <strong>exploração</strong> na primeira infância
-              </motion.p>
-              <motion.p 
-                className="text-lg mb-8 opacity-90"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Para os grupos de Jardim I e Jardim II, destinados a crianças de 4 a 6 anos, oferecemos uma 
-                abordagem educacional única que prioriza o desenvolvimento integral da criança. Nosso foco está 
-                no crescimento socioemocional e cognitivo, respeitando o ritmo individual de cada aluno.
-              </motion.p>
+      </InlineHeroEditor>
 
+      {/* Methodology Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <InlineTextEditor
+                value="Nossa Metodologia"
+                onSave={() => {}}
+                as="h2"
+                className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
+                saveKey="methodology_title"
+              />
+              <InlineTextEditor
+                value={content.methodology}
+                onSave={(value) => updateContent('methodology', value)}
+                as="p"
+                className="text-lg text-gray-600 leading-relaxed"
+                multiline
+                placeholder="Descrição da metodologia"
+                saveKey="methodology_description"
+              />
+            </div>
+            <div className="relative">
+              <InlineImageEditor
+                src={newImages.horizontal2}
+                alt="Metodologia OSE"
+                onImageChange={(src) => console.log('Image changed:', src)}
+                className="w-full h-64 object-cover rounded-lg shadow-lg"
+                saveKey="methodology_image"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-white">
+      {/* Differentials Section */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Nossos <span className="text-school-orange">Diferenciais</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Uma educação que respeita o tempo e as características únicas de cada criança.
-            </p>
-          </AnimatedSection>
+          <div className="text-center mb-12">
+            <InlineTextEditor
+              value="Nossos Diferenciais"
+              onSave={() => {}}
+              as="h2"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              saveKey="differentials_title"
+            />
+            <InlineTextEditor
+              value="O que torna a educação infantil OSE especial"
+              onSave={() => {}}
+              as="p"
+              className="text-xl text-gray-600"
+              saveKey="differentials_subtitle"
+            />
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {features.map((feature, index) => (
-              <AnimatedCard 
-                key={index}
-                delay={index * 0.1}
-                direction="up"
-                hover={true}
-                scale={true}
-              >
-                <div className="bg-slate-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2">
-                  <AnimatedIcon delay={index * 0.1 + 0.3}>
-                    <div className="w-16 h-16 bg-school-orange rounded-full flex items-center justify-center mb-6">
-                      <feature.icon className="w-8 h-8 text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {content.differentials.map((differential, index) => {
+              const IconComponent = differential.icon;
+              return (
+                <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
+                  <CardContent className="space-y-4">
+                    <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto">
+                      <IconComponent size={32} className="text-school-orange" />
                     </div>
-                  </AnimatedIcon>
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4">{feature.title}</h3>
-                  <p className="text-slate-600">{feature.description}</p>
-                </div>
-              </AnimatedCard>
-            ))}
+                    <InlineTextEditor
+                      value={differential.title}
+                      onSave={(value) => {
+                        const newDifferentials = [...content.differentials];
+                        newDifferentials[index].title = value;
+                        updateContent('differentials', newDifferentials);
+                      }}
+                      as="h3"
+                      className="text-xl font-bold text-gray-900"
+                      saveKey={`differential_title_${index}`}
+                    />
+                    <InlineTextEditor
+                      value={differential.description}
+                      onSave={(value) => {
+                        const newDifferentials = [...content.differentials];
+                        newDifferentials[index].description = value;
+                        updateContent('differentials', newDifferentials);
+                      }}
+                      as="p"
+                      className="text-gray-600"
+                      multiline
+                      saveKey={`differential_description_${index}`}
+                    />
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Nossos <span className="text-school-orange">Espaços</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Ambientes pensados especialmente para o desenvolvimento infantil.
-            </p>
-          </AnimatedSection>
+          <div className="text-center mb-12">
+            <InlineTextEditor
+              value="Nossos Espaços"
+              onSave={() => {}}
+              as="h2"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              saveKey="gallery_title"
+            />
+            <InlineTextEditor
+              value="Ambientes especialmente projetados para o desenvolvimento infantil"
+              onSave={() => {}}
+              as="p"
+              className="text-xl text-gray-600"
+              saveKey="gallery_subtitle"
+            />
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[0, 1, 2].map((index) => (
-              <AnimatedCard 
-                key={index}
-                delay={index * 0.1}
-                direction="up"
-                hover={true}
-                scale={true}
-              >
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-                  <DragImagePosition
-                    src={images[index] || `/images/horizontal_${index + 3}.png`}
-                    alt={`Espaço ${index + 1} - Educação Infantil`}
-                    className="w-full h-full object-cover"
-                    editable={isAuthenticated}
-                    initialPosition={{
-                      x: getImagePosition(`gallery-${index}`)?.horizontalPosition || 0,
-                      y: getImagePosition(`gallery-${index}`)?.verticalPosition || 0
-                    }}
-                    onPositionChange={(position: { x: number; y: number }) => {
-                      const currentPos = getImagePosition(`gallery-${index}`) || {
-                        objectPosition: 'center center',
-                        horizontalPosition: 0,
-                        verticalPosition: 0,
-                        scale: 1,
-                        opacity: 1,
-                        filter: 'none',
-                        objectFit: 'cover' as const
-                      };
-                      updateImagePosition(`gallery-${index}`, {
-                        ...currentPos,
-                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                        horizontalPosition: position.x,
-                        verticalPosition: position.y
-                      });
-                    }}
-                  />
-                  {isAuthenticated && (
-                    <>
-                      <EnhancedImageSelector
-                        currentImage={images[index] || `/images/horizontal_${index + 3}.png`}
-                        onImageSelect={(url) => updateImage(index, url)}
-                        className="absolute top-2 right-2 z-10"
-                      />
-                      <ImagePositionControls
-                        currentPosition={getImagePosition(`gallery-${index}`)}
-                        onPositionChange={(position) => updateImagePosition(`gallery-${index}`, position)}
-                        className="absolute inset-0"
-                      />
-                    </>
-                  )}
-                </div>
-              </AnimatedCard>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[newImages.horizontal3, newImages.horizontal4, newImages.horizontal5].map((image, index) => (
+              <div key={index} className="relative group">
+                <InlineImageEditor
+                  src={image}
+                  alt={`Espaço ${index + 1}`}
+                  onImageChange={(src) => console.log('Gallery image changed:', src)}
+                  className="w-full h-64 object-cover rounded-lg shadow-lg"
+                  saveKey={`gallery_image_${index}`}
+                />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <WhyOSESection />
-      <ContactSection />
+      {/* CTA Section */}
+      <section className="py-16 bg-school-orange">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <InlineTextEditor
+            value="Venha Conhecer Nossa Escola"
+            onSave={() => {}}
+            as="h2"
+            className="text-3xl md:text-4xl font-bold text-white mb-6"
+            saveKey="cta_title"
+          />
+          <InlineTextEditor
+            value="Agende uma visita e veja como podemos contribuir para o desenvolvimento do seu filho"
+            onSave={() => {}}
+            as="p"
+            className="text-xl text-white/90 mb-8 max-w-3xl mx-auto"
+            multiline
+            saveKey="cta_description"
+          />
+          <Button size="lg" variant="secondary" className="bg-white text-school-orange hover:bg-gray-50">
+            Agendar Visita
+          </Button>
+        </div>
+      </section>
     </div>
   );
 }

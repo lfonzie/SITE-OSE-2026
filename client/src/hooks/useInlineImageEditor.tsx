@@ -1,7 +1,9 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Image, Upload } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useAutoSave } from '@/hooks/useAutoSave';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import DragImagePosition from '@/components/DragImagePosition';
 
@@ -13,11 +15,24 @@ interface InlineImageEditorProps {
   className?: string;
   editable?: boolean;
   initialPosition?: { x: number; y: number };
+  objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+  saveKey?: string;
 }
 
 export function useInlineImageEditor() {
   const { isAuthenticated } = useAuth();
   const [editingImageId, setEditingImageId] = useState<string | null>(null);
+  const [currentData, setCurrentData] = useState<any>({});
+
+  // Auto-save hook
+  useAutoSave({
+    data: currentData,
+    key: 'inline-image-editor',
+    delay: 1000,
+    onSave: (data) => {
+      console.log('Auto-saved image data:', data);
+    }
+  });
 
   const InlineImageEditor = ({
     src,
@@ -28,6 +43,7 @@ export function useInlineImageEditor() {
     editable = true,
     initialPosition = { x: 0, y: 0 },
     objectFit = 'cover',
+    saveKey = 'default',
     ...props
   }: InlineImageEditorProps & { id?: string }) => {
     const id = props.id || Math.random().toString(36);
@@ -39,6 +55,23 @@ export function useInlineImageEditor() {
 
     const stopEditing = () => {
       setEditingImageId(null);
+    };
+
+    const handleImageChange = (newSrc: string) => {
+      onImageChange(newSrc);
+      
+      // Update auto-save data
+      setCurrentData(prev => ({
+        ...prev,
+        [saveKey]: {
+          src: newSrc,
+          alt,
+          position: initialPosition
+        },
+        lastModified: new Date().toISOString()
+      }));
+
+      stopEditing();
     };
 
     if (!isAuthenticated) {
@@ -66,7 +99,15 @@ export function useInlineImageEditor() {
             className={className}
             editable={isAuthenticated && editable}
             initialPosition={initialPosition}
-            onPositionChange={onPositionChange}
+            onPositionChange={(position) => {
+              onPositionChange(position);
+              // Update auto-save data for position
+              setCurrentData(prev => ({
+                ...prev,
+                [saveKey + '_position']: position,
+                lastModified: new Date().toISOString()
+              }));
+            }}
             objectFit={objectFit}
           />
         ) : (
@@ -74,7 +115,7 @@ export function useInlineImageEditor() {
         )}
         
         {isAuthenticated && editable && (
-          <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
             <Button
               size="sm"
               variant="outline"
@@ -87,25 +128,20 @@ export function useInlineImageEditor() {
         )}
 
         {isEditing && (
-          <div className="absolute inset-0 z-50">
-            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
-              <div className="bg-white rounded-lg p-4 max-w-md w-full mx-4">
-                <h3 className="text-lg font-bold mb-4">Selecionar Nova Imagem</h3>
-                <EnhancedImageSelector
-                  currentImage={src}
-                  onImageSelect={(newSrc) => {
-                    onImageChange(newSrc);
-                    stopEditing();
-                  }}
-                />
-                <Button 
-                  onClick={stopEditing} 
-                  variant="outline" 
-                  className="mt-4 w-full"
-                >
-                  Cancelar
-                </Button>
-              </div>
+          <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center">
+            <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4 max-h-[80vh] overflow-y-auto">
+              <h3 className="text-lg font-bold mb-4">Selecionar Nova Imagem</h3>
+              <EnhancedImageSelector
+                currentImage={src}
+                onImageSelect={handleImageChange}
+              />
+              <Button 
+                onClick={stopEditing} 
+                variant="outline" 
+                className="mt-4 w-full"
+              >
+                Cancelar
+              </Button>
             </div>
           </div>
         )}

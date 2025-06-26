@@ -17,6 +17,11 @@ import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import { useAuth } from '@/contexts/AuthContext';
 import { newImages } from "@/lib/image-verification";
 import { useToast } from "@/hooks/use-toast";
+import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useInlineTextEditor } from '@/hooks/useInlineTextEditor';
+import { useInlineImageEditor } from '@/hooks/useInlineImageEditor';
+import { useInlineHeroEditor } from '@/hooks/useInlineHeroEditor';
 
 const initialTimeline = [
   {
@@ -148,20 +153,23 @@ export default function Legacy() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Legado OSE');
   const { toast } = useToast();
-  
+  const { InlineTextEditor } = useInlineTextEditor();
+  const { InlineImageEditor } = useInlineImageEditor();
+  const { InlineHeroEditor } = useInlineHeroEditor();
+
   // Estados de edição
   const [editingTimeline, setEditingTimeline] = useState<number | null>(null);
   const [editingFigure, setEditingFigure] = useState<number | null>(null);
   const [editingInstitution, setEditingInstitution] = useState<number | null>(null);
-  
+
   // Estados editáveis para o conteúdo
   const [timeline, setTimeline] = useState(initialTimeline);
   const [historicalFigures, setHistoricalFigures] = useState(initialHistoricalFigures);
   const [institutions, setInstitutions] = useState(initialInstitutions);
-  
+
   // Estados temporários para edição
   const [tempData, setTempData] = useState<any>({});
-  
+
   // Initialize page data with auto-save functionality
   const { 
     heroImage, 
@@ -187,6 +195,21 @@ export default function Legacy() {
       repeat: 'no-repeat'
     }
   });
+
+  const [content, setContent] = React.useState({
+    title: "Legado OSE",
+    subtitle: "100 Anos de Tradição em Educação",
+    description: "Uma história centenária de excelência educacional que continua a moldar o futuro de gerações",
+    historyTitle: "Nossa História",
+    historyText: "Fundada em 1924, a Organização Sorocabana de Ensino nasceu com o propósito de oferecer educação de qualidade para a comunidade sorocabana. Ao longo de um século, construímos uma trajetória sólida baseada em valores como excelência acadêmica, formação integral e inovação pedagógica.",
+    milestonesTitle: "Marcos Importantes",
+    valuesTitle: "Nossos Valores",
+    valuesDescription: "Os pilares que sustentam nossa filosofia educacional há 100 anos"
+  });
+
+  const updateContent = (key: string, value: any) => {
+    setContent(prev => ({ ...prev, [key]: value }));
+  };
 
   useEffect(() => {
     updateSEO({
@@ -227,87 +250,83 @@ export default function Legacy() {
       <Navigation />
 
       {/* Hero Section */}
-      <section 
-        className="relative pt-20 pb-16 text-white overflow-hidden"
-        style={{
-          // Reset all background properties first, then apply the specific type
-          background: 'none',
-          backgroundColor: 'transparent',
-          backgroundImage: heroBackground?.type === 'gradient' 
-            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
-            : heroBackground?.type === 'image' && heroBackground.imageUrl
-            ? `url(${heroBackground.imageUrl})`
-            : 'linear-gradient(135deg, #475569, #64748b)',
-          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'cover',
-          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
-          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
-          backgroundColor: heroBackground?.type === 'color' ? heroBackground.solidColor : 'transparent',
-          opacity: heroBackground?.opacity || 1
-        }}
+      <InlineHeroEditor
+        heroImage={heroImage}
+        heroBackground={heroBackground}
+        onHeroImageChange={updateHeroImage}
+        onHeroBackgroundChange={updateHeroBackground}
+        className="py-20 text-white overflow-hidden"
+        saveKey="legacy_hero"
       >
-        {/* Hero Background Manager */}
-        {isAuthenticated && (
-          <HeroBackgroundManager
-            currentBackground={heroBackground}
-            onBackgroundChange={updateHeroBackground}
-            className="absolute inset-0"
-          />
-        )}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center mb-6">
+            <Link to="/" className="inline-flex items-center text-white/80 hover:text-white transition-colors">
+              <ArrowLeft size={20} className="mr-2" />
+              Voltar
+            </Link>
+          </div>
 
-        {/* Overlay */}
-        {heroBackground?.overlay && (
-          <div 
-            className="absolute inset-0"
-            style={{
-              backgroundColor: heroBackground.overlayColor || '#1e293b',
-              opacity: heroBackground.overlayOpacity || 0.8
-            }}
-          ></div>
-        )}
-        <div className="absolute inset-0">
-          <DragImagePosition
-            src={heroImage || newImages.horizontal1}
-            alt="História da OSE"
-            className="w-full h-full opacity-30"
-            editable={isAuthenticated}
-            initialPosition={{
-              x: getImagePosition('hero-bg')?.horizontalPosition || 0,
-              y: getImagePosition('hero-bg')?.verticalPosition || 0
-            }}
-            onPositionChange={(position: { x: number; y: number }) => {
-              const currentPos = getImagePosition('hero-bg') || {
-                objectPosition: 'center center',
-                horizontalPosition: 0,
-                verticalPosition: 0,
-                scale: 1,
-                opacity: 1,
-                filter: 'none',
-                objectFit: 'cover' as const
-              };
-              updateImagePosition('hero-bg', {
-                ...currentPos,
-                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                horizontalPosition: position.x,
-                verticalPosition: position.y
-              });
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
+          <div className="max-w-4xl">
+            <InlineTextEditor
+              value={content.title}
+              onSave={(value) => updateContent('title', value)}
+              as="h1"
+              className="text-4xl md:text-6xl font-bold mb-4 font-headline"
+              placeholder="Título da página"
+              saveKey="legacy_title"
+            />
+            <InlineTextEditor
+              value={content.subtitle}
+              onSave={(value) => updateContent('subtitle', value)}
+              as="h2"
+              className="text-xl md:text-2xl text-white/90 mb-6 font-body"
+              placeholder="Subtítulo da página"
+              saveKey="legacy_subtitle"
+            />
+            <InlineTextEditor
+              value={content.description}
+              onSave={(value) => updateContent('description', value)}
+              as="p"
+              className="text-lg md:text-xl text-white/80 max-w-3xl font-body"
+              placeholder="Descrição da página"
+              multiline
+              saveKey="legacy_description"
+            />
+          </div>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      </InlineHeroEditor>
+
+      {/* História Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Um Século de <span className="text-school-orange">Excelência</span>
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-                <strong>1924 - 2024:</strong> 100 Anos de <strong>Tradição Educacional</strong>
-              </p>
-              <p className="text-lg mb-8 opacity-90">
-                A Organização Sorocabana de Ensino é uma instituição que há um século desempenha papel 
-                fundamental na formação de milhares de estudantes em Sorocaba e região, contribuindo 
-                para o desenvolvimento social, econômico e cultural da cidade.
-              </p>
+              <InlineTextEditor
+                value={content.historyTitle}
+                onSave={(value) => updateContent('historyTitle', value)}
+                as="h2"
+                className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
+                placeholder="Título da história"
+                saveKey="history_title"
+              />
+              <InlineTextEditor
+                value={content.historyText}
+                onSave={(value) => updateContent('historyText', value)}
+                as="p"
+                className="text-lg text-gray-600 leading-relaxed"
+                multiline
+                placeholder="Texto da história"
+                saveKey="history_text"
+              />
+            </div>
+            <div className="relative">
+              <InlineImageEditor
+                src={pageData.images[0] || newImages.horizontal2}
+                alt="História OSE"
+                onImageChange={(src) => updateImage(0, src)}
+                className="w-full h-96 object-cover rounded-lg shadow-lg"
+                saveKey="history_image"
+              />
             </div>
           </div>
         </div>
@@ -328,7 +347,7 @@ export default function Legacy() {
           <div className="relative">
             {/* Timeline Line - Desktop (center) and Mobile (left) */}
             <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-px h-full w-0.5 bg-school-orange"></div>
-            
+
             {timeline.map((event, index) => (
               <motion.div 
                 key={index}
@@ -355,7 +374,7 @@ export default function Legacy() {
                         <Edit size={12} />
                       </Button>
                     )}
-                    
+
                     {editingTimeline === index ? (
                       <div className="space-y-3">
                         <Input
@@ -421,7 +440,7 @@ export default function Legacy() {
                           <Edit size={12} />
                         </Button>
                       )}
-                      
+
                       {editingTimeline === index ? (
                         <div className="space-y-3">
                           <Input
@@ -467,7 +486,7 @@ export default function Legacy() {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Timeline Dot - Mobile (left) and Desktop (center) */}
                 <div className={`absolute w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg 
                   left-0 md:left-1/2 md:transform md:-translate-x-1/2 ${
@@ -520,7 +539,7 @@ export default function Legacy() {
                     <Edit size={12} />
                   </Button>
                 )}
-                
+
                 <div className="h-64 bg-gradient-to-b from-slate-200 to-slate-300 flex items-center justify-center relative">
                   <Users size={64} className="text-slate-400" />
                   {isAuthenticated && (
@@ -630,7 +649,7 @@ export default function Legacy() {
                     <Edit size={12} />
                   </Button>
                 )}
-                
+
                 <div className="h-32 md:h-48 bg-gradient-to-b from-slate-200 to-slate-300 rounded-lg mb-4 md:mb-6 flex items-center justify-center relative">
                   <BookOpen size={32} className="md:hidden text-slate-400" />
                   <BookOpen size={48} className="hidden md:block text-slate-400" />
@@ -642,7 +661,7 @@ export default function Legacy() {
                     />
                   )}
                 </div>
-                
+
                 {editingInstitution === index ? (
                   <div className="space-y-3">
                     <Input

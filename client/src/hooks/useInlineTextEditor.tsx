@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -5,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Edit, Save, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
+import { useAutoSave } from '@/hooks/useAutoSave';
 
 interface InlineTextEditorProps {
   value: string;
@@ -13,6 +15,7 @@ interface InlineTextEditorProps {
   className?: string;
   placeholder?: string;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+  saveKey?: string;
 }
 
 export function useInlineTextEditor() {
@@ -20,6 +23,17 @@ export function useInlineTextEditor() {
   const { toast } = useToast();
   const [editingId, setEditingId] = useState<string | null>(null);
   const [tempValue, setTempValue] = useState<string>('');
+  const [currentData, setCurrentData] = useState<any>({});
+
+  // Auto-save hook
+  useAutoSave({
+    data: currentData,
+    key: 'inline-text-editor',
+    delay: 1000,
+    onSave: (data) => {
+      console.log('Auto-saved text data:', data);
+    }
+  });
 
   const InlineTextEditor = ({
     value,
@@ -28,6 +42,7 @@ export function useInlineTextEditor() {
     className = '',
     placeholder = '',
     as = 'p',
+    saveKey = 'default',
     ...props
   }: InlineTextEditorProps & { id?: string }) => {
     const id = props.id || Math.random().toString(36);
@@ -41,6 +56,14 @@ export function useInlineTextEditor() {
     const saveEdit = () => {
       onSave(tempValue);
       setEditingId(null);
+      
+      // Update auto-save data
+      setCurrentData(prev => ({
+        ...prev,
+        [saveKey]: tempValue,
+        lastModified: new Date().toISOString()
+      }));
+
       toast({
         title: "Texto atualizado",
         description: "As alterações foram salvas automaticamente."
@@ -67,6 +90,14 @@ export function useInlineTextEditor() {
               placeholder={placeholder}
               className={`${className} min-h-[100px]`}
               autoFocus
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && e.ctrlKey) {
+                  saveEdit();
+                }
+                if (e.key === 'Escape') {
+                  cancelEdit();
+                }
+              }}
             />
           ) : (
             <Input
@@ -75,6 +106,14 @@ export function useInlineTextEditor() {
               placeholder={placeholder}
               className={className}
               autoFocus
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  saveEdit();
+                }
+                if (e.key === 'Escape') {
+                  cancelEdit();
+                }
+              }}
             />
           )}
           <div className="flex gap-2 mt-2">
@@ -101,7 +140,7 @@ export function useInlineTextEditor() {
           <Button
             size="sm"
             variant="outline"
-            className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1 h-6 w-6 bg-white shadow-md"
+            className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1 h-6 w-6 bg-white shadow-md z-10"
             onClick={startEditing}
           >
             <Edit size={10} />
