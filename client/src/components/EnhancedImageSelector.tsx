@@ -183,23 +183,18 @@ export default function EnhancedImageSelector({ currentImage, onImageSelect, cla
   }
 
   return (
-    <div className={`relative group ${className}`}>
-      <div className="absolute top-2 right-2 bg-school-orange text-white rounded-full p-1 opacity-70 group-hover:opacity-100 transition-opacity z-20">
-        <Edit3 size={12} />
-      </div>
-      
-      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center rounded-lg z-10">
-        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-          <DialogTrigger asChild>
-            <Button 
-              size="sm" 
-              className="bg-school-orange text-white hover:bg-school-orange/90 shadow-lg"
-            >
-              <Edit3 size={16} className="mr-2" />
-              Alterar Imagem
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="max-w-6xl max-h-[90vh] overflow-hidden">
+    <div className={`relative ${className}`}>
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogTrigger asChild>
+          <Button 
+            size="sm" 
+            className="bg-school-orange text-white hover:bg-school-orange/90 shadow-lg z-20 relative"
+          >
+            <Edit3 size={16} className="mr-2" />
+            Alterar Imagem
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-6xl max-h-[90vh] overflow-hidden">
             <DialogHeader>
               <DialogTitle className="flex items-center gap-2">
                 <ImageIcon className="w-5 h-5" />
@@ -337,7 +332,6 @@ export default function EnhancedImageSelector({ currentImage, onImageSelect, cla
             </Tabs>
           </DialogContent>
         </Dialog>
-      </div>
     </div>
   );
 }

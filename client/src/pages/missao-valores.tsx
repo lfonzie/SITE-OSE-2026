@@ -125,16 +125,20 @@ export default function MissaoValores() {
               />
               {isAuthenticated && (
                 <>
-                  <EnhancedImageSelector
-                    currentImage={heroImage}
-                    onImageSelect={updateHeroImage}
-                    className="absolute inset-0"
-                  />
-                  <ImagePositionControls
-                    currentPosition={getImagePosition('hero')}
-                    onPositionChange={(position) => updateImagePosition('hero', position)}
-                    className="absolute inset-0"
-                  />
+                  <div className="absolute top-4 right-4 z-20">
+                    <EnhancedImageSelector
+                      currentImage={heroImage}
+                      onImageSelect={updateHeroImage}
+                      className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg"
+                    />
+                  </div>
+                  <div className="absolute bottom-4 right-4 z-20">
+                    <ImagePositionControls
+                      currentPosition={getImagePosition('hero')}
+                      onPositionChange={(position) => updateImagePosition('hero', position)}
+                      className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-2"
+                    />
+                  </div>
                 </>
               )}
             </div>
