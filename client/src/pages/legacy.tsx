@@ -19,9 +19,7 @@ import { newImages } from "@/lib/image-verification";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'wouter';
-import { useInlineTextEditor } from '@/hooks/useInlineTextEditor';
-import { useInlineImageEditor } from '@/hooks/useInlineImageEditor';
-import { useInlineHeroEditor } from '@/hooks/useInlineHeroEditor';
+
 
 const initialTimeline = [
   {
@@ -153,9 +151,6 @@ export default function Legacy() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Legado OSE');
   const { toast } = useToast();
-  const { InlineTextEditor } = useInlineTextEditor();
-  const { InlineImageEditor } = useInlineImageEditor();
-  const { InlineHeroEditor } = useInlineHeroEditor();
 
   // Estados de edição
   const [editingTimeline, setEditingTimeline] = useState<number | null>(null);
@@ -251,15 +246,17 @@ export default function Legacy() {
       <Navigation />
 
       {/* Hero Section */}
-      <InlineHeroEditor
-        heroImage={heroImage}
-        heroBackground={heroBackground}
-        onHeroImageChange={updateHeroImage}
-        onHeroBackgroundChange={updateHeroBackground}
-        className="py-20 text-white overflow-hidden"
-        saveKey="legacy_hero"
+      <section 
+        className="py-20 text-white overflow-hidden relative"
+        style={{
+          backgroundImage: `linear-gradient(${heroBackground?.gradientColors?.join(', ') || '#475569, #64748b'}), url('${heroImage || newImages.horizontal1}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-slate-900/60"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center mb-6">
             <Link to="/" className="inline-flex items-center text-white/80 hover:text-white transition-colors">
               <ArrowLeft size={20} className="mr-2" />
@@ -268,66 +265,157 @@ export default function Legacy() {
           </div>
 
           <div className="max-w-4xl">
-            <InlineTextEditor
-              value={content.title}
-              onSave={(value) => updateContent('title', value)}
-              as="h1"
-              className="text-4xl md:text-6xl font-bold mb-4 font-headline"
-              placeholder="Título da página"
-              saveKey="legacy_title"
-            />
-            <InlineTextEditor
-              value={content.subtitle}
-              onSave={(value) => updateContent('subtitle', value)}
-              as="h2"
-              className="text-xl md:text-2xl text-white/90 mb-6 font-body"
-              placeholder="Subtítulo da página"
-              saveKey="legacy_subtitle"
-            />
-            <InlineTextEditor
-              value={content.description}
-              onSave={(value) => updateContent('description', value)}
-              as="p"
-              className="text-lg md:text-xl text-white/80 max-w-3xl font-body"
-              placeholder="Descrição da página"
-              multiline
-              saveKey="legacy_description"
-            />
+            {isAuthenticated && editingTimeline === null ? (
+              <div className="space-y-4">
+                <div className="flex gap-2">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+                    onClick={() => {
+                      setTempData(content);
+                      setEditingTimeline(-1); // Use -1 for hero editing
+                    }}
+                  >
+                    <Edit size={16} className="mr-2" />
+                    Editar Conteúdo
+                  </Button>
+                </div>
+              </div>
+            ) : null}
+
+            {editingTimeline === -1 ? (
+              <div className="space-y-4 bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+                <Input
+                  value={tempData.title || content.title}
+                  onChange={(e) => setTempData(prev => ({ ...prev, title: e.target.value }))}
+                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                  placeholder="Título da página"
+                />
+                <Input
+                  value={tempData.subtitle || content.subtitle}
+                  onChange={(e) => setTempData(prev => ({ ...prev, subtitle: e.target.value }))}
+                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
+                  placeholder="Subtítulo da página"
+                />
+                <Textarea
+                  value={tempData.description || content.description}
+                  onChange={(e) => setTempData(prev => ({ ...prev, description: e.target.value }))}
+                  className="bg-white/20 border-white/30 text-white placeholder:text-white/60 min-h-[100px]"
+                  placeholder="Descrição da página"
+                />
+                <div className="flex gap-2">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="bg-green-600 border-green-600 text-white hover:bg-green-700"
+                    onClick={() => {
+                      setContent(prev => ({ ...prev, ...tempData }));
+                      setEditingTimeline(null);
+                      toast({
+                        title: "Conteúdo atualizado",
+                        description: "As alterações foram salvas com sucesso."
+                      });
+                    }}
+                  >
+                    <Save size={16} className="mr-2" />
+                    Salvar
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="bg-red-600 border-red-600 text-white hover:bg-red-700"
+                    onClick={cancelEdit}
+                  >
+                    <X size={16} className="mr-2" />
+                    Cancelar
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <>
+                <h1 className="text-4xl md:text-6xl font-bold mb-4 font-headline">
+                  {content.title}
+                </h1>
+                <h2 className="text-xl md:text-2xl text-white/90 mb-6 font-body">
+                  {content.subtitle}
+                </h2>
+                <p className="text-lg md:text-xl text-white/80 max-w-3xl font-body whitespace-pre-line">
+                  {content.description}
+                </p>
+              </>
+            )}
           </div>
         </div>
-      </InlineHeroEditor>
+
+        {isAuthenticated && (
+          <div className="absolute top-4 right-4 z-20">
+            <EnhancedImageSelector
+              currentImage={heroImage || newImages.horizontal1}
+              onImageSelect={updateHeroImage}
+              className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg"
+            />
+          </div>
+        )}
+      </section>
 
       {/* História Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <InlineTextEditor
-                value={content.historyTitle}
-                onSave={(value) => updateContent('historyTitle', value)}
-                as="h2"
-                className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
-                placeholder="Título da história"
-                saveKey="history_title"
-              />
-              <InlineTextEditor
-                value={content.historyText}
-                onSave={(value) => updateContent('historyText', value)}
-                as="p"
-                className="text-lg text-gray-600 leading-relaxed"
-                multiline
-                placeholder="Texto da história"
-                saveKey="history_text"
-              />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                {content.historyTitle}
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed whitespace-pre-line">
+                {content.historyText}
+              </p>
             </div>
             <div className="relative">
-              <InlineImageEditor
-                src={images[0] || newImages.horizontal2}
-                alt="História OSE"
-                onImageChange={(src) => updateImage(0, src)}
-                className="w-full h-96 object-cover rounded-lg shadow-lg"
-                saveKey="history_image"
-              />
+              {isAuthenticated ? (
+                <DragImagePosition
+                  src={images[0] || newImages.horizontal2}
+                  alt="História OSE"
+                  className="w-full h-96 object-cover rounded-lg shadow-lg"
+                  editable={true}
+                  initialPosition={{
+                    x: getImagePosition('history-image')?.horizontalPosition || 0,
+                    y: getImagePosition('history-image')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('history-image') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      borderRadius: 0,
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('history-image', {
+                      ...currentPos,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
+              ) : (
+                <img
+                  src={images[0] || newImages.horizontal2}
+                  alt="História OSE"
+                  className="w-full h-96 object-cover rounded-lg shadow-lg"
+                />
+              )}
+              {isAuthenticated && (
+                <div className="absolute top-4 right-4">
+                  <EnhancedImageSelector
+                    currentImage={images[0] || newImages.horizontal2}
+                    onImageSelect={(imageUrl) => updateImage(0, imageUrl)}
+                    className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
