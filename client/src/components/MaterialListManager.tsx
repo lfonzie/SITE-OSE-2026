@@ -1,22 +1,12 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
-import { Link, Download, Edit, Trash2, Plus } from "lucide-react";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-
-interface MaterialList {
-  id: number;
-  segment: string;
-  grade: string;
-  year: number;
-  googleDriveLink: string | null;
-  fileName: string | null;
-  updatedAt: string;
-}
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { apiRequest } from '@/lib/queryClient';
+import { Save, ExternalLink, Plus, Trash2 } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 interface MaterialListManagerProps {
   segment: string;
@@ -24,27 +14,22 @@ interface MaterialListManagerProps {
 }
 
 export default function MaterialListManager({ segment, grades }: MaterialListManagerProps) {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [editingItem, setEditingItem] = useState<MaterialList | null>(null);
-  const [formData, setFormData] = useState({
-    grade: '',
-    year: new Date().getFullYear() + 1,
-    googleDriveLink: '',
-    fileName: ''
-  });
-
+  const { toast } = useToast();
   const queryClient = useQueryClient();
+  const currentYear = new Date().getFullYear() + 1; // Next school year
+  
+  const [newLinks, setNewLinks] = useState<{ [key: string]: string }>({});
 
   const { data: materialLists = [] } = useQuery({
     queryKey: ['/api/material-lists', segment],
     queryFn: async () => {
-      const response = await fetch(`/api/material-lists/${segment}`);
+      const response = await fetch(`/api/material-lists?segment=${segment}`);
       return response.json();
     }
   });
 
   const createMutation = useMutation({
-    mutationFn: async (data: any) => {
+    mutationFn: async (data: { segment: string; grade: string; year: number; googleDriveLink: string }) => {
       const response = await fetch('/api/material-lists', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -54,13 +39,22 @@ export default function MaterialListManager({ segment, grades }: MaterialListMan
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/material-lists'] });
-      setIsDialogOpen(false);
-      resetForm();
+      toast({
+        title: "Link salvo",
+        description: "Link do Google Drive salvo com sucesso!"
+      });
+    },
+    onError: () => {
+      toast({
+        title: "Erro",
+        description: "Erro ao salvar link do Google Drive.",
+        variant: "destructive"
+      });
     }
   });
 
   const updateMutation = useMutation({
-    mutationFn: async ({ id, ...data }: any) => {
+    mutationFn: async ({ id, ...data }: { id: number; googleDriveLink: string }) => {
       const response = await fetch(`/api/material-lists/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
@@ -70,173 +64,137 @@ export default function MaterialListManager({ segment, grades }: MaterialListMan
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/material-lists'] });
-      setIsDialogOpen(false);
-      resetForm();
-      setEditingItem(null);
+      toast({
+        title: "Link atualizado",
+        description: "Link do Google Drive atualizado com sucesso!"
+      });
     }
   });
 
-  const resetForm = () => {
-    setFormData({
-      grade: '',
-      year: new Date().getFullYear() + 1,
-      googleDriveLink: '',
-      fileName: ''
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const data = {
-      segment,
-      grade: formData.grade,
-      year: formData.year,
-      googleDriveLink: formData.googleDriveLink || null,
-      fileName: formData.fileName || null
-    };
-
-    if (editingItem) {
-      updateMutation.mutate({ id: editingItem.id, ...data });
-    } else {
-      createMutation.mutate(data);
+  const deleteMutation = useMutation({
+    mutationFn: async (id: number) => {
+      const response = await fetch(`/api/material-lists/${id}`, {
+        method: 'DELETE'
+      });
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/material-lists'] });
+      toast({
+        title: "Link removido",
+        description: "Link do Google Drive removido com sucesso!"
+      });
     }
+  });
+
+  const handleSaveLink = (grade: string) => {
+    const link = newLinks[grade];
+    if (!link) return;
+
+    const existingList = materialLists.find((list: any) => 
+      list.segment === segment && list.grade === grade && list.year === currentYear
+    );
+
+    if (existingList) {
+      updateMutation.mutate({
+        id: existingList.id,
+        googleDriveLink: link
+      });
+    } else {
+      createMutation.mutate({
+        segment,
+        grade,
+        year: currentYear,
+        googleDriveLink: link
+      });
+    }
+
+    setNewLinks(prev => ({ ...prev, [grade]: '' }));
   };
 
-  const handleEdit = (item: MaterialList) => {
-    setEditingItem(item);
-    setFormData({
-      grade: item.grade,
-      year: item.year,
-      googleDriveLink: item.googleDriveLink || '',
-      fileName: item.fileName || ''
-    });
-    setIsDialogOpen(true);
+  const getExistingLink = (grade: string) => {
+    const existing = materialLists.find((list: any) => 
+      list.segment === segment && list.grade === grade && list.year === currentYear
+    );
+    return existing?.googleDriveLink || '';
   };
 
-  const gradeKey = (grade: string) => {
-    return grade.toLowerCase()
-      .replace('º', '')
-      .replace('ª', '')
-      .replace(' ', '')
-      .replace('jardim', 'jardim')
-      .replace('série', 'serie');
+  const getExistingId = (grade: string) => {
+    const existing = materialLists.find((list: any) => 
+      list.segment === segment && list.grade === grade && list.year === currentYear
+    );
+    return existing?.id;
   };
 
   return (
-    <div className="space-y-4">
-      <div className="flex justify-between items-center">
-        <h4 className="text-lg font-semibold">Gerenciar Listas - {segment}</h4>
-        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogTrigger asChild>
-            <Button onClick={() => { setEditingItem(null); resetForm(); }}>
-              <Plus className="w-4 h-4 mr-2" />
-              Adicionar Lista
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>
-                {editingItem ? 'Editar Lista' : 'Adicionar Nova Lista'}
-              </DialogTitle>
-            </DialogHeader>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <Label htmlFor="grade">Série/Ano</Label>
-                <Select value={formData.grade} onValueChange={(value) => setFormData(prev => ({ ...prev, grade: value }))}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Selecione a série" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {grades.map(grade => (
-                      <SelectItem key={gradeKey(grade)} value={gradeKey(grade)}>
-                        {grade}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div>
-                <Label htmlFor="year">Ano Letivo</Label>
-                <Input
-                  id="year"
-                  type="number"
-                  value={formData.year}
-                  onChange={(e) => setFormData(prev => ({ ...prev, year: parseInt(e.target.value) }))}
-                  min={2024}
-                  max={2030}
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="googleDriveLink">Link do Google Drive</Label>
-                <Input
-                  id="googleDriveLink"
-                  type="url"
-                  value={formData.googleDriveLink}
-                  onChange={(e) => setFormData(prev => ({ ...prev, googleDriveLink: e.target.value }))}
-                  placeholder="https://drive.google.com/..."
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="fileName">Nome do Arquivo (opcional)</Label>
-                <Input
-                  id="fileName"
-                  value={formData.fileName}
-                  onChange={(e) => setFormData(prev => ({ ...prev, fileName: e.target.value }))}
-                  placeholder="Lista_Material_1ano_2026.pdf"
-                />
-              </div>
-
-              <div className="flex gap-2 pt-4">
-                <Button type="submit" disabled={createMutation.isPending || updateMutation.isPending}>
-                  {editingItem ? 'Atualizar' : 'Criar'}
-                </Button>
-                <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
-                  Cancelar
-                </Button>
-              </div>
-            </form>
-          </DialogContent>
-        </Dialog>
-      </div>
-
-      <div className="grid gap-4">
-        {materialLists.map((item: MaterialList) => (
-          <div key={item.id} className="border rounded-lg p-4 flex justify-between items-center">
-            <div>
-              <h5 className="font-medium">{item.grade} - {item.year}</h5>
-              {item.fileName && <p className="text-sm text-gray-600">{item.fileName}</p>}
-              <p className="text-xs text-gray-400">
-                Atualizado em {new Date(item.updatedAt).toLocaleDateString('pt-BR')}
-              </p>
-            </div>
-            <div className="flex gap-2">
-              {item.googleDriveLink && (
-                <Button 
-                  size="sm" 
-                  variant="outline"
-                  onClick={() => window.open(item.googleDriveLink!, '_blank')}
-                >
-                  <Link className="w-4 h-4 mr-1" />
-                  Drive
-                </Button>
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-lg">
+          {segment.charAt(0).toUpperCase() + segment.slice(1)} - {currentYear}
+        </CardTitle>
+        <CardDescription>
+          Gerenciar links do Google Drive para listas de material
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {grades.map((grade) => {
+          const existingLink = getExistingLink(grade);
+          const existingId = getExistingId(grade);
+          
+          return (
+            <div key={grade} className="space-y-2">
+              <Label className="text-sm font-medium">
+                {grade.charAt(0).toUpperCase() + grade.slice(1)}
+              </Label>
+              
+              {existingLink ? (
+                <div className="flex items-center gap-2">
+                  <div className="flex-1 p-2 bg-green-50 border border-green-200 rounded-md">
+                    <p className="text-sm text-green-800 truncate">
+                      {existingLink}
+                    </p>
+                  </div>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => window.open(existingLink, '_blank')}
+                  >
+                    <ExternalLink className="w-3 h-3" />
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="destructive"
+                    onClick={() => existingId && deleteMutation.mutate(existingId)}
+                    disabled={deleteMutation.isPending}
+                  >
+                    <Trash2 className="w-3 h-3" />
+                  </Button>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <Input
+                    placeholder="https://drive.google.com/..."
+                    value={newLinks[grade] || ''}
+                    onChange={(e) => setNewLinks(prev => ({ 
+                      ...prev, 
+                      [grade]: e.target.value 
+                    }))}
+                    className="flex-1"
+                  />
+                  <Button
+                    size="sm"
+                    onClick={() => handleSaveLink(grade)}
+                    disabled={!newLinks[grade] || createMutation.isPending}
+                  >
+                    <Plus className="w-3 h-3 mr-1" />
+                    Adicionar
+                  </Button>
+                </div>
               )}
-              <Button size="sm" variant="outline" onClick={() => handleEdit(item)}>
-                <Edit className="w-4 h-4" />
-              </Button>
             </div>
-          </div>
-        ))}
-
-        {materialLists.length === 0 && (
-          <div className="text-center py-8 text-gray-500">
-            Nenhuma lista cadastrada para este segmento
-          </div>
-        )}
-      </div>
-    </div>
+          );
+        })}
+      </CardContent>
+    </Card>
   );
 }
