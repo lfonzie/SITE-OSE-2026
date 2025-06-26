@@ -202,7 +202,7 @@ export default function EducacaoInfantil() {
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2].map((index) => (
+            {[0, 1, 2].map((index) => (
               <AnimatedCard 
                 key={index}
                 delay={index * 0.1}
@@ -212,7 +212,7 @@ export default function EducacaoInfantil() {
               >
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                   <DragImagePosition
-                    src={images[index] || `/images/horizontal_${index + 2}.png`}
+                    src={images[index] || `/images/horizontal_${index + 3}.png`}
                     alt={`Espaço ${index + 1} - Educação Infantil`}
                     className="w-full h-full object-cover"
                     editable={isAuthenticated}
@@ -241,7 +241,7 @@ export default function EducacaoInfantil() {
                   {isAuthenticated && (
                     <>
                       <EnhancedImageSelector
-                        currentImage={images[index] || `/images/horizontal_${index + 2}.png`}
+                        currentImage={images[index] || `/images/horizontal_${index + 3}.png`}
                         onImageSelect={(url) => updateImage(index, url)}
                         className="absolute top-2 right-2 z-10"
                       />

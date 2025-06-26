@@ -39,12 +39,12 @@ export default function EnsinoMedio() {
     heroImage: newImages.img7,
     images: [newImages.img7, newImages.img8, newImages.img9],
     heroBackground: {
-      type: 'gradient',
-      gradientColors: ['#475569', '#64748b'],
+      type: 'image',
+      imageUrl: newImages.img7,
       opacity: 1,
       overlay: true,
       overlayColor: '#1e293b',
-      overlayOpacity: 0.8,
+      overlayOpacity: 0.7,
       position: 'center',
       size: 'cover',
       repeat: 'no-repeat'

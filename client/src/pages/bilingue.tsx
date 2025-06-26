@@ -41,12 +41,12 @@ export default function Bilingue() {
     heroImage: newImages.img22,
     images: [newImages.img23, newImages.img24, newImages.img25],
     heroBackground: {
-      type: 'gradient',
-      gradientColors: ['#475569', '#64748b'],
+      type: 'image',
+      imageUrl: newImages.img22,
       opacity: 1,
       overlay: true,
       overlayColor: '#1e293b',
-      overlayOpacity: 0.8,
+      overlayOpacity: 0.7,
       position: 'center',
       size: 'cover',
       repeat: 'no-repeat'

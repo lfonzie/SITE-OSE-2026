@@ -32,12 +32,12 @@ export default function Arvore() {
     heroImage: newImages.horizontal31,
     images: [newImages.horizontal31],
     heroBackground: {
-      type: 'gradient',
-      gradientColors: ['#475569', '#64748b'],
+      type: 'image',
+      imageUrl: newImages.horizontal31,
       opacity: 1,
       overlay: true,
       overlayColor: '#1e293b',
-      overlayOpacity: 0.8,
+      overlayOpacity: 0.7,
       position: 'center',
       size: 'cover',
       repeat: 'no-repeat'

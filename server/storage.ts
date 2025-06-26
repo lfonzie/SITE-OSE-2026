@@ -36,6 +36,7 @@ export interface IStorage {
   getMaterialListsBySegment(segment: string): Promise<MaterialList[]>;
   createMaterialList(materialList: InsertMaterialList): Promise<MaterialList>;
   updateMaterialList(id: number, updates: Partial<MaterialList>): Promise<MaterialList | undefined>;
+  deleteMaterialList(id: number): Promise<boolean>;
 
   // User operations for Replit Auth
   getUser(id: string): Promise<User | undefined>;
@@ -352,6 +353,10 @@ export class MemStorage implements IStorage {
     };
     this.materialLists.set(id, updated);
     return updated;
+  }
+
+  async deleteMaterialList(id: number): Promise<boolean> {
+    return this.materialLists.delete(id);
   }
 
   // User operations for Replit Auth

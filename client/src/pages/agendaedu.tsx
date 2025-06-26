@@ -10,14 +10,41 @@ import { motion } from "framer-motion";
 import { useAuth } from '@/contexts/AuthContext';
 import LogoutButton from '@/components/LogoutButton';
 import WhyOSESection from '@/components/why-ose-section';
-import PedagogicalProposalSection from '@/components/pedagogical-proposal-section';
-import ProgramsSection from '@/components/programs-section';
-import FeaturesSection from '@/components/features-section';
-import TestimonialsSection from '@/components/testimonials-section';
-import SocialFeedsSection from '@/components/social-feeds-section';
+import ContactSection from '@/components/contact-section';
+import { logos, newImages } from "@/lib/image-verification";
+import { useVisualComposer } from '@/hooks/useVisualComposer';
+import { usePageData } from '@/hooks/usePageData';
+import DragImagePosition from '@/components/DragImagePosition';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 
 export default function AgendaEdu() {
   const { isAuthenticated } = useAuth();
+  const { VisualComposerComponent } = useVisualComposer('AgendaEdu');
+  
+  const { 
+    heroImage, 
+    heroBackground,
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('AgendaEdu', {
+    heroImage: newImages.horizontal28,
+    images: [newImages.horizontal28],
+    heroBackground: {
+      type: 'image',
+      imageUrl: newImages.horizontal28,
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.7,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
+  });
   
   useEffect(() => {
     updateSEO({
@@ -72,8 +99,53 @@ export default function AgendaEdu() {
       )}
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 overflow-hidden">
-        <div className="absolute inset-0 bg-school-orange/10"></div>
+      <section className="relative min-h-screen overflow-hidden">
+        {/* Background Image */}
+        {heroBackground && (
+          <div className="absolute inset-0">
+            {heroBackground.type === 'image' && heroBackground.imageUrl && (
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500"
+                style={{
+                  backgroundImage: `url(${heroBackground.imageUrl})`,
+                  backgroundPosition: heroBackground.position || 'center',
+                  backgroundSize: heroBackground.size || 'cover',
+                  backgroundRepeat: heroBackground.repeat || 'no-repeat',
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
+            {heroBackground.type === 'gradient' && heroBackground.gradientColors && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
+          </div>
+        )}
+
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
+          />
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.7
+            }}
+          ></div>
+        )}
         
         <div className="relative z-10 container mx-auto px-6 py-24">
           <motion.div
@@ -232,11 +304,7 @@ export default function AgendaEdu() {
       </section>
 
       <WhyOSESection />
-      <PedagogicalProposalSection />
-      <ProgramsSection />
-      <FeaturesSection />
-      <TestimonialsSection />
-      <SocialFeedsSection />
+      <ContactSection />
 
       {/* Contato */}
       <section className="py-16 bg-slate-50">
