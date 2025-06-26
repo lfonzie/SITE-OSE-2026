@@ -335,7 +335,7 @@ export default function Legacy() {
             ) : (
               <>
                 <h1 className="text-4xl md:text-6xl font-bold mb-4 font-headline">
-                  {content.title}
+                  Um Século de <span className="text-orange-500">Excelência</span>
                 </h1>
                 <h2 className="text-xl md:text-2xl text-white/90 mb-6 font-body">
                   {content.subtitle}
