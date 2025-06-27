@@ -20,6 +20,9 @@ import EnsinoMedio from "@/pages/ensino-medio";
 import Professores from "@/pages/professores";
 import Services from "./pages/services";
 import Legacy from "./pages/legacy";
+import AlbumOSE from "./pages/albumose";
+import ProvaBolsas from "./pages/prova-bolsas";
+import Links from "./pages/links";
 import Dash from "./pages/dash";
 import Admin from "./pages/admin";
 import PortalAluno from "@/pages/portal-aluno";
@@ -59,10 +62,10 @@ function Router() {
       <Route path="/ensino-medio" component={EnsinoMedio} />
       <Route path="/professores" component={Professores} />
       <Route path="/services" component={Services} />
-      <Route path="/legacy" component={lazy(() => import('./pages/legacy'))} />
-      <Route path="/albumose" component={lazy(() => import('./pages/albumose'))} />
-      <Route path="/prova-bolsas" component={lazy(() => import('./pages/prova-bolsas'))} />
-      <Route path="/links" component={lazy(() => import("@/pages/links"))} />
+      <Route path="/legacy" component={Legacy} />
+      <Route path="/albumose" component={AlbumOSE} />
+      <Route path="/prova-bolsas" component={ProvaBolsas} />
+      <Route path="/links" component={Links} />
       <Route path="/portal-aluno" component={PortalAluno} />
       <Route path="/portal-pais" component={PortalPais} />
       <Route path="/bilingue" component={Bilingue} />
