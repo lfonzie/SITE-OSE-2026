@@ -1,0 +1,153 @@
+Crie uma landing page em português brasileiro para uma prova de bolsas com as seguintes funcionalidades:
+
+
+
+
+
+Seções de Conteúdo:
+
+
+
+
+
+Cabeçalho: Inclua um título impactante, uma breve descrição da prova de bolsas (ex.: objetivo, quem pode participar, benefícios) e um botão de chamada para ação (CTA) destacado para inscrição.
+
+
+
+Seção de Informações: Detalhe a prova, incluindo data, horário, formato (ex.: online ou presencial), critérios de elegibilidade e benefícios (ex.: valor da bolsa ou vantagens). Use títulos claros e elementos visuais (ex.: ícones ou imagens, se aplicável).
+
+
+
+Depoimentos: Apresente 2–3 depoimentos curtos de ex-participantes ou histórias de sucesso (se disponíveis) para gerar confiança.
+
+
+
+FAQ: Inclua uma seção de perguntas frequentes com respostas claras (ex.: "Como me preparar?" ou "Qual é o prazo de inscrição?").
+
+
+
+Rodapé: Adicione informações de contato (ex.: e-mail, telefone), links para redes sociais e links para termos de uso e política de privacidade.
+
+
+
+Processo de Inscrição:
+
+
+
+
+
+Botão CTA: Um botão "Inscreva-se" que abre um formulário moderno e intuitivo em um pop-up ou tela cheia, no estilo Typeform (ex.: uma pergunta por vez, transições suaves, barra de progresso).
+
+
+
+Campos do Formulário: Colete informações essenciais (ex.: nome completo, e-mail, telefone, idade, escola/série) e campos opcionais (ex.: "Por que você quer esta bolsa?").
+
+
+
+Validação: Implemente validação em tempo real (ex.: formato de e-mail válido) com mensagens de erro claras.
+
+
+
+Confirmação: Após o envio, exiba uma mensagem de confirmação e, opcionalmente, envie um e-mail de confirmação ao usuário.
+
+
+
+Armazenamento de Dados:
+
+
+
+
+
+Integre com o Google Sheets para armazenar as inscrições de forma segura. Cada envio de formulário deve criar uma nova linha em uma planilha específica, com colunas para cada campo (ex.: Nome, E-mail, Telefone, etc.).
+
+
+
+Use a API do Google Sheets ou uma solução sem código (ex.: webhook seguro) para transferência de dados. Garanta conformidade com a LGPD (Lei Geral de Proteção de Dados).
+
+
+
+Inclua instruções claras para configurar a integração com o Google Sheets (ex.: criação de API key ou configuração de webhook).
+
+
+
+Tecnologia:
+
+
+
+
+
+Desenvolva usando tecnologias web (HTML, JavaScript, React com Tailwind CSS para estilização) para uma aplicação de página única baseada em navegador.
+
+
+
+Garanta compatibilidade com CDN para React (ex.: cdn.jsdelivr.net).
+
+
+
+Use JavaScript moderno (ES6+) com Babel, se necessário, para compatibilidade.
+
+
+
+Otimize para design responsivo (mobile e desktop) e carregamento rápido.
+
+
+
+Evite usar <form> com onSubmit devido a restrições de sandbox; use um botão com manipulador onClick.
+
+
+
+Experiência do Usuário:
+
+
+
+
+
+Crie uma interface limpa, profissional e envolvente, com foco em simplicidade para usuários não técnicos.
+
+
+
+Use Tailwind CSS para estilização moderna e consistente (ex.: cores vibrantes, animações suaves no formulário).
+
+
+
+Garanta acessibilidade (ex.: navegação por teclado, suporte a leitores de tela).
+
+
+
+Inclua um estado de carregamento para envio de formulário e chamadas à API do Google Sheets.
+
+
+
+Restrições:
+
+
+
+
+
+Minimize dependências externas para garantir carregamento rápido e compatibilidade offline para conteúdo estático.
+
+
+
+Evite I/O de arquivos locais; use armazenamento baseado em navegador ou APIs para manipulação de dados.
+
+
+
+Garanta que a integração com o Google Sheets seja segura (ex.: OAuth ou chaves de API com acesso restrito).
+
+
+
+Entregáveis:
+
+
+
+
+
+Código-fonte da landing page, encapsulado em uma tag <xaiArtifact> com um UUID único, intitulado "index.html" para a aplicação principal.
+
+
+
+Instruções para configurar a integração com o Google Sheets (ex.: passos para criar uma API key ou configurar um webhook).
+
+
+
+Um guia breve sobre como implantar e usar a landing page, incluindo como acessar o formulário e visualizar os dados no Google Sheets.
