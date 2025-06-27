@@ -3,6 +3,7 @@ import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
+import { Button } from "@/components/ui/button";
 import { Award, Users, BookOpen, Trophy, Star, Building2, GraduationCap, Heart, Map } from "lucide-react";
 import { motion } from "framer-motion";
 import { ArrowLeft } from 'lucide-react';
