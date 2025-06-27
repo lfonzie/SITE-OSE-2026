@@ -92,58 +92,32 @@ export default function EducacaoInfantil() {
             </Link>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <InlineTextEditor
-                value={content.title}
-                onSave={(value) => updateContent('title', value)}
-                as="h1"
-                className="text-4xl md:text-6xl font-bold mb-6"
-                placeholder="Título da página"
-                saveKey="educacao_infantil_title"
-              />
-              <InlineTextEditor
-                value={content.subtitle}
-                onSave={(value) => updateContent('subtitle', value)}
-                as="h2"
-                className="text-2xl md:text-3xl font-semibold mb-4"
-                placeholder="Subtítulo da página"
-                saveKey="educacao_infantil_subtitle"
-              />
-              <InlineTextEditor
-                value={content.description}
-                onSave={(value) => updateContent('description', value)}
-                as="p"
-                className="text-xl md:text-2xl mb-6"
-                placeholder="Descrição da educação infantil"
-                multiline
-                saveKey="educacao_infantil_description"
-              />
-            </div>
-            
-            <div className="relative">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
-                <h3 className="text-2xl font-bold mb-6 text-center">Informações Importantes</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <Users className="h-6 w-6 text-orange-300 mr-3" />
-                    <span className="text-lg">Turmas reduzidas para atenção individualizada</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="h-6 w-6 text-orange-300 mr-3" />
-                    <span className="text-lg">Horário integral ou meio período</span>
-                  </div>
-                  <div className="flex items-center">
-                    <BookOpen className="h-6 w-6 text-orange-300 mr-3" />
-                    <span className="text-lg">Aprendizado através do brincar</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Heart className="h-6 w-6 text-orange-300 mr-3" />
-                    <span className="text-lg">Ambiente acolhedor e seguro</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-4xl">
+            <InlineTextEditor
+              value={content.title}
+              onSave={(value) => updateContent('title', value)}
+              as="h1"
+              className="text-4xl md:text-6xl font-bold mb-6"
+              placeholder="Título da página"
+              saveKey="educacao_infantil_title"
+            />
+            <InlineTextEditor
+              value={content.subtitle}
+              onSave={(value) => updateContent('subtitle', value)}
+              as="h2"
+              className="text-2xl md:text-3xl font-semibold mb-4"
+              placeholder="Subtítulo da página"
+              saveKey="educacao_infantil_subtitle"
+            />
+            <InlineTextEditor
+              value={content.description}
+              onSave={(value) => updateContent('description', value)}
+              as="p"
+              className="text-xl md:text-2xl mb-6"
+              placeholder="Descrição da educação infantil"
+              multiline
+              saveKey="educacao_infantil_description"
+            />
           </div>
         </div>
       </section>
