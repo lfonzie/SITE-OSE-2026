@@ -7,6 +7,13 @@ import { Award, Users, BookOpen, Trophy, Star, Building2, GraduationCap, Heart, 
 import { motion } from "framer-motion";
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'wouter';
+import { useAuth } from '@/contexts/AuthContext';
+import LogoutButton from '@/components/LogoutButton';
+import { newImages } from "@/lib/image-verification";
+import { usePageData } from '@/hooks/usePageData';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
 
 const timeline = [
   {
@@ -135,6 +142,33 @@ const institutions = [
 ];
 
 export default function Legacy() {
+  const { isAuthenticated } = useAuth();
+  
+  const { 
+    heroImage, 
+    heroBackground,
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('Legacy', {
+    heroImage: newImages.horizontal2,
+    images: [newImages.horizontal2],
+    heroBackground: {
+      type: 'gradient',
+      gradientColors: ['#475569', '#64748b'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.7,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
+  });
+
   useEffect(() => {
     updateSEO({
       title: "História da OSE - 100 Anos de Tradição | OSE",
@@ -145,6 +179,13 @@ export default function Legacy() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      {/* Admin Logout Button */}
+      {isAuthenticated && (
+        <div className="fixed top-4 right-4 z-50">
+          <LogoutButton />
+        </div>
+      )}
+      
       <Navigation />
 
       {/* Hero Section */}
