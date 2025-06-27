@@ -330,68 +330,7 @@ export default function MissaoValores() {
         </div>
       </section>
 
-      {/* Legacy Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-school-brown rounded-full mb-6">
-              <Award className="text-white" size={32} />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-8">
-              100 Anos de <span className="text-school-brown">Tradição</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Um século de compromisso com a educação de qualidade em Sorocaba
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-6">
-                Construindo Futuros Há Um Século
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="w-3 h-3 bg-school-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <p className="text-slate-700">
-                    <strong>1924:</strong> Fundação da instituição com o compromisso de transformar vidas através da educação
-                  </p>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-3 h-3 bg-school-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <p className="text-slate-700">
-                    <strong>1946:</strong> Consolidação como Organização Sorocabana de Ensino (OSE)
-                  </p>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-3 h-3 bg-school-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <p className="text-slate-700">
-                    <strong>2024:</strong> Celebração de 100 anos formando líderes transformadores
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h4 className="text-xl font-bold text-slate-800 mb-4">Reconhecimento e Confiança</h4>
-              <div className="space-y-4">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-school-orange mb-2">98%</div>
-                  <p className="text-slate-600">Satisfação das famílias</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-school-brown mb-2">100</div>
-                  <p className="text-slate-600">Anos de história</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-500 mb-2">1000+</div>
-                  <p className="text-slate-600">Alunos formados anualmente</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
