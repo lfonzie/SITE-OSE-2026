@@ -253,6 +253,297 @@ export default function EducacaoInfantil() {
         </div>
       </section>
 
+      {/* Approach Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <InlineTextEditor
+              value="Nossa Abordagem Pedagógica"
+              onSave={() => {}}
+              as="h2"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              saveKey="approach_title"
+            />
+            <InlineTextEditor
+              value="Metodologia baseada no desenvolvimento integral da criança"
+              onSave={() => {}}
+              as="p"
+              className="text-xl text-gray-600 max-w-4xl mx-auto"
+              saveKey="approach_subtitle"
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-8 rounded-xl text-center">
+              <div className="bg-school-orange text-white w-16 h-16 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <Heart size={32} />
+              </div>
+              <InlineTextEditor
+                value="Pedagogia Finlandesa"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="approach_1_title"
+              />
+              <InlineTextEditor
+                value="Metodologia que prioriza o bem-estar e desenvolvimento natural da criança"
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="approach_1_description"
+              />
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-8 rounded-xl text-center">
+              <div className="bg-school-orange text-white w-16 h-16 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <BookOpen size={32} />
+              </div>
+              <InlineTextEditor
+                value="Aprender Brincando"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="approach_2_title"
+              />
+              <InlineTextEditor
+                value="O brincar como principal ferramenta de aprendizagem e desenvolvimento"
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="approach_2_description"
+              />
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-8 rounded-xl text-center">
+              <div className="bg-school-orange text-white w-16 h-16 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <Users size={32} />
+              </div>
+              <InlineTextEditor
+                value="Socialização"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="approach_3_title"
+              />
+              <InlineTextEditor
+                value="Desenvolvimento de habilidades sociais e emocionais essenciais"
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="approach_3_description"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Curriculum Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <InlineTextEditor
+              value="Campos de Experiências BNCC"
+              onSave={() => {}}
+              as="h2"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              saveKey="curriculum_title"
+            />
+            <InlineTextEditor
+              value="Desenvolvemos todas as competências previstas na Base Nacional Comum Curricular"
+              onSave={() => {}}
+              as="p"
+              className="text-xl text-gray-600 max-w-4xl mx-auto"
+              saveKey="curriculum_subtitle"
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <InlineTextEditor
+                value="O eu, o outro e o nós"
+                onSave={() => {}}
+                as="h4"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="curriculum_1_title"
+              />
+              <InlineTextEditor
+                value="Desenvolvimento da identidade, autonomia e convivência social respeitosa"
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600 mb-4"
+                multiline
+                saveKey="curriculum_1_description"
+              />
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <InlineTextEditor
+                value="Corpo, gestos e movimentos"
+                onSave={() => {}}
+                as="h4"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="curriculum_2_title"
+              />
+              <InlineTextEditor
+                value="Exploração do corpo como forma de comunicação, expressão e aprendizagem"
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600 mb-4"
+                multiline
+                saveKey="curriculum_2_description"
+              />
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <InlineTextEditor
+                value="Traços, sons, cores e formas"
+                onSave={() => {}}
+                as="h4"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="curriculum_3_title"
+              />
+              <InlineTextEditor
+                value="Desenvolvimento da criatividade e expressão artística através das linguagens"
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600 mb-4"
+                multiline
+                saveKey="curriculum_3_description"
+              />
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <InlineTextEditor
+                value="Escuta, fala, pensamento e imaginação"
+                onSave={() => {}}
+                as="h4"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="curriculum_4_title"
+              />
+              <InlineTextEditor
+                value="Ampliação do universo discursivo e desenvolvimento da linguagem oral e escrita"
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600 mb-4"
+                multiline
+                saveKey="curriculum_4_description"
+              />
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg md:col-span-2">
+              <InlineTextEditor
+                value="Espaços, tempos, quantidades, relações e transformações"
+                onSave={() => {}}
+                as="h4"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="curriculum_5_title"
+              />
+              <InlineTextEditor
+                value="Desenvolvimento do raciocínio lógico e compreensão do mundo físico e social"
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600 mb-4"
+                multiline
+                saveKey="curriculum_5_description"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Schedule Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <InlineTextEditor
+              value="Horários e Organização"
+              onSave={() => {}}
+              as="h2"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              saveKey="schedule_title"
+            />
+            <InlineTextEditor
+              value="Rotina estruturada que respeita o ritmo das crianças"
+              onSave={() => {}}
+              as="p"
+              className="text-xl text-gray-600 max-w-4xl mx-auto"
+              saveKey="schedule_subtitle"
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-8 rounded-xl">
+              <InlineTextEditor
+                value="Jardim I (4 anos)"
+                onSave={() => {}}
+                as="h3"
+                className="text-2xl font-bold text-gray-900 mb-4"
+                saveKey="schedule_1_title"
+              />
+              <div className="space-y-3">
+                <InlineTextEditor
+                  value="Manhã: 7h30 às 11h30"
+                  onSave={() => {}}
+                  as="p"
+                  className="text-gray-700 font-semibold"
+                  saveKey="schedule_1_morning"
+                />
+                <InlineTextEditor
+                  value="Tarde: 13h30 às 17h30"
+                  onSave={() => {}}
+                  as="p"
+                  className="text-gray-700 font-semibold"
+                  saveKey="schedule_1_afternoon"
+                />
+                <InlineTextEditor
+                  value="Integral: 7h30 às 17h30"
+                  onSave={() => {}}
+                  as="p"
+                  className="text-gray-700 font-semibold"
+                  saveKey="schedule_1_integral"
+                />
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-8 rounded-xl">
+              <InlineTextEditor
+                value="Jardim II (5 anos)"
+                onSave={() => {}}
+                as="h3"
+                className="text-2xl font-bold text-gray-900 mb-4"
+                saveKey="schedule_2_title"
+              />
+              <div className="space-y-3">
+                <InlineTextEditor
+                  value="Manhã: 7h30 às 11h30"
+                  onSave={() => {}}
+                  as="p"
+                  className="text-gray-700 font-semibold"
+                  saveKey="schedule_2_morning"
+                />
+                <InlineTextEditor
+                  value="Tarde: 13h30 às 17h30"
+                  onSave={() => {}}
+                  as="p"
+                  className="text-gray-700 font-semibold"
+                  saveKey="schedule_2_afternoon"
+                />
+                <InlineTextEditor
+                  value="Integral: 7h30 às 17h30"
+                  onSave={() => {}}
+                  as="p"
+                  className="text-gray-700 font-semibold"
+                  saveKey="schedule_2_integral"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-school-orange">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
