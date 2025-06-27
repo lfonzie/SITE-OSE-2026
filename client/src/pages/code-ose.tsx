@@ -5,7 +5,7 @@ import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Code, Rocket, Heart, Globe, Brain, Monitor, Gamepad2, Users, Target, Lightbulb } from "lucide-react";
+import { Code, Rocket, Heart, Globe, Brain, Monitor, Gamepad2, Users, Target, Lightbulb, Calculator, PenTool, Clock } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
@@ -20,9 +20,6 @@ import { useAuth } from '@/contexts/AuthContext';
 
 // Importando imagens para página Code OSE
 import { newImages } from "@/lib/image-verification";
-const img1 = newImages.img16;
-const img2 = newImages.img17;
-const img3 = newImages.img18;
 
 export default function CodeOSE() {
   const { isAuthenticated } = useAuth();
@@ -40,14 +37,14 @@ export default function CodeOSE() {
     getImagePosition 
   } = usePageData('CODE.OSE', {
     heroImage: newImages.img16,
-    images: [newImages.img17, newImages.img18, newImages.img19],
+    images: [newImages.img16, newImages.img17, newImages.img18],
     heroBackground: {
-      type: 'gradient',
-      gradientColors: ['#475569', '#64748b'],
+      type: 'image',
+      imageUrl: newImages.img16,
       opacity: 1,
       overlay: true,
       overlayColor: '#1e293b',
-      overlayOpacity: 0.8,
+      overlayOpacity: 0.7,
       position: 'center',
       size: 'cover',
       repeat: 'no-repeat'
@@ -62,55 +59,86 @@ export default function CodeOSE() {
     });
   }, []);
 
-  const applications = [
-    {
-      icon: Rocket,
-      title: "Exploração Espacial",
-      description: "Da missão Apollo à busca por vida extraterrestre, a programação impulsiona a exploração espacial moderna.",
-      color: "bg-blue-500"
-    },
-    {
-      icon: Heart,
-      title: "Aplicações Médicas",
-      description: "Decifrando o genoma humano e criando tecnologias médicas revolucionárias com IA e diagnósticos avançados.",
-      color: "bg-red-500"
-    },
-    {
-      icon: Monitor,
-      title: "Cinema e Animação",
-      description: "De Jurassic Park à Pixar, a programação trouxe dinossauros à vida e criou mundos fantásticos no cinema.",
-      color: "bg-purple-500"
-    }
-  ];
-
-  const skills = [
+  const pillars = [
     {
       icon: Brain,
       title: "Pensamento Computacional",
-      description: "Desenvolvimento de lógica, resolução de problemas e pensamento crítico desde cedo"
+      description: "Desenvolvimento de lógica estruturada, decomposição de problemas e análise crítica para resolução de desafios complexos.",
+      color: "bg-blue-500"
     },
     {
       icon: Gamepad2,
       title: "Aprendizado Lúdico",
-      description: "Construção de jogos, animações e histórias, tornando cada lição uma aventura"
+      description: "Construção de jogos, animações e histórias interativas, transformando cada aula em uma aventura de descobertas.",
+      color: "bg-green-500"
     },
     {
       icon: Users,
       title: "Equidade e Inclusão",
-      description: "Programação acessível para todos, independente de origem ou gênero"
+      description: "Programação acessível para todos os alunos, independente de origem socioeconômica ou gênero, promovendo diversidade tecnológica.",
+      color: "bg-purple-500"
     },
     {
       icon: Target,
       title: "Integração Curricular",
-      description: "Programação integrada a outras disciplinas, tornando o aprendizado contextual"
+      description: "Programação integrada às demais disciplinas, criando conexões significativas entre tecnologia, matemática, ciências e linguagem.",
+      color: "bg-red-500"
     }
   ];
 
-  const benefits = [
-    "64% das meninas no 3º ao 5º ano querem aprender programação",
-    "7 milhões de vagas exigem habilidades de programação",
-    "Alfabetização digital é tão fundamental quanto ler e escrever",
-    "Preparação para um mundo cada vez mais digital"
+  const aplicacoes = [
+    {
+      title: "Exploração Espacial",
+      description: "Missões Apollo e busca por vida extraterrestre",
+      icon: Rocket,
+      color: "from-blue-500 to-purple-500",
+      areas: ["Navegação espacial", "Comunicação", "Análise de dados", "Simulações"]
+    },
+    {
+      title: "Medicina Avançada",
+      description: "Genoma humano e diagnósticos por IA", 
+      icon: Heart,
+      color: "from-red-500 to-pink-500",
+      areas: ["Sequenciamento genético", "Diagnóstico por imagem", "Cirurgia robótica", "Telemedicina"]
+    },
+    {
+      title: "Cinema e Animação",
+      description: "De Jurassic Park à Pixar",
+      icon: Monitor,
+      color: "from-purple-500 to-indigo-500",
+      areas: ["Efeitos visuais", "Modelagem 3D", "Renderização", "Animação digital"]
+    }
+  ];
+
+  const competencias = [
+    {
+      title: "Resolução de Problemas",
+      description: "Análise sistemática e criação de soluções",
+      icon: Lightbulb
+    },
+    {
+      title: "Colaboração Digital",
+      description: "Trabalho em equipe em projetos tecnológicos",
+      icon: Users
+    },
+    {
+      title: "Criatividade Tecnológica",
+      description: "Expressão artística através da programação",
+      icon: PenTool
+    },
+    {
+      title: "Comunicação",
+      description: "Apresentação de ideias e projetos digitais",
+      icon: Globe
+    }
+  ];
+
+  const cronograma = [
+    { serie: "1º Ano", description: "Introdução ao pensamento computacional" },
+    { serie: "2º Ano", description: "Primeiros comandos e sequências lógicas" },
+    { serie: "3º Ano", description: "Criação de jogos simples e animações" },
+    { serie: "4º Ano", description: "Projetos interdisciplinares complexos" },
+    { serie: "5º Ano", description: "Desenvolvimento de aplicações completas" }
   ];
 
   return (
@@ -118,44 +146,76 @@ export default function CodeOSE() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
-        <div className="absolute inset-0">
-          <DragImagePosition
-            src={heroImage || img1}
-            alt="CODE.OSE Programação"
-            className="w-full h-full opacity-30"
-            editable={isAuthenticated}
-            initialPosition={{
-              x: getImagePosition('hero-bg')?.horizontalPosition || 0,
-              y: getImagePosition('hero-bg')?.verticalPosition || 0
-            }}
-            onPositionChange={(position: { x: number; y: number }) => {
-              const currentPos = getImagePosition('hero-bg') || {
-                objectPosition: 'center center',
-                horizontalPosition: 0,
-                verticalPosition: 0,
-                scale: 1,
-                opacity: 1,
-                filter: 'none',
-                objectFit: 'cover' as const
-              };
-              updateImagePosition('hero-bg', {
-                ...currentPos,
-                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                horizontalPosition: position.x,
-                verticalPosition: position.y
-              });
-            }}
+      <section 
+        className="relative py-20 text-white overflow-hidden"
+        style={{
+          background: heroBackground?.type === 'gradient' 
+            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
+            : heroBackground?.type === 'color'
+            ? heroBackground.solidColor
+            : heroBackground?.type === 'image' && heroBackground.imageUrl
+            ? `url(${heroBackground.imageUrl})`
+            : 'linear-gradient(135deg, #475569, #64748b)',
+          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
+          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
+          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+          opacity: heroBackground?.opacity || 1
+        }}
+      >
+        {/* Background Image Layer */}
+        {heroBackground?.type === 'image' && heroImage && (
+          <div className="absolute inset-0">
+            <div className="relative w-full h-full">
+              <img 
+                src={heroImage}
+                alt="CODE.OSE"
+                className="w-full h-full object-cover opacity-30"
+                style={{
+                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
+                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
+                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
+                  opacity: getImagePosition('hero')?.opacity || 0.3,
+                  filter: getImagePosition('hero')?.filter || 'none'
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={heroImage}
+                    onImageSelect={updateHeroImage}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('hero')}
+                    onPositionChange={(position) => updateImagePosition('hero', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
           />
-          {isAuthenticated && (
-            <EnhancedImageSelector
-              currentImage={heroImage || img1}
-              onImageSelect={updateHeroImage}
-              className="absolute top-4 right-4 z-10"
-            />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
-        </div>
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.7
+            }}
+          ></div>
+        )}
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -168,20 +228,27 @@ export default function CodeOSE() {
                 <span className="text-school-orange">{"{CODE.OSE}"}</span>
               </motion.h1>
               <motion.h2 
-                className="text-2xl md:text-3xl font-semibold mb-4"
+                className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Linguagem de Programação
+                  <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                    Ensino Fundamental I - Alfabetização Digital
+                  </span>
+                </motion.h2>
+              <motion.p 
+                className="text-xl md:text-2xl font-semibold mb-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Linguagem de Programação
-              </motion.h2>
+                Preparando Cidadãos Digitais
+              </motion.p>
               <motion.p 
                 className="text-xl md:text-2xl mb-6"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                Alfabetização Digital Integrada ao Ensino Fundamental I
+                Educação Tecnológica Integrada
               </motion.p>
               <motion.p 
                 className="text-lg mb-8 opacity-95"
@@ -190,67 +257,54 @@ export default function CodeOSE() {
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
                 Em uma era digitalmente avançada, o {"{CODE.OSE}"} não é uma matéria opcional; 
-                é um componente fundamental da grade curricular do Ensino Fundamental I no Colégio OSE.
+                é um componente fundamental da grade curricular do Ensino Fundamental I, preparando 
+                alunos para os desafios tecnológicos do futuro.
               </motion.p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Applications Section */}
-      <section className="py-20 bg-white">
+      {/* Years Navigation */}
+      <section className="py-12 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Programação <span className="text-school-orange">Transformando o Mundo</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Descubra como a programação revoluciona diferentes áreas da sociedade
-            </p>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">Progressão do Programa</h2>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {applications.map((app, index) => {
-              const Icon = app.icon;
-              return (
-                <AnimatedCard key={index} delay={index * 0.2} className="h-full">
-                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full border-2 border-transparent hover:border-school-orange/20">
-                    <div className={`${app.color} text-white w-16 h-16 rounded-lg flex items-center justify-center mb-6`}>
-                      <Icon size={32} />
-                    </div>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-4">{app.title}</h3>
-                    <p className="text-slate-600">{app.description}</p>
-                  </div>
-                </AnimatedCard>
-              );
-            })}
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {cronograma.map((item, index) => (
+              <div key={index} className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-6 rounded-xl text-center">
+                <h3 className="text-xl font-bold text-slate-800 mb-2">{item.serie}</h3>
+                <p className="text-slate-600">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Integration Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Main Features - Pilares */}
+      <section id="detalhes" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              <span className="text-school-orange">Integração Curricular</span>
+              Pilares do <span className="text-school-orange">{"{CODE.OSE}"}</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Mais do que uma matéria isolada
+              Fundamentos que transformam a forma como as crianças pensam e resolvem problemas
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {skills.map((skill, index) => {
-              const Icon = skill.icon;
+            {pillars.map((pillar, index) => {
+              const Icon = pillar.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.1} className="h-full">
-                  <div className="bg-white p-6 rounded-xl shadow-lg text-center h-full">
-                    <div className="bg-school-orange text-white w-14 h-14 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                    <div className={`${pillar.color} text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6`}>
                       <Icon size={28} />
                     </div>
-                    <h4 className="text-lg font-bold text-slate-800 mb-3">{skill.title}</h4>
-                    <p className="text-sm text-slate-600">{skill.description}</p>
+                    <h3 className="text-xl font-bold text-slate-800 mb-4">{pillar.title}</h3>
+                    <p className="text-slate-600">{pillar.description}</p>
                   </div>
                 </AnimatedCard>
               );
@@ -259,61 +313,135 @@ export default function CodeOSE() {
         </div>
       </section>
 
-      {/* Future Preparation */}
+      {/* Aplicações no Mundo Real */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Preparando para o <span className="text-school-orange">Futuro</span>
+              <span className="text-school-orange">Programação</span> Transformando o Mundo
             </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Alfabetização Digital é Alfabetização Básica
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto mb-4">
+              Inspire-se com as aplicações reais da programação
+            </p>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Descobra como a programação revoluciona diferentes setores da sociedade
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-8 rounded-xl">
-              <h3 className="text-2xl font-bold text-slate-800 mb-6">Dados que Inspiram</h3>
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start">
-                    <div className="w-3 h-3 bg-school-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                    <p className="text-slate-700">{benefit}</p>
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {aplicacoes.map((aplicacao, index) => {
+              const Icon = aplicacao.icon;
+              return (
+                <AnimatedCard key={index} delay={index * 0.2} className="h-full">
+                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-school-orange/20 h-full">
+                    <div className={`bg-gradient-to-r ${aplicacao.color} text-white w-16 h-16 rounded-lg flex items-center justify-center mb-6`}>
+                      <Icon size={32} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-slate-800 mb-2">{aplicacao.title}</h3>
+                    <p className="text-lg text-school-orange font-semibold mb-4">{aplicacao.description}</p>
+                    <div className="space-y-2">
+                      {aplicacao.areas.map((area, i) => (
+                        <div key={i} className="flex items-center">
+                          <div className="w-2 h-2 bg-school-orange rounded-full mr-3"></div>
+                          <span className="text-slate-600">{area}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-bold text-slate-800 mb-6">Habilidades do Século 21</h3>
-              <p className="text-slate-600 mb-6">
-                Construindo habilidades críticas através de uma abordagem envolvente onde os alunos 
-                programam algoritmos, constroem websites e criam seus próprios jogos.
-              </p>
-              <p className="text-slate-600">
-                O currículo abrange material alinhado com os padrões nacionais, tornando a 
-                aprendizagem do código uma aventura estimulante.
-              </p>
-            </div>
+                </AnimatedCard>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Mission Statement */}
+      {/* Competências Desenvolvidas */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-school-orange to-school-brown text-white p-12 rounded-2xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Criando Cidadãos Globais Digitais
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              <span className="text-school-orange">Competências</span> do Século 21
             </h2>
-            <p className="text-xl mb-8 opacity-95 max-w-4xl mx-auto">
-              O {"{CODE.OSE}"} não é apenas uma adição ao currículo tradicional; é uma transformação 
-              na forma como vemos a educação e preparamos nossos jovens para o futuro.
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              Habilidades essenciais desenvolvidas através da programação
             </p>
-            <p className="text-lg opacity-90 max-w-3xl mx-auto">
-              Estamos criando não apenas estudantes, mas cidadãos globais prontos para enfrentar 
-              os desafios e as oportunidades do mundo digital.
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {competencias.map((competencia, index) => {
+              const Icon = competencia.icon;
+              return (
+                <AnimatedCard key={index} delay={index * 0.1} className="h-full">
+                  <div className="bg-white p-6 rounded-xl shadow-lg text-center h-full">
+                    <div className="bg-school-orange text-white w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                      <Icon size={24} />
+                    </div>
+                    <h4 className="font-bold text-slate-800 mb-2">{competencia.title}</h4>
+                    <p className="text-sm text-slate-600">{competencia.description}</p>
+                  </div>
+                </AnimatedCard>
+              );
+            })}
+          </div>
+
+          <div className="bg-white p-8 rounded-xl shadow-lg">
+            <p className="text-lg text-slate-700 text-center">
+              O {"{CODE.OSE}"} desenvolve habilidades críticas através de uma abordagem envolvente onde os alunos 
+              programam algoritmos, constroem websites e criam seus próprios jogos, preparando-os para um futuro digital.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Metodologia */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              <span className="text-school-orange">Metodologia Inovadora</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              Aprendizado baseado em projetos e gamificação
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 p-8 rounded-xl">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-6">Dados que Inspiram</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="w-3 h-3 bg-school-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <p className="text-slate-700">64% das meninas no 3º ao 5º ano querem aprender programação</p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-3 h-3 bg-school-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <p className="text-slate-700">7 milhões de vagas exigem habilidades de programação</p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-3 h-3 bg-school-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <p className="text-slate-700">Alfabetização digital é tão fundamental quanto ler e escrever</p>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-3 h-3 bg-school-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <p className="text-slate-700">Preparação para um mundo cada vez mais digital</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-6">Abordagem Pedagógica</h3>
+                <p className="text-slate-600 mb-6">
+                  O currículo abrange material alinhado com os padrões nacionais da BNCC, 
+                  tornando a aprendizagem do código uma aventura estimulante e contextualizada.
+                </p>
+                <p className="text-slate-600">
+                  Através de projetos práticos, jogos educacionais e desafios colaborativos, 
+                  os alunos desenvolvem não apenas habilidades técnicas, mas também 
+                  pensamento crítico e criatividade.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -332,30 +460,144 @@ export default function CodeOSE() {
             size="lg" 
             className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
           >
-            Conheça o Programa
+            Conheça o Programa Completo
           </Button>
         </div>
       </section>
 
       {/* Image Gallery */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
-            <OptimizedImage
-              src={img1}
-              alt="Alunos programando"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={img2}
-              alt="Atividades de programação"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={img3}
-              alt="Tecnologia na educação"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
+            <div className="relative">
+              <DragImagePosition
+                src={images[0] || newImages.img16}
+                alt="Alunos programando"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-0')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-0')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-0') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-0', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[0] || newImages.img16}
+                    onImageSelect={(url) => updateImage(0, url)}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-0')}
+                    onPositionChange={(position) => updateImagePosition('gallery-0', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
+            <div className="relative">
+              <DragImagePosition
+                src={images[1] || newImages.img17}
+                alt="Atividades de programação"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-1')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-1')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-1') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-1', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[1] || newImages.img17}
+                    onImageSelect={(url) => updateImage(1, url)}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-1')}
+                    onPositionChange={(position) => updateImagePosition('gallery-1', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
+            <div className="relative">
+              <DragImagePosition
+                src={images[2] || newImages.img18}
+                alt="Tecnologia na educação"
+                className="w-full h-48 rounded-lg shadow-lg"
+                editable={isAuthenticated}
+                initialPosition={{
+                  x: getImagePosition('gallery-2')?.horizontalPosition || 0,
+                  y: getImagePosition('gallery-2')?.verticalPosition || 0
+                }}
+                onPositionChange={(position: { x: number; y: number }) => {
+                  const currentPos = getImagePosition('gallery-2') || {
+                    objectPosition: 'center center',
+                    horizontalPosition: 0,
+                    verticalPosition: 0,
+                    scale: 1,
+                    opacity: 1,
+                    filter: 'none',
+                    objectFit: 'cover' as const
+                  };
+                  updateImagePosition('gallery-2', {
+                    ...currentPos,
+                    objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                    horizontalPosition: position.x,
+                    verticalPosition: position.y
+                  });
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[2] || newImages.img18}
+                    onImageSelect={(url) => updateImage(2, url)}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('gallery-2')}
+                    onPositionChange={(position) => updateImagePosition('gallery-2', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
           </div>
         </div>
       </section>
