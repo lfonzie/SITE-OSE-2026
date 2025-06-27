@@ -40,7 +40,8 @@ export default function Navigation() {
         { label: "Legado", id: "/legacy", isSection: false },
         { label: "Missão e Valores", id: "/missao-valores", isSection: false },
         { label: "Nossa Estrutura", id: "sobre", isSection: true },
-        { label: "Álbum OSE", id: "/albumose", isSection: false }
+        { label: "Álbum OSE", id: "/albumose", isSection: false },
+        { label: "Prova de Bolsas", id: "/prova-bolsas", isSection: false }
       ]
     },
     {
