@@ -184,7 +184,7 @@ export default function Fundamental2() {
             className="text-left text-white max-w-4xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Ensino Fundamental II
+              Ensino Fundamental <span className="text-school-orange">II</span>
               <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
                 Formando líderes conscientes para um mundo em transformação
               </span>

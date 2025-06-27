@@ -95,14 +95,9 @@ export default function EducacaoInfantil() {
           </div>
 
           <div className="max-w-4xl">
-            <InlineTextEditor
-              value={content.title}
-              onSave={(value) => updateContent('title', value)}
-              as="h1"
-              className="text-4xl md:text-6xl font-bold mb-6"
-              placeholder="Título da página"
-              saveKey="educacao_infantil_title"
-            />
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Educação <span className="text-school-orange">Infantil</span>
+            </h1>
             <InlineTextEditor
               value={content.subtitle}
               onSave={(value) => updateContent('subtitle', value)}
