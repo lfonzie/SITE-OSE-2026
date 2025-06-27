@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
@@ -17,6 +18,7 @@ import DragImagePosition from '@/components/DragImagePosition';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import ImagePositionControls from '@/components/ImagePositionControls';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
+import LogoutButton from '@/components/LogoutButton';
 
 // Usando imagens da pasta public/images
 import { newImages } from "@/lib/image-verification";
@@ -32,10 +34,31 @@ export default function Fundamental1() {
   const { VisualComposerComponent } = useVisualComposer('Fundamental I');
   
   // Initialize page data with auto-save functionality
-  const { heroImage, images, updateHeroImage, updateImage, getImagePosition, updateImagePosition } = usePageData('Fundamental I', {
-    heroImage: '/images/horizontal_16.png',
-    images: ['/images/horizontal_17.png', '/images/horizontal_18.png', '/images/horizontal_19.png']
+  const { 
+    heroImage, 
+    heroBackground,
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('Fundamental I', {
+    heroImage: img1,
+    images: [img2, img3, img4],
+    heroBackground: {
+      type: 'image',
+      imageUrl: img1,
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.7,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
   });
+
   useEffect(() => {
     updateSEO({
       title: "Ensino Fundamental I - Anos Iniciais | OSE",
@@ -44,103 +67,174 @@ export default function Fundamental1() {
     });
   }, []);
 
+  const years = [
+    { year: "1º Ano", description: "Alfabetização e letramento com foco lúdico" },
+    { year: "2º Ano", description: "Consolidação da leitura e escrita" },
+    { year: "3º Ano", description: "Aprofundamento e autonomia nos estudos" },
+    { year: "4º Ano", description: "Desenvolvimento do pensamento crítico" },
+    { year: "5º Ano", description: "Preparação para o Fundamental II" }
+  ];
+
   const features = [
     {
       icon: Heart,
       title: "Desenvolvimento Emocional",
-      description: "Cultivamos inteligência emocional e valores humanos fundamentais"
+      description: "Cultivamos inteligência emocional e valores humanos fundamentais",
+      color: "bg-red-500"
     },
     {
       icon: Target,
       title: "Aprendizagem Significativa",
-      description: "Metodologias ativas que tornam o aprendizado prazeroso e efetivo"
+      description: "Metodologias ativas que tornam o aprendizado prazeroso e efetivo",
+      color: "bg-blue-500"
     },
     {
       icon: Users,
       title: "Socialização Saudável",
-      description: "Ambiente acolhedor que promove amizades duradouras e respeito mútuo"
+      description: "Ambiente acolhedor que promove amizades duradouras e respeito mútuo",
+      color: "bg-green-500"
     },
     {
       icon: Lightbulb,
       title: "Criatividade e Inovação",
-      description: "Estímulo à criatividade através de projetos e atividades lúdicas"
+      description: "Estímulo à criatividade através de projetos e atividades lúdicas",
+      color: "bg-yellow-500"
     },
     {
       icon: BookOpen,
       title: "Base Acadêmica Sólida",
-      description: "Fundamentos essenciais para uma trajetória escolar de sucesso"
+      description: "Fundamentos essenciais para uma trajetória escolar de sucesso",
+      color: "bg-purple-500"
     },
     {
       icon: Award,
       title: "Formação de Caráter",
-      description: "Desenvolvimento de valores éticos e responsabilidade social"
+      description: "Desenvolvimento de valores éticos e responsabilidade social",
+      color: "bg-orange-500"
+    }
+  ];
+
+  const metodologia = [
+    {
+      title: "Aprendizagem Lúdica",
+      description: "Transformamos o aprender em brincadeira, respeitando o universo infantil"
+    },
+    {
+      title: "Desenvolvimento Integral",
+      description: "Cuidamos dos aspectos cognitivo, emocional, social e físico"
+    },
+    {
+      title: "Acompanhamento Individual",
+      description: "Atenção personalizada para potencializar as habilidades de cada criança"
+    },
+    {
+      title: "Ambiente Acolhedor",
+      description: "Espaços seguros e estimulantes para explorar e crescer"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-50">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <DragImagePosition
-            src={heroImage || img1}
-            alt="Ensino Fundamental I - OSE"
-            className="w-full h-full opacity-30"
-            editable={isAuthenticated}
-            initialPosition={{
-              x: getImagePosition('hero-bg')?.horizontalPosition || 0,
-              y: getImagePosition('hero-bg')?.verticalPosition || 0
-            }}
-            onPositionChange={(position: { x: number; y: number }) => {
-              const currentPos = getImagePosition('hero-bg') || {
-                objectPosition: 'center center',
-                horizontalPosition: 0,
-                verticalPosition: 0,
-                scale: 1,
-                opacity: 1,
-                filter: 'none',
-                objectFit: 'cover' as const
-              };
-              updateImagePosition('hero-bg', {
-                ...currentPos,
-                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                horizontalPosition: position.x,
-                verticalPosition: position.y
-              });
-            }}
-          />
-          {isAuthenticated && (
-            <>
-              <EnhancedImageSelector
-                currentImage={heroImage || img1}
-                onImageSelect={updateHeroImage}
-                className="absolute top-4 right-4 z-10"
-              />
-              <ImagePositionControls
-                currentPosition={getImagePosition('hero-bg')}
-                onPositionChange={(position) => updateImagePosition('hero-bg', position)}
-                className="absolute top-4 left-4 z-10"
-              />
-            </>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
+      {/* Admin Logout Button */}
+      {isAuthenticated && (
+        <div className="fixed top-4 right-4 z-50">
+          <LogoutButton />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+      )}
+
+      {/* Hero Section */}
+      <section 
+        className="relative py-20 text-white overflow-hidden"
+        style={{
+          background: heroBackground?.type === 'gradient' 
+            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
+            : heroBackground?.type === 'color'
+            ? heroBackground.solidColor
+            : heroBackground?.type === 'image' && heroBackground.imageUrl
+            ? `url(${heroBackground.imageUrl})`
+            : 'linear-gradient(135deg, #475569, #64748b)',
+          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
+          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
+          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+          opacity: heroBackground?.opacity || 1
+        }}
+      >
+        {/* Background Image Layer */}
+        {heroBackground?.type === 'image' && heroImage && (
+          <div className="absolute inset-0">
+            <div className="relative w-full h-full">
+              <img 
+                src={heroImage}
+                alt="Ensino Fundamental I OSE"
+                className="w-full h-full object-cover opacity-30"
+                style={{
+                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
+                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
+                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
+                  opacity: getImagePosition('hero')?.opacity || 0.3,
+                  filter: getImagePosition('hero')?.filter || 'none'
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={heroImage}
+                    onImageSelect={updateHeroImage}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('hero')}
+                    onPositionChange={(position) => updateImagePosition('hero', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
+          />
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.8
+            }}
+          ></div>
+        )}
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <motion.h1 
-                className="text-5xl md:text-6xl font-bold mb-6"
+                className="text-4xl md:text-6xl font-bold mb-6"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
                 Ensino Fundamental <span className="text-school-orange">I</span>
               </motion.h1>
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Anos Iniciais
+                  <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                    1º ao 5º Ano - Desenvolvendo Mentes Curiosas
+                  </span>
+                </motion.h2>
               <motion.p 
-                className="text-xl md:text-2xl mb-8 leading-relaxed"
+                className="text-xl md:text-2xl font-semibold mb-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -148,7 +242,7 @@ export default function Fundamental1() {
                 Desenvolvendo <strong>mentes curiosas</strong> e <strong>corações compassivos</strong>
               </motion.p>
               <motion.p 
-                className="text-lg mb-8 opacity-90"
+                className="text-lg mb-8 opacity-95"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -157,8 +251,24 @@ export default function Fundamental1() {
                 emocionante. Nossos pequenos alunos descobrem o prazer de aprender em um ambiente 
                 acolhedor, seguro e estimulante.
               </motion.p>
-
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Years Navigation */}
+      <section className="py-12 bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">Anos do Ensino Fundamental I</h2>
+          </div>
+          <div className="grid md:grid-cols-5 gap-4">
+            {years.map((item, index) => (
+              <div key={index} className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-4 rounded-xl text-center">
+                <h3 className="text-lg font-bold text-slate-800 mb-2">{item.year}</h3>
+                <p className="text-sm text-slate-600">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -180,18 +290,56 @@ export default function Fundamental1() {
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="bg-school-orange text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                    <Icon size={28} />
+                <AnimatedCard key={index} delay={index * 0.1} className="h-full">
+                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                    <div className={`${feature.color} text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6`}>
+                      <Icon size={28} />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
+                    <p className="text-slate-600">{feature.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-4">{feature.title}</h3>
-                  <p className="text-slate-600">{feature.description}</p>
-                </div>
+                </AnimatedCard>
               );
             })}
           </div>
+        </div>
+      </section>
 
-          {/* Image Gallery */}
+      {/* Methodology Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              <span className="text-school-orange">Metodologia que Encanta</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              Transformando o aprendizado em descoberta através de práticas pedagógicas inovadoras
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {metodologia.map((item, index) => (
+              <AnimatedCard key={index} delay={index * 0.1} className="h-full">
+                <div className="bg-white p-6 rounded-xl shadow-lg text-center h-full border-l-4 border-l-school-orange">
+                  <h4 className="font-bold text-slate-800 mb-2">{item.title}</h4>
+                  <p className="text-sm text-slate-600">{item.description}</p>
+                </div>
+              </AnimatedCard>
+            ))}
+          </div>
+
+          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 p-8 rounded-xl">
+            <p className="text-lg text-slate-700 text-center">
+              Cada criança é única, por isso oferecemos atenção personalizada para potencializar suas habilidades 
+              em um ambiente seguro e estimulante onde podem explorar e crescer plenamente.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Gallery */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             <div className="relative">
               <DragImagePosition
@@ -226,12 +374,12 @@ export default function Fundamental1() {
                   <EnhancedImageSelector
                     currentImage={images[0] || img2}
                     onImageSelect={(url) => updateImage(0, url)}
-                    className="absolute top-2 right-2 z-10"
+                    className="absolute inset-0"
                   />
                   <ImagePositionControls
                     currentPosition={getImagePosition('gallery-0')}
                     onPositionChange={(position) => updateImagePosition('gallery-0', position)}
-                    className="absolute bottom-2 right-2 z-10"
+                    className="absolute inset-0"
                   />
                 </>
               )}
@@ -269,12 +417,12 @@ export default function Fundamental1() {
                   <EnhancedImageSelector
                     currentImage={images[1] || img3}
                     onImageSelect={(url) => updateImage(1, url)}
-                    className="absolute top-2 right-2 z-10"
+                    className="absolute inset-0"
                   />
                   <ImagePositionControls
                     currentPosition={getImagePosition('gallery-1')}
                     onPositionChange={(position) => updateImagePosition('gallery-1', position)}
-                    className="absolute bottom-2 right-2 z-10"
+                    className="absolute inset-0"
                   />
                 </>
               )}
@@ -312,134 +460,15 @@ export default function Fundamental1() {
                   <EnhancedImageSelector
                     currentImage={images[2] || img4}
                     onImageSelect={(url) => updateImage(2, url)}
-                    className="absolute top-2 right-2 z-10"
+                    className="absolute inset-0"
                   />
                   <ImagePositionControls
                     currentPosition={getImagePosition('gallery-2')}
                     onPositionChange={(position) => updateImagePosition('gallery-2', position)}
-                    className="absolute bottom-2 right-2 z-10"
+                    className="absolute inset-0"
                   />
                 </>
               )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Methodology Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
-                Metodologia que <span className="text-school-orange">Encanta</span>
-              </h3>
-              <div className="space-y-4 text-slate-600">
-                <p className="text-lg">
-                  <strong>Aprendizagem Lúdica:</strong> Transformamos o aprender em brincadeira, 
-                  respeitando o universo infantil e tornando cada descoberta uma alegria.
-                </p>
-                <p>
-                  <strong>Desenvolvimento Integral:</strong> Cuidamos não apenas do aspecto cognitivo, 
-                  mas também do emocional, social e físico de cada criança.
-                </p>
-                <p>
-                  <strong>Acompanhamento Individual:</strong> Cada criança é única, por isso 
-                  oferecemos atenção personalizada para potencializar suas habilidades.
-                </p>
-                <p>
-                  <strong>Ambiente Acolhedor:</strong> Espaços seguros e estimulantes onde as 
-                  crianças se sentem à vontade para explorar e crescer.
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="relative">
-                <DragImagePosition
-                  src={img5}
-                  alt="Desenvolvimento das crianças"
-                  className="w-full h-48 rounded-lg shadow-lg"
-                  editable={isAuthenticated}
-                  initialPosition={{
-                    x: getImagePosition('hero-grid-0')?.horizontalPosition || 0,
-                    y: getImagePosition('hero-grid-0')?.verticalPosition || 0
-                  }}
-                  onPositionChange={(position: { x: number; y: number }) => {
-                    const currentPos = getImagePosition('hero-grid-0') || {
-                      objectPosition: 'center center',
-                      horizontalPosition: 0,
-                      verticalPosition: 0,
-                      scale: 1,
-                      opacity: 1,
-                      filter: 'none',
-                      objectFit: 'cover' as const
-                    };
-                    updateImagePosition('hero-grid-0', {
-                      ...currentPos,
-                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                      horizontalPosition: position.x,
-                      verticalPosition: position.y
-                    });
-                  }}
-                />
-                {isAuthenticated && (
-                  <>
-                    <EnhancedImageSelector
-                      currentImage={img5}
-                      onImageSelect={(url) => updateImage(0, url)}
-                      className="absolute top-2 right-2 z-10"
-                    />
-                    <ImagePositionControls
-                      currentPosition={getImagePosition('hero-grid-0')}
-                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-0', newPosition)}
-                      className="absolute bottom-2 right-2 z-10"
-                    />
-                  </>
-                )}
-              </div>
-              <div className="relative">
-                <DragImagePosition
-                  src={img6}
-                  alt="Atividades culturais e educativas"
-                  className="w-full h-48 rounded-lg shadow-lg"
-                  editable={isAuthenticated}
-                  initialPosition={{
-                    x: getImagePosition('hero-grid-1')?.horizontalPosition || 0,
-                    y: getImagePosition('hero-grid-1')?.verticalPosition || 0
-                  }}
-                  onPositionChange={(position: { x: number; y: number }) => {
-                    const currentPos = getImagePosition('hero-grid-1') || {
-                      objectPosition: 'center center',
-                      horizontalPosition: 0,
-                      verticalPosition: 0,
-                      scale: 1,
-                      opacity: 1,
-                      filter: 'none',
-                      objectFit: 'cover' as const
-                    };
-                    updateImagePosition('hero-grid-1', {
-                      ...currentPos,
-                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                      horizontalPosition: position.x,
-                      verticalPosition: position.y
-                    });
-                  }}
-                />
-                {isAuthenticated && (
-                  <>
-                    <EnhancedImageSelector
-                      currentImage={img6}
-                      onImageSelect={(url) => updateImage(1, url)}
-                      className="absolute top-2 right-2 z-10"
-                    />
-                    <ImagePositionControls
-                      currentPosition={getImagePosition('hero-grid-1')}
-                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-1', newPosition)}
-                      className="absolute bottom-2 right-2 z-10"
-                    />
-                  </>
-                )}
-              </div>
             </div>
           </div>
         </div>
