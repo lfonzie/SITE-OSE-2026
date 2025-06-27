@@ -61,7 +61,7 @@ export function useInlineImageEditor() {
       onImageChange(newSrc);
       
       // Update auto-save data
-      setCurrentData(prev => ({
+      setCurrentData((prev: any) => ({
         ...prev,
         [saveKey]: {
           src: newSrc,

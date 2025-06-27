@@ -58,7 +58,7 @@ export function useInlineTextEditor() {
       setEditingId(null);
       
       // Update auto-save data
-      setCurrentData(prev => ({
+      setCurrentData((prev: any) => ({
         ...prev,
         [saveKey]: tempValue,
         lastModified: new Date().toISOString()

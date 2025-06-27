@@ -305,3 +305,6 @@ export default function AgendaEdu() {
 
       <WhyOSESection />
       <ContactSection />
+    </div>
+  );
+}
