@@ -60,7 +60,7 @@ function Router() {
       <Route path="/professores" component={Professores} />
       <Route path="/services" component={Services} />
       <Route path="/legacy" component={lazy(() => import('./pages/legacy'))} />
-      <Route path="/album-ose" component={lazy(() => import('./pages/album-ose'))} />
+      <Route path="/albumose" component={lazy(() => import('./pages/albumose'))} />
       <Route path="/links" component={lazy(() => import("@/pages/links"))} />
       <Route path="/portal-aluno" component={PortalAluno} />
       <Route path="/portal-pais" component={PortalPais} />
