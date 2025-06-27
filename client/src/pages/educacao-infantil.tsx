@@ -567,6 +567,408 @@ export default function EducacaoInfantil() {
           </Button>
         </div>
       </section>
+
+      {/* Why Choose OSE Section */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <InlineTextEditor
+              value="Por que escolher a OSE?"
+              onSave={() => {}}
+              as="h2"
+              className="text-4xl md:text-5xl font-bold mb-6 text-slate-800"
+              saveKey="why_ose_title"
+            />
+            <InlineTextEditor
+              value="Conheça os diferenciais que fazem da OSE a escolha ideal para a educação do seu filho."
+              onSave={() => {}}
+              as="p"
+              className="text-xl max-w-4xl mx-auto text-slate-600"
+              saveKey="why_ose_subtitle"
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
+              <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Heart size={32} className="text-school-orange" />
+              </div>
+              <InlineTextEditor
+                value="100 Anos de Tradição"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="why_ose_1_title"
+              />
+              <InlineTextEditor
+                value="A OSE possui um diferencial que poucos colégios no Brasil têm: tradição secular e rica história educacional."
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="why_ose_1_description"
+              />
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
+              <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Users size={32} className="text-school-orange" />
+              </div>
+              <InlineTextEditor
+                value="Formação Integral"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="why_ose_2_title"
+              />
+              <InlineTextEditor
+                value="Educamos com base em valores éticos sólidos, preparando gerações para o sucesso e a cidadania."
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="why_ose_2_description"
+              />
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
+              <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <BookOpen size={32} className="text-school-orange" />
+              </div>
+              <InlineTextEditor
+                value="Ambiente Acolhedor"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="why_ose_3_title"
+              />
+              <InlineTextEditor
+                value="Criamos espaços seguros onde cada criança pode crescer individualmente e socialmente."
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="why_ose_3_description"
+              />
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
+              <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Clock size={32} className="text-school-orange" />
+              </div>
+              <InlineTextEditor
+                value="Excelência Reconhecida"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="why_ose_4_title"
+              />
+              <InlineTextEditor
+                value="98% de satisfação das famílias comprova nosso compromisso com a qualidade educacional."
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="why_ose_4_description"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Differentials Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <InlineTextEditor
+              value="Diferenciais da Educação Infantil OSE"
+              onSave={() => {}}
+              as="h2"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              saveKey="differentials_main_title"
+            />
+            <InlineTextEditor
+              value="Metodologia única que combina tradição e inovação no desenvolvimento infantil"
+              onSave={() => {}}
+              as="p"
+              className="text-xl text-gray-600 max-w-4xl mx-auto"
+              saveKey="differentials_main_subtitle"
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-school-orange/5 to-school-brown/5 p-8 rounded-xl">
+              <InlineTextEditor
+                value="Pedagogia Finlandesa"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="diff_1_title"
+              />
+              <InlineTextEditor
+                value="Metodologia que prioriza o bem-estar e desenvolvimento natural da criança, respeitando seu ritmo único de aprendizagem."
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="diff_1_description"
+              />
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/5 to-school-brown/5 p-8 rounded-xl">
+              <InlineTextEditor
+                value="Turmas Reduzidas"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="diff_2_title"
+              />
+              <InlineTextEditor
+                value="Máximo de 15 alunos por turma, garantindo atenção personalizada e acompanhamento individual de cada criança."
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="diff_2_description"
+              />
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/5 to-school-brown/5 p-8 rounded-xl">
+              <InlineTextEditor
+                value="Espaços Especializados"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="diff_3_title"
+              />
+              <InlineTextEditor
+                value="Ambientes projetados especificamente para a educação infantil, com mobiliário adequado e recursos pedagógicos específicos."
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="diff_3_description"
+              />
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/5 to-school-brown/5 p-8 rounded-xl">
+              <InlineTextEditor
+                value="Programa Bilíngue"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="diff_4_title"
+              />
+              <InlineTextEditor
+                value="Introdução natural ao inglês através de atividades lúdicas e imersão cultural desde os primeiros anos."
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="diff_4_description"
+              />
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/5 to-school-brown/5 p-8 rounded-xl">
+              <InlineTextEditor
+                value="Acompanhamento Psicopedagógico"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="diff_5_title"
+              />
+              <InlineTextEditor
+                value="Profissionais especializados em desenvolvimento infantil acompanham cada criança em seu processo de aprendizagem."
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="diff_5_description"
+              />
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/5 to-school-brown/5 p-8 rounded-xl">
+              <InlineTextEditor
+                value="Parceria com as Famílias"
+                onSave={() => {}}
+                as="h3"
+                className="text-xl font-bold text-gray-900 mb-4"
+                saveKey="diff_6_title"
+              />
+              <InlineTextEditor
+                value="Comunicação diária e envolvimento ativo das famílias no processo educativo através de plataformas digitais."
+                onSave={() => {}}
+                as="p"
+                className="text-gray-600"
+                multiline
+                saveKey="diff_6_description"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <InlineTextEditor
+              value="O que as famílias dizem"
+              onSave={() => {}}
+              as="h2"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              saveKey="testimonials_title"
+            />
+            <InlineTextEditor
+              value="Depoimentos de pais que confiam na educação OSE"
+              onSave={() => {}}
+              as="p"
+              className="text-xl text-gray-600 max-w-4xl mx-auto"
+              saveKey="testimonials_subtitle"
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <div className="flex items-center mb-4">
+                <img
+                  src={newImages.horizontal2}
+                  alt="Mãe satisfeita"
+                  className="w-12 h-12 rounded-full object-cover mr-4"
+                />
+                <div>
+                  <InlineTextEditor
+                    value="Ana Paula Silva"
+                    onSave={() => {}}
+                    as="h4"
+                    className="font-bold text-gray-900"
+                    saveKey="testimonial_1_name"
+                  />
+                  <InlineTextEditor
+                    value="Mãe do João - Jardim II"
+                    onSave={() => {}}
+                    as="p"
+                    className="text-sm text-gray-600"
+                    saveKey="testimonial_1_role"
+                  />
+                </div>
+              </div>
+              <InlineTextEditor
+                value="Meu filho desenvolveu muito na OSE. O carinho dos professores e a metodologia diferenciada fizeram toda a diferença. Ele ama ir para a escola todos os dias!"
+                onSave={() => {}}
+                as="p"
+                className="text-gray-700 italic"
+                multiline
+                saveKey="testimonial_1_text"
+              />
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <div className="flex items-center mb-4">
+                <img
+                  src={newImages.horizontal3}
+                  alt="Pai satisfeito"
+                  className="w-12 h-12 rounded-full object-cover mr-4"
+                />
+                <div>
+                  <InlineTextEditor
+                    value="Carlos Eduardo Santos"
+                    onSave={() => {}}
+                    as="h4"
+                    className="font-bold text-gray-900"
+                    saveKey="testimonial_2_name"
+                  />
+                  <InlineTextEditor
+                    value="Pai da Maria - Jardim I"
+                    onSave={() => {}}
+                    as="p"
+                    className="text-sm text-gray-600"
+                    saveKey="testimonial_2_role"
+                  />
+                </div>
+              </div>
+              <InlineTextEditor
+                value="A estrutura da escola e o preparo dos profissionais nos impressionaram desde o primeiro dia. Nossa filha se adaptou rapidamente e está florescendo!"
+                onSave={() => {}}
+                as="p"
+                className="text-gray-700 italic"
+                multiline
+                saveKey="testimonial_2_text"
+              />
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <div className="flex items-center mb-4">
+                <img
+                  src={newImages.horizontal4}
+                  alt="Família feliz"
+                  className="w-12 h-12 rounded-full object-cover mr-4"
+                />
+                <div>
+                  <InlineTextEditor
+                    value="Família Oliveira"
+                    onSave={() => {}}
+                    as="h4"
+                    className="font-bold text-gray-900"
+                    saveKey="testimonial_3_name"
+                  />
+                  <InlineTextEditor
+                    value="Pais do Pedro - Jardim II"
+                    onSave={() => {}}
+                    as="p"
+                    className="text-sm text-gray-600"
+                    saveKey="testimonial_3_role"
+                  />
+                </div>
+              </div>
+              <InlineTextEditor
+                value="Escolhemos a OSE pela tradição e não nos arrependemos. O desenvolvimento socioemocional do nosso filho tem sido excepcional."
+                onSave={() => {}}
+                as="p"
+                className="text-gray-700 italic"
+                multiline
+                saveKey="testimonial_3_text"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <InlineTextEditor
+            value="Entre em Contato"
+            onSave={() => {}}
+            as="h2"
+            className="text-3xl font-bold text-slate-800 mb-8"
+            saveKey="contact_title"
+          />
+          <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
+            <InlineTextEditor
+              value="Telefone: (15) 2101-3800"
+              onSave={() => {}}
+              as="p"
+              className="text-lg text-slate-600 mb-4"
+              saveKey="contact_phone"
+            />
+            <InlineTextEditor
+              value="WhatsApp: (15) 2101-3812"
+              onSave={() => {}}
+              as="p"
+              className="text-lg text-slate-600 mb-4"
+              saveKey="contact_whatsapp"
+            />
+            <InlineTextEditor
+              value="Horário de atendimento: Segunda a sexta, das 7h às 17h"
+              onSave={() => {}}
+              as="p"
+              className="text-slate-600"
+              saveKey="contact_hours"
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
