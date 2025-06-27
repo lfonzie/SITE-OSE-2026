@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Users, Clock, BookOpen, Heart } from 'lucide-react';
+import { ArrowLeft, Users, Clock, BookOpen, Heart, Award, Star, Globe, Lightbulb } from 'lucide-react';
 import { Link } from 'wouter';
 import Navigation from '@/components/navigation';
 import { Button } from '@/components/ui/button';
@@ -9,6 +9,8 @@ import { useInlineImageEditor } from '@/hooks/useInlineImageEditor';
 import { useInlineHeroEditor } from '@/hooks/useInlineHeroEditor';
 import { usePageData } from '@/hooks/usePageData';
 import { newImages } from '@/lib/image-verification';
+import WhyOSESection from '@/components/why-ose-section';
+import ContactSection from '@/components/contact-section';
 
 export default function EducacaoInfantil() {
   const { InlineTextEditor } = useInlineTextEditor();
@@ -69,7 +71,7 @@ export default function EducacaoInfantil() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
         {/* Background Image */}
@@ -83,7 +85,7 @@ export default function EducacaoInfantil() {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
         </InlineHeroEditor>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center mb-6">
             <Link to="/" className="inline-flex items-center text-white/80 hover:text-white transition-colors">
@@ -157,27 +159,20 @@ export default function EducacaoInfantil() {
         </div>
       </section>
 
-      {/* Differentials Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Features Section */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <InlineTextEditor
-              value="Nossos Diferenciais"
-              onSave={() => {}}
-              as="h2"
-              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-              saveKey="differentials_title"
-            />
-            <InlineTextEditor
-              value="O que torna a educação infantil OSE especial"
-              onSave={() => {}}
-              as="p"
-              className="text-xl text-gray-600"
-              saveKey="differentials_subtitle"
-            />
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Primeiros Passos que <span className="text-school-orange">Transformam</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              Uma educação que respeita o desenvolvimento natural da criança, 
+              estimulando curiosidade e construindo bases sólidas para o futuro.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {content.differentials.map((differential, index) => {
               const IconComponent = differential.icon;
               return (
@@ -213,42 +208,6 @@ export default function EducacaoInfantil() {
                 </Card>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <InlineTextEditor
-              value="Nossos Espaços"
-              onSave={() => {}}
-              as="h2"
-              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-              saveKey="gallery_title"
-            />
-            <InlineTextEditor
-              value="Ambientes especialmente projetados para o desenvolvimento infantil"
-              onSave={() => {}}
-              as="p"
-              className="text-xl text-gray-600"
-              saveKey="gallery_subtitle"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[newImages.horizontal3, newImages.horizontal4, newImages.horizontal5].map((image, index) => (
-              <div key={index} className="relative group">
-                <InlineImageEditor
-                  src={image}
-                  alt={`Espaço ${index + 1}`}
-                  onImageChange={(src) => console.log('Gallery image changed:', src)}
-                  className="w-full h-64 object-cover rounded-lg shadow-lg"
-                  saveKey={`gallery_image_${index}`}
-                />
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -544,6 +503,42 @@ export default function EducacaoInfantil() {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <InlineTextEditor
+              value="Nossos Espaços"
+              onSave={() => {}}
+              as="h2"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              saveKey="gallery_title"
+            />
+            <InlineTextEditor
+              value="Ambientes especialmente projetados para o desenvolvimento infantil"
+              onSave={() => {}}
+              as="p"
+              className="text-xl text-gray-600"
+              saveKey="gallery_subtitle"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[newImages.horizontal3, newImages.horizontal4, newImages.horizontal5].map((image, index) => (
+              <div key={index} className="relative group">
+                <InlineImageEditor
+                  src={image}
+                  alt={`Espaço ${index + 1}`}
+                  onImageChange={(src) => console.log('Gallery image changed:', src)}
+                  className="w-full h-64 object-cover rounded-lg shadow-lg"
+                  saveKey={`gallery_image_${index}`}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-school-orange">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -565,114 +560,6 @@ export default function EducacaoInfantil() {
           <Button size="lg" variant="secondary" className="bg-white text-school-orange hover:bg-gray-50">
             Agendar Visita
           </Button>
-        </div>
-      </section>
-
-      {/* Why Choose OSE Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <InlineTextEditor
-              value="Por que escolher a OSE?"
-              onSave={() => {}}
-              as="h2"
-              className="text-4xl md:text-5xl font-bold mb-6 text-slate-800"
-              saveKey="why_ose_title"
-            />
-            <InlineTextEditor
-              value="Conheça os diferenciais que fazem da OSE a escolha ideal para a educação do seu filho."
-              onSave={() => {}}
-              as="p"
-              className="text-xl max-w-4xl mx-auto text-slate-600"
-              saveKey="why_ose_subtitle"
-            />
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Heart size={32} className="text-school-orange" />
-              </div>
-              <InlineTextEditor
-                value="100 Anos de Tradição"
-                onSave={() => {}}
-                as="h3"
-                className="text-xl font-bold text-gray-900 mb-4"
-                saveKey="why_ose_1_title"
-              />
-              <InlineTextEditor
-                value="A OSE possui um diferencial que poucos colégios no Brasil têm: tradição secular e rica história educacional."
-                onSave={() => {}}
-                as="p"
-                className="text-gray-600"
-                multiline
-                saveKey="why_ose_1_description"
-              />
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users size={32} className="text-school-orange" />
-              </div>
-              <InlineTextEditor
-                value="Formação Integral"
-                onSave={() => {}}
-                as="h3"
-                className="text-xl font-bold text-gray-900 mb-4"
-                saveKey="why_ose_2_title"
-              />
-              <InlineTextEditor
-                value="Educamos com base em valores éticos sólidos, preparando gerações para o sucesso e a cidadania."
-                onSave={() => {}}
-                as="p"
-                className="text-gray-600"
-                multiline
-                saveKey="why_ose_2_description"
-              />
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <BookOpen size={32} className="text-school-orange" />
-              </div>
-              <InlineTextEditor
-                value="Ambiente Acolhedor"
-                onSave={() => {}}
-                as="h3"
-                className="text-xl font-bold text-gray-900 mb-4"
-                saveKey="why_ose_3_title"
-              />
-              <InlineTextEditor
-                value="Criamos espaços seguros onde cada criança pode crescer individualmente e socialmente."
-                onSave={() => {}}
-                as="p"
-                className="text-gray-600"
-                multiline
-                saveKey="why_ose_3_description"
-              />
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Clock size={32} className="text-school-orange" />
-              </div>
-              <InlineTextEditor
-                value="Excelência Reconhecida"
-                onSave={() => {}}
-                as="h3"
-                className="text-xl font-bold text-gray-900 mb-4"
-                saveKey="why_ose_4_title"
-              />
-              <InlineTextEditor
-                value="98% de satisfação das famílias comprova nosso compromisso com a qualidade educacional."
-                onSave={() => {}}
-                as="p"
-                className="text-gray-600"
-                multiline
-                saveKey="why_ose_4_description"
-              />
-            </div>
-          </div>
         </div>
       </section>
 
@@ -934,41 +821,9 @@ export default function EducacaoInfantil() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <InlineTextEditor
-            value="Entre em Contato"
-            onSave={() => {}}
-            as="h2"
-            className="text-3xl font-bold text-slate-800 mb-8"
-            saveKey="contact_title"
-          />
-          <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-            <InlineTextEditor
-              value="Telefone: (15) 2101-3800"
-              onSave={() => {}}
-              as="p"
-              className="text-lg text-slate-600 mb-4"
-              saveKey="contact_phone"
-            />
-            <InlineTextEditor
-              value="WhatsApp: (15) 2101-3812"
-              onSave={() => {}}
-              as="p"
-              className="text-lg text-slate-600 mb-4"
-              saveKey="contact_whatsapp"
-            />
-            <InlineTextEditor
-              value="Horário de atendimento: Segunda a sexta, das 7h às 17h"
-              onSave={() => {}}
-              as="p"
-              className="text-slate-600"
-              saveKey="contact_hours"
-            />
-          </div>
-        </div>
-      </section>
+      {/* Add the sections from home page pattern */}
+      <WhyOSESection />
+      <ContactSection />
     </div>
   );
 }
