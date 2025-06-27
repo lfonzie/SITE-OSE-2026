@@ -305,24 +305,3 @@ export default function AgendaEdu() {
 
       <WhyOSESection />
       <ContactSection />
-
-      {/* Contato */}
-      <section className="py-16 bg-slate-50">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-slate-800 mb-8">Entre em Contato</h2>
-          <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-            <p className="text-lg text-slate-600 mb-4">
-              <strong>Telefone:</strong> (15) 2101-3800
-            </p>
-            <p className="text-lg text-slate-600 mb-4">
-              <strong>WhatsApp:</strong> (15) 2101-3812
-            </p>
-            <p className="text-slate-600">
-              Horário de atendimento: Segunda a sexta, das 7h às 17h
-            </p>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
