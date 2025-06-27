@@ -318,6 +318,25 @@ export default function CodeOSE() {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Alfabetização Digital para o Futuro
+          </h2>
+          <p className="text-xl mb-8 max-w-3xl mx-auto">
+            O {"{CODE.OSE}"} prepara seus filhos para um mundo digital, desenvolvendo 
+            pensamento computacional e habilidades fundamentais do século 21.
+          </p>
+          <Button 
+            size="lg" 
+            className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+          >
+            Conheça o Programa
+          </Button>
+        </div>
+      </section>
+
       {/* Image Gallery */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

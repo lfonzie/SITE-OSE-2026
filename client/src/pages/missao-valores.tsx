@@ -257,24 +257,138 @@ export default function MissaoValores() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-school-orange to-school-brown text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6">
-            <Globe className="text-white" size={32} />
+      {/* Pilares Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-school-orange rounded-full mb-6">
+              <Lightbulb className="text-white" size={32} />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-8">
+              Pilares <span className="text-school-orange">Educacionais</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Como nossos valores se traduzem em práticas educacionais transformadoras
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-8 rounded-xl">
+              <div className="bg-school-orange text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+                <BookOpen size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-4">Educação Integral</h3>
+              <p className="text-slate-600">
+                Formação que vai além do conhecimento acadêmico, desenvolvendo competências 
+                socioemocionais e valores humanos.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-8 rounded-xl">
+              <div className="bg-school-brown text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+                <Users size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-4">Comunidade Escolar</h3>
+              <p className="text-slate-600">
+                Ambiente acolhedor onde todos pertencem, respeitando a diversidade e 
+                promovendo a inclusão em todas as suas formas.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-8 rounded-xl">
+              <div className="bg-green-500 text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+                <Globe size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-4">Visão Global</h3>
+              <p className="text-slate-600">
+                Preparação para os desafios globais, formando cidadãos conscientes e 
+                responsáveis pelo futuro do planeta.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Legacy Section */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-school-brown rounded-full mb-6">
+              <Award className="text-white" size={32} />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-8">
+              100 Anos de <span className="text-school-brown">Tradição</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Um século de compromisso com a educação de qualidade em Sorocaba
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-2xl font-bold text-slate-800 mb-6">
+                Construindo Futuros Há Um Século
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="w-3 h-3 bg-school-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                  <p className="text-slate-700">
+                    <strong>1924:</strong> Fundação da instituição com o compromisso de transformar vidas através da educação
+                  </p>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-3 h-3 bg-school-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                  <p className="text-slate-700">
+                    <strong>1946:</strong> Consolidação como Organização Sorocabana de Ensino (OSE)
+                  </p>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-3 h-3 bg-school-orange rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                  <p className="text-slate-700">
+                    <strong>2024:</strong> Celebração de 100 anos formando líderes transformadores
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h4 className="text-xl font-bold text-slate-800 mb-4">Reconhecimento e Confiança</h4>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-school-orange mb-2">98%</div>
+                  <p className="text-slate-600">Satisfação das famílias</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-school-brown mb-2">100</div>
+                  <p className="text-slate-600">Anos de história</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-green-500 mb-2">1000+</div>
+                  <p className="text-slate-600">Alunos formados anualmente</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">
             Faça Parte da Nossa História
           </h2>
-          <p className="text-xl mb-8 text-slate-100">
-            Venha conhecer de perto como nossos valores e missão se traduzem em uma educação transformadora
+          <p className="text-xl mb-8 max-w-3xl mx-auto">
+            Venha conhecer de perto como nossos valores e missão se traduzem em uma educação transformadora. 
+            Junte-se a uma comunidade que há 100 anos forma líderes do futuro.
           </p>
-          <button
-            className="bg-white text-school-orange px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg text-lg"
+          <Button 
+            size="lg" 
+            className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
             onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Saiba Mais
-          </button>
+            Conheça a OSE
+          </Button>
         </div>
       </section>
 
