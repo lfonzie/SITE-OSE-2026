@@ -195,27 +195,69 @@ export default function Socioemocional() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
+      <section className="relative min-h-screen overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src={newImages.horizontal33}
-            alt="Programa Socioemocional OSE"
-            className="w-full h-full object-cover opacity-30"
+        {heroBackground && (
+          <div className="absolute inset-0">
+            {heroBackground.type === 'image' && heroBackground.imageUrl && (
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500"
+                style={{
+                  backgroundImage: `url(${heroBackground.imageUrl})`,
+                  backgroundPosition: heroBackground.position || 'center',
+                  backgroundSize: heroBackground.size || 'cover',
+                  backgroundRepeat: heroBackground.repeat || 'no-repeat',
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
+            {heroBackground.type === 'gradient' && heroBackground.gradientColors && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
+          </div>
+        )}
+
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="relative z-10 flex items-center min-h-[80vh]">
-            <div className="text-left text-white px-6 max-w-4xl">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Programa Socioemocional
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.8
+            }}
+          ></div>
+        )}
+        
+        <div className="relative z-10 container mx-auto px-6 py-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                Programa <span className="text-school-orange">Socioemocional</span>
                 <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
                   Desenvolvendo Competências para a Vida
                 </span>
               </h1>
               <motion.p 
-                className="text-xl md:text-2xl mb-6"
+                className="text-xl md:text-2xl text-slate-200 mb-6"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -223,7 +265,7 @@ export default function Socioemocional() {
                 Desenvolvimento Integral da Educação Infantil ao Ensino Médio
               </motion.p>
               <motion.p 
-                className="text-lg mb-8 opacity-95 max-w-4xl mx-auto"
+                className="text-lg text-slate-200 mb-8 opacity-95"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -232,7 +274,7 @@ export default function Socioemocional() {
                 voltada para o desenvolvimento integral de alunos da Educação Infantil ao Ensino Médio. 
                 Com aulas semanais, o programa promove habilidades essenciais para a vida.
               </motion.p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -337,6 +379,37 @@ export default function Socioemocional() {
         </div>
       </section>
 
+      {/* Recursos e Materiais */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              <span className="text-school-orange">Recursos</span> e Materiais
+            </h2>
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+              Ferramentas pedagógicas especializadas para cada etapa do desenvolvimento
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {recursos.map((recurso, index) => {
+              const Icon = recurso.icon;
+              return (
+                <AnimatedCard key={index} delay={index * 0.1} className="h-full">
+                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center h-full">
+                    <div className="bg-school-orange text-white w-16 h-16 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                      <Icon size={32} />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-800 mb-4">{recurso.title}</h3>
+                    <p className="text-slate-600">{recurso.description}</p>
+                  </div>
+                </AnimatedCard>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       
 
       {/* Benefícios */}
@@ -420,6 +493,25 @@ export default function Socioemocional() {
               e promovendo uma educação transformadora.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Formando Cidadãos Emocionalmente Inteligentes
+          </h2>
+          <p className="text-xl mb-8 max-w-3xl mx-auto">
+            O Programa Socioemocional da OSE prepara seus filhos para enfrentar os desafios 
+            da vida com inteligência emocional, empatia e consciência social.
+          </p>
+          <Button 
+            size="lg" 
+            className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+          >
+            Conheça Nosso Programa
+          </Button>
         </div>
       </section>
 
