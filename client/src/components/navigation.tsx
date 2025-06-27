@@ -39,7 +39,8 @@ export default function Navigation() {
       submenu: [
         { label: "Legado", id: "/legacy", isSection: false },
         { label: "Missão e Valores", id: "/missao-valores", isSection: false },
-        { label: "Nossa Estrutura", id: "sobre", isSection: true }
+        { label: "Nossa Estrutura", id: "sobre", isSection: true },
+        { label: "Álbum OSE", id: "/album-ose", isSection: false }
       ]
     },
     {

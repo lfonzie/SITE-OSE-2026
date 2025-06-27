@@ -42,6 +42,7 @@ import AgendaEdu from "@/pages/agendaedu";
 import Plurall from "@/pages/plurall";
 import Landing from "@/pages/landing";
 import { useAuth } from "@/hooks/useAuth";
+import { lazy } from "react";
 
 function Router() {
   // Track page views when routes change
@@ -58,7 +59,9 @@ function Router() {
       <Route path="/ensino-medio" component={EnsinoMedio} />
       <Route path="/professores" component={Professores} />
       <Route path="/services" component={Services} />
-      <Route path="/legacy" component={Legacy} />
+      <Route path="/legacy" component={lazy(() => import('./pages/legacy'))} />
+      <Route path="/album-ose" component={lazy(() => import('./pages/album-ose'))} />
+      <Route path="/missao-valores" component={lazy(() => import('./pages/missao-valores'))} />
       <Route path="/portal-aluno" component={PortalAluno} />
       <Route path="/portal-pais" component={PortalPais} />
       <Route path="/bilingue" component={Bilingue} />
