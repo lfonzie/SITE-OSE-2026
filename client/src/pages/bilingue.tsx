@@ -365,6 +365,25 @@ export default function Bilingue() {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Forme um Cidadão Global
+          </h2>
+          <p className="text-xl mb-8 max-w-3xl mx-auto">
+            O Programa Bilíngue da OSE prepara seu filho para os desafios de um mundo globalizado, 
+            desenvolvendo fluência autêntica e consciência cultural.
+          </p>
+          <Button 
+            size="lg" 
+            className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+          >
+            Saiba Mais Sobre o Programa
+          </Button>
+        </div>
+      </section>
+
       <WhyOSESection />
       <ContactSection />
     </div>

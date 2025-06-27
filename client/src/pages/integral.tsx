@@ -360,6 +360,101 @@ export default function Integral() {
         </div>
       </section>
 
+      {/* Schedule Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">
+              Cronograma do <span className="text-school-orange">Integral Flex</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Das 12h às 17h30, uma programação completa e estruturada
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-6 rounded-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <Clock className="w-6 h-6 text-school-orange" />
+                <h3 className="text-xl font-bold text-slate-800">12h - 13h30</h3>
+              </div>
+              <p className="text-slate-600">
+                Almoço nutritivo e momento de socialização
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-6 rounded-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <BookOpen className="w-6 h-6 text-school-orange" />
+                <h3 className="text-xl font-bold text-slate-800">13h30 - 15h</h3>
+              </div>
+              <p className="text-slate-600">
+                Apoio acadêmico personalizado e lição de casa
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-6 rounded-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <Dumbbell className="w-6 h-6 text-school-orange" />
+                <h3 className="text-xl font-bold text-slate-800">15h - 16h</h3>
+              </div>
+              <p className="text-slate-600">
+                Atividades físicas e momento de relaxamento
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-6 rounded-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <Heart className="w-6 h-6 text-school-orange" />
+                <h3 className="text-xl font-bold text-slate-800">16h - 16h30</h3>
+              </div>
+              <p className="text-slate-600">
+                Lanche saudável e nutritivo
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-6 rounded-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <Music className="w-6 h-6 text-school-orange" />
+                <h3 className="text-xl font-bold text-slate-800">16h30 - 17h30</h3>
+              </div>
+              <p className="text-slate-600">
+                Atividades culturais, artísticas e educação bilíngue
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-6 rounded-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <TreePine className="w-6 h-6 text-school-orange" />
+                <h3 className="text-xl font-bold text-slate-800">Durante o dia</h3>
+              </div>
+              <p className="text-slate-600">
+                Educação ambiental e sustentabilidade integradas
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Desenvolvimento Integral Completo
+          </h2>
+          <p className="text-xl mb-8 max-w-3xl mx-auto">
+            O Integral Flex oferece muito mais que apoio acadêmico - é um programa completo 
+            de desenvolvimento que prepara seu filho para a vida.
+          </p>
+          <Button 
+            size="lg" 
+            className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+          >
+            Conheça o Programa Integral
+          </Button>
+        </div>
+      </section>
+
       <WhyOSESection />
       <ContactSection />
 
