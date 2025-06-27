@@ -72,8 +72,7 @@ export default function Navigation() {
         { label: "Plurall", id: "/plurall", isSection: false },
         { label: "AgendaEdu", id: "/agendaedu", isSection: false }
       ]
-    },
-    { label: "Links Úteis", id: "/links", isSection: false }
+    }
   ];
 
   return (
