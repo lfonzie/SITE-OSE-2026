@@ -181,7 +181,7 @@ export default function Fundamental2() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center text-white"
+            className="text-left text-white max-w-4xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Ensino Fundamental II
@@ -190,7 +190,7 @@ export default function Fundamental2() {
               </span>
             </h1>
             <motion.p
-              className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-slate-200"
+              className="text-xl md:text-2xl mb-8 text-slate-200"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
