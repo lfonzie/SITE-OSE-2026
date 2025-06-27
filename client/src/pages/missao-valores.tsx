@@ -18,7 +18,7 @@ import ContactSection from "@/components/contact-section";
 export default function MissaoValores() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Missão e Valores');
-  
+
   // Initialize page data with auto-save functionality
   const { 
     heroImage, 
@@ -92,7 +92,7 @@ export default function MissaoValores() {
 
       {/* Hero Section */}
       <section 
-        className="relative text-white py-20 overflow-hidden"
+        className="relative py-20 text-white overflow-hidden"
         style={{
           background: heroBackground?.type === 'gradient' 
             ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#ff7f00, #ff8f20'})`
@@ -125,20 +125,16 @@ export default function MissaoValores() {
               />
               {isAuthenticated && (
                 <>
-                  <div className="absolute top-4 right-4 z-20">
-                    <EnhancedImageSelector
-                      currentImage={heroImage}
-                      onImageSelect={updateHeroImage}
-                      className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg"
-                    />
-                  </div>
-                  <div className="absolute bottom-4 right-4 z-20">
-                    <ImagePositionControls
-                      currentPosition={getImagePosition('hero')}
-                      onPositionChange={(position) => updateImagePosition('hero', position)}
-                      className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-2"
-                    />
-                  </div>
+                  <EnhancedImageSelector
+                    currentImage={heroImage}
+                    onImageSelect={updateHeroImage}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('hero')}
+                    onPositionChange={(position) => updateImagePosition('hero', position)}
+                    className="absolute inset-0"
+                  />
                 </>
               )}
             </div>
@@ -164,20 +160,45 @@ export default function MissaoValores() {
             }}
           ></div>
         )}
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Missão e Valores
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 opacity-95">
-                Os princípios que guiam nossa jornada educacional há 100 anos
-              </p>
-            </motion.div>
+            <div className="text-left">
+              <motion.h1 
+                className="text-4xl md:text-6xl font-bold mb-6 text-left"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                Missão e <span className="text-school-orange">Valores</span>
+              </motion.h1>
+              <motion.p 
+                className="text-xl md:text-2xl font-semibold mb-4 text-left"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Construindo um Legado de Excelência
+              </motion.p>
+              <motion.p 
+                className="text-xl md:text-2xl mb-6 text-left"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                Desde 1924 • Tradição e Inovação
+              </motion.p>
+              <motion.p 
+                className="text-lg mb-8 opacity-95 text-left"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                Nossa missão é formar cidadãos conscientes, críticos e transformadores, 
+                capazes de contribuir para uma sociedade mais justa e sustentável, através 
+                de uma educação de excelência pautada em valores éticos sólidos.
+              </motion.p>
+            </div>
           </div>
         </div>
       </section>
@@ -394,7 +415,7 @@ export default function MissaoValores() {
 
       <WhyOSESection />
       <ContactSection />
-      
+
       {/* Visual Composer */}
       <VisualComposerComponent />
     </div>

@@ -149,33 +149,112 @@ export default function Legacy() {
 
       {/* Hero Section */}
       <section 
-        className="py-20 text-white overflow-hidden relative"
+        className="relative py-20 text-white overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(rgba(71, 85, 105, 0.6), rgba(100, 116, 139, 0.6)), url('/images/horizontal_1.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          background: heroBackground?.type === 'gradient' 
+            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
+            : heroBackground?.type === 'color'
+            ? heroBackground.solidColor
+            : heroBackground?.type === 'image' && heroBackground.imageUrl
+            ? `url(${heroBackground.imageUrl})`
+            : 'linear-gradient(135deg, #475569, #64748b)',
+          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
+          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
+          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+          opacity: heroBackground?.opacity || 1
         }}
       >
-        <div className="absolute inset-0 bg-slate-900/60"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center mb-6">
-            <Link to="/" className="inline-flex items-center text-white/80 hover:text-white transition-colors">
-              <ArrowLeft size={20} className="mr-2" />
-              Voltar
-            </Link>
+        {/* Background Image Layer */}
+        {heroBackground?.type === 'image' && heroImage && (
+          <div className="absolute inset-0">
+            <div className="relative w-full h-full">
+              <img 
+                src={heroImage}
+                alt="História OSE"
+                className="w-full h-full object-cover opacity-30"
+                style={{
+                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
+                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
+                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
+                  opacity: getImagePosition('hero')?.opacity || 0.3,
+                  filter: getImagePosition('hero')?.filter || 'none'
+                }}
+              />
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={heroImage}
+                    onImageSelect={updateHeroImage}
+                    className="absolute inset-0"
+                  />
+                  <ImagePositionControls
+                    currentPosition={getImagePosition('hero')}
+                    onPositionChange={(position) => updateImagePosition('hero', position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+            </div>
           </div>
+        )}
 
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 font-headline">
-              Um Século de <span className="text-orange-500">Excelência</span>
-            </h1>
-            <h2 className="text-xl md:text-2xl text-white/90 mb-6 font-body">
-              1924 - 2024: 100 Anos de Tradição Educacional
-            </h2>
-            <p className="text-lg md:text-xl text-white/80 max-w-3xl font-body">
-              A Organização Sorocabana de Ensino é uma instituição que há um século desempenha papel fundamental na formação de milhares de estudantes em Sorocaba e região, contribuindo para o desenvolvimento social, econômico e cultural da cidade.
-            </p>
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
+          />
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.7
+            }}
+          ></div>
+        )}
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <motion.h1 
+                className="text-4xl md:text-6xl font-bold mb-6 text-left"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                Um Século de <span className="text-school-orange">Legado</span>
+              </motion.h1>
+              <motion.p 
+                className="text-xl md:text-2xl font-semibold mb-4 text-left"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Tradição Secular de Ensino
+              </motion.p>
+              <motion.p 
+                className="text-xl md:text-2xl mb-6 text-left"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                Desde 1924 • 100 Anos de Excelência
+              </motion.p>
+              <motion.p 
+                className="text-lg mb-8 opacity-95 text-left"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                A Organização Sorocabana de Ensino celebra 100 anos de excelência educacional, 
+                formando gerações de líderes e transformando vidas através da educação de qualidade.
+              </motion.p>
+            </div>
           </div>
         </div>
       </section>
@@ -351,10 +430,26 @@ export default function Legacy() {
         </div>
       </section>
 
-      {/* Why OSE Section */}
-      <WhyOSESection />
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Faça Parte da Nossa História
+          </h2>
+          <p className="text-xl mb-8 max-w-3xl mx-auto">
+            Junte-se a uma comunidade educacional centenária que continua transformando 
+            vidas e construindo o futuro através da educação de excelência.
+          </p>
+          <Button 
+            size="lg" 
+            className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
+          >
+            Conheça Nossa Proposta Educacional
+          </Button>
+        </div>
+      </section>
 
-      {/* Contact Section */}
+      <WhyOSESection />
       <ContactSection />
     </div>
   );
