@@ -285,49 +285,7 @@ export default function Fundamental2() {
                     </>
                   )}
                 </div>
-                <div className="relative col-span-2">
-                  <DragImagePosition
-                    src={images[2] || img4}
-                    alt="Desenvolvimento de liderança"
-                    className="w-full h-32 rounded-lg shadow-lg"
-                    editable={isAuthenticated}
-                    initialPosition={{
-                      x: getImagePosition('main-gallery-2')?.horizontalPosition || 0,
-                      y: getImagePosition('main-gallery-2')?.verticalPosition || 0
-                    }}
-                    onPositionChange={(position: { x: number; y: number }) => {
-                      const currentPos = getImagePosition('main-gallery-2') || {
-                        objectPosition: 'center center',
-                        horizontalPosition: 0,
-                        verticalPosition: 0,
-                        scale: 1,
-                        opacity: 1,
-                        filter: 'none',
-                        objectFit: 'cover' as const
-                      };
-                      updateImagePosition('main-gallery-2', {
-                        ...currentPos,
-                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                        horizontalPosition: position.x,
-                        verticalPosition: position.y
-                      });
-                    }}
-                  />
-                  {isAuthenticated && (
-                    <>
-                      <EnhancedImageSelector
-                        currentImage={images[2] || img4}
-                        onImageSelect={(url) => updateImage(2, url)}
-                        className="absolute top-1 right-1 z-10"
-                      />
-                      <ImagePositionControls
-                        currentPosition={getImagePosition('main-gallery-2')}
-                        onPositionChange={(position) => updateImagePosition('main-gallery-2', position)}
-                        className="absolute bottom-1 right-1 z-10"
-                      />
-                    </>
-                  )}
-                </div>
+                
               </div>
               <h3 className="text-3xl font-bold text-slate-800 mb-6">
                 Formação de Líderes Éticos
