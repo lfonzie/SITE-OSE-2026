@@ -85,7 +85,7 @@ export default function Links() {
       title: "Álbum OSE",
       description: "Galeria de fotos e eventos do colégio",
       icon: Camera,
-      url: "/album-ose",
+      url: "/albumose",
       color: "bg-pink-600"
     },
     {
