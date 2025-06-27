@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowLeft, Users, Clock, BookOpen, Heart } from 'lucide-react';
 import { Link } from 'wouter';
+import Navigation from '@/components/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useInlineTextEditor } from '@/hooks/useInlineTextEditor';
@@ -67,6 +68,8 @@ export default function EducacaoInfantil() {
 
   return (
     <div className="min-h-screen">
+      <Navigation />
+      
       {/* Hero Section */}
       <InlineHeroEditor
         heroImage={heroImage}
