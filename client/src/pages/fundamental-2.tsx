@@ -1,22 +1,21 @@
+
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Brain, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
+import { Brain, Users, Award, BookOpen, Target, Lightbulb, Star, Globe, Heart } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
-import { AnimatedIcon } from "@/components/animated/AnimatedIcon";
 import { useVisualComposer } from '@/hooks/useVisualComposer';
 import { usePageData } from '@/hooks/usePageData';
 import { useAuth } from '@/contexts/AuthContext';
 import DragImagePosition from '@/components/DragImagePosition';
-import EnhancedImageSelector from '@/components/EnhancedImageSelector';
-import ImagePositionControls from '@/components/ImagePositionControls';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
+import LogoutButton from '@/components/LogoutButton';
 
 // Importando imagens para Fundamental II
 import { newImages } from "@/lib/image-verification";
@@ -31,327 +30,229 @@ export default function Fundamental2() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Fundamental II');
   
-  // Initialize page data with auto-save functionality
-  const { heroImage, images, updateHeroImage, updateImage, getImagePosition, updateImagePosition } = usePageData('Fundamental II', {
-    heroImage: '/images/horizontal_7.png',
-    images: ['/images/horizontal_8.png', '/images/horizontal_9.png', '/images/horizontal_10.png']
+  const { 
+    heroImage, 
+    heroBackground,
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('Fundamental II', {
+    heroImage: img1,
+    images: [img2, img3, img4],
+    heroBackground: {
+      type: 'image',
+      imageUrl: img1,
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.7,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
   });
+
   useEffect(() => {
     updateSEO({
-      title: "Ensino Fundamental II - Anos Finais | a OSE",
+      title: "Ensino Fundamental II - Anos Finais | OSE",
       description: "Ensino Fundamental II na OSE: formando líderes conscientes para um mundo em transformação. 6º ao 9º ano com foco em cidadania e ética.",
       keywords: "ensino fundamental II sorocaba, anos finais, liderança, cidadania, ética"
     });
   }, []);
 
-  const competencies = [
+  const years = [
+    { year: "6º Ano", description: "Transição e adaptação" },
+    { year: "7º Ano", description: "Desenvolvimento cognitivo" },
+    { year: "8º Ano", description: "Formação da identidade" },
+    { year: "9º Ano", description: "Preparação para o futuro" }
+  ];
+
+  const features = [
     {
       icon: Brain,
-      title: "Capacidade de Abstração",
-      description: "Focamos no desenvolvimento do pensamento lógico-dedutivo, incentivando experimentação mental e formulação de hipóteses."
-    },
-    {
-      icon: Target,
-      title: "Capacidade de Aplicação",
-      description: "Alunos aplicam raciocínio lógico em vasta gama de problemas matemáticos, científicos e sociais com abordagens pedagógicas estimulantes."
+      title: "Pensamento Crítico",
+      description: "Desenvolvimento de habilidades analíticas e capacidade de questionar e refletir sobre o mundo."
     },
     {
       icon: Users,
-      title: "Protagonismo e Colaboração",
-      description: "Utilizamos leituras, filmes, debates e entrevistas para preparar jovens para a vida em sociedade, cultivando colaboração e protagonismo."
-    },
-    {
-      icon: Award,
-      title: "Responsabilidade Ética",
-      description: "Questões de ética são pilares em nossa metodologia. 'Quero? Posso? Devo?' norteiam nosso comportamento ético diário."
-    },
-    {
-      icon: Lightbulb,
-      title: "Criatividade",
-      description: "Ambiente propício para desenvolvimento criativo onde erros são parte do aprendizado e alunos exploram seu potencial criativo."
+      title: "Liderança e Cidadania",
+      description: "Formação de jovens conscientes de seu papel na sociedade e preparados para liderar."
     },
     {
       icon: BookOpen,
-      title: "Currículo Tradicional",
-      description: "Desde Matemática e Português até Física, Química e Biologia no 9º ano, complementado por Educação Física, Inglês e Artes."
+      title: "Currículo Interdisciplinar",
+      description: "Integração entre disciplinas para uma compreensão ampla e conectada do conhecimento."
+    },
+    {
+      icon: Target,
+      title: "Projeto de Vida",
+      description: "Orientação para que cada aluno desenvolva seus objetivos pessoais e profissionais."
+    }
+  ];
+
+  const differentials = [
+    {
+      icon: Star,
+      title: "Metodologia Inovadora",
+      description: "Abordagem pedagógica que combina tradição e inovação, preparando alunos para os desafios do século XXI."
+    },
+    {
+      icon: Globe,
+      title: "Visão Global",
+      description: "Desenvolvimento de uma perspectiva internacional através de projetos e parcerias educacionais."
+    },
+    {
+      icon: Heart,
+      title: "Educação Socioemocional",
+      description: "Programa estruturado para desenvolvimento de competências emocionais e sociais."
+    },
+    {
+      icon: Lightbulb,
+      title: "Inovação e Tecnologia",
+      description: "Integração de ferramentas tecnológicas e metodologias ativas no processo de aprendizagem."
     }
   ];
 
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
+      
+      {/* Admin Logout Button */}
+      {isAuthenticated && (
+        <div className="fixed top-4 right-4 z-50">
+          <LogoutButton />
+        </div>
+      )}
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
+      <section className="relative min-h-screen overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0">
-          <DragImagePosition
-            src={heroImage || img1}
-            alt="Ensino Fundamental II - OSE"
-            className="w-full h-full opacity-30"
-            editable={isAuthenticated}
-            initialPosition={{
-              x: getImagePosition('hero-bg')?.horizontalPosition || 0,
-              y: getImagePosition('hero-bg')?.verticalPosition || 0
-            }}
-            onPositionChange={(position: { x: number; y: number }) => {
-              const currentPos = getImagePosition('hero-bg') || {
-                objectPosition: 'center center',
-                horizontalPosition: 0,
-                verticalPosition: 0,
-                scale: 1,
-                opacity: 1,
-                filter: 'none',
-                objectFit: 'cover' as const
-              };
-              updateImagePosition('hero-bg', {
-                ...currentPos,
-                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                horizontalPosition: position.x,
-                verticalPosition: position.y
-              });
-            }}
-          />
-          {isAuthenticated && (
-            <>
-              <EnhancedImageSelector
-                currentImage={heroImage || img1}
-                onImageSelect={updateHeroImage}
-                className="absolute top-4 right-4 z-10"
+        {heroBackground && (
+          <div className="absolute inset-0">
+            {heroBackground.type === 'image' && heroBackground.imageUrl && (
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500"
+                style={{
+                  backgroundImage: `url(${heroBackground.imageUrl})`,
+                  backgroundPosition: heroBackground.position || 'center',
+                  backgroundSize: heroBackground.size || 'cover',
+                  backgroundRepeat: heroBackground.repeat || 'no-repeat',
+                  opacity: heroBackground.opacity || 1
+                }}
               />
-              <ImagePositionControls
-                currentPosition={getImagePosition('hero-bg')}
-                onPositionChange={(position) => updateImagePosition('hero-bg', position)}
-                className="absolute top-4 left-4 z-10"
+            )}
+            {heroBackground.type === 'gradient' && heroBackground.gradientColors && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
+                  opacity: heroBackground.opacity || 1
+                }}
               />
-            </>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                Ensino Fundamental <span className="text-school-orange">II</span>
-              </motion.h1>
-              <motion.h2 
-                className="text-2xl md:text-3xl font-semibold mb-4"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                Anos Finais - 6º ao 9º ano
-              </motion.h2>
-              <motion.p 
-                className="text-xl md:text-2xl mb-6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Formando Líderes Conscientes para um Mundo em Transformação
-              </motion.p>
-              <motion.p 
-                className="text-lg mb-8 opacity-95"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                Uma fase empolgante e transformadora onde nossos alunos passam por rápido desenvolvimento 
-                cognitivo e emocional. Nosso foco está além do currículo acadêmico.
-              </motion.p>
+            )}
+          </div>
+        )}
 
-            </div>
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
+          />
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.7
+            }}
+          ></div>
+        )}
+
+        <div className="relative z-10 container mx-auto px-6 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center text-white"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Ensino Fundamental II
+              <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                Formando líderes conscientes para um mundo em transformação
+              </span>
+            </h1>
+            <motion.p
+              className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-slate-200"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Do 6º ao 9º ano, nossos alunos desenvolvem pensamento crítico, liderança e cidadania em um ambiente que estimula a excelência acadêmica e o crescimento pessoal.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Years Navigation */}
+      <section className="py-12 bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">Anos do Ensino Fundamental II</h2>
+          </div>
+          <div className="grid md:grid-cols-4 gap-4">
+            {years.map((item, index) => (
+              <div key={index} className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-4 rounded-xl text-center">
+                <h3 className="text-lg font-bold text-slate-800 mb-2">{item.year}</h3>
+                <p className="text-sm text-slate-600">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-20">
+      {/* Features Section */}
+      <section id="detalhes" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-slate-800 mb-6">
-              Desenvolvimento Integral do Adolescente
-            </h3>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Anos Finais que <span className="text-school-orange">Transformam</span>
+            </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Visamos criar cidadãos responsáveis, éticos e ativos na sua comunidade através de seis pilares fundamentais
+              Uma educação que desenvolve o pensamento crítico, a liderança e a consciência cidadã, 
+              preparando jovens para os desafios do futuro.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {competencies.map((competency, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="bg-school-orange/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                  <competency.icon className="text-school-orange" size={28} />
-                </div>
-                <h4 className="text-xl font-bold text-slate-800 mb-3">{competency.title}</h4>
-                <p className="text-slate-600 leading-relaxed">{competency.description}</p>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <AnimatedCard key={index} delay={index * 0.1}>
+                  <div className="text-center p-6 h-full">
+                    <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <IconComponent size={32} className="text-school-orange" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </div>
+                </AnimatedCard>
+              );
+            })}
           </div>
+        </div>
+      </section>
 
-          {/* Educational Philosophy */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              {/* Galeria de Imagens do Fundamental II */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="relative">
-                  <DragImagePosition
-                    src={images[0] || img2}
-                    alt="Estudantes do Fundamental II em atividades"
-                    className="w-full h-32 rounded-lg shadow-lg"
-                    editable={isAuthenticated}
-                    initialPosition={{
-                      x: getImagePosition('main-gallery-0')?.horizontalPosition || 0,
-                      y: getImagePosition('main-gallery-0')?.verticalPosition || 0
-                    }}
-                    onPositionChange={(position: { x: number; y: number }) => {
-                      const currentPos = getImagePosition('main-gallery-0') || {
-                        objectPosition: 'center center',
-                        horizontalPosition: 0,
-                        verticalPosition: 0,
-                        scale: 1,
-                        opacity: 1,
-                        filter: 'none',
-                        objectFit: 'cover' as const
-                      };
-                      updateImagePosition('main-gallery-0', {
-                        ...currentPos,
-                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                        horizontalPosition: position.x,
-                        verticalPosition: position.y
-                      });
-                    }}
-                  />
-                  {isAuthenticated && (
-                    <>
-                      <EnhancedImageSelector
-                        currentImage={images[0] || img2}
-                        onImageSelect={(url) => updateImage(0, url)}
-                        className="absolute top-1 right-1 z-10"
-                      />
-                      <ImagePositionControls
-                        currentPosition={getImagePosition('main-gallery-0')}
-                        onPositionChange={(position) => updateImagePosition('main-gallery-0', position)}
-                        className="absolute bottom-1 right-1 z-10"
-                      />
-                    </>
-                  )}
-                </div>
-                <div className="relative">
-                  <DragImagePosition
-                    src={images[1] || img3}
-                    alt="Projetos colaborativos"
-                    className="w-full h-32 rounded-lg shadow-lg"
-                    editable={isAuthenticated}
-                    initialPosition={{
-                      x: getImagePosition('main-gallery-1')?.horizontalPosition || 0,
-                      y: getImagePosition('main-gallery-1')?.verticalPosition || 0
-                    }}
-                    onPositionChange={(position: { x: number; y: number }) => {
-                      const currentPos = getImagePosition('main-gallery-1') || {
-                        objectPosition: 'center center',
-                        horizontalPosition: 0,
-                        verticalPosition: 0,
-                        scale: 1,
-                        opacity: 1,
-                        filter: 'none',
-                        objectFit: 'cover' as const
-                      };
-                      updateImagePosition('main-gallery-1', {
-                        ...currentPos,
-                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                        horizontalPosition: position.x,
-                        verticalPosition: position.y
-                      });
-                    }}
-                  />
-                  {isAuthenticated && (
-                    <>
-                      <EnhancedImageSelector
-                        currentImage={images[1] || img3}
-                        onImageSelect={(url) => updateImage(1, url)}
-                        className="absolute top-1 right-1 z-10"
-                      />
-                      <ImagePositionControls
-                        currentPosition={getImagePosition('main-gallery-1')}
-                        onPositionChange={(position) => updateImagePosition('main-gallery-1', position)}
-                        className="absolute bottom-1 right-1 z-10"
-                      />
-                    </>
-                  )}
-                </div>
-                
-              </div>
-              <h3 className="text-3xl font-bold text-slate-800 mb-6">
-                Formação de Líderes Éticos
-              </h3>
-              <div className="space-y-4 text-slate-600">
-                <p className="text-lg">
-                  Neste período crucial, onde as estruturas cognitivas atingem um nível elevado, 
-                  os alunos são capazes de aplicar seu raciocínio lógico em uma vasta gama de problemas, 
-                  sejam eles matemáticos, científicos ou sociais.
-                </p>
-                <p>
-                  <strong>a OSE</strong> acredita na escola como um ambiente de desenvolvimento integral. 
-                  Utilizamos metodologias que incentivam a experimentação mental, permitindo que os 
-                  alunos relacionem conceitos abstratos e formulem hipóteses.
-                </p>
-                <p>
-                  As questões de ética são pilares em nossa metodologia. Provocamos a consciência 
-                  individual com reflexões constantes, formando jovens responsáveis e conscientes.
-                </p>
-              </div>
-              <div className="mt-8">
-                <Button 
-                  size="lg"
-                  className="bg-school-orange hover:bg-school-orange/90 text-white"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Agendamento Avaliação Pedagógica
-                </Button>
-              </div>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h4 className="text-2xl font-bold text-slate-800 mb-6">
-                Reflexão Ética Diária
-              </h4>
-              <div className="bg-school-orange/10 p-6 rounded-lg mb-6">
-                <h5 className="text-xl font-bold text-school-orange mb-3">
-                  "Quero? Posso? Devo?"
-                </h5>
-                <p className="text-slate-600">
-                  Estas três perguntas norteiam nosso comportamento ético e são um exercício 
-                  diário em nossa abordagem educacional.
-                </p>
-              </div>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="bg-school-orange text-white w-8 h-8 rounded-full flex items-center justify-center">
-                    <span className="text-sm font-bold">Q</span>
-                  </div>
-                  <p className="text-slate-600"><strong>Quero:</strong> Desenvolvimento do autoconhecimento</p>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="bg-school-orange text-white w-8 h-8 rounded-full flex items-center justify-center">
-                    <span className="text-sm font-bold">P</span>
-                  </div>
-                  <p className="text-slate-600"><strong>Posso:</strong> Compreensão de limites e possibilidades</p>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="bg-school-orange text-white w-8 h-8 rounded-full flex items-center justify-center">
-                    <span className="text-sm font-bold">D</span>
-                  </div>
-                  <p className="text-slate-600"><strong>Devo:</strong> Construção da responsabilidade social</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
+      {/* Educational Philosophy */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
               <h3 className="text-3xl font-bold text-slate-800 mb-6">
@@ -381,16 +282,16 @@ export default function Fundamental2() {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative">
                 <DragImagePosition
-                  src={img5}
-                  alt="Alunos do Fundamental II em laboratório"
-                  className="w-full h-48 rounded-lg shadow-lg"
+                  src={images[0] || img2}
+                  alt="Estudantes do Fundamental II em atividades"
+                  className="w-full h-32 rounded-lg shadow-lg"
                   editable={isAuthenticated}
                   initialPosition={{
-                    x: getImagePosition('hero-grid-0')?.horizontalPosition || 0,
-                    y: getImagePosition('hero-grid-0')?.verticalPosition || 0
+                    x: getImagePosition('philosophy-1')?.horizontalPosition || 0,
+                    y: getImagePosition('philosophy-1')?.verticalPosition || 0
                   }}
                   onPositionChange={(position: { x: number; y: number }) => {
-                    const currentPos = getImagePosition('hero-grid-0') || {
+                    const currentPos = getImagePosition('philosophy-1') || {
                       objectPosition: 'center center',
                       horizontalPosition: 0,
                       verticalPosition: 0,
@@ -399,7 +300,7 @@ export default function Fundamental2() {
                       filter: 'none',
                       objectFit: 'cover' as const
                     };
-                    updateImagePosition('hero-grid-0', {
+                    updateImagePosition('philosophy-1', {
                       ...currentPos,
                       objectPosition: `${50 + position.x}% ${50 + position.y}%`,
                       horizontalPosition: position.x,
@@ -407,33 +308,19 @@ export default function Fundamental2() {
                     });
                   }}
                 />
-                {isAuthenticated && (
-                  <>
-                    <EnhancedImageSelector
-                      currentImage={img5}
-                      onImageSelect={(url) => updateImage(0, url)}
-                      className="absolute top-2 right-2 z-10"
-                    />
-                    <ImagePositionControls
-                      currentPosition={getImagePosition('hero-grid-0')}
-                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-0', newPosition)}
-                      className="absolute bottom-2 right-2 z-10"
-                    />
-                  </>
-                )}
               </div>
               <div className="relative">
                 <DragImagePosition
-                  src={img6}
-                  alt="Sala de aula do Fundamental II"
-                  className="w-full h-48 rounded-lg shadow-lg"
+                  src={images[1] || img3}
+                  alt="Atividades pedagógicas"
+                  className="w-full h-32 rounded-lg shadow-lg"
                   editable={isAuthenticated}
                   initialPosition={{
-                    x: getImagePosition('hero-grid-1')?.horizontalPosition || 0,
-                    y: getImagePosition('hero-grid-1')?.verticalPosition || 0
+                    x: getImagePosition('philosophy-2')?.horizontalPosition || 0,
+                    y: getImagePosition('philosophy-2')?.verticalPosition || 0
                   }}
                   onPositionChange={(position: { x: number; y: number }) => {
-                    const currentPos = getImagePosition('hero-grid-1') || {
+                    const currentPos = getImagePosition('philosophy-2') || {
                       objectPosition: 'center center',
                       horizontalPosition: 0,
                       verticalPosition: 0,
@@ -442,7 +329,7 @@ export default function Fundamental2() {
                       filter: 'none',
                       objectFit: 'cover' as const
                     };
-                    updateImagePosition('hero-grid-1', {
+                    updateImagePosition('philosophy-2', {
                       ...currentPos,
                       objectPosition: `${50 + position.x}% ${50 + position.y}%`,
                       horizontalPosition: position.x,
@@ -450,83 +337,165 @@ export default function Fundamental2() {
                     });
                   }}
                 />
-                {isAuthenticated && (
-                  <>
-                    <EnhancedImageSelector
-                      currentImage={img6}
-                      onImageSelect={(url) => updateImage(1, url)}
-                      className="absolute top-2 right-2 z-10"
-                    />
-                    <ImagePositionControls
-                      currentPosition={getImagePosition('hero-grid-1')}
-                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-1', newPosition)}
-                      className="absolute bottom-2 right-2 z-10"
-                    />
-                  </>
-                )}
+              </div>
+              <div className="relative col-span-2">
+                <DragImagePosition
+                  src={images[2] || img4}
+                  alt="Ambiente educacional"
+                  className="w-full h-24 rounded-lg shadow-lg"
+                  editable={isAuthenticated}
+                  initialPosition={{
+                    x: getImagePosition('philosophy-3')?.horizontalPosition || 0,
+                    y: getImagePosition('philosophy-3')?.verticalPosition || 0
+                  }}
+                  onPositionChange={(position: { x: number; y: number }) => {
+                    const currentPos = getImagePosition('philosophy-3') || {
+                      objectPosition: 'center center',
+                      horizontalPosition: 0,
+                      verticalPosition: 0,
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'none',
+                      objectFit: 'cover' as const
+                    };
+                    updateImagePosition('philosophy-3', {
+                      ...currentPos,
+                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                      horizontalPosition: position.x,
+                      verticalPosition: position.y
+                    });
+                  }}
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Curriculum Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Curriculum Highlights */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 rounded-xl p-8 md:p-12">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-slate-800 mb-4">
-                Currículo Preparatório
-              </h3>
-              <p className="text-xl text-slate-600">
-                Preparando alunos para um mundo cada vez mais globalizado
-              </p>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Currículo de Excelência
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              Base Nacional Comum Curricular integrada com metodologias inovadoras
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Linguagens</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>• Língua Portuguesa avançada</li>
+                <li>• Inglês intensivo</li>
+                <li>• Arte e Educação Física</li>
+                <li>• Produção textual</li>
+              </ul>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Brain size={24} />
-                </div>
-                <h4 className="font-bold text-slate-800 mb-2">Exatas</h4>
-                <p className="text-sm text-slate-600">Matemática, Física, Química</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen size={24} />
-                </div>
-                <h4 className="font-bold text-slate-800 mb-2">Humanas</h4>
-                <p className="text-sm text-slate-600">Português, História, Geografia</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Lightbulb size={24} />
-                </div>
-                <h4 className="font-bold text-slate-800 mb-2">Biológicas</h4>
-                <p className="text-sm text-slate-600">Biologia, Ciências Naturais</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-school-orange text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users size={24} />
-                </div>
-                <h4 className="font-bold text-slate-800 mb-2">Complementares</h4>
-                <p className="text-sm text-slate-600">Educação Física, Inglês, Artes</p>
-              </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Matemática</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>• Álgebra e Geometria</li>
+                <li>• Resolução de problemas</li>
+                <li>• Raciocínio lógico</li>
+                <li>• Matemática aplicada</li>
+              </ul>
             </div>
-            <div className="mt-8 text-center">
-              <p className="text-slate-600 max-w-3xl mx-auto">
-                No 9º ano, introduzimos Física, Química e Biologia como disciplinas específicas, 
-                preparando os alunos para o Ensino Médio e desafios acadêmicos futuros.
-              </p>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Ciências Humanas</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>• História e Geografia</li>
+                <li>• Educação para cidadania</li>
+                <li>• Estudos sociais</li>
+                <li>• Filosofia aplicada</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Ciências da Natureza</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>• Ciências integradas</li>
+                <li>• Laboratório de experiências</li>
+                <li>• Educação ambiental</li>
+                <li>• Método científico</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Ensino Religioso</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>• Valores éticos</li>
+                <li>• Diversidade religiosa</li>
+                <li>• Respeito e tolerância</li>
+                <li>• Formação cidadã</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Projetos Especiais</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>• Projeto de vida</li>
+                <li>• Protagonismo juvenil</li>
+                <li>• Tecnologia educacional</li>
+                <li>• Empreendedorismo</li>
+              </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Differentials Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Diferenciais do Fundamental II OSE
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              Metodologia única que combina excelência acadêmica com formação integral
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {differentials.map((differential, index) => {
+              const IconComponent = differential.icon;
+              return (
+                <AnimatedCard key={index} delay={index * 0.1}>
+                  <div className="bg-gradient-to-br from-school-orange/5 to-school-brown/5 p-8 rounded-xl text-center h-full">
+                    <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <IconComponent size={32} className="text-school-orange" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{differential.title}</h3>
+                    <p className="text-gray-600">{differential.description}</p>
+                  </div>
+                </AnimatedCard>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-school-orange">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Venha Conhecer o Fundamental II OSE
+          </h2>
+          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+            Agende uma visita e veja como podemos contribuir para a formação integral do seu filho
+          </p>
+          <Button size="lg" variant="secondary" className="bg-white text-school-orange hover:bg-gray-50">
+            Agendar Visita
+          </Button>
         </div>
       </section>
 
       <WhyOSESection />
       <ContactSection />
-      
-      {/* Visual Composer */}
-      <VisualComposerComponent />
     </div>
   );
 }
