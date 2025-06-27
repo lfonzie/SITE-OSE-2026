@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowLeft, Users, Clock, BookOpen, Heart } from 'lucide-react';
 import { Link } from 'wouter';
@@ -77,14 +76,15 @@ export default function EducacaoInfantil() {
         className="py-20 text-white overflow-hidden"
         saveKey="educacao_infantil_hero"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-slate-900/60"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center mb-6">
             <Link to="/" className="inline-flex items-center text-white/80 hover:text-white transition-colors">
               <ArrowLeft size={20} className="mr-2" />
               Voltar
             </Link>
           </div>
-          
+
           <div className="max-w-4xl">
             <InlineTextEditor
               value={content.title}
