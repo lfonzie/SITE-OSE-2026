@@ -1,6 +1,6 @@
 
 import React, { createContext, useContext } from 'react';
-import { useAuth as useReplitAuth } from '@/hooks/useAuth';
+import { useAuth as useHookAuth } from '@/hooks/useAuth';
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -13,14 +13,14 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const { user, isAuthenticated, isLoading } = useReplitAuth();
+  const { user, isAuthenticated, isLoading, logoutMutation } = useHookAuth();
   
   // Email autorizado para admin
   const AUTHORIZED_EMAIL = "fonseca@colegioose.com.br";
   const isAuthorized = isAuthenticated && user?.email === AUTHORIZED_EMAIL;
 
   const logout = () => {
-    window.location.href = "/auth/logout";
+    logoutMutation.mutate();
   };
 
   return (
