@@ -158,8 +158,8 @@ export default function Legacy() {
     heroImage: newImages.horizontal2,
     images: [newImages.horizontal2],
     heroBackground: {
-      type: 'gradient',
-      gradientColors: ['#475569', '#64748b'],
+      type: 'image',
+      imageUrl: newImages.horizontal2,
       opacity: 1,
       overlay: true,
       overlayColor: '#1e293b',
