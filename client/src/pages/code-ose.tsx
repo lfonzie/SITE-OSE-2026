@@ -223,17 +223,18 @@ export default function CodeOSE() {
             className="text-left max-w-4xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              <span className="text-school-orange">CODE</span>.OSE
+              <span className="text-school-orange">{"{CODE.OSE}"}</span>
               <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
-                Programação no Fundamental I
+                Linguagem de Programação - Ensino Fundamental I
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-200 mb-6">
               <strong>Alfabetização Digital</strong> Integrada
             </p>
             <p className="text-lg mb-8 text-slate-300 max-w-3xl">
-              Desenvolvendo o pensamento computacional desde os primeiros anos escolares, 
-              preparando nossos alunos para um futuro digital com criatividade e inovação.
+              Preparando cidadãos digitais através da educação tecnológica integrada. 
+              Em uma era digitalmente avançada, o {"{CODE.OSE}"} é um componente fundamental 
+              da grade curricular do Ensino Fundamental I.
             </p>
           </motion.div>
         </div>
