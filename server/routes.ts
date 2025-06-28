@@ -191,9 +191,30 @@ export async function registerRoutes(app: Express) {
       res.json({ 
         success: true, 
         fileName: req.file.filename,
-        path: `/api/images/${req.file.filename}`
+        path: `/images/${req.file.filename}`,
+        url: `/images/${req.file.filename}`
       });
     } catch (error: any) {
+      console.error('Erro no upload de imagem:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Upload específico para professores (vai para /images)
+  app.post("/api/upload-professor-image", uploadGeneral.single('file'), (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: 'Nenhum arquivo enviado' });
+      }
+
+      res.json({ 
+        success: true, 
+        fileName: req.file.filename,
+        path: `/images/${req.file.filename}`,
+        url: `/images/${req.file.filename}`
+      });
+    } catch (error: any) {
+      console.error('Erro no upload de imagem do professor:', error);
       res.status(500).json({ error: error.message });
     }
   });

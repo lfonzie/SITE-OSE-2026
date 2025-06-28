@@ -122,13 +122,13 @@ export default function ProfessoresManager() {
     try {
       const timestamp = Date.now();
       const extension = file.name.split('.').pop() || 'jpg';
-      const fileName = `professor_${editingProfessor.id}_${timestamp}.${extension}`;
+      const fileName = `professor_${editingProfessor.nome.replace(/\s+/g, '_')}_${timestamp}.${extension}`;
       
       const formData = new FormData();
       formData.append('file', file);
       formData.append('fileName', fileName);
 
-      const response = await fetch('/api/upload-image', {
+      const response = await fetch('/api/upload-professor-image', {
         method: 'POST',
         body: formData
       });
@@ -137,7 +137,8 @@ export default function ProfessoresManager() {
         throw new Error('Erro ao fazer upload da imagem');
       }
 
-      const newImageUrl = `/api/images/IG/${fileName}`;
+      const result = await response.json();
+      const newImageUrl = `/images/${fileName}`;
       setEditingProfessor(prev => prev ? { ...prev, foto: newImageUrl } : null);
 
       toast({
@@ -147,6 +148,7 @@ export default function ProfessoresManager() {
 
       e.target.value = '';
     } catch (error) {
+      console.error('Erro no upload:', error);
       toast({
         title: "Erro no upload",
         description: "Ocorreu um erro ao enviar a foto.",
@@ -224,6 +226,10 @@ export default function ProfessoresManager() {
                         src={editingProfessor.foto}
                         alt="Foto do professor"
                         className="w-20 h-20 rounded-full object-cover border-2 border-school-orange"
+                        onError={(e) => {
+                          console.error('Erro ao carregar imagem:', editingProfessor.foto);
+                          e.currentTarget.src = '/images/horizontal_1.png'; // Imagem padrão
+                        }}
                       />
                     )}
                     <div className="flex-1">
@@ -341,9 +347,13 @@ export default function ProfessoresManager() {
               <CardHeader className="pb-3">
                 <div className="flex items-center space-x-3">
                   <OptimizedImage
-                    src={professor.foto}
+                    src={professor.foto || '/images/horizontal_1.png'}
                     alt={professor.nome}
                     className="w-12 h-12 rounded-full object-cover border-2 border-school-orange"
+                    onError={(e) => {
+                      console.error('Erro ao carregar imagem do professor:', professor.foto);
+                      e.currentTarget.src = '/images/horizontal_1.png';
+                    }}
                   />
                   <div className="flex-1 min-w-0">
                     <CardTitle className="text-sm font-semibold truncate">
