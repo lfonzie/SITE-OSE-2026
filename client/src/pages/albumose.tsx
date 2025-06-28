@@ -1,10 +1,10 @@
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ExternalLink, Calendar, Camera, ZoomIn } from "lucide-react";
+import { ExternalLink, Calendar, Camera } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAuth } from '@/contexts/AuthContext';
 import LogoutButton from '@/components/LogoutButton';
