@@ -105,3 +105,19 @@ export const users = pgTable("users", {
 
 export type UpsertUser = typeof users.$inferInsert;
 export type User = typeof users.$inferSelect;
+
+// Album events table
+export const albumEvents = pgTable("album_events", {
+  id: serial("id").primaryKey(),
+  title: varchar("title", { length: 255 }).notNull(),
+  year: varchar("year", { length: 4 }).notNull(),
+  photoLink: text("photo_link").notNull(),
+  eventDate: timestamp("event_date"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const insertAlbumEventSchema = createInsertSchema(albumEvents).omit({ id: true, createdAt: true, updatedAt: true });
+
+export type AlbumEvent = typeof albumEvents.$inferSelect;
+export type InsertAlbumEvent = z.infer<typeof insertAlbumEventSchema>;

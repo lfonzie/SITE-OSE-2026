@@ -485,6 +485,77 @@ export async function registerRoutes(app: Express) {
     }
   });
 
+  // Album Events routes
+  app.get('/api/album-events', async (req, res) => {
+    try {
+      const events = await storage.getAlbumEvents();
+      res.json(events);
+    } catch (error) {
+      console.error('Error fetching album events:', error);
+      res.status(500).json({ error: 'Failed to fetch album events' });
+    }
+  });
+
+  app.post('/api/album-events', async (req, res) => {
+    try {
+      const { title, year, photoLink, eventDate } = req.body;
+      
+      if (!title || !year || !photoLink) {
+        return res.status(400).json({ error: 'Title, year, and photo link are required' });
+      }
+
+      const event = await storage.createAlbumEvent({
+        title,
+        year,
+        photoLink,
+        eventDate: eventDate ? new Date(eventDate) : null
+      });
+
+      res.json(event);
+    } catch (error) {
+      console.error('Error creating album event:', error);
+      res.status(500).json({ error: 'Failed to create album event' });
+    }
+  });
+
+  app.patch('/api/album-events/:id', async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const updates = req.body;
+
+      if (updates.eventDate) {
+        updates.eventDate = new Date(updates.eventDate);
+      }
+
+      const event = await storage.updateAlbumEvent(id, updates);
+      
+      if (!event) {
+        return res.status(404).json({ error: 'Album event not found' });
+      }
+
+      res.json(event);
+    } catch (error) {
+      console.error('Error updating album event:', error);
+      res.status(500).json({ error: 'Failed to update album event' });
+    }
+  });
+
+  app.delete('/api/album-events/:id', async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await storage.deleteAlbumEvent(id);
+      
+      if (!success) {
+        return res.status(404).json({ error: 'Album event not found' });
+      }
+
+      res.json({ success: true });
+    } catch (error) {
+      console.error('Error deleting album event:', error);
+      res.status(500).json({ error: 'Failed to delete album event' });
+    }
+  });
+
   // Serve dashboard.html at /dash route
   app.get('/dash', (req, res) => {
     const dashboardPath = path.join(process.cwd(), 'client/public/dashboard.html');

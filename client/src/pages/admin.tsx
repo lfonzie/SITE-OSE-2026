@@ -4,12 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Eye, Instagram } from "lucide-react";
+import { Eye, Instagram, Camera } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import InstagramUploadManager from '@/components/InstagramUploadManager';
+import AlbumEventsManager from '@/components/AlbumEventsManager';
 
 interface LoginFormData {
   email: string;
@@ -161,36 +162,20 @@ export default function AdminPage() {
           </CardContent>
         </Card>
 
-        {/* Future Features Placeholder */}
+        {/* Album Events Management Section */}
         <div className="mt-8">
           <Card>
             <CardHeader>
-              <CardTitle className="text-gray-500">Próximas Funcionalidades</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <Camera className="w-6 h-6 text-amber-600" />
+                Gerenciamento do Álbum OSE
+              </CardTitle>
+              <p className="text-gray-600">
+                Adicione e gerencie eventos e links de fotos do álbum escolar
+              </p>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg text-center">
-                  <div className="w-12 h-12 bg-gray-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                    <span className="text-gray-400 text-xl">📝</span>
-                  </div>
-                  <h3 className="font-medium text-gray-700">Editor de Conteúdo</h3>
-                  <p className="text-sm text-gray-500 mt-1">Em breve</p>
-                </div>
-                <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg text-center">
-                  <div className="w-12 h-12 bg-gray-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                    <span className="text-gray-400 text-xl">⚙️</span>
-                  </div>
-                  <h3 className="font-medium text-gray-700">Configurações</h3>
-                  <p className="text-sm text-gray-500 mt-1">Em breve</p>
-                </div>
-                <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg text-center">
-                  <div className="w-12 h-12 bg-gray-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                    <span className="text-gray-400 text-xl">📊</span>
-                  </div>
-                  <h3 className="font-medium text-gray-700">Relatórios</h3>
-                  <p className="text-sm text-gray-500 mt-1">Em breve</p>
-                </div>
-              </div>
+              <AlbumEventsManager />
             </CardContent>
           </Card>
         </div>

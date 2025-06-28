@@ -1,7 +1,7 @@
 import { 
-  programs, faculty, news, testimonials, contacts, materialLists, users,
-  type Program, type Faculty, type News, type Testimonial, type Contact, type MaterialList, type User,
-  type InsertProgram, type InsertFaculty, type InsertNews, type InsertTestimonial, type InsertContact, type InsertMaterialList, type UpsertUser
+  programs, faculty, news, testimonials, contacts, materialLists, albumEvents, users,
+  type Program, type Faculty, type News, type Testimonial, type Contact, type MaterialList, type AlbumEvent, type User,
+  type InsertProgram, type InsertFaculty, type InsertNews, type InsertTestimonial, type InsertContact, type InsertMaterialList, type InsertAlbumEvent, type UpsertUser
 } from "@shared/schema";
 import path from 'path';
 import fs from 'fs/promises';
@@ -41,6 +41,12 @@ export interface IStorage {
   // User operations for Replit Auth
   getUser(id: string): Promise<User | undefined>;
   upsertUser(user: UpsertUser): Promise<User>;
+
+  // Album Events
+  getAlbumEvents(): Promise<AlbumEvent[]>;
+  createAlbumEvent(event: InsertAlbumEvent): Promise<AlbumEvent>;
+  updateAlbumEvent(id: number, updates: Partial<AlbumEvent>): Promise<AlbumEvent | undefined>;
+  deleteAlbumEvent(id: number): Promise<boolean>;
 }
 
 export class MemStorage implements IStorage {
@@ -50,6 +56,7 @@ export class MemStorage implements IStorage {
   private testimonials: Map<number, Testimonial> = new Map();
   private contacts: Map<number, Contact> = new Map();
   private materialLists: Map<number, MaterialList> = new Map();
+  private albumEvents: Map<number, AlbumEvent> = new Map();
   private currentId = 1;
   private dataDir = path.join(process.cwd(), 'data');
   private instagramPath = path.join(this.dataDir, 'instagram.json');
@@ -224,6 +231,32 @@ export class MemStorage implements IStorage {
 
     testimonialsData.forEach(testimonial => this.testimonials.set(testimonial.id, testimonial));
 
+    // Seed album events with authentic OSE data
+    const albumEventsData: AlbumEvent[] = [
+      // 2025 Events
+      { id: 1, title: "FESTA JUNINA 2025", year: "2025", photoLink: "https://photos.app.goo.gl/TJUiJtZmTxAXStpr5", eventDate: new Date("2025-06-15"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 2, title: "PETZOO 2025", year: "2025", photoLink: "https://photos.app.goo.gl/9zdK3NX3VCF9StRz6", eventDate: new Date("2025-05-10"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 3, title: "DIA DA FAMÍLIA 2025", year: "2025", photoLink: "https://photos.app.goo.gl/KL1Qzeo543NjoBwv7", eventDate: new Date("2025-04-20"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 4, title: "PLANETARIO / RIO TIETE 2025", year: "2025", photoLink: "https://photos.app.goo.gl/niRigCStmmYK8JM86", eventDate: new Date("2025-03-15"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 5, title: "CARNAVAL MANHÃ", year: "2025", photoLink: "https://photos.app.goo.gl/P1PJdRw2RaA6oUHq6", eventDate: new Date("2025-02-13"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 6, title: "CARNAVAL TARDE", year: "2025", photoLink: "https://photos.app.goo.gl/cpgyF59fTfLha5z58", eventDate: new Date("2025-02-13"), createdAt: new Date(), updatedAt: new Date() },
+      
+      // 2024 Events
+      { id: 7, title: "CAFÉ FORMANDOS 2024", year: "2024", photoLink: "https://photos.app.goo.gl/3GCCuwHddujvLtSj8", eventDate: new Date("2024-12-10"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 8, title: "GINCANA 2024 - DIA 1", year: "2024", photoLink: "https://photos.app.goo.gl/xvcTxxeiUdsYtTLu9", eventDate: new Date("2024-10-15"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 9, title: "GINCANA 2024 - DIA 2", year: "2024", photoLink: "https://photos.app.goo.gl/u38gnZiTzudgmc4v8", eventDate: new Date("2024-10-16"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 10, title: "GINCANA 2024 - DIA 3", year: "2024", photoLink: "https://photos.app.goo.gl/Zj775GDwXfPgtY2cA", eventDate: new Date("2024-10-17"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 11, title: "GINCANA 2024 - DIA 4", year: "2024", photoLink: "https://photos.app.goo.gl/M2nnN7Qa42Uy3zQJ8", eventDate: new Date("2024-10-18"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 12, title: "FESTA JUNINA 2024", year: "2024", photoLink: "https://photos.app.goo.gl/1Lq2dLXSV4j6bN4n8", eventDate: new Date("2024-06-15"), createdAt: new Date(), updatedAt: new Date() },
+      
+      // 2023 Events
+      { id: 13, title: "FESTIVAL CULTURAL 2023", year: "2023", photoLink: "https://bit.ly/FestivalOSE2023", eventDate: new Date("2023-11-20"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 14, title: "FESTA JUNINA 2023", year: "2023", photoLink: "https://bit.ly/FestaJuninaOSE2023_", eventDate: new Date("2023-06-15"), createdAt: new Date(), updatedAt: new Date() },
+      { id: 15, title: "DIA DA FAMÍLIA 2023", year: "2023", photoLink: "https://bit.ly/OSEFamilia23", eventDate: new Date("2023-04-25"), createdAt: new Date(), updatedAt: new Date() }
+    ];
+
+    albumEventsData.forEach(event => this.albumEvents.set(event.id, event));
+
     this.currentId = 100; // Start from 100 to avoid conflicts
   }
 
@@ -378,6 +411,47 @@ export class MemStorage implements IStorage {
       updatedAt: new Date()
     };
     return user;
+  }
+
+  // Album Events operations
+  async getAlbumEvents(): Promise<AlbumEvent[]> {
+    return Array.from(this.albumEvents.values()).sort((a, b) => {
+      // Sort by event date (if available) or creation date, newest first
+      const dateA = a.eventDate || a.createdAt || new Date(0);
+      const dateB = b.eventDate || b.createdAt || new Date(0);
+      return new Date(dateB).getTime() - new Date(dateA).getTime();
+    });
+  }
+
+  async createAlbumEvent(event: InsertAlbumEvent): Promise<AlbumEvent> {
+    const id = this.currentId++;
+    const newEvent: AlbumEvent = {
+      ...event,
+      id,
+      eventDate: event.eventDate || null,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+    this.albumEvents.set(id, newEvent);
+    return newEvent;
+  }
+
+  async updateAlbumEvent(id: number, updates: Partial<AlbumEvent>): Promise<AlbumEvent | undefined> {
+    const event = this.albumEvents.get(id);
+    if (!event) return undefined;
+
+    const updated: AlbumEvent = {
+      ...event,
+      ...updates,
+      id,
+      updatedAt: new Date()
+    };
+    this.albumEvents.set(id, updated);
+    return updated;
+  }
+
+  async deleteAlbumEvent(id: number): Promise<boolean> {
+    return this.albumEvents.delete(id);
   }
 
   private async loadMaterialLists(): Promise<MaterialList[]> {
