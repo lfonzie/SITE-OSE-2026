@@ -435,7 +435,7 @@ export default function Legacy() {
                     <EnhancedImageSelector
                       currentImage={images[index + 4] || newImages.horizontal4}
                       onImageSelect={(imageUrl) => updateImage(index + 4, imageUrl)}
-                      className="absolute inset-0"
+                      className="absolute top-2 right-2 z-10"
                     />
                   )}
                 </div>
