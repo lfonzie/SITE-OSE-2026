@@ -32,9 +32,9 @@ export default function Integral() {
     updateHeroBackground,
     getImagePosition, 
     updateImagePosition 
-  } = usePageData('Programa Integral', {
-    heroImage: '/images/horizontal_1.png',
-    images: ['/images/horizontal_2.png', '/images/horizontal_3.png', '/images/horizontal_4.png'],
+  } = usePageData('Integral', {
+    heroImage: newImages.horizontal30,
+    images: [newImages.horizontal30, newImages.horizontal31, newImages.horizontal32],
     heroBackground: {
       type: 'gradient',
       gradientColors: ['#475569', '#64748b'],
@@ -221,16 +221,16 @@ export default function Integral() {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative">
                 <DragImagePosition
-                  src={newImages.horizontal30}
+                  src={images[0] || newImages.horizontal30}
                   alt="Atividades do Integral Flex"
                   className="w-full h-48 rounded-lg shadow-lg"
                   editable={isAuthenticated}
                   initialPosition={{
-                    x: getImagePosition('hero-grid-0')?.horizontalPosition || 0,
-                    y: getImagePosition('hero-grid-0')?.verticalPosition || 0
+                    x: getImagePosition('integral-gallery-0')?.horizontalPosition || 0,
+                    y: getImagePosition('integral-gallery-0')?.verticalPosition || 0
                   }}
                   onPositionChange={(position: { x: number; y: number }) => {
-                    const currentPos = getImagePosition('hero-grid-0') || {
+                    const currentPos = getImagePosition('integral-gallery-0') || {
                       objectPosition: 'center center',
                       horizontalPosition: 0,
                       verticalPosition: 0,
@@ -239,7 +239,7 @@ export default function Integral() {
                       filter: 'none',
                       objectFit: 'cover' as const
                     };
-                    updateImagePosition('hero-grid-0', {
+                    updateImagePosition('integral-gallery-0', {
                       ...currentPos,
                       objectPosition: `${50 + position.x}% ${50 + position.y}%`,
                       horizontalPosition: position.x,
@@ -250,13 +250,13 @@ export default function Integral() {
                 {isAuthenticated && (
                   <>
                     <EnhancedImageSelector
-                      currentImage={newImages.horizontal30}
+                      currentImage={images[0] || newImages.horizontal30}
                       onImageSelect={(url) => updateImage(0, url)}
                       className="absolute top-2 right-2 z-10"
                     />
                     <ImagePositionControls
-                      currentPosition={getImagePosition('hero-grid-0')}
-                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-0', newPosition)}
+                      currentPosition={getImagePosition('integral-gallery-0')}
+                      onPositionChange={(newPosition) => updateImagePosition('integral-gallery-0', newPosition)}
                       className="absolute bottom-2 right-2 z-10"
                     />
                   </>
@@ -264,16 +264,16 @@ export default function Integral() {
               </div>
               <div className="relative">
                 <DragImagePosition
-                  src={newImages.horizontal31}
+                  src={images[1] || newImages.horizontal31}
                   alt="Apoio acadêmico"
                   className="w-full h-48 rounded-lg shadow-lg"
                   editable={isAuthenticated}
                   initialPosition={{
-                    x: getImagePosition('hero-grid-1')?.horizontalPosition || 0,
-                    y: getImagePosition('hero-grid-1')?.verticalPosition || 0
+                    x: getImagePosition('integral-gallery-1')?.horizontalPosition || 0,
+                    y: getImagePosition('integral-gallery-1')?.verticalPosition || 0
                   }}
                   onPositionChange={(position: { x: number; y: number }) => {
-                    const currentPos = getImagePosition('hero-grid-1') || {
+                    const currentPos = getImagePosition('integral-gallery-1') || {
                       objectPosition: 'center center',
                       horizontalPosition: 0,
                       verticalPosition: 0,
@@ -282,7 +282,7 @@ export default function Integral() {
                       filter: 'none',
                       objectFit: 'cover' as const
                     };
-                    updateImagePosition('hero-grid-1', {
+                    updateImagePosition('integral-gallery-1', {
                       ...currentPos,
                       objectPosition: `${50 + position.x}% ${50 + position.y}%`,
                       horizontalPosition: position.x,
@@ -293,13 +293,13 @@ export default function Integral() {
                 {isAuthenticated && (
                   <>
                     <EnhancedImageSelector
-                      currentImage={newImages.horizontal31}
+                      currentImage={images[1] || newImages.horizontal31}
                       onImageSelect={(url) => updateImage(1, url)}
                       className="absolute top-2 right-2 z-10"
                     />
                     <ImagePositionControls
-                      currentPosition={getImagePosition('hero-grid-1')}
-                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-1', newPosition)}
+                      currentPosition={getImagePosition('integral-gallery-1')}
+                      onPositionChange={(newPosition) => updateImagePosition('integral-gallery-1', newPosition)}
                       className="absolute bottom-2 right-2 z-10"
                     />
                   </>
@@ -307,16 +307,16 @@ export default function Integral() {
               </div>
               <div className="relative col-span-2">
                 <DragImagePosition
-                  src={newImages.horizontal32}
+                  src={images[2] || newImages.horizontal32}
                   alt="Atividades complementares"
                   className="w-full h-48 rounded-lg shadow-lg"
                   editable={isAuthenticated}
                   initialPosition={{
-                    x: getImagePosition('hero-grid-2')?.horizontalPosition || 0,
-                    y: getImagePosition('hero-grid-2')?.verticalPosition || 0
+                    x: getImagePosition('integral-gallery-2')?.horizontalPosition || 0,
+                    y: getImagePosition('integral-gallery-2')?.verticalPosition || 0
                   }}
                   onPositionChange={(position: { x: number; y: number }) => {
-                    const currentPos = getImagePosition('hero-grid-2') || {
+                    const currentPos = getImagePosition('integral-gallery-2') || {
                       objectPosition: 'center center',
                       horizontalPosition: 0,
                       verticalPosition: 0,
@@ -325,7 +325,7 @@ export default function Integral() {
                       filter: 'none',
                       objectFit: 'cover' as const
                     };
-                    updateImagePosition('hero-grid-2', {
+                    updateImagePosition('integral-gallery-2', {
                       ...currentPos,
                       objectPosition: `${50 + position.x}% ${50 + position.y}%`,
                       horizontalPosition: position.x,
@@ -336,13 +336,13 @@ export default function Integral() {
                 {isAuthenticated && (
                   <>
                     <EnhancedImageSelector
-                      currentImage={newImages.horizontal32}
+                      currentImage={images[2] || newImages.horizontal32}
                       onImageSelect={(url) => updateImage(2, url)}
                       className="absolute top-2 right-2 z-10"
                     />
                     <ImagePositionControls
-                      currentPosition={getImagePosition('hero-grid-2')}
-                      onPositionChange={(newPosition) => updateImagePosition('hero-grid-2', newPosition)}
+                      currentPosition={getImagePosition('integral-gallery-2')}
+                      onPositionChange={(newPosition) => updateImagePosition('integral-gallery-2', newPosition)}
                       className="absolute bottom-2 right-2 z-10"
                     />
                   </>
