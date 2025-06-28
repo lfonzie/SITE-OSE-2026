@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { Plus, Edit, Trash2, Save, X, Upload, Camera } from 'lucide-react';
 import { OptimizedImage } from '@/components/ui/optimized-image';
-import { EnhancedImageSelector } from '@/components/EnhancedImageSelector';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 
 interface Professor {
   id: number;
