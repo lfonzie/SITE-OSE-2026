@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Eye, Instagram, Camera, FileText } from "lucide-react";
+import { Eye, Instagram, Camera, FileText, Users } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -13,6 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import InstagramUploadManager from '@/components/InstagramUploadManager';
 import AlbumEventsManager from '@/components/AlbumEventsManager';
 import MaterialListManager from '@/components/MaterialListManager';
+import ProfessoresManager from '@/components/ProfessoresManager';
 
 interface LoginFormData {
   email: string;
@@ -150,7 +151,7 @@ export default function AdminPage() {
 
         {/* Admin Management Tabs */}
         <Tabs defaultValue="instagram" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="instagram" className="flex items-center gap-2">
               <Instagram className="w-4 h-4" />
               Instagram
@@ -162,6 +163,10 @@ export default function AdminPage() {
             <TabsTrigger value="material" className="flex items-center gap-2">
               <FileText className="w-4 h-4" />
               Lista de Material
+            </TabsTrigger>
+            <TabsTrigger value="professores" className="flex items-center gap-2">
+              <Users className="w-4 h-4" />
+              Professores
             </TabsTrigger>
           </TabsList>
 
@@ -212,6 +217,23 @@ export default function AdminPage() {
               </CardHeader>
               <CardContent>
                 <MaterialListManager />
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="professores" className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Users className="w-6 h-6 text-blue-600" />
+                  Gerenciamento de Professores
+                </CardTitle>
+                <p className="text-gray-600">
+                  Adicione, edite e gerencie o corpo docente da escola
+                </p>
+              </CardHeader>
+              <CardContent>
+                <ProfessoresManager />
               </CardContent>
             </Card>
           </TabsContent>

@@ -6,7 +6,10 @@ import ContactSection from '@/components/contact-section';
 import { OptimizedImage } from '@/components/ui/optimized-image';
 import { useVisualComposer } from '@/hooks/useVisualComposer';
 import { useAuth } from '@/contexts/AuthContext';
-import DragImagePosition from '@/components/DragImagePosition';
+import { usePageData } from '@/hooks/usePageData';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
+import { useQuery } from '@tanstack/react-query';
+import { apiRequest } from '@/lib/queryClient';
 
 // Use new image paths from updated folder
 import { newImages } from "@/lib/image-verification";
@@ -14,8 +17,18 @@ const img1 = newImages.img1;
 const img2 = newImages.img2;
 const img3 = newImages.img3;
 
-// Dados dos professores - expandir conforme necessário
-const professores = [
+interface Professor {
+  id: number;
+  nome: string;
+  disciplina: string;
+  formacao: string;
+  experiencia: string;
+  sobre: string;
+  foto: string;
+}
+
+// Dados dos professores de fallback (caso a API não funcione)
+const professoresFallback = [
   {
     id: 1,
     nome: "Prof. João Silva",
@@ -158,6 +171,29 @@ const professores = [
 export default function Professores() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Professores');
+  
+  const { data: professores = professoresFallback } = useQuery<Professor[]>({
+    queryKey: ['professores'],
+    queryFn: () => apiRequest('/professores'),
+    staleTime: 5 * 60 * 1000, // 5 minutos
+  });
+  
+  const { 
+    heroBackground,
+    updateHeroBackground
+  } = usePageData('Professores', {
+    heroBackground: {
+      type: 'gradient',
+      gradientColors: ['#475569', '#64748b'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.8,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
+  });
   const diferenciais = [
     {
       icon: GraduationCap,
@@ -196,22 +232,54 @@ export default function Professores() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <DragImagePosition
-            src={img1}
-            alt="Professores OSE"
-            className="w-full h-full opacity-30"
-            editable={isAuthenticated}
-            initialPosition={{
-              x: 0,
-              y: 0
-            }}
-            onPositionChange={() => {}}
+      <section 
+        className="relative pt-20 pb-16 text-white overflow-hidden"
+        style={{
+          ...(heroBackground?.type === 'gradient' && {
+            backgroundImage: `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }),
+          ...(heroBackground?.type === 'image' && heroBackground.imageUrl && {
+            backgroundImage: `url(${heroBackground.imageUrl})`,
+            backgroundSize: heroBackground.size || 'cover',
+            backgroundPosition: heroBackground.position || 'center',
+            backgroundRepeat: heroBackground.repeat || 'no-repeat'
+          }),
+          ...(heroBackground?.type === 'color' && {
+            backgroundColor: heroBackground.solidColor || '#475569'
+          }),
+          ...(!heroBackground?.type && {
+            backgroundImage: 'linear-gradient(135deg, #475569, #64748b)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }),
+          opacity: heroBackground?.opacity || 1
+        }}
+      >
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.8
+            }}
+          ></div>
+        )}
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">

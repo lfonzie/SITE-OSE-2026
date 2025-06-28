@@ -561,4 +561,57 @@ export async function registerRoutes(app: Express) {
     const dashboardPath = path.join(process.cwd(), 'client/public/dashboard.html');
     res.sendFile(dashboardPath);
   });
+
+  // Professores routes
+  app.get('/api/professores', async (req, res) => {
+    try {
+      const professores = await storage.getFaculty(); // Assuming getFaculty returns professor data
+      res.json(professores);
+    } catch (error) {
+      console.error('Erro ao buscar professores:', error);
+      res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+  });
+
+  app.post('/api/professores', async (req, res) => {
+    try {
+      const professorData = req.body;
+      const professor = await storage.createFacultyMember(professorData); // Assuming createFacultyMember creates a professor
+      res.json(professor);
+    } catch (error) {
+      console.error('Erro ao adicionar professor:', error);
+      res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+  });
+
+  app.patch('/api/professores/:id', async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const professorData = req.body;
+      const professor = await storage.updateFacultyMember(id, professorData); // Assuming updateFacultyMember updates a professor
+      if (professor) {
+        res.json(professor);
+      } else {
+        res.status(404).json({ error: 'Professor não encontrado' });
+      }
+    } catch (error) {
+      console.error('Erro ao atualizar professor:', error);
+      res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+  });
+
+  app.delete('/api/professores/:id', async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await storage.deleteFacultyMember(id); // Assuming deleteFacultyMember deletes a professor
+      if (success) {
+        res.json({ success: true });
+      } else {
+        res.status(404).json({ error: 'Professor não encontrado' });
+      }
+    } catch (error) {
+      console.error('Erro ao deletar professor:', error);
+      res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+  });
 }
