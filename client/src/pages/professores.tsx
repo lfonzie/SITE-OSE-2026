@@ -227,12 +227,36 @@ export default function Professores() {
     }
   });
 
-  // Carregar professores do localStorage
+  // Carregar professores da API
   useEffect(() => {
-    const savedProfessores = localStorage.getItem('professores-data');
-    if (savedProfessores) {
-      setProfessores(JSON.parse(savedProfessores));
-    }
+    const loadProfessores = async () => {
+      try {
+        const response = await fetch('/api/professores');
+        if (response.ok) {
+          const data = await response.json();
+          // Converter para o formato esperado pela interface
+          const professoresFormatted = data.map((prof: any) => ({
+            id: prof.id.toString(),
+            nome: prof.nome,
+            disciplina: prof.disciplina,
+            formacao: prof.formacao,
+            experiencia: prof.experiencia,
+            sobre: prof.sobre || '',
+            foto: prof.foto
+          }));
+          setProfessores(professoresFormatted);
+        }
+      } catch (error) {
+        console.error('Erro ao carregar professores:', error);
+        // Fallback para localStorage se a API falhar
+        const savedProfessores = localStorage.getItem('professores-data');
+        if (savedProfessores) {
+          setProfessores(JSON.parse(savedProfessores));
+        }
+      }
+    };
+
+    loadProfessores();
   }, []);
 
   const diferenciais = [
