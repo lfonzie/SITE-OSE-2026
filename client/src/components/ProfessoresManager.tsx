@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -51,7 +50,7 @@ export default function ProfessoresManager() {
     try {
       const method = 'id' in professor ? 'PUT' : 'POST';
       const url = 'id' in professor ? `/api/professores/${professor.id}` : '/api/professores';
-      
+
       const response = await fetch(url, {
         method,
         headers: {
@@ -106,94 +105,6 @@ export default function ProfessoresManager() {
     }
   };
 
-  const handleImageSelect = (imageUrl: string) => {
-    if (editingProfessor) {
-      setEditingProfessor(prev => prev ? { ...prev, foto: imageUrl } : null);
-      setShowImageSelector(false);
-      toast({
-        title: "Imagem selecionada!",
-        description: "A imagem foi selecionada com sucesso.",
-      });
-    }
-  };
-
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file || !editingProfessor) return;
-
-    // Validações detalhadas
-    if (!file.type.startsWith('image/')) {
-      toast({
-        title: "Erro no upload",
-        description: "Por favor, selecione apenas arquivos de imagem (JPG, PNG, GIF, WebP).",
-        variant: "destructive",
-      });
-      e.target.value = '';
-      return;
-    }
-
-    // Validar tamanho (máximo 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      toast({
-        title: "Erro no upload",
-        description: "O arquivo deve ter no máximo 5MB.",
-        variant: "destructive",
-      });
-      e.target.value = '';
-      return;
-    }
-
-    setUploading(true);
-
-    try {
-      const timestamp = Date.now();
-      const extension = file.name.split('.').pop()?.toLowerCase() || 'jpg';
-      const professorName = editingProfessor.nome.replace(/[^a-zA-Z0-9]/g, '_');
-      const fileName = `professor_${professorName}_${timestamp}.${extension}`;
-      
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('fileName', fileName);
-
-      console.log('Enviando arquivo:', fileName, 'Tamanho:', file.size);
-
-      const response = await fetch('/api/upload-professor-image', {
-        method: 'POST',
-        body: formData
-      });
-
-      console.log('Response status:', response.status);
-
-      if (!response.ok) {
-        const errorData = await response.text();
-        console.error('Erro na resposta:', errorData);
-        throw new Error(`Erro no servidor: ${response.status}`);
-      }
-
-      const result = await response.json();
-      console.log('Upload result:', result);
-
-      const newImageUrl = `/images/${fileName}`;
-      setEditingProfessor(prev => prev ? { ...prev, foto: newImageUrl } : null);
-
-      toast({
-        title: "Foto atualizada!",
-        description: "A nova foto foi carregada com sucesso.",
-      });
-
-      e.target.value = '';
-    } catch (error) {
-      console.error('Erro detalhado no upload:', error);
-      toast({
-        title: "Erro no upload",
-        description: error instanceof Error ? error.message : "Ocorreu um erro ao enviar a foto.",
-        variant: "destructive",
-      });
-      e.target.value = '';
-    } finally {
-      setUploading(false);
-    }
-  };
 
   const openEditDialog = (professor?: Professor) => {
     if (professor) {
@@ -243,71 +154,52 @@ export default function ProfessoresManager() {
               Adicionar Professor
             </Button>
           </DialogTrigger>
-          
+
           <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>
                 {editingProfessor?.id === 0 ? 'Adicionar Professor' : 'Editar Professor'}
               </DialogTitle>
             </DialogHeader>
-            
+
             {editingProfessor && (
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Foto */}
                 <div className="space-y-2">
                   <Label>Foto do Professor</Label>
-                  <div className="flex items-center space-x-4">
-                    {editingProfessor.foto && (
-                      <OptimizedImage
-                        src={editingProfessor.foto}
-                        alt="Foto do professor"
-                        className="w-20 h-20 rounded-full object-cover border-2 border-school-orange"
-                        onError={(e) => {
-                          console.error('Erro ao carregar imagem:', editingProfessor.foto);
-                          e.currentTarget.src = '/images/horizontal_1.png'; // Imagem padrão
-                        }}
-                      />
-                    )}
-                    <div className="flex-1 space-y-2">
-                      {/* Botões de seleção */}
-                      <div className="flex gap-2">
-                        <Button
-                          type="button"
-                          variant="outline"
-                          onClick={() => setShowImageSelector(true)}
-                          className="flex-1"
-                        >
-                          <Upload className="w-4 h-4 mr-2" />
-                          Selecionar do Servidor
-                        </Button>
-                      </div>
-                      
-                      {/* Upload de arquivo */}
-                      <div className="relative">
-                        <Input
-                          type="file"
-                          accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
-                          onChange={handleImageUpload}
-                          disabled={uploading}
-                          className="mb-2"
-                        />
-                        {uploading && (
-                          <div className="absolute inset-0 bg-white/80 flex items-center justify-center rounded">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-4 h-4 border-2 border-school-orange border-t-transparent rounded-full animate-spin"></div>
-                              <span className="text-sm">Enviando...</span>
-                            </div>
+                  
+                <div className="flex flex-col gap-4 mb-4">
+                          <div className="flex items-center gap-4">
+                            <EnhancedImageSelector
+                              currentImage={editingProfessor.foto}
+                              onImageSelect={(imageUrl) => {
+                                setEditingProfessor(prev => prev ? { ...prev, foto: imageUrl } : null);
+                                toast({
+                                  title: "Foto atualizada",
+                                  description: "A foto do professor foi alterada com sucesso!",
+                                });
+                              }}
+                            />
                           </div>
-                        )}
-                      </div>
-                      <p className="text-xs text-gray-500">
-                        {uploading 
-                          ? 'Upload em andamento...' 
-                          : 'Ou envie um novo arquivo (JPG, PNG, GIF, WebP - máx. 5MB)'
-                        }
-                      </p>
-                    </div>
-                  </div>
+
+                          {editingProfessor.foto && (
+                            <div className="flex items-center gap-3">
+                              <OptimizedImage
+                                src={editingProfessor.foto}
+                                alt="Foto do professor"
+                                className="w-20 h-20 rounded-full object-cover border-2 border-school-orange"
+                                onError={(e) => {
+                                  console.error('Erro ao carregar imagem:', editingProfessor.foto);
+                                  e.currentTarget.src = '/images/horizontal_1.png'; // Imagem padrão
+                                }}
+                              />
+                              <div className="flex-1">
+                                <p className="text-sm text-gray-600">Foto atual</p>
+                                <p className="text-xs text-gray-500 break-all">{editingProfessor.foto}</p>
+                              </div>
+                            </div>
+                          )}
+                        </div>
                 </div>
 
                 {/* Nome */}
@@ -428,14 +320,14 @@ export default function ProfessoresManager() {
                   </div>
                 </div>
               </CardHeader>
-              
+
               <CardContent className="pt-0">
                 <div className="space-y-2 text-xs text-gray-600">
                   <p><strong>Formação:</strong> {professor.formacao}</p>
                   <p><strong>Experiência:</strong> {professor.experiencia}</p>
                   <p className="line-clamp-2">{professor.sobre}</p>
                 </div>
-                
+
                 <div className="flex gap-2 mt-4">
                   <Button
                     size="sm"
@@ -459,7 +351,7 @@ export default function ProfessoresManager() {
           ))}
         </div>
       </ScrollArea>
-      
+
       {professores.length === 0 && (
         <div className="text-center py-8 text-gray-500">
           <Camera className="w-12 h-12 mx-auto mb-4 opacity-50" />
@@ -477,7 +369,13 @@ export default function ProfessoresManager() {
             </DialogHeader>
             <EnhancedImageSelector
               currentImage={editingProfessor?.foto}
-              onImageSelect={handleImageSelect}
+              onImageSelect={(imageUrl) => {
+                setEditingProfessor(prev => prev ? { ...prev, foto: imageUrl } : null);
+                toast({
+                  title: "Foto atualizada",
+                  description: "A foto do professor foi alterada com sucesso!",
+                });
+              }}
             />
           </DialogContent>
         </Dialog>
