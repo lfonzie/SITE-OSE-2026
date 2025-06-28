@@ -11,6 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { Plus, Edit, Trash2, Save, X, Upload, Camera } from 'lucide-react';
 import { OptimizedImage } from '@/components/ui/optimized-image';
+import { EnhancedImageSelector } from '@/components/EnhancedImageSelector';
 
 interface Professor {
   id: number;
@@ -27,6 +28,7 @@ export default function ProfessoresManager() {
   const [editingProfessor, setEditingProfessor] = useState<Professor | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [showImageSelector, setShowImageSelector] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -100,6 +102,17 @@ export default function ProfessoresManager() {
         title: "Erro ao remover",
         description: "Ocorreu um erro ao remover o professor.",
         variant: "destructive",
+      });
+    }
+  };
+
+  const handleImageSelect = (imageUrl: string) => {
+    if (editingProfessor) {
+      setEditingProfessor(prev => prev ? { ...prev, foto: imageUrl } : null);
+      setShowImageSelector(false);
+      toast({
+        title: "Imagem selecionada!",
+        description: "A imagem foi selecionada com sucesso.",
       });
     }
   };
@@ -255,7 +268,21 @@ export default function ProfessoresManager() {
                         }}
                       />
                     )}
-                    <div className="flex-1">
+                    <div className="flex-1 space-y-2">
+                      {/* Botões de seleção */}
+                      <div className="flex gap-2">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          onClick={() => setShowImageSelector(true)}
+                          className="flex-1"
+                        >
+                          <Upload className="w-4 h-4 mr-2" />
+                          Selecionar do Servidor
+                        </Button>
+                      </div>
+                      
+                      {/* Upload de arquivo */}
                       <div className="relative">
                         <Input
                           type="file"
@@ -276,7 +303,7 @@ export default function ProfessoresManager() {
                       <p className="text-xs text-gray-500">
                         {uploading 
                           ? 'Upload em andamento...' 
-                          : 'Formatos aceitos: JPG, PNG, GIF, WebP (máx. 5MB)'
+                          : 'Ou envie um novo arquivo (JPG, PNG, GIF, WebP - máx. 5MB)'
                         }
                       </p>
                     </div>
@@ -439,6 +466,21 @@ export default function ProfessoresManager() {
           <p>Nenhum professor cadastrado ainda.</p>
           <p className="text-sm">Clique em "Adicionar Professor" para começar.</p>
         </div>
+      )}
+
+      {/* Modal de seleção de imagens */}
+      {showImageSelector && (
+        <Dialog open={showImageSelector} onOpenChange={setShowImageSelector}>
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle>Selecionar Foto do Professor</DialogTitle>
+            </DialogHeader>
+            <EnhancedImageSelector
+              currentImage={editingProfessor?.foto}
+              onImageSelect={handleImageSelect}
+            />
+          </DialogContent>
+        </Dialog>
       )}
     </div>
   );

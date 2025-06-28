@@ -201,48 +201,34 @@ export async function registerRoutes(app: Express) {
   });
 
   // Upload específico para professores (vai para /images)
-  app.post("/api/upload-professor-image", (req, res) => {
-    console.log('Upload professor - início');
-    
-    uploadGeneral.single('file')(req, res, (err) => {
-      if (err) {
-        console.error('Erro no multer:', err);
-        return res.status(400).json({ 
-          error: err.message.includes('File too large') 
-            ? 'Arquivo muito grande (máximo 5MB)' 
-            : err.message 
-        });
+  app.post("/api/upload-professor-image", uploadGeneral.single('file'), (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: 'Nenhum arquivo enviado' });
       }
 
-      try {
-        if (!req.file) {
-          console.error('Nenhum arquivo recebido');
-          return res.status(400).json({ error: 'Nenhum arquivo enviado' });
-        }
+      console.log('Arquivo recebido:', {
+        filename: req.file.filename,
+        originalname: req.file.originalname,
+        size: req.file.size,
+        mimetype: req.file.mimetype
+      });
 
-        console.log('Arquivo recebido:', {
-          filename: req.file.filename,
-          originalname: req.file.originalname,
-          size: req.file.size,
-          mimetype: req.file.mimetype
-        });
+      const result = { 
+        success: true, 
+        fileName: req.file.filename,
+        path: `/images/${req.file.filename}`,
+        url: `/images/${req.file.filename}`,
+        size: req.file.size,
+        mimetype: req.file.mimetype
+      };
 
-        const result = { 
-          success: true, 
-          fileName: req.file.filename,
-          path: `/images/${req.file.filename}`,
-          url: `/images/${req.file.filename}`,
-          size: req.file.size,
-          mimetype: req.file.mimetype
-        };
-
-        console.log('Upload bem-sucedido:', result);
-        res.json(result);
-      } catch (error: any) {
-        console.error('Erro no processamento do upload:', error);
-        res.status(500).json({ error: 'Erro interno do servidor' });
-      }
-    });
+      console.log('Upload bem-sucedido:', result);
+      res.json(result);
+    } catch (error: any) {
+      console.error('Erro no upload de imagem do professor:', error);
+      res.status(500).json({ error: 'Erro interno do servidor' });
+    }
   });
 
   // Serve uploaded images via API
