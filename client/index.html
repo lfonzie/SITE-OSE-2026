@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    
+
     <!-- SEO Meta Tags -->
     <title>Colégio OSE - Tradição Secular de Ensino em Sorocaba | Desde 1924</title>
     <meta name="description" content="Colégio OSE - 100 anos de excelência educacional em Sorocaba. Educação Infantil, Ensino Fundamental e Médio. Formando líderes conscientes desde 1924." />
@@ -11,7 +11,7 @@
     <meta name="author" content="Colégio OSE" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://colegioose.com.br/" />
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Colégio OSE - Tradição Secular de Ensino em Sorocaba" />
     <meta property="og:description" content="100 anos de excelência educacional em Sorocaba. Educação Infantil, Ensino Fundamental e Médio. Formando líderes conscientes desde 1924." />
@@ -20,13 +20,13 @@
     <meta property="og:image" content="https://colegioose.com.br/images/logo-ose.png" />
     <meta property="og:site_name" content="Colégio OSE" />
     <meta property="og:locale" content="pt_BR" />
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Colégio OSE - Tradição Secular de Ensino em Sorocaba" />
     <meta name="twitter:description" content="100 anos de excelência educacional em Sorocaba. Educação Infantil, Ensino Fundamental e Médio." />
     <meta name="twitter:image" content="https://colegioose.com.br/images/logo-ose.png" />
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -37,14 +37,26 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#D97706" />
     <meta name="mobile-web-app-capable" content="yes" />
-    
+
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://sdk.dfktv2.com https://www.uchat.com.au;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: blob: https: http:;
+      connect-src 'self' https://www.google-analytics.com https://api.calendly.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://google.com https://pagead2.googlesyndication.com https://connect.facebook.net https://sdk.dfktv2.com https://www.uchat.com.au https://ipapi.co;
+      frame-src 'self' https://www.youtube.com https://www.google.com https://calendly.com https://www.uchat.com.au;
+      object-src 'none';
+      base-uri 'self';
+    ">
+
     <!-- UChatWidget Global Installation - Sempre presente -->
     <script>
       (function() {
         let retryCount = 0;
         const maxRetries = 3;
         let widgetCheckInterval;
-        
+
         // Enhanced widget detection
         function findUChatWidget() {
           const selectors = [
@@ -59,7 +71,7 @@
             'div[data-uchat]',
             '[data-widget-id]'
           ];
-          
+
           for (let selector of selectors) {
             const elements = document.querySelectorAll(selector);
             if (elements.length > 0) {
@@ -68,7 +80,7 @@
           }
           return [];
         }
-        
+
         // Force widget visibility
         function forceWidgetVisibility(widgets) {
           widgets.forEach(widget => {
@@ -82,7 +94,7 @@
             }
           });
         }
-        
+
         // Check widget periodically
         function checkWidgetPeriodically() {
           widgetCheckInterval = setInterval(function() {
@@ -95,7 +107,7 @@
               console.log('UChatWidget still not found, checking again...');
             }
           }, 2000);
-          
+
           // Stop checking after 30 seconds
           setTimeout(() => {
             if (widgetCheckInterval) {
@@ -108,22 +120,22 @@
             }
           }, 30000);
         }
-        
+
         // Load UChatWidget with enhanced error handling and retry mechanism
         function loadUChatWidget() {
           console.log(`UChatWidget loading attempt ${retryCount + 1}/${maxRetries}`);
-          
+
           var script = document.createElement('script');
           script.async = true;
           script.defer = true;
           script.src = 'https://www.uchat.com.au/js/widget/to6wv2osffcdtdwb/float.js';
-          
+
           script.onload = function() {
             console.log('UChatWidget loaded successfully');
-            
+
             // Start periodic checking
             checkWidgetPeriodically();
-            
+
             // Force widget initialization if available
             setTimeout(function() {
               if (window.UChatWidget && typeof window.UChatWidget.init === 'function') {
@@ -136,11 +148,11 @@
               }
             }, 1000);
           };
-          
+
           script.onerror = function() {
             console.error(`Failed to load UChatWidget (attempt ${retryCount + 1})`);
             retryCount++;
-            
+
             if (retryCount < maxRetries) {
               setTimeout(loadUChatWidget, 2000 * retryCount);
             } else {
@@ -148,20 +160,20 @@
               createFallbackWidget();
             }
           };
-          
+
           document.head.appendChild(script);
         }
-        
+
         function createFallbackWidget() {
           // Remove existing fallbacks
           const existing = document.getElementById('uchat-fallback-widget');
           if (existing) existing.remove();
-          
+
           const fallbackWidget = document.createElement('div');
           fallbackWidget.id = 'uchat-fallback-widget';
           fallbackWidget.innerHTML = '<a href="https://wa.me/5515021013812" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999999; font-size: 16px; animation: bounce 2s infinite;">💬 WhatsApp</a>';
           document.body.appendChild(fallbackWidget);
-          
+
           // Add bounce animation
           if (!document.getElementById('uchat-fallback-styles')) {
             const style = document.createElement('style');
@@ -169,10 +181,10 @@
             style.textContent = '@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }';
             document.head.appendChild(style);
           }
-          
+
           console.log('UChatWidget fallback widget created');
         }
-        
+
         // Load when DOM is ready
         if (document.readyState === 'loading') {
           document.addEventListener('DOMContentLoaded', loadUChatWidget);

@@ -19,8 +19,10 @@ export function getSession() {
     tableName: "sessions",
   });
   
-  // Detectar se está em produção
-  const isProduction = process.env.NODE_ENV === 'production' || process.env.REPL_DEPLOYMENT === 'true';
+  // Detectar se está em produção (Replit usa REPLIT_DEPLOYMENT)
+  const isProduction = process.env.NODE_ENV === 'production' || 
+                      process.env.REPLIT_DEPLOYMENT === 'true' || 
+                      process.env.REPL_DEPLOYMENT === 'true';
   
   return session({
     secret: process.env.SESSION_SECRET!,
@@ -29,10 +31,10 @@ export function getSession() {
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: isProduction, // true em produção, false em desenvolvimento
-      sameSite: isProduction ? 'lax' : 'lax',
+      secure: false, // Replit não usa HTTPS interno
+      sameSite: 'lax',
       maxAge: sessionTtl,
-      domain: isProduction ? '.colegioose.com.br' : undefined,
+      domain: undefined, // Não definir domínio para funcionar em subdominios do Replit
     },
   });
 }
@@ -49,6 +51,11 @@ declare module 'express-session' {
 
 export function setupSimpleAuth(app: Express) {
   console.log("Setting up Simple Auth...");
+  console.log("Environment:", {
+    NODE_ENV: process.env.NODE_ENV,
+    REPLIT_DEPLOYMENT: process.env.REPLIT_DEPLOYMENT,
+    REPL_DEPLOYMENT: process.env.REPL_DEPLOYMENT
+  });
   
   // Configurar sessões
   app.use(getSession());
