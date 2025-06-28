@@ -358,44 +358,7 @@ export default function Fundamental2() {
                   </div>
                 )}
               </div>
-              <div className="relative group col-span-2">
-                <DragImagePosition
-                  src={images[2] || img4}
-                  alt="Ambiente educacional"
-                  className="w-full h-24 rounded-lg shadow-lg"
-                  editable={isAuthenticated}
-                  initialPosition={{
-                    x: getImagePosition('philosophy-3')?.horizontalPosition || 0,
-                    y: getImagePosition('philosophy-3')?.verticalPosition || 0
-                  }}
-                  onPositionChange={(position: { x: number; y: number }) => {
-                    const currentPos = getImagePosition('philosophy-3') || {
-                      objectPosition: 'center center',
-                      horizontalPosition: 0,
-                      verticalPosition: 0,
-                      scale: 1,
-                      opacity: 1,
-                      filter: 'none',
-                      objectFit: 'cover' as const
-                    };
-                    updateImagePosition('philosophy-3', {
-                      ...currentPos,
-                      objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                      horizontalPosition: position.x,
-                      verticalPosition: position.y
-                    });
-                  }}
-                />
-                {isAuthenticated && (
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <EnhancedImageSelector
-                      currentImage={images[2] || img4}
-                      onImageSelect={(newImage) => updateImage(2, newImage)}
-                      className="absolute inset-0"
-                    />
-                  </div>
-                )}
-              </div>
+              
             </div>
           </div>
         </div>
