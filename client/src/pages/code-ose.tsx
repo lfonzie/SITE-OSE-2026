@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
@@ -24,7 +23,7 @@ import { newImages } from "@/lib/image-verification";
 export default function CodeOSE() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('CODE.OSE');
-  
+
   // Initialize page data with auto-save functionality
   const { 
     heroImage, 
@@ -216,52 +215,32 @@ export default function CodeOSE() {
           ></div>
         )}
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <span className="text-school-orange">{"{CODE.OSE}"}</span>
-              </motion.h1>
-              <motion.h2 
-                className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  Linguagem de Programação
-                  <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
-                    Ensino Fundamental I - Alfabetização Digital
-                  </span>
-                </motion.h2>
-              <motion.p 
-                className="text-xl md:text-2xl font-semibold mb-4"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                Preparando Cidadãos Digitais
-              </motion.p>
-              <motion.p 
-                className="text-xl md:text-2xl mb-6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Educação Tecnológica Integrada
-              </motion.p>
-              <motion.p 
-                className="text-lg mb-8 opacity-95"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                Em uma era digitalmente avançada, o {"{CODE.OSE}"} não é uma matéria opcional; 
-                é um componente fundamental da grade curricular do Ensino Fundamental I, preparando 
-                alunos para os desafios tecnológicos do futuro.
-              </motion.p>
-            </div>
-          </div>
+        
+/>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-6 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left max-w-4xl"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <span className="text-school-orange">CODE</span>.OSE
+              <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                Programação no Fundamental I
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-200 mb-6">
+              <strong>Alfabetização Digital</strong> Integrada
+            </p>
+            <p className="text-lg mb-8 text-slate-300 max-w-3xl">
+              Desenvolvendo o pensamento computacional desde os primeiros anos escolares, 
+              preparando nossos alunos para um futuro digital com criatividade e inovação.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -604,7 +583,7 @@ export default function CodeOSE() {
 
       <WhyOSESection />
       <ContactSection />
-      
+
       {/* Visual Composer */}
       <VisualComposerComponent />
     </div>
