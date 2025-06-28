@@ -455,12 +455,12 @@ export default function Fundamental2() {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Ensino Religioso</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Tecnologia e Inovação</h4>
               <ul className="space-y-2 text-gray-600">
-                <li>• Valores éticos</li>
-                <li>• Diversidade religiosa</li>
-                <li>• Respeito e tolerância</li>
-                <li>• Formação cidadã</li>
+                <li>• Programação e robótica</li>
+                <li>• Ferramentas digitais</li>
+                <li>• Pensamento computacional</li>
+                <li>• Projetos inovadores</li>
               </ul>
             </div>
 
