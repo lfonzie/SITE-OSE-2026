@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
@@ -32,7 +31,7 @@ const img6 = newImages.img21;
 export default function Fundamental1() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Fundamental I');
-  
+
   // Initialize page data with auto-save functionality
   const { 
     heroImage, 
@@ -137,63 +136,34 @@ export default function Fundamental1() {
     <div className="min-h-screen bg-slate-50">
       <Navigation />
 
-      {isAuthenticated && (
-        <div className="fixed top-4 right-4 z-50">
-          <LogoutButton />
-        </div>
-      )}
-
       {/* Hero Section */}
       <section 
         className="relative py-20 text-white overflow-hidden"
         style={{
-          background: heroBackground?.type === 'gradient' 
-            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
-            : heroBackground?.type === 'color'
-            ? heroBackground.solidColor
-            : heroBackground?.type === 'image' && heroBackground.imageUrl
-            ? `url(${heroBackground.imageUrl})`
-            : 'linear-gradient(135deg, #475569, #64748b)',
-          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
-          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
-          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+          ...(heroBackground?.type === 'gradient' && {
+            backgroundImage: `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }),
+          ...(heroBackground?.type === 'image' && heroBackground.imageUrl && {
+            backgroundImage: `url(${heroBackground.imageUrl})`,
+            backgroundSize: heroBackground.size || 'cover',
+            backgroundPosition: heroBackground.position || 'center',
+            backgroundRepeat: heroBackground.repeat || 'no-repeat'
+          }),
+          ...(heroBackground?.type === 'color' && {
+            backgroundColor: heroBackground.solidColor || '#475569'
+          }),
+          ...(!heroBackground?.type && {
+            backgroundImage: 'linear-gradient(135deg, #475569, #64748b)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }),
           opacity: heroBackground?.opacity || 1
         }}
       >
-        {/* Background Image Layer */}
-        {heroBackground?.type === 'image' && heroImage && (
-          <div className="absolute inset-0">
-            <div className="relative w-full h-full">
-              <img 
-                src={heroImage}
-                alt="Ensino Fundamental I OSE"
-                className="w-full h-full object-cover opacity-30"
-                style={{
-                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
-                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
-                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
-                  opacity: getImagePosition('hero')?.opacity || 0.3,
-                  filter: getImagePosition('hero')?.filter || 'none'
-                }}
-              />
-              {isAuthenticated && (
-                <>
-                  <EnhancedImageSelector
-                    currentImage={heroImage}
-                    onImageSelect={updateHeroImage}
-                    className="absolute inset-0"
-                  />
-                  <ImagePositionControls
-                    currentPosition={getImagePosition('hero')}
-                    onPositionChange={(position) => updateImagePosition('hero', position)}
-                    className="absolute inset-0"
-                  />
-                </>
-              )}
-            </div>
-          </div>
-        )}
-
         {/* Hero Background Manager */}
         {isAuthenticated && (
           <HeroBackgroundManager
@@ -494,7 +464,7 @@ export default function Fundamental1() {
 
       <WhyOSESection />
       <ContactSection />
-      
+
       {/* Visual Composer */}
       <VisualComposerComponent />
     </div>
