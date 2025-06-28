@@ -24,6 +24,33 @@ const img5 = newImages.img5;
 const img6 = newImages.img6;
 
 export default function Amplia() {
+  const { isAuthenticated } = useAuth();
+  
+  const { 
+    heroImage, 
+    heroBackground,
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    updateImagePosition,
+    getImagePosition 
+  } = usePageData('Amplia', {
+    heroImage: img1,
+    images: [newImages.img24, newImages.img25, newImages.img26, img5, img6, img1],
+    heroBackground: {
+      type: 'image',
+      imageUrl: img1,
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.8,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
+  });
+
   useEffect(() => {
     updateSEO({
       title: "Amplia - Plataforma de Ensino | a OSE",
@@ -97,16 +124,53 @@ export default function Amplia() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
+      <section className="relative py-20 text-white overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src={img1}
-            alt="Amplia - Plataforma de Ensino"
-            className="w-full h-full object-cover opacity-30"
+        {heroBackground && (
+          <div className="absolute inset-0">
+            {heroBackground.type === 'image' && heroBackground.imageUrl && (
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500"
+                style={{
+                  backgroundImage: `url(${heroBackground.imageUrl})`,
+                  backgroundPosition: heroBackground.position || 'center',
+                  backgroundSize: heroBackground.size || 'cover',
+                  backgroundRepeat: heroBackground.repeat || 'no-repeat',
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
+            {heroBackground.type === 'gradient' && heroBackground.gradientColors && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
+          </div>
+        )}
+
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
-        </div>
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.8
+            }}
+          ></div>
+        )}
         
         <div className="relative z-10 container mx-auto px-6 py-24">
           <motion.div
@@ -162,21 +226,90 @@ export default function Amplia() {
 
           {/* Image Gallery */}
           <div className="grid md:grid-cols-3 gap-6">
-            <OptimizedImage
-              src={newImages.img24}
-              alt="Material didático Amplia"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={newImages.img25}
-              alt="Tecnologia educacional"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
-            <OptimizedImage
-              src={newImages.img26}
-              alt="Metodologia Amplia"
-              className="w-full h-48 rounded-lg shadow-lg"
-            />
+            <div className="relative group">
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[0] || newImages.img24}
+                    onImageSelect={(imageUrl) => updateImage(0, imageUrl)}
+                    className="absolute top-2 right-2 z-10"
+                  />
+                  <DragImagePosition
+                    currentPosition={getImagePosition(0)}
+                    onPositionChange={(position) => updateImagePosition(0, position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+              <OptimizedImage
+                src={images[0] || newImages.img24}
+                alt="Material didático Amplia"
+                className="w-full h-48 rounded-lg shadow-lg"
+                style={{
+                  objectPosition: getImagePosition(0)?.objectPosition || 'center center',
+                  objectFit: getImagePosition(0)?.objectFit || 'cover',
+                  transform: `scale(${getImagePosition(0)?.scale || 1})`,
+                  opacity: getImagePosition(0)?.opacity || 1,
+                  filter: getImagePosition(0)?.filter || 'none'
+                }}
+              />
+            </div>
+            <div className="relative group">
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[1] || newImages.img25}
+                    onImageSelect={(imageUrl) => updateImage(1, imageUrl)}
+                    className="absolute top-2 right-2 z-10"
+                  />
+                  <DragImagePosition
+                    currentPosition={getImagePosition(1)}
+                    onPositionChange={(position) => updateImagePosition(1, position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+              <OptimizedImage
+                src={images[1] || newImages.img25}
+                alt="Tecnologia educacional"
+                className="w-full h-48 rounded-lg shadow-lg"
+                style={{
+                  objectPosition: getImagePosition(1)?.objectPosition || 'center center',
+                  objectFit: getImagePosition(1)?.objectFit || 'cover',
+                  transform: `scale(${getImagePosition(1)?.scale || 1})`,
+                  opacity: getImagePosition(1)?.opacity || 1,
+                  filter: getImagePosition(1)?.filter || 'none'
+                }}
+              />
+            </div>
+            <div className="relative group">
+              {isAuthenticated && (
+                <>
+                  <EnhancedImageSelector
+                    currentImage={images[2] || newImages.img26}
+                    onImageSelect={(imageUrl) => updateImage(2, imageUrl)}
+                    className="absolute top-2 right-2 z-10"
+                  />
+                  <DragImagePosition
+                    currentPosition={getImagePosition(2)}
+                    onPositionChange={(position) => updateImagePosition(2, position)}
+                    className="absolute inset-0"
+                  />
+                </>
+              )}
+              <OptimizedImage
+                src={images[2] || newImages.img26}
+                alt="Metodologia Amplia"
+                className="w-full h-48 rounded-lg shadow-lg"
+                style={{
+                  objectPosition: getImagePosition(2)?.objectPosition || 'center center',
+                  objectFit: getImagePosition(2)?.objectFit || 'cover',
+                  transform: `scale(${getImagePosition(2)?.scale || 1})`,
+                  opacity: getImagePosition(2)?.opacity || 1,
+                  filter: getImagePosition(2)?.filter || 'none'
+                }}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -229,21 +362,90 @@ export default function Amplia() {
 
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <OptimizedImage 
-                src={img5} 
-                alt="Material didático Amplia"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
-              />
-              <OptimizedImage 
-                src={img6} 
-                alt="Tecnologia educacional"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
-              />
-              <OptimizedImage 
-                src={img1} 
-                alt="Metodologia Amplia"
-                className="w-full h-48 object-cover rounded-lg shadow-lg col-span-2"
-              />
+              <div className="relative group">
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={images[3] || img5}
+                      onImageSelect={(imageUrl) => updateImage(3, imageUrl)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <DragImagePosition
+                      currentPosition={getImagePosition(3)}
+                      onPositionChange={(position) => updateImagePosition(3, position)}
+                      className="absolute inset-0"
+                    />
+                  </>
+                )}
+                <OptimizedImage 
+                  src={images[3] || img5} 
+                  alt="Material didático Amplia"
+                  className="w-full h-48 object-cover rounded-lg shadow-lg"
+                  style={{
+                    objectPosition: getImagePosition(3)?.objectPosition || 'center center',
+                    objectFit: getImagePosition(3)?.objectFit || 'cover',
+                    transform: `scale(${getImagePosition(3)?.scale || 1})`,
+                    opacity: getImagePosition(3)?.opacity || 1,
+                    filter: getImagePosition(3)?.filter || 'none'
+                  }}
+                />
+              </div>
+              <div className="relative group">
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={images[4] || img6}
+                      onImageSelect={(imageUrl) => updateImage(4, imageUrl)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <DragImagePosition
+                      currentPosition={getImagePosition(4)}
+                      onPositionChange={(position) => updateImagePosition(4, position)}
+                      className="absolute inset-0"
+                    />
+                  </>
+                )}
+                <OptimizedImage 
+                  src={images[4] || img6} 
+                  alt="Tecnologia educacional"
+                  className="w-full h-48 object-cover rounded-lg shadow-lg"
+                  style={{
+                    objectPosition: getImagePosition(4)?.objectPosition || 'center center',
+                    objectFit: getImagePosition(4)?.objectFit || 'cover',
+                    transform: `scale(${getImagePosition(4)?.scale || 1})`,
+                    opacity: getImagePosition(4)?.opacity || 1,
+                    filter: getImagePosition(4)?.filter || 'none'
+                  }}
+                />
+              </div>
+              <div className="relative group col-span-2">
+                {isAuthenticated && (
+                  <>
+                    <EnhancedImageSelector
+                      currentImage={images[5] || img1}
+                      onImageSelect={(imageUrl) => updateImage(5, imageUrl)}
+                      className="absolute top-2 right-2 z-10"
+                    />
+                    <DragImagePosition
+                      currentPosition={getImagePosition(5)}
+                      onPositionChange={(position) => updateImagePosition(5, position)}
+                      className="absolute inset-0"
+                    />
+                  </>
+                )}
+                <OptimizedImage 
+                  src={images[5] || img1} 
+                  alt="Metodologia Amplia"
+                  className="w-full h-48 object-cover rounded-lg shadow-lg"
+                  style={{
+                    objectPosition: getImagePosition(5)?.objectPosition || 'center center',
+                    objectFit: getImagePosition(5)?.objectFit || 'cover',
+                    transform: `scale(${getImagePosition(5)?.scale || 1})`,
+                    opacity: getImagePosition(5)?.opacity || 1,
+                    filter: getImagePosition(5)?.filter || 'none'
+                  }}
+                />
+              </div>
             </div>
           </div>
 
