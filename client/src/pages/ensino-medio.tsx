@@ -139,53 +139,30 @@ export default function EnsinoMedio() {
       <section 
         className="relative py-20 text-white overflow-hidden"
         style={{
-          background: heroBackground?.type === 'gradient' 
-            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
-            : heroBackground?.type === 'color'
-            ? heroBackground.solidColor
-            : heroBackground?.type === 'image' && heroBackground.imageUrl
-            ? `url(${heroBackground.imageUrl})`
-            : 'linear-gradient(135deg, #475569, #64748b)',
-          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
-          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
-          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+          ...(heroBackground?.type === 'gradient' && {
+            backgroundImage: `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }),
+          ...(heroBackground?.type === 'image' && heroBackground.imageUrl && {
+            backgroundImage: `url(${heroBackground.imageUrl})`,
+            backgroundSize: heroBackground.size || 'cover',
+            backgroundPosition: heroBackground.position || 'center',
+            backgroundRepeat: heroBackground.repeat || 'no-repeat'
+          }),
+          ...(heroBackground?.type === 'color' && {
+            backgroundColor: heroBackground.solidColor || '#475569'
+          }),
+          ...(!heroBackground?.type && {
+            backgroundImage: 'linear-gradient(135deg, #475569, #64748b)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }),
           opacity: heroBackground?.opacity || 1
         }}
       >
-        {/* Background Image Layer */}
-        {heroBackground?.type === 'image' && heroImage && (
-          <div className="absolute inset-0">
-            <div className="relative w-full h-full">
-              <img 
-                src={heroImage}
-                alt="Ensino Médio OSE"
-                className="w-full h-full object-cover opacity-30"
-                style={{
-                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
-                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
-                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
-                  opacity: getImagePosition('hero')?.opacity || 0.3,
-                  filter: getImagePosition('hero')?.filter || 'none'
-                }}
-              />
-              {isAuthenticated && (
-                <>
-                  <EnhancedImageSelector
-                    currentImage={heroImage}
-                    onImageSelect={updateHeroImage}
-                    className="absolute inset-0"
-                  />
-                  <ImagePositionControls
-                    currentPosition={getImagePosition('hero')}
-                    onPositionChange={(position) => updateImagePosition('hero', position)}
-                    className="absolute inset-0"
-                  />
-                </>
-              )}
-            </div>
-          </div>
-        )}
-
         {/* Hero Background Manager */}
         {isAuthenticated && (
           <HeroBackgroundManager
@@ -205,52 +182,32 @@ export default function EnsinoMedio() {
             }}
           ></div>
         )}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <span className="text-school-orange">Novo Ensino Médio</span>
-              </motion.h1>
-              <motion.h2 
-                className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  Ensino Médio
-                  <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
-                    1ª, 2ª e 3ª Séries - Preparação para o Futuro
-                  </span>
-                </motion.h2>
-              <motion.p 
-                className="text-xl md:text-2xl font-semibold mb-4"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                Preparando Alunos para o Futuro
-              </motion.p>
-              <motion.p 
-                className="text-xl md:text-2xl mb-6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Educação Personalizada e Flexível
-              </motion.p>
-              <motion.p 
-                className="text-lg mb-8 opacity-95"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                O Novo Ensino Médio na OSE representa uma revolução na forma como abordamos a educação. 
-                Com uma abordagem centrada no aluno e baseada na nova legislação, oferecemos uma experiência 
-                educacional que é tanto abrangente quanto personalizada.
-              </motion.p>
-            </div>
-          </div>
+        
+        <div className="relative z-10 container mx-auto px-6 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <span className="text-school-orange">Novo Ensino Médio</span>
+              <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                1ª, 2ª e 3ª Séries - Preparação para o Futuro
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-200 mb-6">
+              Preparando Alunos para o Futuro
+            </p>
+            <p className="text-xl md:text-2xl text-slate-200 mb-6">
+              Educação Personalizada e Flexível
+            </p>
+            <p className="text-lg mb-8 text-slate-300 max-w-3xl mx-auto">
+              O Novo Ensino Médio na OSE representa uma revolução na forma como abordamos a educação. 
+              Com uma abordagem centrada no aluno e baseada na nova legislação, oferecemos uma experiência 
+              educacional que é tanto abrangente quanto personalizada.
+            </p>
+          </motion.div>
         </div>
       </section>
 
