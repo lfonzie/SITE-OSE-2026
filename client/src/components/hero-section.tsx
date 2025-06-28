@@ -169,6 +169,20 @@ export default function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
+          {/* Logo OSE 100 anos */}
+          <motion.div
+            className="flex justify-center mb-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <img 
+              src="/images/LogoOSE100anos.png" 
+              alt="Colégio OSE 100 Anos" 
+              className="h-32 md:h-40 w-auto drop-shadow-2xl"
+            />
+          </motion.div>
+
           <motion.div 
             className="relative group"
             initial={{ opacity: 0, y: 50 }}
