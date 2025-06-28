@@ -362,10 +362,10 @@ export default function Legacy() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Grandes <span className="text-school-orange">Personalidades</span>
+              Os visionários que construíram <span className="text-school-orange">nossa história</span>
             </h2>
             <p className="text-xl text-slate-600">
-              Os visionários que construíram nossa história
+              Conheça as grandes personalidades que moldaram a OSE
             </p>
           </div>
 
@@ -373,30 +373,32 @@ export default function Legacy() {
             {historicalFigures.map((figure, index) => (
               <motion.div 
                 key={index} 
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <div className="relative h-64 bg-gradient-to-b from-slate-200 to-slate-300 flex items-center justify-center">
+                <div className="relative h-64 bg-gradient-to-b from-slate-200 to-slate-300 overflow-hidden">
                   <img
                     src={images[index + 1] || newImages.horizontal3}
                     alt={figure.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                   {isAuthenticated && (
-                    <EnhancedImageSelector
-                      currentImage={images[index + 1] || newImages.horizontal3}
-                      onImageSelect={(imageUrl) => updateImage(index + 1, imageUrl)}
-                      className="absolute inset-0"
-                    />
+                    <div className="absolute top-2 right-2 z-10">
+                      <EnhancedImageSelector
+                        currentImage={images[index + 1] || newImages.horizontal3}
+                        onImageSelect={(imageUrl) => updateImage(index + 1, imageUrl)}
+                        className="opacity-0 hover:opacity-100 transition-opacity"
+                      />
+                    </div>
                   )}
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-slate-800 mb-2">{figure.name}</h3>
                   <p className="text-school-orange font-semibold mb-3">{figure.role}</p>
-                  <p className="text-slate-600 mb-3">{figure.description}</p>
-                  <p className="text-sm text-slate-500 italic">{figure.details}</p>
+                  <p className="text-slate-600 mb-3 text-sm leading-relaxed">{figure.description}</p>
+                  <p className="text-xs text-slate-500 italic border-t border-slate-100 pt-3">{figure.details}</p>
                 </div>
               </motion.div>
             ))}
@@ -416,34 +418,38 @@ export default function Legacy() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-8">
             {institutions.map((institution, index) => (
               <motion.div 
                 key={index}
-                className="bg-slate-50 rounded-xl p-4 md:p-8"
+                className="bg-white border border-slate-200 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <div className="relative h-32 md:h-48 bg-gradient-to-b from-slate-200 to-slate-300 rounded-lg mb-4 md:mb-6 flex items-center justify-center overflow-hidden">
+                <div className="relative h-48 bg-gradient-to-b from-slate-200 to-slate-300 overflow-hidden">
                   <img
                     src={images[index + 4] || newImages.horizontal4}
                     alt={institution.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                   {isAuthenticated && (
-                    <EnhancedImageSelector
-                      currentImage={images[index + 4] || newImages.horizontal4}
-                      onImageSelect={(imageUrl) => updateImage(index + 4, imageUrl)}
-                      className="absolute top-2 right-2 z-10"
-                    />
+                    <div className="absolute top-2 right-2 z-10">
+                      <EnhancedImageSelector
+                        currentImage={images[index + 4] || newImages.horizontal4}
+                        onImageSelect={(imageUrl) => updateImage(index + 4, imageUrl)}
+                        className="opacity-0 hover:opacity-100 transition-opacity"
+                      />
+                    </div>
                   )}
                 </div>
-                <h3 className="text-lg md:text-2xl font-bold text-slate-800 mb-2">{institution.name}</h3>
-                <p className="text-school-orange font-semibold mb-3 md:mb-4 text-sm md:text-base">{institution.period}</p>
-                <p className="text-slate-600 mb-3 md:mb-4 leading-relaxed text-sm md:text-base">{institution.description}</p>
-                <div className="border-t border-slate-200 pt-3 md:pt-4">
-                  <p className="text-xs md:text-sm text-slate-500 italic">{institution.impact}</p>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-800 mb-2">{institution.name}</h3>
+                  <p className="text-school-orange font-semibold mb-4 text-sm">{institution.period}</p>
+                  <p className="text-slate-600 mb-4 leading-relaxed text-sm">{institution.description}</p>
+                  <div className="border-t border-slate-100 pt-4">
+                    <p className="text-xs text-slate-500 italic font-medium">{institution.impact}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
