@@ -184,44 +184,28 @@ export default function Fundamental1() {
           ></div>
         )}
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                Ensino Fundamental <span className="text-school-orange">I</span>
-              </motion.h1>
-              <motion.h2 
-                className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  Anos Iniciais
-                  <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
-                    1º ao 5º Ano - Desenvolvendo Mentes Curiosas
-                  </span>
-                </motion.h2>
-              <motion.p 
-                className="text-xl md:text-2xl font-semibold mb-4"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                Desenvolvendo <strong>mentes curiosas</strong> e <strong>corações compassivos</strong>
-              </motion.p>
-              <motion.p 
-                className="text-lg mb-8 opacity-95"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                O Ensino Fundamental I da OSE é onde a jornada educacional se torna uma aventura 
-                emocionante. Nossos pequenos alunos descobrem o prazer de aprender em um ambiente 
-                acolhedor, seguro e estimulante.
-              </motion.p>
-            </div>
-          </div>
+        <div className="relative z-10 container mx-auto px-6 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left max-w-4xl"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Ensino Fundamental <span className="text-school-orange">I</span>
+              <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                1º ao 5º Ano - Desenvolvendo Mentes Curiosas
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-200 mb-6">
+              Desenvolvendo <strong>mentes curiosas</strong> e <strong>corações compassivos</strong>
+            </p>
+            <p className="text-lg mb-8 text-slate-300 max-w-3xl">
+              O Ensino Fundamental I da OSE é onde a jornada educacional se torna uma aventura 
+              emocionante. Nossos pequenos alunos descobrem o prazer de aprender em um ambiente 
+              acolhedor, seguro e estimulante.
+            </p>
+          </motion.div>
         </div>
       </section>
 
