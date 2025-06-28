@@ -91,54 +91,51 @@ export default function MissaoValores() {
       <Navigation />
 
       {/* Hero Section */}
-      <section 
-        className="relative py-20 text-white overflow-hidden"
-        style={{
-          background: heroBackground?.type === 'gradient' 
-            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#ff7f00, #ff8f20'})`
-            : heroBackground?.type === 'color'
-            ? heroBackground.solidColor
-            : heroBackground?.type === 'image' && heroBackground.imageUrl
-            ? `url(${heroBackground.imageUrl})`
-            : 'linear-gradient(135deg, #ff7f00, #ff8f20)',
-          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
-          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
-          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
-          opacity: heroBackground?.opacity || 1
-        }}
-      >
-        {/* Background Image Layer */}
-        {heroBackground?.type === 'image' && heroImage && (
+      <section className="relative py-20 text-white overflow-hidden">
+        {/* Background Image */}
+        {heroBackground && (
           <div className="absolute inset-0">
-            <div className="relative w-full h-full">
-              <img 
-                src={heroImage}
-                alt="Missão e Valores OSE"
-                className="w-full h-full object-cover opacity-30"
+            {heroBackground.type === 'image' && heroBackground.imageUrl && (
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500"
                 style={{
-                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
-                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
-                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
-                  opacity: getImagePosition('hero')?.opacity || 0.3,
-                  filter: getImagePosition('hero')?.filter || 'none'
+                  backgroundImage: `url(${heroBackground.imageUrl})`,
+                  backgroundPosition: heroBackground.position || 'center',
+                  backgroundSize: heroBackground.size || 'cover',
+                  backgroundRepeat: heroBackground.repeat || 'no-repeat',
+                  opacity: heroBackground.opacity || 1
                 }}
               />
-              {isAuthenticated && (
-                <>
-                  <EnhancedImageSelector
-                    currentImage={heroImage}
-                    onImageSelect={updateHeroImage}
-                    className="absolute inset-0"
-                  />
-                  <ImagePositionControls
-                    currentPosition={getImagePosition('hero')}
-                    onPositionChange={(position) => updateImagePosition('hero', position)}
-                    className="absolute inset-0"
-                  />
-                </>
-              )}
-            </div>
+            )}
+            {heroBackground.type === 'gradient' && heroBackground.gradientColors && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
+            {heroBackground.type === 'color' && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundColor: heroBackground.solidColor,
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
           </div>
+        )}
+
+        {/* Fallback gradient se não houver background configurado */}
+        {!heroBackground && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(135deg, #ff7f00, #ff8f20)'
+            }}
+          />
         )}
 
         {/* Hero Background Manager */}
@@ -158,7 +155,7 @@ export default function MissaoValores() {
               backgroundColor: heroBackground.overlayColor || '#000000',
               opacity: heroBackground.overlayOpacity || 0.2
             }}
-          ></div>
+          />
         )}
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
