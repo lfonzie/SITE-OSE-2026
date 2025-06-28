@@ -14,6 +14,7 @@ import ImagePositionControls from '@/components/ImagePositionControls';
 import { usePageData } from '@/hooks/usePageData';
 import LogoutButton from '@/components/LogoutButton';
 import MaterialListManager from '@/components/MaterialListManager';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
@@ -42,14 +43,27 @@ export default function ListaMaterial() {
 
   const { 
     heroImage, 
+    heroBackground,
     images, 
     updateHeroImage, 
     updateImage, 
+    updateHeroBackground,
     getImagePosition, 
     updateImagePosition 
   } = usePageData('Lista de Material', {
     heroImage: img1,
-    images: [img2, img3, img4, img5]
+    images: [img2, img3, img4, img5],
+    heroBackground: {
+      type: 'image',
+      imageUrl: img1,
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.8,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
   });
 
   const { data: materialLists = [] } = useQuery<MaterialList[]>({
@@ -146,52 +160,54 @@ export default function ListaMaterial() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <DragImagePosition
-            src={heroImage || img1}
-            alt="Lista de Material OSE"
-            className="w-full h-full opacity-30"
-            editable={isAuthenticated}
-            initialPosition={{
-              x: getImagePosition('hero')?.horizontalPosition || 0,
-              y: getImagePosition('hero')?.verticalPosition || 0
-            }}
-            onPositionChange={(position: { x: number; y: number }) => {
-              const currentPos = getImagePosition('hero') || {
-                objectPosition: 'center center',
-                horizontalPosition: 0,
-                verticalPosition: 0,
-                scale: 1,
-                opacity: 1,
-                filter: 'none',
-                objectFit: 'cover' as const
-              };
-              updateImagePosition('hero', {
-                ...currentPos,
-                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
-                horizontalPosition: position.x,
-                verticalPosition: position.y
-              });
-            }}
-          />
-          {isAuthenticated && (
-            <>
-              <EnhancedImageSelector
-                currentImage={heroImage || img1}
-                onImageSelect={updateHeroImage}
-                className="absolute top-2 right-2 z-10"
+      <section className="relative pt-20 pb-16 text-white overflow-hidden">
+        {/* Background Image */}
+        {heroBackground && (
+          <div className="absolute inset-0">
+            {heroBackground.type === 'image' && heroBackground.imageUrl && (
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500"
+                style={{
+                  backgroundImage: `url(${heroBackground.imageUrl})`,
+                  backgroundPosition: heroBackground.position || 'center',
+                  backgroundSize: heroBackground.size || 'cover',
+                  backgroundRepeat: heroBackground.repeat || 'no-repeat',
+                  opacity: heroBackground.opacity || 1
+                }}
               />
-              <ImagePositionControls
-                currentPosition={getImagePosition('hero')}
-                onPositionChange={(position) => updateImagePosition('hero', position)}
+            )}
+            {heroBackground.type === 'gradient' && heroBackground.gradientColors && (
+              <div
                 className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
+                  opacity: heroBackground.opacity || 1
+                }}
               />
-            </>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-800/80 to-slate-700/80"></div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+            )}
+          </div>
+        )}
+
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
+          />
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.8
+            }}
+          ></div>
+        )}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
