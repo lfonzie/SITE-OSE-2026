@@ -120,9 +120,13 @@ export default function Links() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-8 sm:mb-12"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Links Úteis
-            </h1>
+            <div className="flex justify-center mb-4">
+              <img 
+                src="/images/codeose23_1750779294902.png" 
+                alt="Colégio OSE" 
+                className="h-16 sm:h-20 md:h-24 w-auto"
+              />
+            </div>
             <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
               Acesse diretamente as principais seções e informações do Colégio OSE.
             </p>
