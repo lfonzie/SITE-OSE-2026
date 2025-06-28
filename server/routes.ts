@@ -565,7 +565,8 @@ export async function registerRoutes(app: Express) {
   // Professores routes
   app.get('/api/professores', async (req, res) => {
     try {
-      const professores = await storage.getFaculty(); // Assuming getFaculty returns professor data
+      const { getProfessores } = await import('./db.js');
+      const professores = getProfessores();
       res.json(professores);
     } catch (error) {
       console.error('Erro ao buscar professores:', error);
@@ -575,8 +576,9 @@ export async function registerRoutes(app: Express) {
 
   app.post('/api/professores', async (req, res) => {
     try {
+      const { addProfessor } = await import('./db.js');
       const professorData = req.body;
-      const professor = await storage.createFacultyMember(professorData); // Assuming createFacultyMember creates a professor
+      const professor = addProfessor(professorData);
       res.json(professor);
     } catch (error) {
       console.error('Erro ao adicionar professor:', error);
@@ -584,11 +586,12 @@ export async function registerRoutes(app: Express) {
     }
   });
 
-  app.patch('/api/professores/:id', async (req, res) => {
+  app.put('/api/professores/:id', async (req, res) => {
     try {
+      const { updateProfessor } = await import('./db.js');
       const id = parseInt(req.params.id);
       const professorData = req.body;
-      const professor = await storage.updateFacultyMember(id, professorData); // Assuming updateFacultyMember updates a professor
+      const professor = updateProfessor(id, professorData);
       if (professor) {
         res.json(professor);
       } else {
@@ -602,8 +605,9 @@ export async function registerRoutes(app: Express) {
 
   app.delete('/api/professores/:id', async (req, res) => {
     try {
+      const { deleteProfessor } = await import('./db.js');
       const id = parseInt(req.params.id);
-      const success = await storage.deleteFacultyMember(id); // Assuming deleteFacultyMember deletes a professor
+      const success = deleteProfessor(id);
       if (success) {
         res.json({ success: true });
       } else {
