@@ -10,6 +10,8 @@ import { usePageData } from '@/hooks/usePageData';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import { useQuery } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 // Use new image paths from updated folder
 import { newImages } from "@/lib/image-verification";
@@ -18,7 +20,7 @@ const img2 = newImages.img2;
 const img3 = newImages.img3;
 
 interface Professor {
-  id: number;
+  id: string;
   nome: string;
   disciplina: string;
   formacao: string;
@@ -30,7 +32,7 @@ interface Professor {
 // Dados dos professores de fallback (caso a API não funcione)
 const professoresFallback = [
   {
-    id: 1,
+    id: '1',
     nome: "Prof. João Silva",
     disciplina: "Matemática",
     formacao: "Mestre em Matemática - USP",
@@ -39,7 +41,7 @@ const professoresFallback = [
     foto: img1
   },
   {
-    id: 2,
+    id: '2',
     nome: "Profa. Maria Santos",
     disciplina: "Português",
     formacao: "Doutora em Letras - UNICAMP",
@@ -48,7 +50,7 @@ const professoresFallback = [
     foto: img2
   },
   {
-    id: 3,
+    id: '3',
     nome: "Prof. Carlos Lima",
     disciplina: "Física",
     formacao: "Mestre em Física - UNESP",
@@ -57,7 +59,7 @@ const professoresFallback = [
     foto: img3
   },
   {
-    id: 4,
+    id: '4',
     nome: "Profa. Ana Costa",
     disciplina: "Química",
     formacao: "Doutora em Química - USP",
@@ -66,7 +68,7 @@ const professoresFallback = [
     foto: "/images/0023_1750717790208.jpg"
   },
   {
-    id: 5,
+    id: '5',
     nome: "Prof. Roberto Ferreira",
     disciplina: "História",
     formacao: "Mestre em História - PUC-SP",
@@ -75,7 +77,7 @@ const professoresFallback = [
     foto: "/images/0312_1750717790204.jpg"
   },
   {
-    id: 6,
+    id: '6',
     nome: "Profa. Lúcia Oliveira",
     disciplina: "Geografia",
     formacao: "Especialista em Geografia - UNESP",
@@ -84,7 +86,7 @@ const professoresFallback = [
     foto: "/images/0354_1750717790205.jpg"
   },
   {
-    id: 7,
+    id: '7',
     nome: "Prof. Paulo Mendes",
     disciplina: "Biologia",
     formacao: "Doutor em Biologia - USP",
@@ -93,7 +95,7 @@ const professoresFallback = [
     foto: "/images/0378_1750717790208.jpg"
   },
   {
-    id: 8,
+    id: '8',
     nome: "Profa. Fernanda Rocha",
     disciplina: "Inglês",
     formacao: "Mestre em Linguística - UNICAMP",
@@ -102,7 +104,7 @@ const professoresFallback = [
     foto: "/images/0491_1750717790207.jpg"
   },
   {
-    id: 9,
+    id: '9',
     nome: "Prof. Marcos Almeida",
     disciplina: "Educação Física",
     formacao: "Especialista em Educação Física - USP",
@@ -111,7 +113,7 @@ const professoresFallback = [
     foto: "/images/0541_1750717790207.jpg"
   },
   {
-    id: 10,
+    id: '10',
     nome: "Profa. Juliana Campos",
     disciplina: "Artes",
     formacao: "Mestre em Artes Visuais - UNESP",
@@ -120,7 +122,7 @@ const professoresFallback = [
     foto: "/images/0581_1750717790206.jpg"
   },
   {
-    id: 11,
+    id: '11',
     nome: "Prof. Eduardo Barbosa",
     disciplina: "Filosofia",
     formacao: "Doutor em Filosofia - USP",
@@ -129,7 +131,7 @@ const professoresFallback = [
     foto: "/images/0700_1750717790204.jpg"
   },
   {
-    id: 12,
+    id: '12',
     nome: "Profa. Carla Nascimento",
     disciplina: "Sociologia",
     formacao: "Mestre em Sociologia - UNICAMP",
@@ -139,7 +141,7 @@ const professoresFallback = [
   },
   // Adicione mais professores aqui...
   {
-    id: 13,
+    id: '13',
     nome: "Prof. Ricardo Souza",
     disciplina: "Informática",
     formacao: "Mestre em Ciência da Computação - USP",
@@ -148,7 +150,7 @@ const professoresFallback = [
     foto: "/images/1105_1750717790206.jpg"
   },
   {
-    id: 14,
+    id: '14',
     nome: "Profa. Sandra Martins",
     disciplina: "Psicologia",
     formacao: "Doutora em Psicologia - PUC-SP",
@@ -157,7 +159,7 @@ const professoresFallback = [
     foto: "/images/1285_1750717790208.jpg"
   },
   {
-    id: 15,
+    id: '15',
     nome: "Prof. Gustavo Pereira",
     disciplina: "Espanhol",
     formacao: "Mestre em Letras Hispânicas - USP",
@@ -168,32 +170,71 @@ const professoresFallback = [
   // Continue adicionando mais professores até completar 50+
 ];
 
+const professoresDefault: Professor[] = [
+  {
+    id: '1',
+    nome: 'Samanta Chibau Mileze',
+    disciplina: 'Coordenadora Pedagógica',
+    formacao: 'Pedagogia - Universidade de Sorocaba',
+    experiencia: '15 anos de experiência em educação',
+    foto: '/images/samanta.jpg'
+  },
+  {
+    id: '2',
+    nome: 'Fernando Silva',
+    disciplina: 'Matemática e Física',
+    formacao: 'Licenciatura em Matemática - USP',
+    experiencia: '12 anos de experiência em ensino',
+    foto: '/images/fernando.jpeg'
+  },
+  {
+    id: '3',
+    nome: 'Edna Santos',
+    disciplina: 'Língua Portuguesa',
+    formacao: 'Letras - PUC-SP',
+    experiencia: '20 anos de experiência em educação',
+    foto: '/images/edna.jpg'
+  }
+];
+
 export default function Professores() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Professores');
-  
-  const { data: professores = professoresFallback } = useQuery<Professor[]>({
-    queryKey: ['professores'],
-    queryFn: () => apiRequest('/professores'),
-    staleTime: 5 * 60 * 1000, // 5 minutos
-  });
-  
+  const [professores, setProfessores] = useState<Professor[]>(professoresDefault);
+
   const { 
+    heroImage, 
     heroBackground,
-    updateHeroBackground
+    images, 
+    updateHeroImage, 
+    updateImage, 
+    updateHeroBackground,
+    getImagePosition, 
+    updateImagePosition 
   } = usePageData('Professores', {
+    heroImage: img1,
+    images: [img2, img3],
     heroBackground: {
-      type: 'gradient',
-      gradientColors: ['#475569', '#64748b'],
+      type: 'image',
+      imageUrl: img1,
       opacity: 1,
       overlay: true,
       overlayColor: '#1e293b',
-      overlayOpacity: 0.8,
+      overlayOpacity: 0.7,
       position: 'center',
       size: 'cover',
       repeat: 'no-repeat'
     }
   });
+
+  // Carregar professores do localStorage
+  useEffect(() => {
+    const savedProfessores = localStorage.getItem('professores-data');
+    if (savedProfessores) {
+      setProfessores(JSON.parse(savedProfessores));
+    }
+  }, []);
+
   const diferenciais = [
     {
       icon: GraduationCap,
@@ -232,33 +273,34 @@ export default function Professores() {
       <Navigation />
 
       {/* Hero Section */}
-      <section 
-        className="relative pt-20 pb-16 text-white overflow-hidden"
-        style={{
-          ...(heroBackground?.type === 'gradient' && {
-            backgroundImage: `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }),
-          ...(heroBackground?.type === 'image' && heroBackground.imageUrl && {
-            backgroundImage: `url(${heroBackground.imageUrl})`,
-            backgroundSize: heroBackground.size || 'cover',
-            backgroundPosition: heroBackground.position || 'center',
-            backgroundRepeat: heroBackground.repeat || 'no-repeat'
-          }),
-          ...(heroBackground?.type === 'color' && {
-            backgroundColor: heroBackground.solidColor || '#475569'
-          }),
-          ...(!heroBackground?.type && {
-            backgroundImage: 'linear-gradient(135deg, #475569, #64748b)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }),
-          opacity: heroBackground?.opacity || 1
-        }}
-      >
+      <section className="relative py-24 text-white overflow-hidden">
+        {/* Background Image */}
+        {heroBackground && (
+          <div className="absolute inset-0">
+            {heroBackground.type === 'image' && heroBackground.imageUrl && (
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500"
+                style={{
+                  backgroundImage: `url(${heroBackground.imageUrl})`,
+                  backgroundPosition: heroBackground.position || 'center',
+                  backgroundSize: heroBackground.size || 'cover',
+                  backgroundRepeat: heroBackground.repeat || 'no-repeat',
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
+            {heroBackground.type === 'gradient' && heroBackground.gradientColors && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
+          </div>
+        )}
+
         {/* Hero Background Manager */}
         {isAuthenticated && (
           <HeroBackgroundManager
@@ -274,27 +316,25 @@ export default function Professores() {
             className="absolute inset-0"
             style={{
               backgroundColor: heroBackground.overlayColor || '#1e293b',
-              opacity: heroBackground.overlayOpacity || 0.8
+              opacity: heroBackground.overlayOpacity || 0.7
             }}
           ></div>
         )}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Nossos <span className="text-school-orange">Professores</span>
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-                Educadores <strong>especializados</strong> e <strong>comprometidos</strong>
-              </p>
-              <p className="text-lg mb-8 opacity-90">
-                Conheça o corpo docente da OSE: profissionais qualificados com mais de 100 anos 
-                de tradição em educação, dedicados ao desenvolvimento integral e sucesso acadêmico 
-                de cada aluno.
-              </p>
-              </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Nossos Professores
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+              Conheça nossa equipe de educadores dedicados e experientes
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -408,6 +448,52 @@ export default function Professores() {
               alt="Metodologia inovadora"
               className="w-full h-48 rounded-lg shadow-lg"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Professores Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+              Nossa Equipe
+            </h2>
+            <p className="text-xl text-slate-600">
+              Profissionais dedicados ao crescimento e desenvolvimento de nossos alunos
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {professores.map((professor, index) => (
+              <motion.div
+                key={professor.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="bg-slate-50 rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden">
+                  <OptimizedImage
+                    src={professor.foto}
+                    alt={professor.nome}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">
+                  {professor.nome}
+                </h3>
+                <p className="text-school-orange font-medium mb-2">
+                  {professor.disciplina}
+                </p>
+                <p className="text-slate-600 text-sm mb-3">
+                  {professor.formacao}
+                </p>
+                <p className="text-slate-600 text-sm">
+                  {professor.experiencia}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

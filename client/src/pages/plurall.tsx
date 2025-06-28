@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
@@ -19,7 +18,7 @@ import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 export default function Plurall() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Plurall');
-  
+
   const { 
     heroImage, 
     heroBackground,
@@ -44,7 +43,7 @@ export default function Plurall() {
       repeat: 'no-repeat'
     }
   });
-  
+
   useEffect(() => {
     updateSEO({
       title: "Plurall - Colégio OSE | Plataforma Digital de Aprendizagem",
@@ -88,12 +87,12 @@ export default function Plurall() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      
-      
+
+
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative py-20 text-white overflow-hidden">
         {/* Background Image */}
         {heroBackground && (
           <div className="absolute inset-0">
@@ -121,16 +120,6 @@ export default function Plurall() {
           </div>
         )}
 
-        {/* Admin Controls */}
-        {isAuthenticated && (
-          <div className="absolute top-4 right-4 z-50 flex flex-col gap-2">
-            <HeroBackgroundManager
-              currentBackground={heroBackground}
-              onBackgroundChange={updateHeroBackground}
-            />
-          </div>
-        )}
-
         {/* Hero Background Manager */}
         {isAuthenticated && (
           <HeroBackgroundManager
@@ -150,7 +139,7 @@ export default function Plurall() {
             }}
           ></div>
         )}
-        
+
         <div className="relative z-10 container mx-auto px-6 py-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -167,7 +156,7 @@ export default function Plurall() {
             <p className="text-xl text-slate-200 mb-8 max-w-3xl mx-auto">
               Acesse milhares de exercícios, simulados e videoaulas para potencializar seus estudos.
             </p>
-            
+
             <Button
               size="lg"
               onClick={() => window.open('https://login.plurall.net/', '_blank')}
@@ -269,7 +258,7 @@ export default function Plurall() {
                       </li>
                     </ol>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-lg font-semibold text-slate-800 mb-4">
                       Suporte
@@ -290,7 +279,7 @@ export default function Plurall() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="text-center pt-6 border-t">
                   <Button
                     size="lg"
