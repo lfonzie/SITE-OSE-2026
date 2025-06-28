@@ -122,9 +122,9 @@ export default function Links() {
           >
             <div className="flex justify-center mb-4">
               <img 
-                src="/images/codeose23_1750779294902.png" 
-                alt="Colégio OSE" 
-                className="h-16 sm:h-20 md:h-24 w-auto"
+                src="/images/LogoOSE100anos.png" 
+                alt="Colégio OSE - 100 Anos" 
+                className="h-20 sm:h-24 md:h-28 w-auto"
               />
             </div>
             <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
