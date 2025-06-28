@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -106,83 +105,12 @@ export default function Links() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <Navigation />
-
       {/* Admin Logout Button */}
       {isAuthenticated && (
         <div className="fixed top-4 right-4 z-50">
           <LogoutButton />
         </div>
       )}
-
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] overflow-hidden">
-        {/* Background Image */}
-        {heroBackground && (
-          <div className="absolute inset-0">
-            {heroBackground.type === 'image' && heroBackground.imageUrl && (
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-all duration-500"
-                style={{
-                  backgroundImage: `url(${heroBackground.imageUrl})`,
-                  backgroundPosition: heroBackground.position || 'center',
-                  backgroundSize: heroBackground.size || 'cover',
-                  backgroundRepeat: heroBackground.repeat || 'no-repeat',
-                  opacity: heroBackground.opacity || 1
-                }}
-              />
-            )}
-            {heroBackground.type === 'gradient' && heroBackground.gradientColors && (
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
-                  opacity: heroBackground.opacity || 1
-                }}
-              />
-            )}
-          </div>
-        )}
-
-        {/* Hero Background Manager */}
-        {isAuthenticated && (
-          <HeroBackgroundManager
-            currentBackground={heroBackground}
-            onBackgroundChange={updateHeroBackground}
-            className="absolute inset-0"
-          />
-        )}
-
-        {/* Overlay */}
-        {heroBackground?.overlay && (
-          <div 
-            className="absolute inset-0"
-            style={{
-              backgroundColor: heroBackground.overlayColor || '#1e293b',
-              opacity: heroBackground.overlayOpacity || 0.7
-            }}
-          ></div>
-        )}
-
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 py-16 sm:py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
-              Links Úteis
-              <span className="block text-base sm:text-lg md:text-xl font-normal text-orange-100 mt-2">
-                Acesso rápido aos principais conteúdos da OSE
-              </span>
-            </h1>
-            <p className="text-lg sm:text-xl text-slate-200 mb-6 sm:mb-8 max-w-3xl mx-auto">
-              Navegue rapidamente pelos nossos segmentos educacionais e portais principais.
-            </p>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Quick Links Section */}
       <section className="py-12 sm:py-16 bg-white">
@@ -193,9 +121,9 @@ export default function Links() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-8 sm:mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
-              Navegação Rápida
-            </h2>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Links Úteis
+            </h1>
             <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
               Acesse diretamente as principais seções e informações do Colégio OSE.
             </p>
