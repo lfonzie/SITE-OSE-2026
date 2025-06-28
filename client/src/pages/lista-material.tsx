@@ -56,6 +56,9 @@ export default function ListaMaterial() {
     queryKey: ['/api/material-lists'],
     queryFn: async () => {
       const response = await fetch('/api/material-lists');
+      if (!response.ok) {
+        throw new Error('Failed to fetch material lists');
+      }
       return response.json();
     }
   });
@@ -93,7 +96,7 @@ export default function ListaMaterial() {
       item.segment === segmentKey && item.grade === gradeKey
     );
     
-    return materialItem?.googleDriveUrl || null;
+    return materialItem?.googleDriveLink || null;
   };
 
   useEffect(() => {

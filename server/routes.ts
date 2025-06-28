@@ -434,14 +434,14 @@ export async function registerRoutes(app: Express) {
       const { segment, grade, year, googleDriveLink } = req.body;
 
       if (!segment || !grade || !year || !googleDriveLink) {
-        return res.status(400).json({ error: 'Missing required fields' });
+        return res.status(400).json({ error: 'All fields are required' });
       }
 
       const materialList = await storage.createMaterialList({
         segment,
         grade,
-        year,
-        googleDriveLink
+        year: parseInt(year),
+        googleDriveUrl: googleDriveLink  // Corrigir o nome do campo
       });
 
       res.json(materialList);
@@ -499,7 +499,7 @@ export async function registerRoutes(app: Express) {
   app.post('/api/album-events', async (req, res) => {
     try {
       const { title, year, photoLink, eventDate } = req.body;
-      
+
       if (!title || !year || !photoLink) {
         return res.status(400).json({ error: 'Title, year, and photo link are required' });
       }
@@ -528,7 +528,7 @@ export async function registerRoutes(app: Express) {
       }
 
       const event = await storage.updateAlbumEvent(id, updates);
-      
+
       if (!event) {
         return res.status(404).json({ error: 'Album event not found' });
       }
@@ -544,7 +544,7 @@ export async function registerRoutes(app: Express) {
     try {
       const id = parseInt(req.params.id);
       const success = await storage.deleteAlbumEvent(id);
-      
+
       if (!success) {
         return res.status(404).json({ error: 'Album event not found' });
       }

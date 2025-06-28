@@ -12,7 +12,7 @@ interface MaterialList {
   segment: string;
   grade: string;
   year: number;
-  googleDriveLink: string;
+  googleDriveUrl: string;
   createdAt?: string;
   updatedAt?: string;
 }
@@ -23,7 +23,7 @@ const MaterialListManager: React.FC = () => {
     segment: '',
     grade: '',
     year: new Date().getFullYear(),
-    googleDriveLink: ''
+    googleDriveUrl: ''
   });
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
@@ -36,10 +36,27 @@ const MaterialListManager: React.FC = () => {
   ];
 
   const gradesBySegment: Record<string, string[]> = {
-    'educacao-infantil': ['Jardim I', 'Jardim II'],
-    'fundamental-1': ['1º Ano', '2º Ano', '3º Ano', '4º Ano', '5º Ano'],
-    'fundamental-2': ['6º Ano', '7º Ano', '8º Ano', '9º Ano'],
-    'ensino-medio': ['1ª Série', '2ª Série', '3ª Série']
+    'educacao-infantil': ['jardim-1', 'jardim-2'],
+    'fundamental-1': ['1-ano', '2-ano', '3-ano', '4-ano', '5-ano'],
+    'fundamental-2': ['6-ano', '7-ano', '8-ano', '9-ano'],
+    'ensino-medio': ['1-serie', '2-serie', '3-serie']
+  };
+
+  const gradeLabels: Record<string, string> = {
+    'jardim-1': 'Jardim I',
+    'jardim-2': 'Jardim II',
+    '1-ano': '1º Ano',
+    '2-ano': '2º Ano',
+    '3-ano': '3º Ano',
+    '4-ano': '4º Ano',
+    '5-ano': '5º Ano',
+    '6-ano': '6º Ano',
+    '7-ano': '7º Ano',
+    '8-ano': '8º Ano',
+    '9-ano': '9º Ano',
+    '1-serie': '1ª Série',
+    '2-serie': '2ª Série',
+    '3-serie': '3ª Série'
   };
 
   useEffect(() => {
@@ -64,7 +81,7 @@ const MaterialListManager: React.FC = () => {
   };
 
   const handleSave = async () => {
-    if (!newItem.segment || !newItem.grade || !newItem.googleDriveLink) {
+    if (!newItem.segment || !newItem.grade || !newItem.googleDriveUrl) {
       toast({
         title: "Erro",
         description: "Preencha todos os campos obrigatórios",
@@ -80,7 +97,10 @@ const MaterialListManager: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newItem),
+        body: JSON.stringify({
+          ...newItem,
+          googleDriveLink: newItem.googleDriveUrl  // Enviar como googleDriveLink para compatibilidade
+        }),
       });
 
       if (response.ok) {
@@ -90,7 +110,7 @@ const MaterialListManager: React.FC = () => {
           segment: '',
           grade: '',
           year: new Date().getFullYear(),
-          googleDriveLink: ''
+          googleDriveUrl: ''
         });
         toast({
           title: "Sucesso",
@@ -207,7 +227,7 @@ const MaterialListManager: React.FC = () => {
                 <option value="">Selecione...</option>
                 {newItem.segment && gradesBySegment[newItem.segment]?.map(grade => (
                   <option key={grade} value={grade}>
-                    {grade}
+                    {gradeLabels[grade]}
                   </option>
                 ))}
               </select>
@@ -239,8 +259,8 @@ const MaterialListManager: React.FC = () => {
           <div>
             <label className="block text-sm font-medium mb-2">Link do Google Drive</label>
             <Input
-              value={newItem.googleDriveLink}
-              onChange={(e) => setNewItem({...newItem, googleDriveLink: e.target.value})}
+              value={newItem.googleDriveUrl}
+              onChange={(e) => setNewItem({...newItem, googleDriveUrl: e.target.value})}
               placeholder="https://drive.google.com/file/d/..."
               className="w-full"
             />
@@ -271,7 +291,7 @@ const MaterialListManager: React.FC = () => {
                         {segments.find(s => s.value === item.segment)?.label}
                       </Badge>
                       <Badge variant="secondary">
-                        {item.grade}
+                        {gradeLabels[item.grade] || item.grade}
                       </Badge>
                       <Badge variant="outline">
                         {item.year}
@@ -281,7 +301,7 @@ const MaterialListManager: React.FC = () => {
                       <Button
                         size="sm"
                         variant="outline"
-                        onClick={() => window.open(item.googleDriveLink, '_blank')}
+                        onClick={() => window.open(item.googleDriveUrl, '_blank')}
                       >
                         <ExternalLink className="w-4 h-4 mr-1" />
                         Abrir
@@ -296,16 +316,16 @@ const MaterialListManager: React.FC = () => {
                     </div>
                   </div>
                   <Input
-                    value={item.googleDriveLink}
+                    value={item.googleDriveUrl}
                     onChange={(e) => {
-                      const updated = {...item, googleDriveLink: e.target.value};
+                      const updated = {...item, googleDriveUrl: e.target.value};
                       setMaterialLists(materialLists.map(i => 
                         i.id === item.id ? updated : i
                       ));
                     }}
                     onBlur={() => {
                       if (item.id) {
-                        handleUpdate(item.id, {googleDriveLink: item.googleDriveLink});
+                        handleUpdate(item.id, {googleDriveLink: item.googleDriveUrl});
                       }
                     }}
                     placeholder="Link do Google Drive"
