@@ -12,9 +12,18 @@ interface LoginData {
 }
 
 export function useAuth() {
-  const { data: user, isLoading, error } = useQuery<User>({
+  const userQuery = useQuery({
     queryKey: ["/api/auth/user"],
-    retry: false,
+    queryFn: getQueryFn({ on401: "returnNull" }),
+    retry: (failureCount, error) => {
+      // Não tentar novamente em caso de erro 401
+      if (error.message.includes('401')) {
+        return false;
+      }
+      return failureCount < 3;
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutos
+    refetchOnWindowFocus: true,
   });
 
   const loginMutation = useMutation({
@@ -43,10 +52,10 @@ export function useAuth() {
 
   return {
     user,
-    isLoading,
+    isLoading: userQuery.isLoading,
     isAuthenticated: !!user?.isAuthenticated,
     loginMutation,
     logoutMutation,
-    error,
+    error: userQuery.error,
   };
 }

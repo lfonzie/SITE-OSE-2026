@@ -14,13 +14,19 @@ export async function apiRequest(
     body?: unknown;
   }
 ): Promise<Response> {
+  console.log(`Making ${options.method} request to:`, url);
+  
   const res = await fetch(url, {
     method: options.method,
-    headers: options.body ? { "Content-Type": "application/json" } : {},
+    headers: {
+      ...(options.body ? { "Content-Type": "application/json" } : {}),
+    },
     body: options.body ? JSON.stringify(options.body) : undefined,
     credentials: "include",
   });
 
+  console.log(`Response status for ${url}:`, res.status);
+  
   await throwIfResNotOk(res);
   return res;
 }
@@ -33,9 +39,13 @@ export const getQueryFn: <T>(options: {
   async ({ queryKey }) => {
     const res = await fetch(queryKey[0] as string, {
       credentials: "include",
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
 
     if (unauthorizedBehavior === "returnNull" && res.status === 401) {
+      console.log("Authentication required - returning null");
       return null;
     }
 
