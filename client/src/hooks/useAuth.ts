@@ -26,6 +26,8 @@ export function useAuth() {
     refetchOnWindowFocus: true,
   });
 
+  const user = userQuery.data;
+
   const loginMutation = useMutation({
     mutationFn: async (credentials: LoginData) => {
       const res = await apiRequest("POST", "/api/auth/login", credentials);
