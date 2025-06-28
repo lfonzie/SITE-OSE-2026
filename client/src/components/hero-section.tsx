@@ -113,36 +113,25 @@ export default function HeroSection() {
       className="relative py-20 text-white overflow-hidden"
       style={{
         ...(heroBackground?.type === 'gradient' && {
-          background: `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`,
-          backgroundImage: 'none',
+          backgroundImage: `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundColor: 'transparent'
+          backgroundRepeat: 'no-repeat'
         }),
         ...(heroBackground?.type === 'image' && heroBackground.imageUrl && {
-          background: 'none',
           backgroundImage: `url(${heroBackground.imageUrl})`,
           backgroundSize: heroBackground.size || 'cover',
           backgroundPosition: heroBackground.position || 'center',
-          backgroundRepeat: heroBackground.repeat || 'no-repeat',
-          backgroundColor: 'transparent'
+          backgroundRepeat: heroBackground.repeat || 'no-repeat'
         }),
         ...(heroBackground?.type === 'color' && {
-          background: 'none',
-          backgroundImage: 'none',
-          backgroundSize: 'auto',
-          backgroundPosition: 'initial',
-          backgroundRepeat: 'repeat',
           backgroundColor: heroBackground.solidColor || '#475569'
         }),
         ...(!heroBackground?.type && {
-          background: 'linear-gradient(135deg, #475569, #64748b)',
-          backgroundImage: 'none',
+          backgroundImage: 'linear-gradient(135deg, #475569, #64748b)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundColor: 'transparent'
+          backgroundRepeat: 'no-repeat'
         }),
         opacity: heroBackground?.opacity || 1
       }}

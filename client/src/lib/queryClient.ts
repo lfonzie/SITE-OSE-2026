@@ -1,5 +1,27 @@
 import { QueryClient, QueryFunction } from "@tanstack/react-query";
 
+// Helper function to get auth token from localStorage or cookies
+export function getAuthToken(): string | null {
+  try {
+    // First try localStorage
+    const token = localStorage.getItem('authToken');
+    if (token) return token;
+    
+    // If no token in localStorage, try to get from cookies
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      const [name, value] = cookie.trim().split('=');
+      if (name === 'authToken') {
+        return decodeURIComponent(value);
+      }
+    }
+    
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 async function throwIfResNotOk(res: Response) {
   if (!res.ok) {
     const text = (await res.text()) || res.statusText;

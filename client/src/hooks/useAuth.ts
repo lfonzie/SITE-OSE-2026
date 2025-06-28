@@ -1,6 +1,15 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiRequest, queryClient, getQueryFn } from "@/lib/queryClient";
 
+// Helper function to get auth token from localStorage
+function getAuthToken(): string | null {
+  try {
+    return localStorage.getItem('authToken');
+  } catch {
+    return null;
+  }
+}
+
 interface User {
   email: string;
   isAuthenticated: boolean;
@@ -63,10 +72,20 @@ export function useAuth() {
     },
   });
 
+  const login = async (credentials: { email: string; password: string }) => {
+    return loginMutation.mutateAsync(credentials);
+  };
+
+  const logout = async () => {
+    return logoutMutation.mutateAsync();
+  };
+
   return {
     user,
     isLoading: userQuery.isLoading,
     isAuthenticated: !!user?.isAuthenticated,
+    login,
+    logout,
     loginMutation,
     logoutMutation,
     error: userQuery.error,
