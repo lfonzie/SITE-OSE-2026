@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
@@ -6,15 +7,11 @@ import ContactSection from "@/components/contact-section";
 import { Button } from "@/components/ui/button";
 import { Award, Users, BookOpen, Trophy, Star, Building2, GraduationCap, Heart, Map } from "lucide-react";
 import { motion } from "framer-motion";
-import { ArrowLeft } from 'lucide-react';
-import { Link } from 'wouter';
 import { useAuth } from '@/contexts/AuthContext';
-import LogoutButton from '@/components/LogoutButton';
 import { newImages } from "@/lib/image-verification";
 import { usePageData } from '@/hooks/usePageData';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
-import ImagePositionControls from '@/components/ImagePositionControls';
 
 const timeline = [
   {
@@ -146,17 +143,12 @@ export default function Legacy() {
   const { isAuthenticated } = useAuth();
   
   const { 
-    heroImage, 
     heroBackground,
     images, 
-    updateHeroImage, 
     updateImage, 
-    updateHeroBackground,
-    updateImagePosition,
-    getImagePosition 
+    updateHeroBackground
   } = usePageData('Legacy', {
-    heroImage: newImages.horizontal2,
-    images: [newImages.horizontal2],
+    images: [newImages.horizontal2, newImages.horizontal3, newImages.horizontal4],
     heroBackground: {
       type: 'gradient',
       gradientColors: ['#475569', '#64748b'],
@@ -180,13 +172,6 @@ export default function Legacy() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Admin Logout Button */}
-      {isAuthenticated && (
-        <div className="fixed top-4 right-4 z-50">
-          <LogoutButton />
-        </div>
-      )}
-      
       <Navigation />
 
       {/* Hero Section */}
@@ -200,47 +185,13 @@ export default function Legacy() {
             : heroBackground?.type === 'image' && heroBackground.imageUrl
             ? `url(${heroBackground.imageUrl})`
             : 'linear-gradient(135deg, #475569, #64748b)',
-          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size : 'auto',
-          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position : 'center',
-          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat : 'no-repeat',
+          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size || 'cover' : 'auto',
+          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position || 'center' : 'center',
+          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat || 'no-repeat' : 'no-repeat',
           opacity: heroBackground?.opacity || 1
         }}
       >
-        {/* Background Image Layer */}
-        {heroBackground?.type === 'image' && heroImage && (
-          <div className="absolute inset-0">
-            <div className="relative w-full h-full">
-              <img 
-                src={heroImage}
-                alt="História OSE"
-                className="w-full h-full object-cover opacity-30"
-                style={{
-                  objectPosition: getImagePosition('hero')?.objectPosition || 'center',
-                  objectFit: getImagePosition('hero')?.objectFit || 'cover',
-                  transform: `scale(${getImagePosition('hero')?.scale || 1})`,
-                  opacity: getImagePosition('hero')?.opacity || 0.3,
-                  filter: getImagePosition('hero')?.filter || 'none'
-                }}
-              />
-              {isAuthenticated && (
-                <>
-                  <EnhancedImageSelector
-                    currentImage={heroImage}
-                    onImageSelect={updateHeroImage}
-                    className="absolute inset-0"
-                  />
-                  <ImagePositionControls
-                    currentPosition={getImagePosition('hero')}
-                    onPositionChange={(position) => updateImagePosition('hero', position)}
-                    className="absolute inset-0"
-                  />
-                </>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Hero Background Manager */}
+        {/* Hero Background Manager - Único componente para gerenciar o hero */}
         {isAuthenticated && (
           <HeroBackgroundManager
             currentBackground={heroBackground}
@@ -315,10 +266,17 @@ export default function Legacy() {
             </div>
             <div className="relative">
               <img
-                src="/images/horizontal_2.png"
+                src={images[0] || newImages.horizontal2}
                 alt="História OSE"
                 className="w-full h-96 object-cover rounded-lg shadow-lg"
               />
+              {isAuthenticated && (
+                <EnhancedImageSelector
+                  currentImage={images[0] || newImages.horizontal2}
+                  onImageSelect={(imageUrl) => updateImage(0, imageUrl)}
+                  className="absolute inset-0"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -420,8 +378,19 @@ export default function Legacy() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <div className="h-64 bg-gradient-to-b from-slate-200 to-slate-300 flex items-center justify-center">
-                  <Users size={64} className="text-slate-400" />
+                <div className="relative h-64 bg-gradient-to-b from-slate-200 to-slate-300 flex items-center justify-center">
+                  <img
+                    src={images[index + 1] || newImages.horizontal3}
+                    alt={figure.name}
+                    className="w-full h-full object-cover"
+                  />
+                  {isAuthenticated && (
+                    <EnhancedImageSelector
+                      currentImage={images[index + 1] || newImages.horizontal3}
+                      onImageSelect={(imageUrl) => updateImage(index + 1, imageUrl)}
+                      className="absolute inset-0"
+                    />
+                  )}
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-slate-800 mb-2">{figure.name}</h3>
@@ -456,9 +425,19 @@ export default function Legacy() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <div className="h-32 md:h-48 bg-gradient-to-b from-slate-200 to-slate-300 rounded-lg mb-4 md:mb-6 flex items-center justify-center">
-                  <BookOpen size={32} className="md:hidden text-slate-400" />
-                  <BookOpen size={48} className="hidden md:block text-slate-400" />
+                <div className="relative h-32 md:h-48 bg-gradient-to-b from-slate-200 to-slate-300 rounded-lg mb-4 md:mb-6 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={images[index + 4] || newImages.horizontal4}
+                    alt={institution.name}
+                    className="w-full h-full object-cover"
+                  />
+                  {isAuthenticated && (
+                    <EnhancedImageSelector
+                      currentImage={images[index + 4] || newImages.horizontal4}
+                      onImageSelect={(imageUrl) => updateImage(index + 4, imageUrl)}
+                      className="absolute inset-0"
+                    />
+                  )}
                 </div>
                 <h3 className="text-lg md:text-2xl font-bold text-slate-800 mb-2">{institution.name}</h3>
                 <p className="text-school-orange font-semibold mb-3 md:mb-4 text-sm md:text-base">{institution.period}</p>
