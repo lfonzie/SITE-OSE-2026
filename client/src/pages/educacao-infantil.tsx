@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
 import { ArrowLeft, Users, Clock, BookOpen, Heart, Award, Star, Globe, Lightbulb } from 'lucide-react';
 import { Link } from 'wouter';
 import Navigation from '@/components/navigation';
@@ -6,8 +7,41 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import WhyOSESection from '@/components/why-ose-section';
 import ContactSection from '@/components/contact-section';
+import { motion } from 'framer-motion';
+import { useAuth } from '@/contexts/AuthContext';
+import { usePageData } from '@/hooks/usePageData';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
+import { newImages } from '@/lib/image-verification';
+import { updateSEO } from '@/lib/seo';
 
 export default function EducacaoInfantil() {
+  const { isAuthenticated } = useAuth();
+
+  const { 
+    heroBackground,
+    updateHeroBackground
+  } = usePageData('Educacao Infantil', {
+    heroBackground: {
+      type: 'gradient',
+      gradientColors: ['#475569', '#64748b'],
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.7,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
+  });
+
+  useEffect(() => {
+    updateSEO({
+      title: "Educação Infantil - Colégio OSE | Jardim I e II",
+      description: "Educação Infantil na OSE: ambiente seguro e acolhedor para crianças de 4 a 6 anos, com pedagogia respeitosa e desenvolvimento integral.",
+      keywords: "educação infantil, jardim I, jardim II, desenvolvimento infantil, pedagogia finlandesa, OSE sorocaba"
+    });
+  }, []);
+
   const features = [
     {
       icon: <Heart className="h-8 w-8 text-school-orange" />,
@@ -36,30 +70,80 @@ export default function EducacaoInfantil() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 text-white overflow-hidden bg-gradient-to-br from-school-orange to-amber-600">
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      <section 
+        className="relative py-20 text-white overflow-hidden"
+        style={{
+          background: heroBackground?.type === 'gradient' 
+            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
+            : heroBackground?.type === 'color'
+            ? heroBackground.solidColor
+            : heroBackground?.type === 'image' && heroBackground.imageUrl
+            ? `url(${heroBackground.imageUrl})`
+            : 'linear-gradient(135deg, #475569, #64748b)',
+          backgroundSize: heroBackground?.type === 'image' ? heroBackground.size || 'cover' : 'auto',
+          backgroundPosition: heroBackground?.type === 'image' ? heroBackground.position || 'center' : 'center',
+          backgroundRepeat: heroBackground?.type === 'image' ? heroBackground.repeat || 'no-repeat' : 'no-repeat',
+          opacity: heroBackground?.opacity || 1
+        }}
+      >
+        {/* Hero Background Manager - Único componente para gerenciar o hero */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
+          />
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.7
+            }}
+          ></div>
+        )}
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center mb-6">
-            <Link href="/">
-              <Button variant="ghost" size="sm" className="text-white hover:bg-white hover:bg-opacity-20 mr-4">
-                <ArrowLeft size={16} className="mr-2" />
-                Voltar
-              </Button>
-            </Link>
-          </div>
-          
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Educação Infantil
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
-              Crescimento e exploração na primeira infância
-            </p>
-            <p className="text-lg mb-8 leading-relaxed opacity-80">
-              Na Educação Infantil da OSE, cada criança é vista como um ser único e especial. 
-              Oferecemos um ambiente rico em experiências que favorecem o desenvolvimento integral 
-              através do brincar, explorando o mundo com curiosidade e alegria.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <motion.h1 
+                className="text-4xl md:text-6xl font-bold mb-6"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <span className="text-school-orange">Educação Infantil</span>
+              </motion.h1>
+              <motion.h2 
+                className="text-2xl md:text-3xl font-semibold mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Jardim I e II - Crescimento e Exploração
+              </motion.h2>
+              <motion.p 
+                className="text-xl md:text-2xl mb-6"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                Desenvolvendo mentes curiosas e corações compassivos
+              </motion.p>
+              <motion.p 
+                className="text-lg mb-8 opacity-95"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                Na Educação Infantil da OSE, cada criança é vista como um ser único e especial. 
+                Oferecemos um ambiente rico em experiências que favorecem o desenvolvimento integral 
+                através do brincar, explorando o mundo com curiosidade e alegria.
+              </motion.p>
+            </div>
           </div>
         </div>
       </section>
