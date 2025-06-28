@@ -108,12 +108,25 @@ export default function ProfessoresManager() {
     const file = e.target.files?.[0];
     if (!file || !editingProfessor) return;
 
+    // Validações detalhadas
     if (!file.type.startsWith('image/')) {
       toast({
         title: "Erro no upload",
-        description: "Por favor, selecione apenas arquivos de imagem.",
+        description: "Por favor, selecione apenas arquivos de imagem (JPG, PNG, GIF, WebP).",
         variant: "destructive",
       });
+      e.target.value = '';
+      return;
+    }
+
+    // Validar tamanho (máximo 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      toast({
+        title: "Erro no upload",
+        description: "O arquivo deve ter no máximo 5MB.",
+        variant: "destructive",
+      });
+      e.target.value = '';
       return;
     }
 
@@ -121,23 +134,32 @@ export default function ProfessoresManager() {
 
     try {
       const timestamp = Date.now();
-      const extension = file.name.split('.').pop() || 'jpg';
-      const fileName = `professor_${editingProfessor.nome.replace(/\s+/g, '_')}_${timestamp}.${extension}`;
+      const extension = file.name.split('.').pop()?.toLowerCase() || 'jpg';
+      const professorName = editingProfessor.nome.replace(/[^a-zA-Z0-9]/g, '_');
+      const fileName = `professor_${professorName}_${timestamp}.${extension}`;
       
       const formData = new FormData();
       formData.append('file', file);
       formData.append('fileName', fileName);
+
+      console.log('Enviando arquivo:', fileName, 'Tamanho:', file.size);
 
       const response = await fetch('/api/upload-professor-image', {
         method: 'POST',
         body: formData
       });
 
+      console.log('Response status:', response.status);
+
       if (!response.ok) {
-        throw new Error('Erro ao fazer upload da imagem');
+        const errorData = await response.text();
+        console.error('Erro na resposta:', errorData);
+        throw new Error(`Erro no servidor: ${response.status}`);
       }
 
       const result = await response.json();
+      console.log('Upload result:', result);
+
       const newImageUrl = `/images/${fileName}`;
       setEditingProfessor(prev => prev ? { ...prev, foto: newImageUrl } : null);
 
@@ -148,12 +170,13 @@ export default function ProfessoresManager() {
 
       e.target.value = '';
     } catch (error) {
-      console.error('Erro no upload:', error);
+      console.error('Erro detalhado no upload:', error);
       toast({
         title: "Erro no upload",
-        description: "Ocorreu um erro ao enviar a foto.",
+        description: error instanceof Error ? error.message : "Ocorreu um erro ao enviar a foto.",
         variant: "destructive",
       });
+      e.target.value = '';
     } finally {
       setUploading(false);
     }
@@ -233,15 +256,28 @@ export default function ProfessoresManager() {
                       />
                     )}
                     <div className="flex-1">
-                      <Input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageUpload}
-                        disabled={uploading}
-                        className="mb-2"
-                      />
+                      <div className="relative">
+                        <Input
+                          type="file"
+                          accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
+                          onChange={handleImageUpload}
+                          disabled={uploading}
+                          className="mb-2"
+                        />
+                        {uploading && (
+                          <div className="absolute inset-0 bg-white/80 flex items-center justify-center rounded">
+                            <div className="flex items-center space-x-2">
+                              <div className="w-4 h-4 border-2 border-school-orange border-t-transparent rounded-full animate-spin"></div>
+                              <span className="text-sm">Enviando...</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
                       <p className="text-xs text-gray-500">
-                        {uploading ? 'Enviando...' : 'Selecione uma foto para o professor'}
+                        {uploading 
+                          ? 'Upload em andamento...' 
+                          : 'Formatos aceitos: JPG, PNG, GIF, WebP (máx. 5MB)'
+                        }
                       </p>
                     </div>
                   </div>
