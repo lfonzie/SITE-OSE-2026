@@ -51,6 +51,20 @@ export default function ProgramsSection() {
     images: [newImages.img9, newImages.img10, newImages.img11, newImages.img12]
   });
 
+  // Função para atualizar imagem com salvamento automático
+  const handleImageUpdate = (index: number, newImageUrl: string) => {
+    console.log(`Salvando nova imagem para programa ${index}:`, newImageUrl);
+    updateImage(index, newImageUrl);
+    
+    // Força um re-render para garantir que a imagem seja atualizada
+    setTimeout(() => {
+      const element = document.querySelector(`[data-program-index="${index}"]`);
+      if (element) {
+        element.setAttribute('data-image-updated', Date.now().toString());
+      }
+    }, 100);
+  };
+
   const images = pageData?.images || [newImages.img9, newImages.img10, newImages.img11, newImages.img12];
 
   const getImageForProgram = (title: string, index: number) => {
@@ -115,12 +129,15 @@ export default function ProgramsSection() {
                 hover={true}
                 scale={true}
               >
-                <div className={`${colors.bg} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border ${colors.border}`}>
-                <div className="h-48 mb-6 rounded-xl overflow-hidden relative">
+                <div 
+                  className={`${colors.bg} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border ${colors.border}`}
+                  data-program-index={index}
+                >
+                <div className="h-48 mb-6 rounded-xl overflow-hidden relative group">
                   <DragImagePosition
                     src={getImageForProgram(program.title, index)}
                     alt={program.title}
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                     editable={isAuthenticated}
                     initialPosition={{
                       x: getImagePosition(`program-${index}`)?.horizontalPosition || 0,
@@ -145,18 +162,20 @@ export default function ProgramsSection() {
                     }}
                   />
                   {isAuthenticated && (
-                    <>
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                       <EnhancedImageSelector
                         currentImage={getImageForProgram(program.title, index)}
-                        onImageSelect={(url) => updateImage(index, url)}
-                        className="absolute top-2 right-2 z-10"
+                        onImageSelect={(url) => handleImageUpdate(index, url)}
+                        className="z-20"
                       />
-                      <ImagePositionControls
-                        currentPosition={getImagePosition(`program-${index}`)}
-                        onPositionChange={(position) => updateImagePosition(`program-${index}`, position)}
-                        className="absolute inset-0"
-                      />
-                    </>
+                    </div>
+                  )}
+                  {isAuthenticated && (
+                    <ImagePositionControls
+                      currentPosition={getImagePosition(`program-${index}`)}
+                      onPositionChange={(position) => updateImagePosition(`program-${index}`, position)}
+                      className="absolute bottom-2 right-2 z-10"
+                    />
                   )}
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 font-headline">
