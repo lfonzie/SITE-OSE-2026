@@ -7,28 +7,39 @@ async function throwIfResNotOk(res: Response) {
   }
 }
 
-export async function apiRequest(
-  url: string,
-  options: {
-    method: string;
-    body?: unknown;
+export async function apiRequest(url: string, options: RequestInit = {}) {
+  // Validate URL to prevent undefined requests
+  if (!url || url === 'undefined') {
+    throw new Error('API request URL is undefined or empty');
   }
-): Promise<Response> {
-  console.log(`Making ${options.method} request to:`, url);
-  
-  const res = await fetch(url, {
-    method: options.method,
+
+  const token = getAuthToken();
+
+  console.log('Making request to:', url); // Debug log
+
+  const response = await fetch(url, {
+    ...options,
     headers: {
-      ...(options.body ? { "Content-Type": "application/json" } : {}),
+      'Content-Type': 'application/json',
+      ...(token && { Authorization: `Bearer ${token}` }),
+      ...options.headers,
     },
-    body: options.body ? JSON.stringify(options.body) : undefined,
-    credentials: "include",
+    credentials: 'include',
   });
 
-  console.log(`Response status for ${url}:`, res.status);
-  
-  await throwIfResNotOk(res);
-  return res;
+  console.log('Response status for', url, ':', response.status); // Debug log
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Request failed: ${response.status} ${errorText}`);
+  }
+
+  const contentType = response.headers.get('content-type');
+  if (contentType && contentType.includes('application/json')) {
+    return response.json();
+  }
+
+  return response.text();
 }
 
 type UnauthorizedBehavior = "returnNull" | "throw";

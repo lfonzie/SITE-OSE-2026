@@ -30,8 +30,14 @@ export function useAuth() {
 
   const loginMutation = useMutation({
     mutationFn: async (credentials: LoginData) => {
-      const res = await apiRequest("POST", "/api/auth/login", credentials);
-      return await res.json();
+      const response = await apiRequest('/api/auth/login', {
+        method: "POST",
+        body: JSON.stringify(credentials),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      return response;
     },
     onSuccess: (data) => {
       if (data.success) {
@@ -43,8 +49,13 @@ export function useAuth() {
 
   const logoutMutation = useMutation({
     mutationFn: async () => {
-      const res = await apiRequest("POST", "/api/auth/logout");
-      return await res.json();
+      const response = await apiRequest("/api/auth/logout", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      return response;
     },
     onSuccess: () => {
       queryClient.setQueryData(["/api/auth/user"], null);

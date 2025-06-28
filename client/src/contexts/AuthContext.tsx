@@ -1,30 +1,26 @@
-
-import React, { createContext, useContext } from 'react';
-import { useAuth as useHookAuth } from '@/hooks/useAuth';
+import React, { createContext, useContext, ReactNode } from 'react';
+import { useAuth as useAuthHook } from '@/hooks/useAuth';
 
 interface AuthContextType {
-  isAuthenticated: boolean;
   user: any;
   isLoading: boolean;
-  isAuthorized: boolean;
-  logout: () => void;
+  isAuthenticated: boolean;
+  login: (credentials: { email: string; password: string }) => Promise<void>;
+  logout: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const { user, isAuthenticated, isLoading, logoutMutation } = useHookAuth();
-  
-  // Email autorizado para admin
-  const AUTHORIZED_EMAIL = "fonseca@colegioose.com.br";
-  const isAuthorized = isAuthenticated && user?.email === AUTHORIZED_EMAIL;
+export function AuthProvider({ children }: { children: ReactNode }) {
+  const auth = useAuthHook();
 
-  const logout = () => {
-    logoutMutation.mutate();
-  };
+  // Add error boundary for undefined user issues
+  if (!auth) {
+    return <div>Loading authentication...</div>;
+  }
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, isLoading, isAuthorized, logout }}>
+    <AuthContext.Provider value={auth}>
       {children}
     </AuthContext.Provider>
   );
