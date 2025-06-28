@@ -16,6 +16,8 @@ import { useAuth } from '@/contexts/AuthContext';
 import DragImagePosition from '@/components/DragImagePosition';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import LogoutButton from '@/components/LogoutButton';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
 
 // Importando imagens para Fundamental II
 import { newImages } from "@/lib/image-verification";
@@ -41,7 +43,7 @@ export default function Fundamental2() {
     getImagePosition 
   } = usePageData('Fundamental II', {
     heroImage: img1,
-    images: [img2, img3, img4],
+    images: [img2, img3, img4, img5, img6, img1],
     heroBackground: {
       type: 'image',
       imageUrl: img1,
@@ -280,7 +282,7 @@ export default function Fundamental2() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="relative">
+              <div className="relative group">
                 <DragImagePosition
                   src={images[0] || img2}
                   alt="Estudantes do Fundamental II em atividades"
@@ -308,8 +310,17 @@ export default function Fundamental2() {
                     });
                   }}
                 />
+                {isAuthenticated && (
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <EnhancedImageSelector
+                      currentImage={images[0] || img2}
+                      onImageSelect={(newImage) => updateImage(0, newImage)}
+                      className="absolute inset-0"
+                    />
+                  </div>
+                )}
               </div>
-              <div className="relative">
+              <div className="relative group">
                 <DragImagePosition
                   src={images[1] || img3}
                   alt="Atividades pedagógicas"
@@ -337,8 +348,17 @@ export default function Fundamental2() {
                     });
                   }}
                 />
+                {isAuthenticated && (
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <EnhancedImageSelector
+                      currentImage={images[1] || img3}
+                      onImageSelect={(newImage) => updateImage(1, newImage)}
+                      className="absolute inset-0"
+                    />
+                  </div>
+                )}
               </div>
-              <div className="relative col-span-2">
+              <div className="relative group col-span-2">
                 <DragImagePosition
                   src={images[2] || img4}
                   alt="Ambiente educacional"
@@ -366,6 +386,15 @@ export default function Fundamental2() {
                     });
                   }}
                 />
+                {isAuthenticated && (
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <EnhancedImageSelector
+                      currentImage={images[2] || img4}
+                      onImageSelect={(newImage) => updateImage(2, newImage)}
+                      className="absolute inset-0"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>
