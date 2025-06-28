@@ -115,7 +115,7 @@ export default function EducacaoInfantil() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <span className="text-school-orange">Educação Infantil</span>
+                <span className="text-white">Educação Infantil</span>
               </motion.h1>
               <motion.h2 
                 className="text-2xl md:text-3xl font-semibold mb-4"
