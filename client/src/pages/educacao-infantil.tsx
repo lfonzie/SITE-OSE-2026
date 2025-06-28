@@ -106,46 +106,28 @@ export default function EducacaoInfantil() {
           ></div>
         )}
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <span className="text-white">Educação </span>
-                <span className="text-school-orange">Infantil</span>
-              </motion.h1>
-              <motion.h2 
-                className="text-2xl md:text-3xl font-semibold mb-4"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                Jardim I e II - Crescimento e Exploração
-              </motion.h2>
-              <motion.p 
-                className="text-xl md:text-2xl mb-6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Desenvolvendo mentes curiosas e corações compassivos
-              </motion.p>
-              <motion.p 
-                className="text-lg mb-8 opacity-95"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                Na Educação Infantil da OSE, cada criança é vista como um ser único e especial. 
-                Oferecemos um ambiente rico em experiências que favorecem o desenvolvimento integral 
-                através do brincar, explorando o mundo com curiosidade e alegria.
-              </motion.p>
-            </div>
-          </div>
+        <div className="relative z-10 container mx-auto px-6 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left max-w-4xl"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Educação <span className="text-school-orange">Infantil</span>
+              <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                Jardim I e II - Crescimento e Exploração na Primeira Infância
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-200 mb-6">
+              Desenvolvendo <strong>mentes curiosas</strong> e <strong>corações compassivos</strong>
+            </p>
+            <p className="text-lg mb-8 text-slate-300 max-w-3xl">
+              Na Educação Infantil da OSE, cada criança é vista como um ser único e especial. 
+              Oferecemos um ambiente rico em experiências que favorecem o desenvolvimento integral 
+              através do brincar, explorando o mundo com curiosidade e alegria.
+            </p>
+          </motion.div>
         </div>
       </section>
 
