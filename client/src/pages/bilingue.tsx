@@ -142,7 +142,7 @@ export default function Bilingue() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center"
+            className="text-left max-w-4xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Global <span className="text-school-orange">Citizens</span>
@@ -153,7 +153,7 @@ export default function Bilingue() {
             <p className="text-xl md:text-2xl text-slate-200 mb-6">
               Formando cidadãos globais conscientes
             </p>
-            <p className="text-lg mb-8 text-slate-300 max-w-3xl mx-auto">
+            <p className="text-lg mb-8 text-slate-300 max-w-3xl">
               Na OSE, a educação bilíngue é mais que uma metodologia - é uma janela para o mundo. 
               <strong className="text-school-orange"> As aulas são diárias após as aulas tradicionais e são opcionais</strong>, 
               oferecendo uma imersão completa no idioma inglês e preparando nossos alunos 
