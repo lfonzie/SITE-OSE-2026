@@ -107,45 +107,28 @@ export default function Amplia() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <span className="text-school-orange">Amplia</span>
-              </motion.h1>
-              <motion.h2 
-                className="text-2xl md:text-3xl font-semibold mb-4"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
+        
+        <div className="relative z-10 container mx-auto px-6 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left max-w-4xl"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <span className="text-school-orange">Amplia</span>
+              <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
                 Plataforma de Ensino Completa
-              </motion.h2>
-              <motion.p 
-                className="text-xl md:text-2xl mb-6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Currículo contextualizado e inovador
-              </motion.p>
-              <motion.p 
-                className="text-lg mb-8 opacity-95"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                Ao proporcionar um currículo completo, incluindo habilidades acadêmicas e socioemocionais, 
-                o Amplia oferece material contextualizado com tecnologia educacional de ponta.
-              </motion.p>
-
-            </div>
-          </div>
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-200 mb-6">
+              <strong>Currículo contextualizado</strong> e inovador
+            </p>
+            <p className="text-lg mb-8 text-slate-300 max-w-3xl">
+              Ao proporcionar um currículo completo, incluindo habilidades acadêmicas e socioemocionais, 
+              o Amplia oferece material contextualizado com tecnologia educacional de ponta.
+            </p>
+          </motion.div>
         </div>
       </section>
 
