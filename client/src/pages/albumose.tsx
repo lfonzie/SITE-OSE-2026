@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
@@ -76,28 +77,43 @@ export default function AlbumOSE() {
       )}
 
       {/* Hero Section */}
-      <section 
-        className="relative min-h-[70vh] flex items-center justify-center text-white"
-        style={{
-          background: heroBackground?.type === 'gradient' 
-            ? `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`
-            : undefined,
-          backgroundImage: heroBackground?.type === 'image' 
-            ? `url(${heroBackground.imageUrl})`
-            : undefined,
-          backgroundSize: heroBackground?.size || 'cover',
-          backgroundPosition: heroBackground?.position || 'center',
-          backgroundRepeat: heroBackground?.repeat || 'no-repeat',
-          opacity: heroBackground?.opacity || 1
-        }}
-      >
-        {/* Background Manager for Admin */}
+      <section className="relative min-h-[70vh] overflow-hidden">
+        {/* Background Image */}
+        {heroBackground && (
+          <div className="absolute inset-0">
+            {heroBackground.type === 'image' && heroBackground.imageUrl && (
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500"
+                style={{
+                  backgroundImage: `url(${heroBackground.imageUrl})`,
+                  backgroundPosition: heroBackground.position || 'center',
+                  backgroundSize: heroBackground.size || 'cover',
+                  backgroundRepeat: heroBackground.repeat || 'no-repeat',
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
+            {heroBackground.type === 'gradient' && heroBackground.gradientColors && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
+                  opacity: heroBackground.opacity || 1
+                }}
+              />
+            )}
+          </div>
+        )}
+
+        {/* Hero Background Manager */}
         {isAuthenticated && (
           <HeroBackgroundManager
-            onUpdateBackground={updateHeroBackground}
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
           />
         )}
-        
+
         {/* Overlay */}
         {heroBackground?.overlay && (
           <div 
@@ -109,11 +125,12 @@ export default function AlbumOSE() {
           />
         )}
         
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 container mx-auto px-4 flex items-center justify-center text-white min-h-[70vh]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="text-center"
           >
             <div className="flex justify-center items-center mb-6">
               <Camera className="h-16 w-16 text-amber-400 mr-4" />
