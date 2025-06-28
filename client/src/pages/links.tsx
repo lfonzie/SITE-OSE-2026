@@ -120,11 +120,11 @@ export default function Links() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-8 sm:mb-12"
           >
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-6">
               <img 
                 src="/images/LogoOSE100anos.png" 
                 alt="Colégio OSE - 100 Anos" 
-                className="h-20 sm:h-24 md:h-28 w-auto"
+                className="h-32 sm:h-36 md:h-40 lg:h-44 w-auto"
               />
             </div>
             <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
