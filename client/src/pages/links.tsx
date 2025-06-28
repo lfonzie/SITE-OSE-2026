@@ -6,8 +6,7 @@ import { ExternalLink, Home, Camera, GraduationCap, School, Users, Calendar, Spa
 import { motion } from "framer-motion";
 import { useAuth } from '@/contexts/AuthContext';
 import LogoutButton from '@/components/LogoutButton';
-import WhyOSESection from '@/components/why-ose-section';
-import ContactSection from '@/components/contact-section';
+
 import { newImages } from "@/lib/image-verification";
 import { usePageData } from '@/hooks/usePageData';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
@@ -196,8 +195,7 @@ export default function Links() {
         </div>
       </section>
 
-      <WhyOSESection />
-      <ContactSection />
+      
     </div>
   );
 }
