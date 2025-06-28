@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { ArrowLeft, Users, Clock, BookOpen, Heart, Award, Star, Globe, Lightbulb } from 'lucide-react';
+import { ArrowLeft, Users, Clock, BookOpen, Heart, Award, Star, Globe, Lightbulb, Baby, GraduationCap } from 'lucide-react';
 import { Link } from 'wouter';
 import Navigation from '@/components/navigation';
 import { Button } from '@/components/ui/button';
@@ -183,7 +183,7 @@ export default function EducacaoInfantil() {
             <Card className="p-8 hover:shadow-lg transition-shadow">
               <CardContent className="p-0 text-center">
                 <div className="w-16 h-16 bg-school-orange bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Users className="h-8 w-8 text-school-orange" />
+                  <Baby className="h-8 w-8 text-school-orange" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Jardim I</h3>
                 <p className="text-gray-600 mb-4">4 anos completos</p>
@@ -197,7 +197,7 @@ export default function EducacaoInfantil() {
             <Card className="p-8 hover:shadow-lg transition-shadow">
               <CardContent className="p-0 text-center">
                 <div className="w-16 h-16 bg-school-orange bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <BookOpen className="h-8 w-8 text-school-orange" />
+                  <GraduationCap className="h-8 w-8 text-school-orange" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Jardim II</h3>
                 <p className="text-gray-600 mb-4">5 anos completos</p>
