@@ -215,11 +215,6 @@ export default function CodeOSE() {
           ></div>
         )}
 
-        
-/>
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80"></div>
-        </div>
-
         <div className="relative z-10 container mx-auto px-6 py-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
