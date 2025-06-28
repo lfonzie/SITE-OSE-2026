@@ -8,9 +8,6 @@ import { newImages } from "@/lib/image-verification";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from '@/contexts/AuthContext';
 import { usePageData } from '@/hooks/usePageData';
-import DragImagePosition from '@/components/DragImagePosition';
-import EnhancedImageSelector from '@/components/EnhancedImageSelector';
-import ImagePositionControls from '@/components/ImagePositionControls';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 
 export default function HeroSection() {
@@ -35,17 +32,9 @@ export default function HeroSection() {
   const [tempSubtitle, setTempSubtitle] = useState("");
   const [tempDescription, setTempDescription] = useState("");
   const { 
-    pageData, 
-    updateImage, 
-    getImagePosition, 
-    updateImagePosition,
-    updateHeroImage,
     updateHeroBackground,
-    heroImage,
     heroBackground 
   } = usePageData('Home', {
-    heroImage: newImages.horizontal1,
-    images: [],
     heroBackground: {
       type: 'gradient',
       gradientColors: ['#475569', '#64748b'],
@@ -58,14 +47,6 @@ export default function HeroSection() {
       repeat: 'no-repeat'
     }
   });
-
-  const backgroundImages = [
-    heroImage || newImages.horizontal1,
-    newImages.horizontal2,
-    newImages.horizontal3,
-    newImages.horizontal4,
-    newImages.horizontal5
-  ];
 
   const scrollToNext = () => {
     const element = document.getElementById("stats");
@@ -166,9 +147,7 @@ export default function HeroSection() {
         opacity: heroBackground?.opacity || 1
       }}
     >
-      
-
-      {/* Hero Background Manager */}
+      {/* Hero Background Manager - Único componente para gerenciar o hero */}
       {isAuthenticated && (
         <HeroBackgroundManager
           currentBackground={heroBackground}
