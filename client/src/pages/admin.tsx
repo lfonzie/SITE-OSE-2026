@@ -1,16 +1,18 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Eye, Instagram, Camera } from "lucide-react";
+import { Eye, Instagram, Camera, FileText } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import InstagramUploadManager from '@/components/InstagramUploadManager';
 import AlbumEventsManager from '@/components/AlbumEventsManager';
+import MaterialListManager from '@/components/MaterialListManager';
 
 interface LoginFormData {
   email: string;
@@ -146,39 +148,74 @@ export default function AdminPage() {
           </div>
         </div>
 
-        {/* Instagram Management Section */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Instagram className="w-6 h-6 text-pink-600" />
-              Gerenciamento do Feed Instagram
-            </CardTitle>
-            <p className="text-gray-600">
-              Faça upload e gerencie as imagens que aparecem no feed do Instagram no site
-            </p>
-          </CardHeader>
-          <CardContent>
-            <InstagramUploadManager />
-          </CardContent>
-        </Card>
+        {/* Admin Management Tabs */}
+        <Tabs defaultValue="instagram" className="w-full">
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="instagram" className="flex items-center gap-2">
+              <Instagram className="w-4 h-4" />
+              Instagram
+            </TabsTrigger>
+            <TabsTrigger value="album" className="flex items-center gap-2">
+              <Camera className="w-4 h-4" />
+              Álbum OSE
+            </TabsTrigger>
+            <TabsTrigger value="material" className="flex items-center gap-2">
+              <FileText className="w-4 h-4" />
+              Lista de Material
+            </TabsTrigger>
+          </TabsList>
 
-        {/* Album Events Management Section */}
-        <div className="mt-8">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Camera className="w-6 h-6 text-amber-600" />
-                Gerenciamento do Álbum OSE
-              </CardTitle>
-              <p className="text-gray-600">
-                Adicione e gerencie eventos e links de fotos do álbum escolar
-              </p>
-            </CardHeader>
-            <CardContent>
-              <AlbumEventsManager />
-            </CardContent>
-          </Card>
-        </div>
+          <TabsContent value="instagram" className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Instagram className="w-6 h-6 text-pink-600" />
+                  Gerenciamento do Feed Instagram
+                </CardTitle>
+                <p className="text-gray-600">
+                  Faça upload e gerencie as imagens que aparecem no feed do Instagram no site
+                </p>
+              </CardHeader>
+              <CardContent>
+                <InstagramUploadManager />
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="album" className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Camera className="w-6 h-6 text-amber-600" />
+                  Gerenciamento do Álbum OSE
+                </CardTitle>
+                <p className="text-gray-600">
+                  Adicione e gerencie eventos e links de fotos do álbum escolar
+                </p>
+              </CardHeader>
+              <CardContent>
+                <AlbumEventsManager />
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="material" className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <FileText className="w-6 h-6 text-school-orange" />
+                  Gerenciamento de Lista de Material
+                </CardTitle>
+                <p className="text-gray-600">
+                  Configure os links do Google Drive para as listas de material por segmento e série
+                </p>
+              </CardHeader>
+              <CardContent>
+                <MaterialListManager />
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
