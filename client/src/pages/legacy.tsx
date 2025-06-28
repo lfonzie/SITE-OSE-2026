@@ -211,44 +211,27 @@ export default function Legacy() {
           ></div>
         )}
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-left">
-              <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6 text-left"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                Um Século de <span className="text-school-orange">Legado</span>
-              </motion.h1>
-              <motion.p 
-                className="text-xl md:text-2xl font-semibold mb-4 text-left"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                Tradição Secular de Ensino
-              </motion.p>
-              <motion.p 
-                className="text-xl md:text-2xl mb-6 text-left"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Desde 1924 • 100 Anos de Excelência
-              </motion.p>
-              <motion.p 
-                className="text-lg mb-8 opacity-95 text-left"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
-                A Organização Sorocabana de Ensino celebra 100 anos de excelência educacional, 
-                formando gerações de líderes e transformando vidas através da educação de qualidade.
-              </motion.p>
-            </div>
-          </div>
+        <div className="relative z-10 container mx-auto px-6 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left max-w-4xl"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Um Século de <span className="text-school-orange">Legado</span>
+              <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                Tradição Secular de Ensino - Desde 1924
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-200 mb-6">
+              <strong>100 Anos de Excelência</strong> em Educação
+            </p>
+            <p className="text-lg mb-8 text-slate-300 max-w-3xl">
+              A Organização Sorocabana de Ensino celebra 100 anos de excelência educacional, 
+              formando gerações de líderes e transformando vidas através da educação de qualidade.
+            </p>
+          </motion.div>
         </div>
       </section>
 
