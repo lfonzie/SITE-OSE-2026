@@ -104,12 +104,7 @@ export default function Links() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Admin Logout Button */}
-      {isAuthenticated && (
-        <div className="fixed top-4 right-4 z-50">
-          <LogoutButton />
-        </div>
-      )}
+      
 
       {/* Quick Links Section */}
       <section className="py-12 sm:py-16 bg-white">

@@ -7,7 +7,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExternalLink, Calendar, Camera } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAuth } from '@/contexts/AuthContext';
-import LogoutButton from '@/components/LogoutButton';
 import WhyOSESection from '@/components/why-ose-section';
 import ContactSection from '@/components/contact-section';
 import { newImages } from "@/lib/image-verification";
@@ -69,12 +68,7 @@ export default function AlbumOSE() {
     <div className="min-h-screen bg-slate-50">
       <Navigation />
       
-      {/* Admin Logout Button */}
-      {isAuthenticated && (
-        <div className="fixed top-4 right-4 z-50">
-          <LogoutButton />
-        </div>
-      )}
+      
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh] overflow-hidden">

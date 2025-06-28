@@ -8,7 +8,6 @@ import { ExternalLink, Calendar, MessageSquare, FileText, Users, Clock, BookOpen
 import { motion } from "framer-motion";
 // Removed problematic imports - will implement sections directly
 import { useAuth } from '@/contexts/AuthContext';
-import LogoutButton from '@/components/LogoutButton';
 import WhyOSESection from '@/components/why-ose-section';
 import ContactSection from '@/components/contact-section';
 import { logos, newImages } from "@/lib/image-verification";
@@ -91,12 +90,7 @@ export default function AgendaEdu() {
     <div className="min-h-screen bg-slate-50">
       <Navigation />
       
-      {/* Admin Logout Button */}
-      {isAuthenticated && (
-        <div className="fixed top-4 right-4 z-50">
-          <LogoutButton />
-        </div>
-      )}
+      
       
       {/* Hero Section */}
       <section className="relative min-h-screen overflow-hidden">

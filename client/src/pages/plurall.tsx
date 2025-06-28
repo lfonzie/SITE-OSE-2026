@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ExternalLink, BookOpen, Users, Computer, Target, Clock, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAuth } from '@/contexts/AuthContext';
-import LogoutButton from '@/components/LogoutButton';
+
 import WhyOSESection from '@/components/why-ose-section';
 import ContactSection from '@/components/contact-section';
 import { logos, newImages } from "@/lib/image-verification";
@@ -88,12 +88,7 @@ export default function Plurall() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Admin Logout Button */}
-      {isAuthenticated && (
-        <div className="fixed top-4 right-4 z-50">
-          <LogoutButton />
-        </div>
-      )}
+      
       
       <Navigation />
       

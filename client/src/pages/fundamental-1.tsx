@@ -137,9 +137,7 @@ export default function Fundamental1() {
     <div className="min-h-screen bg-slate-50">
       <Navigation />
 
-      {/* Admin Logout Button */}
-      {isAuthenticated && (
-        <div className="fixed top-4 right-4 z-50">
+      
           <LogoutButton />
         </div>
       )}
