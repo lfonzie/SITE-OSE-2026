@@ -126,6 +126,8 @@ export default function Fundamental2() {
         <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-school-orange/30 via-school-orange/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-400/25 via-blue-300/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-purple-400/20 via-pink-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-tr from-emerald-400/15 via-cyan-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '6s'}}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-gradient-to-bl from-rose-400/20 via-orange-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '8s'}}></div>
       </div>
       <Navigation />
       
@@ -384,7 +386,7 @@ export default function Fundamental2() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Linguagens</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• Língua Portuguesa avançada</li>
@@ -394,7 +396,7 @@ export default function Fundamental2() {
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Matemática</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• Álgebra e Geometria</li>
@@ -404,7 +406,7 @@ export default function Fundamental2() {
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Ciências Humanas</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• História e Geografia</li>
@@ -414,7 +416,7 @@ export default function Fundamental2() {
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Ciências da Natureza</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• Ciências integradas</li>
@@ -424,7 +426,7 @@ export default function Fundamental2() {
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Tecnologia e Inovação</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• Programação e robótica</li>
@@ -434,7 +436,7 @@ export default function Fundamental2() {
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Projetos Especiais</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• Projeto de vida</li>

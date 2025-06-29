@@ -267,7 +267,7 @@ export default function Fundamental1() {
               const Icon = feature.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.1} className="h-full">
-                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                  <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
                     <div className={`${feature.color} text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6`}>
                       <Icon size={28} />
                     </div>

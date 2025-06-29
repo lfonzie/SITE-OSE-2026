@@ -268,7 +268,7 @@ export default function EnsinoMedio() {
               const Icon = pillar.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.1} className="h-full">
-                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                  <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
                     <div className={`${pillar.color} text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6`}>
                       <Icon size={28} />
                     </div>
@@ -302,7 +302,7 @@ export default function EnsinoMedio() {
               const Icon = itinerario.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.2} className="h-full">
-                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-school-orange/20 h-full">
+                  <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-school-orange/20 h-full">
                     <div className={`bg-gradient-to-r ${itinerario.color} text-white w-16 h-16 rounded-lg flex items-center justify-center mb-6`}>
                       <Icon size={32} />
                     </div>
@@ -341,7 +341,7 @@ export default function EnsinoMedio() {
               const Icon = esfera.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.1} className="h-full">
-                  <div className="bg-white p-6 rounded-xl shadow-lg text-center h-full">
+                  <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-6 rounded-xl shadow-lg text-center h-full">
                     <div className="bg-school-orange text-white w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
                       <Icon size={24} />
                     </div>
@@ -353,7 +353,7 @@ export default function EnsinoMedio() {
             })}
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-lg">
+          <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
             <p className="text-lg text-slate-700 text-center">
               Este é um processo continuado que ajuda o aluno a planejar e tomar decisões conscientes sobre seu futuro. 
               Ele serve como um mapa orientador que é revisitado e adaptado ao longo do curso.
