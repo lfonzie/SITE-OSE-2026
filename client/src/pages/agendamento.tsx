@@ -255,7 +255,7 @@ export default function Agendamento() {
               <MapPin className="text-school-orange mx-auto mb-4" size={48} />
               <h3 className="text-xl font-bold text-slate-800 mb-4">Endereço</h3>
               <p className="text-slate-600 mb-4">
-                Rua da Penha, 620 - Centro, Sorocaba - SP
+                Rua da Penha, 620 - Centro, Sorocaba - SP, 18010-002
               </p>
               <Button 
                 variant="outline"

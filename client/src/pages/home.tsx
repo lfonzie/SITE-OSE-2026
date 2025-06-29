@@ -23,10 +23,10 @@ export default function Home() {
     "description": "Escola particular em Sorocaba com 100 anos de tradição educacional. Educação Infantil, Ensino Fundamental e Médio com excelência acadêmica.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Rua Dr. Ursulino de Oliveira, 20",
+      "streetAddress": "Rua da Penha, 620",
       "addressLocality": "Sorocaba",
       "addressRegion": "SP",
-      "postalCode": "18035-370",
+      "postalCode": "18010-002",
       "addressCountry": "BR"
     },
     "telephone": "+55-15-2101-3800",
