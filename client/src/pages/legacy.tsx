@@ -4,6 +4,7 @@ import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
+import SEO from '@/components/SEO';
 import { Button } from "@/components/ui/button";
 import { Award, Users, BookOpen, Trophy, Star, Building2, GraduationCap, Heart, Map } from "lucide-react";
 import { motion } from "framer-motion";
@@ -170,8 +171,50 @@ export default function Legacy() {
     });
   }, []);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "História da OSE - Organização Sorocabana de Ensino",
+    "url": "https://colegioose.com.br/legacy",
+    "description": "História centenária da OSE: desde 1924, um século de excelência educacional em Sorocaba. Tradição, inovação e formação integral ao longo de 100 anos.",
+    "foundingDate": "1924-10-22",
+    "founder": {
+      "@type": "Person",
+      "name": "Arthur Cyrillo Freire"
+    },
+    "location": {
+      "@type": "Place",
+      "name": "Sorocaba, São Paulo, Brasil"
+    },
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Centenário de Excelência Educacional",
+      "description": "100 anos de tradição e inovação em educação"
+    },
+    "alumni": [
+      {
+        "@type": "Person",
+        "name": "Antônio Junqueira de Azevedo Antunes"
+      },
+      {
+        "@type": "Person", 
+        "name": "Nelson Fonseca"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title="História da OSE - 100 Anos de Tradição Educacional | Colégio OSE Sorocaba"
+        description="Conheça a rica história centenária da OSE: desde 1924, um século de excelência educacional em Sorocaba. Uma jornada de tradição, inovação e formação integral com Arthur Cyrillo Freire."
+        keywords="história OSE, tradição educacional sorocaba, 100 anos ose, legado educacional, colégio tradicional sorocaba, Arthur Cyrillo Freire, fundação 1924, centenário"
+        canonical="https://colegioose.com.br/legacy"
+        ogTitle="História da OSE - 100 Anos de Tradição Educacional | Um Século de Excelência"
+        ogDescription="Conheça a rica história centenária da OSE: desde 1924, tradição e inovação educacional em Sorocaba. Um século de formação integral e excelência."
+        ogImage="https://colegioose.com.br/images/LogoOSE100anos.png"
+        structuredData={structuredData}
+      />
       {/* Enhanced Glassmorphism Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>

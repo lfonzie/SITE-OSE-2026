@@ -3,6 +3,7 @@ import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
+import SEO from '@/components/SEO';
 import { Button } from "@/components/ui/button";
 import { BookOpen, Heart, Music, Dumbbell, Globe, TreePine, Clock } from "lucide-react";
 import { motion } from "framer-motion";
@@ -89,8 +90,55 @@ export default function Integral() {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Programa Integral Flex - Colégio OSE",
+    "url": "https://colegioose.com.br/integral",
+    "description": "Programa Integral Flex no Colégio OSE com desenvolvimento integral, atividades extracurriculares, apoio pedagógico e educação bilíngue em período flexível em Sorocaba.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Colégio OSE",
+      "url": "https://colegioose.com.br"
+    },
+    "hasOfferingCatalog": {
+      "@type": "OfferingCatalog",
+      "name": "Programa Integral Flex",
+      "itemListElement": [
+        {
+          "@type": "Course",
+          "name": "Apoio Pedagógico Personalizado",
+          "description": "Acompanhamento individualizado para reforço escolar"
+        },
+        {
+          "@type": "Course",
+          "name": "Atividades Culturais e Esportivas",
+          "description": "Desenvolvimento integral através de atividades diversificadas"
+        }
+      ]
+    },
+    "teaches": [
+      "Desenvolvimento Integral",
+      "Apoio Pedagógico",
+      "Atividades Extracurriculares",
+      "Educação Bilíngue",
+      "Práticas Sustentáveis",
+      "Formação Cultural"
+    ]
+  };
+
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title="Programa Integral Flex - Colégio OSE | Desenvolvimento Integral em Período Flexível"
+        description="Programa Integral Flex no Colégio OSE com apoio pedagógico personalizado, atividades extracurriculares, educação bilíngue e desenvolvimento integral em horário flexível para alunos em Sorocaba."
+        keywords="programa integral sorocaba, período integral flexível, apoio pedagógico, atividades extracurriculares, escola integral particular sorocaba, desenvolvimento integral criança"
+        canonical="https://colegioose.com.br/integral"
+        ogTitle="Programa Integral Flex - Colégio OSE | Apoio Pedagógico e Atividades Extracurriculares"
+        ogDescription="Programa Integral Flex com desenvolvimento completo do aluno. Apoio pedagógico, atividades culturais e esportivas em período flexível no Colégio OSE."
+        ogImage="https://colegioose.com.br/images/LogoOSE100anos.png"
+        structuredData={structuredData}
+      />
       {/* Enhanced Glassmorphism Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>
