@@ -589,10 +589,10 @@ export async function registerRoutes(app: Express) {
     }
   });
 
-  // Serve dashboard.html at /dash route
-  app.get('/dash', (req, res) => {
-    const dashboardPath = path.join(process.cwd(), 'client/public/dashboard.html');
-    res.sendFile(dashboardPath);
+  // Serve desktop.html at /desktop route
+  app.get('/desktop', (req, res) => {
+    const desktopPath = path.join(process.cwd(), 'client/public/desktop.html');
+    res.sendFile(desktopPath);
   });
 
   // Professores routes

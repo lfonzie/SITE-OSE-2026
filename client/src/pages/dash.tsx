@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, User, BookOpen, Calendar, DollarSign } from "lucide-react";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
+import Clock from "@/components/ui/clock";
 import { motion } from "framer-motion";
 
 export default function DashPage() {
@@ -17,6 +18,13 @@ export default function DashPage() {
       </div>
 
       <Navigation />
+      
+      {/* Clock Section */}
+      <section className="py-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Clock className="mx-auto max-w-lg" />
+        </div>
+      </section>
       
       {/* Hero Section */}
       <section className="py-20 relative z-10">
