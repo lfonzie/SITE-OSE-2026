@@ -24,15 +24,10 @@ export default function Home() {
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-gradient-to-bl from-rose-400/20 via-orange-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '8s'}}></div>
       </div>
 
-      {/* Glass Navigation */}
-      <div className="relative z-50">
-        <div className="backdrop-blur-md bg-white/70 border-b border-white/20 shadow-lg">
-          <Navigation />
-        </div>
-      </div>
+      <Navigation />
 
-      {/* Glass Sections */}
-      <div className="relative z-10">
+      {/* Glass Sections with padding for fixed nav */}
+      <div className="relative z-10 pt-20">
         <div className="backdrop-blur-sm bg-white/10 border-b border-white/10">
           <HeroSection />
         </div>
