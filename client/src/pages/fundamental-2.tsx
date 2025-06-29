@@ -164,8 +164,6 @@ export default function Fundamental2() {
         <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-school-orange/30 via-school-orange/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-400/25 via-blue-300/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-purple-400/20 via-pink-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-tr from-emerald-400/15 via-cyan-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '6s'}}></div>
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-gradient-to-bl from-rose-400/20 via-orange-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '8s'}}></div>
       </div>
       <Navigation />
       
@@ -246,14 +244,19 @@ export default function Fundamental2() {
       </section>
 
       {/* Years Navigation */}
-      <section className="py-12 bg-white border-b">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">Anos do Ensino Fundamental II</h2>
+          <div className="text-center mb-16">
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Anos do Ensino Fundamental II</h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Estrutura organizada por faixa etária para melhor desenvolvimento
+              </p>
+            </div>
           </div>
-          <div className="grid md:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-4 gap-6">
             {years.map((item, index) => (
-              <div key={index} className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-4 rounded-xl text-center">
+              <div key={index} className="backdrop-blur-lg bg-white/30 border border-white/40 p-6 rounded-xl text-center shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1">
                 <h3 className="text-lg font-bold text-slate-800 mb-2">{item.year}</h3>
                 <p className="text-sm text-slate-600">{item.description}</p>
               </div>
@@ -263,16 +266,18 @@ export default function Fundamental2() {
       </section>
 
       {/* Features Section */}
-      <section id="detalhes" className="py-20 bg-gray-50">
+      <section id="detalhes" className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Anos Finais que <span className="text-school-orange">Transformam</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Uma educação que desenvolve o pensamento crítico, a liderança e a consciência cidadã, 
-              preparando jovens para os desafios do futuro.
-            </p>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Anos Finais que <span className="text-school-orange">Transformam</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Uma educação que desenvolve o pensamento crítico, a liderança e a consciência cidadã, 
+                preparando jovens para os desafios do futuro.
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -280,7 +285,7 @@ export default function Fundamental2() {
               const IconComponent = feature.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.1}>
-                  <div className="text-center p-6 h-full">
+                  <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1 text-center h-full">
                     <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <IconComponent size={32} className="text-school-orange" />
                     </div>
@@ -295,10 +300,10 @@ export default function Fundamental2() {
       </section>
 
       {/* Educational Philosophy */}
-      <section className="py-16 bg-white">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div>
+            <div className="backdrop-blur-lg bg-white/25 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
               <h3 className="text-3xl font-bold text-slate-800 mb-6">
                 Preparando Líderes do Futuro
               </h3>
@@ -407,19 +412,21 @@ export default function Fundamental2() {
       </section>
 
       {/* Curriculum Highlights */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Currículo de Excelência
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Base Nacional Comum Curricular integrada com metodologias inovadoras
-            </p>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Currículo de Excelência
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Base Nacional Comum Curricular integrada com metodologias inovadoras
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
+            <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Linguagens</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• Língua Portuguesa avançada</li>
@@ -429,7 +436,7 @@ export default function Fundamental2() {
               </ul>
             </div>
 
-            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
+            <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Matemática</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• Álgebra e Geometria</li>
@@ -439,7 +446,7 @@ export default function Fundamental2() {
               </ul>
             </div>
 
-            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
+            <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Ciências Humanas</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• História e Geografia</li>
@@ -449,7 +456,7 @@ export default function Fundamental2() {
               </ul>
             </div>
 
-            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
+            <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Ciências da Natureza</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• Ciências integradas</li>
@@ -459,7 +466,7 @@ export default function Fundamental2() {
               </ul>
             </div>
 
-            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
+            <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Tecnologia e Inovação</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• Programação e robótica</li>
@@ -469,7 +476,7 @@ export default function Fundamental2() {
               </ul>
             </div>
 
-            <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
+            <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Projetos Especiais</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• Projeto de vida</li>
@@ -483,15 +490,17 @@ export default function Fundamental2() {
       </section>
 
       {/* Differentials Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Diferenciais do Fundamental II OSE
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Metodologia única que combina excelência acadêmica com formação integral
-            </p>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Diferenciais do Fundamental II OSE
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Metodologia única que combina excelência acadêmica com formação integral
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -499,7 +508,7 @@ export default function Fundamental2() {
               const IconComponent = differential.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.1}>
-                  <div className="bg-gradient-to-br from-school-orange/5 to-school-brown/5 p-8 rounded-xl text-center h-full">
+                  <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1 text-center h-full">
                     <div className="w-16 h-16 bg-school-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <IconComponent size={32} className="text-school-orange" />
                     </div>
