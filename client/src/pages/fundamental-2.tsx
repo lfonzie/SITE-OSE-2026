@@ -15,7 +15,7 @@ import { usePageData } from '@/hooks/usePageData';
 import { useAuth } from '@/contexts/AuthContext';
 import DragImagePosition from '@/components/DragImagePosition';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
-import LogoutButton from '@/components/LogoutButton';
+
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import ImagePositionControls from '@/components/ImagePositionControls';
 
@@ -131,12 +131,7 @@ export default function Fundamental2() {
       </div>
       <Navigation />
       
-      {/* Admin Logout Button */}
-      {isAuthenticated && (
-        <div className="fixed top-4 right-4 z-50">
-          <LogoutButton />
-        </div>
-      )}
+
 
       {/* Hero Section */}
       <section className="relative min-h-screen overflow-hidden">
