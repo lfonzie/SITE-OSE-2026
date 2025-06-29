@@ -250,7 +250,7 @@ export default function Fundamental1() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left max-w-4xl"
+            className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 shadow-xl shadow-black/20 max-w-4xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Ensino Fundamental <span className="text-school-orange">I</span>
@@ -271,14 +271,19 @@ export default function Fundamental1() {
       </section>
 
       {/* Years Navigation */}
-      <section className="py-12 bg-white border-b">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">Anos do Ensino Fundamental I</h2>
+          <div className="text-center mb-16">
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Anos do Ensino Fundamental I</h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Estrutura organizada por faixa etária para melhor desenvolvimento
+              </p>
+            </div>
           </div>
           <div className="grid md:grid-cols-5 gap-4">
             {years.map((item, index) => (
-              <div key={index} className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-4 rounded-xl text-center">
+              <div key={index} className="backdrop-blur-lg bg-white/30 border border-white/40 p-6 rounded-xl text-center shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1">
                 <h3 className="text-lg font-bold text-slate-800 mb-2">{item.year}</h3>
                 <p className="text-sm text-slate-600">{item.description}</p>
               </div>
@@ -288,16 +293,18 @@ export default function Fundamental1() {
       </section>
 
       {/* Features Section */}
-      <section id="detalhes" className="py-20 bg-gray-50">
+      <section id="detalhes" className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Anos Iniciais que <span className="text-school-orange">Inspiram</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Uma educação que respeita o desenvolvimento natural da criança, 
-              estimulando curiosidade e construindo bases sólidas para o futuro
-            </p>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Anos Iniciais que <span className="text-school-orange">Inspiram</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Uma educação que respeita o desenvolvimento natural da criança, 
+                estimulando curiosidade e construindo bases sólidas para o futuro
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -305,7 +312,7 @@ export default function Fundamental1() {
               const Icon = feature.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.1} className="h-full">
-                  <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                  <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1 h-full">
                     <div className={`${feature.color} text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6`}>
                       <Icon size={28} />
                     </div>
@@ -320,21 +327,23 @@ export default function Fundamental1() {
       </section>
 
       {/* Methodology Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              <span className="text-school-orange">Metodologia que Encanta</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Transformando o aprendizado em descoberta através de práticas pedagógicas inovadoras
-            </p>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <span className="text-school-orange">Metodologia que Encanta</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Transformando o aprendizado em descoberta através de práticas pedagógicas inovadoras
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {metodologia.map((item, index) => (
               <AnimatedCard key={index} delay={index * 0.1} className="h-full">
-                <div className="bg-white p-6 rounded-xl shadow-lg text-center h-full border-l-4 border-l-school-orange">
+                <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-6 rounded-xl shadow-xl shadow-black/10 text-center h-full border-l-4 border-l-school-orange hover:shadow-2xl transition-all transform hover:-translate-y-1">
                   <h4 className="font-bold text-slate-800 mb-2">{item.title}</h4>
                   <p className="text-sm text-slate-600">{item.description}</p>
                 </div>
@@ -342,7 +351,7 @@ export default function Fundamental1() {
             ))}
           </div>
 
-          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 p-8 rounded-xl">
+          <div className="backdrop-blur-lg bg-white/25 border border-white/30 p-8 rounded-xl shadow-xl shadow-black/10">
             <p className="text-lg text-slate-700 text-center">
               Cada criança é única, por isso oferecemos atenção personalizada para potencializar suas habilidades 
               em um ambiente seguro e estimulante onde podem explorar e crescer plenamente.
@@ -352,7 +361,7 @@ export default function Fundamental1() {
       </section>
 
       {/* Image Gallery */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             <div className="relative">
