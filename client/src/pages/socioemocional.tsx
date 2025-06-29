@@ -191,7 +191,14 @@ export default function Socioemocional() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen relative">
+      {/* Enhanced Glassmorphism Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-school-orange/30 via-school-orange/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-400/25 via-blue-300/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-purple-400/20 via-pink-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+      </div>
       <Navigation />
 
       {/* Hero Section */}
@@ -353,7 +360,7 @@ export default function Socioemocional() {
               const Icon = segmento.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.2} className="w-full">
-                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="bg-white/30 backdrop-blur-lg p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-white/20">
                     <div className="flex items-start gap-6">
                       <div className={`bg-gradient-to-r ${segmento.color} text-white w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0`}>
                         <Icon size={32} />
