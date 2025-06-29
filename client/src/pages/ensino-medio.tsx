@@ -3,6 +3,7 @@ import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Users, BookOpen, Target, Award, Lightbulb, Brain, Heart, Globe, Calculator, Microscope, PenTool } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
@@ -131,8 +132,45 @@ export default function EnsinoMedio() {
     { year: "3ª Série", description: "Preparação ENEM e definição profissional" }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Ensino Médio - Colégio OSE",
+    "url": "https://colegioose.com.br/ensino-medio",
+    "description": "Ensino Médio no Colégio OSE com itinerários formativos, preparação ENEM e projeto de vida para jovens de 15 a 17 anos em Sorocaba. Formação integral para o futuro.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Colégio OSE",
+      "url": "https://colegioose.com.br"
+    },
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student",
+      "audienceType": "teenagers aged 15-17"
+    },
+    "educationalLevel": "Ensino Médio",
+    "teaches": [
+      "Itinerários Formativos",
+      "Preparação ENEM",
+      "Projeto de Vida",
+      "Desenvolvimento Integral",
+      "Formação Acadêmica",
+      "Competências do Século XXI"
+    ]
+  };
+
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title="Ensino Médio - Colégio OSE | Itinerários Formativos e Preparação ENEM em Sorocaba"
+        description="Ensino Médio no Colégio OSE com itinerários formativos personalizados, preparação intensiva para ENEM e projeto de vida. Formação integral e desenvolvimento de competências para jovens de 15 a 17 anos."
+        keywords="ensino médio sorocaba, preparação enem, itinerários formativos, projeto de vida, escola particular ensino médio sorocaba, competências século 21, desenvolvimento integral jovem"
+        canonical="https://colegioose.com.br/ensino-medio"
+        ogTitle="Ensino Médio - Colégio OSE | Preparação ENEM e Itinerários Formativos"
+        ogDescription="Ensino Médio com itinerários formativos e preparação ENEM. Projeto de vida e formação integral para o futuro dos jovens no Colégio OSE."
+        ogImage="https://colegioose.com.br/images/LogoOSE100anos.png"
+        structuredData={structuredData}
+      />
       {/* Enhanced Glassmorphism Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>

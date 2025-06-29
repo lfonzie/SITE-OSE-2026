@@ -3,6 +3,7 @@ import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Heart, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
@@ -132,8 +133,45 @@ export default function Fundamental1() {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Ensino Fundamental I - Colégio OSE",
+    "url": "https://colegioose.com.br/fundamental-1",
+    "description": "Ensino Fundamental Anos Iniciais no Colégio OSE com metodologia lúdica, desenvolvimento emocional e base acadêmica sólida para crianças de 6 a 10 anos em Sorocaba.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Colégio OSE",
+      "url": "https://colegioose.com.br"
+    },
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student",
+      "audienceType": "children aged 6-10"
+    },
+    "educationalLevel": "Ensino Fundamental I",
+    "teaches": [
+      "Desenvolvimento Emocional",
+      "Aprendizagem Significativa",
+      "Socialização Saudável",
+      "Criatividade e Inovação",
+      "Base Acadêmica Sólida",
+      "Formação de Caráter"
+    ]
+  };
+
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title="Ensino Fundamental I - Colégio OSE | Anos Iniciais com Metodologia Lúdica em Sorocaba"
+        description="Ensino Fundamental I no Colégio OSE com aprendizagem lúdica, desenvolvimento emocional e base acadêmica sólida. Metodologia ativa para crianças de 6 a 10 anos em ambiente acolhedor e estimulante."
+        keywords="ensino fundamental 1 sorocaba, anos iniciais, metodologia lúdica, desenvolvimento emocional criança, escola fundamental particular sorocaba, aprendizagem significativa, formação de caráter"
+        canonical="https://colegioose.com.br/fundamental-1"
+        ogTitle="Ensino Fundamental I - Colégio OSE | Metodologia Lúdica e Desenvolvimento Integral"
+        ogDescription="Ensino Fundamental Anos Iniciais com metodologia lúdica e desenvolvimento emocional. Base acadêmica sólida para crianças de 6 a 10 anos no Colégio OSE."
+        ogImage="https://colegioose.com.br/images/LogoOSE100anos.png"
+        structuredData={structuredData}
+      />
       {/* Enhanced Glassmorphism Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>

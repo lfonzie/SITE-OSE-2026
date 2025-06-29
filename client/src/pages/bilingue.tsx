@@ -15,6 +15,7 @@ import DragImagePosition from '@/components/DragImagePosition';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import ImagePositionControls from '@/components/ImagePositionControls';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
+import SEO from '@/components/SEO';
 
 // Import images
 import { newImages } from "@/lib/image-verification";
@@ -85,8 +86,54 @@ export default function Bilingue() {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Programa Bilíngue - Colégio OSE",
+    "url": "https://colegioose.com.br/bilingue",
+    "description": "Programa Bilíngue Global Citizens no Colégio OSE com immersão natural no inglês, metodologia Cambridge e formação para cidadania global em Sorocaba.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Colégio OSE",
+      "url": "https://colegioose.com.br"
+    },
+    "hasOfferingCatalog": {
+      "@type": "OfferingCatalog",
+      "name": "Global Citizens Program",
+      "itemListElement": [
+        {
+          "@type": "Course",
+          "name": "Imersão Natural no Inglês",
+          "description": "Aprendizado contextualizado e natural da língua inglesa"
+        },
+        {
+          "@type": "Course",
+          "name": "Metodologia Cambridge",
+          "description": "Currículo internacional de excelência reconhecida"
+        }
+      ]
+    },
+    "teaches": [
+      "Inglês Imersivo",
+      "Metodologia Cambridge",
+      "Cidadania Global",
+      "Competências Interculturais",
+      "Comunicação Internacional"
+    ]
+  };
+
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title="Programa Bilíngue Global Citizens - Colégio OSE | Imersão em Inglês em Sorocaba"
+        description="Programa Bilíngue Global Citizens no Colégio OSE com imersão natural em inglês, metodologia Cambridge e formação para cidadania global. Educação bilíngue de excelência em Sorocaba."
+        keywords="programa bilíngue sorocaba, global citizens, metodologia cambridge, imersão inglês, escola bilíngue particular sorocaba, cidadania global, educação internacional"
+        canonical="https://colegioose.com.br/bilingue"
+        ogTitle="Programa Bilíngue Global Citizens - Colégio OSE | Metodologia Cambridge"
+        ogDescription="Programa Bilíngue com imersão natural em inglês e metodologia Cambridge. Formação para cidadania global no Colégio OSE."
+        ogImage="https://colegioose.com.br/images/LogoOSE100anos.png"
+        structuredData={structuredData}
+      />
       {/* Enhanced Glassmorphism Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>

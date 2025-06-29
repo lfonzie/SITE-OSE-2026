@@ -4,6 +4,7 @@ import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Brain, Users, Award, BookOpen, Target, Lightbulb, Star, Globe, Heart } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
@@ -118,8 +119,45 @@ export default function Fundamental2() {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Ensino Fundamental II - Colégio OSE",
+    "url": "https://colegioose.com.br/fundamental-2",
+    "description": "Ensino Fundamental Anos Finais no Colégio OSE com pensamento crítico, liderança e currículo interdisciplinar para adolescentes de 11 a 14 anos em Sorocaba.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Colégio OSE",
+      "url": "https://colegioose.com.br"
+    },
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student",
+      "audienceType": "adolescents aged 11-14"
+    },
+    "educationalLevel": "Ensino Fundamental II",
+    "teaches": [
+      "Pensamento Crítico",
+      "Liderança e Cidadania",
+      "Currículo Interdisciplinar",
+      "Projeto de Vida",
+      "Metodologia Inovadora",
+      "Educação Socioemocional"
+    ]
+  };
+
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title="Ensino Fundamental II - Colégio OSE | Anos Finais com Pensamento Crítico em Sorocaba"
+        description="Ensino Fundamental II no Colégio OSE com desenvolvimento do pensamento crítico, liderança e projeto de vida. Metodologia inovadora e currículo interdisciplinar para adolescentes de 11 a 14 anos."
+        keywords="ensino fundamental 2 sorocaba, anos finais, pensamento crítico, liderança adolescente, escola fundamental particular sorocaba, projeto de vida, currículo interdisciplinar"
+        canonical="https://colegioose.com.br/fundamental-2"
+        ogTitle="Ensino Fundamental II - Colégio OSE | Pensamento Crítico e Liderança"
+        ogDescription="Ensino Fundamental Anos Finais com pensamento crítico e projeto de vida. Formação de líderes conscientes para adolescentes de 11 a 14 anos no Colégio OSE."
+        ogImage="https://colegioose.com.br/images/LogoOSE100anos.png"
+        structuredData={structuredData}
+      />
       {/* Enhanced Glassmorphism Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>
