@@ -4,6 +4,74 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Glassmorphism Utilities */
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  }
+  
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.3);
+  }
+  
+  .glass-navigation {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.15);
+  }
+}
+
+/* Smooth transitions for glassmorphism effects */
+.glass, .glass-card, .glass-strong, .glass-navigation {
+  transition: all 0.3s ease-in-out;
+}
+
+.glass:hover, .glass-card:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Background animations for glassmorphism */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.floating-orb {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-orb:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.floating-orb:nth-child(3) {
+  animation-delay: -4s;
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);

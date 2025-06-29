@@ -55,7 +55,7 @@ export default function ProgramsSection() {
   const handleImageUpdate = (index: number, newImageUrl: string) => {
     console.log(`Salvando nova imagem para programa ${index}:`, newImageUrl);
     updateImage(index, newImageUrl);
-    
+
     // Força um re-render para garantir que a imagem seja atualizada
     setTimeout(() => {
       const element = document.querySelector(`[data-program-index="${index}"]`);

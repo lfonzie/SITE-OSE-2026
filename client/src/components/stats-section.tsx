@@ -1,4 +1,3 @@
-
 import { Users, Calendar, Trophy, BookOpen } from "lucide-react";
 import { AnimatedCounter } from "@/components/animated/AnimatedCounter";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
