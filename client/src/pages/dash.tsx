@@ -8,12 +8,20 @@ import { motion } from "framer-motion";
 
 export default function DashPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 relative overflow-hidden">
+      {/* Animated Background Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-school-orange/30 to-school-brown/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-r from-school-brown/20 to-school-orange/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-amber-300/20 to-orange-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+      </div>
+
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 relative z-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-slate-700/80 backdrop-blur-sm"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 text-white">
           <motion.h1 
             className="text-4xl md:text-6xl font-bold mb-6"
             initial={{ opacity: 0, y: 50 }}
@@ -55,7 +63,7 @@ export default function DashPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatedCard delay={0.1} direction="up" hover={true} scale={true}>
-              <Card>
+              <Card className="bg-white/30 backdrop-blur-lg border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <User className="text-school-orange mb-4" size={48} />
                   <CardTitle>Portal do Aluno ActiveSoft</CardTitle>
@@ -75,7 +83,7 @@ export default function DashPage() {
             </AnimatedCard>
 
             <AnimatedCard delay={0.2} direction="up" hover={true} scale={true}>
-              <Card>
+              <Card className="bg-white/30 backdrop-blur-lg border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <BookOpen className="text-school-brown mb-4" size={48} />
                   <CardTitle>Árvore de Livros</CardTitle>
@@ -96,7 +104,7 @@ export default function DashPage() {
             </AnimatedCard>
 
             <AnimatedCard delay={0.3} direction="up" hover={true} scale={true}>
-              <Card>
+              <Card className="bg-white/30 backdrop-blur-lg border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <DollarSign className="text-school-orange mb-4" size={48} />
                   <CardTitle>Portal Financeiro Isaac</CardTitle>
@@ -120,7 +128,7 @@ export default function DashPage() {
       </section>
 
       {/* Access Instructions */}
-      <section className="py-16 bg-white">
+      <section className="py-16 relative z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
@@ -133,7 +141,7 @@ export default function DashPage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             <AnimatedCard delay={0.4} direction="left" hover={true}>
-              <Card>
+              <Card className="bg-white/30 backdrop-blur-lg border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-school-orange">Primeiro Acesso</CardTitle>
                 </CardHeader>
@@ -146,7 +154,7 @@ export default function DashPage() {
             </AnimatedCard>
 
             <AnimatedCard delay={0.5} direction="right" hover={true}>
-              <Card>
+              <Card className="bg-white/30 backdrop-blur-lg border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-school-brown">Suporte</CardTitle>
                 </CardHeader>
