@@ -187,7 +187,7 @@ export default function EnsinoMedio() {
           const baseStyle: React.CSSProperties = {
             opacity: heroBackground?.opacity || 1
           };
-          
+
           if (heroBackground?.type === 'gradient') {
             return {
               ...baseStyle,
@@ -197,7 +197,7 @@ export default function EnsinoMedio() {
               backgroundRepeat: 'no-repeat'
             };
           }
-          
+
           if (heroBackground?.type === 'image' && heroBackground.imageUrl) {
             return {
               ...baseStyle,
@@ -207,14 +207,14 @@ export default function EnsinoMedio() {
               backgroundRepeat: heroBackground.repeat || 'no-repeat'
             };
           }
-          
+
           if (heroBackground?.type === 'color') {
             return {
               ...baseStyle,
               backgroundColor: heroBackground.solidColor || '#475569'
             };
           }
-          
+
           return {
             ...baseStyle,
             backgroundImage: 'linear-gradient(135deg, #475569, #64748b)',
@@ -243,7 +243,7 @@ export default function EnsinoMedio() {
             }}
           ></div>
         )}
-        
+
         <div className="relative z-10 container mx-auto px-6 py-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -329,7 +329,7 @@ export default function EnsinoMedio() {
               <span className="text-school-orange">Itinerários Formativos</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto mb-4">
-              
+
             </p>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
               Explore caminhos personalizados que fazem sentido para suas ambições pessoais e profissionais
@@ -392,7 +392,7 @@ export default function EnsinoMedio() {
             })}
           </div>
 
-          <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg">
+          <div className="backdrop-blur-lg bg-white/30 border border-white/20 rounded-xl p-8 shadow-lg">
             <p className="text-lg text-slate-700 text-center">
               Este é um processo continuado que ajuda o aluno a planejar e tomar decisões conscientes sobre seu futuro. 
               Ele serve como um mapa orientador que é revisitado e adaptado ao longo do curso.
