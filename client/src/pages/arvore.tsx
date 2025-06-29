@@ -53,7 +53,14 @@ export default function Arvore() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen relative">
+      {/* Enhanced Glassmorphism Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50/80 via-white/90 to-blue-50/80"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-green-500/30 via-green-400/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-400/25 via-blue-300/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-purple-400/20 via-pink-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+      </div>
       <Navigation />
 
       {/* Hero Section */}
@@ -143,7 +150,7 @@ export default function Arvore() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card>
+            <Card className="bg-white/30 backdrop-blur-lg border border-white/20 shadow-lg">
               <CardHeader>
                 <Book className="text-school-orange mb-4" size={48} />
                 <CardTitle>Biblioteca Digital</CardTitle>
@@ -153,7 +160,7 @@ export default function Arvore() {
               </CardHeader>
             </Card>
 
-            <Card>
+            <Card className="bg-white/30 backdrop-blur-lg border border-white/20 shadow-lg">
               <CardHeader>
                 <Users className="text-school-orange mb-4" size={48} />
                 <CardTitle>Leitura Social</CardTitle>
@@ -163,7 +170,7 @@ export default function Arvore() {
               </CardHeader>
             </Card>
 
-            <Card>
+            <Card className="bg-white/30 backdrop-blur-lg border border-white/20 shadow-lg">
               <CardHeader>
                 <Clock className="text-school-orange mb-4" size={48} />
                 <CardTitle>Acesso 24/7</CardTitle>
@@ -183,7 +190,7 @@ export default function Arvore() {
             Como Acessar
           </h2>
 
-          <div className="bg-slate-50 rounded-lg p-8 mb-8">
+          <div className="bg-white/30 backdrop-blur-lg rounded-lg p-8 mb-8 border border-white/20 shadow-lg">
             <p className="text-lg text-slate-700 mb-6">
               Todos os nossos alunos têm acesso gratuito à plataforma Árvore. 
               Use suas credenciais do colégio para fazer login.

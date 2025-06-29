@@ -53,7 +53,14 @@ export default function Isaac() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen relative">
+      {/* Enhanced Glassmorphism Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/80 via-white/90 to-purple-50/80"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-indigo-500/30 via-indigo-400/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-purple-400/25 via-purple-300/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-blue-400/20 via-blue-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+      </div>
       <Navigation />
 
       {/* Hero Section */}
@@ -143,7 +150,7 @@ export default function Isaac() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card>
+            <Card className="bg-white/30 backdrop-blur-lg border border-white/20">
               <CardHeader>
                 <FileText className="text-school-brown mb-4" size={48} />
                 <CardTitle>Consulta de Mensalidades</CardTitle>
@@ -153,7 +160,7 @@ export default function Isaac() {
               </CardHeader>
             </Card>
 
-            <Card>
+            <Card className="bg-white/30 backdrop-blur-lg border border-white/20">
               <CardHeader>
                 <Calculator className="text-school-brown mb-4" size={48} />
                 <CardTitle>Emissão de Boletos</CardTitle>
@@ -163,7 +170,7 @@ export default function Isaac() {
               </CardHeader>
             </Card>
 
-            <Card>
+            <Card className="bg-white/30 backdrop-blur-lg border border-white/20">
               <CardHeader>
                 <Clock className="text-school-brown mb-4" size={48} />
                 <CardTitle>Histórico Financeiro</CardTitle>
@@ -173,7 +180,7 @@ export default function Isaac() {
               </CardHeader>
             </Card>
 
-            <Card>
+            <Card className="bg-white/30 backdrop-blur-lg border border-white/20">
               <CardHeader>
                 <Shield className="text-school-brown mb-4" size={48} />
                 <CardTitle>Ambiente Seguro</CardTitle>
@@ -183,7 +190,7 @@ export default function Isaac() {
               </CardHeader>
             </Card>
 
-            <Card>
+            <Card className="bg-white/30 backdrop-blur-lg border border-white/20">
               <CardHeader>
                 <CreditCard className="text-school-brown mb-4" size={48} />
                 <CardTitle>Múltiplas Formas de Pagamento</CardTitle>

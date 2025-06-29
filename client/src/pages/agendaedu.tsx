@@ -87,7 +87,14 @@ export default function AgendaEdu() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen relative">
+      {/* Enhanced Glassmorphism Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-green-50/80"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-500/30 via-blue-400/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-green-400/25 via-green-300/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-purple-400/20 via-purple-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+      </div>
       <Navigation />
       
       
@@ -195,7 +202,7 @@ export default function AgendaEdu() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 * index }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-school-orange">
+                <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-school-orange bg-white/30 backdrop-blur-lg border border-white/20">
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-2">
                       <div className="bg-school-orange/10 p-2 rounded-lg">
@@ -225,7 +232,7 @@ export default function AgendaEdu() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="max-w-4xl mx-auto"
           >
-            <Card className="bg-white shadow-lg">
+            <Card className="bg-white/30 backdrop-blur-lg shadow-lg border border-white/20">
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl font-bold text-slate-800">
                   Como Acessar
