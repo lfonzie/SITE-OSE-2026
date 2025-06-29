@@ -170,34 +170,49 @@ export default function Fundamental2() {
 
 
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden">
-        {/* Background Image */}
-        {heroBackground && (
-          <div className="absolute inset-0">
-            {heroBackground.type === 'image' && heroBackground.imageUrl && (
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-all duration-500"
-                style={{
-                  backgroundImage: `url(${heroBackground.imageUrl})`,
-                  backgroundPosition: heroBackground.position || 'center',
-                  backgroundSize: heroBackground.size || 'cover',
-                  backgroundRepeat: heroBackground.repeat || 'no-repeat',
-                  opacity: heroBackground.opacity || 1
-                }}
-              />
-            )}
-            {heroBackground.type === 'gradient' && heroBackground.gradientColors && (
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: `linear-gradient(135deg, ${heroBackground.gradientColors.join(', ')})`,
-                  opacity: heroBackground.opacity || 1
-                }}
-              />
-            )}
-          </div>
-        )}
-
+      <section 
+        className="relative py-20 text-white overflow-hidden"
+        style={(() => {
+          const baseStyle: React.CSSProperties = {
+            opacity: heroBackground?.opacity || 1
+          };
+          
+          if (heroBackground?.type === 'gradient') {
+            return {
+              ...baseStyle,
+              backgroundImage: `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            };
+          }
+          
+          if (heroBackground?.type === 'image' && heroBackground.imageUrl) {
+            return {
+              ...baseStyle,
+              backgroundImage: `url(${heroBackground.imageUrl})`,
+              backgroundSize: heroBackground.size || 'cover',
+              backgroundPosition: heroBackground.position || 'center',
+              backgroundRepeat: heroBackground.repeat || 'no-repeat'
+            };
+          }
+          
+          if (heroBackground?.type === 'color') {
+            return {
+              ...baseStyle,
+              backgroundColor: heroBackground.solidColor || '#475569'
+            };
+          }
+          
+          return {
+            ...baseStyle,
+            backgroundImage: 'linear-gradient(135deg, #475569, #64748b)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          };
+        })()}
+      >
         {/* Hero Background Manager */}
         {isAuthenticated && (
           <HeroBackgroundManager
@@ -213,7 +228,7 @@ export default function Fundamental2() {
             className="absolute inset-0"
             style={{
               backgroundColor: heroBackground.overlayColor || '#1e293b',
-              opacity: heroBackground.overlayOpacity || 0.7
+              opacity: heroBackground.overlayOpacity || 0.8
             }}
           ></div>
         )}
@@ -223,22 +238,22 @@ export default function Fundamental2() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left text-white max-w-4xl"
+            className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 shadow-xl shadow-black/20 max-w-4xl"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Ensino Fundamental <span className="text-school-orange">II</span>
               <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
-                Formando líderes conscientes para um mundo em transformação
+                6º ao 9º Ano - Formando Líderes Conscientes
               </span>
             </h1>
-            <motion.p
-              className="text-xl md:text-2xl mb-8 text-slate-200"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Do 6º ao 9º ano, nossos alunos desenvolvem pensamento crítico, liderança e cidadania em um ambiente que estimula a excelência acadêmica e o crescimento pessoal.
-            </motion.p>
+            <p className="text-xl md:text-2xl text-slate-200 mb-6">
+              Formando <strong>líderes conscientes</strong> para um <strong>mundo em transformação</strong>
+            </p>
+            <p className="text-lg mb-8 text-slate-300 max-w-3xl">
+              Do 6º ao 9º ano, nossos alunos desenvolvem pensamento crítico, liderança e cidadania 
+              em um ambiente que estimula a excelência acadêmica e o crescimento pessoal, preparando-os 
+              para os desafios do futuro.
+            </p>
           </motion.div>
         </div>
       </section>
