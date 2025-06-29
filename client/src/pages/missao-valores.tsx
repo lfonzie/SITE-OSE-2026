@@ -87,7 +87,14 @@ export default function MissaoValores() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen relative">
+      {/* Enhanced Glassmorphism Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-school-orange/30 via-school-orange/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-400/25 via-blue-300/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-purple-400/20 via-pink-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+      </div>
       <Navigation />
 
       {/* Hero Section */}
@@ -160,7 +167,7 @@ export default function MissaoValores() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-left">
+            <div className="text-left backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 shadow-xl shadow-black/20">
               <motion.h1 
                 className="text-4xl md:text-6xl font-bold mb-6 text-left"
                 initial={{ opacity: 0, y: 50 }}
@@ -241,18 +248,20 @@ export default function MissaoValores() {
       </section>
 
       {/* Valores Section */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-school-brown rounded-full mb-6">
-              <Heart className="text-white" size={32} />
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-school-brown rounded-full mb-6">
+                <Heart className="text-white" size={32} />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-8">
+                Nossos <span className="text-school-brown">Valores</span>
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                Os valores fundamentais que orientam todas as nossas ações e decisões educacionais
+              </p>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-8">
-              Nossos <span className="text-school-brown">Valores</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Os valores fundamentais que orientam todas as nossas ações e decisões educacionais
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -261,7 +270,7 @@ export default function MissaoValores() {
               return (
                 <div 
                   key={index}
-                  className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border border-gray-100"
+                  className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-2xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-2"
                 >
                   <div className={`${valor.color} text-white w-16 h-16 rounded-xl flex items-center justify-center mb-6`}>
                     <IconComponent size={32} />

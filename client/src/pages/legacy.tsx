@@ -171,7 +171,15 @@ export default function Legacy() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen relative">
+      {/* Enhanced Glassmorphism Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-school-orange/30 via-school-orange/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-400/25 via-blue-300/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-purple-400/20 via-pink-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-tr from-emerald-400/15 via-cyan-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '6s'}}></div>
+      </div>
       <Navigation />
 
       {/* Hero Section */}
@@ -216,7 +224,7 @@ export default function Legacy() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left max-w-4xl"
+            className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 shadow-xl shadow-black/20 max-w-4xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Um Século de <span className="text-school-orange">Legado</span>
@@ -236,10 +244,10 @@ export default function Legacy() {
       </section>
 
       {/* História Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl p-8 shadow-xl shadow-black/10">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Nossa História
               </h2>
@@ -266,15 +274,17 @@ export default function Legacy() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Linha do <span className="text-school-orange">Tempo</span>
-            </h2>
-            <p className="text-xl text-slate-600">
-              Uma jornada centenária de dedicação e inovação educacional
-            </p>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+                Linha do <span className="text-school-orange">Tempo</span>
+              </h2>
+              <p className="text-xl text-slate-600">
+                Uma jornada centenária de dedicação e inovação educacional
+              </p>
+            </div>
           </div>
 
           <div className="relative">
@@ -291,10 +301,10 @@ export default function Legacy() {
               >
                 {/* Mobile Layout: Single column with left timeline */}
                 <div className="block md:hidden w-full pl-16">
-                  <div className={`p-4 rounded-xl shadow-lg border-l-4 ${
+                  <div className={`p-4 rounded-xl shadow-lg border-l-4 backdrop-blur-lg bg-white/30 border border-white/40 ${
                     event.highlight 
-                      ? 'bg-gradient-to-r from-school-orange/10 to-school-orange/5 border-school-orange' 
-                      : 'bg-white border-slate-300'
+                      ? 'border-l-school-orange' 
+                      : 'border-l-slate-300'
                   }`}>
                     <div className={`text-2xl font-bold mb-2 ${
                       event.highlight ? 'text-school-orange' : 'text-slate-700'
@@ -309,10 +319,10 @@ export default function Legacy() {
                 {/* Desktop Layout: Two columns alternating */}
                 <div className={`hidden md:flex md:items-center md:w-full ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
                   <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'}`}>
-                    <div className={`p-6 rounded-xl shadow-lg border-l-4 ${
+                    <div className={`p-6 rounded-xl shadow-lg border-l-4 backdrop-blur-lg bg-white/30 border border-white/40 ${
                       event.highlight 
-                        ? 'bg-gradient-to-r from-school-orange/10 to-school-orange/5 border-school-orange' 
-                        : 'bg-white border-slate-300'
+                        ? 'border-l-school-orange' 
+                        : 'border-l-slate-300'
                     }`}>
                       <div className={`text-3xl font-bold mb-2 ${
                         event.highlight ? 'text-school-orange' : 'text-slate-700'
