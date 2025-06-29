@@ -10,10 +10,69 @@ import ContactSection from '@/components/contact-section';
 import PedagogicalProposalSection from '@/components/pedagogical-proposal-section';
 import FeaturesSection from '@/components/features-section';
 import SocialFeedsSection from '@/components/social-feeds-section';
+import SEO from '@/components/SEO';
 
 export default function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Colégio OSE",
+    "alternateName": "Organização Sorocabana de Ensino",
+    "url": "https://colegioose.com.br",
+    "logo": "https://colegioose.com.br/images/LogoOSE100anos.png",
+    "description": "Escola particular em Sorocaba com 100 anos de tradição educacional. Educação Infantil, Ensino Fundamental e Médio com excelência acadêmica.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Dr. Ursulino de Oliveira, 20",
+      "addressLocality": "Sorocaba",
+      "addressRegion": "SP",
+      "postalCode": "18035-370",
+      "addressCountry": "BR"
+    },
+    "telephone": "+55-15-2101-3800",
+    "email": "contato@colegioose.com.br",
+    "foundingDate": "1924",
+    "sameAs": [
+      "https://www.facebook.com/colegioose",
+      "https://www.instagram.com/colegioose",
+      "https://www.linkedin.com/company/colegio-ose"
+    ],
+    "offers": [
+      {
+        "@type": "EducationalOccupationalProgram",
+        "name": "Educação Infantil",
+        "description": "Programa educacional para crianças de 4 a 6 anos com metodologia especializada"
+      },
+      {
+        "@type": "EducationalOccupationalProgram",
+        "name": "Ensino Fundamental I",
+        "description": "Ensino fundamental anos iniciais com foco no desenvolvimento integral"
+      },
+      {
+        "@type": "EducationalOccupationalProgram", 
+        "name": "Ensino Fundamental II",
+        "description": "Ensino fundamental anos finais preparando para o ensino médio"
+      },
+      {
+        "@type": "EducationalOccupationalProgram",
+        "name": "Ensino Médio",
+        "description": "Preparação completa para vestibulares e ENEM com excelência acadêmica"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title="Colégio OSE - 100 Anos de Excelência Educacional em Sorocaba | Educação Infantil, Fundamental e Médio"
+        description="Escola particular em Sorocaba com 100 anos de tradição. Educação Infantil, Ensino Fundamental e Médio com metodologia moderna, preparação para vestibulares e desenvolvimento integral do aluno."
+        keywords="colégio particular sorocaba, escola particular sorocaba, educação infantil sorocaba, ensino fundamental sorocaba, ensino médio sorocaba, escola tradicional, vestibular, ENEM, colégio OSE"
+        canonical="https://colegioose.com.br/"
+        ogTitle="Colégio OSE - 100 Anos de Tradição Educacional em Sorocaba"
+        ogDescription="Escola particular com 100 anos de excelência em Sorocaba. Educação Infantil, Fundamental e Médio com metodologia moderna e preparação completa para o futuro."
+        ogImage="https://colegioose.com.br/images/LogoOSE100anos.png"
+        structuredData={structuredData}
+      />
       {/* Enhanced Glassmorphism Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>

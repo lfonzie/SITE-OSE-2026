@@ -13,6 +13,7 @@ import { usePageData } from '@/hooks/usePageData';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import { newImages } from '@/lib/image-verification';
 import { updateSEO } from '@/lib/seo';
+import SEO from '@/components/SEO';
 
 export default function EducacaoInfantil() {
   const { isAuthenticated } = useAuth();
@@ -65,8 +66,43 @@ export default function EducacaoInfantil() {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Educação Infantil - Colégio OSE",
+    "url": "https://colegioose.com.br/educacao-infantil",
+    "description": "Educação Infantil no Colégio OSE com pedagogia finlandesa, ambiente seguro e desenvolvimento integral para crianças de 4 a 6 anos em Sorocaba.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Colégio OSE",
+      "url": "https://colegioose.com.br"
+    },
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student",
+      "audienceType": "children aged 4-6"
+    },
+    "educationalLevel": "Educação Infantil",
+    "teaches": [
+      "Desenvolvimento Socioemocional",
+      "Pedagogia Finlandesa",
+      "Introdução ao Inglês",
+      "Desenvolvimento Integral"
+    ]
+  };
+
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title="Educação Infantil - Colégio OSE | Pedagogia Finlandesa e Desenvolvimento Integral em Sorocaba"
+        description="Educação Infantil no Colégio OSE com metodologia finlandesa, ambiente seguro e acolhedor. Desenvolvimento integral para crianças de 4 a 6 anos com programa de inglês e foco socioemocional em Sorocaba."
+        keywords="educação infantil sorocaba, pedagogia finlandesa, escola infantil particular sorocaba, desenvolvimento infantil, jardim I jardim II, programa socioemocional infantil, inglês para crianças"
+        canonical="https://colegioose.com.br/educacao-infantil"
+        ogTitle="Educação Infantil - Colégio OSE | Pedagogia Finlandesa em Sorocaba"
+        ogDescription="Educação Infantil com metodologia finlandesa e desenvolvimento integral. Ambiente seguro e acolhedor para crianças de 4 a 6 anos no Colégio OSE."
+        ogImage="https://colegioose.com.br/images/LogoOSE100anos.png"
+        structuredData={structuredData}
+      />
       {/* Enhanced Glassmorphism Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>

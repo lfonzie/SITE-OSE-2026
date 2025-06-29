@@ -595,6 +595,19 @@ export async function registerRoutes(app: Express) {
     res.sendFile(desktopPath);
   });
 
+  // SEO XML Routes
+  app.get('/sitemap.xml', (req, res) => {
+    const sitemapPath = path.join(process.cwd(), 'client/public/sitemap.xml');
+    res.set('Content-Type', 'application/xml');
+    res.sendFile(sitemapPath);
+  });
+
+  app.get('/robots.txt', (req, res) => {
+    const robotsPath = path.join(process.cwd(), 'client/public/robots.txt');
+    res.set('Content-Type', 'text/plain');
+    res.sendFile(robotsPath);
+  });
+
   // Professores routes
   app.get('/api/professores', async (req, res) => {
     try {
