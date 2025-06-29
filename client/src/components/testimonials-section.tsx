@@ -67,7 +67,7 @@ export default function TestimonialsSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials?.map((testimonial) => (
-            <AnimatedCard key={testimonial.id} className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+            <AnimatedCard key={testimonial.id} className="backdrop-blur-lg bg-white/20 border border-white/30 p-8 rounded-2xl shadow-xl shadow-black/10 hover:shadow-2xl hover:bg-white/30 transition-all duration-300">
               <div className="flex items-center mb-6">
                 <div className="relative w-16 h-16 mr-4">
                   <DragImagePosition

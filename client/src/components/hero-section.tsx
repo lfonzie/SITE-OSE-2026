@@ -111,30 +111,46 @@ export default function HeroSection() {
     <section 
       id="hero" 
       className="relative py-20 text-white overflow-hidden"
-      style={{
-        ...(heroBackground?.type === 'gradient' && {
-          backgroundImage: `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }),
-        ...(heroBackground?.type === 'image' && heroBackground.imageUrl && {
-          backgroundImage: `url(${heroBackground.imageUrl})`,
-          backgroundSize: heroBackground.size || 'cover',
-          backgroundPosition: heroBackground.position || 'center',
-          backgroundRepeat: heroBackground.repeat || 'no-repeat'
-        }),
-        ...(heroBackground?.type === 'color' && {
-          backgroundColor: heroBackground.solidColor || '#475569'
-        }),
-        ...(!heroBackground?.type && {
+      style={(() => {
+        const baseStyle: React.CSSProperties = {
+          opacity: heroBackground?.opacity || 1
+        };
+        
+        if (heroBackground?.type === 'gradient') {
+          return {
+            ...baseStyle,
+            backgroundImage: `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          };
+        }
+        
+        if (heroBackground?.type === 'image' && heroBackground.imageUrl) {
+          return {
+            ...baseStyle,
+            backgroundImage: `url(${heroBackground.imageUrl})`,
+            backgroundSize: heroBackground.size || 'cover',
+            backgroundPosition: heroBackground.position || 'center',
+            backgroundRepeat: heroBackground.repeat || 'no-repeat'
+          };
+        }
+        
+        if (heroBackground?.type === 'color') {
+          return {
+            ...baseStyle,
+            backgroundColor: heroBackground.solidColor || '#475569'
+          };
+        }
+        
+        return {
+          ...baseStyle,
           backgroundImage: 'linear-gradient(135deg, #475569, #64748b)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
-        }),
-        opacity: heroBackground?.opacity || 1
-      }}
+        };
+      })()}
     >
       {/* Hero Background Manager - Único componente para gerenciar o hero */}
       {isAuthenticated && (
@@ -157,7 +173,8 @@ export default function HeroSection() {
       )}
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto">
+        {/* Glass morphism container */}
+        <div className="max-w-4xl mx-auto backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 md:p-12 shadow-2xl shadow-black/20">
           <motion.div 
             className="relative group"
             initial={{ opacity: 0, y: 50 }}

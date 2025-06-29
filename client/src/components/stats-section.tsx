@@ -40,14 +40,14 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section id="stats" className="py-20 bg-white">
+    <section id="stats" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
               <AnimatedCard key={index} delay={index * 0.1} direction="up">
-                <div className="text-center">
+                <div className="text-center backdrop-blur-md bg-white/20 border border-white/30 rounded-2xl p-6 shadow-xl shadow-black/10 hover:bg-white/30 transition-all duration-300">
                   <AnimatedIcon 
                     className={`${stat.bgColor} rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4`}
                     delay={index * 0.15}

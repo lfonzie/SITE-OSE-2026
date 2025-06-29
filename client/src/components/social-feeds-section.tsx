@@ -88,15 +88,17 @@ export default function SocialFeedsSection() {
   }
 
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-            Acompanhe Nossas <span className="text-school-orange">Redes Sociais</span>
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Fique por dentro do dia a dia escolar, eventos e conquistas dos nossos alunos
-          </p>
+          <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+              Acompanhe Nossas <span className="text-school-orange">Redes Sociais</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Fique por dentro do dia a dia escolar, eventos e conquistas dos nossos alunos
+            </p>
+          </div>
         </div>
 
         {/* Instagram Grid */}
@@ -124,7 +126,7 @@ export default function SocialFeedsSection() {
               {instagramImages.slice(0, 8).map((imageUrl, index) => (
                 <div 
                   key={index}
-                  className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all relative"
+                  className="aspect-square rounded-lg overflow-hidden group hover:transform hover:scale-105 transition-all relative backdrop-blur-lg bg-white/20 border border-white/30 shadow-xl shadow-black/10"
                 >
                   <DragImagePosition
                     src={imageUrl}

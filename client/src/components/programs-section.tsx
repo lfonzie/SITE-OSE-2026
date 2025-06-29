@@ -104,16 +104,18 @@ export default function ProgramsSection() {
   }
 
   return (
-    <section id="programas" className="py-20 bg-slate-50">
+    <section id="programas" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4 font-headline">
-            Nossos <span className="text-school-orange">Programas</span>
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto font-body">
-            Oferecemos uma educação completa desde a Educação Infantil até o Ensino Médio, 
-            preparando nossos alunos para um futuro brilhante.
-          </p>
+          <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4 font-headline">
+              Nossos <span className="text-school-orange">Programas</span>
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-body">
+              Oferecemos uma educação completa desde a Educação Infantil até o Ensino Médio, 
+              preparando nossos alunos para um futuro brilhante.
+            </p>
+          </div>
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -130,7 +132,7 @@ export default function ProgramsSection() {
                 scale={true}
               >
                 <div 
-                  className={`${colors.bg} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border ${colors.border}`}
+                  className={`backdrop-blur-lg bg-white/20 border border-white/30 p-8 rounded-2xl shadow-xl shadow-black/10 hover:shadow-2xl hover:bg-white/30 transition-all transform hover:-translate-y-2`}
                   data-program-index={index}
                 >
                 <div className="h-48 mb-6 rounded-xl overflow-hidden relative group">

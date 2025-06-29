@@ -63,7 +63,10 @@ export default function ContactSection() {
   });
 
   const createContactMutation = useMutation({
-    mutationFn: (data: InsertContact) => apiRequest("POST", "/api/contacts", data),
+    mutationFn: (data: InsertContact) => apiRequest("/api/contacts", {
+      method: "POST",
+      body: JSON.stringify(data)
+    }),
     onSuccess: () => {
       toast({
         title: "Mensagem enviada!",
@@ -90,20 +93,22 @@ export default function ContactSection() {
 
   return (
     <>
-      <section id="contato" className="py-20 bg-white">
+      <section id="contato" className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-school-brown mb-4">
-              Entre em <span className="text-school-orange">Contato</span>
-            </h2>
-            <p className="text-xl text-school-brown max-w-3xl mx-auto">
-              Estamos aqui para esclarecer suas dúvidas e ajudar você a conhecer melhor nossa proposta educacional
-            </p>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-4xl md:text-5xl font-bold text-school-brown mb-4">
+                Entre em <span className="text-school-orange">Contato</span>
+              </h2>
+              <p className="text-xl text-school-brown max-w-3xl mx-auto">
+                Estamos aqui para esclarecer suas dúvidas e ajudar você a conhecer melhor nossa proposta educacional
+              </p>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Informações de contato */}
-            <div>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl p-8 shadow-xl shadow-black/10">
               <h3 className="text-2xl font-bold text-school-brown mb-8">Informações de Contato</h3>
 
               <div className="space-y-6">
