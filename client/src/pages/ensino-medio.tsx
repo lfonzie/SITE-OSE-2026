@@ -249,7 +249,7 @@ export default function EnsinoMedio() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left max-w-4xl"
+            className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 shadow-xl shadow-black/20 max-w-4xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               <span className="text-school-orange">Novo Ensino Médio</span>
@@ -258,15 +258,16 @@ export default function EnsinoMedio() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-200 mb-6">
-              Preparando Alunos para o Futuro
+              Preparando <strong>Alunos para o Futuro</strong>
             </p>
             <p className="text-xl md:text-2xl text-slate-200 mb-6">
-              Educação Personalizada e Flexível
+              <strong>Educação Personalizada</strong> e <strong>Flexível</strong>
             </p>
-            <p className="text-lg mb-8 text-slate-300">
+            <p className="text-lg mb-8 text-slate-300 max-w-3xl">
               O Novo Ensino Médio na OSE representa uma revolução na forma como abordamos a educação. 
               Com uma abordagem centrada no aluno e baseada na nova legislação, oferecemos uma experiência 
-              educacional que é tanto abrangente quanto personalizada.
+              educacional que é tanto abrangente quanto personalizada, preparando nossos jovens para os 
+              desafios do século XXI.
             </p>
           </motion.div>
         </div>
