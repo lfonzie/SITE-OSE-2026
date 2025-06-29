@@ -76,7 +76,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+    <nav className="bg-white/20 backdrop-blur-lg border-b border-white/20 shadow-lg fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
@@ -103,7 +103,7 @@ export default function Navigation() {
                       {item.label}
                       <ChevronDown size={16} className="ml-1" />
                     </button>
-                    <div className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 transition-all duration-200 ${
+                    <div className={`absolute top-full left-0 mt-2 w-56 bg-white/20 backdrop-blur-lg rounded-lg shadow-lg border border-white/20 py-2 z-50 transition-all duration-200 ${
                       activeDropdown === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                     }`}>
                       {item.submenu.map((subItem, subIndex) => (
@@ -143,7 +143,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t">
+        <div className="lg:hidden bg-white/20 backdrop-blur-lg border-t border-white/20">
           <div className="px-4 py-3 space-y-3">
             {navigationItems.map((item, index) => (
               <div key={index}>
