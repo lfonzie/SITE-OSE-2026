@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /login
+Disallow: /desktop
+
+# Allow important pages
+Allow: /educacao-infantil
+Allow: /fundamental-1
+Allow: /fundamental-2
+Allow: /ensino-medio
+Allow: /bilingue
+Allow: /integral
+Allow: /socioemocional
+Allow: /missao-valores
+Allow: /legacy
+Allow: /amplia
+Allow: /arvore
+Allow: /plurall
+Allow: /agendaedu
+Allow: /isaac
+Allow: /dash
+Allow: /lista-material
+Allow: /professores
+
+# Sitemap location
+Sitemap: https://colegioose.com.br/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
