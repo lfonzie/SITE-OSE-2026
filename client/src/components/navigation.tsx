@@ -82,9 +82,9 @@ export default function Navigation() {
           <div className="flex items-center">
             <Link to="/">
               <img 
-                src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png" 
-                alt="a OSE" 
-                className="h-10 w-auto"
+                src="/images/LogoOSE100anos.png" 
+                alt="a OSE - 100 Anos" 
+                className="h-12 w-auto"
               />
             </Link>
           </div>
