@@ -191,12 +191,12 @@ export default function Bilingue() {
           ></div>
         )}
 
-        <div className="relative z-10 container mx-auto px-6 py-24 bg-white/10 rounded-lg shadow-lg backdrop-blur-md">
+        <div className="relative z-10 container mx-auto px-6 py-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left max-w-4xl"
+            className="backdrop-blur-lg bg-white/30 border border-white/20 rounded-xl p-8 shadow-lg text-left max-w-4xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Global <span className="text-school-orange">Citizens</span>
@@ -218,9 +218,9 @@ export default function Bilingue() {
       </section>
 
       {/* Features Section */}
-      <section id="detalhes" className="py-20 bg-gray-50">
+      <section id="detalhes" className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 backdrop-blur-lg bg-white/20 border border-white/20 rounded-xl p-8 shadow-lg">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
               Educação que <span className="text-school-orange">Transforma</span>
             </h2>
@@ -234,7 +234,7 @@ export default function Bilingue() {
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div key={index} className="backdrop-blur-lg bg-white/30 border border-white/20 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/40">
                   <div className="bg-school-orange text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6">
                     <Icon size={28} />
                   </div>
@@ -246,8 +246,8 @@ export default function Bilingue() {
           </div>
 
           {/* Image Gallery */}
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="relative">
+          <div className="grid md:grid-cols-3 gap-6 backdrop-blur-lg bg-white/20 border border-white/20 rounded-xl p-6 shadow-lg">
+            <div className="relative backdrop-blur-md bg-white/20 rounded-lg overflow-hidden border border-white/20">
               <DragImagePosition
                 src={images[0] || newImages.img23}
                 alt="Aula de inglês no programa bilíngue"
@@ -290,7 +290,7 @@ export default function Bilingue() {
                 </>
               )}
             </div>
-            <div className="relative">
+            <div className="relative backdrop-blur-md bg-white/20 rounded-lg overflow-hidden border border-white/20">
               <DragImagePosition
                 src={images[1] || newImages.img24}
                 alt="Atividades culturais internacionais"
@@ -333,7 +333,7 @@ export default function Bilingue() {
                 </>
               )}
             </div>
-            <div className="relative">
+            <div className="relative backdrop-blur-md bg-white/20 rounded-lg overflow-hidden border border-white/20">
               <DragImagePosition
                 src={images[2] || newImages.img25}
                 alt="Intercâmbio cultural e cidadania global"
@@ -381,21 +381,23 @@ export default function Bilingue() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Forme um Cidadão Global
-          </h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            O Programa Bilíngue da OSE prepara seu filho para os desafios de um mundo globalizado, 
-            desenvolvendo fluência autêntica e consciência cultural.
-          </p>
-          <Button 
-            size="lg" 
-            className="bg-white text-school-orange hover:bg-gray-100 font-semibold px-8 py-3"
-          >
-            Saiba Mais Sobre o Programa
-          </Button>
+      <section className="py-16 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="backdrop-blur-lg bg-gradient-to-r from-school-orange/80 to-school-brown/80 border border-white/20 rounded-xl p-12 shadow-lg text-white text-center">
+            <h2 className="text-3xl font-bold mb-4">
+              Forme um Cidadão Global
+            </h2>
+            <p className="text-xl mb-8 max-w-3xl mx-auto">
+              O Programa Bilíngue da OSE prepara seu filho para os desafios de um mundo globalizado, 
+              desenvolvendo fluência autêntica e consciência cultural.
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-white/90 text-school-orange hover:bg-white font-semibold px-8 py-3 backdrop-blur-sm"
+            >
+              Saiba Mais Sobre o Programa
+            </Button>
+          </div>
         </div>
       </section>
 
