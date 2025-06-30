@@ -62,8 +62,8 @@ function Router() {
       <Route path="/missao" component={MissaoValores} />
       <Route path="/estrutura" component={NossaEstrutura} />
       <Route path="/infantil" component={EducacaoInfantil} />
-      <Route path="/ef1" component={Fundamental1} />
-      <Route path="/ef2" component={Fundamental2} />
+      <Route path="/efi" component={Fundamental1} />
+      <Route path="/efii" component={Fundamental2} />
       <Route path="/em" component={EnsinoMedio} />
       <Route path="/bilingue" component={Bilingue} />
       <Route path="/code" component={CodeOSE} />

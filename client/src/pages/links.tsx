@@ -68,14 +68,14 @@ export default function Links() {
       title: "Fundamental I",
       description: "Anos iniciais do ensino fundamental",
       icon: School,
-      url: "/ef1",
+      url: "/efi",
       color: "bg-green-600"
     },
     {
       title: "Fundamental II",
       description: "Anos finais do ensino fundamental",
       icon: Users,
-      url: "/ef2",
+      url: "/efii",
       color: "bg-orange-600"
     },
     {
