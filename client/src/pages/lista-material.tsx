@@ -168,7 +168,7 @@ export default function ListaMaterial() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 text-white overflow-hidden">
+      <section className="relative pt-20 pb-16 text-white overflow-hidden backdrop-blur-sm bg-white/10 border-b border-white/10">
         {/* Background Image */}
         {heroBackground && (
           <div className="absolute inset-0">
@@ -234,7 +234,7 @@ export default function ListaMaterial() {
       </section>
 
       {/* Informações Importantes */}
-      <section className="py-16 bg-white">
+      <section className="py-16 backdrop-blur-md bg-white/30 border-b border-white/20 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
@@ -274,7 +274,7 @@ export default function ListaMaterial() {
       </section>
 
       {/* Listas por Segmento */}
-      <section id="listas" className="py-16 bg-slate-50">
+      <section id="listas" className="py-16 backdrop-blur-sm bg-white/20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
@@ -389,7 +389,7 @@ export default function ListaMaterial() {
       </section>
 
       {/* Dicas para Pais */}
-      <section className="py-16 bg-white">
+      <section className="py-16 backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
@@ -476,7 +476,7 @@ export default function ListaMaterial() {
 
       {/* Material List Management for Admin */}
       {isAuthenticated && (
-        <section className="py-16 bg-slate-100">
+        <section className="py-16 backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-slate-800 mb-4">
@@ -491,8 +491,13 @@ export default function ListaMaterial() {
         </section>
       )}
 
-      <WhyOSESection />
-      <ContactSection />
+      <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
+        <WhyOSESection />
+      </div>
+      
+      <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
+        <ContactSection />
+      </div>
 
       {/* Visual Composer */}
       <VisualComposerComponent />
