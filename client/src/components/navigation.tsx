@@ -76,7 +76,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="bg-white/20 backdrop-blur-lg border-b border-white/20 shadow-lg fixed top-0 left-0 right-0 z-50">
+    <nav className="bg-white/40 backdrop-blur-xl border-b border-white/30 shadow-xl fixed top-0 left-0 right-0 z-50 supports-[backdrop-filter]:bg-white/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
@@ -99,18 +99,18 @@ export default function Navigation() {
                     onMouseEnter={() => setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <button className="text-slate-700 hover:text-school-orange transition-colors font-medium flex items-center font-body">
+                    <button className="text-slate-800 hover:text-school-orange transition-colors font-medium flex items-center font-body drop-shadow-sm">
                       {item.label}
                       <ChevronDown size={16} className="ml-1" />
                     </button>
-                    <div className={`absolute top-full left-0 mt-2 w-56 bg-white/20 backdrop-blur-lg rounded-lg shadow-lg border border-white/20 py-2 z-50 transition-all duration-200 ${
+                    <div className={`absolute top-full left-0 mt-2 w-56 bg-white/50 backdrop-blur-xl rounded-lg shadow-xl border border-white/40 py-2 z-50 transition-all duration-200 ${
                       activeDropdown === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                     }`}>
                       {item.submenu.map((subItem, subIndex) => (
                         <button
                           key={subIndex}
                           onClick={() => handleNavigation(subItem)}
-                          className="block w-full text-left px-4 py-2 text-slate-700 hover:bg-school-orange hover:text-white transition-colors font-body"
+                          className="block w-full text-left px-4 py-2 text-slate-800 hover:bg-school-orange hover:text-white transition-colors font-body drop-shadow-sm"
                         >
                           {subItem.label}
                         </button>
@@ -120,7 +120,7 @@ export default function Navigation() {
                 ) : (
                   <button
                     onClick={() => handleNavigation(item)}
-                    className="text-slate-700 hover:text-school-orange transition-colors font-medium font-body"
+                    className="text-slate-800 hover:text-school-orange transition-colors font-medium font-body drop-shadow-sm"
                   >
                     {item.label}
                   </button>
@@ -143,7 +143,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white/20 backdrop-blur-lg border-t border-white/20">
+        <div className="lg:hidden bg-white/50 backdrop-blur-xl border-t border-white/40 shadow-lg">
           <div className="px-4 py-3 space-y-3">
             {navigationItems.map((item, index) => (
               <div key={index}>
@@ -151,7 +151,7 @@ export default function Navigation() {
                   <div>
                     <button
                       onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                      className="flex items-center justify-between w-full text-left text-slate-700 hover:text-school-orange font-medium py-2"
+                      className="flex items-center justify-between w-full text-left text-slate-800 hover:text-school-orange font-medium py-2 drop-shadow-sm"
                     >
                       {item.label}
                       <ChevronDown 
@@ -165,7 +165,7 @@ export default function Navigation() {
                           <button
                             key={subIndex}
                             onClick={() => handleNavigation(subItem)}
-                            className="block w-full text-left text-slate-600 hover:text-school-orange py-1"
+                            className="block w-full text-left text-slate-700 hover:text-school-orange py-1 drop-shadow-sm"
                           >
                             {subItem.label}
                           </button>
@@ -176,7 +176,7 @@ export default function Navigation() {
                 ) : (
                   <button
                     onClick={() => handleNavigation(item)}
-                    className="block w-full text-left text-slate-700 hover:text-school-orange font-medium py-2"
+                    className="block w-full text-left text-slate-800 hover:text-school-orange font-medium py-2 drop-shadow-sm"
                   >
                     {item.label}
                   </button>
