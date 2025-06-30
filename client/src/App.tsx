@@ -36,6 +36,7 @@ import ListaMaterial from "@/pages/lista-material";
 import Arvore from "./pages/arvore";
 import Isaac from "@/pages/isaac";
 import MissaoValores from "@/pages/missao-valores";
+import NossaEstrutura from "@/pages/nossa-estrutura";
 import Agendamento from "@/pages/agendamento";
 import NotFound from "@/pages/not-found";
 import CV from "@/pages/cv";
@@ -59,7 +60,7 @@ function Router() {
       {/* Novas rotas conforme solicitado */}
       <Route path="/legado" component={Legacy} />
       <Route path="/missao" component={MissaoValores} />
-      <Route path="/estrutura" component={Home} />
+      <Route path="/estrutura" component={NossaEstrutura} />
       <Route path="/infantil" component={EducacaoInfantil} />
       <Route path="/ef1" component={Fundamental1} />
       <Route path="/ef2" component={Fundamental2} />
