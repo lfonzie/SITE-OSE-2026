@@ -274,16 +274,21 @@ export default function EnsinoMedio() {
       </section>
 
       {/* Years Navigation */}
-      <section className="py-12 bg-white border-b">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">Séries do Ensino Médio</h2>
+          <div className="text-center mb-16">
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Séries do Ensino Médio</h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Estrutura organizada por série para melhor desenvolvimento
+              </p>
+            </div>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {years.map((item, index) => (
-              <div key={index} className="bg-gradient-to-br from-school-orange/10 to-school-brown/10 p-6 rounded-xl text-center">
-                <h3 className="text-xl font-bold text-slate-800 mb-2">{item.year}</h3>
-                <p className="text-slate-600">{item.description}</p>
+              <div key={index} className="backdrop-blur-lg bg-white/30 border border-white/40 p-6 rounded-xl text-center shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                <h3 className="text-lg font-bold text-slate-800 mb-2">{item.year}</h3>
+                <p className="text-sm text-slate-600">{item.description}</p>
               </div>
             ))}
           </div>
@@ -291,15 +296,17 @@ export default function EnsinoMedio() {
       </section>
 
       {/* Main Features */}
-      <section id="detalhes" className="py-20 bg-gray-50">
+      <section id="detalhes" className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Pilares do <span className="text-school-orange">Novo Ensino Médio</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Modelo híbrido que une base comum robusta à flexibilidade de itinerários formativos
-            </p>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Pilares do <span className="text-school-orange">Novo Ensino Médio</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Modelo híbrido que une base comum robusta à flexibilidade de itinerários formativos
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -307,7 +314,7 @@ export default function EnsinoMedio() {
               const Icon = pillar.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.1} className="h-full">
-                  <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                  <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1 h-full">
                     <div className={`${pillar.color} text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6`}>
                       <Icon size={28} />
                     </div>
@@ -322,18 +329,20 @@ export default function EnsinoMedio() {
       </section>
 
       {/* Itinerários Formativos */}
-      <section className="py-20 bg-white">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              <span className="text-school-orange">Itinerários Formativos</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto mb-4">
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <span className="text-school-orange">Itinerários Formativos</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-4">
 
-            </p>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Explore caminhos personalizados que fazem sentido para suas ambições pessoais e profissionais
-            </p>
+              </p>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Explore caminhos personalizados que fazem sentido para suas ambições pessoais e profissionais
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
@@ -341,7 +350,7 @@ export default function EnsinoMedio() {
               const Icon = itinerario.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.2} className="h-full">
-                  <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-school-orange/20 h-full">
+                  <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1 h-full">
                     <div className={`bg-gradient-to-r ${itinerario.color} text-white w-16 h-16 rounded-lg flex items-center justify-center mb-6`}>
                       <Icon size={32} />
                     </div>
@@ -364,15 +373,17 @@ export default function EnsinoMedio() {
       </section>
 
       {/* Projeto de Vida */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              <span className="text-school-orange">Projeto de Vida</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Desenvolvimento do autoprotagonismo em diversas esferas da vida
-            </p>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <span className="text-school-orange">Projeto de Vida</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Desenvolvimento do autoprotagonismo em diversas esferas da vida
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -380,7 +391,7 @@ export default function EnsinoMedio() {
               const Icon = esfera.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.1} className="h-full">
-                  <div className="bg-white/30 backdrop-blur-lg border border-white/20 p-6 rounded-xl shadow-lg text-center h-full">
+                  <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-6 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1 text-center h-full">
                     <div className="bg-school-orange text-white w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
                       <Icon size={24} />
                     </div>
@@ -402,18 +413,20 @@ export default function EnsinoMedio() {
       </section>
 
       {/* Eletivas */}
-      <section className="py-20 bg-white">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              <span className="text-school-orange">Amplia Eletivas</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Componentes curriculares altamente interativos e engajantes
-            </p>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <span className="text-school-orange">Amplia Eletivas</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Componentes curriculares altamente interativos e engajantes
+              </p>
+            </div>
           </div>
 
-          <div className="bg-gradient-to-r from-school-orange/10 to-school-brown/10 p-8 rounded-xl">
+          <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10">
             <p className="text-lg text-slate-700 mb-6">
               As Eletivas são componentes curriculares que oferecem aos alunos a oportunidade de estudar 
               assuntos que estão fora do currículo padrão, mas que são extremamente relevantes no mundo atual.
@@ -427,7 +440,7 @@ export default function EnsinoMedio() {
       </section>
 
       {/* Image Gallery */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             <div className="relative">
@@ -560,6 +573,21 @@ export default function EnsinoMedio() {
               )}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-school-orange">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Venha Conhecer o Ensino Médio OSE
+          </h2>
+          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+            Agende uma visita e veja como podemos contribuir para a formação integral do seu filho
+          </p>
+          <Button size="lg" variant="secondary" className="bg-white text-school-orange hover:bg-gray-50">
+            Agendar Visita
+          </Button>
         </div>
       </section>
 
