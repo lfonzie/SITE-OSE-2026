@@ -105,32 +105,42 @@ export default function Agendamento() {
 
       <Navigation />
 
-      {/* Hero Section with Glass Effect */}
-      <section className="relative pt-20 pb-16 backdrop-blur-lg bg-white/20 border-b border-white/20 shadow-sm text-slate-800 overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-slate-800">
-                Agende sua <span className="text-school-orange">Visita</span>
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 leading-relaxed text-slate-700">
-                Conheça de perto nossa <strong>tradição</strong> e <strong>excelência</strong>
-              </p>
-              <p className="text-lg mb-8 text-slate-600">
-                Venha conhecer o Colégio OSE! Agende uma visita personalizada e descubra por que 
-                somos referência em educação há mais de 100 anos. Nossa equipe está pronta para 
-                apresentar nossa estrutura, metodologia e proposta pedagógica.
-              </p>
-              
-            </div>
-            <div className="relative">
-              <div className="w-full h-96 backdrop-blur-md bg-white/30 border border-white/20 rounded-2xl shadow-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <Calendar className="text-school-orange mx-auto mb-4" size={80} />
-                  <p className="text-slate-700 text-lg font-medium">Agende sua Visita</p>
-                </div>
-              </div>
-            </div>
+      {/* Hero Section */}
+      <section 
+        className="relative py-20 text-white overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #475569, #64748b)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 1
+        }}
+      >
+        {/* Overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundColor: '#1e293b',
+            opacity: 0.7
+          }}
+        ></div>
+
+        <div className="relative z-10 container mx-auto px-6 py-24">
+          <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 shadow-xl shadow-black/20 max-w-4xl">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Agende sua <span className="text-school-orange">Visita</span>
+              <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                Conheça de Perto Nossa Tradição e Excelência
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-200 mb-6">
+              Descubra por que somos <strong>referência</strong> há mais de <strong>100 anos</strong>
+            </p>
+            <p className="text-lg mb-8 text-slate-300 max-w-3xl">
+              Venha conhecer o Colégio OSE! Agende uma visita personalizada e descubra nossa 
+              estrutura moderna, metodologia inovadora e proposta pedagógica que forma cidadãos 
+              preparados para transformar o mundo.
+            </p>
           </div>
         </div>
       </section>
