@@ -61,35 +61,35 @@ export default function Links() {
       title: "Educação Infantil",
       description: "Informações sobre nosso segmento infantil",
       icon: Sparkles,
-      url: "/educacao-infantil",
+      url: "/infantil",
       color: "bg-purple-600"
     },
     {
       title: "Fundamental I",
       description: "Anos iniciais do ensino fundamental",
       icon: School,
-      url: "/fundamental-1",
+      url: "/ef1",
       color: "bg-green-600"
     },
     {
       title: "Fundamental II",
       description: "Anos finais do ensino fundamental",
       icon: Users,
-      url: "/fundamental-2",
+      url: "/ef2",
       color: "bg-orange-600"
     },
     {
       title: "Ensino Médio",
       description: "Preparação para o futuro acadêmico",
       icon: GraduationCap,
-      url: "/ensino-medio",
+      url: "/em",
       color: "bg-red-600"
     },
     {
       title: "Legado OSE",
       description: "100 anos de tradição educacional",
       icon: Calendar,
-      url: "/legacy",
+      url: "/legado",
       color: "bg-slate-600"
     }
   ];

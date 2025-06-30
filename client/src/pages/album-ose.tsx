@@ -389,7 +389,7 @@ export default function AlbumOSE() {
                 <Button 
                   variant="outline" 
                   className="border-school-orange text-school-orange hover:bg-school-orange hover:text-white"
-                  onClick={() => window.location.href = '/legacy'}
+                  onClick={() => window.location.href = '/legado'}
                 >
                   Ver História
                 </Button>

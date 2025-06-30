@@ -56,6 +56,20 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/admin" component={Admin} />
       {/* Public routes available to all users */}
+      {/* Novas rotas conforme solicitado */}
+      <Route path="/legado" component={Legacy} />
+      <Route path="/missao" component={MissaoValores} />
+      <Route path="/estrutura" component={Home} />
+      <Route path="/infantil" component={EducacaoInfantil} />
+      <Route path="/ef1" component={Fundamental1} />
+      <Route path="/ef2" component={Fundamental2} />
+      <Route path="/em" component={EnsinoMedio} />
+      <Route path="/bilingue" component={Bilingue} />
+      <Route path="/code" component={CodeOSE} />
+      <Route path="/integralflex" component={Integral} />
+      <Route path="/amplia" component={Amplia} />
+
+      {/* Rotas antigas mantidas para compatibilidade */}
       <Route path="/educacao-infantil" component={EducacaoInfantil} />
       <Route path="/fundamental-1" component={Fundamental1} />
       <Route path="/fundamental-2" component={Fundamental2} />
@@ -68,10 +82,8 @@ function Router() {
       <Route path="/links" component={Links} />
       <Route path="/portal-aluno" component={PortalAluno} />
       <Route path="/portal-pais" component={PortalPais} />
-      <Route path="/bilingue" component={Bilingue} />
       <Route path="/integral" component={Integral} />
       <Route path="/code-ose" component={CodeOSE} />
-      <Route path="/amplia" component={Amplia} />
       <Route path="/socioemocional" component={SocioEmocional} />
       <Route path="/lista-material" component={ListaMaterial} />
       <Route path="/arvore" component={Arvore} />

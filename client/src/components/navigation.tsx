@@ -37,27 +37,27 @@ export default function Navigation() {
     {
       label: "Colégio OSE",
       submenu: [
-        { label: "Legado", id: "/legacy", isSection: false },
-        { label: "Missão e Valores", id: "/missao-valores", isSection: false },
-        { label: "Nossa Estrutura", id: "sobre", isSection: true },
+        { label: "Legado", id: "/legado", isSection: false },
+        { label: "Missão e Valores", id: "/missao", isSection: false },
+        { label: "Nossa Estrutura", id: "/estrutura", isSection: false },
       ]
     },
     {
       label: "Segmentos",
       submenu: [
-        { label: "Infantil", id: "/educacao-infantil", isSection: false },
-        { label: "Ensino Fundamental I", id: "/fundamental-1", isSection: false },
-        { label: "Ensino Fundamental II", id: "/fundamental-2", isSection: false },
-        { label: "Ensino Médio", id: "/ensino-medio", isSection: false }
+        { label: "Infantil", id: "/infantil", isSection: false },
+        { label: "Ensino Fundamental I", id: "/ef1", isSection: false },
+        { label: "Ensino Fundamental II", id: "/ef2", isSection: false },
+        { label: "Ensino Médio", id: "/em", isSection: false }
       ]
     },
     {
       label: "Acadêmico",
       submenu: [
         { label: "Global Citizens - Bilíngue", id: "/bilingue", isSection: false },
-        { label: "Integral Flex", id: "/integral", isSection: false },
+        { label: "Integral Flex", id: "/integralflex", isSection: false },
         { label: "Amplia", id: "/amplia", isSection: false },
-        { label: "{CODE.OSE}", id: "/code-ose", isSection: false },
+        { label: "{CODE.OSE}", id: "/code", isSection: false },
         { label: "SócioEmocional", id: "/socioemocional", isSection: false },
         { label: "Lista de Material", id: "/lista-material", isSection: false },
         { label: "Professores", id: "/professores", isSection: false }
