@@ -664,4 +664,10 @@ export async function registerRoutes(app: Express) {
       res.status(500).json({ error: 'Erro interno do servidor' });
     }
   });
+
+    // Serve dashboard.html at /dashboard route
+    app.get('/dashboard', (req, res) => {
+        const dashboardPath = path.join(process.cwd(), 'client/public/desktop.html');
+        res.sendFile(dashboardPath);
+    });
 }

@@ -78,6 +78,7 @@ function Router() {
       <Route path="/isaac" component={Isaac} />
       <Route path="/missao-valores" component={MissaoValores} />
       <Route path="/agendamento" component={Agendamento} />
+      <Route path="/dash" component={Dash} />
       <Route path="/cv" component={CV} />
       <Route path="/test-uchat" component={TestUChat} />
       <Route path="/agendaedu" component={AgendaEdu} />
