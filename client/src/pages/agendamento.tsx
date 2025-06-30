@@ -12,7 +12,13 @@ export default function Agendamento() {
     updateSEO({
       title: "Agende sua Visita | Colégio OSE",
       description: "Agende uma visita ao Colégio OSE e conheça nossa estrutura, metodologia e proposta pedagógica. Venha descobrir por que somos referência em educação há 100 anos.",
-      keywords: "agendar visita, colégio ose, matrícula, conhecer escola, visita guiada, agendamento"
+      keywords: "agendar visita, colégio ose, matrícula, conhecer escola, visita guiada, agendamento",
+      additionalMeta: [
+        {
+          httpEquiv: "Content-Security-Policy",
+          content: "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://sdk.dfktv2.com https://www.uchat.com.au https://assets.calendly.com; frame-src 'self' https://www.youtube.com https://www.google.com https://calendly.com https://www.uchat.com.au https://sdk.dfktv2.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:;"
+        }
+      ]
     });
 
     // Limpar widgets existentes
@@ -86,22 +92,31 @@ export default function Agendamento() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen relative">
+      {/* Enhanced Glassmorphism Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/90 to-orange-50/80"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-school-orange/30 via-school-orange/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-400/25 via-blue-300/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-purple-400/20 via-pink-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-tr from-emerald-400/15 via-cyan-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '6s'}}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-gradient-to-bl from-rose-400/20 via-orange-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '8s'}}></div>
+      </div>
+
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-slate-800 to-slate-700 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
+      {/* Hero Section with Glass Effect */}
+      <section className="relative pt-20 pb-16 backdrop-blur-lg bg-white/20 border-b border-white/20 shadow-sm text-slate-800 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-slate-800">
                 Agende sua <span className="text-school-orange">Visita</span>
               </h1>
-              <p className="text-xl md:text-2xl mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl mb-8 leading-relaxed text-slate-700">
                 Conheça de perto nossa <strong>tradição</strong> e <strong>excelência</strong>
               </p>
-              <p className="text-lg mb-8 opacity-90">
+              <p className="text-lg mb-8 text-slate-600">
                 Venha conhecer o Colégio OSE! Agende uma visita personalizada e descubra por que 
                 somos referência em educação há mais de 100 anos. Nossa equipe está pronta para 
                 apresentar nossa estrutura, metodologia e proposta pedagógica.
@@ -109,10 +124,10 @@ export default function Agendamento() {
               
             </div>
             <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl shadow-2xl flex items-center justify-center">
+              <div className="w-full h-96 backdrop-blur-md bg-white/30 border border-white/20 rounded-2xl shadow-2xl flex items-center justify-center">
                 <div className="text-center">
-                  <Calendar className="text-white/80 mx-auto mb-4" size={80} />
-                  <p className="text-white/70 text-lg font-medium">Agende sua Visita</p>
+                  <Calendar className="text-school-orange mx-auto mb-4" size={80} />
+                  <p className="text-slate-700 text-lg font-medium">Agende sua Visita</p>
                 </div>
               </div>
             </div>
@@ -121,7 +136,7 @@ export default function Agendamento() {
       </section>
 
       {/* Benefícios da Visita */}
-      <section id="beneficios" className="py-16 bg-white">
+      <section id="beneficios" className="py-16 backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
@@ -134,7 +149,7 @@ export default function Agendamento() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {beneficios.map((beneficio, index) => (
-              <div key={index} className="bg-slate-50 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+              <div key={index} className="backdrop-blur-md bg-white/40 border border-white/20 p-6 rounded-xl text-center hover:bg-white/50 hover:shadow-lg transition-all duration-300">
                 <div className="flex justify-center mb-4">
                   {beneficio.icone}
                 </div>
@@ -145,7 +160,7 @@ export default function Agendamento() {
           </div>
 
           {/* Informações da Visita */}
-          <div className="bg-school-orange/10 border-l-4 border-school-orange p-6 rounded-r-lg">
+          <div className="backdrop-blur-md bg-school-orange/20 border border-school-orange/30 border-l-4 border-l-school-orange p-6 rounded-r-lg">
             <div className="flex items-start">
               <Clock className="text-school-orange mt-1 mr-3 flex-shrink-0" size={20} />
               <div>
@@ -166,7 +181,7 @@ export default function Agendamento() {
       </section>
 
       {/* Widget do Calendly */}
-      <section id="agendamento" className="py-16 bg-slate-50">
+      <section id="agendamento" className="py-16 backdrop-blur-lg bg-white/30 border-b border-white/20 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
@@ -177,7 +192,7 @@ export default function Agendamento() {
             </p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="backdrop-blur-md bg-white/40 border border-white/20 rounded-xl shadow-lg overflow-hidden">
             <div 
               className="calendly-inline-widget" 
               data-url="https://calendly.com/colegioose/apresentacao?hide_gdpr_banner=1&primary_color=ff8c00" 
@@ -225,7 +240,7 @@ export default function Agendamento() {
       </section>
 
       {/* Informações de Contato Alternativas */}
-      <section className="py-16 bg-white">
+      <section className="py-16 backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
@@ -237,7 +252,7 @@ export default function Agendamento() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-slate-50 p-8 rounded-xl text-center">
+            <div className="backdrop-blur-md bg-white/40 border border-white/20 p-8 rounded-xl text-center hover:bg-white/50 transition-all duration-300">
               <Phone className="text-school-orange mx-auto mb-4" size={48} />
               <h3 className="text-xl font-bold text-slate-800 mb-4">Telefone</h3>
               <p className="text-slate-600 mb-4">
@@ -251,7 +266,7 @@ export default function Agendamento() {
               </Button>
             </div>
 
-            <div className="bg-slate-50 p-8 rounded-xl text-center">
+            <div className="backdrop-blur-md bg-white/40 border border-white/20 p-8 rounded-xl text-center hover:bg-white/50 transition-all duration-300">
               <MapPin className="text-school-orange mx-auto mb-4" size={48} />
               <h3 className="text-xl font-bold text-slate-800 mb-4">Endereço</h3>
               <p className="text-slate-600 mb-4">
@@ -270,7 +285,7 @@ export default function Agendamento() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
+      <section className="py-16 backdrop-blur-lg bg-gradient-to-r from-school-orange/80 to-school-brown/80 border-b border-white/20 shadow-sm text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h3 className="text-3xl md:text-4xl font-bold mb-6">
             Venha Conhecer a OSE
@@ -280,7 +295,7 @@ export default function Agendamento() {
           </p>
           <Button 
             size="lg" 
-            className="bg-white text-school-orange font-semibold px-8 py-3"
+            className="bg-white text-school-orange font-semibold px-8 py-3 hover:bg-white/90"
             onClick={() => document.getElementById('agendamento')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Agendar Visita Agora
@@ -288,8 +303,12 @@ export default function Agendamento() {
         </div>
       </section>
 
-      <WhyOSESection />
-      <ContactSection />
+      <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
+        <WhyOSESection />
+      </div>
+      <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
+        <ContactSection />
+      </div>
     </div>
   );
 }
