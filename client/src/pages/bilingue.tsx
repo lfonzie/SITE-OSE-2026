@@ -67,7 +67,7 @@ export default function Bilingue() {
     {
       icon: BookOpen,
       title: "MacMillan Education",
-      description: "Material didático de excelência internacional com metodologia comprovada e reconhecida mundialmente."
+      "description": "Material didático de excelência internacional com metodologia comprovada e reconhecida mundialmente."
     },
     {
       icon: Award,
@@ -190,8 +190,8 @@ export default function Bilingue() {
             }}
           ></div>
         )}
-        
-        <div className="relative z-10 container mx-auto px-6 py-24">
+
+        <div className="relative z-10 container mx-auto px-6 py-24 bg-white/10 rounded-lg shadow-lg backdrop-blur-md">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

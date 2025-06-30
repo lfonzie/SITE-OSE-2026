@@ -85,7 +85,7 @@ export default function ListaMaterial() {
       'Fundamental II': 'fundamental-2',
       'Ensino Médio': 'ensino-medio'
     };
-    
+
     const gradeMap: { [key: string]: string } = {
       'Jardim I': 'jardim-1',
       'Jardim II': 'jardim-2',
@@ -102,14 +102,14 @@ export default function ListaMaterial() {
       '2ª Série': '2-serie',
       '3ª Série': '3-serie'
     };
-    
+
     const segmentKey = segmentMap[segmentTitle as keyof typeof segmentMap];
     const gradeKey = gradeMap[serie];
-    
+
     const materialItem = materialLists.find((item: MaterialList) => 
       item.segment === segmentKey && item.grade === gradeKey
     );
-    
+
     return materialItem?.googleDriveLink || null;
   };
 
@@ -161,7 +161,7 @@ export default function ListaMaterial() {
         <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-400/25 via-blue-300/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-purple-400/20 via-pink-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
       </div>
-      
+
       {/* Logout button for authenticated users */}
       {isAuthenticated && <LogoutButton />}
 
@@ -342,7 +342,7 @@ export default function ListaMaterial() {
                     {segmento.series.map((serie, serieIndex) => {
                       const materialLink = getMaterialLink(segmento.titulo, serie);
                       const hasLink = !!materialLink;
-                      
+
                       return (
                         <Button 
                           key={serieIndex}

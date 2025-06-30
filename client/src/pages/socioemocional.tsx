@@ -251,12 +251,12 @@ export default function Socioemocional() {
         )}
         
         <div className="relative z-10 container mx-auto px-6 py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 shadow-xl shadow-black/20 max-w-4xl"
+          >
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                 Programa <span className="text-school-orange">Socioemocional</span>
                 <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
@@ -281,8 +281,7 @@ export default function Socioemocional() {
                 voltada para o desenvolvimento integral de alunos da Educação Infantil ao Ensino Médio. 
                 Com aulas semanais, o programa promove habilidades essenciais para a vida.
               </motion.p>
-            </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 

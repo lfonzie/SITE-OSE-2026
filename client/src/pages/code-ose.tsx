@@ -205,7 +205,7 @@ export default function CodeOSE() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left max-w-4xl"
+            className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 shadow-xl shadow-black/20 max-w-4xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               <span className="text-school-orange">{"{CODE.OSE}"}</span>
@@ -243,15 +243,17 @@ export default function CodeOSE() {
       </section>
 
       {/* Main Features - Pilares */}
-      <section id="detalhes" className="py-20 bg-gray-50">
+      <section id="detalhes" className="py-16 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Pilares do <span className="text-school-orange">{"{CODE.OSE}"}</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              Fundamentos que transformam a forma como as crianças pensam e resolvem problemas
-            </p>
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Pilares do <span className="text-school-orange">{"{CODE.OSE}"}</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Fundamentos que transformam a forma como as crianças pensam e resolvem problemas
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -259,7 +261,7 @@ export default function CodeOSE() {
               const Icon = pillar.icon;
               return (
                 <AnimatedCard key={index} delay={index * 0.1} className="h-full">
-                  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow h-full">
+                  <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1 h-full">
                     <div className={`${pillar.color} text-white w-14 h-14 rounded-lg flex items-center justify-center mb-6`}>
                       <Icon size={28} />
                     </div>
