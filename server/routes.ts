@@ -670,4 +670,10 @@ export async function registerRoutes(app: Express) {
         const dashboardPath = path.join(process.cwd(), 'client/public/desktop.html');
         res.sendFile(dashboardPath);
     });
+
+    // Serve dashboard.html at /dashboard.html route
+    app.get('/dashboard.html', (req, res) => {
+        const dashboardPath = path.join(process.cwd(), 'client/public/dashboard.html');
+        res.sendFile(dashboardPath);
+    });
 }
