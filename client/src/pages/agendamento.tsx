@@ -12,60 +12,61 @@ export default function Agendamento() {
     updateSEO({
       title: "Agende sua Visita | Colégio OSE",
       description: "Agende uma visita ao Colégio OSE e conheça nossa estrutura, metodologia e proposta pedagógica. Venha descobrir por que somos referência em educação há 100 anos.",
-      keywords: "agendar visita, colégio ose, matrícula, conhecer escola, visita guiada, agendamento",
-      additionalMeta: [
-        {
-          httpEquiv: "Content-Security-Policy",
-          content: "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://sdk.dfktv2.com https://www.uchat.com.au https://assets.calendly.com; frame-src 'self' https://www.youtube.com https://www.google.com https://calendly.com https://www.uchat.com.au https://sdk.dfktv2.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:;"
-        }
-      ]
+      keywords: "agendar visita, colégio ose, matrícula, conhecer escola, visita guiada, agendamento"
     });
 
-    // Limpar widgets existentes
-    const existingWidgets = document.querySelectorAll('.calendly-inline-widget');
-    existingWidgets.forEach(widget => {
-      widget.innerHTML = '';
-    });
+    // Aguardar um pouco antes de carregar o Calendly
+    const loadCalendly = () => {
+      // Limpar widgets existentes
+      const existingWidgets = document.querySelectorAll('.calendly-inline-widget');
+      existingWidgets.forEach(widget => {
+        widget.innerHTML = '';
+      });
 
-    // Verificar se o script já existe
-    const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-    
-    if (!existingScript) {
+      // Remover scripts existentes
+      const existingScripts = document.querySelectorAll('script[src*="calendly"]');
+      existingScripts.forEach(script => script.remove());
+
       // Carregar script do Calendly
       const script = document.createElement('script');
       script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.type = 'text/javascript';
       script.async = true;
+      
       script.onload = () => {
         console.log('Calendly script loaded successfully');
-        // Inicializar widget após o script carregar
+        // Aguardar um pouco mais para garantir que o Calendly está totalmente carregado
         setTimeout(() => {
-          if (window.Calendly) {
-            window.Calendly.initInlineWidget({
-              url: 'https://calendly.com/colegioose/apresentacao?hide_gdpr_banner=1&primary_color=ff8c00',
-              parentElement: document.querySelector('.calendly-inline-widget'),
-              prefill: {},
-              utm: {}
-            });
+          const widgetContainer = document.querySelector('.calendly-inline-widget');
+          if (window.Calendly && widgetContainer) {
+            try {
+              window.Calendly.initInlineWidget({
+                url: 'https://calendly.com/colegioose/apresentacao?hide_gdpr_banner=1&primary_color=ff8c00',
+                parentElement: widgetContainer,
+                prefill: {},
+                utm: {}
+              });
+              console.log('Calendly widget initialized successfully');
+            } catch (error) {
+              console.error('Error initializing Calendly widget:', error);
+            }
           }
-        }, 100);
+        }, 500);
       };
-      script.onerror = () => {
-        console.error('Failed to load Calendly script');
+      
+      script.onerror = (error) => {
+        console.error('Failed to load Calendly script:', error);
       };
+      
       document.head.appendChild(script);
-    } else {
-      // Se o script já existe, inicializar widget
-      setTimeout(() => {
-        if (window.Calendly) {
-          window.Calendly.initInlineWidget({
-            url: 'https://calendly.com/colegioose/apresentacao?hide_gdpr_banner=1&primary_color=ff8c00',
-            parentElement: document.querySelector('.calendly-inline-widget'),
-            prefill: {},
-            utm: {}
-          });
-        }
-      }, 100);
-    }
+    };
+
+    // Carregar após um pequeno delay
+    const timer = setTimeout(loadCalendly, 1000);
+    
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   const beneficios = [
