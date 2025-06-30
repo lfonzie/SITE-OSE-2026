@@ -64,7 +64,7 @@ export default function Arvore() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 text-white overflow-hidden">
+      <section className="relative py-20 text-white overflow-hidden backdrop-blur-sm bg-white/10 border-b border-white/10">
         {/* Background Image */}
         {heroBackground && (
           <div className="absolute inset-0">
@@ -138,7 +138,7 @@ export default function Arvore() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16">
+      <section className="py-16 backdrop-blur-md bg-white/30 border-b border-white/20 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
@@ -184,7 +184,7 @@ export default function Arvore() {
       </section>
 
       {/* Access Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 backdrop-blur-sm bg-white/20 border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">
             Como Acessar
@@ -222,8 +222,13 @@ export default function Arvore() {
         </div>
       </section>
 
-      <WhyOSESection />
-      <ContactSection />
+      <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
+        <WhyOSESection />
+      </div>
+      
+      <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
+        <ContactSection />
+      </div>
       
       {/* Visual Composer */}
       <VisualComposerComponent />
