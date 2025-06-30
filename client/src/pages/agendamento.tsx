@@ -15,54 +15,29 @@ export default function Agendamento() {
       keywords: "agendar visita, colégio ose, matrícula, conhecer escola, visita guiada, agendamento"
     });
 
-    // Aguardar um pouco antes de carregar o Calendly
-    const loadCalendly = () => {
-      // Limpar widgets existentes
-      const existingWidgets = document.querySelectorAll('.calendly-inline-widget');
-      existingWidgets.forEach(widget => {
-        widget.innerHTML = '';
-      });
-
-      // Remover scripts existentes
-      const existingScripts = document.querySelectorAll('script[src*="calendly"]');
-      existingScripts.forEach(script => script.remove());
-
-      // Carregar script do Calendly
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.type = 'text/javascript';
-      script.async = true;
-      
-      script.onload = () => {
-        console.log('Calendly script loaded successfully');
-        // Aguardar um pouco mais para garantir que o Calendly está totalmente carregado
-        setTimeout(() => {
-          const widgetContainer = document.querySelector('.calendly-inline-widget');
-          if (window.Calendly && widgetContainer) {
-            try {
-              window.Calendly.initInlineWidget({
-                url: 'https://calendly.com/colegioose/apresentacao?hide_gdpr_banner=1&primary_color=ff8c00',
-                parentElement: widgetContainer,
-                prefill: {},
-                utm: {}
-              });
-              console.log('Calendly widget initialized successfully');
-            } catch (error) {
-              console.error('Error initializing Calendly widget:', error);
-            }
-          }
-        }, 500);
-      };
-      
-      script.onerror = (error) => {
-        console.error('Failed to load Calendly script:', error);
-      };
-      
-      document.head.appendChild(script);
+    // Implementação simplificada do Calendly usando iframe direto
+    const initializeCalendly = () => {
+      const container = document.querySelector('.calendly-container');
+      if (container) {
+        // Limpar conteúdo anterior
+        container.innerHTML = '';
+        
+        // Criar iframe diretamente
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://calendly.com/colegioose/apresentacao?embed_domain=colegioose.com.br&embed_type=Inline&hide_gdpr_banner=1&primary_color=ff8c00';
+        iframe.style.cssText = 'width: 100%; height: 700px; border: none; border-radius: 12px;';
+        iframe.frameBorder = '0';
+        iframe.scrolling = 'no';
+        iframe.title = 'Agendar Visita - Colégio OSE';
+        
+        // Adicionar iframe ao container
+        container.appendChild(iframe);
+        console.log('Calendly iframe loaded successfully');
+      }
     };
 
-    // Carregar após um pequeno delay
-    const timer = setTimeout(loadCalendly, 1000);
+    // Inicializar após um pequeno delay
+    const timer = setTimeout(initializeCalendly, 500);
     
     return () => {
       clearTimeout(timer);
@@ -205,8 +180,7 @@ export default function Agendamento() {
 
           <div className="backdrop-blur-md bg-white/40 border border-white/20 rounded-xl shadow-lg overflow-hidden">
             <div 
-              className="calendly-inline-widget" 
-              data-url="https://calendly.com/colegioose/apresentacao?hide_gdpr_banner=1&primary_color=ff8c00" 
+              className="calendly-container" 
               style={{ minWidth: '320px', height: '700px', position: 'relative' }}
             >
               {/* Loading placeholder */}

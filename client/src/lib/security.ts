@@ -10,6 +10,9 @@ export const setupCSP = () => {
       https://www.googletagmanager.com 
       https://connect.facebook.net 
       https://assets.calendly.com 
+      https://calendly.com
+      https://*.calendly.com
+      https://widget.calendly.com
       https://www.google-analytics.com 
       https://googleads.g.doubleclick.net 
       https://ssl.google-analytics.com
@@ -18,19 +21,27 @@ export const setupCSP = () => {
       https://ipapi.co;
     style-src 'self' 'unsafe-inline' 
       https://fonts.googleapis.com 
-      https://assets.calendly.com;
+      https://assets.calendly.com
+      https://calendly.com
+      https://*.calendly.com;
     img-src 'self' data: https: blob: 
       https://www.facebook.com 
       https://www.google-analytics.com 
       https://googleads.g.doubleclick.net
-      https://chatbot.ewr1.vultrobjects.com;
+      https://chatbot.ewr1.vultrobjects.com
+      https://assets.calendly.com
+      https://calendly.com
+      https://*.calendly.com;
     font-src 'self' 
-      https://fonts.gstatic.com;
+      https://fonts.gstatic.com
+      https://assets.calendly.com;
     media-src 'self'
       https://sdk.dfktv2.com;
     connect-src 'self' 
       https://www.google-analytics.com 
       https://api.calendly.com 
+      https://calendly.com
+      https://*.calendly.com
       https://analytics.google.com 
       https://stats.g.doubleclick.net 
       https://www.google.com 
@@ -41,11 +52,14 @@ export const setupCSP = () => {
     frame-src 'self' 
       https://calendly.com 
       https://*.calendly.com
+      https://widget.calendly.com
+      https://assets.calendly.com
       https://www.googletagmanager.com
       https://td.doubleclick.net
       https://*.doubleclick.net
       https://googleads.g.doubleclick.net
-      https://sdk.dfktv2.com;
+      https://sdk.dfktv2.com
+      https://www.uchat.com.au;
   `.replace(/\s+/g, ' ').trim();
   document.head.appendChild(meta);
 };
