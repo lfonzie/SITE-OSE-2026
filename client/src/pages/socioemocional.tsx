@@ -525,6 +525,9 @@ export default function Socioemocional() {
       </section>
 
       <WhyOSESection />
+      <PedagogicalProposalSection />
+      <FeaturesSection />
+      <TestimonialsSection />
       <ContactSection />
     </div>
   );

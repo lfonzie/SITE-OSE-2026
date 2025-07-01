@@ -494,7 +494,7 @@ export default function ListaMaterial() {
       <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
         <WhyOSESection />
       </div>
-      
+
       <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
         <ContactSection />
       </div>
