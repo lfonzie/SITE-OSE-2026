@@ -37,7 +37,7 @@
       "/api/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-01T02:26:15.354Z",
+    "lastModified": "2025-07-01T02:28:11.582Z",
     "autoSaved": true,
     "imagePositions": {
       "why-ose-1": {
@@ -93,7 +93,7 @@
   "Legacy": {
     "images": [
       "/api/images/upload_1751336615268.png",
-      "/api/images/upload_1751336816195.jpg",
+      "/images/upload_1751336816568.jpg",
       "/images/10.png"
     ],
     "heroBackground": {
@@ -109,7 +109,7 @@
     },
     "heroImage": "/images/horizontal_2.png",
     "pageName": "Legacy",
-    "lastModified": "2025-07-01T02:26:59.397Z",
+    "lastModified": "2025-07-01T02:28:38.602Z",
     "autoSaved": true,
     "savedForDeployment": true
   }

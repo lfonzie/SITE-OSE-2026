@@ -137,53 +137,78 @@ export default function PageConfigManager() {
   };
 
   const syncAllPagesToServer = async () => {
+    setLoading(true);
     let successCount = 0;
     let errorCount = 0;
+    let skippedCount = 0;
 
-    for (const page of pages) {
-      try {
-        const localData = localStorage.getItem(`page_${page.key}`);
-        if (localData) {
-          const config = JSON.parse(localData);
-          
-          const response = await fetch('/api/page-config', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              pageName: page.key,
-              config: {
-                ...config,
-                savedForDeployment: true
-              }
-            })
-          });
+    try {
+      for (const page of pages) {
+        try {
+          const localData = localStorage.getItem(`page_${page.key}`);
+          if (localData) {
+            const config = JSON.parse(localData);
+            
+            console.log(`Syncing ${page.key} with config:`, config);
+            
+            const response = await fetch('/api/page-config', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                pageName: page.key,
+                config: {
+                  ...config,
+                  savedForDeployment: true
+                }
+              })
+            });
 
-          if (response.ok) {
-            successCount++;
+            if (response.ok) {
+              successCount++;
+              console.log(`Successfully synced ${page.key}`);
+            } else {
+              const errorText = await response.text();
+              console.error(`Failed to sync ${page.key}:`, errorText);
+              errorCount++;
+            }
           } else {
-            errorCount++;
+            console.log(`No local data found for ${page.key}`);
+            skippedCount++;
           }
+          
+          // Small delay to avoid overwhelming the server
+          await new Promise(resolve => setTimeout(resolve, 100));
+          
+        } catch (error) {
+          console.error(`Error syncing ${page.key}:`, error);
+          errorCount++;
         }
-      } catch (error) {
-        console.error(`Error syncing ${page.key}:`, error);
-        errorCount++;
       }
-    }
 
-    if (successCount > 0) {
-      toast({
-        title: "Sincronização concluída",
-        description: `${successCount} páginas sincronizadas com sucesso. ${errorCount > 0 ? `${errorCount} erros.` : ''}`,
-      });
-      loadConfigs();
-    } else {
+      if (successCount > 0 || skippedCount > 0) {
+        toast({
+          title: "Sincronização concluída",
+          description: `${successCount} páginas sincronizadas, ${skippedCount} sem dados locais${errorCount > 0 ? `, ${errorCount} erros` : ''}.`,
+        });
+        loadConfigs();
+      } else {
+        toast({
+          title: "Nenhuma página sincronizada",
+          description: "Não foram encontrados dados locais para sincronizar.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('General sync error:', error);
       toast({
         title: "Erro na sincronização",
-        description: "Não foi possível sincronizar as páginas.",
+        description: "Erro geral durante a sincronização.",
         variant: "destructive",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -215,9 +240,13 @@ export default function PageConfigManager() {
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Gerenciador de Configurações</h2>
         <div className="flex gap-2">
-          <Button onClick={syncAllPagesToServer} variant="default">
+          <Button 
+            onClick={syncAllPagesToServer} 
+            variant="default"
+            disabled={loading}
+          >
             <Upload className="w-4 h-4 mr-2" />
-            Sincronizar Todas
+            {loading ? "Sincronizando..." : "Sincronizar Todas"}
           </Button>
           <Button onClick={exportAllConfigs} variant="outline">
             <Download className="w-4 h-4 mr-2" />
