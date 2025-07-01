@@ -26,7 +26,7 @@
       "/api/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-01T15:20:00.985Z",
+    "lastModified": "2025-07-01T15:22:00.650Z",
     "autoSaved": true,
     "imagePositions": {
       "why-ose-1": {
@@ -334,6 +334,32 @@
     },
     "pageName": "CODE.OSE",
     "lastModified": "2025-07-01T15:21:03.913Z",
+    "autoSaved": true,
+    "savedForDeployment": true
+  },
+  "Programa Socioemocional": {
+    "heroImage": "/images/26.png",
+    "images": [
+      "/images/27.png",
+      "/images/28.png",
+      "/images/29.png"
+    ],
+    "heroBackground": {
+      "type": "gradient",
+      "gradientColors": [
+        "#475569",
+        "#64748b"
+      ],
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.8,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat"
+    },
+    "pageName": "Programa Socioemocional",
+    "lastModified": "2025-07-01T15:22:00.649Z",
     "autoSaved": true,
     "savedForDeployment": true
   }
