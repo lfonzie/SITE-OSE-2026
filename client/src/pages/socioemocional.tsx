@@ -235,11 +235,12 @@ export default function Socioemocional() {
 
         {/* Hero Background Manager */}
         {isAuthenticated && (
-          <HeroBackgroundManager
-            currentBackground={heroBackground}
-            onBackgroundChange={updateHeroBackground}
-            className="absolute top-4 right-4 z-20"
-          />
+          <div className="absolute top-4 right-4 z-50">
+            <HeroBackgroundManager
+              currentBackground={heroBackground}
+              onBackgroundChange={updateHeroBackground}
+            />
+          </div>
         )}
 
         {/* Overlay */}

@@ -127,28 +127,28 @@ export default function ListaMaterial() {
       descricao: "Material lúdico e pedagógico para os primeiros anos",
       icone: <Palette className="text-school-orange" size={40} />,
       series: ["Jardim I", "Jardim II"],
-      imagem: "/images/12.png"
+      imagem: images[0] || "/images/12.png"
     },
     {
       titulo: "Fundamental I",
       descricao: "Material completo para os anos iniciais",
       icone: <BookOpen className="text-school-orange" size={40} />,
       series: ["1º Ano", "2º Ano", "3º Ano", "4º Ano", "5º Ano"],
-      imagem: "/images/6.png"
+      imagem: images[1] || "/images/6.png"
     },
     {
       titulo: "Fundamental II",
       descricao: "Material específico para os anos finais",
       icone: <Backpack className="text-school-orange" size={40} />,
       series: ["6º Ano", "7º Ano", "8º Ano", "9º Ano"],
-      imagem: "/images/9.png"
+      imagem: images[2] || "/images/9.png"
     },
     {
       titulo: "Ensino Médio",
       descricao: "Material preparatório para vestibular e ENEM",
       icone: <FileText className="text-school-orange" size={40} />,
       series: ["1ª Série", "2ª Série", "3ª Série"],
-      imagem: "/images/2.png"
+      imagem: images[3] || "/images/2.png"
     }
   ];
 
@@ -198,11 +198,12 @@ export default function ListaMaterial() {
 
         {/* Hero Background Manager */}
         {isAuthenticated && (
-          <HeroBackgroundManager
-            currentBackground={heroBackground}
-            onBackgroundChange={updateHeroBackground}
-            className="absolute top-4 right-4 z-20"
-          />
+          <div className="absolute top-4 right-4 z-50">
+            <HeroBackgroundManager
+              currentBackground={heroBackground}
+              onBackgroundChange={updateHeroBackground}
+            />
+          </div>
         )}
 
         {/* Overlay */}
@@ -319,10 +320,9 @@ export default function ListaMaterial() {
                   {isAuthenticated && (
                     <>
                       <EnhancedImageSelector
-                        currentImage={images[index] || segmento.imagem}
+                        currentImage={segmento.imagem}
                         onImageSelect={(url) => {
-                          console.log('Selecionando imagem:', url);
-                          console.log('Index do segmento:', index);
+                          console.log('Selecionando imagem para segmento:', segmento.titulo, 'URL:', url);
                           updateImage(index, url);
                         }}
                         className="absolute top-2 right-2 z-10"
