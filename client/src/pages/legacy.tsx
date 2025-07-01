@@ -27,6 +27,12 @@ const timeline = [
     highlight: true
   },
   {
+    year: "1930",
+    title: "Expansão dos Primeiros Anos",
+    description: "A escola estabelece sua reputação na comunidade sorocabana, ampliando o número de alunos e consolidando sua metodologia de ensino comercial inovadora.",
+    icon: <BookOpen size={24} />
+  },
+  {
     year: "1936",
     title: "Chegada da Família Fonseca",
     description: "Dr. Arthur Cyrillo Freire, Dona Tercila Bosqueti Fonseca e seus filhos Arthur e Nelson Fonseca chegam de Santos e adquirem a pequena escola com apenas 42 alunos.",
@@ -52,10 +58,22 @@ const timeline = [
     icon: <Building2 size={24} />
   },
   {
+    year: "1973",
+    title: "Modernização Pedagógica",
+    description: "Implementação de novos métodos de ensino e ampliação da infraestrutura educacional, consolidando a OSE como referência em inovação pedagógica na região.",
+    icon: <GraduationCap size={24} />
+  },
+  {
     year: "1980",
     title: "Pico de Crescimento",
     description: "A OSE consolida-se como referência educacional em Sorocaba e região, com significativo crescimento no número de alunos.",
     icon: <Trophy size={24} />
+  },
+  {
+    year: "1985",
+    title: "Consolidação Institucional",
+    description: "Período de consolidação da identidade institucional da OSE, com fortalecimento da proposta pedagógica e expansão da influência educacional na região.",
+    icon: <Heart size={24} />
   },
   {
     year: "1989",
@@ -163,10 +181,13 @@ export default function Legacy() {
       newImages.horizontal2, // index 4 - instituições
       newImages.horizontal3, // index 5 - instituições  
       newImages.horizontal4, // index 6 - instituições
-      newImages.horizontal1, // index 7 - timeline 1936
-      newImages.horizontal2, // index 8 - timeline 1955
-      newImages.horizontal3, // index 9 - timeline 1989
-      newImages.horizontal4  // index 10 - timeline 2000
+      newImages.horizontal1, // index 7 - timeline 1930
+      newImages.horizontal2, // index 8 - timeline 1936
+      newImages.horizontal3, // index 9 - timeline 1955
+      newImages.horizontal4, // index 10 - timeline 1973
+      newImages.horizontal1, // index 11 - timeline 1985
+      newImages.horizontal2, // index 12 - timeline 1989
+      newImages.horizontal3  // index 13 - timeline 2000
     ],
     heroBackground: {
       type: 'gradient',
@@ -367,10 +388,13 @@ export default function Legacy() {
             {timeline.map((event, index) => {
               // Definir anos com fotos históricas
               const historicalPhotos = {
-                "1936": { imageIndex: 7, alt: "Chegada da Família Fonseca - 1936" },
-                "1955": { imageIndex: 8, alt: "Nova Sede na Rua da Penha - 1955" },
-                "1989": { imageIndex: 9, alt: "Criação da OSE Uirapuru - 1989" },
-                "2000": { imageIndex: 10, alt: "Faculdade IMAPES - 2000" }
+                "1930": { imageIndex: 7, alt: "Expansão dos Primeiros Anos - 1930" },
+                "1936": { imageIndex: 8, alt: "Chegada da Família Fonseca - 1936" },
+                "1955": { imageIndex: 9, alt: "Nova Sede na Rua da Penha - 1955" },
+                "1973": { imageIndex: 10, alt: "Modernização Pedagógica - 1973" },
+                "1985": { imageIndex: 11, alt: "Consolidação Institucional - 1985" },
+                "1989": { imageIndex: 12, alt: "Criação da OSE Uirapuru - 1989" },
+                "2000": { imageIndex: 13, alt: "Faculdade IMAPES - 2000" }
               };
               
               const hasPhoto = historicalPhotos[event.year];
