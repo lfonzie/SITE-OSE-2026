@@ -424,7 +424,7 @@ export default function Legacy() {
                       
                       {/* Foto histórica no mobile */}
                       {hasPhoto && (
-                        <div className="relative w-full h-32 rounded-lg overflow-hidden group">
+                        <div className="relative w-full h-32 rounded-lg overflow-hidden group mt-3">
                           <DragImagePosition
                             src={images[hasPhoto.imageIndex] || newImages.horizontal4}
                             alt={hasPhoto.alt}
@@ -453,23 +453,30 @@ export default function Legacy() {
                             }}
                           />
                           {isAuthenticated && (
-                            <>
-                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
-                              <EnhancedImageSelector
-                                currentImage={images[hasPhoto.imageIndex] || newImages.horizontal4}
-                                onImageSelect={(imageUrl) => {
-                                  console.log(`Selecionando imagem para timeline ${event.year}:`, imageUrl);
-                                  updateImage(hasPhoto.imageIndex, imageUrl);
-                                }}
-                                className="absolute top-2 right-2 z-20 opacity-70 group-hover:opacity-100 transition-opacity"
-                              />
-                              <ImagePositionControls
-                                currentPosition={getImagePosition(`timeline-${event.year}`)}
-                                onPositionChange={(position) => updateImagePosition(`timeline-${event.year}`, position)}
-                                className="absolute bottom-2 right-2 z-20 opacity-70 group-hover:opacity-100 transition-opacity"
-                              />
-                            </>
+                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <div className="absolute inset-0 bg-black/20"></div>
+                              <div className="absolute top-2 right-2 z-30">
+                                <EnhancedImageSelector
+                                  currentImage={images[hasPhoto.imageIndex] || newImages.horizontal4}
+                                  onImageSelect={(imageUrl) => {
+                                    console.log(`Selecionando imagem para timeline ${event.year}:`, imageUrl);
+                                    updateImage(hasPhoto.imageIndex, imageUrl);
+                                  }}
+                                  className=""
+                                />
+                              </div>
+                              <div className="absolute bottom-2 right-2 z-30">
+                                <ImagePositionControls
+                                  currentPosition={getImagePosition(`timeline-${event.year}`)}
+                                  onPositionChange={(position) => updateImagePosition(`timeline-${event.year}`, position)}
+                                  className=""
+                                />
+                              </div>
+                            </div>
                           )}
+                          <div className="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded z-10">
+                            {event.year}
+                          </div>
                         </div>
                       )}
                     </div>
@@ -526,22 +533,26 @@ export default function Legacy() {
                             }}
                           />
                           {isAuthenticated && (
-                            <>
-                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
-                              <EnhancedImageSelector
-                                currentImage={images[hasPhoto.imageIndex] || newImages.horizontal4}
-                                onImageSelect={(imageUrl) => {
-                                  console.log(`Selecionando imagem para timeline ${event.year}:`, imageUrl);
-                                  updateImage(hasPhoto.imageIndex, imageUrl);
-                                }}
-                                className="absolute top-3 right-3 z-20 opacity-70 group-hover:opacity-100 transition-opacity"
-                              />
-                              <ImagePositionControls
-                                currentPosition={getImagePosition(`timeline-${event.year}`)}
-                                onPositionChange={(position) => updateImagePosition(`timeline-${event.year}`, position)}
-                                className="absolute top-3 left-3 z-20 opacity-70 group-hover:opacity-100 transition-opacity"
-                              />
-                            </>
+                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <div className="absolute inset-0 bg-black/20"></div>
+                              <div className="absolute top-3 right-3 z-30">
+                                <EnhancedImageSelector
+                                  currentImage={images[hasPhoto.imageIndex] || newImages.horizontal4}
+                                  onImageSelect={(imageUrl) => {
+                                    console.log(`Selecionando imagem para timeline ${event.year}:`, imageUrl);
+                                    updateImage(hasPhoto.imageIndex, imageUrl);
+                                  }}
+                                  className=""
+                                />
+                              </div>
+                              <div className="absolute top-3 left-3 z-30">
+                                <ImagePositionControls
+                                  currentPosition={getImagePosition(`timeline-${event.year}`)}
+                                  onPositionChange={(position) => updateImagePosition(`timeline-${event.year}`, position)}
+                                  className=""
+                                />
+                              </div>
+                            </div>
                           )}
                           <div className="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded z-10">
                             {event.year}
