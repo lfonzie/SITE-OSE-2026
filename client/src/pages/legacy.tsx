@@ -15,6 +15,8 @@ import { newImages } from "@/lib/image-verification";
 import { usePageData } from '@/hooks/usePageData';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import DragImagePosition from '@/components/DragImagePosition';
+import ImagePositionControls from '@/components/ImagePositionControls';
 
 const timeline = [
   {
@@ -149,7 +151,9 @@ export default function Legacy() {
     heroBackground,
     images, 
     updateImage, 
-    updateHeroBackground
+    updateHeroBackground,
+    imagePositions,
+    updateImagePosition
   } = usePageData('Legacy', {
     images: [newImages.horizontal2, newImages.horizontal3, newImages.horizontal4],
     heroBackground: {
@@ -164,6 +168,18 @@ export default function Legacy() {
       repeat: 'no-repeat'
     }
   });
+
+  const getImagePosition = (key: string) => {
+    return imagePositions?.[key] || {
+      objectPosition: 'center center',
+      horizontalPosition: 0,
+      verticalPosition: 0,
+      scale: 1,
+      opacity: 1,
+      filter: 'none',
+      objectFit: 'cover' as const
+    };
+  };
 
   useEffect(() => {
     updateSEO({
@@ -417,19 +433,46 @@ export default function Legacy() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <div className="relative h-64 bg-gradient-to-b from-slate-200 to-slate-300 overflow-hidden">
-                  <img
+                  <DragImagePosition
                     src={images[index + 1] || newImages.horizontal3}
                     alt={figure.name}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    className="w-full h-full rounded-lg shadow-lg"
+                    editable={isAuthenticated}
+                    initialPosition={{
+                      x: getImagePosition(`historical-figure-${index}`)?.horizontalPosition || 0,
+                      y: getImagePosition(`historical-figure-${index}`)?.verticalPosition || 0
+                    }}
+                    onPositionChange={(position: { x: number; y: number }) => {
+                      const currentPos = getImagePosition(`historical-figure-${index}`) || {
+                        objectPosition: 'center center',
+                        horizontalPosition: 0,
+                        verticalPosition: 0,
+                        scale: 1,
+                        opacity: 1,
+                        filter: 'none',
+                        objectFit: 'cover' as const
+                      };
+                      updateImagePosition(`historical-figure-${index}`, {
+                        ...currentPos,
+                        objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                        horizontalPosition: position.x,
+                        verticalPosition: position.y
+                      });
+                    }}
                   />
                   {isAuthenticated && (
-                    <div className="absolute top-2 right-2 z-10">
+                    <>
                       <EnhancedImageSelector
                         currentImage={images[index + 1] || newImages.horizontal3}
                         onImageSelect={(imageUrl) => updateImage(index + 1, imageUrl)}
-                        className="opacity-0 hover:opacity-100 transition-opacity"
+                        className="absolute top-2 right-2 z-10"
                       />
-                    </div>
+                      <ImagePositionControls
+                        currentPosition={getImagePosition(`historical-figure-${index}`)}
+                        onPositionChange={(position) => updateImagePosition(`historical-figure-${index}`, position)}
+                        className="absolute top-2 left-2 z-10"
+                      />
+                    </>
                   )}
                 </div>
                 <div className="p-6">
