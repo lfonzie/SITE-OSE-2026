@@ -30,18 +30,13 @@ export default function DeploymentConfigLoader() {
 
           console.log('Available deployment configurations:', Object.keys(configs));
 
-          // Apply each configuration, prioritizing server configs in production
+          // Force apply server configurations (deployment images are correct)
           Object.entries(configs).forEach(([pageName, config]: [string, any]) => {
             try {
               if (config && typeof config === 'object') {
-                const localConfig = localStorage.getItem(`page_${pageName}`);
-
-                // In production, always use server config
-                // In development, merge or use server config if more recent
-                if (isProduction || !localConfig || config.savedForDeployment) {
-                  localStorage.setItem(`page_${pageName}`, JSON.stringify(config));
-                  console.log(`Applied deployment config for: ${pageName} (deployment ready)`);
-                }
+                // Always apply server config - deployment images are the correct ones
+                localStorage.setItem(`page_${pageName}`, JSON.stringify(config));
+                console.log(`🔄 Synchronized ${pageName} with deployment config (correct images)`);
               }
             } catch (configError) {
               console.warn(`Error applying config for ${pageName}:`, configError);

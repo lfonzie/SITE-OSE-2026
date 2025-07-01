@@ -206,6 +206,45 @@ export default function PageConfigManager() {
     }
   };
 
+  const forceDeploymentSync = async () => {
+    setLoading(true);
+    try {
+      // Trigger the deployment config reload
+      const response = await fetch('/api/deployment-configs');
+      
+      if (response.ok) {
+        const data = await response.json();
+        const configs = data.configs || {};
+        
+        // Force apply all server configurations locally
+        Object.entries(configs).forEach(([pageName, config]: [string, any]) => {
+          if (config && typeof config === 'object') {
+            localStorage.setItem(`page_${pageName}`, JSON.stringify(config));
+          }
+        });
+        
+        // Reload the page to apply changes
+        window.location.reload();
+        
+        toast({
+          title: "Sincronização forçada concluída",
+          description: `${Object.keys(configs).length} configurações aplicadas com as imagens do deployment.`,
+        });
+      } else {
+        throw new Error('Failed to fetch deployment configs');
+      }
+    } catch (error) {
+      console.error('Error in forced sync:', error);
+      toast({
+        title: "Erro na sincronização forçada",
+        description: "Não foi possível aplicar as configurações do deployment.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const syncAllPagesToServer = async () => {
     setLoading(true);
     let successCount = 0;
@@ -311,6 +350,14 @@ export default function PageConfigManager() {
         <h2 className="text-2xl font-bold">Gerenciador de Configurações</h2>
         <div className="flex gap-2">
           <Button 
+            onClick={forceDeploymentSync} 
+            variant="destructive"
+            disabled={loading}
+          >
+            <Upload className="w-4 h-4 mr-2" />
+            {loading ? "Aplicando..." : "Aplicar Config Deploy"}
+          </Button>
+          <Button 
             onClick={syncAllPagesToServer} 
             variant="default"
             disabled={loading}
@@ -340,6 +387,14 @@ export default function PageConfigManager() {
               <li>3. No deployment, as configurações serão carregadas automaticamente</li>
               <li>4. Verifique o status "Servidor" nas páginas abaixo</li>
             </ol>
+          </div>
+          
+          <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+            <h4 className="font-medium text-red-800 mb-2">🔄 Aplicar Configurações do Deploy:</h4>
+            <p className="text-sm text-red-700">
+              Use o botão vermelho "Aplicar Config Deploy" para forçar a aplicação das imagens que estão no deployment. 
+              Isso sobrescreverá todas as configurações locais com as configurações corretas do servidor.
+            </p>
           </div>
         </CardHeader>
         <CardContent>

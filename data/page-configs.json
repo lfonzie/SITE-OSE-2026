@@ -14,68 +14,37 @@
     "heroImage": "/images/horizontal_1.png",
     "images": [],
     "pageName": "Home",
-    "lastModified": "2025-07-01T15:30:19.349Z",
+    "lastModified": "2025-07-01T20:56:50.868Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Why OSE Section": {
     "images": [
-      "/api/images/upload_1751324766005.jpeg",
-      "/api/images/upload_1751324841546.jpeg",
-      "/api/images/upload_1751324671819.jpeg",
-      "/api/images/upload_1751324509723.jpeg"
+      "/images/horizontal_2.png",
+      "/images/horizontal_3.png",
+      "/images/horizontal_4.png",
+      "/images/horizontal_5.png"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-01T15:30:19.334Z",
+    "lastModified": "2025-07-01T20:56:50.869Z",
     "autoSaved": true,
-    "imagePositions": {
-      "why-ose-1": {
-        "objectPosition": "0% 26%",
-        "horizontalPosition": -50,
-        "verticalPosition": -24,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      },
-      "why-ose-3": {
-        "objectPosition": "15.5% 39%",
-        "horizontalPosition": -34.5,
-        "verticalPosition": -11,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      }
-    },
     "savedForDeployment": true
   },
   "Programs Section": {
     "images": [
-      "/api/images/upload_1751326856830.jpeg",
-      "/api/images/upload_1751324931781.jpeg",
-      "/api/images/upload_1751325080336.jpeg",
-      "/api/images/upload_1751325029201.jpeg"
+      "/images/9.png",
+      "/images/10.png",
+      "/images/11.png",
+      "/images/12.png"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-01T15:30:19.335Z",
+    "lastModified": "2025-07-01T20:56:50.855Z",
     "autoSaved": true,
-    "imagePositions": {
-      "program-0": {
-        "objectPosition": "48.5% 13%",
-        "horizontalPosition": -1.5,
-        "verticalPosition": -37,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      }
-    },
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-01T15:30:19.341Z",
+    "lastModified": "2025-07-01T20:56:50.871Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -359,7 +328,7 @@
       "repeat": "no-repeat"
     },
     "pageName": "Programa Socioemocional",
-    "lastModified": "2025-07-01T15:26:56.361Z",
+    "lastModified": "2025-07-01T15:31:15.668Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -384,7 +353,7 @@
       "imageUrl": "/images/horizontal_33.png"
     },
     "pageName": "Lista de Material",
-    "lastModified": "2025-07-01T15:29:55.491Z",
+    "lastModified": "2025-07-01T15:32:43.215Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -468,7 +437,7 @@
       "repeat": "no-repeat"
     },
     "pageName": "AgendaEdu",
-    "lastModified": "2025-07-01T15:26:29.799Z",
+    "lastModified": "2025-07-01T16:20:38.428Z",
     "autoSaved": true,
     "savedForDeployment": true
   }
