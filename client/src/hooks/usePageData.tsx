@@ -38,25 +38,36 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
         if (response.ok) {
           const serverConfig = await response.json();
           
-          // Only use server config if no local config exists or server config is newer
-          const localData = localStorage.getItem(`page_${pageName}`);
-          let useServerConfig = true;
+          // Check if we're in deployment/production
+          const isProduction = import.meta.env.PROD || 
+                              window.location.hostname.includes('.replit.app') ||
+                              window.location.hostname.includes('.repl.co');
           
-          if (localData) {
-            try {
-              const localConfig = JSON.parse(localData);
-              const serverDate = new Date(serverConfig.lastModified);
-              const localDate = new Date(localConfig.lastModified || 0);
-              
-              // Use server config only if it's newer than local
-              useServerConfig = serverDate > localDate;
-            } catch (error) {
-              console.error('Error parsing local config:', error);
+          // In production, always use server config
+          // In development, use server config if it's newer than local
+          let useServerConfig = isProduction;
+          
+          if (!isProduction) {
+            const localData = localStorage.getItem(`page_${pageName}`);
+            if (localData) {
+              try {
+                const localConfig = JSON.parse(localData);
+                const serverDate = new Date(serverConfig.lastModified);
+                const localDate = new Date(localConfig.lastModified || 0);
+                
+                // Use server config if it's newer than local
+                useServerConfig = serverDate > localDate;
+              } catch (error) {
+                console.error('Error parsing local config:', error);
+                useServerConfig = true;
+              }
+            } else {
+              useServerConfig = true;
             }
           }
           
           if (useServerConfig) {
-            console.log(`Loading server config for ${pageName}:`, serverConfig);
+            console.log(`Loading server config for ${pageName} (production: ${isProduction}):`, serverConfig);
             setPageData(prev => ({
               ...prev,
               ...serverConfig,

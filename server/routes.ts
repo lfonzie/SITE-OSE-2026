@@ -419,6 +419,39 @@ export async function registerRoutes(app: Express) {
     }
   });
 
+  // Force apply server configurations (deployment endpoint)
+  app.post("/api/apply-server-configs", async (req, res) => {
+    try {
+      const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
+      
+      try {
+        const data = fs.readFileSync(configPath, 'utf-8');
+        const configs = JSON.parse(data);
+        
+        // Return all configs with deployment flag
+        const deploymentConfigs = Object.keys(configs).reduce((acc, pageName) => {
+          acc[pageName] = {
+            ...configs[pageName],
+            forceApply: true,
+            deploymentTimestamp: new Date().toISOString()
+          };
+          return acc;
+        }, {});
+        
+        res.json({
+          success: true,
+          message: "Server configurations ready for deployment",
+          configs: deploymentConfigs
+        });
+      } catch (error) {
+        res.status(404).json({ error: "No configurations found for deployment" });
+      }
+    } catch (error) {
+      console.error('Error preparing deployment configs:', error);
+      res.status(500).json({ error: "Failed to prepare deployment configurations" });
+    }
+  });
+
   // Upload Instagram image EXCLUSIVO (vai para /IG)
   app.post("/api/upload-instagram", uploadInstagram.single('image'), (req, res) => {
     try {

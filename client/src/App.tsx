@@ -11,6 +11,7 @@ import { addSchoolSchema } from "./lib/seo";
 import { preloadResources, initLazyLoading } from "./lib/performance";
 import { snippetManager } from "./lib/custom-snippets";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import DeploymentConfigLoader from "./components/DeploymentConfigLoader";
 
 import Home from "@/pages/home";
 import EducacaoInfantil from "@/pages/educacao-infantil";
@@ -126,6 +127,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <TooltipProvider>
+          <DeploymentConfigLoader />
           <Toaster />
           <Router />
         </TooltipProvider>

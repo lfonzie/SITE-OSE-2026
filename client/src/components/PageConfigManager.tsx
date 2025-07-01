@@ -136,6 +136,39 @@ export default function PageConfigManager() {
     });
   };
 
+  const testDeploymentConfigs = async () => {
+    try {
+      const response = await fetch('/api/apply-server-configs', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        toast({
+          title: "Teste de deployment concluído",
+          description: `${Object.keys(result.configs).length} configurações prontas para deployment.`,
+        });
+        console.log('Deployment configs:', result.configs);
+      } else {
+        toast({
+          title: "Nenhuma configuração encontrada",
+          description: "Não há configurações salvas para deployment.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Error testing deployment configs:', error);
+      toast({
+        title: "Erro no teste",
+        description: "Não foi possível testar as configurações de deployment.",
+        variant: "destructive",
+      });
+    }
+  };
+
   const syncAllPagesToServer = async () => {
     setLoading(true);
     let successCount = 0;
@@ -247,6 +280,10 @@ export default function PageConfigManager() {
           >
             <Upload className="w-4 h-4 mr-2" />
             {loading ? "Sincronizando..." : "Sincronizar Todas"}
+          </Button>
+          <Button onClick={testDeploymentConfigs} variant="secondary">
+            <CheckCircle className="w-4 h-4 mr-2" />
+            Testar Deployment
           </Button>
           <Button onClick={exportAllConfigs} variant="outline">
             <Download className="w-4 h-4 mr-2" />
