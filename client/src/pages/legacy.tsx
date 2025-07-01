@@ -66,7 +66,7 @@ const timeline = [
   {
     year: "1980",
     title: "Pico de Crescimento",
-    description: "A OSE consolida-se como referência educacional em Sorocaba e região, com significativo crescimento no número de alunos.",
+    description: "A OSE atinge seu maior número de alunos na história, consolidando-se como a principal referência educacional de Sorocaba. Período de máxima expansão e reconhecimento da qualidade de ensino.",
     icon: <Trophy size={24} />
   },
   {
