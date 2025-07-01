@@ -9,12 +9,12 @@
       "position": "center",
       "size": "cover",
       "repeat": "no-repeat",
-      "imageUrl": "/images/31.png"
+      "imageUrl": "/images/horizontal_26.png"
     },
     "heroImage": "/images/horizontal_1.png",
     "images": [],
     "pageName": "Home",
-    "lastModified": "2025-07-01T21:19:27.043Z",
+    "lastModified": "2025-07-01T22:16:15.508Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -26,7 +26,7 @@
       "/api/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-01T21:19:27.028Z",
+    "lastModified": "2025-07-01T22:18:39.134Z",
     "autoSaved": true,
     "savedForDeployment": true,
     "imagePositions": {
@@ -52,19 +52,19 @@
   },
   "Programs Section": {
     "images": [
-      "/images/9.png",
-      "/images/10.png",
-      "/images/11.png",
-      "/images/12.png"
+      "/api/images/upload_1751326856830.jpeg",
+      "/images/horizontal_25.png",
+      "/images/horizontal_35.png",
+      "/images/upload_1751325029201.jpeg"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-01T21:19:27.047Z",
+    "lastModified": "2025-07-01T22:17:31.598Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-01T21:19:27.044Z",
+    "lastModified": "2025-07-01T22:17:48.880Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -72,8 +72,8 @@
     "images": [
       "/api/images/upload_1751336615268.png",
       "/images/upload_1751336816568.jpg",
-      "/images/10.png",
-      null,
+      "/api/images/upload_1751408375512.jpg",
+      "/api/images/upload_1751408395039.jpg",
       "/api/images/upload_1751404638015.jpg",
       "/api/images/upload_1751404560825.webp"
     ],
@@ -90,7 +90,7 @@
     },
     "heroImage": "/images/horizontal_2.png",
     "pageName": "Legacy",
-    "lastModified": "2025-07-01T21:19:20.028Z",
+    "lastModified": "2025-07-01T22:20:03.304Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -348,7 +348,7 @@
       "imageUrl": "/images/upload_1751324989610.jpeg"
     },
     "pageName": "Programa Socioemocional",
-    "lastModified": "2025-07-01T21:08:00.956Z",
+    "lastModified": "2025-07-01T22:17:48.914Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -373,7 +373,7 @@
       "imageUrl": "/images/horizontal_33.png"
     },
     "pageName": "Lista de Material",
-    "lastModified": "2025-07-01T21:07:19.218Z",
+    "lastModified": "2025-07-01T22:18:14.814Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
