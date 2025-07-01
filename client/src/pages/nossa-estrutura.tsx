@@ -104,7 +104,7 @@ export default function NossaEstrutura() {
             backgroundRepeat: 'no-repeat'
           }}
         />
-        
+
         {/* Overlay */}
         <div 
           className="absolute inset-0 bg-slate-800"
@@ -287,8 +287,7 @@ export default function NossaEstrutura() {
                   title="Colégio OSE - Nossa Estrutura"
                   className="w-full h-full"
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"                  allowFullScreen
                 />
               </div>
               <div className="p-4">
