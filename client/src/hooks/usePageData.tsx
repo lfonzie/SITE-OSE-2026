@@ -37,16 +37,16 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
         const response = await fetch(`/api/page-config/${pageName}`);
         if (response.ok) {
           const serverConfig = await response.json();
-          
+
           // Check if we're in deployment/production
           const isProduction = import.meta.env.PROD || 
                               window.location.hostname.includes('.replit.app') ||
                               window.location.hostname.includes('.repl.co');
-          
+
           // In production, always use server config
           // In development, use server config if it's newer than local
           let useServerConfig = isProduction;
-          
+
           if (!isProduction) {
             const localData = localStorage.getItem(`page_${pageName}`);
             if (localData) {
@@ -54,7 +54,7 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
                 const localConfig = JSON.parse(localData);
                 const serverDate = new Date(serverConfig.lastModified);
                 const localDate = new Date(localConfig.lastModified || 0);
-                
+
                 // Use server config if it's newer than local
                 useServerConfig = serverDate > localDate;
               } catch (error) {
@@ -65,7 +65,7 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
               useServerConfig = true;
             }
           }
-          
+
           if (useServerConfig) {
             console.log(`Loading server config for ${pageName} (production: ${isProduction}):`, serverConfig);
             setPageData(prev => ({
@@ -73,7 +73,7 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
               ...serverConfig,
               pageName
             }));
-            
+
             // Also save to localStorage for offline access
             localStorage.setItem(`page_${pageName}`, JSON.stringify(serverConfig));
           }
@@ -86,6 +86,33 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
     loadServerConfig();
   }, [pageName]);
 
+  const saveToServer = useCallback(async (config: any) => {
+    try {
+      const response = await fetch('/api/page-config', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          pageName,
+          config: {
+            ...config,
+            savedForDeployment: true, // Always save for deployment
+            lastModified: new Date().toISOString()
+          }
+        })
+      });
+
+      if (!response.ok) {
+        console.error('Failed to save server config');
+      } else {
+        console.log(`Server config saved for page: ${pageName} (deployment ready)`);
+      }
+    } catch (error) {
+      console.error('Error saving server config:', error);
+    }
+  }, [pageName]);
+
   // Auto-save whenever pageData changes
   useAutoSave({
     data: pageData,
@@ -94,26 +121,7 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
     onSave: async (data) => {
       // Save to localStorage (local backup)
       console.log(`Auto-saved page: ${pageName}`, data);
-      
-      // Save to server for deployment consistency
-      try {
-        const response = await fetch('/api/page-config', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            pageName,
-            config: data
-          })
-        });
-        
-        if (response.ok) {
-          console.log(`Server config saved for page: ${pageName}`);
-        }
-      } catch (error) {
-        console.error('Error saving to server:', error);
-      }
+      await saveToServer(data);
     }
   });
 
@@ -196,9 +204,9 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
       lastModified: new Date().toISOString(),
       autoSaved: false
     };
-    
+
     localStorage.setItem(`page_${pageName}`, JSON.stringify(saveData));
-    
+
     toast({
       title: "Página salva manualmente",
       description: "Todas as alterações foram salvas.",

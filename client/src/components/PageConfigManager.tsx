@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { Download, Upload, Eye, Save, Trash2, CheckCircle } from "lucide-react";
+import { Download, Upload, Eye, Save, Trash2, CheckCircle, TestTube, RefreshCw } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 interface PageConfig {
@@ -63,7 +63,7 @@ export default function PageConfigManager() {
       }
 
       const config = JSON.parse(localData);
-      
+
       const response = await fetch('/api/page-config', {
         method: 'POST',
         headers: {
@@ -129,7 +129,7 @@ export default function PageConfigManager() {
     link.download = `page-configs-${new Date().toISOString().split('T')[0]}.json`;
     link.click();
     URL.revokeObjectURL(url);
-    
+
     toast({
       title: "Exportação concluída",
       description: "Arquivo de configurações baixado com sucesso.",
@@ -138,8 +138,8 @@ export default function PageConfigManager() {
 
   const testDeploymentConfigs = async () => {
     try {
-      const response = await fetch('/api/apply-server-configs', {
-        method: 'POST',
+      const response = await fetch('/api/deployment-configs', {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         }
@@ -169,6 +169,43 @@ export default function PageConfigManager() {
     }
   };
 
+  const syncAllToDeployment = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('/api/sync-all-to-deployment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        toast({
+          title: "Sincronização concluída",
+          description: result.message,
+        });
+        console.log('Sync result:', result);
+      } else {
+        const error = await response.text();
+        toast({
+          title: "Erro na sincronização",
+          description: error,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Error syncing to deployment:', error);
+      toast({
+        title: "Erro na sincronização",
+        description: "Não foi possível sincronizar as configurações.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const syncAllPagesToServer = async () => {
     setLoading(true);
     let successCount = 0;
@@ -181,9 +218,9 @@ export default function PageConfigManager() {
           const localData = localStorage.getItem(`page_${page.key}`);
           if (localData) {
             const config = JSON.parse(localData);
-            
+
             console.log(`Syncing ${page.key} with config:`, config);
-            
+
             const response = await fetch('/api/page-config', {
               method: 'POST',
               headers: {
@@ -210,10 +247,10 @@ export default function PageConfigManager() {
             console.log(`No local data found for ${page.key}`);
             skippedCount++;
           }
-          
+
           // Small delay to avoid overwhelming the server
           await new Promise(resolve => setTimeout(resolve, 100));
-          
+
         } catch (error) {
           console.error(`Error syncing ${page.key}:`, error);
           errorCount++;
@@ -310,7 +347,7 @@ export default function PageConfigManager() {
             {pages.map((page) => {
               const serverConfig = configs[page.key];
               const hasLocalData = !!localStorage.getItem(`page_${page.key}`);
-              
+
               return (
                 <div key={page.key} className="flex items-center justify-between p-4 border rounded-lg">
                   <div className="flex items-center space-x-4">
@@ -329,7 +366,7 @@ export default function PageConfigManager() {
                       )}
                     </div>
                   </div>
-                  
+
                   <div className="flex space-x-2">
                     {hasLocalData && (
                       <Button
@@ -341,7 +378,7 @@ export default function PageConfigManager() {
                         Salvar
                       </Button>
                     )}
-                    
+
                     {serverConfig && (
                       <Button
                         size="sm"
@@ -375,7 +412,7 @@ export default function PageConfigManager() {
                       {new Date(config.lastModified).toLocaleString('pt-BR')}
                     </span>
                   </div>
-                  
+
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                     <div>
                       <span className="font-medium">Hero Image:</span>
@@ -383,21 +420,21 @@ export default function PageConfigManager() {
                         {config.heroImage ? config.heroImage.split('/').pop() : 'Não definida'}
                       </p>
                     </div>
-                    
+
                     <div>
                       <span className="font-medium">Imagens:</span>
                       <p className="text-gray-600">
                         {config.images ? `${config.images.length} imagens` : 'Nenhuma'}
                       </p>
                     </div>
-                    
+
                     <div>
                       <span className="font-medium">Background:</span>
                       <p className="text-gray-600">
                         {config.heroBackground?.type || 'Padrão'}
                       </p>
                     </div>
-                    
+
                     <div>
                       <span className="font-medium">Posições:</span>
                       <p className="text-gray-600">

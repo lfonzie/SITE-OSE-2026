@@ -340,35 +340,35 @@ export async function registerRoutes(app: Express) {
   app.post("/api/page-config", async (req, res) => {
     try {
       const { pageName, config } = req.body;
-      
+
       if (!pageName || !config) {
         return res.status(400).json({ error: "Page name and config are required" });
       }
 
       const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
       let configs = {};
-      
+
       try {
         const existingData = fs.readFileSync(configPath, 'utf-8');
         configs = JSON.parse(existingData);
       } catch (error) {
         // File doesn't exist yet, start with empty object
       }
-      
+
       configs[pageName] = {
         ...config,
         lastModified: new Date().toISOString(),
         savedForDeployment: true
       };
-      
+
       // Ensure data directory exists
       const dataDir = path.join(process.cwd(), 'data');
       if (!fs.existsSync(dataDir)) {
         fs.mkdirSync(dataDir, { recursive: true });
       }
-      
+
       fs.writeFileSync(configPath, JSON.stringify(configs, null, 2));
-      
+
       res.json({ success: true, message: "Configuration saved successfully" });
     } catch (error) {
       console.error('Error saving page config:', error);
@@ -381,12 +381,12 @@ export async function registerRoutes(app: Express) {
     try {
       const { pageName } = req.params;
       const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
-      
+
       try {
         const data = fs.readFileSync(configPath, 'utf-8');
         const configs = JSON.parse(data);
         const pageConfig = configs[pageName];
-        
+
         if (pageConfig) {
           res.json(pageConfig);
         } else {
@@ -405,7 +405,7 @@ export async function registerRoutes(app: Express) {
   app.get("/api/page-configs", async (req, res) => {
     try {
       const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
-      
+
       try {
         const data = fs.readFileSync(configPath, 'utf-8');
         const configs = JSON.parse(data);
@@ -423,11 +423,11 @@ export async function registerRoutes(app: Express) {
   app.post("/api/apply-server-configs", async (req, res) => {
     try {
       const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
-      
+
       try {
         const data = fs.readFileSync(configPath, 'utf-8');
         const configs = JSON.parse(data);
-        
+
         // Return all configs with deployment flag
         const deploymentConfigs = Object.keys(configs).reduce((acc, pageName) => {
           acc[pageName] = {
@@ -437,7 +437,7 @@ export async function registerRoutes(app: Express) {
           };
           return acc;
         }, {});
-        
+
         res.json({
           success: true,
           message: "Server configurations ready for deployment",
@@ -792,4 +792,66 @@ export async function registerRoutes(app: Express) {
         const dashboardPath = path.join(process.cwd(), 'client/public/dashboard.html');
         res.sendFile(dashboardPath);
     });
+
+  // Get deployment configs (for production)
+  app.get("/api/deployment-configs", isAuthenticated, async (req, res) => {
+    try {
+      const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
+
+      if (!fs.existsSync(configPath)) {
+        return res.json({ configs: {} });
+      }
+
+      const data = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+
+      // Filter only configs marked for deployment
+      const deploymentConfigs = Object.entries(data)
+        .filter(([_, config]: [string, any]) => config.savedForDeployment)
+        .reduce((acc, [key, config]) => {
+          acc[key] = config;
+          return acc;
+        }, {} as Record<string, any>);
+
+      res.json({ configs: deploymentConfigs });
+    } catch (error: any) {
+      console.error('Error getting deployment configs:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Sync all current configs to deployment
+  app.post("/api/sync-all-to-deployment", isAuthenticated, async (req, res) => {
+    try {
+      const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
+
+      if (!fs.existsSync(configPath)) {
+        return res.json({ message: "No configurations found", synced: 0 });
+      }
+
+      const data = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+      let syncedCount = 0;
+
+      // Mark all configs as saved for deployment
+      const updatedData = Object.entries(data).reduce((acc, [key, config]: [string, any]) => {
+        acc[key] = {
+          ...config,
+          savedForDeployment: true,
+          lastModified: new Date().toISOString()
+        };
+        syncedCount++;
+        return acc;
+      }, {} as Record<string, any>);
+
+      fs.writeFileSync(configPath, JSON.stringify(updatedData, null, 2));
+
+      console.log(`Synced ${syncedCount} page configurations to deployment`);
+      res.json({ 
+        message: `Successfully synced ${syncedCount} configurations to deployment`,
+        synced: syncedCount 
+      });
+    } catch (error: any) {
+      console.error('Error syncing configs to deployment:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
 }
