@@ -53,12 +53,6 @@ const timeline = [
     icon: <Building2 size={24} />
   },
   {
-    year: "1973",
-    title: "Modernização Pedagógica",
-    description: "Implementação de novos métodos de ensino e ampliação da infraestrutura educacional, consolidando a OSE como referência em inovação pedagógica na região.",
-    icon: <GraduationCap size={24} />
-  },
-  {
     year: "1980",
     title: "Pico de Crescimento",
     description: "A OSE atinge seu maior número de alunos na história, consolidando-se como a principal referência educacional de Sorocaba. Período de máxima expansão e reconhecimento da qualidade de ensino.",
@@ -174,10 +168,10 @@ export default function Legacy() {
       newImages.horizontal1, // index 7 - não usado
       newImages.horizontal2, // index 8 - timeline 1936
       newImages.horizontal3, // index 9 - timeline 1955
-      newImages.horizontal4, // index 10 - timeline 1973
-      newImages.horizontal1, // index 11 - timeline 1980
+      newImages.horizontal4, // index 10 - timeline 1980
+      newImages.horizontal1, // index 11 - timeline 2000
       newImages.horizontal2, // index 12 - não usado
-      newImages.horizontal3  // index 13 - timeline 2000
+      newImages.horizontal3  // index 13 - não usado
     ],
     heroBackground: {
       type: 'gradient',
@@ -380,9 +374,8 @@ export default function Legacy() {
               const historicalPhotos = {
                 "1936": { imageIndex: 8, alt: "Chegada da Família Fonseca - 1936" },
                 "1955": { imageIndex: 9, alt: "Nova Sede na Rua da Penha - 1955" },
-                "1973": { imageIndex: 10, alt: "Modernização Pedagógica - 1973" },
-                "1980": { imageIndex: 11, alt: "Pico de Crescimento - 1980" },
-                "2000": { imageIndex: 13, alt: "Faculdade IMAPES - 2000" }
+                "1980": { imageIndex: 10, alt: "Pico de Crescimento - 1980" },
+                "2000": { imageIndex: 11, alt: "Faculdade IMAPES - 2000" }
               };
               
               const hasPhoto = historicalPhotos[event.year];
