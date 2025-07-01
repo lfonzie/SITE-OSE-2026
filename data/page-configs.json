@@ -11,10 +11,10 @@
       "repeat": "no-repeat",
       "imageUrl": "/images/31.png"
     },
-    "pageName": "Home",
     "heroImage": "/images/horizontal_1.png",
     "images": [],
-    "lastModified": "2025-07-01T02:50:13.950Z",
+    "pageName": "Home",
+    "lastModified": "2025-07-01T14:42:51.661Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -26,7 +26,7 @@
       "/api/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-01T02:50:13.954Z",
+    "lastModified": "2025-07-01T14:45:38.660Z",
     "autoSaved": true,
     "imagePositions": {
       "why-ose-1": {
@@ -58,7 +58,7 @@
       "/api/images/upload_1751325029201.jpeg"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-01T02:50:13.970Z",
+    "lastModified": "2025-07-01T14:42:50.685Z",
     "autoSaved": true,
     "imagePositions": {
       "program-0": {
@@ -75,7 +75,7 @@
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-01T02:50:13.982Z",
+    "lastModified": "2025-07-01T14:45:38.651Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -100,6 +100,135 @@
     "pageName": "Legacy",
     "lastModified": "2025-07-01T02:28:38.602Z",
     "autoSaved": true,
+    "savedForDeployment": true
+  },
+  "Educacao Infantil": {
+    "heroBackground": {
+      "type": "image",
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.8,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat",
+      "imageUrl": "/images/upload_1751326856830.jpeg"
+    },
+    "heroImage": "/images/horizontal_1.png",
+    "pageName": "Educacao Infantil",
+    "lastModified": "2025-07-01T14:42:21.063Z",
+    "autoSaved": true,
+    "savedForDeployment": true
+  },
+  "Fundamental II": {
+    "heroImage": "/images/horizontal_7.png",
+    "images": [
+      "/images/horizontal_2.png",
+      "/images/horizontal_35.png",
+      "/images/horizontal_10.png"
+    ],
+    "heroBackground": {
+      "type": "image",
+      "imageUrl": "/images/7.png",
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.7,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat"
+    },
+    "pageName": "Fundamental II",
+    "lastModified": "2025-07-01T14:45:06.755Z",
+    "autoSaved": true,
+    "imagePositions": {
+      "main-gallery-2": {
+        "objectPosition": "60.5% 7%",
+        "horizontalPosition": 10.5,
+        "verticalPosition": -43,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      }
+    },
+    "savedForDeployment": true
+  },
+  "Fundamental I": {
+    "heroImage": "/images/horizontal_16.png",
+    "images": [
+      "/images/23.png",
+      "/images/horizontal_18.png",
+      "/images/horizontal_19.png"
+    ],
+    "heroBackground": {
+      "type": "image",
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.8,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat",
+      "imageUrl": "/images/horizontal_11.png"
+    },
+    "pageName": "Fundamental I",
+    "lastModified": "2025-07-01T14:43:30.279Z",
+    "autoSaved": true,
+    "imagePositions": {
+      "gallery-0": {
+        "objectPosition": "52.5% 33.5%",
+        "horizontalPosition": 2.5,
+        "verticalPosition": -16.5,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      }
+    },
+    "savedForDeployment": true
+  },
+  "Ensino Médio": {
+    "heroImage": "/images/7.png",
+    "images": [
+      "/api/images/upload_1751326024471.jpeg",
+      "/api/images/upload_1751326216034.jpeg",
+      "/api/images/upload_1751326093729.jpeg"
+    ],
+    "heroBackground": {
+      "type": "image",
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.8,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat",
+      "imageUrl": "/images/horizontal_1.png"
+    },
+    "pageName": "Ensino Médio",
+    "lastModified": "2025-07-01T14:45:38.654Z",
+    "autoSaved": true,
+    "imagePositions": {
+      "gallery-1": {
+        "objectPosition": "45.5% 27.5%",
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover",
+        "horizontalPosition": -4.5,
+        "verticalPosition": -22.5
+      },
+      "gallery-2": {
+        "objectPosition": "90% 100%",
+        "horizontalPosition": 40,
+        "verticalPosition": 50,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      }
+    },
     "savedForDeployment": true
   }
 }
