@@ -26,12 +26,7 @@ const timeline = [
     icon: <Star size={24} />,
     highlight: true
   },
-  {
-    year: "1930",
-    title: "Expansão dos Primeiros Anos",
-    description: "A escola estabelece sua reputação na comunidade sorocabana, ampliando o número de alunos e consolidando sua metodologia de ensino comercial inovadora.",
-    icon: <BookOpen size={24} />
-  },
+  
   {
     year: "1936",
     title: "Chegada da Família Fonseca",
@@ -69,12 +64,7 @@ const timeline = [
     description: "A OSE atinge seu maior número de alunos na história, consolidando-se como a principal referência educacional de Sorocaba. Período de máxima expansão e reconhecimento da qualidade de ensino.",
     icon: <Trophy size={24} />
   },
-  {
-    year: "1985",
-    title: "Consolidação Institucional",
-    description: "Período de consolidação da identidade institucional da OSE, com fortalecimento da proposta pedagógica e expansão da influência educacional na região.",
-    icon: <Heart size={24} />
-  },
+  
   {
     year: "1989",
     title: "OSE Uirapuru",
@@ -181,12 +171,12 @@ export default function Legacy() {
       newImages.horizontal2, // index 4 - instituições
       newImages.horizontal3, // index 5 - instituições  
       newImages.horizontal4, // index 6 - instituições
-      newImages.horizontal1, // index 7 - timeline 1930
+      newImages.horizontal1, // index 7 - não usado
       newImages.horizontal2, // index 8 - timeline 1936
       newImages.horizontal3, // index 9 - timeline 1955
       newImages.horizontal4, // index 10 - timeline 1973
-      newImages.horizontal1, // index 11 - timeline 1985
-      newImages.horizontal2, // index 12 - timeline 1989
+      newImages.horizontal1, // index 11 - timeline 1980
+      newImages.horizontal2, // index 12 - não usado
       newImages.horizontal3  // index 13 - timeline 2000
     ],
     heroBackground: {
@@ -388,12 +378,10 @@ export default function Legacy() {
             {timeline.map((event, index) => {
               // Definir anos com fotos históricas
               const historicalPhotos = {
-                "1930": { imageIndex: 7, alt: "Expansão dos Primeiros Anos - 1930" },
                 "1936": { imageIndex: 8, alt: "Chegada da Família Fonseca - 1936" },
                 "1955": { imageIndex: 9, alt: "Nova Sede na Rua da Penha - 1955" },
                 "1973": { imageIndex: 10, alt: "Modernização Pedagógica - 1973" },
-                "1985": { imageIndex: 11, alt: "Consolidação Institucional - 1985" },
-                "1989": { imageIndex: 12, alt: "Criação da OSE Uirapuru - 1989" },
+                "1980": { imageIndex: 11, alt: "Pico de Crescimento - 1980" },
                 "2000": { imageIndex: 13, alt: "Faculdade IMAPES - 2000" }
               };
               
