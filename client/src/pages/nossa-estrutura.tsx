@@ -22,39 +22,39 @@ export default function NossaEstrutura() {
   const facilities = [
     {
       icon: Building,
-      title: "Salas de Aula Modernas",
-      description: "Ambientes climatizados com tecnologia integrada, projetores interativos e mobiliário ergonômico para todos os segmentos.",
-      features: ["Ar condicionado", "Projetores interativos", "Mobiliário ergonômico", "Iluminação adequada"]
+      title: "Salas de Aula",
+      description: "Salas amplas e bem iluminadas, climatizadas com ar-condicionado, projetores e mobiliário ergonômico para todos os segmentos.",
+      features: ["Ar-condicionado", "Projetores", "Mobiliário ergonômico", "Salas grandes e iluminadas"]
     },
     {
       icon: Microscope,
-      title: "Laboratórios de Ciências",
-      description: "Laboratórios de Física, Química e Biologia totalmente equipados para aulas práticas e experimentos.",
-      features: ["Equipamentos modernos", "Materiais de segurança", "Bancadas experimentais", "Microscópios avançados"]
-    },
-    {
-      icon: Computer,
-      title: "Laboratório de Informática",
-      description: "Computadores modernos com softwares educacionais e acesso à internet para desenvolvimento digital.",
-      features: ["Computadores atualizados", "Softwares educacionais", "Internet banda larga", "Suporte técnico"]
+      title: "Laboratórios de Química",
+      description: "3 laboratórios de química totalmente equipados para aulas práticas e experimentos científicos.",
+      features: ["3 laboratórios disponíveis", "Equipamentos modernos", "Materiais de segurança", "Bancadas experimentais"]
     },
     {
       icon: BookOpen,
-      title: "Biblioteca Completa",
-      description: "Acervo atualizado com livros didáticos, literatura e recursos digitais para pesquisa e estudo.",
-      features: ["Acervo atualizado", "Espaços de estudo", "Recursos digitais", "Ambiente silencioso"]
+      title: "Espaços de Convivência",
+      description: "Espaços de convivência em cada segmento que funcionam como biblioteca e sala de estudos.",
+      features: ["Um espaço por segmento", "Ambiente de estudos", "Área de convivência", "Espaço para leitura"]
     },
     {
       icon: Trophy,
-      title: "Quadras Esportivas",
-      description: "Espaços amplos para prática de esportes, educação física e atividades recreativas.",
-      features: ["Quadra coberta", "Quadra descoberta", "Equipamentos esportivos", "Vestiários"]
+      title: "Quadra Esportiva",
+      description: "Uma quadra esportiva coberta e climatizada para prática de esportes e educação física.",
+      features: ["Quadra coberta", "Climatizada", "Equipamentos esportivos", "Ambiente confortável"]
     },
     {
       icon: Palette,
-      title: "Salas Especializadas",
-      description: "Ambientes dedicados para arte, música e atividades extracurriculares.",
-      features: ["Sala de arte", "Sala de música", "Instrumentos musicais", "Materiais artísticos"]
+      title: "Salas de Arte",
+      description: "Salas especializadas para atividades artísticas e desenvolvimento da criatividade.",
+      features: ["Salas equipadas", "Materiais artísticos", "Ambiente criativo", "Espaço amplo"]
+    },
+    {
+      icon: Music,
+      title: "Auditório",
+      description: "Auditório completo para apresentações, eventos e atividades culturais da escola.",
+      features: ["Espaço amplo", "Sistema de som", "Palco equipado", "Ambiente para eventos"]
     }
   ];
 
