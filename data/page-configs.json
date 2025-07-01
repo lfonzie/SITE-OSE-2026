@@ -26,7 +26,7 @@
       "/api/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-01T15:01:43.660Z",
+    "lastModified": "2025-07-01T15:14:13.973Z",
     "autoSaved": true,
     "imagePositions": {
       "why-ose-1": {
@@ -75,7 +75,7 @@
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-01T15:01:43.665Z",
+    "lastModified": "2025-07-01T15:14:13.974Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -223,6 +223,63 @@
         "objectPosition": "90% 100%",
         "horizontalPosition": 40,
         "verticalPosition": 50,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      }
+    },
+    "savedForDeployment": true
+  },
+  "Programa Bilíngue": {
+    "heroImage": "/images/22.png",
+    "images": [
+      "/images/horizontal_13.png",
+      "/images/horizontal_15.png",
+      "/images/horizontal_25.png"
+    ],
+    "heroBackground": {
+      "type": "image",
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.8,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat",
+      "imageUrl": "/images/horizontal_32.png"
+    },
+    "pageName": "Programa Bilíngue",
+    "lastModified": "2025-07-01T15:14:00.609Z",
+    "autoSaved": true,
+    "savedForDeployment": true
+  },
+  "Integral": {
+    "heroImage": "/images/horizontal_30.png",
+    "images": [
+      "/images/horizontal_30.png",
+      "/images/horizontal_27.png",
+      "/images/horizontal_7.png"
+    ],
+    "heroBackground": {
+      "type": "image",
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.8,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat",
+      "imageUrl": "/images/upload_1751324989610.jpeg"
+    },
+    "pageName": "Integral",
+    "lastModified": "2025-07-01T15:15:01.118Z",
+    "autoSaved": true,
+    "imagePositions": {
+      "integral-gallery-2": {
+        "objectPosition": "57% 26.5%",
+        "horizontalPosition": 7,
+        "verticalPosition": -23.5,
         "scale": 1,
         "opacity": 1,
         "filter": "none",
