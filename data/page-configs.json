@@ -26,7 +26,7 @@
       "/api/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-01T22:18:39.134Z",
+    "lastModified": "2025-07-01T22:23:21.493Z",
     "autoSaved": true,
     "savedForDeployment": true,
     "imagePositions": {
@@ -75,7 +75,8 @@
       "/api/images/upload_1751408375512.jpg",
       "/api/images/upload_1751408395039.jpg",
       "/api/images/upload_1751404638015.jpg",
-      "/api/images/upload_1751404560825.webp"
+      "/api/images/upload_1751408514410.jpg",
+      "/api/images/upload_1751408532224.jpeg"
     ],
     "heroBackground": {
       "type": "image",
@@ -90,9 +91,20 @@
     },
     "heroImage": "/images/horizontal_2.png",
     "pageName": "Legacy",
-    "lastModified": "2025-07-01T22:20:03.304Z",
+    "lastModified": "2025-07-01T22:23:44.739Z",
     "autoSaved": true,
-    "savedForDeployment": true
+    "savedForDeployment": true,
+    "imagePositions": {
+      "historical-figure-2": {
+        "objectPosition": "64.5% 4.5%",
+        "horizontalPosition": 14.5,
+        "verticalPosition": -45.5,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      }
+    }
   },
   "Educacao Infantil": {
     "heroBackground": {
