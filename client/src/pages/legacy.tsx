@@ -1,8 +1,10 @@
-
 import React, { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import WhyOSESection from "@/components/why-ose-section";
+import PedagogicalProposalSection from "@/components/pedagogical-proposal-section";
+import FeaturesSection from "@/components/features-section";
+import TestimonialsSection from "@/components/testimonials-section";
 import ContactSection from "@/components/contact-section";
 import SEO from '@/components/SEO';
 import { Button } from "@/components/ui/button";
@@ -142,7 +144,7 @@ const institutions = [
 
 export default function Legacy() {
   const { isAuthenticated } = useAuth();
-  
+
   const { 
     heroBackground,
     images, 

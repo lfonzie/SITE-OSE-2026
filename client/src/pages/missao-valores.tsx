@@ -12,8 +12,11 @@ import ImagePositionControls from '@/components/ImagePositionControls';
 import DragImagePosition from '@/components/DragImagePosition';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import { useAuth } from '@/contexts/AuthContext';
-import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
+import WhyOSESection from "@/components/why-ose-section";
+import PedagogicalProposalSection from "@/components/pedagogical-proposal-section";
+import FeaturesSection from "@/components/features-section";
+import TestimonialsSection from "@/components/testimonials-section";
 
 export default function MissaoValores() {
   const { isAuthenticated } = useAuth();
@@ -336,7 +339,7 @@ export default function MissaoValores() {
         </div>
       </section>
 
-      
+
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-school-orange to-school-brown text-white">
@@ -361,8 +364,26 @@ export default function MissaoValores() {
       <WhyOSESection />
       <ContactSection />
 
-      {/* Visual Composer */}
-      <VisualComposerComponent />
+      {/* Seções padrão */}
+      <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+        <WhyOSESection />
+      </div>
+
+      <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
+        <PedagogicalProposalSection />
+      </div>
+
+      <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
+        <FeaturesSection />
+      </div>
+
+      <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+        <TestimonialsSection />
+      </div>
+
+      <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
+        <ContactSection />
+      </div>
     </div>
   );
 }

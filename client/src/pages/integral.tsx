@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
+import PedagogicalProposalSection from "@/components/pedagogical-proposal-section";
+import FeaturesSection from "@/components/features-section";
+import TestimonialsSection from "@/components/testimonials-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import SEO from '@/components/SEO';
@@ -195,7 +198,7 @@ export default function Integral() {
             }}
           ></div>
         )}
-        
+
         <div className="relative z-10 container mx-auto px-6 py-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -431,7 +434,7 @@ export default function Integral() {
               </p>
             </div>
           </div>
-          
+
         </div>
       </section>
 
@@ -530,8 +533,26 @@ export default function Integral() {
         </div>
       </section>
 
-      <WhyOSESection />
-      <ContactSection />
+      {/* Seções padrão */}
+      <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+        <WhyOSESection />
+      </div>
+
+      <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
+        <PedagogicalProposalSection />
+      </div>
+
+      <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
+        <FeaturesSection />
+      </div>
+
+      <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+        <TestimonialsSection />
+      </div>
+
+      <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
+        <ContactSection />
+      </div>
 
       {/* Visual Composer */}
       <VisualComposerComponent />

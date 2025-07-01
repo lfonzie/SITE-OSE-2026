@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
+import WhyOSESection from "@/components/why-ose-section";
+import PedagogicalProposalSection from "@/components/pedagogical-proposal-section";
+import FeaturesSection from "@/components/features-section";
+import TestimonialsSection from "@/components/testimonials-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Heart, Users, Brain, Target, Lightbulb, Award } from "lucide-react";
+import { Heart, Users, Lightbulb, Shield, Target, Award, BookOpen, Smile } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
@@ -249,7 +252,7 @@ export default function Socioemocional() {
             }}
           ></div>
         )}
-        
+
         <div className="relative z-10 container mx-auto px-6 py-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -416,7 +419,7 @@ export default function Socioemocional() {
         </div>
       </section>
 
-      
+
 
       {/* Benefícios */}
       <section className="py-20 bg-white">

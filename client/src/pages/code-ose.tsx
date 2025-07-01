@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
-import WhyOSESection from "@/components/why-ose-section";
 import ContactSection from "@/components/contact-section";
+import WhyOSESection from "@/components/why-ose-section";
+import PedagogicalProposalSection from "@/components/pedagogical-proposal-section";
+import FeaturesSection from "@/components/features-section";
+import TestimonialsSection from "@/components/testimonials-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Code, Rocket, Heart, Globe, Brain, Monitor, Gamepad2, Users, Target, Lightbulb, Calculator, PenTool, Clock } from "lucide-react";
@@ -564,11 +567,26 @@ export default function CodeOSE() {
         </div>
       </section>
 
-      <WhyOSESection />
-      <ContactSection />
+      {/* Seções padrão */}
+      <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+        <WhyOSESection />
+      </div>
 
-      {/* Visual Composer */}
-      <VisualComposerComponent />
+      <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
+        <PedagogicalProposalSection />
+      </div>
+
+      <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
+        <FeaturesSection />
+      </div>
+
+      <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+        <TestimonialsSection />
+      </div>
+
+      <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
+        <ContactSection />
+      </div>
     </div>
   );
 }

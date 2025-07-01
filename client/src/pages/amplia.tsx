@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
+import PedagogicalProposalSection from "@/components/pedagogical-proposal-section";
+import FeaturesSection from "@/components/features-section";
+import TestimonialsSection from "@/components/testimonials-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Brain, Users, Award, BookOpen, Target, Lightbulb } from "lucide-react";
+import { BookOpen, Users, Award, Target, Globe, Lightbulb, Heart, Shield } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
@@ -25,7 +28,7 @@ const img6 = newImages.img6;
 
 export default function Amplia() {
   const { isAuthenticated } = useAuth();
-  
+
   const { 
     heroImage, 
     heroBackground,
@@ -178,7 +181,7 @@ export default function Amplia() {
             }}
           ></div>
         )}
-        
+
         <div className="relative z-10 container mx-auto px-6 py-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

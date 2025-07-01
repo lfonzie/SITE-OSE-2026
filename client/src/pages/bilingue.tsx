@@ -2,6 +2,9 @@ import { Globe, Users, BookOpen, Award, Target, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/navigation';
 import WhyOSESection from '@/components/why-ose-section';
+import PedagogicalProposalSection from '@/components/pedagogical-proposal-section';
+import FeaturesSection from '@/components/features-section';
+import TestimonialsSection from '@/components/testimonials-section';
 import ContactSection from '@/components/contact-section';
 import { OptimizedImage } from '@/components/ui/optimized-image';
 import { motion } from "framer-motion";
@@ -402,6 +405,9 @@ export default function Bilingue() {
       </section>
 
       <WhyOSESection />
+      <PedagogicalProposalSection />
+      <FeaturesSection />
+      <TestimonialsSection />
       <ContactSection />
     </div>
   );
