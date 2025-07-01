@@ -91,7 +91,7 @@
     },
     "heroImage": "/images/horizontal_2.png",
     "pageName": "Legacy",
-    "lastModified": "2025-07-01T22:26:40.574Z",
+    "lastModified": "2025-07-01T22:27:49.126Z",
     "autoSaved": true,
     "savedForDeployment": true,
     "imagePositions": {
@@ -108,6 +108,15 @@
         "objectPosition": "58% 40%",
         "horizontalPosition": 8,
         "verticalPosition": -10,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      },
+      "timeline-1930": {
+        "objectPosition": "52.5% 22%",
+        "horizontalPosition": 2.5,
+        "verticalPosition": -28,
         "scale": 1,
         "opacity": 1,
         "filter": "none",
