@@ -9,24 +9,13 @@
       "position": "center",
       "size": "cover",
       "repeat": "no-repeat",
-      "imageUrl": "/images/horizontal_4.png"
+      "imageUrl": "/images/31.png"
     },
-    "heroImage": "/images/horizontal_25.png",
+    "heroImage": "/images/horizontal_1.png",
     "images": [],
     "pageName": "Home",
-    "lastModified": "2025-07-01T02:29:38.063Z",
+    "lastModified": "2025-07-01T02:35:12.059Z",
     "autoSaved": true,
-    "imagePositions": {
-      "program-0": {
-        "objectPosition": "49.5% 51%",
-        "horizontalPosition": -0.5,
-        "verticalPosition": 1,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      }
-    },
     "savedForDeployment": true
   },
   "Why OSE Section": {
@@ -37,7 +26,7 @@
       "/api/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-01T02:29:38.061Z",
+    "lastModified": "2025-07-01T02:35:11.864Z",
     "autoSaved": true,
     "imagePositions": {
       "why-ose-1": {
@@ -69,7 +58,7 @@
       "/api/images/upload_1751325029201.jpeg"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-01T02:29:38.058Z",
+    "lastModified": "2025-07-01T02:35:12.262Z",
     "autoSaved": true,
     "imagePositions": {
       "program-0": {
@@ -86,7 +75,7 @@
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-01T02:29:38.049Z",
+    "lastModified": "2025-07-01T02:35:12.462Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
