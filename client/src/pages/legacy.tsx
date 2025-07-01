@@ -424,7 +424,7 @@ export default function Legacy() {
                       
                       {/* Foto histórica no mobile */}
                       {hasPhoto && (
-                        <div className="relative w-full h-32 rounded-lg overflow-hidden">
+                        <div className="relative w-full h-32 rounded-lg overflow-hidden group">
                           <DragImagePosition
                             src={images[hasPhoto.imageIndex] || newImages.horizontal4}
                             alt={hasPhoto.alt}
@@ -454,15 +454,19 @@ export default function Legacy() {
                           />
                           {isAuthenticated && (
                             <>
+                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
                               <EnhancedImageSelector
                                 currentImage={images[hasPhoto.imageIndex] || newImages.horizontal4}
-                                onImageSelect={(imageUrl) => updateImage(hasPhoto.imageIndex, imageUrl)}
-                                className="absolute top-1 right-1 z-10"
+                                onImageSelect={(imageUrl) => {
+                                  console.log(`Selecionando imagem para timeline ${event.year}:`, imageUrl);
+                                  updateImage(hasPhoto.imageIndex, imageUrl);
+                                }}
+                                className="absolute top-2 right-2 z-20 opacity-70 group-hover:opacity-100 transition-opacity"
                               />
                               <ImagePositionControls
                                 currentPosition={getImagePosition(`timeline-${event.year}`)}
                                 onPositionChange={(position) => updateImagePosition(`timeline-${event.year}`, position)}
-                                className="absolute top-1 left-1 z-10"
+                                className="absolute bottom-2 right-2 z-20 opacity-70 group-hover:opacity-100 transition-opacity"
                               />
                             </>
                           )}
@@ -493,7 +497,7 @@ export default function Legacy() {
                     {/* Foto histórica no desktop */}
                     {hasPhoto && (
                       <div className="md:w-5/12">
-                        <div className="relative w-full h-48 rounded-xl overflow-hidden shadow-lg">
+                        <div className="relative w-full h-48 rounded-xl overflow-hidden shadow-lg group">
                           <DragImagePosition
                             src={images[hasPhoto.imageIndex] || newImages.horizontal4}
                             alt={hasPhoto.alt}
@@ -523,19 +527,23 @@ export default function Legacy() {
                           />
                           {isAuthenticated && (
                             <>
+                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
                               <EnhancedImageSelector
                                 currentImage={images[hasPhoto.imageIndex] || newImages.horizontal4}
-                                onImageSelect={(imageUrl) => updateImage(hasPhoto.imageIndex, imageUrl)}
-                                className="absolute top-2 right-2 z-10"
+                                onImageSelect={(imageUrl) => {
+                                  console.log(`Selecionando imagem para timeline ${event.year}:`, imageUrl);
+                                  updateImage(hasPhoto.imageIndex, imageUrl);
+                                }}
+                                className="absolute top-3 right-3 z-20 opacity-70 group-hover:opacity-100 transition-opacity"
                               />
                               <ImagePositionControls
                                 currentPosition={getImagePosition(`timeline-${event.year}`)}
                                 onPositionChange={(position) => updateImagePosition(`timeline-${event.year}`, position)}
-                                className="absolute top-2 left-2 z-10"
+                                className="absolute top-3 left-3 z-20 opacity-70 group-hover:opacity-100 transition-opacity"
                               />
                             </>
                           )}
-                          <div className="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                          <div className="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded z-10">
                             {event.year}
                           </div>
                         </div>
