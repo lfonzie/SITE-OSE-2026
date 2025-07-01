@@ -136,6 +136,57 @@ export default function PageConfigManager() {
     });
   };
 
+  const syncAllPagesToServer = async () => {
+    let successCount = 0;
+    let errorCount = 0;
+
+    for (const page of pages) {
+      try {
+        const localData = localStorage.getItem(`page_${page.key}`);
+        if (localData) {
+          const config = JSON.parse(localData);
+          
+          const response = await fetch('/api/page-config', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              pageName: page.key,
+              config: {
+                ...config,
+                savedForDeployment: true
+              }
+            })
+          });
+
+          if (response.ok) {
+            successCount++;
+          } else {
+            errorCount++;
+          }
+        }
+      } catch (error) {
+        console.error(`Error syncing ${page.key}:`, error);
+        errorCount++;
+      }
+    }
+
+    if (successCount > 0) {
+      toast({
+        title: "Sincronização concluída",
+        description: `${successCount} páginas sincronizadas com sucesso. ${errorCount > 0 ? `${errorCount} erros.` : ''}`,
+      });
+      loadConfigs();
+    } else {
+      toast({
+        title: "Erro na sincronização",
+        description: "Não foi possível sincronizar as páginas.",
+        variant: "destructive",
+      });
+    }
+  };
+
   const pages = [
     { name: 'Home', key: 'home' },
     { name: 'Why OSE Section', key: 'why-ose' },
@@ -163,15 +214,30 @@ export default function PageConfigManager() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Gerenciador de Configurações</h2>
-        <Button onClick={exportAllConfigs} variant="outline">
-          <Download className="w-4 h-4 mr-2" />
-          Exportar Todas
-        </Button>
+        <div className="flex gap-2">
+          <Button onClick={syncAllPagesToServer} variant="default">
+            <Upload className="w-4 h-4 mr-2" />
+            Sincronizar Todas
+          </Button>
+          <Button onClick={exportAllConfigs} variant="outline">
+            <Download className="w-4 h-4 mr-2" />
+            Exportar Todas
+          </Button>
+        </div>
       </div>
 
       <Card>
         <CardHeader>
           <CardTitle>Configurações por Página</CardTitle>
+          <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <h4 className="font-medium text-blue-800 mb-2">📋 Como garantir consistência no deployment:</h4>
+            <ol className="text-sm text-blue-700 space-y-1">
+              <li>1. Configure as imagens nas páginas durante o desenvolvimento</li>
+              <li>2. Use o botão "Sincronizar Todas" para salvar no servidor</li>
+              <li>3. No deployment, as configurações serão carregadas automaticamente</li>
+              <li>4. Verifique o status "Servidor" nas páginas abaixo</li>
+            </ol>
+          </div>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">

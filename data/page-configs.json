@@ -37,7 +37,7 @@
       "/api/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-01T02:22:52.055Z",
+    "lastModified": "2025-07-01T02:26:15.354Z",
     "autoSaved": true,
     "imagePositions": {
       "why-ose-1": {
@@ -93,7 +93,7 @@
   "Legacy": {
     "images": [
       "/api/images/upload_1751336615268.png",
-      null,
+      "/api/images/upload_1751336816195.jpg",
       "/images/10.png"
     ],
     "heroBackground": {
@@ -103,13 +103,13 @@
       "overlayColor": "#1e293b",
       "overlayOpacity": 0.8,
       "position": "center",
-      "size": "auto",
+      "size": "cover",
       "repeat": "no-repeat",
-      "imageUrl": "/images/upload_1751336615268.png"
+      "imageUrl": "/images/upload_1751336773612.png"
     },
     "heroImage": "/images/horizontal_2.png",
     "pageName": "Legacy",
-    "lastModified": "2025-07-01T02:24:41.565Z",
+    "lastModified": "2025-07-01T02:26:59.397Z",
     "autoSaved": true,
     "savedForDeployment": true
   }
