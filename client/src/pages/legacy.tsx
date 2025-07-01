@@ -155,7 +155,19 @@ export default function Legacy() {
     imagePositions,
     updateImagePosition
   } = usePageData('Legacy', {
-    images: [newImages.horizontal2, newImages.horizontal3, newImages.horizontal4],
+    images: [
+      newImages.horizontal2, 
+      newImages.horizontal3, 
+      newImages.horizontal4, 
+      null, // index 3 - não usado
+      newImages.horizontal2, // index 4 - instituições
+      newImages.horizontal3, // index 5 - instituições  
+      newImages.horizontal4, // index 6 - instituições
+      newImages.horizontal1, // index 7 - timeline 1936
+      newImages.horizontal2, // index 8 - timeline 1955
+      newImages.horizontal3, // index 9 - timeline 1989
+      newImages.horizontal4  // index 10 - timeline 2000
+    ],
     heroBackground: {
       type: 'gradient',
       gradientColors: ['#475569', '#64748b'],
@@ -352,61 +364,173 @@ export default function Legacy() {
             {/* Timeline Line - Desktop (center) and Mobile (left) */}
             <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-px h-full w-0.5 bg-school-orange"></div>
 
-            {timeline.map((event, index) => (
-              <motion.div 
-                key={index}
-                className="relative flex items-start mb-12 md:mb-16"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                {/* Mobile Layout: Single column with left timeline */}
-                <div className="block md:hidden w-full pl-16">
-                  <div className={`p-4 rounded-xl shadow-lg border-l-4 backdrop-blur-lg bg-white/30 border border-white/40 ${
-                    event.highlight 
-                      ? 'border-l-school-orange' 
-                      : 'border-l-slate-300'
-                  }`}>
-                    <div className={`text-2xl font-bold mb-2 ${
-                      event.highlight ? 'text-school-orange' : 'text-slate-700'
-                    }`}>
-                      {event.year}
-                    </div>
-                    <h3 className="text-lg font-bold text-slate-800 mb-2">{event.title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{event.description}</p>
-                  </div>
-                </div>
-
-                {/* Desktop Layout: Two columns alternating */}
-                <div className={`hidden md:flex md:items-center md:w-full ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
-                  <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'}`}>
-                    <div className={`p-6 rounded-xl shadow-lg border-l-4 backdrop-blur-lg bg-white/30 border border-white/40 ${
+            {timeline.map((event, index) => {
+              // Definir anos com fotos históricas
+              const historicalPhotos = {
+                "1936": { imageIndex: 7, alt: "Chegada da Família Fonseca - 1936" },
+                "1955": { imageIndex: 8, alt: "Nova Sede na Rua da Penha - 1955" },
+                "1989": { imageIndex: 9, alt: "Criação da OSE Uirapuru - 1989" },
+                "2000": { imageIndex: 10, alt: "Faculdade IMAPES - 2000" }
+              };
+              
+              const hasPhoto = historicalPhotos[event.year];
+              
+              return (
+                <motion.div 
+                  key={index}
+                  className="relative flex items-start mb-12 md:mb-16"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  {/* Mobile Layout: Single column with left timeline */}
+                  <div className="block md:hidden w-full pl-16">
+                    <div className={`p-4 rounded-xl shadow-lg border-l-4 backdrop-blur-lg bg-white/30 border border-white/40 ${
                       event.highlight 
                         ? 'border-l-school-orange' 
                         : 'border-l-slate-300'
                     }`}>
-                      <div className={`text-3xl font-bold mb-2 ${
+                      <div className={`text-2xl font-bold mb-2 ${
                         event.highlight ? 'text-school-orange' : 'text-slate-700'
                       }`}>
                         {event.year}
                       </div>
-                      <h3 className="text-xl font-bold text-slate-800 mb-3">{event.title}</h3>
-                      <p className="text-slate-600 leading-relaxed">{event.description}</p>
+                      <h3 className="text-lg font-bold text-slate-800 mb-2">{event.title}</h3>
+                      <p className="text-sm text-slate-600 leading-relaxed mb-3">{event.description}</p>
+                      
+                      {/* Foto histórica no mobile */}
+                      {hasPhoto && (
+                        <div className="relative w-full h-32 rounded-lg overflow-hidden">
+                          <DragImagePosition
+                            src={images[hasPhoto.imageIndex] || newImages.horizontal4}
+                            alt={hasPhoto.alt}
+                            className="w-full h-full"
+                            editable={isAuthenticated}
+                            initialPosition={{
+                              x: getImagePosition(`timeline-${event.year}`)?.horizontalPosition || 0,
+                              y: getImagePosition(`timeline-${event.year}`)?.verticalPosition || 0
+                            }}
+                            onPositionChange={(position: { x: number; y: number }) => {
+                              const currentPos = getImagePosition(`timeline-${event.year}`) || {
+                                objectPosition: 'center center',
+                                horizontalPosition: 0,
+                                verticalPosition: 0,
+                                scale: 1,
+                                opacity: 1,
+                                filter: 'none',
+                                objectFit: 'cover' as const
+                              };
+                              updateImagePosition(`timeline-${event.year}`, {
+                                ...currentPos,
+                                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                                horizontalPosition: position.x,
+                                verticalPosition: position.y
+                              });
+                            }}
+                          />
+                          {isAuthenticated && (
+                            <>
+                              <EnhancedImageSelector
+                                currentImage={images[hasPhoto.imageIndex] || newImages.horizontal4}
+                                onImageSelect={(imageUrl) => updateImage(hasPhoto.imageIndex, imageUrl)}
+                                className="absolute top-1 right-1 z-10"
+                              />
+                              <ImagePositionControls
+                                currentPosition={getImagePosition(`timeline-${event.year}`)}
+                                onPositionChange={(position) => updateImagePosition(`timeline-${event.year}`, position)}
+                                className="absolute top-1 left-1 z-10"
+                              />
+                            </>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
-                </div>
 
-                {/* Timeline Dot - Mobile (left) and Desktop (center) */}
-                <div className={`absolute w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg 
-                  left-0 md:left-1/2 md:transform md:-translate-x-1/2 ${
-                  event.highlight ? 'bg-school-orange' : 'bg-slate-600'
-                }`}>
-                  <div className="text-sm md:text-base">
-                    {event.icon}
+                  {/* Desktop Layout: Two columns alternating */}
+                  <div className={`hidden md:flex md:items-start md:w-full md:gap-8 ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end md:flex-row-reverse'}`}>
+                    {/* Conteúdo do evento */}
+                    <div className={`md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                      <div className={`p-6 rounded-xl shadow-lg border-l-4 backdrop-blur-lg bg-white/30 border border-white/40 ${
+                        event.highlight 
+                          ? 'border-l-school-orange' 
+                          : 'border-l-slate-300'
+                      }`}>
+                        <div className={`text-3xl font-bold mb-2 ${
+                          event.highlight ? 'text-school-orange' : 'text-slate-700'
+                        }`}>
+                          {event.year}
+                        </div>
+                        <h3 className="text-xl font-bold text-slate-800 mb-3">{event.title}</h3>
+                        <p className="text-slate-600 leading-relaxed">{event.description}</p>
+                      </div>
+                    </div>
+                    
+                    {/* Foto histórica no desktop */}
+                    {hasPhoto && (
+                      <div className="md:w-5/12">
+                        <div className="relative w-full h-48 rounded-xl overflow-hidden shadow-lg">
+                          <DragImagePosition
+                            src={images[hasPhoto.imageIndex] || newImages.horizontal4}
+                            alt={hasPhoto.alt}
+                            className="w-full h-full"
+                            editable={isAuthenticated}
+                            initialPosition={{
+                              x: getImagePosition(`timeline-${event.year}`)?.horizontalPosition || 0,
+                              y: getImagePosition(`timeline-${event.year}`)?.verticalPosition || 0
+                            }}
+                            onPositionChange={(position: { x: number; y: number }) => {
+                              const currentPos = getImagePosition(`timeline-${event.year}`) || {
+                                objectPosition: 'center center',
+                                horizontalPosition: 0,
+                                verticalPosition: 0,
+                                scale: 1,
+                                opacity: 1,
+                                filter: 'none',
+                                objectFit: 'cover' as const
+                              };
+                              updateImagePosition(`timeline-${event.year}`, {
+                                ...currentPos,
+                                objectPosition: `${50 + position.x}% ${50 + position.y}%`,
+                                horizontalPosition: position.x,
+                                verticalPosition: position.y
+                              });
+                            }}
+                          />
+                          {isAuthenticated && (
+                            <>
+                              <EnhancedImageSelector
+                                currentImage={images[hasPhoto.imageIndex] || newImages.horizontal4}
+                                onImageSelect={(imageUrl) => updateImage(hasPhoto.imageIndex, imageUrl)}
+                                className="absolute top-2 right-2 z-10"
+                              />
+                              <ImagePositionControls
+                                currentPosition={getImagePosition(`timeline-${event.year}`)}
+                                onPositionChange={(position) => updateImagePosition(`timeline-${event.year}`, position)}
+                                className="absolute top-2 left-2 z-10"
+                              />
+                            </>
+                          )}
+                          <div className="absolute bottom-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                            {event.year}
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-              </motion.div>
-            ))}
+
+                  {/* Timeline Dot - Mobile (left) and Desktop (center) */}
+                  <div className={`absolute w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg 
+                    left-0 md:left-1/2 md:transform md:-translate-x-1/2 ${
+                    event.highlight ? 'bg-school-orange' : 'bg-slate-600'
+                  }`}>
+                    <div className="text-sm md:text-base">
+                      {event.icon}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
