@@ -63,7 +63,10 @@
       "/api/images/upload_1751408395039.jpg",
       "/api/images/upload_1751404638015.jpg",
       "/api/images/upload_1751408514410.jpg",
-      "/api/images/upload_1751408532224.jpeg"
+      "/api/images/upload_1751408532224.jpeg",
+      null,
+      "/images/upload_1751336773612.png",
+      "/api/images/upload_1751410820371.png"
     ],
     "heroBackground": {
       "type": "image",
@@ -78,7 +81,7 @@
     },
     "heroImage": "/images/horizontal_2.png",
     "pageName": "Legacy",
-    "lastModified": "2025-07-01T22:55:29.289Z",
+    "lastModified": "2025-07-01T23:00:44.662Z",
     "autoSaved": true,
     "savedForDeployment": true,
     "imagePositions": {
@@ -92,9 +95,9 @@
         "objectFit": "cover"
       },
       "timeline-1936": {
-        "objectPosition": "58% 40%",
-        "horizontalPosition": 8,
-        "verticalPosition": -10,
+        "objectPosition": "center bottom",
+        "horizontalPosition": 2.5,
+        "verticalPosition": -28,
         "scale": 1,
         "opacity": 1,
         "filter": "none",
