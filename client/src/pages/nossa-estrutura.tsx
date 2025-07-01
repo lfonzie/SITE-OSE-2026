@@ -54,7 +54,7 @@ export default function NossaEstrutura() {
       icon: Music,
       title: "Auditório",
       description: "Auditório completo para apresentações, eventos e atividades culturais da escola.",
-      features: ["Espaço amplo", "Sistema de som", "Palco equipado", "Ambiente para eventos"]
+      features: ["Espaço amplo", "Sistema de som", "Equipamentos audiovisuais", "Ambiente para eventos"]
     }
   ];
 
