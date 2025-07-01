@@ -177,44 +177,7 @@ export default function NossaEstrutura() {
         </div>
       </section>
 
-      {/* Galeria de Imagens */}
-      <section className="py-20 backdrop-blur-lg bg-white/30 border-t border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 font-serif">
-              Conheça Nossos <span className="text-amber-600">Espaços</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Veja alguns dos ambientes que fazem parte do dia a dia dos nossos alunos
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {images.map((image: string, index: number) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="relative aspect-square rounded-xl overflow-hidden backdrop-blur-lg bg-white/20 border border-white/20 hover:shadow-xl transition-all duration-300"
-              >
-                <img
-                  src={image}
-                  alt={`Estrutura ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Destaques Especiais */}
       <section className="py-20">
