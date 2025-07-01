@@ -9,7 +9,9 @@ import TestimonialsSection from "@/components/testimonials-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Shield, BookOpen, Music, Palette, Lightbulb } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Shield, Music, Palette } from "lucide-react";
+import SEO from "@/components/SEO";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
@@ -263,28 +265,26 @@ export default function EducacaoInfantil() {
         </div>
       </section>
 
-      
-    </div>
+      {/* Seções padrão */}
+      <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+        <WhyOSESection />
+      </div>
 
-    {/* Seções padrão */}
-    <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
-      <WhyOSESection />
-    </div>
+      <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
+        <PedagogicalProposalSection />
+      </div>
 
-    <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
-      <PedagogicalProposalSection />
-    </div>
+      <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
+        <FeaturesSection />
+      </div>
 
-    <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
-      <FeaturesSection />
-    </div>
+      <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+        <TestimonialsSection />
+      </div>
 
-    <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
-      <TestimonialsSection />
-    </div>
-
-    <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
-      <ContactSection />
+      <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
+        <ContactSection />
+      </div>
     </div>
   );
 }

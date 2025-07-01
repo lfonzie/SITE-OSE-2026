@@ -594,32 +594,29 @@ export default function EnsinoMedio() {
         </div>
       </section>
 
-      <WhyOSESection />
-      <ContactSection />
+      {/* Seções padrão */}
+      <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+        <WhyOSESection />
+      </div>
+
+      <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
+        <PedagogicalProposalSection />
+      </div>
+
+      <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
+        <FeaturesSection />
+      </div>
+
+      <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+        <TestimonialsSection />
+      </div>
+
+      <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
+        <ContactSection />
+      </div>
 
       {/* Visual Composer */}
       <VisualComposerComponent />
-    </div>
-
-    {/* Seções padrão */}
-    <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
-      <WhyOSESection />
-    </div>
-
-    <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
-      <PedagogicalProposalSection />
-    </div>
-
-    <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
-      <FeaturesSection />
-    </div>
-
-    <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
-      <TestimonialsSection />
-    </div>
-
-    <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
-      <ContactSection />
     </div>
   );
 }
