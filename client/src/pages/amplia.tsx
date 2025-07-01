@@ -7,7 +7,7 @@ import TestimonialsSection from "@/components/testimonials-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Users, Award, Target, Globe, Lightbulb, Heart, Shield } from "lucide-react";
+import { BookOpen, Users, Award, Target, Globe, Lightbulb, Heart, Shield, Brain } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
