@@ -793,8 +793,8 @@ export async function registerRoutes(app: Express) {
         res.sendFile(dashboardPath);
     });
 
-  // Get deployment configs (for production)
-  app.get("/api/deployment-configs", isAuthenticated, async (req, res) => {
+  // Get deployment configs (for production) - accessible without auth
+  app.get("/api/deployment-configs", async (req, res) => {
     try {
       const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
 

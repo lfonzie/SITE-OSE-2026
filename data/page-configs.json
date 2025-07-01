@@ -1,81 +1,37 @@
 {
   "Home": {
-    "heroBackground": {
-      "type": "image",
-      "opacity": 1,
-      "overlay": true,
-      "overlayColor": "#1e293b",
-      "overlayOpacity": 0.8,
-      "position": "center",
-      "size": "cover",
-      "repeat": "no-repeat",
-      "imageUrl": "/images/31.png"
-    },
-    "heroImage": "/images/horizontal_1.png",
-    "images": [],
     "pageName": "Home",
-    "lastModified": "2025-07-01T14:42:51.661Z",
+    "lastModified": "2025-07-01T15:01:28.630Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Why OSE Section": {
     "images": [
-      "/api/images/upload_1751324766005.jpeg",
-      "/api/images/upload_1751324841546.jpeg",
-      "/api/images/upload_1751324671819.jpeg",
-      "/api/images/upload_1751324509723.jpeg"
+      "/images/horizontal_2.png",
+      "/images/horizontal_3.png",
+      "/images/horizontal_4.png",
+      "/images/horizontal_5.png"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-01T14:48:01.037Z",
+    "lastModified": "2025-07-01T15:01:28.512Z",
     "autoSaved": true,
-    "imagePositions": {
-      "why-ose-1": {
-        "objectPosition": "0% 26%",
-        "horizontalPosition": -50,
-        "verticalPosition": -24,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      },
-      "why-ose-3": {
-        "objectPosition": "15.5% 39%",
-        "horizontalPosition": -34.5,
-        "verticalPosition": -11,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      }
-    },
     "savedForDeployment": true
   },
   "Programs Section": {
     "images": [
-      "/api/images/upload_1751326856830.jpeg",
-      "/api/images/upload_1751324931781.jpeg",
-      "/api/images/upload_1751325080336.jpeg",
-      "/api/images/upload_1751325029201.jpeg"
+      "/images/9.png",
+      "/images/10.png",
+      "/images/11.png",
+      "/images/12.png"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-01T14:42:50.685Z",
+    "lastModified": "2025-07-01T15:01:28.619Z",
     "autoSaved": true,
-    "imagePositions": {
-      "program-0": {
-        "objectPosition": "48.5% 13%",
-        "horizontalPosition": -1.5,
-        "verticalPosition": -37,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      }
-    },
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-01T14:45:38.651Z",
+    "lastModified": "2025-07-01T15:01:28.626Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
