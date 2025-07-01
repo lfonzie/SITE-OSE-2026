@@ -35,9 +35,29 @@ export function usePageData(pageName: string, initialData: Partial<PageData> = {
     data: pageData,
     key: `page_${pageName}`,
     delay: 500, // Save after 500ms of no changes
-    onSave: (data) => {
-      // Custom save logic can be added here if needed
+    onSave: async (data) => {
+      // Save to localStorage (local backup)
       console.log(`Auto-saved page: ${pageName}`, data);
+      
+      // Save to server for deployment consistency
+      try {
+        const response = await fetch('/api/page-config', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            pageName,
+            config: data
+          })
+        });
+        
+        if (response.ok) {
+          console.log(`Server config saved for page: ${pageName}`);
+        }
+      } catch (error) {
+        console.error('Error saving to server:', error);
+      }
     }
   });
 

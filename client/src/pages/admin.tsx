@@ -13,6 +13,7 @@ import InstagramUploadManager from '@/components/InstagramUploadManager';
 import AlbumEventsManager from '@/components/AlbumEventsManager';
 import MaterialListManager from '@/components/MaterialListManager';
 import ProfessoresManager from '@/components/ProfessoresManager';
+import PageConfigManager from '@/components/PageConfigManager';
 
 interface LoginFormData {
   email: string;
@@ -150,7 +151,7 @@ export default function AdminPage() {
 
         {/* Admin Management Tabs */}
         <Tabs defaultValue="instagram" className="w-full">
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-5">
             <TabsTrigger value="instagram" className="flex items-center gap-2">
               <Instagram className="w-4 h-4" />
               Instagram
@@ -166,6 +167,10 @@ export default function AdminPage() {
             <TabsTrigger value="professores" className="flex items-center gap-2">
               <Users className="w-4 h-4" />
               Professores
+            </TabsTrigger>
+            <TabsTrigger value="configs" className="flex items-center gap-2">
+              <FileText className="w-4 h-4" />
+              Configurações
             </TabsTrigger>
           </TabsList>
 
@@ -233,6 +238,23 @@ export default function AdminPage() {
               </CardHeader>
               <CardContent>
                 <ProfessoresManager />
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="configs" className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <FileText className="w-6 h-6 text-purple-600" />
+                  Configurações de Páginas
+                </CardTitle>
+                <p className="text-gray-600">
+                  Gerencie as imagens e configurações salvas de cada página para garantir consistência no deployment
+                </p>
+              </CardHeader>
+              <CardContent>
+                <PageConfigManager />
               </CardContent>
             </Card>
           </TabsContent>

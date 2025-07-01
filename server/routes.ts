@@ -336,6 +336,89 @@ export async function registerRoutes(app: Express) {
     }
   });
 
+  // Save page configuration
+  app.post("/api/page-config", async (req, res) => {
+    try {
+      const { pageName, config } = req.body;
+      
+      if (!pageName || !config) {
+        return res.status(400).json({ error: "Page name and config are required" });
+      }
+
+      const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
+      let configs = {};
+      
+      try {
+        const existingData = fs.readFileSync(configPath, 'utf-8');
+        configs = JSON.parse(existingData);
+      } catch (error) {
+        // File doesn't exist yet, start with empty object
+      }
+      
+      configs[pageName] = {
+        ...config,
+        lastModified: new Date().toISOString(),
+        savedForDeployment: true
+      };
+      
+      // Ensure data directory exists
+      const dataDir = path.join(process.cwd(), 'data');
+      if (!fs.existsSync(dataDir)) {
+        fs.mkdirSync(dataDir, { recursive: true });
+      }
+      
+      fs.writeFileSync(configPath, JSON.stringify(configs, null, 2));
+      
+      res.json({ success: true, message: "Configuration saved successfully" });
+    } catch (error) {
+      console.error('Error saving page config:', error);
+      res.status(500).json({ error: "Failed to save page configuration" });
+    }
+  });
+
+  // Get page configuration
+  app.get("/api/page-config/:pageName", async (req, res) => {
+    try {
+      const { pageName } = req.params;
+      const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
+      
+      try {
+        const data = fs.readFileSync(configPath, 'utf-8');
+        const configs = JSON.parse(data);
+        const pageConfig = configs[pageName];
+        
+        if (pageConfig) {
+          res.json(pageConfig);
+        } else {
+          res.status(404).json({ error: "Page configuration not found" });
+        }
+      } catch (error) {
+        res.status(404).json({ error: "Configuration file not found" });
+      }
+    } catch (error) {
+      console.error('Error loading page config:', error);
+      res.status(500).json({ error: "Failed to load page configuration" });
+    }
+  });
+
+  // Get all page configurations
+  app.get("/api/page-configs", async (req, res) => {
+    try {
+      const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
+      
+      try {
+        const data = fs.readFileSync(configPath, 'utf-8');
+        const configs = JSON.parse(data);
+        res.json(configs);
+      } catch (error) {
+        res.json({});
+      }
+    } catch (error) {
+      console.error('Error loading page configs:', error);
+      res.status(500).json({ error: "Failed to load page configurations" });
+    }
+  });
+
   // Upload Instagram image EXCLUSIVO (vai para /IG)
   app.post("/api/upload-instagram", uploadInstagram.single('image'), (req, res) => {
     try {
