@@ -133,7 +133,7 @@ export default function AgendaEdu() {
           <HeroBackgroundManager
             currentBackground={heroBackground}
             onBackgroundChange={updateHeroBackground}
-            className="absolute inset-0"
+            className="absolute top-4 right-4 z-20"
           />
         )}
 

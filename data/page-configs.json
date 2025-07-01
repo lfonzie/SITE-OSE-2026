@@ -14,7 +14,7 @@
     "heroImage": "/images/horizontal_1.png",
     "images": [],
     "pageName": "Home",
-    "lastModified": "2025-07-01T15:01:44.657Z",
+    "lastModified": "2025-07-01T15:30:19.349Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -26,7 +26,7 @@
       "/api/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-01T15:23:45.469Z",
+    "lastModified": "2025-07-01T15:30:19.334Z",
     "autoSaved": true,
     "imagePositions": {
       "why-ose-1": {
@@ -58,7 +58,7 @@
       "/api/images/upload_1751325029201.jpeg"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-01T15:01:43.655Z",
+    "lastModified": "2025-07-01T15:30:19.335Z",
     "autoSaved": true,
     "imagePositions": {
       "program-0": {
@@ -75,7 +75,7 @@
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-01T15:20:00.980Z",
+    "lastModified": "2025-07-01T15:30:19.341Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -359,17 +359,18 @@
       "repeat": "no-repeat"
     },
     "pageName": "Programa Socioemocional",
-    "lastModified": "2025-07-01T15:23:21.379Z",
+    "lastModified": "2025-07-01T15:26:56.361Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Lista de Material": {
     "heroImage": "/images/0934_1750717790206.jpg",
     "images": [
-      "/images/upload_1751324895038.jpeg",
+      "/images/horizontal_27.png",
       "/images/0581_1750717790206.jpg",
       "/images/0491_1750717790207.jpg",
-      "/images/0541_1750717790207.jpg"
+      "/images/horizontal_1.png",
+      "/images/horizontal_5.png"
     ],
     "heroBackground": {
       "type": "image",
@@ -383,7 +384,91 @@
       "imageUrl": "/images/horizontal_33.png"
     },
     "pageName": "Lista de Material",
-    "lastModified": "2025-07-01T15:24:23.224Z",
+    "lastModified": "2025-07-01T15:29:55.491Z",
+    "autoSaved": true,
+    "savedForDeployment": true
+  },
+  "Árvore": {
+    "heroImage": "/images/horizontal_31.png",
+    "images": [
+      "/images/horizontal_31.png"
+    ],
+    "heroBackground": {
+      "type": "image",
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.8,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat",
+      "imageUrl": "/images/horizontal_5.png"
+    },
+    "pageName": "Árvore",
+    "lastModified": "2025-07-01T15:25:57.078Z",
+    "autoSaved": true,
+    "savedForDeployment": true
+  },
+  "ISAAC": {
+    "heroImage": "/images/horizontal_30.png",
+    "images": [
+      "/images/horizontal_30.png"
+    ],
+    "heroBackground": {
+      "type": "image",
+      "imageUrl": "/images/horizontal_30.png",
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.7,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat"
+    },
+    "pageName": "ISAAC",
+    "lastModified": "2025-07-01T15:26:12.356Z",
+    "autoSaved": true,
+    "savedForDeployment": true
+  },
+  "Plurall": {
+    "heroImage": "/images/horizontal_29.png",
+    "images": [
+      "/images/horizontal_29.png"
+    ],
+    "heroBackground": {
+      "type": "image",
+      "imageUrl": "/images/horizontal_29.png",
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.7,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat"
+    },
+    "pageName": "Plurall",
+    "lastModified": "2025-07-01T15:26:21.218Z",
+    "autoSaved": true,
+    "savedForDeployment": true
+  },
+  "AgendaEdu": {
+    "heroImage": "/images/horizontal_28.png",
+    "images": [
+      "/images/horizontal_28.png"
+    ],
+    "heroBackground": {
+      "type": "image",
+      "imageUrl": "/images/horizontal_28.png",
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.7,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat"
+    },
+    "pageName": "AgendaEdu",
+    "lastModified": "2025-07-01T15:26:29.799Z",
     "autoSaved": true,
     "savedForDeployment": true
   }

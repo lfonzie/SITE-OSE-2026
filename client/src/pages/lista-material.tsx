@@ -24,7 +24,7 @@ interface MaterialList {
   segment: string;
   grade: string;
   year: number;
-  googleDriveUrl: string;
+  googleDriveLink: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -201,7 +201,7 @@ export default function ListaMaterial() {
           <HeroBackgroundManager
             currentBackground={heroBackground}
             onBackgroundChange={updateHeroBackground}
-            className="absolute inset-0"
+            className="absolute top-4 right-4 z-20"
           />
         )}
 
@@ -320,7 +320,11 @@ export default function ListaMaterial() {
                     <>
                       <EnhancedImageSelector
                         currentImage={images[index] || segmento.imagem}
-                        onImageSelect={(url) => updateImage(index, url)}
+                        onImageSelect={(url) => {
+                          console.log('Selecionando imagem:', url);
+                          console.log('Index do segmento:', index);
+                          updateImage(index, url);
+                        }}
                         className="absolute top-2 right-2 z-10"
                       />
                       <ImagePositionControls
