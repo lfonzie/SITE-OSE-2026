@@ -1,7 +1,9 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
+import PedagogicalProposalSection from "@/components/pedagogical-proposal-section";
+import FeaturesSection from "@/components/features-section";
+import TestimonialsSection from "@/components/testimonials-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import SEO from "@/components/SEO";
@@ -32,7 +34,7 @@ const img6 = newImages.img12;
 export default function Fundamental2() {
   const { isAuthenticated } = useAuth();
   const { VisualComposerComponent } = useVisualComposer('Fundamental II');
-  
+
   const { 
     heroImage, 
     heroBackground,
@@ -166,7 +168,7 @@ export default function Fundamental2() {
         <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-purple-400/20 via-pink-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
       </div>
       <Navigation />
-      
+
 
 
       {/* Hero Section */}
@@ -176,7 +178,7 @@ export default function Fundamental2() {
           const baseStyle: React.CSSProperties = {
             opacity: heroBackground?.opacity || 1
           };
-          
+
           if (heroBackground?.type === 'gradient') {
             return {
               ...baseStyle,
@@ -186,7 +188,7 @@ export default function Fundamental2() {
               backgroundRepeat: 'no-repeat'
             };
           }
-          
+
           if (heroBackground?.type === 'image' && heroBackground.imageUrl) {
             return {
               ...baseStyle,
@@ -196,14 +198,14 @@ export default function Fundamental2() {
               backgroundRepeat: heroBackground.repeat || 'no-repeat'
             };
           }
-          
+
           if (heroBackground?.type === 'color') {
             return {
               ...baseStyle,
               backgroundColor: heroBackground.solidColor || '#475569'
             };
           }
-          
+
           return {
             ...baseStyle,
             backgroundImage: 'linear-gradient(135deg, #475569, #64748b)',
@@ -420,7 +422,7 @@ export default function Fundamental2() {
                   </div>
                 )}
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -553,6 +555,27 @@ export default function Fundamental2() {
       </section>
 
       <WhyOSESection />
+      <ContactSection />
+    </div>
+
+    {/* Seções padrão */}
+    <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+      <WhyOSESection />
+    </div>
+
+    <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
+      <PedagogicalProposalSection />
+    </div>
+
+    <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
+      <FeaturesSection />
+    </div>
+
+    <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+      <TestimonialsSection />
+    </div>
+
+    <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
       <ContactSection />
     </div>
   );

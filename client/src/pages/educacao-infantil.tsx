@@ -1,19 +1,26 @@
-
 import React, { useEffect } from 'react';
 import { ArrowLeft, Users, Clock, BookOpen, Heart, Award, Star, Globe, Lightbulb, Baby, GraduationCap } from 'lucide-react';
 import { Link } from 'wouter';
-import Navigation from '@/components/navigation';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import WhyOSESection from '@/components/why-ose-section';
-import ContactSection from '@/components/contact-section';
-import { motion } from 'framer-motion';
-import { useAuth } from '@/contexts/AuthContext';
+import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import PedagogicalProposalSection from "@/components/pedagogical-proposal-section";
+import FeaturesSection from "@/components/features-section";
+import TestimonialsSection from "@/components/testimonials-section";
+import ContactSection from "@/components/contact-section";
+import { updateSEO } from "@/lib/seo";
+import { Button } from "@/components/ui/button";
+import { Heart, Shield, Users, BookOpen, Music, Palette, Lightbulb } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+import { motion } from "framer-motion";
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { AnimatedSection } from "@/components/animated/AnimatedSection";
+import { useVisualComposer } from '@/hooks/useVisualComposer';
 import { usePageData } from '@/hooks/usePageData';
+import EnhancedImageSelector from '@/components/EnhancedImageSelector';
+import ImagePositionControls from '@/components/ImagePositionControls';
+import DragImagePosition from '@/components/DragImagePosition';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
-import { newImages } from '@/lib/image-verification';
-import { updateSEO } from '@/lib/seo';
-import SEO from '@/components/SEO';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function EducacaoInfantil() {
   const { isAuthenticated } = useAuth();
@@ -256,7 +263,27 @@ export default function EducacaoInfantil() {
         </div>
       </section>
 
+      
+    </div>
+
+    {/* Seções padrão */}
+    <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
       <WhyOSESection />
+    </div>
+
+    <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
+      <PedagogicalProposalSection />
+    </div>
+
+    <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
+      <FeaturesSection />
+    </div>
+
+    <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+      <TestimonialsSection />
+    </div>
+
+    <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
       <ContactSection />
     </div>
   );

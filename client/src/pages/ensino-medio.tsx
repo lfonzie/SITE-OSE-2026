@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
+import PedagogicalProposalSection from "@/components/pedagogical-proposal-section";
+import FeaturesSection from "@/components/features-section";
+import TestimonialsSection from "@/components/testimonials-section";
 import ContactSection from "@/components/contact-section";
 import { updateSEO } from "@/lib/seo";
 import SEO from "@/components/SEO";
@@ -596,6 +599,27 @@ export default function EnsinoMedio() {
 
       {/* Visual Composer */}
       <VisualComposerComponent />
+    </div>
+
+    {/* Seções padrão */}
+    <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+      <WhyOSESection />
+    </div>
+
+    <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
+      <PedagogicalProposalSection />
+    </div>
+
+    <div className="backdrop-blur-sm bg-white/15 border-b border-white/10">
+      <FeaturesSection />
+    </div>
+
+    <div className="backdrop-blur-sm bg-white/20 border-b border-white/10">
+      <TestimonialsSection />
+    </div>
+
+    <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
+      <ContactSection />
     </div>
   );
 }
