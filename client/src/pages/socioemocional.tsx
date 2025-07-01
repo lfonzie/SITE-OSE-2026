@@ -7,7 +7,7 @@ import FeaturesSection from "@/components/features-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import { updateSEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { Heart, Users, Lightbulb, Shield, Target, Award, BookOpen, Smile } from "lucide-react";
+import { Heart, Users, Lightbulb, Shield, Target, Award, BookOpen, Smile, Brain } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { motion } from "framer-motion";
 import { AnimatedCard } from "@/components/animated/AnimatedCard";
