@@ -1,0 +1,179 @@
+VM185:73 UChatWidget loading attempt 1/3
+index--cm7-g7l.js:569 Loading deployment configurations... {isProduction: true, forceLoad: false}
+VM189:8 
+            
+            
+           GET https://connect.facebook.net/en_US/fbevents.js net::ERR_BLOCKED_BY_CLIENT
+(anonymous) @ VM189:8
+(anonymous) @ VM189:8
+FM @ index--cm7-g7l.js:484
+VM @ index--cm7-g7l.js:490
+(anonymous) @ index--cm7-g7l.js:627
+Vm @ index--cm7-g7l.js:40
+yi @ index--cm7-g7l.js:40
+Ey @ index--cm7-g7l.js:40
+Ma @ index--cm7-g7l.js:38
+h8 @ index--cm7-g7l.js:40
+qa @ index--cm7-g7l.js:40
+wE @ index--cm7-g7l.js:40
+N @ index--cm7-g7l.js:25
+T @ index--cm7-g7l.js:25
+gtm.js?id=GTM-524DC3R:122 Refused to connect to 'https://www.google.com/ccm/collect?en=page_view&dl=https%3A%2F%2Fcolegioose.com.br%2F&scrsrc=www.googletagmanager.com&frm=0&rnd=1522940455.1751469036&dt=Col%C3%A9gio%20OSE%20-%20100%20Anos%20de%20Excel%C3%AAncia%20Educacional%20em%20Sorocaba%20%7C%20Educa%C3%A7%C3%A3o%20Infantil%2C%20Fundamental%20e%20M%C3%A9dio&auid=1890426317.1745892859&gclaw=CjwKCAjwsZPDBhBWEiwADuO6y4sc4GYkYJ6Z7r_KNt5CphAqz7MMQWZ-7e2ABDQ07SDTTFUUbTYaUhoCU4YQAvD_BwE&navt=r&npa=0&gtm=45He56u2v832177490za200&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104527906~104684208~104684211~104718208~104839054~104839056&tft=1751469035584&tfd=2712&apve=1&apvf=sb' because it violates the following Content Security Policy directive: "connect-src 'self' 
+        https://www.google-analytics.com 
+        https://analytics.google.com 
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com
+        https://ipapi.co".
+
+Qc @ gtm.js?id=GTM-524DC3R:122
+dm @ gtm.js?id=GTM-524DC3R:293
+(anonymous) @ gtm.js?id=GTM-524DC3R:547
+Pz @ gtm.js?id=GTM-524DC3R:545
+Tz @ gtm.js?id=GTM-524DC3R:546
+yB @ gtm.js?id=GTM-524DC3R:571
+f @ gtm.js?id=GTM-524DC3R:692
+(anonymous) @ gtm.js?id=GTM-524DC3R:694
+an @ gtm.js?id=GTM-524DC3R:311
+lp @ gtm.js?id=GTM-524DC3R:333
+tJ @ gtm.js?id=GTM-524DC3R:694
+(anonymous) @ gtm.js?id=GTM-524DC3R:767
+Vf @ gtm.js?id=GTM-524DC3R:185
+e @ gtm.js?id=GTM-524DC3R:595
+(anonymous) @ gtm.js?id=GTM-524DC3R:105
+(anonymous) @ gtm.js?id=GTM-524DC3R:596
+(anonymous) @ gtm.js?id=GTM-524DC3R:596
+MC @ gtm.js?id=GTM-524DC3R:596
+QC @ gtm.js?id=GTM-524DC3R:601
+ID @ gtm.js?id=GTM-524DC3R:617
+LD @ gtm.js?id=GTM-524DC3R:620
+ND @ gtm.js?id=GTM-524DC3R:621
+setTimeout
+Kc @ gtm.js?id=GTM-524DC3R:120
+OD @ gtm.js?id=GTM-524DC3R:624
+co @ gtm.js?id=GTM-524DC3R:828
+(anonymous) @ gtm.js?id=GTM-524DC3R:831
+c @ gtm.js?id=GTM-524DC3R:829
+(anonymous) @ gtm.js?id=GTM-524DC3R:831
+(anonymous) @ gtm.js?id=GTM-524DC3R:831
+(anonymous) @ gtm.js?id=GTM-524DC3R:833
+VM185:81 UChatWidget loaded successfully
+index--cm7-g7l.js:569 Loading server config for Programs Section (production: true): {images: Array(4), pageName: 'Programs Section', lastModified: '2025-07-02T14:49:16.056Z', autoSaved: true, savedForDeployment: true}
+index--cm7-g7l.js:569 Loading server config for Why OSE Section (production: true): {images: Array(4), pageName: 'Why OSE Section', lastModified: '2025-07-02T15:05:12.940Z', autoSaved: true, savedForDeployment: true, …}
+index--cm7-g7l.js:569 Loading server config for Home (production: true): {heroBackground: {…}, pageName: 'Home', lastModified: '2025-07-02T14:49:16.067Z', autoSaved: true, savedForDeployment: true}
+index--cm7-g7l.js:569 Loading server config for Testimonials (production: true): {pageName: 'Testimonials', lastModified: '2025-07-02T14:49:16.067Z', autoSaved: true, savedForDeployment: true}
+index--cm7-g7l.js:569 Available deployment configurations: (22) ['Home', 'Why OSE Section', 'Programs Section', 'Testimonials', 'Legacy', 'Educacao Infantil', 'Fundamental II', 'Fundamental I', 'Ensino Médio', 'Programa Bilíngue', 'Integral', 'Amplia', 'CODE.OSE', 'Programa Socioemocional', 'Lista de Material', 'Árvore', 'ISAAC', 'Plurall', 'AgendaEdu', 'Contato', 'Bolsas 2025', 'Bolsas 2026']
+index--cm7-g7l.js:569 🔄 Synchronized Home with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Why OSE Section with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Programs Section with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Testimonials with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Legacy with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Educacao Infantil with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Fundamental II with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Fundamental I with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Ensino Médio with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Programa Bilíngue with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Integral with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Amplia with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized CODE.OSE with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Programa Socioemocional with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Lista de Material with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Árvore with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized ISAAC with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Plurall with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized AgendaEdu with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Contato with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Bolsas 2025 with deployment config (correct images)
+index--cm7-g7l.js:569 🔄 Synchronized Bolsas 2026 with deployment config (correct images)
+index--cm7-g7l.js:569 ✅ All deployment configurations loaded and synchronized
+index--cm7-g7l.js:569 Auto-saved page: Why OSE Section {images: Array(4), pageName: 'Why OSE Section', lastModified: '2025-07-02T15:10:36.459Z', autoSaved: true, savedForDeployment: true, …}
+index--cm7-g7l.js:569 Auto-saved page: Home {heroBackground: {…}, pageName: 'Home', lastModified: '2025-07-02T15:10:36.488Z', autoSaved: true, savedForDeployment: true}
+index--cm7-g7l.js:569 Auto-saved page: Testimonials {pageName: 'Testimonials', lastModified: '2025-07-02T15:10:36.542Z', autoSaved: true, savedForDeployment: true}
+index--cm7-g7l.js:569 Auto-saved page: Programs Section {images: Array(4), pageName: 'Programs Section', lastModified: '2025-07-02T15:10:36.690Z', autoSaved: true, savedForDeployment: true}
+colegioose.com.br/:1 Refused to load the image 'https://www.google.com.br/ads/ga-audiences?v=1&t=sr&slf_rd=1&_r=4&tid=G-N2MQBKE70F&cid=1557875068.1745892858&gtm=45je56u2v871648416z8832177490za200zb832177490&aip=1&dma=0&gcd=13l3l3l3l1l1&npa=0&frm=0&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104527906~104684208~104684211~104718208~104839054~104839056~104908318~104908320&z=103161210' because it violates the following Content Security Policy directive: "img-src 'self' data: blob: 
+        https://www.google-analytics.com 
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com".
+
+VM185:50 UChatWidget widget found in DOM
+VM185:40 UChatWidget forced visible: <script id=​"chatbotWidgetV1" src=​"https:​/​/​sdk.dfktv2.com/​js/​sdk.js?v=d1f21654a3003c6eabbe1612bd1cc7d3" style=​"z-index:​ 999999;​ position:​ fixed;​">​</script>​
+VM185:40 UChatWidget forced visible: <iframe allow=​"microphone *;​ camera *;​ autoplay *" src=​"https:​/​/​sdk.dfktv2.com/​widget?flow_token=to6wv2osffcdtdwb&domain=colegioose.com.br&conv_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMTc0NTg5Mjg2NzcyMjgxNjYiLCJleHBpcnkiOjE3NTQwNjA1NjN9.p1wBWagy9yCyfxpck0nFOLkFIcn_H9r3lgCE1-24wrM" id=​"chatbot_live_chat_widget" style=​"z-index:​ 999999;​ position:​ fixed;​">​…​</iframe>​
+colegioose.com.br/:1 The resource https://colegioose.com.br/fonts/main.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+index--cm7-g7l.js:569 Server config saved for page: Why OSE Section (deployment ready)
+index--cm7-g7l.js:569 Server config saved for page: Home (deployment ready)
+index--cm7-g7l.js:569 Server config saved for page: Testimonials (deployment ready)
+index--cm7-g7l.js:569 Server config saved for page: Programs Section (deployment ready)
+app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2 [Violation] Potential permissions policy violation: fullscreen is not allowed in this document.
+insertBefore @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+d @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+window.onload @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2 [Violation] Potential permissions policy violation: fullscreen is not allowed in this document.
+insertBefore @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+d @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.run @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+fn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+qt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+zt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+te @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ct.notify @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+St @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+setMessagesInConversation @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E._withCommit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A.o.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+c @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ko @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+a @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+ko @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+a @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+s.forEach.n.<computed> @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+colegioose.com.br/:1 The resource https://colegioose.com.br/fonts/main.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
