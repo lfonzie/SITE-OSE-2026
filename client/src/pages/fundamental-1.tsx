@@ -262,7 +262,7 @@ export default function Fundamental1() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-200 mb-6">
-              Desenvolvendo <strong>mentes curiosas</strong> e <strong>corações compassivos</strong>
+              Construindo <strong>bases sólidas</strong> para um <strong>futuro brilhante</strong>
             </p>
             <p className="text-lg mb-8 text-slate-300 max-w-3xl">
               O Ensino Fundamental I da OSE é onde a jornada educacional se torna uma aventura 
