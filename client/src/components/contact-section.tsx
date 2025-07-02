@@ -173,7 +173,7 @@ export default function ContactSection() {
               <img 
                 src="/images/LogoOSE100anos.png" 
                 alt="OSE - 100 Anos" 
-                className="h-16 w-auto"
+                className="h-24 w-auto"
               />
             </div>
 
