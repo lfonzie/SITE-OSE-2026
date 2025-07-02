@@ -127,10 +127,10 @@ export default function Arvore() {
               Uma biblioteca completa ao alcance dos nossos alunos
             </p>
             <Button 
-              onClick={() => window.open('https://www.arvore.com.br', '_blank')}
+              onClick={() => window.open('https://livros.arvore.com.br/login', '_blank')}
               className="bg-white text-school-orange hover:bg-gray-100 text-lg px-8 py-3"
             >
-              Acessar Plataforma
+              Acessar Portal Árvore
               <ExternalLink className="ml-2" size={20} />
             </Button>
           </div>
@@ -213,10 +213,10 @@ export default function Arvore() {
           </div>
 
           <Button 
-            onClick={() => window.open('https://www.arvore.com.br', '_blank')}
+            onClick={() => window.open('https://livros.arvore.com.br/login', '_blank')}
             className="bg-school-orange hover:bg-school-orange/90 text-white text-lg px-8 py-3"
           >
-            Acessar Árvore
+            Acessar Portal Árvore
             <ExternalLink className="ml-2" size={20} />
           </Button>
         </div>
