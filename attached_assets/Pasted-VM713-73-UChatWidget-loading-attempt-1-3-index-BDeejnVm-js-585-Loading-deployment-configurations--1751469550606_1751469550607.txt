@@ -1,0 +1,371 @@
+VM713:73 UChatWidget loading attempt 1/3
+index-BDeejnVm.js:585 Loading deployment configurations... {isProduction: true, forceLoad: false}
+VM717:9 
+            
+            
+           GET https://connect.facebook.net/en_US/fbevents.js net::ERR_BLOCKED_BY_CLIENT
+(anonymous) @ VM717:9
+(anonymous) @ VM717:9
+FD @ index-BDeejnVm.js:496
+VD @ index-BDeejnVm.js:506
+(anonymous) @ index-BDeejnVm.js:643
+Vm @ index-BDeejnVm.js:40
+yi @ index-BDeejnVm.js:40
+Ey @ index-BDeejnVm.js:40
+Da @ index-BDeejnVm.js:38
+h8 @ index-BDeejnVm.js:40
+qa @ index-BDeejnVm.js:40
+wE @ index-BDeejnVm.js:40
+N @ index-BDeejnVm.js:25
+T @ index-BDeejnVm.js:25
+gtm.js?id=GTM-524DC3R:123 Refused to connect to 'https://www.google.com/ccm/collect?en=page_view&dl=https%3A%2F%2Fcolegioose.com.br%2F&scrsrc=www.googletagmanager.com&frm=0&rnd=294729489.1751469537&dt=Col%C3%A9gio%20OSE%20-%20100%20Anos%20de%20Excel%C3%AAncia%20Educacional%20em%20Sorocaba%20%7C%20Educa%C3%A7%C3%A3o%20Infantil%2C%20Fundamental%20e%20M%C3%A9dio&auid=1890426317.1745892859&gclaw=CjwKCAjwsZPDBhBWEiwADuO6y4sc4GYkYJ6Z7r_KNt5CphAqz7MMQWZ-7e2ABDQ07SDTTFUUbTYaUhoCU4YQAvD_BwE&navt=r&npa=0&gtm=45He56u2v832177490za200&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104684208~104684211~104718208~104839054~104839056&tft=1751469536505&tfd=1274&apve=1&apvf=f' because it violates the following Content Security Policy directive: "connect-src 'self' 
+        https://www.google-analytics.com 
+        https://analytics.google.com 
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com
+        https://stats.g.doubleclick.net
+        https://google.com.br
+        https://www.google.com.br
+        https://ipapi.co".
+
+Tc @ gtm.js?id=GTM-524DC3R:123
+fm @ gtm.js?id=GTM-524DC3R:294
+(anonymous) @ gtm.js?id=GTM-524DC3R:547
+Pz @ gtm.js?id=GTM-524DC3R:545
+Tz @ gtm.js?id=GTM-524DC3R:546
+yB @ gtm.js?id=GTM-524DC3R:571
+f @ gtm.js?id=GTM-524DC3R:692
+(anonymous) @ gtm.js?id=GTM-524DC3R:694
+an @ gtm.js?id=GTM-524DC3R:311
+lp @ gtm.js?id=GTM-524DC3R:333
+tJ @ gtm.js?id=GTM-524DC3R:694
+(anonymous) @ gtm.js?id=GTM-524DC3R:767
+Vf @ gtm.js?id=GTM-524DC3R:185
+e @ gtm.js?id=GTM-524DC3R:595
+(anonymous) @ gtm.js?id=GTM-524DC3R:105
+(anonymous) @ gtm.js?id=GTM-524DC3R:596
+(anonymous) @ gtm.js?id=GTM-524DC3R:596
+MC @ gtm.js?id=GTM-524DC3R:596
+QC @ gtm.js?id=GTM-524DC3R:601
+ID @ gtm.js?id=GTM-524DC3R:617
+LD @ gtm.js?id=GTM-524DC3R:620
+(anonymous) @ gtm.js?id=GTM-524DC3R:624
+(anonymous) @ js?id=G-N2MQBKE70F:745
+setTimeout
+Kc @ js?id=G-N2MQBKE70F:227
+aD @ js?id=G-N2MQBKE70F:725
+cD @ js?id=G-N2MQBKE70F:726
+co @ js?id=G-N2MQBKE70F:976
+(anonymous) @ js?id=G-N2MQBKE70F:979
+c @ js?id=G-N2MQBKE70F:977
+(anonymous) @ js?id=G-N2MQBKE70F:979
+(anonymous) @ js?id=G-N2MQBKE70F:979
+(anonymous) @ js?id=G-N2MQBKE70F:981
+gtm.js?id=GTM-524DC3R:123 Fetch API cannot load https://www.google.com/ccm/collect?en=page_view&dl=https%3A%2F%2Fcolegioose.com.br%2F&scrsrc=www.googletagmanager.com&frm=0&rnd=294729489.1751469537&dt=Col%C3%A9gio%20OSE%20-%20100%20Anos%20de%20Excel%C3%AAncia%20Educacional%20em%20Sorocaba%20%7C%20Educa%C3%A7%C3%A3o%20Infantil%2C%20Fundamental%20e%20M%C3%A9dio&auid=1890426317.1745892859&gclaw=CjwKCAjwsZPDBhBWEiwADuO6y4sc4GYkYJ6Z7r_KNt5CphAqz7MMQWZ-7e2ABDQ07SDTTFUUbTYaUhoCU4YQAvD_BwE&navt=r&npa=0&gtm=45He56u2v832177490za200&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104684208~104684211~104718208~104839054~104839056&tft=1751469536505&tfd=1274&apve=1&apvf=f. Refused to connect because it violates the document's Content Security Policy.
+Tc @ gtm.js?id=GTM-524DC3R:123
+fm @ gtm.js?id=GTM-524DC3R:294
+(anonymous) @ gtm.js?id=GTM-524DC3R:547
+Pz @ gtm.js?id=GTM-524DC3R:545
+Tz @ gtm.js?id=GTM-524DC3R:546
+yB @ gtm.js?id=GTM-524DC3R:571
+f @ gtm.js?id=GTM-524DC3R:692
+(anonymous) @ gtm.js?id=GTM-524DC3R:694
+an @ gtm.js?id=GTM-524DC3R:311
+lp @ gtm.js?id=GTM-524DC3R:333
+tJ @ gtm.js?id=GTM-524DC3R:694
+(anonymous) @ gtm.js?id=GTM-524DC3R:767
+Vf @ gtm.js?id=GTM-524DC3R:185
+e @ gtm.js?id=GTM-524DC3R:595
+(anonymous) @ gtm.js?id=GTM-524DC3R:105
+(anonymous) @ gtm.js?id=GTM-524DC3R:596
+(anonymous) @ gtm.js?id=GTM-524DC3R:596
+MC @ gtm.js?id=GTM-524DC3R:596
+QC @ gtm.js?id=GTM-524DC3R:601
+ID @ gtm.js?id=GTM-524DC3R:617
+LD @ gtm.js?id=GTM-524DC3R:620
+(anonymous) @ gtm.js?id=GTM-524DC3R:624
+(anonymous) @ js?id=G-N2MQBKE70F:745
+setTimeout
+Kc @ js?id=G-N2MQBKE70F:227
+aD @ js?id=G-N2MQBKE70F:725
+cD @ js?id=G-N2MQBKE70F:726
+co @ js?id=G-N2MQBKE70F:976
+(anonymous) @ js?id=G-N2MQBKE70F:979
+c @ js?id=G-N2MQBKE70F:977
+(anonymous) @ js?id=G-N2MQBKE70F:979
+(anonymous) @ js?id=G-N2MQBKE70F:979
+(anonymous) @ js?id=G-N2MQBKE70F:981
+colegioose.com.br/:1 Refused to load the image 'https://www.google.com/ccm/collect?en=page_view&dl=https%3A%2F%2Fcolegioose.com.br%2F&scrsrc=www.googletagmanager.com&frm=0&rnd=294729489.1751469537&dt=Col%C3%A9gio%20OSE%20-%20100%20Anos%20de%20Excel%C3%AAncia%20Educacional%20em%20Sorocaba%20%7C%20Educa%C3%A7%C3%A3o%20Infantil%2C%20Fundamental%20e%20M%C3%A9dio&auid=1890426317.1745892859&gclaw=CjwKCAjwsZPDBhBWEiwADuO6y4sc4GYkYJ6Z7r_KNt5CphAqz7MMQWZ-7e2ABDQ07SDTTFUUbTYaUhoCU4YQAvD_BwE&navt=r&npa=0&gtm=45He56u2v832177490za200&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104684208~104684211~104718208~104839054~104839056&tft=1751469536505&tfd=1274&apve=1&apvf=f&img=1' because it violates the following Content Security Policy directive: "img-src 'self' data: blob: 
+        https://www.google-analytics.com 
+        https://analytics.google.com
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com
+        https://stats.g.doubleclick.net
+        https://google.com.br
+        https://www.google.com.br".
+
+index-BDeejnVm.js:585 Loading server config for Home (production: true): {heroBackground: {…}, pageName: 'Home', lastModified: '2025-07-02T15:18:11.296Z', autoSaved: true, savedForDeployment: true}
+index-BDeejnVm.js:48 
+            
+            
+           GET https://colegioose.com.br/api/auth/user 401 (Unauthorized)
+(anonymous) @ index-BDeejnVm.js:48
+o @ index-BDeejnVm.js:48
+y @ index-BDeejnVm.js:48
+start @ index-BDeejnVm.js:48
+fetch @ index-BDeejnVm.js:48
+Fl @ index-BDeejnVm.js:48
+onSubscribe @ index-BDeejnVm.js:48
+subscribe @ index-BDeejnVm.js:48
+(anonymous) @ index-BDeejnVm.js:48
+UC @ index-BDeejnVm.js:38
+Vm @ index-BDeejnVm.js:40
+yi @ index-BDeejnVm.js:40
+Ey @ index-BDeejnVm.js:40
+Da @ index-BDeejnVm.js:38
+h8 @ index-BDeejnVm.js:40
+qa @ index-BDeejnVm.js:40
+wE @ index-BDeejnVm.js:40
+N @ index-BDeejnVm.js:25
+T @ index-BDeejnVm.js:25
+index-BDeejnVm.js:48 Authentication required - returning null
+VM713:81 UChatWidget loaded successfully
+index-BDeejnVm.js:585 Loading server config for Testimonials (production: true): {pageName: 'Testimonials', lastModified: '2025-07-02T15:18:11.539Z', autoSaved: true, savedForDeployment: true}
+index-BDeejnVm.js:585 Loading server config for Why OSE Section (production: true): {images: Array(4), pageName: 'Why OSE Section', lastModified: '2025-07-02T15:18:11.501Z', autoSaved: true, savedForDeployment: true, …}
+index-BDeejnVm.js:585 Available deployment configurations: (22) ['Home', 'Why OSE Section', 'Programs Section', 'Testimonials', 'Legacy', 'Educacao Infantil', 'Fundamental II', 'Fundamental I', 'Ensino Médio', 'Programa Bilíngue', 'Integral', 'Amplia', 'CODE.OSE', 'Programa Socioemocional', 'Lista de Material', 'Árvore', 'ISAAC', 'Plurall', 'AgendaEdu', 'Contato', 'Bolsas 2025', 'Bolsas 2026']
+index-BDeejnVm.js:585 🔄 Synchronized Home with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Why OSE Section with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Programs Section with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Testimonials with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Legacy with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Educacao Infantil with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Fundamental II with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Fundamental I with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Ensino Médio with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Programa Bilíngue with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Integral with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Amplia with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized CODE.OSE with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Programa Socioemocional with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Lista de Material with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Árvore with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized ISAAC with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Plurall with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized AgendaEdu with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Contato with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Bolsas 2025 with deployment config (correct images)
+index-BDeejnVm.js:585 🔄 Synchronized Bolsas 2026 with deployment config (correct images)
+index-BDeejnVm.js:585 ✅ All deployment configurations loaded and synchronized
+index-BDeejnVm.js:585 Loading server config for Programs Section (production: true): {images: Array(4), pageName: 'Programs Section', lastModified: '2025-07-02T15:18:11.528Z', autoSaved: true, savedForDeployment: true}
+index-BDeejnVm.js:585 Auto-saved page: Home {heroBackground: {…}, pageName: 'Home', lastModified: '2025-07-02T15:18:57.450Z', autoSaved: true, savedForDeployment: true}
+index-BDeejnVm.js:585 Auto-saved page: Why OSE Section {images: Array(4), pageName: 'Why OSE Section', lastModified: '2025-07-02T15:18:57.646Z', autoSaved: true, savedForDeployment: true, …}
+index-BDeejnVm.js:585 Auto-saved page: Programs Section {images: Array(4), pageName: 'Programs Section', lastModified: '2025-07-02T15:18:57.655Z', autoSaved: true, savedForDeployment: true}
+index-BDeejnVm.js:585 Auto-saved page: Testimonials {pageName: 'Testimonials', lastModified: '2025-07-02T15:18:57.656Z', autoSaved: true, savedForDeployment: true}
+index-BDeejnVm.js:585 Server config saved for page: Home (deployment ready)
+index-BDeejnVm.js:585 Server config saved for page: Programs Section (deployment ready)
+index-BDeejnVm.js:585 Server config saved for page: Why OSE Section (deployment ready)
+index-BDeejnVm.js:585 Server config saved for page: Testimonials (deployment ready)
+app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2 [Violation] Potential permissions policy violation: fullscreen is not allowed in this document.
+insertBefore @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+d @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+window.onload @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+gtm.js?id=GTM-524DC3R:123 Refused to connect to 'https://www.google.com/ccm/collect?en=user_id_update&dl=https%3A%2F%2Fcolegioose.com.br%2F&scrsrc=www.googletagmanager.com&frm=0&rnd=294729489.1751469537&dt=Col%C3%A9gio%20OSE%20-%20100%20Anos%20de%20Excel%C3%AAncia%20Educacional%20em%20Sorocaba%20%7C%20Educa%C3%A7%C3%A3o%20Infantil%2C%20Fundamental%20e%20M%C3%A9dio&auid=1890426317.1745892859&gclaw=CjwKCAjwsZPDBhBWEiwADuO6y4sc4GYkYJ6Z7r_KNt5CphAqz7MMQWZ-7e2ABDQ07SDTTFUUbTYaUhoCU4YQAvD_BwE&navt=r&npa=0&ga_uid=G-N2MQBKE70F.17514691614255587&gtm=45He56u2v832177490za200&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104684208~104684211~104718208~104839054~104839056&tft=1751469538341&tfd=3111&apve=1&apvf=f' because it violates the following Content Security Policy directive: "connect-src 'self' 
+        https://www.google-analytics.com 
+        https://analytics.google.com 
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com
+        https://stats.g.doubleclick.net
+        https://google.com.br
+        https://www.google.com.br
+        https://ipapi.co".
+
+Tc @ gtm.js?id=GTM-524DC3R:123
+fm @ gtm.js?id=GTM-524DC3R:294
+(anonymous) @ gtm.js?id=GTM-524DC3R:547
+Pz @ gtm.js?id=GTM-524DC3R:545
+Tz @ gtm.js?id=GTM-524DC3R:546
+yB @ gtm.js?id=GTM-524DC3R:571
+f @ gtm.js?id=GTM-524DC3R:692
+(anonymous) @ gtm.js?id=GTM-524DC3R:693
+notify @ gtm.js?id=GTM-524DC3R:314
+set @ gtm.js?id=GTM-524DC3R:314
+qn @ js?id=G-N2MQBKE70F:433
+HP @ js?id=G-N2MQBKE70F:911
+(anonymous) @ js?id=G-N2MQBKE70F:337
+k.invoke @ js?id=G-N2MQBKE70F:242
+Ra @ js?id=G-N2MQBKE70F:207
+Qa @ js?id=G-N2MQBKE70F:207
+(anonymous) @ js?id=G-N2MQBKE70F:266
+k.invoke @ js?id=G-N2MQBKE70F:242
+Ra @ js?id=G-N2MQBKE70F:207
+Qa @ js?id=G-N2MQBKE70F:207
+(anonymous) @ js?id=G-N2MQBKE70F:266
+k.invoke @ js?id=G-N2MQBKE70F:242
+(anonymous) @ js?id=G-N2MQBKE70F:908
+Dw @ js?id=G-N2MQBKE70F:606
+k.nq @ js?id=G-N2MQBKE70F:886
+(anonymous) @ js?id=G-N2MQBKE70F:883
+an @ js?id=G-N2MQBKE70F:429
+lp @ js?id=G-N2MQBKE70F:451
+(anonymous) @ js?id=G-N2MQBKE70F:883
+c @ js?id=G-N2MQBKE70F:644
+Qy @ js?id=G-N2MQBKE70F:644
+k.mq @ js?id=G-N2MQBKE70F:883
+c @ js?id=G-N2MQBKE70F:899
+v @ js?id=G-N2MQBKE70F:470
+kn @ js?id=G-N2MQBKE70F:431
+Nq @ js?id=G-N2MQBKE70F:470
+Mq.flush @ js?id=G-N2MQBKE70F:474
+Mq.push @ js?id=G-N2MQBKE70F:472
+Eq @ js?id=G-N2MQBKE70F:467
+event @ js?id=G-N2MQBKE70F:735
+ND @ js?id=G-N2MQBKE70F:741
+QD.b.push @ js?id=G-N2MQBKE70F:746
+(anonymous) @ gtm.js?id=GTM-524DC3R:624
+OD.b.push @ destination?id=AW-1009339423&cx=c&gtm=45He56u2v832177490za200&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104684208~104684211~104718208~104839054~104839056:647
+OD.b.push @ destination?id=AW-&cx=c&gtm=45He56u2v832177490za200&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104684208~104684211~104718208~104839054~104839056:614
+gtag @ VM716:4
+gtag @ sdk.js?v=d1f21654a3003c6eabbe1612bd1cc7d3:2
+window.onmessage @ sdk.js?v=d1f21654a3003c6eabbe1612bd1cc7d3:2
+gtm.js?id=GTM-524DC3R:123 Fetch API cannot load https://www.google.com/ccm/collect?en=user_id_update&dl=https%3A%2F%2Fcolegioose.com.br%2F&scrsrc=www.googletagmanager.com&frm=0&rnd=294729489.1751469537&dt=Col%C3%A9gio%20OSE%20-%20100%20Anos%20de%20Excel%C3%AAncia%20Educacional%20em%20Sorocaba%20%7C%20Educa%C3%A7%C3%A3o%20Infantil%2C%20Fundamental%20e%20M%C3%A9dio&auid=1890426317.1745892859&gclaw=CjwKCAjwsZPDBhBWEiwADuO6y4sc4GYkYJ6Z7r_KNt5CphAqz7MMQWZ-7e2ABDQ07SDTTFUUbTYaUhoCU4YQAvD_BwE&navt=r&npa=0&ga_uid=G-N2MQBKE70F.17514691614255587&gtm=45He56u2v832177490za200&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104684208~104684211~104718208~104839054~104839056&tft=1751469538341&tfd=3111&apve=1&apvf=f. Refused to connect because it violates the document's Content Security Policy.
+Tc @ gtm.js?id=GTM-524DC3R:123
+fm @ gtm.js?id=GTM-524DC3R:294
+(anonymous) @ gtm.js?id=GTM-524DC3R:547
+Pz @ gtm.js?id=GTM-524DC3R:545
+Tz @ gtm.js?id=GTM-524DC3R:546
+yB @ gtm.js?id=GTM-524DC3R:571
+f @ gtm.js?id=GTM-524DC3R:692
+(anonymous) @ gtm.js?id=GTM-524DC3R:693
+notify @ gtm.js?id=GTM-524DC3R:314
+set @ gtm.js?id=GTM-524DC3R:314
+qn @ js?id=G-N2MQBKE70F:433
+HP @ js?id=G-N2MQBKE70F:911
+(anonymous) @ js?id=G-N2MQBKE70F:337
+k.invoke @ js?id=G-N2MQBKE70F:242
+Ra @ js?id=G-N2MQBKE70F:207
+Qa @ js?id=G-N2MQBKE70F:207
+(anonymous) @ js?id=G-N2MQBKE70F:266
+k.invoke @ js?id=G-N2MQBKE70F:242
+Ra @ js?id=G-N2MQBKE70F:207
+Qa @ js?id=G-N2MQBKE70F:207
+(anonymous) @ js?id=G-N2MQBKE70F:266
+k.invoke @ js?id=G-N2MQBKE70F:242
+(anonymous) @ js?id=G-N2MQBKE70F:908
+Dw @ js?id=G-N2MQBKE70F:606
+k.nq @ js?id=G-N2MQBKE70F:886
+(anonymous) @ js?id=G-N2MQBKE70F:883
+an @ js?id=G-N2MQBKE70F:429
+lp @ js?id=G-N2MQBKE70F:451
+(anonymous) @ js?id=G-N2MQBKE70F:883
+c @ js?id=G-N2MQBKE70F:644
+Qy @ js?id=G-N2MQBKE70F:644
+k.mq @ js?id=G-N2MQBKE70F:883
+c @ js?id=G-N2MQBKE70F:899
+v @ js?id=G-N2MQBKE70F:470
+kn @ js?id=G-N2MQBKE70F:431
+Nq @ js?id=G-N2MQBKE70F:470
+Mq.flush @ js?id=G-N2MQBKE70F:474
+Mq.push @ js?id=G-N2MQBKE70F:472
+Eq @ js?id=G-N2MQBKE70F:467
+event @ js?id=G-N2MQBKE70F:735
+ND @ js?id=G-N2MQBKE70F:741
+QD.b.push @ js?id=G-N2MQBKE70F:746
+(anonymous) @ gtm.js?id=GTM-524DC3R:624
+OD.b.push @ destination?id=AW-1009339423&cx=c&gtm=45He56u2v832177490za200&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104684208~104684211~104718208~104839054~104839056:647
+OD.b.push @ destination?id=AW-&cx=c&gtm=45He56u2v832177490za200&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104684208~104684211~104718208~104839054~104839056:614
+gtag @ VM716:4
+gtag @ sdk.js?v=d1f21654a3003c6eabbe1612bd1cc7d3:2
+window.onmessage @ sdk.js?v=d1f21654a3003c6eabbe1612bd1cc7d3:2
+colegioose.com.br/:1 Refused to load the image 'https://www.google.com/ccm/collect?en=user_id_update&dl=https%3A%2F%2Fcolegioose.com.br%2F&scrsrc=www.googletagmanager.com&frm=0&rnd=294729489.1751469537&dt=Col%C3%A9gio%20OSE%20-%20100%20Anos%20de%20Excel%C3%AAncia%20Educacional%20em%20Sorocaba%20%7C%20Educa%C3%A7%C3%A3o%20Infantil%2C%20Fundamental%20e%20M%C3%A9dio&auid=1890426317.1745892859&gclaw=CjwKCAjwsZPDBhBWEiwADuO6y4sc4GYkYJ6Z7r_KNt5CphAqz7MMQWZ-7e2ABDQ07SDTTFUUbTYaUhoCU4YQAvD_BwE&navt=r&npa=0&ga_uid=G-N2MQBKE70F.17514691614255587&gtm=45He56u2v832177490za200&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~103351869~103351871~104684208~104684211~104718208~104839054~104839056&tft=1751469538341&tfd=3111&apve=1&apvf=f&img=1' because it violates the following Content Security Policy directive: "img-src 'self' data: blob: 
+        https://www.google-analytics.com 
+        https://analytics.google.com
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com
+        https://stats.g.doubleclick.net
+        https://google.com.br
+        https://www.google.com.br".
+
+app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2 [Violation] Potential permissions policy violation: fullscreen is not allowed in this document.
+insertBefore @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+d @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.run @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+fn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+qt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+zt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+te @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ct.notify @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+set @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+setConversationListLoading @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E._withCommit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A.o.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+c @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ko @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+a @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+ko @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+a @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+s.forEach.n.<computed> @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+VM713:50 UChatWidget widget found in DOM
+VM713:40 UChatWidget forced visible: <script id=​"chatbotWidgetV1" src=​"https:​/​/​sdk.dfktv2.com/​js/​sdk.js?v=d1f21654a3003c6eabbe1612bd1cc7d3" style=​"z-index:​ 999999;​ position:​ fixed;​">​</script>​
+VM713:40 UChatWidget forced visible: <iframe allow=​"microphone *;​ camera *;​ autoplay *" src=​"https:​/​/​sdk.dfktv2.com/​widget?flow_token=to6wv2osffcdtdwb&domain=colegioose.com.br&conv_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMTc1MTQ2OTE2MTQyNTU1ODciLCJleHBpcnkiOjE3NTQwNjE0OTB9.JUnIUL99QZOQbnCvA0esHG7fnfT5IaBnnWyHpnNyK_c" id=​"chatbot_live_chat_widget" style=​"z-index:​ 999999;​ position:​ fixed;​">​…​</iframe>​
+colegioose.com.br/:1 Unchecked runtime.lastError: The message port closed before a response was received.
+colegioose.com.br/:1 The resource https://colegioose.com.br/fonts/main.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
