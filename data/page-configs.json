@@ -1,35 +1,52 @@
 {
   "Home": {
     "heroBackground": {
-      "type": "gradient",
-      "gradientColors": [
-        "#475569",
-        "#64748b"
-      ],
+      "type": "image",
       "opacity": 1,
       "overlay": true,
       "overlayColor": "#1e293b",
       "overlayOpacity": 0.8,
       "position": "center",
       "size": "cover",
-      "repeat": "no-repeat"
+      "repeat": "no-repeat",
+      "imageUrl": "/images/horizontal_13.png"
     },
     "pageName": "Home",
-    "lastModified": "2025-07-02T15:23:40.113Z",
+    "lastModified": "2025-07-02T15:23:53.187Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Why OSE Section": {
     "images": [
-      "/images/horizontal_2.png",
-      "/images/horizontal_3.png",
-      "/images/horizontal_4.png",
-      "/images/horizontal_5.png"
+      "/api/images/upload_1751324766005.jpeg",
+      "/api/images/upload_1751324841546.jpeg",
+      "/api/images/upload_1751324671819.jpeg",
+      "/api/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-02T15:23:40.118Z",
+    "lastModified": "2025-07-02T15:23:52.974Z",
     "autoSaved": true,
-    "savedForDeployment": true
+    "savedForDeployment": true,
+    "imagePositions": {
+      "why-ose-1": {
+        "objectPosition": "0% 26%",
+        "horizontalPosition": -50,
+        "verticalPosition": -24,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      },
+      "why-ose-3": {
+        "objectPosition": "15.5% 39%",
+        "horizontalPosition": -34.5,
+        "verticalPosition": -11,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      }
+    }
   },
   "Programs Section": {
     "images": [
@@ -39,13 +56,13 @@
       "/images/12.png"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-02T15:23:40.130Z",
+    "lastModified": "2025-07-02T15:23:54.920Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-02T15:23:40.147Z",
+    "lastModified": "2025-07-02T15:23:53.025Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
