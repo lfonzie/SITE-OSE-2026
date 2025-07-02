@@ -484,21 +484,10 @@ export default function Fundamental2() {
             </div>
 
             <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1">
-              <h4 className="text-xl font-bold text-gray-900 mb-4">Tecnologia e Inovação</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Programação e robótica</li>
-                <li>• Ferramentas digitais</li>
-                <li>• Pensamento computacional</li>
-                <li>• Projetos inovadores</li>
-              </ul>
-            </div>
-
-            <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-8 rounded-xl shadow-xl shadow-black/10 hover:shadow-2xl transition-all transform hover:-translate-y-1">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Projetos Especiais</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>• Projeto de vida</li>
                 <li>• Protagonismo juvenil</li>
-                <li>• Tecnologia educacional</li>
                 <li>• Empreendedorismo</li>
               </ul>
             </div>
