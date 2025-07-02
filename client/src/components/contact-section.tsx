@@ -171,14 +171,10 @@ export default function ContactSection() {
           <div className="text-center">
             <div className="flex items-center justify-center mb-6">
               <img 
-                src="https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png" 
-                alt="OSE" 
-                className="h-12 w-auto mr-3"
+                src="/images/LogoOSE100anos.png" 
+                alt="OSE - 100 Anos" 
+                className="h-16 w-auto"
               />
-              <div>
-                <h3 className="text-xl font-bold text-school-brown">OSE</h3>
-                <p className="text-school-brown text-sm">Desde 1924</p>
-              </div>
             </div>
 
             <p className="text-school-brown mb-6 max-w-2xl mx-auto">
