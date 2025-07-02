@@ -1,7 +1,18 @@
 {
   "Home": {
+    "heroBackground": {
+      "type": "image",
+      "opacity": 1,
+      "overlay": true,
+      "overlayColor": "#1e293b",
+      "overlayOpacity": 0.8,
+      "position": "center",
+      "size": "cover",
+      "repeat": "no-repeat",
+      "imageUrl": "/images/horizontal_13.png"
+    },
     "pageName": "Home",
-    "lastModified": "2025-07-02T12:42:47.064Z",
+    "lastModified": "2025-07-02T14:38:15.316Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -13,7 +24,7 @@
       "/api/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-02T13:03:42.361Z",
+    "lastModified": "2025-07-02T14:40:44.439Z",
     "autoSaved": true,
     "savedForDeployment": true,
     "imagePositions": {
@@ -39,19 +50,19 @@
   },
   "Programs Section": {
     "images": [
-      "/images/9.png",
-      "/images/10.png",
-      "/images/11.png",
-      "/images/12.png"
+      "/images/horizontal_27.png",
+      "/images/horizontal_11.png",
+      "/images/horizontal_4.png",
+      "/images/upload_1751325029201.jpeg"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-02T12:42:46.835Z",
+    "lastModified": "2025-07-02T14:39:53.431Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-02T13:03:42.359Z",
+    "lastModified": "2025-07-02T14:40:44.408Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -130,7 +141,7 @@
     },
     "heroImage": "/images/horizontal_1.png",
     "pageName": "Educacao Infantil",
-    "lastModified": "2025-07-01T14:42:21.063Z",
+    "lastModified": "2025-07-02T14:40:10.087Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -187,7 +198,7 @@
       "imageUrl": "/images/horizontal_11.png"
     },
     "pageName": "Fundamental I",
-    "lastModified": "2025-07-02T12:54:06.729Z",
+    "lastModified": "2025-07-02T14:40:23.913Z",
     "autoSaved": true,
     "imagePositions": {
       "gallery-0": {
@@ -221,7 +232,7 @@
       "imageUrl": "/images/horizontal_1.png"
     },
     "pageName": "Ensino Médio",
-    "lastModified": "2025-07-01T14:45:38.654Z",
+    "lastModified": "2025-07-02T14:40:44.407Z",
     "autoSaved": true,
     "imagePositions": {
       "gallery-1": {
