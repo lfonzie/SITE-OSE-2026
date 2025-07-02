@@ -48,6 +48,8 @@ import Plurall from "@/pages/plurall";
 import Landing from "@/pages/landing";
 import { useAuth } from "@/hooks/useAuth";
 import { lazy } from "react";
+import ContatoPage from './pages/contato';
+import Bolsas2025Page from './pages/bolsas2025';
 
 function Router() {
   // Track page views when routes change
@@ -97,6 +99,8 @@ function Router() {
       <Route path="/test-uchat" component={TestUChat} />
       <Route path="/agendaedu" component={AgendaEdu} />
       <Route path="/plurall" component={Plurall} />
+      <Route path="/contato" component={ContatoPage} />
+      <Route path="/bolsas2025" component={Bolsas2025Page} />
       <Route component={NotFound} />
     </Switch>
   );
