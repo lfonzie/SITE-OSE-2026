@@ -75,6 +75,7 @@ export const addSchoolSchema = () => {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "Colégio OSE",
+    "alternateName": "Organização Sorocabana de Ensino",
     "foundingDate": "1924",
     "description": "Tradição secular de ensino. Formando cidadãos críticos há 100 anos.",
     "address": {
@@ -85,14 +86,68 @@ export const addSchoolSchema = () => {
       "postalCode": "18010-002",
       "addressCountry": "BR"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "-23.5015",
+      "longitude": "-47.4526"
+    },
     "telephone": "(15) 2101-3800",
     "email": "info@colegioose.com.br",
     "url": "https://colegioose.com.br",
-    "logo": "https://colegioose.com.br/wp-content/uploads/2024/06/ose100-800x400.png",
+    "logo": "https://colegioose.com.br/images/LogoOSE100anos.png",
+    "image": "https://colegioose.com.br/images/LogoOSE100anos.png",
+    "priceRange": "$$",
+    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+    "openingHours": "Mo-Fr 07:00-18:00",
+    "areaServed": {
+      "@type": "City",
+      "name": "Sorocaba"
+    },
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "-23.5015",
+        "longitude": "-47.4526"
+      },
+      "geoRadius": "50000"
+    },
     "sameAs": [
       "https://www.facebook.com/colegioose",
-      "https://www.instagram.com/colegioose"
-    ]
+      "https://www.instagram.com/colegioose",
+      "https://www.youtube.com/@colegioose"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Programas Educacionais",
+      "itemListElement": [
+        {
+          "@type": "OfferCatalog",
+          "name": "Educação Infantil",
+          "description": "Programa para crianças de 4 a 6 anos"
+        },
+        {
+          "@type": "OfferCatalog", 
+          "name": "Ensino Fundamental I",
+          "description": "Anos iniciais do ensino fundamental"
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Ensino Fundamental II", 
+          "description": "Anos finais do ensino fundamental"
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Ensino Médio",
+          "description": "Preparação para vestibular e ENEM"
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Programa Bilíngue",
+          "description": "Educação bilíngue português-inglês"
+        }
+      ]
+    }
   };
   
   addStructuredData(schoolSchema);

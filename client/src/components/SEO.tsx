@@ -72,6 +72,17 @@ export default function SEO({
       { name: 'geo.placename', content: 'Sorocaba' },
       { name: 'geo.position', content: '-23.5015;-47.4526' },
       { name: 'ICBM', content: '-23.5015, -47.4526' },
+      
+      // Enhanced SEO
+      { name: 'language', content: 'pt-BR' },
+      { name: 'distribution', content: 'global' },
+      { name: 'rating', content: 'general' },
+      { name: 'revisit-after', content: '7 days' },
+      { name: 'category', content: 'education' },
+      { name: 'coverage', content: 'Worldwide' },
+      { name: 'target', content: 'all' },
+      { name: 'HandheldFriendly', content: 'True' },
+      { name: 'MobileOptimized', content: '320' },
     ];
 
     // Add og:image if provided
