@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface AutoSaveOptions {
   data: any;
@@ -10,6 +11,7 @@ interface AutoSaveOptions {
 
 export function useAutoSave({ data, key, delay = 1000, onSave }: AutoSaveOptions) {
   const { toast } = useToast();
+  const { isAuthenticated } = useAuth();
   const timeoutRef = useRef<NodeJS.Timeout>();
   const previousDataRef = useRef<string>('');
 
@@ -43,8 +45,8 @@ export function useAutoSave({ data, key, delay = 1000, onSave }: AutoSaveOptions
           onSave(saveData);
         }
 
-        // Show success notification (only if data has actually changed)
-        if (previousDataRef.current !== '') {
+        // Show success notification (only if data has actually changed and user is authenticated)
+        if (previousDataRef.current !== '' && isAuthenticated) {
           toast({
             title: "Alterações salvas automaticamente",
             description: "As modificações foram salvas com sucesso.",
@@ -55,12 +57,15 @@ export function useAutoSave({ data, key, delay = 1000, onSave }: AutoSaveOptions
         previousDataRef.current = currentDataString;
       } catch (error) {
         console.error('Erro ao salvar automaticamente:', error);
-        toast({
-          title: "Erro ao salvar",
-          description: "Não foi possível salvar as alterações automaticamente.",
-          variant: "destructive",
-          duration: 3000,
-        });
+        // Only show error notifications to authenticated users
+        if (isAuthenticated) {
+          toast({
+            title: "Erro ao salvar",
+            description: "Não foi possível salvar as alterações automaticamente.",
+            variant: "destructive",
+            duration: 3000,
+          });
+        }
       }
     }, delay);
 
