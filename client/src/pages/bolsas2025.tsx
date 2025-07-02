@@ -56,7 +56,7 @@ export default function Bolsas2025Page() {
   const { 
     heroBackground,
     updateHeroBackground,
-  } = usePageData('Bolsas 2025', {
+  } = usePageData('Bolsas 2026', {
     heroBackground: {
       type: 'image',
       imageUrl: newImages.horizontal15,
@@ -72,9 +72,9 @@ export default function Bolsas2025Page() {
 
   useEffect(() => {
     updateSEO({
-      title: "Bolsas de Estudo 2025 - Colégio OSE | Inscreva-se Agora",
-      description: "Inscreva-se para as Bolsas de Estudo 2025 do Colégio OSE. Descontos de até 100% na mensalidade. Tradição centenária em educação de excelência.",
-      keywords: "bolsas 2025, desconto mensalidade, colégio ose, bolsa de estudos, educação qualidade, sorocaba"
+      title: "Bolsas de Estudo 2026 - Colégio OSE | Inscreva-se Agora",
+      description: "Inscreva-se para as Bolsas de Estudo 2026 do Colégio OSE. Prova em 4 de outubro. Descontos de até 100% na mensalidade. Tradição centenária em educação de excelência.",
+      keywords: "bolsas 2026, desconto mensalidade, colégio ose, bolsa de estudos, educação qualidade, sorocaba, prova outubro"
     });
   }, []);
 
@@ -212,8 +212,12 @@ export default function Bolsas2025Page() {
 
   const faqs = [
     {
-      question: "Quem pode participar das bolsas 2025?",
-      answer: "Estudantes que estão cursando do 6º ano do Ensino Fundamental ao 2º ano do Ensino Médio e desejam ingressar em 2025."
+      question: "Quem pode participar das bolsas 2026?",
+      answer: "Estudantes que estão cursando do 6º ano do Ensino Fundamental ao 2º ano do Ensino Médio e desejam ingressar em 2026."
+    },
+    {
+      question: "Quando será a prova?",
+      answer: "A prova de bolsas será realizada no dia 4 de outubro (sábado) nas dependências do Colégio OSE."
     },
     {
       question: "Como me preparar para a avaliação?",
@@ -226,10 +230,6 @@ export default function Bolsas2025Page() {
     {
       question: "Quando sai o resultado?",
       answer: "O resultado será divulgado em até 15 dias úteis após a realização da avaliação, por e-mail e telefone."
-    },
-    {
-      question: "A avaliação é presencial?",
-      answer: "Sim, a avaliação será realizada presencialmente nas dependências do Colégio OSE."
     },
     {
       question: "Posso participar mais de uma vez?",
@@ -530,7 +530,7 @@ export default function Bolsas2025Page() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Bolsas de Estudo <span className="text-school-orange">2025</span>
+              Bolsas de Estudo <span className="text-school-orange">2026</span>
             </motion.h1>
             <motion.p 
               className="text-xl md:text-2xl mb-6"
@@ -546,9 +546,11 @@ export default function Bolsas2025Page() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Conquiste uma bolsa de estudos de até <strong>100%</strong> no Colégio OSE. 
+              Conquiste uma bolsa de estudos de até <strong>100%</strong> no Colégio OSE para 2026. 
               Uma instituição centenária que forma líderes e cidadãos conscientes há mais de 100 anos.
               Transforme seu futuro através da educação de qualidade que você merece.
+              <br /><br />
+              <strong className="text-school-orange">📅 Data da Prova: 4 de Outubro (Sábado)</strong>
             </motion.p>
             
             <motion.div
@@ -569,7 +571,7 @@ export default function Bolsas2025Page() {
                 <DialogContent className="max-w-2xl max-h-[90vh] overflow-hidden">
                   <DialogHeader>
                     <DialogTitle className="text-center">
-                      Inscrição para Bolsas de Estudo 2025
+                      Inscrição para Bolsas de Estudo 2026
                     </DialogTitle>
                   </DialogHeader>
                   
@@ -632,7 +634,7 @@ export default function Bolsas2025Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              <span className="text-school-orange">Diferenciais</span> das Nossas Bolsas
+              <span className="text-school-orange">Diferenciais</span> das Nossas Bolsas 2026
             </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto">
               Mais que um desconto na mensalidade, é uma oportunidade de transformar seu futuro
@@ -666,7 +668,7 @@ export default function Bolsas2025Page() {
               <span className="text-school-orange">Perguntas</span> Frequentes
             </h2>
             <p className="text-xl text-slate-600">
-              Tire suas dúvidas sobre as bolsas de estudo 2025
+              Tire suas dúvidas sobre as bolsas de estudo 2026
             </p>
           </div>
 
