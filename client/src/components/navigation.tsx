@@ -83,7 +83,7 @@ export default function Navigation() {
               <img 
                 src="/images/LogoOSE100anos.png" 
                 alt="a OSE - 100 Anos" 
-                className="h-24 w-auto"
+                className="h-32 w-auto"
               />
             </Link>
           </div>
