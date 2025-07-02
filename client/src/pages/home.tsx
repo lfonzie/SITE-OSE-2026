@@ -115,9 +115,9 @@ export default function Home() {
           <TestimonialsSection />
         </div>
         
-        <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
+        {/* <div className="backdrop-blur-md bg-white/25 border-b border-white/20 shadow-sm">
           <SocialFeedsSection />
-        </div>
+        </div> */}
         
         <div className="backdrop-blur-lg bg-white/40 border-t border-white/30 shadow-lg">
           <ContactSection />
