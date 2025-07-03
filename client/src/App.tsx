@@ -11,6 +11,7 @@ import { addSchoolSchema } from "./lib/seo";
 import { preloadResources, initLazyLoading } from "./lib/performance";
 import { snippetManager } from "./lib/custom-snippets";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { useAppImagePreloader } from "./hooks/useSimpleImagePreloader";
 import DeploymentConfigLoader from "./components/DeploymentConfigLoader";
 
 import Home from "@/pages/home";
@@ -107,8 +108,22 @@ function Router() {
 }
 
 function App() {
+  // Initialize image preloader for critical images
+  const imagePreloader = useAppImagePreloader();
+
   // Initialize all systems when app loads
   useEffect(() => {
+    // Service Worker registration
+    if ('serviceWorker' in navigator && import.meta.env.PROD) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('Service Worker registered:', registration);
+        })
+        .catch(error => {
+          console.warn('Service Worker registration failed:', error);
+        });
+    }
+
     // Analytics and tracking
     initAllTracking();
 
@@ -126,6 +141,13 @@ function App() {
     // Custom snippets
     snippetManager.executeSnippets();
   }, []);
+
+  // Log preloader progress in development
+  useEffect(() => {
+    if (import.meta.env.DEV && imagePreloader.progress > 0) {
+      console.log(`Critical images loading: ${imagePreloader.progress}% (${imagePreloader.loadedCount}/${imagePreloader.totalCount})`);
+    }
+  }, [imagePreloader.progress]);
 
   return (
     <QueryClientProvider client={queryClient}>

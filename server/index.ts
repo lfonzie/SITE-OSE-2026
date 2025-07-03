@@ -3,6 +3,7 @@ import { createServer } from "http";
 import path from "path";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import compression from "compression";
 
 const app = express();
 
@@ -15,8 +16,43 @@ app.use((req, res, next) => {
   next();
 });
 
+// Enable compression for all responses
+app.use(compression({
+  threshold: 1024, // Only compress if response is larger than 1KB
+  level: 6, // Compression level (1-9, 6 is balanced)
+  filter: (req, res) => {
+    // Always compress images and text
+    const contentType = res.getHeader('content-type');
+    if (typeof contentType === 'string') {
+      return contentType.includes('image/') || contentType.includes('text/') || contentType.includes('application/json');
+    }
+    return compression.filter(req, res);
+  }
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Cache middleware for static assets (especially images)
+app.use('/images', (req, res, next) => {
+  // Set aggressive caching headers for images
+  res.setHeader('Cache-Control', 'public, max-age=31536000, immutable'); // 1 year
+  res.setHeader('ETag', `"${Date.now()}"`);
+  res.setHeader('Expires', new Date(Date.now() + 31536000000).toUTCString());
+  
+  // Enable compression
+  res.setHeader('Vary', 'Accept-Encoding');
+  
+  next();
+});
+
+// Cache middleware for API images
+app.use('/api/images', (req, res, next) => {
+  // Shorter cache for dynamic API images but still cache
+  res.setHeader('Cache-Control', 'public, max-age=3600'); // 1 hour
+  res.setHeader('Vary', 'Accept-Encoding');
+  next();
+});
 
 
 

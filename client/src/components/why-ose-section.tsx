@@ -5,6 +5,8 @@ import DragImagePosition from '@/components/DragImagePosition';
 import EnhancedImageSelector from '@/components/EnhancedImageSelector';
 import { useAuth } from '@/contexts/AuthContext';
 import { usePageData } from '@/hooks/usePageData';
+import OptimizedImage from '@/components/OptimizedImage';
+import { useSimpleImagePreloader } from '@/hooks/useSimpleImagePreloader';
 
 export default function WhyOSESection() {
   const { isAuthenticated } = useAuth();
@@ -16,6 +18,9 @@ export default function WhyOSESection() {
   } = usePageData('Why OSE Section', {
     images: [newImages.horizontal2, newImages.horizontal3, newImages.horizontal4, newImages.horizontal5]
   });
+
+  // Preload section images
+  const imagePreloader = useSimpleImagePreloader(images, false);
 
   const baseReasons = [
     {
