@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface PerformanceMetrics {
   lcp: number | null;
@@ -10,6 +11,7 @@ interface PerformanceMetrics {
 }
 
 export default function PerformanceMonitor() {
+  const { user } = useAuth();
   const [metrics, setMetrics] = useState<PerformanceMetrics>({
     lcp: null,
     cls: null,
@@ -22,8 +24,8 @@ export default function PerformanceMonitor() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Only show in development or when explicitly enabled
-    const showMonitor = !import.meta.env.PROD || import.meta.env.VITE_SHOW_PERFORMANCE_MONITOR;
+    // Only show when user is authenticated as admin
+    const showMonitor = user && user.isAuthenticated;
     setIsVisible(!!showMonitor);
 
     if (!showMonitor) return;
@@ -117,7 +119,7 @@ export default function PerformanceMonitor() {
     return () => {
       window.removeEventListener('load', measurePageMetrics);
     };
-  }, []);
+  }, [user]);
 
   // Helper function to get performance rating
   const getPerformanceRating = (metric: string, value: number | null): 'good' | 'needs-improvement' | 'poor' | 'unknown' => {
