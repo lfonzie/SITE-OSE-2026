@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
+    <!-- Performance optimizations: Critical resource preloading -->
+    <link rel="preload" as="image" href="/images/horizontal_4.png" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/LogoOSE100anos.png" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/horizontal_2.png" fetchpriority="low">
+    <link rel="preload" as="image" href="/images/horizontal_3.png" fetchpriority="low">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//connect.facebook.net">
+    <link rel="dns-prefetch" href="//sdk.dfktv2.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+
     <!-- SEO Meta Tags -->
     <title>Colégio OSE - Tradição Secular de Ensino em Sorocaba | Desde 1924</title>
     <meta name="description" content="Colégio OSE - 100 anos de excelência educacional em Sorocaba. Educação Infantil, Ensino Fundamental e Médio. Formando líderes conscientes desde 1924." />
@@ -27,6 +39,10 @@
     <meta name="twitter:description" content="100 anos de excelência educacional em Sorocaba. Educação Infantil, Ensino Fundamental e Médio." />
     <meta name="twitter:image" content="https://colegioose.com.br/images/logo-ose.png" />
 
+    <!-- Critical Resource Preloading for LCP -->
+    <link rel="preload" as="image" href="/images/horizontal_4.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/horizontal_4.webp" type="image/webp" fetchpriority="high" />
+    
     <!-- DNS Prefetch for Performance -->
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">

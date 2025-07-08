@@ -1,0 +1,48 @@
+Detailed Summary of Performance Report for Website Optimization:
+
+Avoid Enormous Network Payloads (LCP Issue):
+Problem: Total page size is 49.5MB, dominated by large images (e.g., upload_1751324989610.jpeg - 4.21MB, upload_1751324509723.jpeg - 3.66MB, etc.), causing slow load times and high data costs for users.
+Action:
+Compress images using tools like ImageOptim or TinyPNG.
+Convert images to modern formats (e.g., WebP) for smaller file sizes.
+Implement responsive images with srcset to serve smaller images for mobile devices.
+Use a CDN to reduce latency for image delivery.
+Reduce JavaScript Execution Time (TBT Issue):
+Problem: 1.5s spent on JavaScript execution, with significant CPU usage (e.g., index-CIgQfGRl.js - 2.1s total CPU time, 669ms script evaluation).
+Action:
+Minify and bundle JS files to reduce parsing and execution time.
+Defer non-critical JS using defer or async attributes.
+Remove unused code with tools like Webpack or Rollup.
+Optimize third-party scripts (e.g., Google Tag Manager, Facebook Pixel) by loading them asynchronously or reducing their scope.
+Avoid Long Main-Thread Tasks (TBT Issue):
+Problem: 20 long tasks identified, with the longest from index-CIgQfGRl.js (518ms) and Cloudflare’s rocket-loader.min.js (322ms), causing input delays.
+Action:
+Break down large JS tasks into smaller, asynchronous chunks using Web Workers.
+Prioritize critical rendering path by inlining essential JS and deferring non-essential scripts.
+Audit third-party scripts (e.g., googletagmanager.com, connect.facebook.net) for necessity and optimize their execution.
+Set Explicit Width and Height on Image Elements (CLS Issue):
+Problem: Two images (LogoOSE100anos.png) lack explicit width and height, causing layout shifts and poor Cumulative Layout Shift (CLS).
+Action:
+Add width and height attributes to <img> tags (e.g., <img src="/images/LogoOSE100anos.png" width="100" height="100" alt="OSE - 100 Anos">).
+Ensure aspect ratios are maintained with CSS (e.g., aspect-ratio: 100 / 100).
+Use loading="lazy" for non-critical images to improve CLS.
+Preload Largest Contentful Paint Image (LCP Issue):
+Problem: The LCP image (horizontal_4.png) causes a 738ms delay due to dynamic loading.
+Action:
+Add a preload tag in the <head>: <link rel="preload" as="image" href="/images/horizontal_4.png">.
+Ensure the LCP image is optimized (compressed and in WebP format) to reduce load time.
+Page Details:
+Problem:
+Fully loaded time: 6.9s.
+Total page size: 49.4MB (48MB images, 1.15MB JS, 157KB fonts, 34.4KB CSS).
+95 requests (38.9% images, 20% JS, 4.2% CSS/HTML).
+Action:
+Reduce total requests by consolidating CSS/JS files and sprite images.
+Optimize web fonts by limiting font families and using font-display: swap.
+Implement lazy loading for off-screen images using loading="lazy".
+Minimize third-party requests (e.g., Google Tag Manager, Facebook Pixel) by evaluating their necessity.
+Additional Recommendations:
+
+JavaScript Optimization: Excessive JS usage impacts performance. Audit and remove unused scripts, and consider code-splitting for faster initial loads.
+Third-Party Scripts: Third-party scripts (e.g., Google Tag Manager, Facebook) contribute to delays. Load them asynchronously or conditionally based on user interaction.
+Performance Monitoring: Set up continuous monitoring with tools like GTmetrix or Lighthouse to track improvements and regressions.

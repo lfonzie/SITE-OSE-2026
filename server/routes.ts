@@ -336,6 +336,22 @@ export async function registerRoutes(app: Express) {
     }
   });
 
+  // Get image dimensions for CLS optimization
+  app.get("/api/image-dimensions", (req, res) => {
+    try {
+      const dimensionsPath = path.join(process.cwd(), 'client/public/images/dimensions.json');
+      if (fs.existsSync(dimensionsPath)) {
+        const dimensions = JSON.parse(fs.readFileSync(dimensionsPath, 'utf-8'));
+        res.json(dimensions);
+      } else {
+        res.json({});
+      }
+    } catch (error: any) {
+      console.error('Error loading image dimensions:', error);
+      res.status(500).json({ error: 'Failed to load image dimensions' });
+    }
+  });
+
   // Save page configuration
   app.post("/api/page-config", async (req, res) => {
     try {

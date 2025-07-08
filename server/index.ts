@@ -16,6 +16,34 @@ app.use((req, res, next) => {
   next();
 });
 
+// Performance optimization middleware
+const performanceMiddleware = (req: Request, res: Response, next: NextFunction) => {
+  // Aggressive caching for static assets
+  if (req.url.match(/\.(js|css|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2|ttf|eot)$/)) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable'); // 1 year
+    res.setHeader('Expires', new Date(Date.now() + 31536000000).toUTCString());
+  }
+  
+  // Preload critical resources for homepage
+  if (req.url === '/' || req.url === '/home') {
+    res.setHeader('Link', [
+      '</images/horizontal_4.png>; rel=preload; as=image; fetchpriority=high',
+      '</images/LogoOSE100anos.png>; rel=preload; as=image; fetchpriority=high',
+      '<https://fonts.googleapis.com>; rel=dns-prefetch'
+    ].join(', '));
+  }
+  
+  // Security and performance headers
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  
+  next();
+};
+
+app.use(performanceMiddleware);
+
 // Enable compression for all responses
 app.use(compression({
   threshold: 1024, // Only compress if response is larger than 1KB

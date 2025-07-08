@@ -18,6 +18,9 @@ export default function OptimizedImage({
   priority = false,
   lazy = true,
   placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNHB4IiBmaWxsPSIjOTk5Ij5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==',
+  width,
+  height,
+  sizes = '100vw',
   className,
   onLoad,
   onError,
@@ -25,9 +28,34 @@ export default function OptimizedImage({
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const [imageDimensions, setImageDimensions] = useState<{width?: number, height?: number}>({});
   const [isInView, setIsInView] = useState(!lazy || priority);
   const imgRef = useRef<HTMLImageElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  // Load image dimensions for CLS optimization
+  useEffect(() => {
+    const loadDimensions = async () => {
+      try {
+        const response = await fetch('/api/image-dimensions');
+        const dimensions = await response.json();
+        const fileName = src.split('/').pop() || '';
+        
+        if (dimensions[fileName]) {
+          setImageDimensions({
+            width: dimensions[fileName].width,
+            height: dimensions[fileName].height
+          });
+        }
+      } catch (error) {
+        console.warn('Failed to load image dimensions:', error);
+      }
+    };
+
+    if (!width || !height) {
+      loadDimensions();
+    }
+  }, [src, width, height]);
 
   // Cache management
   const getCachedImage = (url: string): string | null => {
@@ -125,21 +153,35 @@ export default function OptimizedImage({
   const cachedSrc = getCachedImage(src);
   const imageSrc = cachedSrc || (isInView ? src : placeholder);
 
+  // Use provided dimensions or fall back to loaded dimensions
+  const finalWidth = width || imageDimensions.width;
+  const finalHeight = height || imageDimensions.height;
+
   return (
     <img
       ref={imgRef}
       src={imageSrc}
       alt={alt}
+      width={finalWidth}
+      height={finalHeight}
+      sizes={sizes}
       className={cn(
-        'transition-opacity duration-300',
+        'transition-opacity duration-300 performance-optimized',
         isLoading ? 'opacity-70' : 'opacity-100',
         hasError ? 'opacity-50' : '',
+        'w-full h-auto',
         className
       )}
+      style={{
+        aspectRatio: finalWidth && finalHeight ? `${finalWidth} / ${finalHeight}` : undefined,
+        contentVisibility: 'auto',
+        containIntrinsicSize: finalWidth && finalHeight ? `${finalWidth}px ${finalHeight}px` : undefined,
+      }}
       onLoad={handleLoad}
       onError={handleError}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
+      fetchPriority={priority ? 'high' : 'auto'}
       {...props}
     />
   );

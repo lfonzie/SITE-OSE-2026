@@ -1,0 +1,53 @@
+
+<!-- Critical performance optimizations -->
+<link rel="preload" as="image" href="/images/horizontal_4.png" fetchpriority="high">
+<link rel="preload" as="image" href="/images/LogoOSE100anos.png" fetchpriority="high">
+
+<!-- Image preloader for LCP -->
+<div class="preload-lcp">
+  <img src="/images/horizontal_4.png" alt="" width="1920" height="1080">
+  <img src="/images/horizontal_2.png" alt="" width="1920" height="1080">
+  <img src="/images/horizontal_3.png" alt="" width="1920" height="1080">
+  <img src="/images/horizontal_5.png" alt="" width="1920" height="1080">
+</div>
+
+<!-- Performance monitoring script -->
+<script>
+  // Monitor Core Web Vitals
+  function measureLCP() {
+    new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      const lastEntry = entries[entries.length - 1];
+      console.log('LCP:', lastEntry.startTime);
+    }).observe({entryTypes: ['largest-contentful-paint']});
+  }
+
+  function measureCLS() {
+    let clsValue = 0;
+    new PerformanceObserver((entryList) => {
+      for (const entry of entryList.getEntries()) {
+        if (!entry.hadRecentInput) {
+          clsValue += entry.value;
+        }
+      }
+      console.log('CLS:', clsValue);
+    }).observe({entryTypes: ['layout-shift']});
+  }
+
+  function measureTBT() {
+    new PerformanceObserver((entryList) => {
+      entryList.getEntries().forEach((entry) => {
+        if (entry.duration > 50) {
+          console.log('Long Task:', entry.duration);
+        }
+      });
+    }).observe({entryTypes: ['longtask']});
+  }
+
+  // Initialize monitoring
+  if (typeof PerformanceObserver !== 'undefined') {
+    measureLCP();
+    measureCLS();
+    measureTBT();
+  }
+</script>

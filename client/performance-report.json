@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-07-08T14:48:19.541Z",
+  "totalImages": 23,
+  "largeImages": 91,
+  "criticalImages": 4,
+  "recommendations": [
+    "Preload LCP image (horizontal_4.png) in HTML head",
+    "Add explicit width/height to all images",
+    "Convert large images to WebP format",
+    "Implement responsive images with srcset",
+    "Use lazy loading for non-critical images",
+    "Compress images to 75-85% quality",
+    "Defer non-critical JavaScript",
+    "Use CSS content-visibility for better rendering"
+  ],
+  "expectedImprovements": {
+    "lcp": "Reduced by 300-700ms",
+    "cls": "Improved by preventing layout shifts",
+    "tbt": "Reduced by deferring non-critical scripts",
+    "pageSize": "Reduced by 30-50% with WebP",
+    "loadTime": "Improved by 2-4 seconds"
+  }
+}

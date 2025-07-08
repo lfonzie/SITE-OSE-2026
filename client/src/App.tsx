@@ -13,6 +13,8 @@ import { snippetManager } from "./lib/custom-snippets";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useAppImagePreloader } from "./hooks/useSimpleImagePreloader";
 import DeploymentConfigLoader from "./components/DeploymentConfigLoader";
+import PerformanceMonitor from "./components/PerformanceMonitor";
+import { PerformanceOptimizer } from "./utils/performanceOptimizer";
 
 import Home from "@/pages/home";
 import EducacaoInfantil from "@/pages/educacao-infantil";
@@ -137,6 +139,12 @@ function App() {
     // Performance optimizations
     preloadResources();
     initLazyLoading();
+    PerformanceOptimizer.initialize();
+    
+    // Monitor Core Web Vitals in production
+    if (import.meta.env.PROD) {
+      PerformanceOptimizer.monitorWebVitals();
+    }
 
     // Custom snippets
     snippetManager.executeSnippets();
@@ -154,6 +162,7 @@ function App() {
       <AuthProvider>
         <TooltipProvider>
           <DeploymentConfigLoader />
+          <PerformanceMonitor />
           <Toaster />
           <Router />
         </TooltipProvider>
