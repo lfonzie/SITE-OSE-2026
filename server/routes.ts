@@ -1,11 +1,12 @@
 import type { Express } from "express";
 import { storage } from "./storage.js";
 import { z } from "zod";
-import { insertContactSchema, insertMaterialListSchema } from "@shared/schema";
+import { insertContactSchema, insertMaterialListSchema, insertBolsasInscricaoSchema } from "@shared/schema";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
 import { setupSimpleAuth, isAuthenticated } from "./simpleAuth";
+import { emailService } from "./emailService";
 
 // Configurar multer para upload geral de imagens (pasta /images)
 const uploadGeneral = multer({
@@ -738,6 +739,50 @@ export async function registerRoutes(app: Express) {
     const robotsPath = path.join(process.cwd(), 'client/public/robots.txt');
     res.set('Content-Type', 'text/plain');
     res.sendFile(robotsPath);
+  });
+
+  // Bolsas Inscricoes routes
+  app.post("/api/bolsas-inscricao", async (req, res) => {
+    try {
+      const parsedData = insertBolsasInscricaoSchema.parse(req.body);
+      const inscricao = await storage.createBolsasInscricao(parsedData);
+      
+      // Send confirmation email
+      try {
+        const emailTemplate = emailService.generateConfirmationEmail(inscricao);
+        await emailService.sendEmail({
+          to: inscricao.emailResponsavel,
+          subject: emailTemplate.subject,
+          html: emailTemplate.html
+        });
+      } catch (emailError) {
+        console.error('Error sending confirmation email:', emailError);
+        // Don't fail the whole request if email fails
+      }
+      
+      res.json({ 
+        success: true, 
+        message: "Inscrição realizada com sucesso!", 
+        protocolo: inscricao.protocolo,
+        inscricao: inscricao
+      });
+    } catch (error: any) {
+      console.error('Error creating bolsas inscricao:', error);
+      if (error.name === 'ZodError') {
+        res.status(400).json({ error: "Dados inválidos", details: error.errors });
+      } else {
+        res.status(500).json({ error: error.message });
+      }
+    }
+  });
+
+  app.get("/api/bolsas-inscricoes", async (req, res) => {
+    try {
+      const inscricoes = await storage.getBolsasInscricoes();
+      res.json(inscricoes);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
   });
 
   // Professores routes

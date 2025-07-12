@@ -1,7 +1,7 @@
 import { 
-  programs, faculty, news, testimonials, contacts, materialLists, albumEvents, users,
-  type Program, type Faculty, type News, type Testimonial, type Contact, type MaterialList, type AlbumEvent, type User,
-  type InsertProgram, type InsertFaculty, type InsertNews, type InsertTestimonial, type InsertContact, type InsertMaterialList, type InsertAlbumEvent, type UpsertUser
+  programs, faculty, news, testimonials, contacts, materialLists, albumEvents, users, bolsasInscricoes,
+  type Program, type Faculty, type News, type Testimonial, type Contact, type MaterialList, type AlbumEvent, type User, type BolsasInscricao,
+  type InsertProgram, type InsertFaculty, type InsertNews, type InsertTestimonial, type InsertContact, type InsertMaterialList, type InsertAlbumEvent, type UpsertUser, type InsertBolsasInscricao
 } from "@shared/schema";
 import path from 'path';
 import fs from 'fs/promises';
@@ -47,6 +47,11 @@ export interface IStorage {
   createAlbumEvent(event: InsertAlbumEvent): Promise<AlbumEvent>;
   updateAlbumEvent(id: number, updates: Partial<AlbumEvent>): Promise<AlbumEvent | undefined>;
   deleteAlbumEvent(id: number): Promise<boolean>;
+
+  // Bolsas Inscricoes
+  getBolsasInscricoes(): Promise<BolsasInscricao[]>;
+  createBolsasInscricao(inscricao: InsertBolsasInscricao): Promise<BolsasInscricao>;
+  getBolsasInscricaoById(id: number): Promise<BolsasInscricao | undefined>;
 }
 
 export class MemStorage implements IStorage {
@@ -512,6 +517,28 @@ export class MemStorage implements IStorage {
   private async init() {
     await this.ensureDataDir();
     await this.loadMaterialLists();
+  }
+
+  // Bolsas Inscricoes implementation
+  async getBolsasInscricoes(): Promise<BolsasInscricao[]> {
+    return [];
+  }
+
+  async createBolsasInscricao(inscricao: InsertBolsasInscricao): Promise<BolsasInscricao> {
+    const id = this.currentId++;
+    const protocolo = `OSE-2026-${Date.now().toString().slice(-6)}`;
+    const newInscricao: BolsasInscricao = {
+      id,
+      protocolo,
+      status: 'pendente',
+      createdAt: new Date(),
+      ...inscricao
+    };
+    return newInscricao;
+  }
+
+  async getBolsasInscricaoById(id: number): Promise<BolsasInscricao | undefined> {
+    return undefined;
   }
 }
 

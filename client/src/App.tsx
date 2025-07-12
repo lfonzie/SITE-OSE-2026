@@ -53,6 +53,8 @@ import { useAuth } from "@/hooks/useAuth";
 import { lazy } from "react";
 import ContatoPage from './pages/contato';
 import Bolsas2025Page from './pages/bolsas2025';
+import BolsasInscricao from './pages/bolsas-inscricao';
+import BolsasInscricaoSuccess from './pages/bolsas-inscricao-success';
 
 function Router() {
   // Track page views when routes change
@@ -104,6 +106,8 @@ function Router() {
       <Route path="/plurall" component={Plurall} />
       <Route path="/contato" component={ContatoPage} />
       <Route path="/bolsas2025" component={Bolsas2025Page} />
+      <Route path="/bolsas-inscricao" component={BolsasInscricao} />
+      <Route path="/bolsas-inscricao/success" component={BolsasInscricaoSuccess} />
       <Route component={NotFound} />
     </Switch>
   );
