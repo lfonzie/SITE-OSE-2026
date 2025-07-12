@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -13,7 +13,20 @@ import { useToast } from '@/hooks/use-toast';
 import { insertBolsasInscricaoSchema } from '@shared/schema';
 import { apiRequest } from '@/lib/queryClient';
 import { z } from 'zod';
-import { Calendar, User, Mail, Phone, MapPin, School, GraduationCap, FileText, Award, Users, BookOpen, Star } from 'lucide-react';
+import { Calendar, User, Mail, Phone, MapPin, School, GraduationCap, FileText, Award, Users, BookOpen, Star, Target, Lightbulb, Heart } from 'lucide-react';
+import Navigation from "@/components/navigation";
+import WhyOSESection from "@/components/why-ose-section";
+import PedagogicalProposalSection from "@/components/pedagogical-proposal-section";
+import ContactSection from "@/components/contact-section";
+import { updateSEO } from "@/lib/seo";
+import SEO from "@/components/SEO";
+import { motion } from "framer-motion";
+import { AnimatedCard } from "@/components/animated/AnimatedCard";
+import { useVisualComposer } from '@/hooks/useVisualComposer';
+import { usePageData } from '@/hooks/usePageData';
+import { useAuth } from '@/contexts/AuthContext';
+import HeroBackgroundManager from '@/components/HeroBackgroundManager';
+import LogoutButton from '@/components/LogoutButton';
 
 type FormData = z.infer<typeof insertBolsasInscricaoSchema>;
 
@@ -25,6 +38,34 @@ export default function BolsasInscricao() {
   const { toast } = useToast();
   const [selectedSegment, setSelectedSegment] = useState<string>('');
   const [currentStep, setCurrentStep] = useState(1);
+  const { isAuthenticated } = useAuth();
+  const { VisualComposerComponent } = useVisualComposer('Bolsas 2026');
+
+  // Initialize page data with auto-save functionality
+  const { 
+    heroBackground,
+    updateHeroBackground
+  } = usePageData('Bolsas 2026', {
+    heroBackground: {
+      type: 'image',
+      imageUrl: '/images/horizontal_4.png',
+      opacity: 1,
+      overlay: true,
+      overlayColor: '#1e293b',
+      overlayOpacity: 0.8,
+      position: 'center',
+      size: 'cover',
+      repeat: 'no-repeat'
+    }
+  });
+
+  useEffect(() => {
+    updateSEO({
+      title: "Prova de Bolsas 2026 - Colégio OSE Sorocaba",
+      description: "Inscreva-se na prova de bolsas 2026 do Colégio OSE. Oportunidade única de ingressar em uma das melhores escolas de Sorocaba com desconto especial.",
+      keywords: "prova de bolsas sorocaba, colégio ose bolsa estudo, ensino fundamental médio sorocaba, escola particular desconto"
+    });
+  }, []);
 
   const form = useForm<Omit<FormData, 'observacoes'>>({
     resolver: zodResolver(inscricaoSchema),
@@ -114,95 +155,167 @@ export default function BolsasInscricao() {
     return [];
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Prova de Bolsas 2026 - Colégio OSE",
+    "url": "https://colegioose.com.br/bolsas-inscricao",
+    "description": "Inscrição para prova de bolsas 2026 do Colégio OSE. Oportunidade de ingressar com desconto em uma das melhores escolas de Sorocaba.",
+    "provider": {
+      "@type": "EducationalOrganization", 
+      "name": "Colégio OSE",
+      "url": "https://colegioose.com.br"
+    },
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student",
+      "audienceType": "students aged 11-17"
+    },
+    "educationalLevel": ["Ensino Fundamental II", "Ensino Médio"],
+    "offers": {
+      "@type": "Offer",
+      "name": "Bolsas de Estudo 2026",
+      "description": "Descontos especiais para novos alunos"
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50">
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-orange-400/30 to-amber-400/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-amber-400/30 to-orange-400/30 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full blur-3xl animate-pulse animation-delay-4000"></div>
+    <div className="min-h-screen relative">
+      <SEO
+        title="Prova de Bolsas 2026 - Colégio OSE | Inscrições Abertas Sorocaba"
+        description="Inscreva-se na prova de bolsas 2026 do Colégio OSE. Oportunidade única de ingressar com desconto especial em uma das melhores escolas de Sorocaba. Ensino Fundamental II e Médio."
+        keywords="prova bolsas 2026 sorocaba, colégio ose desconto, bolsa estudo sorocaba, ensino fundamental médio particular, escola tradicional sorocaba, desconto mensalidade"
+        canonical="https://colegioose.com.br/bolsas-inscricao"
+        ogTitle="Prova de Bolsas 2026 - Colégio OSE | Oportunidade Única em Sorocaba"
+        ogDescription="Inscrições abertas para prova de bolsas 2026. Ensino de qualidade com tradição centenária e descontos especiais para novos alunos."
+        ogImage="https://colegioose.com.br/images/LogoOSE100anos.png"
+        structuredData={structuredData}
+      />
+      
+      {/* Enhanced Glassmorphism Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50/80 via-white/90 to-amber-50/80"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-school-orange/30 via-school-orange/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-amber-400/25 via-amber-300/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-gradient-to-tr from-yellow-400/20 via-orange-300/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
       </div>
+      
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section 
+        className="relative py-20 text-white overflow-hidden"
+        style={(() => {
+          const baseStyle: React.CSSProperties = {
+            opacity: heroBackground?.opacity || 1
+          };
 
-      <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-          <div className="container mx-auto px-4 text-center">
-            <div className="bg-white/30 backdrop-blur-lg rounded-3xl p-12 border border-white/20 shadow-2xl">
-              <div className="mb-8">
-                <Award className="h-16 w-16 text-amber-600 mx-auto mb-4" />
-                <h1 className="text-5xl font-bold text-amber-900 mb-4">
-                  Prova de Bolsas 2026
-                </h1>
-                <h2 className="text-3xl font-semibold text-amber-800 mb-2">
-                  Colégio OSE
-                </h2>
-                <p className="text-xl text-amber-700 mb-6">
-                  Organização Sorocabana de Ensino - Desde 1924
-                </p>
-                <p className="text-lg text-amber-600 max-w-3xl mx-auto">
-                  Oportunidade única para ingressar em uma das melhores escolas de Sorocaba 
-                  com desconto especial. Inscreva-se agora para a prova de bolsas 2026.
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                <div className="bg-white/40 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <GraduationCap className="h-8 w-8 text-amber-600 mx-auto mb-2" />
-                  <h3 className="font-semibold text-amber-900">Ensino Fundamental II</h3>
-                  <p className="text-amber-800 text-sm">6º ao 9º ano</p>
-                </div>
-                <div className="bg-white/40 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <BookOpen className="h-8 w-8 text-amber-600 mx-auto mb-2" />
-                  <h3 className="font-semibold text-amber-900">Ensino Médio</h3>
-                  <p className="text-amber-800 text-sm">1ª à 3ª série</p>
-                </div>
-                <div className="bg-white/40 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <Star className="h-8 w-8 text-amber-600 mx-auto mb-2" />
-                  <h3 className="font-semibold text-amber-900">Bolsas de Estudo</h3>
-                  <p className="text-amber-800 text-sm">Descontos especiais</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+          if (heroBackground?.type === 'gradient') {
+            return {
+              ...baseStyle,
+              backgroundImage: `linear-gradient(135deg, ${heroBackground.gradientColors?.join(', ') || '#475569, #64748b'})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            };
+          }
 
-        {/* Por que estudar na OSE */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-amber-900 mb-4">Por que estudar na OSE?</h2>
-              <p className="text-xl text-amber-700 max-w-3xl mx-auto">
-                100 anos de tradição educacional com metodologia inovadora e resultados comprovados
+          if (heroBackground?.type === 'image' && heroBackground.imageUrl) {
+            return {
+              ...baseStyle,
+              backgroundImage: `url(${heroBackground.imageUrl})`,
+              backgroundSize: heroBackground.size || 'cover',
+              backgroundPosition: heroBackground.position || 'center',
+              backgroundRepeat: heroBackground.repeat || 'no-repeat'
+            };
+          }
+
+          if (heroBackground?.type === 'color') {
+            return {
+              ...baseStyle,
+              backgroundColor: heroBackground.solidColor || '#475569'
+            };
+          }
+
+          return {
+            ...baseStyle,
+            backgroundImage: 'linear-gradient(135deg, #475569, #64748b)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          };
+        })()}
+      >
+        {/* Hero Background Manager */}
+        {isAuthenticated && (
+          <HeroBackgroundManager
+            currentBackground={heroBackground}
+            onBackgroundChange={updateHeroBackground}
+            className="absolute inset-0"
+          />
+        )}
+
+        {/* Overlay */}
+        {heroBackground?.overlay && (
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: heroBackground.overlayColor || '#1e293b',
+              opacity: heroBackground.overlayOpacity || 0.8
+            }}
+          ></div>
+        )}
+
+        <div className="relative z-10 container mx-auto px-6 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl p-8 shadow-xl shadow-black/20 max-w-4xl"
+          >
+            <div className="text-center mb-8">
+              <Award className="h-16 w-16 text-orange-300 mx-auto mb-4" />
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                Prova de <span className="text-school-orange">Bolsas 2026</span>
+                <span className="block text-lg md:text-xl font-normal text-orange-100 mt-2">
+                  Colégio OSE - Organização Sorocabana de Ensino
+                </span>
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-200 mb-6">
+                Oportunidade única de <strong>ingressar</strong> com <strong>desconto especial</strong>
+              </p>
+              <p className="text-lg mb-8 text-slate-300 max-w-3xl mx-auto">
+                Desde 1924, formamos gerações com excelência educacional. Agora é a sua vez de 
+                fazer parte desta tradição centenária com condições especiais.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white/30 backdrop-blur-lg rounded-2xl p-8 border border-white/20 text-center">
-                <Award className="h-12 w-12 text-amber-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-amber-900 mb-3">Excelência Reconhecida</h3>
-                <p className="text-amber-800">
-                  98% de satisfação das famílias e aprovação nas melhores universidades do país
-                </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6 border border-white/30 text-center">
+                <GraduationCap className="h-10 w-10 text-orange-300 mx-auto mb-3" />
+                <h3 className="font-semibold text-white mb-2">Ensino Fundamental II</h3>
+                <p className="text-orange-100 text-sm">6º ao 9º ano (11 a 14 anos)</p>
               </div>
-              
-              <div className="bg-white/30 backdrop-blur-lg rounded-2xl p-8 border border-white/20 text-center">
-                <Users className="h-12 w-12 text-amber-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-amber-900 mb-3">Educação Integral</h3>
-                <p className="text-amber-800">
-                  Formação acadêmica, socioemocional e cidadã para preparar líderes do futuro
-                </p>
+              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6 border border-white/30 text-center">
+                <BookOpen className="h-10 w-10 text-orange-300 mx-auto mb-3" />
+                <h3 className="font-semibold text-white mb-2">Ensino Médio</h3>
+                <p className="text-orange-100 text-sm">1ª à 3ª série (15 a 17 anos)</p>
               </div>
-              
-              <div className="bg-white/30 backdrop-blur-lg rounded-2xl p-8 border border-white/20 text-center">
-                <BookOpen className="h-12 w-12 text-amber-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-amber-900 mb-3">Metodologia Inovadora</h3>
-                <p className="text-amber-800">
-                  Pedagogia finlandesa, programa bilíngue e tecnologia educacional avançada
-                </p>
+              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6 border border-white/30 text-center">
+                <Star className="h-10 w-10 text-orange-300 mx-auto mb-3" />
+                <h3 className="font-semibold text-white mb-2">Bolsas de Estudo</h3>
+                <p className="text-orange-100 text-sm">Descontos especiais</p>
               </div>
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Por que estudar na OSE */}
+      <WhyOSESection />
+
+      {/* Proposta Pedagógica */}
+      <PedagogicalProposalSection />
 
         {/* Formulário de Inscrição */}
         <section className="py-20">
@@ -564,23 +677,12 @@ export default function BolsasInscricao() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="py-12 bg-white/20 backdrop-blur-lg border-t border-white/20">
-          <div className="container mx-auto px-4 text-center">
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-amber-900 mb-2">
-                Colégio OSE - Organização Sorocabana de Ensino
-              </h3>
-              <p className="text-amber-800 text-lg">
-                Desde 1924 - Tradição Secular de Ensino
-              </p>
-            </div>
-            <p className="text-amber-700">
-              © 2025 Colégio OSE. Todos os direitos reservados.
-            </p>
-          </div>
-        </footer>
-      </div>
+      {/* Contato */}
+      <ContactSection />
+      
+      {/* Visual Composer para admin */}
+      {isAuthenticated && <VisualComposerComponent />}
+      {isAuthenticated && <LogoutButton />}
     </div>
   );
 }
