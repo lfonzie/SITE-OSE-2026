@@ -151,7 +151,7 @@ export default function PerformanceMonitor() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 bg-white/90 backdrop-blur-lg rounded-lg shadow-lg p-4 text-xs font-mono max-w-xs z-50">
+    <div className="fixed bottom-4 left-4 bg-white/90 backdrop-blur-lg rounded-lg shadow-lg p-4 text-xs font-mono max-w-xs z-50">
       <h3 className="font-bold text-sm mb-2 text-gray-800">Performance Monitor</h3>
       
       <div className="space-y-1">
