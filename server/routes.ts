@@ -7,6 +7,7 @@ import path from "path";
 import fs from "fs";
 import { setupSimpleAuth, isAuthenticated } from "./simpleAuth";
 import { emailService } from "./emailService";
+import { googleSheetsService } from "./googleSheetsService";
 
 // Configurar multer para upload geral de imagens (pasta /images)
 const uploadGeneral = multer({
@@ -747,6 +748,18 @@ export async function registerRoutes(app: Express) {
       const parsedData = insertBolsasInscricaoSchema.parse(req.body);
       const inscricao = await storage.createBolsasInscricao(parsedData);
       
+      // Add to Google Sheets
+      try {
+        // Use a fixed spreadsheet ID or create one if needed
+        const spreadsheetId = process.env.GOOGLE_SHEETS_ID || '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'; // Sample ID
+        
+        await googleSheetsService.addInscricao(spreadsheetId, parsedData);
+        console.log('Inscrição adicionada ao Google Sheets');
+      } catch (sheetsError) {
+        console.error('Error adding to Google Sheets:', sheetsError);
+        // Don't fail the whole request if sheets fails
+      }
+      
       // Send confirmation email
       try {
         const emailTemplate = emailService.generateConfirmationEmail(inscricao);
@@ -773,6 +786,29 @@ export async function registerRoutes(app: Express) {
       } else {
         res.status(500).json({ error: error.message });
       }
+    }
+  });
+
+  // Create Google Sheets spreadsheet for bolsas
+  app.post("/api/create-bolsas-spreadsheet", async (req, res) => {
+    try {
+      const { title } = req.body;
+      const spreadsheetId = await googleSheetsService.createSpreadsheet(title || 'Inscrições Prova de Bolsas 2026');
+      
+      if (spreadsheetId) {
+        const url = await googleSheetsService.getSpreadsheetUrl(spreadsheetId);
+        res.json({ 
+          success: true, 
+          spreadsheetId, 
+          url,
+          message: "Planilha criada com sucesso! Adicione o ID da planilha na variável GOOGLE_SHEETS_ID do ambiente."
+        });
+      } else {
+        res.status(500).json({ error: "Erro ao criar planilha" });
+      }
+    } catch (error: any) {
+      console.error('Error creating spreadsheet:', error);
+      res.status(500).json({ error: error.message });
     }
   });
 

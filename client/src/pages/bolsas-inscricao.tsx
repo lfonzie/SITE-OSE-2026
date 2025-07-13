@@ -311,21 +311,58 @@ export default function BolsasInscricao() {
         </div>
       </section>
 
-      {/* Por que estudar na OSE */}
-      <WhyOSESection />
-
-      {/* Proposta Pedagógica */}
-      <PedagogicalProposalSection />
-
-        {/* Formulário de Inscrição */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-amber-900 mb-4">Formulário de Inscrição</h2>
-              <p className="text-xl text-amber-700 max-w-3xl mx-auto">
-                Preencha os dados abaixo para garantir sua vaga na prova de bolsas 2026
+      {/* Informações sobre a Prova */}
+      <section className="py-16 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Informações sobre a <span className="text-school-orange">Prova de Bolsas 2026</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Processo seletivo para vagas remanescentes com descontos especiais
               </p>
             </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-6 rounded-xl shadow-xl shadow-black/10 text-center">
+              <Calendar className="h-10 w-10 text-school-orange mx-auto mb-3" />
+              <h4 className="font-bold text-slate-800 mb-2">Data da Prova</h4>
+              <p className="text-sm text-slate-600">Fevereiro 2026<br/>Data será informada por email</p>
+            </div>
+            <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-6 rounded-xl shadow-xl shadow-black/10 text-center">
+              <GraduationCap className="h-10 w-10 text-school-orange mx-auto mb-3" />
+              <h4 className="font-bold text-slate-800 mb-2">Vagas Disponíveis</h4>
+              <p className="text-sm text-slate-600">Vagas remanescentes<br/>Fund II e Ensino Médio</p>
+            </div>
+            <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-6 rounded-xl shadow-xl shadow-black/10 text-center">
+              <Star className="h-10 w-10 text-school-orange mx-auto mb-3" />
+              <h4 className="font-bold text-slate-800 mb-2">Descontos</h4>
+              <p className="text-sm text-slate-600">Até 50% de desconto<br/>na mensalidade</p>
+            </div>
+            <div className="backdrop-blur-lg bg-white/30 border border-white/40 p-6 rounded-xl shadow-xl shadow-black/10 text-center">
+              <FileText className="h-10 w-10 text-school-orange mx-auto mb-3" />
+              <h4 className="font-bold text-slate-800 mb-2">Disciplinas</h4>
+              <p className="text-sm text-slate-600">Português, Matemática<br/>e Redação</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Formulário de Inscrição */}
+      <section className="py-16 relative">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Inscrição para <span className="text-school-orange">Prova de Bolsas</span>
+              </h2>
+              <p className="text-xl text-gray-600">
+                Preencha os dados abaixo - Vagas remanescentes limitadas
+              </p>
+            </div>
+          </div>
 
             <div className="max-w-4xl mx-auto">
               <Form {...form}>
@@ -372,35 +409,48 @@ export default function BolsasInscricao() {
                       {/* Seleção de Segmento */}
                       {watchedFields.nomeAluno && watchedFields.dataNascimento && (
                         <div className="space-y-4 animate-in slide-in-from-top-4 duration-500">
-                          <h4 className="text-lg font-semibold text-amber-900">Selecione o segmento:</h4>
+                          <h4 className="text-lg font-semibold text-slate-800">Selecione o segmento (vagas remanescentes):</h4>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <button
                               type="button"
                               onClick={() => setSelectedSegment('fund2')}
-                              className={`p-6 rounded-xl border-2 transition-all duration-300 ${
+                              className={`p-6 rounded-xl border-2 transition-all duration-300 backdrop-blur-lg ${
                                 selectedSegment === 'fund2'
-                                  ? 'border-amber-500 bg-amber-50/80 shadow-lg'
+                                  ? 'border-school-orange bg-orange-50/80 shadow-lg'
                                   : 'border-white/30 bg-white/20 hover:bg-white/30'
                               }`}
                             >
-                              <GraduationCap className="h-8 w-8 text-amber-600 mx-auto mb-2" />
-                              <h3 className="font-semibold text-amber-900">Ensino Fundamental II</h3>
-                              <p className="text-amber-800 text-sm">6º ao 9º ano</p>
+                              <GraduationCap className="h-8 w-8 text-school-orange mx-auto mb-2" />
+                              <h3 className="font-semibold text-slate-800">Ensino Fundamental II</h3>
+                              <p className="text-slate-600 text-sm">6º ao 9º ano - Vagas remanescentes</p>
                             </button>
                             <button
                               type="button"
                               onClick={() => setSelectedSegment('medio')}
-                              className={`p-6 rounded-xl border-2 transition-all duration-300 ${
+                              className={`p-6 rounded-xl border-2 transition-all duration-300 backdrop-blur-lg ${
                                 selectedSegment === 'medio'
-                                  ? 'border-amber-500 bg-amber-50/80 shadow-lg'
+                                  ? 'border-school-orange bg-orange-50/80 shadow-lg'
                                   : 'border-white/30 bg-white/20 hover:bg-white/30'
                               }`}
                             >
-                              <BookOpen className="h-8 w-8 text-amber-600 mx-auto mb-2" />
-                              <h3 className="font-semibold text-amber-900">Ensino Médio</h3>
-                              <p className="text-amber-800 text-sm">1ª à 3ª série</p>
+                              <BookOpen className="h-8 w-8 text-school-orange mx-auto mb-2" />
+                              <h3 className="font-semibold text-slate-800">Ensino Médio</h3>
+                              <p className="text-slate-600 text-sm">1ª à 3ª série - Vagas remanescentes</p>
                             </button>
                           </div>
+                        </div>
+                      )}
+
+                      {/* Botão Próximo para Passo 1 */}
+                      {watchedFields.nomeAluno && watchedFields.dataNascimento && selectedSegment && (
+                        <div className="flex justify-end pt-4 animate-in slide-in-from-top-4 duration-500">
+                          <Button 
+                            type="button" 
+                            onClick={() => setCurrentStep(2)}
+                            className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
+                          >
+                            Próximo
+                          </Button>
                         </div>
                       )}
                     </CardContent>
@@ -455,6 +505,19 @@ export default function BolsasInscricao() {
                             )}
                           />
                         </div>
+
+                        {/* Botão Próximo para Passo 2 */}
+                        {watchedFields.serie && watchedFields.escolaAtual && (
+                          <div className="flex justify-end pt-4">
+                            <Button 
+                              type="button" 
+                              onClick={() => setCurrentStep(3)}
+                              className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
+                            >
+                              Próximo
+                            </Button>
+                          </div>
+                        )}
                       </CardContent>
                     </Card>
                   )}
@@ -510,6 +573,19 @@ export default function BolsasInscricao() {
                             )}
                           />
                         </div>
+
+                        {/* Botão Próximo para Passo 3 */}
+                        {watchedFields.nomeResponsavel && watchedFields.emailResponsavel && watchedFields.telefoneResponsavel && (
+                          <div className="flex justify-end pt-4">
+                            <Button 
+                              type="button" 
+                              onClick={() => setCurrentStep(4)}
+                              className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
+                            >
+                              Próximo
+                            </Button>
+                          </div>
+                        )}
                       </CardContent>
                     </Card>
                   )}
@@ -636,46 +712,333 @@ export default function BolsasInscricao() {
           </div>
         </section>
 
-        {/* Informações de Contato */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-amber-900 mb-4">Contato</h2>
-              <p className="text-xl text-amber-700 max-w-3xl mx-auto">
-                Tire suas dúvidas sobre a prova de bolsas 2026
+
+
+      {/* Por que estudar na OSE */}
+      <WhyOSESection />
+
+      {/* Proposta Pedagógica */}
+      <PedagogicalProposalSection />
+
+      {/* Formulário de Inscrição */}
+      <section className="py-16 relative">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl shadow-black/10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Inscrição para <span className="text-school-orange">Prova de Bolsas</span>
+              </h2>
+              <p className="text-xl text-gray-600">
+                Preencha os dados abaixo - Vagas remanescentes limitadas
               </p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <Card className="bg-white/30 backdrop-blur-lg border-white/20 text-center">
-                <CardContent className="p-8">
-                  <Phone className="h-12 w-12 text-amber-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-amber-900 mb-2">Telefone</h3>
-                  <p className="text-amber-800 font-medium">(15) 2101-3812</p>
-                  <p className="text-amber-700 text-sm mt-1">Horário comercial</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white/30 backdrop-blur-lg border-white/20 text-center">
-                <CardContent className="p-8">
-                  <Mail className="h-12 w-12 text-amber-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-amber-900 mb-2">Email</h3>
-                  <p className="text-amber-800 font-medium">info@colegioose.com.br</p>
-                  <p className="text-amber-700 text-sm mt-1">Resposta em até 24h</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white/30 backdrop-blur-lg border-white/20 text-center">
-                <CardContent className="p-8">
-                  <MapPin className="h-12 w-12 text-amber-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-amber-900 mb-2">Endereço</h3>
-                  <p className="text-amber-800 font-medium">Rua Duque de Caxias, 1101</p>
-                  <p className="text-amber-700 text-sm mt-1">Centro - Sorocaba/SP</p>
-                </CardContent>
-              </Card>
-            </div>
           </div>
-        </section>
+
+            <div className="max-w-4xl mx-auto">
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                  
+                  {/* Passo 1: Dados Básicos do Aluno */}
+                  <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                    <CardHeader>
+                      <CardTitle className="text-2xl text-amber-900 flex items-center gap-2">
+                        <User className="h-6 w-6" />
+                        1. Dados do Aluno
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <FormField
+                          control={form.control}
+                          name="nomeAluno"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Nome Completo do Aluno</FormLabel>
+                              <FormControl>
+                                <Input {...field} placeholder="Nome completo" className="bg-white/60" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="dataNascimento"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Data de Nascimento</FormLabel>
+                              <FormControl>
+                                <Input {...field} type="date" className="bg-white/60" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      
+                      {/* Seleção de Segmento */}
+                      {watchedFields.nomeAluno && watchedFields.dataNascimento && (
+                        <div className="space-y-4 animate-in slide-in-from-top-4 duration-500">
+                          <h4 className="text-lg font-semibold text-slate-800">Selecione o segmento (vagas remanescentes):</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <button
+                              type="button"
+                              onClick={() => setSelectedSegment('fund2')}
+                              className={`p-6 rounded-xl border-2 transition-all duration-300 backdrop-blur-lg ${
+                                selectedSegment === 'fund2'
+                                  ? 'border-school-orange bg-orange-50/80 shadow-lg'
+                                  : 'border-white/30 bg-white/20 hover:bg-white/30'
+                              }`}
+                            >
+                              <GraduationCap className="h-8 w-8 text-school-orange mx-auto mb-2" />
+                              <h3 className="font-semibold text-slate-800">Ensino Fundamental II</h3>
+                              <p className="text-slate-600 text-sm">6º ao 9º ano - Vagas remanescentes</p>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setSelectedSegment('medio')}
+                              className={`p-6 rounded-xl border-2 transition-all duration-300 backdrop-blur-lg ${
+                                selectedSegment === 'medio'
+                                  ? 'border-school-orange bg-orange-50/80 shadow-lg'
+                                  : 'border-white/30 bg-white/20 hover:bg-white/30'
+                              }`}
+                            >
+                              <BookOpen className="h-8 w-8 text-school-orange mx-auto mb-2" />
+                              <h3 className="font-semibold text-slate-800">Ensino Médio</h3>
+                              <p className="text-slate-600 text-sm">1ª à 3ª série - Vagas remanescentes</p>
+                            </button>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Botão Próximo para Passo 1 */}
+                      {watchedFields.nomeAluno && watchedFields.dataNascimento && selectedSegment && (
+                        <div className="flex justify-end pt-4 animate-in slide-in-from-top-4 duration-500">
+                          <Button 
+                            type="button" 
+                            onClick={() => setCurrentStep(2)}
+                            className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
+                          >
+                            Próximo
+                          </Button>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+
+                  {/* Passo 2: Dados Acadêmicos */}
+                  {currentStep >= 2 && (
+                    <Card className="bg-white/30 backdrop-blur-lg border-white/20 animate-in slide-in-from-top-4 duration-500">
+                      <CardHeader>
+                        <CardTitle className="text-2xl text-amber-900 flex items-center gap-2">
+                          <BookOpen className="h-6 w-6" />
+                          2. Dados Acadêmicos
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <FormField
+                            control={form.control}
+                            name="serie"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Série/Ano que irá cursar em 2026</FormLabel>
+                                <Select onValueChange={field.onChange} value={field.value}>
+                                  <FormControl>
+                                    <SelectTrigger className="bg-white/60">
+                                      <SelectValue placeholder="Selecione a série" />
+                                    </SelectTrigger>
+                                  </FormControl>
+                                  <SelectContent>
+                                    {getSerieOptions().map((option) => (
+                                      <SelectItem key={option.value} value={option.value}>
+                                        {option.label}
+                                      </SelectItem>
+                                    ))}
+                                  </SelectContent>
+                                </Select>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={form.control}
+                            name="escolaAtual"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Escola Atual</FormLabel>
+                                <FormControl>
+                                  <Input {...field} placeholder="Nome da escola atual" className="bg-white/60" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+
+                        {/* Botão Próximo para Passo 2 */}
+                        {watchedFields.serie && watchedFields.escolaAtual && (
+                          <div className="flex justify-end pt-4">
+                            <Button 
+                              type="button" 
+                              onClick={() => setCurrentStep(3)}
+                              className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
+                            >
+                              Próximo
+                            </Button>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {/* Passo 3: Dados do Responsável */}
+                  {currentStep >= 3 && (
+                    <Card className="bg-white/30 backdrop-blur-lg border-white/20 animate-in slide-in-from-top-4 duration-500">
+                      <CardHeader>
+                        <CardTitle className="text-2xl text-amber-900 flex items-center gap-2">
+                          <User className="h-6 w-6" />
+                          3. Dados do Responsável
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <FormField
+                            control={form.control}
+                            name="nomeResponsavel"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Nome Completo do Responsável</FormLabel>
+                                <FormControl>
+                                  <Input {...field} placeholder="Nome completo" className="bg-white/60" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={form.control}
+                            name="emailResponsavel"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Email do Responsável</FormLabel>
+                                <FormControl>
+                                  <Input {...field} type="email" placeholder="email@exemplo.com" className="bg-white/60" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={form.control}
+                            name="telefoneResponsavel"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Telefone do Responsável</FormLabel>
+                                <FormControl>
+                                  <Input {...field} placeholder="(15) 99999-9999" className="bg-white/60" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+
+                        {/* Botão Próximo para Passo 3 */}
+                        {watchedFields.nomeResponsavel && watchedFields.emailResponsavel && watchedFields.telefoneResponsavel && (
+                          <div className="flex justify-end pt-4">
+                            <Button 
+                              type="button" 
+                              onClick={() => setCurrentStep(4)}
+                              className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
+                            >
+                              Próximo
+                            </Button>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {/* Passo 4: Endereço */}
+                  {currentStep >= 4 && (
+                    <Card className="bg-white/30 backdrop-blur-lg border-white/20 animate-in slide-in-from-top-4 duration-500">
+                      <CardHeader>
+                        <CardTitle className="text-2xl text-amber-900 flex items-center gap-2">
+                          <MapPin className="h-6 w-6" />
+                          4. Endereço
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <FormField
+                            control={form.control}
+                            name="endereco"
+                            render={({ field }) => (
+                              <FormItem className="md:col-span-2">
+                                <FormLabel>Endereço Completo</FormLabel>
+                                <FormControl>
+                                  <Input {...field} placeholder="Rua, número, complemento" className="bg-white/60" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={form.control}
+                            name="cep"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>CEP</FormLabel>
+                                <FormControl>
+                                  <Input {...field} placeholder="00000-000" className="bg-white/60" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        <FormField
+                          control={form.control}
+                          name="cidade"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Cidade</FormLabel>
+                              <FormControl>
+                                <Input {...field} placeholder="Sorocaba" className="bg-white/60" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {/* Botão de Envio */}
+                  {currentStep >= 4 && (
+                    <div className="flex justify-center animate-in slide-in-from-top-4 duration-500">
+                      <Button
+                        type="submit"
+                        disabled={inscricaoMutation.isPending}
+                        className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-12 py-4 text-xl font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                      >
+                        {inscricaoMutation.isPending ? (
+                          <div className="flex items-center gap-2">
+                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                            Processando...
+                          </div>
+                        ) : (
+                          'Confirmar Inscrição'
+                        )}
+                      </Button>
+                    </div>
+                  )}
+                </form>
+              </Form>
+            </div>
+        </div>
+      </section>
 
       {/* Contato */}
       <ContactSection />
