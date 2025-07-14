@@ -27,6 +27,7 @@ import { usePageData } from '@/hooks/usePageData';
 import { useAuth } from '@/contexts/AuthContext';
 import HeroBackgroundManager from '@/components/HeroBackgroundManager';
 import LogoutButton from '@/components/LogoutButton';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 type FormData = z.infer<typeof insertBolsasInscricaoSchema>;
 
@@ -180,7 +181,8 @@ export default function BolsasInscricao() {
   };
 
   return (
-    <div className="min-h-screen relative">
+    <ProtectedRoute>
+      <div className="min-h-screen relative">
       <SEO
         title="Prova de Bolsas 2026 - Colégio OSE | Inscrições Abertas Sorocaba"
         description="Inscreva-se na prova de bolsas 2026 do Colégio OSE. Oportunidade única de ingressar com desconto especial em uma das melhores escolas de Sorocaba. Ensino Fundamental II e Médio."
@@ -1046,6 +1048,7 @@ export default function BolsasInscricao() {
       {/* Visual Composer para admin */}
       {isAuthenticated && <VisualComposerComponent />}
       {isAuthenticated && <LogoutButton />}
-    </div>
+      </div>
+    </ProtectedRoute>
   );
 }

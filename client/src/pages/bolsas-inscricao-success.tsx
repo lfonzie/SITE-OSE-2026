@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Mail, Phone, MapPin, Calendar, ArrowLeft } from 'lucide-react';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 export default function BolsasInscricaoSuccess() {
   useEffect(() => {
@@ -11,7 +12,8 @@ export default function BolsasInscricaoSuccess() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50">
+    <ProtectedRoute>
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-green-400/30 to-emerald-400/30 rounded-full blur-3xl animate-pulse"></div>
@@ -178,6 +180,7 @@ export default function BolsasInscricaoSuccess() {
           </p>
         </div>
       </div>
-    </div>
+      </div>
+    </ProtectedRoute>
   );
 }
