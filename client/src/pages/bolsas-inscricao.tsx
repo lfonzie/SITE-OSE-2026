@@ -141,15 +141,15 @@ export default function BolsasInscricao() {
     if (selectedSegment === 'fund2') {
       return [
         { value: '6º ano', label: '6º ano' },
-        { value: '7º ano reman', label: '7º ano reman' },
-        { value: '8º ano reman', label: '8º ano reman' },
-        { value: '9º ano reman', label: '9º ano reman' }
+        { value: '7º ano', label: '7º ano (vagas remanescentes)' },
+        { value: '8º ano', label: '8º ano (vagas remanescentes)' },
+        { value: '9º ano', label: '9º ano (vagas remanescentes)' }
       ];
     } else if (selectedSegment === 'medio') {
       return [
         { value: '1ª série', label: '1ª série' },
-        { value: '2ª série reman', label: '2ª série reman' },
-        { value: '3ª série reman', label: '3ª série reman' }
+        { value: '2ª série', label: '2ª série (vagas remanescentes)' },
+        { value: '3ª série', label: '3ª série (vagas remanescentes)' }
       ];
     }
     return [];
@@ -422,7 +422,7 @@ export default function BolsasInscricao() {
                             >
                               <GraduationCap className="h-8 w-8 text-school-orange mx-auto mb-2" />
                               <h3 className="font-semibold text-slate-800">Ensino Fundamental II</h3>
-                              <p className="text-slate-600 text-sm">6º ao 9º ano - Vagas remanescentes</p>
+                              <p className="text-slate-600 text-sm">6º ao 9º ano - Vagas remanescentes 7º, 8º, 9º ano</p>
                             </button>
                             <button
                               type="button"
@@ -435,13 +435,13 @@ export default function BolsasInscricao() {
                             >
                               <BookOpen className="h-8 w-8 text-school-orange mx-auto mb-2" />
                               <h3 className="font-semibold text-slate-800">Ensino Médio</h3>
-                              <p className="text-slate-600 text-sm">1ª à 3ª série - Vagas remanescentes</p>
+                              <p className="text-slate-600 text-sm">1ª à 3ª série - Vagas remanescentes 2ª, 3ª série</p>
                             </button>
                           </div>
                         </div>
                       )}
 
-                      {/* Botão Próximo para Passo 1 */}
+                      {/* Botão OK para Passo 1 */}
                       {watchedFields.nomeAluno && watchedFields.dataNascimento && selectedSegment && (
                         <div className="flex justify-end pt-4 animate-in slide-in-from-top-4 duration-500">
                           <Button 
@@ -449,7 +449,7 @@ export default function BolsasInscricao() {
                             onClick={() => setCurrentStep(2)}
                             className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
                           >
-                            Próximo
+                            OK
                           </Button>
                         </div>
                       )}
@@ -506,7 +506,7 @@ export default function BolsasInscricao() {
                           />
                         </div>
 
-                        {/* Botão Próximo para Passo 2 */}
+                        {/* Botão OK para Passo 2 */}
                         {watchedFields.serie && watchedFields.escolaAtual && (
                           <div className="flex justify-end pt-4">
                             <Button 
@@ -514,7 +514,7 @@ export default function BolsasInscricao() {
                               onClick={() => setCurrentStep(3)}
                               className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
                             >
-                              Próximo
+                              OK
                             </Button>
                           </div>
                         )}
@@ -574,7 +574,7 @@ export default function BolsasInscricao() {
                           />
                         </div>
 
-                        {/* Botão Próximo para Passo 3 */}
+                        {/* Botão OK para Passo 3 */}
                         {watchedFields.nomeResponsavel && watchedFields.emailResponsavel && watchedFields.telefoneResponsavel && (
                           <div className="flex justify-end pt-4">
                             <Button 
@@ -582,7 +582,7 @@ export default function BolsasInscricao() {
                               onClick={() => setCurrentStep(4)}
                               className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
                             >
-                              Próximo
+                              OK
                             </Button>
                           </div>
                         )}
@@ -792,7 +792,7 @@ export default function BolsasInscricao() {
                             >
                               <GraduationCap className="h-8 w-8 text-school-orange mx-auto mb-2" />
                               <h3 className="font-semibold text-slate-800">Ensino Fundamental II</h3>
-                              <p className="text-slate-600 text-sm">6º ao 9º ano - Vagas remanescentes</p>
+                              <p className="text-slate-600 text-sm">6º ao 9º ano - Vagas remanescentes 7º, 8º, 9º ano</p>
                             </button>
                             <button
                               type="button"
@@ -805,13 +805,13 @@ export default function BolsasInscricao() {
                             >
                               <BookOpen className="h-8 w-8 text-school-orange mx-auto mb-2" />
                               <h3 className="font-semibold text-slate-800">Ensino Médio</h3>
-                              <p className="text-slate-600 text-sm">1ª à 3ª série - Vagas remanescentes</p>
+                              <p className="text-slate-600 text-sm">1ª à 3ª série - Vagas remanescentes 2ª, 3ª série</p>
                             </button>
                           </div>
                         </div>
                       )}
 
-                      {/* Botão Próximo para Passo 1 */}
+                      {/* Botão OK para Passo 1 */}
                       {watchedFields.nomeAluno && watchedFields.dataNascimento && selectedSegment && (
                         <div className="flex justify-end pt-4 animate-in slide-in-from-top-4 duration-500">
                           <Button 
@@ -819,7 +819,7 @@ export default function BolsasInscricao() {
                             onClick={() => setCurrentStep(2)}
                             className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
                           >
-                            Próximo
+                            OK
                           </Button>
                         </div>
                       )}
@@ -876,7 +876,7 @@ export default function BolsasInscricao() {
                           />
                         </div>
 
-                        {/* Botão Próximo para Passo 2 */}
+                        {/* Botão OK para Passo 2 */}
                         {watchedFields.serie && watchedFields.escolaAtual && (
                           <div className="flex justify-end pt-4">
                             <Button 
@@ -884,7 +884,7 @@ export default function BolsasInscricao() {
                               onClick={() => setCurrentStep(3)}
                               className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
                             >
-                              Próximo
+                              OK
                             </Button>
                           </div>
                         )}
@@ -944,7 +944,7 @@ export default function BolsasInscricao() {
                           />
                         </div>
 
-                        {/* Botão Próximo para Passo 3 */}
+                        {/* Botão OK para Passo 3 */}
                         {watchedFields.nomeResponsavel && watchedFields.emailResponsavel && watchedFields.telefoneResponsavel && (
                           <div className="flex justify-end pt-4">
                             <Button 
@@ -952,7 +952,7 @@ export default function BolsasInscricao() {
                               onClick={() => setCurrentStep(4)}
                               className="bg-school-orange hover:bg-orange-600 text-white px-8 py-2"
                             >
-                              Próximo
+                              OK
                             </Button>
                           </div>
                         )}

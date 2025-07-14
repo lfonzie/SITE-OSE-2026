@@ -12,7 +12,7 @@
       "imageUrl": "/images/horizontal_4.png"
     },
     "pageName": "Home",
-    "lastModified": "2025-07-13T12:42:50.795Z",
+    "lastModified": "2025-07-14T14:51:48.932Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -24,29 +24,9 @@
       "/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-13T12:42:50.802Z",
+    "lastModified": "2025-07-14T14:55:15.269Z",
     "autoSaved": true,
-    "savedForDeployment": true,
-    "imagePositions": {
-      "why-ose-1": {
-        "objectPosition": "0% 26%",
-        "horizontalPosition": -50,
-        "verticalPosition": -24,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      },
-      "why-ose-3": {
-        "objectPosition": "15.5% 39%",
-        "horizontalPosition": -34.5,
-        "verticalPosition": -11,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      }
-    }
+    "savedForDeployment": true
   },
   "Programs Section": {
     "images": [
@@ -56,13 +36,13 @@
       "/images/upload_1751325029201.jpeg"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-13T12:42:50.792Z",
+    "lastModified": "2025-07-14T14:51:48.967Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-13T12:42:51.775Z",
+    "lastModified": "2025-07-14T14:51:48.951Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -541,7 +521,7 @@
       "repeat": "no-repeat"
     },
     "pageName": "Bolsas 2026",
-    "lastModified": "2025-07-13T01:36:58.356Z",
+    "lastModified": "2025-07-14T14:58:28.896Z",
     "autoSaved": true,
     "savedForDeployment": true
   }
