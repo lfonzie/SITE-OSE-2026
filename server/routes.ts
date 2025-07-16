@@ -1,11 +1,12 @@
 import type { Express } from "express";
 import { storage } from "./storage.js";
+import { databaseStorage } from "./databaseStorage.js";
 import { z } from "zod";
 import { insertContactSchema, insertMaterialListSchema, insertBolsasInscricaoSchema } from "@shared/schema";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
-import { setupSimpleAuth, isAuthenticated } from "./simpleAuth";
+import { setupAuth, isAuthenticated } from "./replitAuth";
 import { emailService } from "./emailService";
 import { googleSheetsService } from "./googleSheetsService";
 
@@ -67,9 +68,19 @@ const uploadInstagram = multer({
 
 export async function registerRoutes(app: Express) {
   // Auth middleware
-  setupSimpleAuth(app);
+  await setupAuth(app);
 
-  // Auth routes are now handled by simpleAuth.ts
+  // Auth routes
+  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const user = await databaseStorage.getUser(userId);
+      res.json(user);
+    } catch (error) {
+      console.error("Error fetching user:", error);
+      res.status(500).json({ message: "Failed to fetch user" });
+    }
+  });
   // Programs
   app.get("/api/programs", async (req, res) => {
     try {

@@ -12,7 +12,7 @@
       "imageUrl": "/images/horizontal_4.png"
     },
     "pageName": "Home",
-    "lastModified": "2025-07-14T15:13:54.962Z",
+    "lastModified": "2025-07-16T01:38:12.475Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -24,9 +24,29 @@
       "/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-14T15:13:54.959Z",
+    "lastModified": "2025-07-16T01:38:12.569Z",
     "autoSaved": true,
-    "savedForDeployment": true
+    "savedForDeployment": true,
+    "imagePositions": {
+      "why-ose-1": {
+        "objectPosition": "0% 26%",
+        "horizontalPosition": -50,
+        "verticalPosition": -24,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      },
+      "why-ose-3": {
+        "objectPosition": "15.5% 39%",
+        "horizontalPosition": -34.5,
+        "verticalPosition": -11,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      }
+    }
   },
   "Programs Section": {
     "images": [
@@ -36,13 +56,13 @@
       "/images/upload_1751325029201.jpeg"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-14T15:13:54.982Z",
+    "lastModified": "2025-07-16T01:38:12.478Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-14T15:13:54.969Z",
+    "lastModified": "2025-07-16T01:38:12.490Z",
     "autoSaved": true,
     "savedForDeployment": true
   },

@@ -1,13 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Eye, Instagram, Camera, FileText, Users } from "lucide-react";
+import { Eye, Instagram, Camera, FileText, Users, LogOut } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
-import { useForm } from "react-hook-form";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import InstagramUploadManager from '@/components/InstagramUploadManager';
 import AlbumEventsManager from '@/components/AlbumEventsManager';
@@ -15,28 +11,12 @@ import MaterialListManager from '@/components/MaterialListManager';
 import ProfessoresManager from '@/components/ProfessoresManager';
 import PageConfigManager from '@/components/PageConfigManager';
 
-interface LoginFormData {
-  email: string;
-  password: string;
-}
-
 export default function AdminPage() {
-  const { isAuthenticated, user, isLoading, loginMutation, logoutMutation } = useAuth();
+  const { isAuthenticated, user, isLoading } = useAuth();
   const { toast } = useToast();
 
-  const form = useForm<LoginFormData>({
-    defaultValues: {
-      email: "",
-      password: ""
-    }
-  });
-
   const handleLogout = () => {
-    logoutMutation.mutate();
-  };
-
-  const onSubmit = (data: LoginFormData) => {
-    loginMutation.mutate(data);
+    window.location.href = '/auth/logout';
   };
 
   useEffect(() => {
@@ -63,55 +43,20 @@ export default function AdminPage() {
               Login Administrativo
             </CardTitle>
             <p className="text-gray-600">
-              Acesse o painel de controle da OSE
+              Faça login com sua conta Replit para acessar o painel
             </p>
           </CardHeader>
-          <CardContent>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input 
-                          type="email" 
-                          placeholder="Digite seu email"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="password"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Senha</FormLabel>
-                      <FormControl>
-                        <Input 
-                          type="password" 
-                          placeholder="Digite sua senha"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button 
-                  type="submit"
-                  className="w-full bg-school-orange text-white font-semibold"
-                  disabled={loginMutation.isPending}
-                >
-                  {loginMutation.isPending ? "Entrando..." : "Fazer Login"}
-                </Button>
-              </form>
-            </Form>
+          <CardContent className="text-center space-y-4">
+            <Button 
+              onClick={() => window.location.href = '/auth/login'}
+              className="w-full bg-school-orange hover:bg-orange-600 text-white py-3"
+              size="lg"
+            >
+              Entrar com Replit
+            </Button>
+            <p className="text-sm text-gray-500">
+              Acesso restrito a administradores autorizados
+            </p>
           </CardContent>
         </Card>
       </div>
