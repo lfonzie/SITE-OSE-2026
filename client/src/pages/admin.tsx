@@ -3,7 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Eye, Instagram, Camera, FileText, Users, LogOut } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
+import { useFrontendAuth } from "@/hooks/useFrontendAuth";
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import InstagramUploadManager from '@/components/InstagramUploadManager';
 import AlbumEventsManager from '@/components/AlbumEventsManager';
@@ -12,11 +15,42 @@ import ProfessoresManager from '@/components/ProfessoresManager';
 import PageConfigManager from '@/components/PageConfigManager';
 
 export default function AdminPage() {
-  const { isAuthenticated, user, isLoading } = useAuth();
+  const { isAuthenticated, user, isLoading, login, logout } = useFrontendAuth();
   const { toast } = useToast();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoggingIn(true);
+    
+    const success = login(email, password);
+    
+    if (success) {
+      toast({
+        title: "Login realizado com sucesso",
+        description: "Bem-vindo ao painel administrativo!",
+      });
+      setEmail("");
+      setPassword("");
+    } else {
+      toast({
+        title: "Erro no login",
+        description: "Email ou senha incorretos. Tente novamente.",
+        variant: "destructive",
+      });
+    }
+    
+    setIsLoggingIn(false);
+  };
 
   const handleLogout = () => {
-    window.location.href = '/api/auth/logout';
+    logout();
+    toast({
+      title: "Logout realizado",
+      description: "Você foi desconectado com sucesso.",
+    });
   };
 
   useEffect(() => {
@@ -43,18 +77,43 @@ export default function AdminPage() {
               Login Administrativo
             </CardTitle>
             <p className="text-gray-600">
-              Faça login com sua conta Replit para acessar o painel
+              Faça login para acessar o painel administrativo
             </p>
           </CardHeader>
-          <CardContent className="text-center space-y-4">
-            <Button 
-              onClick={() => window.location.href = '/api/auth/login'}
-              className="w-full bg-school-orange hover:bg-orange-600 text-white py-3"
-              size="lg"
-            >
-              Entrar com Replit
-            </Button>
-            <p className="text-sm text-gray-500">
+          <CardContent>
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="seu@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="password">Senha</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Sua senha"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <Button 
+                type="submit"
+                className="w-full bg-school-orange hover:bg-orange-600 text-white py-3"
+                size="lg"
+                disabled={isLoggingIn}
+              >
+                {isLoggingIn ? "Entrando..." : "Entrar"}
+              </Button>
+            </form>
+            <p className="text-sm text-gray-500 text-center mt-4">
               Acesso restrito a administradores autorizados
             </p>
           </CardContent>

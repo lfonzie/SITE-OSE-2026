@@ -60,8 +60,8 @@ export function setupSimpleAuth(app: Express) {
   // Configurar sessões
   app.use(getSession());
   
-  // Rota de login
-  app.post("/api/auth/login", (req, res) => {
+  // Rota de login (sem /api/ prefix para evitar interceptação do Vite)
+  app.post("/auth/login", (req, res) => {
     const { email, password } = req.body;
     
     console.log("Login attempt for:", email);
@@ -104,8 +104,8 @@ export function setupSimpleAuth(app: Express) {
     }
   });
   
-  // Rota para verificar usuário logado
-  app.get("/api/auth/user", (req, res) => {
+  // Rota para verificar usuário logado (sem /api/ prefix)
+  app.get("/auth/user", (req, res) => {
     console.log("Auth check - Session ID:", req.sessionID);
     console.log("Auth check - Session data:", req.session);
     console.log("Auth check - Request headers:", req.headers.cookie);
@@ -120,8 +120,8 @@ export function setupSimpleAuth(app: Express) {
     }
   });
   
-  // Rota de logout
-  app.post("/api/auth/logout", (req, res) => {
+  // Rota de logout (sem /api/ prefix)
+  app.post("/auth/logout", (req, res) => {
     req.session.destroy((err) => {
       if (err) {
         console.error("Erro no logout:", err);

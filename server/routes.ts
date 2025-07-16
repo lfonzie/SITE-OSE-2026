@@ -68,10 +68,10 @@ const uploadInstagram = multer({
 });
 
 export async function registerRoutes(app: Express) {
-  // Auth middleware - Use simple auth for now due to Vite middleware conflicts
+  // Auth middleware - Use frontend auth for now due to Vite middleware conflicts
   setupSimpleAuth(app);
 
-  // Auth routes
+  // Auth routes (duplicated for compatibility)
   app.get('/api/auth/user', isSimpleAuthenticated, async (req: any, res) => {
     try {
       // Return a simple user object for admin access
