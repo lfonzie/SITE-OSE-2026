@@ -7,7 +7,7 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 import { setupAuth, isAuthenticated } from "./replitAuth";
-import { setupSimpleAuth, isAuthenticated as isSimpleAuthenticated } from "./simpleAuth";
+import { setupSecureAuth, isSecurelyAuthenticated } from "./secureAuth";
 import { emailService } from "./emailService";
 import { googleSheetsService } from "./googleSheetsService";
 
@@ -68,11 +68,11 @@ const uploadInstagram = multer({
 });
 
 export async function registerRoutes(app: Express) {
-  // Auth middleware - Use frontend auth for now due to Vite middleware conflicts
-  setupSimpleAuth(app);
+  // Auth middleware - Use secure auth system
+  setupSecureAuth(app);
 
   // Auth routes (duplicated for compatibility)
-  app.get('/api/auth/user', isSimpleAuthenticated, async (req: any, res) => {
+  app.get('/api/auth/user', isSecurelyAuthenticated, async (req: any, res) => {
     try {
       // Return a simple user object for admin access
       const user = {
@@ -937,7 +937,7 @@ export async function registerRoutes(app: Express) {
   });
 
   // Sync all current configs to deployment
-  app.post("/api/sync-all-to-deployment", isSimpleAuthenticated, async (req, res) => {
+  app.post("/api/sync-all-to-deployment", isSecurelyAuthenticated, async (req, res) => {
     try {
       const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
 

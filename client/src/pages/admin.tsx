@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Eye, Instagram, Camera, FileText, Users, LogOut } from "lucide-react";
-import { useFrontendAuth } from "@/hooks/useFrontendAuth";
+import { useSecureAuth } from "@/hooks/useSecureAuth";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,7 +15,7 @@ import ProfessoresManager from '@/components/ProfessoresManager';
 import PageConfigManager from '@/components/PageConfigManager';
 
 export default function AdminPage() {
-  const { isAuthenticated, user, isLoading, login, logout } = useFrontendAuth();
+  const { isAuthenticated, user, isLoading, login, logout } = useSecureAuth();
   const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,32 +25,18 @@ export default function AdminPage() {
     e.preventDefault();
     setIsLoggingIn(true);
     
-    const success = login(email, password);
+    const success = await login(email, password);
     
     if (success) {
-      toast({
-        title: "Login realizado com sucesso",
-        description: "Bem-vindo ao painel administrativo!",
-      });
       setEmail("");
       setPassword("");
-    } else {
-      toast({
-        title: "Erro no login",
-        description: "Email ou senha incorretos. Tente novamente.",
-        variant: "destructive",
-      });
     }
     
     setIsLoggingIn(false);
   };
 
-  const handleLogout = () => {
-    logout();
-    toast({
-      title: "Logout realizado",
-      description: "Você foi desconectado com sucesso.",
-    });
+  const handleLogout = async () => {
+    await logout();
   };
 
   useEffect(() => {
