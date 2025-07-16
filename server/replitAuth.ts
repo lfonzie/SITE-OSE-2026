@@ -95,7 +95,7 @@ export async function setupAuth(app: Express) {
         name: `replitauth:${domain}`,
         config,
         scope: "openid email profile offline_access",
-        callbackURL: `https://${domain}/auth/callback`,
+        callbackURL: `https://${domain}/api/auth/callback`,
       },
       verify,
     );
@@ -113,7 +113,7 @@ export async function setupAuth(app: Express) {
     res.json({ message: "Auth routes working", hostname: req.hostname });
   });
 
-  app.get("/auth/login", (req, res, next) => {
+  app.get("/api/auth/login", (req, res, next) => {
     console.log("🔐 Auth login request received");
     console.log("Hostname:", req.hostname);
     console.log("User-Agent:", req.get('User-Agent'));
@@ -122,20 +122,29 @@ export async function setupAuth(app: Express) {
     const strategyName = `replitauth:${req.hostname}`;
     console.log("Using strategy:", strategyName);
     
-    passport.authenticate(strategyName, {
-      prompt: "login consent",
-      scope: ["openid", "email", "profile", "offline_access"],
-    })(req, res, next);
+    try {
+      console.log("Attempting passport authentication...");
+      const authenticator = passport.authenticate(strategyName, {
+        prompt: "login consent",
+        scope: ["openid", "email", "profile", "offline_access"],
+      });
+      console.log("Authenticator created, calling it...");
+      authenticator(req, res, next);
+      console.log("Authenticator called");
+    } catch (error) {
+      console.error("Error in passport authenticate:", error);
+      res.status(500).json({ error: "Authentication failed" });
+    }
   });
 
-  app.get("/auth/callback", (req, res, next) => {
+  app.get("/api/auth/callback", (req, res, next) => {
     passport.authenticate(`replitauth:${req.hostname}`, {
       successReturnToOrRedirect: "/",
-      failureRedirect: "/auth/login",
+      failureRedirect: "/api/auth/login",
     })(req, res, next);
   });
 
-  app.get("/auth/logout", (req, res) => {
+  app.get("/api/auth/logout", (req, res) => {
     req.logout(() => {
       res.redirect(
         client.buildEndSessionUrl(config, {

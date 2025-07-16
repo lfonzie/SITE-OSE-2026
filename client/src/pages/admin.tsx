@@ -16,7 +16,7 @@ export default function AdminPage() {
   const { toast } = useToast();
 
   const handleLogout = () => {
-    window.location.href = '/auth/logout';
+    window.location.href = '/api/auth/logout';
   };
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function AdminPage() {
           </CardHeader>
           <CardContent className="text-center space-y-4">
             <Button 
-              onClick={() => window.location.href = '/auth/login'}
+              onClick={() => window.location.href = '/api/auth/login'}
               className="w-full bg-school-orange hover:bg-orange-600 text-white py-3"
               size="lg"
             >

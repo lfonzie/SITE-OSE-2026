@@ -7,6 +7,7 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 import { setupAuth, isAuthenticated } from "./replitAuth";
+import { setupSimpleAuth, isAuthenticated as isSimpleAuthenticated } from "./simpleAuth";
 import { emailService } from "./emailService";
 import { googleSheetsService } from "./googleSheetsService";
 
@@ -67,14 +68,22 @@ const uploadInstagram = multer({
 });
 
 export async function registerRoutes(app: Express) {
-  // Auth middleware
-  await setupAuth(app);
+  // Auth middleware - Use simple auth for now due to Vite middleware conflicts
+  setupSimpleAuth(app);
 
   // Auth routes
-  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
+  app.get('/api/auth/user', isSimpleAuthenticated, async (req: any, res) => {
     try {
-      const userId = req.user.claims.sub;
-      const user = await databaseStorage.getUser(userId);
+      // Return a simple user object for admin access
+      const user = {
+        id: 'admin',
+        email: 'admin@ose.com.br',
+        firstName: 'Admin',
+        lastName: 'OSE',
+        profileImageUrl: null,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      };
       res.json(user);
     } catch (error) {
       console.error("Error fetching user:", error);
@@ -928,7 +937,7 @@ export async function registerRoutes(app: Express) {
   });
 
   // Sync all current configs to deployment
-  app.post("/api/sync-all-to-deployment", isAuthenticated, async (req, res) => {
+  app.post("/api/sync-all-to-deployment", isSimpleAuthenticated, async (req, res) => {
     try {
       const configPath = path.join(process.cwd(), 'data', 'page-configs.json');
 
