@@ -294,23 +294,25 @@ export default function BolsasInscricao() {
             </motion.div>
 
             <AnimatedCard delay={0.2}>
-              <Card className="bg-white/30 backdrop-blur-lg border-white/20">
-                <CardContent className="p-2">
+              <Card className="bg-white/30 backdrop-blur-lg border-white/20 overflow-hidden">
+                <CardContent className="p-0">
                   {/* Formulário do Forms.app */}
-                  <iframe 
-                    id="" 
-                    allowTransparency="true" 
-                    allowFullScreen="true" 
-                    allow="geolocation; microphone; camera" 
-                    src="https://trfyo43h.forms.app/form/6882db63040c8be61e1a2b3c" 
-                    frameBorder="0" 
-                    style={{
-                      width: '100vw', 
-                      minWidth: '100%', 
-                      height: '600px', 
-                      border: 'none'
-                    }}
-                  />
+                  <div className="w-full overflow-hidden">
+                    <iframe 
+                      id="" 
+                      allowTransparency="true" 
+                      allowFullScreen="true" 
+                      allow="geolocation; microphone; camera" 
+                      src="https://trfyo43h.forms.app/form/6882db63040c8be61e1a2b3c" 
+                      frameBorder="0" 
+                      style={{
+                        width: '100%', 
+                        height: '600px', 
+                        border: 'none',
+                        display: 'block'
+                      }}
+                    />
+                  </div>
                 </CardContent>
               </Card>
             </AnimatedCard>
