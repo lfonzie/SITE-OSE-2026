@@ -1,0 +1,535 @@
+colegioose.com.br/:44  GET https://colegioose.com.br/images/horizontal_4.webp 404 (Not Found)
+VM897:73 UChatWidget loading attempt 1/3
+index-Ws6KuAdN.js:600 Loading deployment configurations... {isProduction: true, forceLoad: false}
+index-Ws6KuAdN.js:600 🚀 Performance optimizations initialized
+index-Ws6KuAdN.js:658 Service Worker registered: ServiceWorkerRegistration {installing: null, waiting: null, active: ServiceWorker, navigationPreload: NavigationPreloadManager, scope: 'https://colegioose.com.br/', …}
+VM902:9  GET https://connect.facebook.net/en_US/fbevents.js net::ERR_BLOCKED_BY_CLIENT
+(anonymous) @ VM902:9
+(anonymous) @ VM902:9
+GR @ index-Ws6KuAdN.js:511
+QR @ index-Ws6KuAdN.js:521
+(anonymous) @ index-Ws6KuAdN.js:658
+Qm @ index-Ws6KuAdN.js:40
+Pi @ index-Ws6KuAdN.js:40
+_y @ index-Ws6KuAdN.js:40
+Wa @ index-Ws6KuAdN.js:38
+b8 @ index-Ws6KuAdN.js:40
+eo @ index-Ws6KuAdN.js:40
+EE @ index-Ws6KuAdN.js:40
+N @ index-Ws6KuAdN.js:25
+T @ index-Ws6KuAdN.js:25
+gtm.js?id=GTM-524DC3R:123 Refused to connect to 'https://www.google.com/ccm/collect?en=page_view&dl=https%3A%2F%2Fcolegioose.com.br%2F&scrsrc=www.googletagmanager.com&frm=0&rnd=1474083449.1753407630&dt=Col%C3%A9gio%20OSE%20-%20100%20Anos%20de%20Excel%C3%AAncia%20Educacional%20em%20Sorocaba%20%7C%20Educa%C3%A7%C3%A3o%20Infantil%2C%20Fundamental%20e%20M%C3%A9dio&auid=1890426317.1745892859&gclaw=CjwKCAjwsZPDBhBWEiwADuO6y4sc4GYkYJ6Z7r_KNt5CphAqz7MMQWZ-7e2ABDQ07SDTTFUUbTYaUhoCU4YQAvD_BwE&navt=h&npa=0&gtm=45He57n0v832177490za200zd832177490&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~104684208~104684211~104948813&tft=1753407630001&tfd=196&apve=1&apvf=sb' because it violates the following Content Security Policy directive: "connect-src 'self' 
+        https://www.google-analytics.com 
+        https://analytics.google.com 
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com
+        https://stats.g.doubleclick.net
+        https://google.com.br
+        https://www.google.com.br
+        https://ipapi.co".
+
+Tc @ gtm.js?id=GTM-524DC3R:123
+sm @ gtm.js?id=GTM-524DC3R:302
+(anonymous) @ gtm.js?id=GTM-524DC3R:555
+bA @ gtm.js?id=GTM-524DC3R:553
+fA @ gtm.js?id=GTM-524DC3R:554
+MB @ gtm.js?id=GTM-524DC3R:582
+f @ gtm.js?id=GTM-524DC3R:707
+(anonymous) @ gtm.js?id=GTM-524DC3R:709
+qn @ gtm.js?id=GTM-524DC3R:320
+wp @ gtm.js?id=GTM-524DC3R:341
+NJ @ gtm.js?id=GTM-524DC3R:709
+(anonymous) @ gtm.js?id=GTM-524DC3R:781
+Yf @ gtm.js?id=GTM-524DC3R:186
+e @ gtm.js?id=GTM-524DC3R:603
+(anonymous) @ gtm.js?id=GTM-524DC3R:106
+(anonymous) @ gtm.js?id=GTM-524DC3R:604
+(anonymous) @ gtm.js?id=GTM-524DC3R:604
+ZC @ gtm.js?id=GTM-524DC3R:604
+cD @ gtm.js?id=GTM-524DC3R:609
+XD @ gtm.js?id=GTM-524DC3R:628
+b.push @ gtm.js?id=GTM-524DC3R:633
+Jy.b.push @ js:398
+(anonymous) @ js?id=G-N2MQBKE70F:754
+setTimeout
+Nc @ js?id=G-N2MQBKE70F:228
+lD @ js?id=G-N2MQBKE70F:733
+nD @ js?id=G-N2MQBKE70F:734
+po @ js?id=G-N2MQBKE70F:991
+(anonymous) @ js?id=G-N2MQBKE70F:994
+c @ js?id=G-N2MQBKE70F:992
+(anonymous) @ js?id=G-N2MQBKE70F:994
+(anonymous) @ js?id=G-N2MQBKE70F:994
+(anonymous) @ js?id=G-N2MQBKE70F:996
+index-Ws6KuAdN.js:600  GET https://connect.facebook.net/en_US/fbevents.js net::ERR_BLOCKED_BY_CLIENT
+(anonymous) @ index-Ws6KuAdN.js:600
+loadScriptAsync @ index-Ws6KuAdN.js:600
+loadDeferredScripts @ index-Ws6KuAdN.js:600
+await in loadDeferredScripts
+deferNonCriticalScripts @ index-Ws6KuAdN.js:600
+runOptimizations @ index-Ws6KuAdN.js:600
+initialize @ index-Ws6KuAdN.js:600
+(anonymous) @ index-Ws6KuAdN.js:658
+Qm @ index-Ws6KuAdN.js:40
+Pi @ index-Ws6KuAdN.js:40
+_y @ index-Ws6KuAdN.js:40
+Wa @ index-Ws6KuAdN.js:38
+b8 @ index-Ws6KuAdN.js:40
+eo @ index-Ws6KuAdN.js:40
+EE @ index-Ws6KuAdN.js:40
+N @ index-Ws6KuAdN.js:25
+T @ index-Ws6KuAdN.js:25
+index-Ws6KuAdN.js:600 Failed to load deferred script: https://connect.facebook.net/en_US/fbevents.js Error: Failed to load script: https://connect.facebook.net/en_US/fbevents.js
+    at a.onerror (index-Ws6KuAdN.js:600:43091)
+loadDeferredScripts @ index-Ws6KuAdN.js:600
+await in loadDeferredScripts
+deferNonCriticalScripts @ index-Ws6KuAdN.js:600
+runOptimizations @ index-Ws6KuAdN.js:600
+initialize @ index-Ws6KuAdN.js:600
+(anonymous) @ index-Ws6KuAdN.js:658
+Qm @ index-Ws6KuAdN.js:40
+Pi @ index-Ws6KuAdN.js:40
+_y @ index-Ws6KuAdN.js:40
+Wa @ index-Ws6KuAdN.js:38
+b8 @ index-Ws6KuAdN.js:40
+eo @ index-Ws6KuAdN.js:40
+EE @ index-Ws6KuAdN.js:40
+N @ index-Ws6KuAdN.js:25
+T @ index-Ws6KuAdN.js:25
+index-Ws6KuAdN.js:600 LCP: 208
+index-Ws6KuAdN.js:600 Loading server config for Why OSE Section (production: true): {images: Array(4), pageName: 'Why OSE Section', lastModified: '2025-07-25T01:37:21.891Z', autoSaved: true, savedForDeployment: true, …}
+index-Ws6KuAdN.js:600 Loading server config for Home (production: true): {heroBackground: {…}, pageName: 'Home', lastModified: '2025-07-25T01:23:26.733Z', autoSaved: true, savedForDeployment: true}
+colegioose.com.br/:1 Refused to load the image 'https://www.google.com/pagead/1p-user-list/1009339423/?random=1753407630063&cv=11&fst=1753405200000&bg=ffffff&guid=ON&async=1&gtm=45be57n0v896303236z8832177490za200zb832177490zd832177490&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~104684208~104684211~104948813&u_w=1470&u_h=956&url=https%3A%2F%2Fcolegioose.com.br%2F&hn=www.googleadservices.com&frm=0&tiba=Col%C3%A9gio%20OSE%20-%20100%20Anos%20de%20Excel%C3%AAncia%20Educacional%20em%20Sorocaba%20%7C%20Educa%C3%A7%C3%A3o%20Infantil%2C%20Fundamental%20e%20M%C3%A9dio&npa=0&pscdl=noapi&auid=1890426317.1745892859&uaa=arm&uab=64&uafvl=Not)A%253BBrand%3B8.0.0.0%7CChromium%3B138.0.7204.158%7CGoogle%2520Chrome%3B138.0.7204.158&uamb=0&uam=&uap=macOS&uapv=15.5.0&uaw=0&fledge=1&_tu=Cg&rfmt=3&fmt=3&is_vtc=1&cid=CAQSigEA2abss7oHU_VVq-5AFWuKyl-SMe-x1eE2Ph028OAjgNCpITGNJdi_43nezaFVpzXYSZkmCtSM95f7hsrgXxa40VUnFGoKuI8lzsaajlY21HB3k6h51yNPfGZcMJ-gxBs3-gHOkxiQJcgDFDnVmfEjMHrjVce2HjX8hovM3vKBjpnWZy2WIkacGag&random=3844092816&rmt_tld=0&ipr=y' because it violates the following Content Security Policy directive: "img-src 'self' data: blob: 
+        https://www.google-analytics.com 
+        https://analytics.google.com
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com
+        https://stats.g.doubleclick.net
+        https://google.com.br
+        https://www.google.com.br".
+
+index-Ws6KuAdN.js:48  GET https://colegioose.com.br/api/auth/user 401 (Unauthorized)
+(anonymous) @ index-Ws6KuAdN.js:48
+o @ index-Ws6KuAdN.js:48
+y @ index-Ws6KuAdN.js:48
+start @ index-Ws6KuAdN.js:48
+fetch @ index-Ws6KuAdN.js:48
+Wl @ index-Ws6KuAdN.js:48
+onSubscribe @ index-Ws6KuAdN.js:48
+subscribe @ index-Ws6KuAdN.js:48
+(anonymous) @ index-Ws6KuAdN.js:48
+KC @ index-Ws6KuAdN.js:38
+Qm @ index-Ws6KuAdN.js:40
+Pi @ index-Ws6KuAdN.js:40
+_y @ index-Ws6KuAdN.js:40
+Wa @ index-Ws6KuAdN.js:38
+b8 @ index-Ws6KuAdN.js:40
+eo @ index-Ws6KuAdN.js:40
+EE @ index-Ws6KuAdN.js:40
+N @ index-Ws6KuAdN.js:25
+T @ index-Ws6KuAdN.js:25
+index-Ws6KuAdN.js:48 Authentication required - returning null
+index-Ws6KuAdN.js:600 Loading server config for Testimonials (production: true): {pageName: 'Testimonials', lastModified: '2025-07-25T01:23:26.744Z', autoSaved: true, savedForDeployment: true}
+index-Ws6KuAdN.js:600 Loading server config for Programs Section (production: true): {images: Array(4), pageName: 'Programs Section', lastModified: '2025-07-25T01:23:26.745Z', autoSaved: true, savedForDeployment: true}
+index-Ws6KuAdN.js:600 Available deployment configurations: (22) ['Home', 'Why OSE Section', 'Programs Section', 'Testimonials', 'Legacy', 'Educacao Infantil', 'Fundamental II', 'Fundamental I', 'Ensino Médio', 'Programa Bilíngue', 'Integral', 'Amplia', 'CODE.OSE', 'Programa Socioemocional', 'Lista de Material', 'Árvore', 'ISAAC', 'Plurall', 'AgendaEdu', 'Contato', 'Bolsas 2025', 'Bolsas 2026']
+index-Ws6KuAdN.js:600 🔄 Synchronized Home with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Why OSE Section with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Programs Section with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Testimonials with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Legacy with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Educacao Infantil with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Fundamental II with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Fundamental I with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Ensino Médio with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Programa Bilíngue with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Integral with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Amplia with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized CODE.OSE with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Programa Socioemocional with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Lista de Material with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Árvore with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized ISAAC with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Plurall with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized AgendaEdu with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Contato with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Bolsas 2025 with deployment config (correct images)
+index-Ws6KuAdN.js:600 🔄 Synchronized Bolsas 2026 with deployment config (correct images)
+index-Ws6KuAdN.js:600 ✅ All deployment configurations loaded and synchronized
+VM897:81 UChatWidget loaded successfully
+index-Ws6KuAdN.js:600 Failed to load deferred script: https://sdk.dfktv2.com/uchatWidget.js Error: Failed to load script: https://sdk.dfktv2.com/uchatWidget.js
+    at a.onerror (index-Ws6KuAdN.js:600:43091)
+loadDeferredScripts @ index-Ws6KuAdN.js:600
+await in loadDeferredScripts
+deferNonCriticalScripts @ index-Ws6KuAdN.js:600
+runOptimizations @ index-Ws6KuAdN.js:600
+initialize @ index-Ws6KuAdN.js:600
+(anonymous) @ index-Ws6KuAdN.js:658
+Qm @ index-Ws6KuAdN.js:40
+Pi @ index-Ws6KuAdN.js:40
+_y @ index-Ws6KuAdN.js:40
+Wa @ index-Ws6KuAdN.js:38
+b8 @ index-Ws6KuAdN.js:40
+eo @ index-Ws6KuAdN.js:40
+EE @ index-Ws6KuAdN.js:40
+N @ index-Ws6KuAdN.js:25
+T @ index-Ws6KuAdN.js:25
+index-Ws6KuAdN.js:600 Auto-saved page: Home {heroBackground: {…}, pageName: 'Home', lastModified: '2025-07-25T01:40:30.688Z', autoSaved: true, savedForDeployment: true}
+index-Ws6KuAdN.js:600 Auto-saved page: Programs Section {images: Array(4), pageName: 'Programs Section', lastModified: '2025-07-25T01:40:30.689Z', autoSaved: true, savedForDeployment: true}
+index-Ws6KuAdN.js:600 Auto-saved page: Testimonials {pageName: 'Testimonials', lastModified: '2025-07-25T01:40:30.690Z', autoSaved: true, savedForDeployment: true}
+app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2 [Violation] Potential permissions policy violation: fullscreen is not allowed in this document.
+insertBefore @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+d @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+window.onload @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+gtm.js?id=GTM-524DC3R:123 Refused to connect to 'https://www.google.com/ccm/collect?en=user_id_update&dl=https%3A%2F%2Fcolegioose.com.br%2F&scrsrc=www.googletagmanager.com&frm=0&rnd=1474083449.1753407630&dt=Col%C3%A9gio%20OSE%20-%20100%20Anos%20de%20Excel%C3%AAncia%20Educacional%20em%20Sorocaba%20%7C%20Educa%C3%A7%C3%A3o%20Infantil%2C%20Fundamental%20e%20M%C3%A9dio&auid=1890426317.1745892859&gclaw=CjwKCAjwsZPDBhBWEiwADuO6y4sc4GYkYJ6Z7r_KNt5CphAqz7MMQWZ-7e2ABDQ07SDTTFUUbTYaUhoCU4YQAvD_BwE&navt=h&npa=0&ga_uid=G-N2MQBKE70F.17514691614255587&gtm=45He57n0v832177490za200zd832177490&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~104684208~104684211~104948813&tft=1753407630832&tfd=1027&apve=1&apvf=sb' because it violates the following Content Security Policy directive: "connect-src 'self' 
+        https://www.google-analytics.com 
+        https://analytics.google.com 
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com
+        https://stats.g.doubleclick.net
+        https://google.com.br
+        https://www.google.com.br
+        https://ipapi.co".
+
+Tc @ gtm.js?id=GTM-524DC3R:123
+sm @ gtm.js?id=GTM-524DC3R:302
+(anonymous) @ gtm.js?id=GTM-524DC3R:555
+bA @ gtm.js?id=GTM-524DC3R:553
+fA @ gtm.js?id=GTM-524DC3R:554
+MB @ gtm.js?id=GTM-524DC3R:582
+f @ gtm.js?id=GTM-524DC3R:707
+(anonymous) @ gtm.js?id=GTM-524DC3R:708
+notify @ gtm.js?id=GTM-524DC3R:323
+set @ gtm.js?id=GTM-524DC3R:323
+Fn @ js?id=G-N2MQBKE70F:442
+$P @ js?id=G-N2MQBKE70F:926
+(anonymous) @ js?id=G-N2MQBKE70F:342
+k.invoke @ js?id=G-N2MQBKE70F:243
+Ua @ js?id=G-N2MQBKE70F:207
+Ta @ js?id=G-N2MQBKE70F:206
+(anonymous) @ js?id=G-N2MQBKE70F:267
+k.invoke @ js?id=G-N2MQBKE70F:243
+Ua @ js?id=G-N2MQBKE70F:207
+Ta @ js?id=G-N2MQBKE70F:206
+(anonymous) @ js?id=G-N2MQBKE70F:267
+k.invoke @ js?id=G-N2MQBKE70F:243
+(anonymous) @ js?id=G-N2MQBKE70F:923
+Rw @ js?id=G-N2MQBKE70F:614
+k.lq @ js?id=G-N2MQBKE70F:901
+(anonymous) @ js?id=G-N2MQBKE70F:898
+qn @ js?id=G-N2MQBKE70F:438
+wp @ js?id=G-N2MQBKE70F:459
+(anonymous) @ js?id=G-N2MQBKE70F:898
+c @ js?id=G-N2MQBKE70F:652
+dz @ js?id=G-N2MQBKE70F:652
+k.kq @ js?id=G-N2MQBKE70F:898
+c @ js?id=G-N2MQBKE70F:914
+v @ js?id=G-N2MQBKE70F:478
+zn @ js?id=G-N2MQBKE70F:440
+Zq @ js?id=G-N2MQBKE70F:478
+Yq.flush @ js?id=G-N2MQBKE70F:482
+Yq.push @ js?id=G-N2MQBKE70F:480
+Pq @ js?id=G-N2MQBKE70F:475
+event @ js?id=G-N2MQBKE70F:743
+XD @ js?id=G-N2MQBKE70F:749
+b.push @ js?id=G-N2MQBKE70F:755
+b.push @ gtm.js?id=GTM-524DC3R:633
+Jy.b.push @ js:398
+b.push @ destination?id=AW-1009339423&cx=c&gtm=45He57n0v832177490za200&tag_exp=101509157~103116026~103200004~103233427~104684208~104684211:656
+b.push @ destination?id=AW-&cx=c&gtm=45He57n0v832177490za200&tag_exp=101509157~103116026~103200004~103233427~104684208~104684211:623
+gtag @ VM901:4
+gtag @ sdk.js?v=d1f21654a3003c6eabbe1612bd1cc7d3:2
+window.onmessage @ sdk.js?v=d1f21654a3003c6eabbe1612bd1cc7d3:2
+index-Ws6KuAdN.js:600 Server config saved for page: Home (deployment ready)
+index-Ws6KuAdN.js:600 Server config saved for page: Programs Section (deployment ready)
+index-Ws6KuAdN.js:600 Server config saved for page: Testimonials (deployment ready)
+index-Ws6KuAdN.js:600 Auto-saved page: Why OSE Section {images: Array(4), pageName: 'Why OSE Section', lastModified: '2025-07-25T01:40:30.979Z', autoSaved: true, savedForDeployment: true, …}
+index-Ws6KuAdN.js:600 Server config saved for page: Why OSE Section (deployment ready)
+app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2 [Violation] Potential permissions policy violation: fullscreen is not allowed in this document.
+insertBefore @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+d @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.run @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+fn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+qt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+zt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+te @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ct.notify @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+set @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+setConversationListLoading @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E._withCommit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A.o.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+c @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ko @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+a @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+ko @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+a @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+s.forEach.n.<computed> @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+VM897:50 UChatWidget widget found in DOM
+VM897:40 UChatWidget forced visible: <script id=​"chatbotWidgetV1" src=​"https:​/​/​sdk.dfktv2.com/​js/​sdk.js?v=d1f21654a3003c6eabbe1612bd1cc7d3" style=​"z-index:​ 999999;​ position:​ fixed;​">​</script>​
+VM897:40 UChatWidget forced visible: <iframe allow=​"microphone *;​ camera *;​ autoplay *" src=​"https:​/​/​sdk.dfktv2.com/​widget?flow_token=to6wv2osffcdtdwb&domain=colegioose.com.br&conv_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMTc1MTQ2OTE2MTQyNTU1ODciLCJleHBpcnkiOjE3NTU5OTk0NDF9.lkLGW3Bd8dQswNk-qtDFQpl-zv8qM8KOd2tKpM9iSac" id=​"chatbot_live_chat_widget" style=​"z-index:​ 999999;​ position:​ fixed;​">​…​</iframe>​
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+bot.e5v3.c18.e2-2.dev/team/51805/logoose500.png:1  GET https://bot.e5v3.c18.e2-2.dev/team/51805/logoose500.png net::ERR_NAME_NOT_RESOLVED
+Image
+gr @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+mr @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+vr @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+g @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+init @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+init @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+init @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+init @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+n @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.run @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+fn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+qt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+zt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+te @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ct.notify @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+set @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+jl.updateRoute @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Al @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+kl @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+p @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Al @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+jl.confirmTransition @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+jl.transitionTo @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+e.replace @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ql.replace @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+i @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+s @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+replaceRoute @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+setCampaignView @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+activeCampaign @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+$t @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.run @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+fn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+qt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+zt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+te @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ct.notify @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+set @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+St @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+setActiveCampaign @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E._withCommit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A.o.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+c @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Ka @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+a @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+setTimeout
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+as @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+c @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Ka @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+a @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A.o.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+c @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Ka @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+a @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+s.forEach.n.<computed> @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2

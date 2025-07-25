@@ -81,13 +81,13 @@ export default function BolsasInscricao() {
       {/* Background Management for Admin */}
       {isAuthenticated && (
         <HeroBackgroundManager 
-          background={heroBackground}
-          onUpdate={updateHeroBackground}
+          heroBackground={heroBackground}
+          updateHeroBackground={updateHeroBackground}
         />
       )}
 
       {/* Visual Composer */}
-      {isAuthenticated && VisualComposerComponent}
+      {isAuthenticated && <VisualComposerComponent />}
       
       {/* Admin Logout Button */}
       {isAuthenticated && <LogoutButton />}
