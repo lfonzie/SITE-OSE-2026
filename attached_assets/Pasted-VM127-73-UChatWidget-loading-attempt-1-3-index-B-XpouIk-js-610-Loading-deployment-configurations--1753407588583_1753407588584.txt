@@ -1,0 +1,310 @@
+VM127:73 UChatWidget loading attempt 1/3
+index-B-XpouIk.js:610 Loading deployment configurations... Object
+index-B-XpouIk.js:610 🚀 Performance optimizations initialized
+horizontal_4.webp:1  Failed to load resource: the server responded with a status of 404 ()
+index-B-XpouIk.js:40 Refused to frame 'https://trfyo43h.forms.app/' because it violates the following Content Security Policy directive: "frame-src 'self' https://www.youtube.com https://www.google.com https://calendly.com https://www.uchat.com.au https://sdk.dfktv2.com https://www.googletagmanager.com https://td.doubleclick.net https://googleads.g.doubleclick.net".
+
+connect.facebook.net/en_US/fbevents.js:1  Failed to load resource: net::ERR_BLOCKED_BY_CLIENT
+index-B-XpouIk.js:673 Service Worker registered: ServiceWorkerRegistration
+gtm.js?id=GTM-524DC3R:123 Refused to connect to 'https://www.google.com/ccm/collect?en=page_view&dl=https%3A%2F%2Fcolegioose.com.br%2Fbolsas&scrsrc=www.googletagmanager.com&frm=0&rnd=1943104809.1753407441&dt=Prova%20de%20Bolsas%202026%20-%20Col%C3%A9gio%20OSE%20Sorocaba&auid=1890426317.1745892859&gclaw=CjwKCAjwsZPDBhBWEiwADuO6y4sc4GYkYJ6Z7r_KNt5CphAqz7MMQWZ-7e2ABDQ07SDTTFUUbTYaUhoCU4YQAvD_BwE&navt=n&npa=0&gtm=45He57n0v832177490za200zd832177490&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~104684208~104684211~104948813&tft=1753407440626&tfd=340&apve=1&apvf=sb' because it violates the following Content Security Policy directive: "connect-src 'self' 
+        https://www.google-analytics.com 
+        https://analytics.google.com 
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com
+        https://stats.g.doubleclick.net
+        https://google.com.br
+        https://www.google.com.br
+        https://ipapi.co".
+
+Tc @ gtm.js?id=GTM-524DC3R:123
+connect.facebook.net/en_US/fbevents.js:1  Failed to load resource: net::ERR_BLOCKED_BY_CLIENT
+index-B-XpouIk.js:610 Failed to load deferred script: https://connect.facebook.net/en_US/fbevents.js Error: Failed to load script: https://connect.facebook.net/en_US/fbevents.js
+    at a.onerror (index-B-XpouIk.js:610:43089)
+loadDeferredScripts @ index-B-XpouIk.js:610
+index-B-XpouIk.js:610 LCP: 348
+index-B-XpouIk.js:610 Available deployment configurations: Array(22)
+index-B-XpouIk.js:610 🔄 Synchronized Home with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Why OSE Section with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Programs Section with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Testimonials with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Legacy with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Educacao Infantil with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Fundamental II with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Fundamental I with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Ensino Médio with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Programa Bilíngue with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Integral with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Amplia with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized CODE.OSE with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Programa Socioemocional with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Lista de Material with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Árvore with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized ISAAC with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Plurall with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized AgendaEdu with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Contato with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Bolsas 2025 with deployment config (correct images)
+index-B-XpouIk.js:610 🔄 Synchronized Bolsas 2026 with deployment config (correct images)
+index-B-XpouIk.js:610 ✅ All deployment configurations loaded and synchronized
+index-B-XpouIk.js:610 Loading server config for Why OSE Section (production: true): ObjectautoSaved: trueimagePositions: {why-ose-1: {…}, why-ose-3: {…}}images: (4) ['/images/upload_1751324766005.jpeg', '/images/horizontal_21.png', '/images/upload_1751324989610.jpeg', '/images/upload_1751324509723.jpeg']lastModified: "2025-07-25T01:37:19.026Z"pageName: "Why OSE Section"savedForDeployment: true[[Prototype]]: Object
+api/auth/user:1  Failed to load resource: the server responded with a status of 401 ()
+index-B-XpouIk.js:48 Authentication required - returning null
+bolsas:1 Refused to load the image 'https://www.google.com/pagead/1p-user-list/1009339423/?random=1753407440700&cv=11&fst=1753405200000&bg=ffffff&guid=ON&async=1&gtm=45be57n0v896303236z8832177490za200zb832177490zd832177490&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~104684208~104684211~104948813&u_w=1470&u_h=956&url=https%3A%2F%2Fcolegioose.com.br%2Fbolsas&hn=www.googleadservices.com&frm=0&tiba=Prova%20de%20Bolsas%202026%20-%20Col%C3%A9gio%20OSE%20Sorocaba&npa=0&pscdl=noapi&auid=1890426317.1745892859&uaa=arm&uab=64&uafvl=Not)A%253BBrand%3B8.0.0.0%7CChromium%3B138.0.7204.158%7CGoogle%2520Chrome%3B138.0.7204.158&uamb=0&uam=&uap=macOS&uapv=15.5.0&uaw=0&fledge=1&_tu=Cg&rfmt=3&fmt=3&is_vtc=1&cid=CAQSigEA2absswNzHbqn1HG6B4ZbdnHnLGyucq5Zaz8XT82x7nx_tnkhZY6Tu7ov4-rRPaWBabVeGtRcv5anVzWhe0_TvsBbvdSP8SBo-vjf8ZaeIDgmAx0d6Ftaqfyuw_X20ezUUs-n0Wc3yvJ_hHPlMw8Wl0zCXVBcbGupvq1_KOww8fc520fEoUFxyY4&random=1682953173&rmt_tld=0&ipr=y' because it violates the following Content Security Policy directive: "img-src 'self' data: blob: 
+        https://www.google-analytics.com 
+        https://analytics.google.com
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com
+        https://stats.g.doubleclick.net
+        https://google.com.br
+        https://www.google.com.br".
+
+index-B-XpouIk.js:610 Loading server config for Bolsas 2026 (production: true): Object
+auth/user:1  Failed to load resource: the server responded with a status of 401 ()
+VM127:81 UChatWidget loaded successfully
+index-B-XpouIk.js:610 Failed to load deferred script: https://sdk.dfktv2.com/uchatWidget.js Error: Failed to load script: https://sdk.dfktv2.com/uchatWidget.js
+    at a.onerror (index-B-XpouIk.js:610:43089)
+loadDeferredScripts @ index-B-XpouIk.js:610
+index-B-XpouIk.js:610 LCP: 996
+index-B-XpouIk.js:610 Auto-saved page: Bolsas 2026 Object
+app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2 [Violation] Potential permissions policy violation: fullscreen is not allowed in this document.
+insertBefore @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+gtm.js?id=GTM-524DC3R:123 Refused to connect to 'https://www.google.com/ccm/collect?en=user_id_update&dl=https%3A%2F%2Fcolegioose.com.br%2Fbolsas&scrsrc=www.googletagmanager.com&frm=0&rnd=1943104809.1753407441&dt=Prova%20de%20Bolsas%202026%20-%20Col%C3%A9gio%20OSE%20Sorocaba&auid=1890426317.1745892859&gclaw=CjwKCAjwsZPDBhBWEiwADuO6y4sc4GYkYJ6Z7r_KNt5CphAqz7MMQWZ-7e2ABDQ07SDTTFUUbTYaUhoCU4YQAvD_BwE&navt=n&npa=0&ga_uid=G-N2MQBKE70F.17514691614255587&gtm=45He57n0v832177490za200zd832177490&gcd=13l3l3l3l1l1&dma=0&tag_exp=101509157~103116026~103200004~103233427~104684208~104684211~104948813&tft=1753407441390&tfd=1104&apve=1&apvf=sb' because it violates the following Content Security Policy directive: "connect-src 'self' 
+        https://www.google-analytics.com 
+        https://analytics.google.com 
+        https://www.googletagmanager.com 
+        https://www.facebook.com 
+        https://connect.facebook.net 
+        https://sdk.dfktv2.com 
+        https://www.uchat.com.au
+        https://googleads.g.doubleclick.net
+        https://www.googleadservices.com
+        https://stats.g.doubleclick.net
+        https://google.com.br
+        https://www.google.com.br
+        https://ipapi.co".
+
+Tc @ gtm.js?id=GTM-524DC3R:123
+index-B-XpouIk.js:610 LCP: 1132
+index-B-XpouIk.js:610 Server config saved for page: Bolsas 2026 (deployment ready)
+index-B-XpouIk.js:610 Auto-saved page: Why OSE Section Object
+app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2 [Violation] Potential permissions policy violation: fullscreen is not allowed in this document.
+insertBefore @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+index-B-XpouIk.js:610 Server config saved for page: Why OSE Section (deployment ready)
+VM127:50 UChatWidget widget found in DOM
+VM127:40 UChatWidget forced visible: <script id=​"chatbotWidgetV1" src=​"https:​/​/​sdk.dfktv2.com/​js/​sdk.js?v=d1f21654a3003c6eabbe1612bd1cc7d3" style=​"z-index:​ 999999;​ position:​ fixed;​">​</script>​
+VM127:40 UChatWidget forced visible: <iframe allow=​"microphone *;​ camera *;​ autoplay *" src=​"https:​/​/​sdk.dfktv2.com/​widget?flow_token=to6wv2osffcdtdwb&domain=colegioose.com.br&conv_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMTc1MTQ2OTE2MTQyNTU1ODciLCJleHBpcnkiOjE3NTU5OTk0Mzl9.qSwKUWBlUXZQFLLOi84s7-nWhC6fVPk_-gU9SbGZLcE" id=​"chatbot_live_chat_widget" style=​"z-index:​ 999999;​ position:​ fixed;​">​…​</iframe>​
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+index-B-XpouIk.js:610 FID: 5.300000011920929
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+index-B-XpouIk.js:610 CLS: 0
+bot.e5v3.c18.e2-2.dev/team/51805/logoose500.png:1  GET https://bot.e5v3.c18.e2-2.dev/team/51805/logoose500.png net::ERR_NAME_NOT_RESOLVED
+Image
+gr @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+mr @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+vr @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+g @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+init @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+init @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+v @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+init @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+An.$mount @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+init @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+n @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+t._update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.get @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.run @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+fn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+qt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+zt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+te @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ct.notify @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+set @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+jl.updateRoute @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Al @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+kl @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+p @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+r @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Al @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+jl.confirmTransition @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+jl.transitionTo @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+e.replace @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ql.replace @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+f @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+i @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+s @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+replaceRoute @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+setCampaignView @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+activeCampaign @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+$t @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.run @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+fn @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+qt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Promise.then
+zt @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+te @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+pn.update @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+ct.notify @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+set @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+St @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+setActiveCampaign @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E._withCommit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+A.o.commit @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+c @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+Ka @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+a @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+E.dispatch @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
+(anonymous) @ app.js?id=9e4cca78b6302dae5d95ec788ad6e4e3:2
