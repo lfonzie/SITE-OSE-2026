@@ -277,7 +277,7 @@ export default function BolsasInscricao() {
         </section>
 
         {/* Formulário de Inscrição */}
-        <section className="py-16 px-4">
+        <section id="inscricao" className="py-16 px-4">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -287,10 +287,10 @@ export default function BolsasInscricao() {
               className="text-center mb-12"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Inscrição
+                <span className="text-orange-400">Formulário</span> de Inscrição
               </h2>
-              <p className="text-xl text-amber-100 max-w-2xl mx-auto">
-                Preencha o formulário abaixo para se inscrever na prova de bolsas 2026
+              <p className="text-xl text-orange-100 max-w-2xl mx-auto">
+                Preencha o formulário abaixo para se inscrever na <strong className="text-orange-300">prova de bolsas 2026</strong>
               </p>
             </motion.div>
 
@@ -338,36 +338,36 @@ export default function BolsasInscricao() {
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {/* Regulamento 1 */}
+              {/* Regulamento Concurso de Bolsas - PRIMEIRO */}
               <AnimatedCard delay={0.1}>
                 <Card className="bg-white/30 backdrop-blur-lg border-white/20 overflow-hidden">
                   <CardHeader className="text-center">
-                    <CardTitle className="text-2xl text-white">Regulamento Geral</CardTitle>
+                    <CardTitle className="text-2xl text-white">
+                      <span className="text-orange-400 font-bold">Concurso de Bolsas 2026</span>
+                    </CardTitle>
+                    <p className="text-orange-200 text-sm mt-2">
+                      Para estudantes que iniciarão o Ensino Fundamental II (6º ano) e Ensino Médio (1ª série)
+                    </p>
                   </CardHeader>
                   <CardContent className="p-4">
-                    <div className="mb-4">
-                      <iframe
-                        src="https://docs.google.com/document/d/e/2PACX-1vTJTlGGo0Rk7_GfZrZKw7ga_A28_pYSBXlLxE0HDmPtCmhJxwV48yARJzbSF40Uu-uq5npiFk8YvCEb/pub?embedded=true"
-                        style={{
-                          width: '100%',
-                          height: '400px',
-                          border: 'none',
-                          borderRadius: '8px'
-                        }}
-                        title="Regulamento Geral - Prova de Bolsas 2026"
-                      />
+                    <div className="mb-4 bg-gray-100 rounded-lg p-4">
+                      <p className="text-gray-700 text-center">
+                        <span className="text-orange-600 font-bold">📄 Regulamento do Concurso de Bolsas</span>
+                        <br />
+                        <span className="text-sm">Clique no botão abaixo para acessar o documento completo</span>
+                      </p>
                     </div>
                     <div className="text-center">
                       <Button 
                         asChild
-                        className="bg-orange-500 hover:bg-orange-600 text-white"
+                        className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3"
                       >
                         <a 
-                          href="https://docs.google.com/document/d/e/2PACX-1vTJTlGGo0Rk7_GfZrZKw7ga_A28_pYSBXlLxE0HDmPtCmhJxwV48yARJzbSF40Uu-uq5npiFk8YvCEb/pub"
+                          href="https://docs.google.com/document/d/e/2PACX-1vR7BERYh0NPZ0kg9KSky_Vbj8Xm9dZU2Hy67r5_kTQaJUN5evDeSLFsQ-xGwdi0qZ1tgUNtN9VmXBZK/pub"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          📄 Abrir Regulamento Completo
+                          📄 Ver Regulamento Completo
                         </a>
                       </Button>
                     </div>
@@ -375,36 +375,36 @@ export default function BolsasInscricao() {
                 </Card>
               </AnimatedCard>
 
-              {/* Regulamento 2 */}
+              {/* Regulamento Vagas Remanescentes - SEGUNDO */}
               <AnimatedCard delay={0.2}>
                 <Card className="bg-white/30 backdrop-blur-lg border-white/20 overflow-hidden">
                   <CardHeader className="text-center">
-                    <CardTitle className="text-2xl text-white">Regulamento Específico</CardTitle>
+                    <CardTitle className="text-2xl text-white">
+                      <span className="text-orange-400 font-bold">Vagas Remanescentes</span>
+                    </CardTitle>
+                    <p className="text-orange-200 text-sm mt-2">
+                      Para preenchimento de vagas disponíveis
+                    </p>
                   </CardHeader>
                   <CardContent className="p-4">
-                    <div className="mb-4">
-                      <iframe
-                        src="https://docs.google.com/document/d/e/2PACX-1vR7BERYh0NPZ0kg9KSky_Vbj8Xm9dZU2Hy67r5_kTQaJUN5evDeSLFsQ-xGwdi0qZ1tgUNtN9VmXBZK/pub?embedded=true"
-                        style={{
-                          width: '100%',
-                          height: '400px',
-                          border: 'none',
-                          borderRadius: '8px'
-                        }}
-                        title="Regulamento Específico - Prova de Bolsas 2026"
-                      />
+                    <div className="mb-4 bg-gray-100 rounded-lg p-4">
+                      <p className="text-gray-700 text-center">
+                        <span className="text-orange-600 font-bold">📄 Regulamento de Vagas Remanescentes</span>
+                        <br />
+                        <span className="text-sm">Clique no botão abaixo para acessar o documento completo</span>
+                      </p>
                     </div>
                     <div className="text-center">
                       <Button 
                         asChild
-                        className="bg-orange-500 hover:bg-orange-600 text-white"
+                        className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3"
                       >
                         <a 
-                          href="https://docs.google.com/document/d/e/2PACX-1vR7BERYh0NPZ0kg9KSky_Vbj8Xm9dZU2Hy67r5_kTQaJUN5evDeSLFsQ-xGwdi0qZ1tgUNtN9VmXBZK/pub"
+                          href="https://docs.google.com/document/d/e/2PACX-1vTJTlGGo0Rk7_GfZrZKw7ga_A28_pYSBXlLxE0HDmPtCmhJxwV48yARJzbSF40Uu-uq5npiFk8YvCEb/pub"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          📄 Abrir Regulamento Completo
+                          📄 Ver Regulamento Completo
                         </a>
                       </Button>
                     </div>
@@ -428,12 +428,178 @@ export default function BolsasInscricao() {
                       ⚠️ Informações Importantes
                     </h3>
                     <div className="text-orange-100 space-y-3">
-                      <p>• <strong>Leia atentamente</strong> os dois regulamentos antes de se inscrever</p>
-                      <p>• <strong>Data da prova:</strong> 4 de outubro de 2026 (sábado)</p>
-                      <p>• <strong>Horários:</strong> 9h (Ensino Médio) e 14h (Fundamental II)</p>
-                      <p>• <strong>Matérias:</strong> Matemática e Português</p>
-                      <p>• <strong>Dúvidas:</strong> Entre em contato pelo telefone (15) 2101-3800</p>
+                      <p>• <strong className="text-orange-300">Leia atentamente</strong> os dois regulamentos antes de se inscrever</p>
+                      <p>• <strong className="text-orange-300">Data da prova:</strong> 4 de outubro de 2026 (sábado)</p>
+                      <p>• <strong className="text-orange-300">Horários:</strong> 9h (Ensino Médio) e 14h (Fundamental II)</p>
+                      <p>• <strong className="text-orange-300">Matérias:</strong> Matemática e Português</p>
+                      <p>• <strong className="text-orange-300">Dúvidas:</strong> Entre em contato pelo telefone (15) 2101-3800</p>
                     </div>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* FAQ - Perguntas Frequentes */}
+        <section className="py-16 px-4">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                <span className="text-orange-400">FAQ</span> - Perguntas Frequentes
+              </h2>
+              <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+                Esclarecimentos sobre o concurso de bolsas e vagas remanescentes
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* FAQ 1 */}
+              <AnimatedCard delay={0.1}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-orange-400 mb-3">
+                      🎓 Quem pode participar do concurso de bolsas?
+                    </h3>
+                    <p className="text-white">
+                      Estudantes que iniciarão o <strong className="text-orange-300">6º ano do Ensino Fundamental II</strong> ou a <strong className="text-orange-300">1ª série do Ensino Médio</strong> em 2026.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+
+              {/* FAQ 2 */}
+              <AnimatedCard delay={0.2}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-orange-400 mb-3">
+                      📅 Quando será realizada a prova?
+                    </h3>
+                    <p className="text-white">
+                      <strong className="text-orange-300">4 de outubro de 2026 (sábado)</strong><br/>
+                      • 9h: Ensino Médio<br/>
+                      • 14h: Ensino Fundamental II
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+
+              {/* FAQ 3 */}
+              <AnimatedCard delay={0.3}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-orange-400 mb-3">
+                      📚 Quais matérias serão cobradas?
+                    </h3>
+                    <p className="text-white">
+                      A prova abrangerá <strong className="text-orange-300">Matemática e Português</strong>, com questões adequadas ao nível de escolaridade do candidato.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+
+              {/* FAQ 4 */}
+              <AnimatedCard delay={0.4}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-orange-400 mb-3">
+                      💰 Que tipo de bolsa posso conseguir?
+                    </h3>
+                    <p className="text-white">
+                      O percentual de bolsa será determinado de acordo com o <strong className="text-orange-300">desempenho na prova</strong> e critérios estabelecidos no regulamento.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+
+              {/* FAQ 5 */}
+              <AnimatedCard delay={0.5}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-orange-400 mb-3">
+                      📋 Como me inscrevo?
+                    </h3>
+                    <p className="text-white">
+                      Use o <strong className="text-orange-300">formulário de inscrição</strong> disponível nesta página. Leia atentamente os regulamentos antes de se inscrever.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+
+              {/* FAQ 6 */}
+              <AnimatedCard delay={0.6}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-orange-400 mb-3">
+                      🔄 O que são vagas remanescentes?
+                    </h3>
+                    <p className="text-white">
+                      São vagas disponíveis para <strong className="text-orange-300">preenchimento imediato</strong> em diferentes séries, com processo seletivo específico conforme regulamento.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+
+              {/* FAQ 7 */}
+              <AnimatedCard delay={0.7}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-orange-400 mb-3">
+                      📞 Como tirar dúvidas?
+                    </h3>
+                    <p className="text-white">
+                      Entre em contato conosco pelo telefone <strong className="text-orange-300">(15) 2101-3800</strong> ou visite nossa secretaria para esclarecimentos.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+
+              {/* FAQ 8 */}
+              <AnimatedCard delay={0.8}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-orange-400 mb-3">
+                      📄 Preciso levar documentos na prova?
+                    </h3>
+                    <p className="text-white">
+                      Sim, consulte os <strong className="text-orange-300">regulamentos específicos</strong> para a lista completa de documentos necessários no dia da prova.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+            </div>
+
+            {/* CTA Final do FAQ */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              className="text-center mt-12"
+            >
+              <AnimatedCard delay={0.9}>
+                <Card className="bg-gradient-to-r from-orange-600/30 to-orange-500/30 backdrop-blur-lg border-orange-400/50">
+                  <CardContent className="p-8">
+                    <h3 className="text-2xl font-bold text-white mb-4">
+                      🚀 Pronto para conquistar sua bolsa?
+                    </h3>
+                    <p className="text-orange-100 mb-6">
+                      Não perca esta oportunidade única! <strong className="text-orange-300">Inscreva-se agora</strong> e garante sua vaga no Colégio OSE.
+                    </p>
+                    <Button 
+                      asChild
+                      className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 text-lg"
+                    >
+                      <a href="#inscricao">
+                        ✨ Inscrever-se Agora
+                      </a>
+                    </Button>
                   </CardContent>
                 </Card>
               </AnimatedCard>

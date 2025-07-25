@@ -12,41 +12,21 @@
       "imageUrl": "/images/horizontal_4.png"
     },
     "pageName": "Home",
-    "lastModified": "2025-07-25T01:55:18.733Z",
+    "lastModified": "2025-07-25T13:37:08.407Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Why OSE Section": {
     "images": [
-      "/images/horizontal_2.png",
-      "/images/horizontal_3.png",
-      "/images/horizontal_4.png",
-      "/images/horizontal_5.png"
+      "/images/upload_1751324766005.jpeg",
+      "/images/horizontal_21.png",
+      "/images/upload_1751324989610.jpeg",
+      "/images/upload_1751324509723.jpeg"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-25T02:08:57.220Z",
+    "lastModified": "2025-07-25T13:42:17.655Z",
     "autoSaved": true,
-    "savedForDeployment": true,
-    "imagePositions": {
-      "why-ose-1": {
-        "objectPosition": "0% 26%",
-        "horizontalPosition": -50,
-        "verticalPosition": -24,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      },
-      "why-ose-3": {
-        "objectPosition": "15.5% 39%",
-        "horizontalPosition": -34.5,
-        "verticalPosition": -11,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      }
-    }
+    "savedForDeployment": true
   },
   "Programs Section": {
     "images": [
@@ -56,13 +36,13 @@
       "/images/upload_1751325029201.jpeg"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-25T01:55:18.761Z",
+    "lastModified": "2025-07-25T13:37:08.445Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-25T01:55:18.735Z",
+    "lastModified": "2025-07-25T13:37:08.439Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -541,7 +521,7 @@
       "repeat": "no-repeat"
     },
     "pageName": "Bolsas 2026",
-    "lastModified": "2025-07-25T02:08:57.222Z",
+    "lastModified": "2025-07-25T13:42:42.662Z",
     "autoSaved": true,
     "savedForDeployment": true
   }
