@@ -106,6 +106,7 @@ function Router() {
       <Route path="/plurall" component={Plurall} />
       <Route path="/contato" component={ContatoPage} />
       <Route path="/bolsas2025" component={Bolsas2025Page} />
+      <Route path="/bolsas" component={BolsasInscricao} />
       <Route path="/bolsas-inscricao" component={BolsasInscricao} />
       <Route path="/bolsas-inscricao/success" component={BolsasInscricaoSuccess} />
       <Route component={NotFound} />
