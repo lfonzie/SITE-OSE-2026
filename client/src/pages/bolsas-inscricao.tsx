@@ -468,7 +468,7 @@ export default function BolsasInscricao() {
                       🎓 Quem pode participar do concurso de bolsas?
                     </h3>
                     <p className="text-white">
-                      Estudantes que iniciarão o <strong className="text-orange-400">6º ano do Ensino Fundamental II</strong> ou a <strong className="text-orange-400">1ª série do Ensino Médio</strong> em 2026.
+                      Estudantes regularmente matriculados no <strong className="text-orange-400">5º ano (nascidos em 2014/2015)</strong> para 6º ano e <strong className="text-orange-400">9º ano (nascidos em 2010)</strong> para 1ª série do Ensino Médio.
                     </p>
                   </CardContent>
                 </Card>
@@ -482,9 +482,9 @@ export default function BolsasInscricao() {
                       📅 Quando será realizada a prova?
                     </h3>
                     <p className="text-white">
-                      <strong className="text-orange-400">4 de outubro de 2026 (sábado)</strong><br/>
-                      • 9h: Ensino Médio<br/>
-                      • 14h: Ensino Fundamental II
+                      <strong className="text-orange-400">4 de outubro de 2025 (sábado)</strong><br/>
+                      • 9h às 11h: 1ª série do Ensino Médio<br/>
+                      • 14h às 16h: 6º ano do Ensino Fundamental
                     </p>
                   </CardContent>
                 </Card>
@@ -495,10 +495,12 @@ export default function BolsasInscricao() {
                 <Card className="bg-white/30 backdrop-blur-lg border-white/20">
                   <CardContent className="p-6">
                     <h3 className="text-lg font-bold text-orange-400 mb-3">
-                      📚 Quais matérias serão cobradas?
+                      📚 Como é estruturada a prova?
                     </h3>
                     <p className="text-white">
-                      A prova abrangerá <strong className="text-orange-400">Matemática e Português</strong>, com questões adequadas ao nível de escolaridade do candidato.
+                      <strong className="text-orange-400">30 testes de múltipla escolha:</strong><br/>
+                      • 15 questões de Matemática<br/>
+                      • 15 questões de Português
                     </p>
                   </CardContent>
                 </Card>
@@ -509,10 +511,16 @@ export default function BolsasInscricao() {
                 <Card className="bg-white/30 backdrop-blur-lg border-white/20">
                   <CardContent className="p-6">
                     <h3 className="text-lg font-bold text-orange-400 mb-3">
-                      💰 Que tipo de bolsa posso conseguir?
+                      💰 Quantas bolsas estão disponíveis?
                     </h3>
                     <p className="text-white">
-                      O percentual de bolsa será determinado de acordo com o <strong className="text-orange-400">desempenho na prova</strong> e critérios estabelecidos no regulamento.
+                      <strong className="text-orange-400">Concurso de Bolsas (Novas Turmas):</strong><br/>
+                      • 2 bolsas de 100% (1º colocado de cada segmento)<br/>
+                      • 1 bolsa de 80%<br/>
+                      • 2 bolsas de 60%<br/>
+                      • 20 bolsas de 50%<br/>
+                      • 10 bolsas de 40%<br/>
+                      • Outras bolsas a critério da escola
                     </p>
                   </CardContent>
                 </Card>
@@ -523,10 +531,11 @@ export default function BolsasInscricao() {
                 <Card className="bg-white/30 backdrop-blur-lg border-white/20">
                   <CardContent className="p-6">
                     <h3 className="text-lg font-bold text-orange-400 mb-3">
-                      📋 Como me inscrevo?
+                      📝 Como faço a inscrição?
                     </h3>
                     <p className="text-white">
-                      Use o <strong className="text-orange-400">formulário de inscrição</strong> disponível nesta página. Leia atentamente os regulamentos antes de se inscrever.
+                      Inscrições pelo site <strong className="text-orange-400">www.colegioose.com.br</strong><br/>
+                      Período: <strong className="text-orange-400">24/07/2025 a 02/10/2025</strong> (até 14h)
                     </p>
                   </CardContent>
                 </Card>
@@ -540,7 +549,7 @@ export default function BolsasInscricao() {
                       🔄 O que são vagas remanescentes?
                     </h3>
                     <p className="text-white">
-                      São vagas disponíveis para <strong className="text-orange-400">preenchimento imediato</strong> em diferentes séries, com processo seletivo específico conforme regulamento.
+                      Para alunos que iniciarão <strong className="text-orange-400">7º, 8º, 9º anos e 2ª, 3ª séries</strong> em 2026. São 5 bolsas de 50% (uma para cada série). Prova no mesmo dia com horários específicos.
                     </p>
                   </CardContent>
                 </Card>
@@ -551,10 +560,11 @@ export default function BolsasInscricao() {
                 <Card className="bg-white/30 backdrop-blur-lg border-white/20">
                   <CardContent className="p-6">
                     <h3 className="text-lg font-bold text-orange-400 mb-3">
-                      📞 Como tirar dúvidas?
+                      📅 Quando saem os resultados?
                     </h3>
                     <p className="text-white">
-                      Entre em contato conosco pelo telefone <strong className="text-orange-400">(15) 2101-3800</strong> ou visite nossa secretaria para esclarecimentos.
+                      <strong className="text-orange-400">Gabarito:</strong> 05/10/2025 às 14h (site)<br/>
+                      <strong className="text-orange-400">Resultado oficial:</strong> 06/10/2025 às 14h (no colégio)
                     </p>
                   </CardContent>
                 </Card>
@@ -565,10 +575,39 @@ export default function BolsasInscricao() {
                 <Card className="bg-white/30 backdrop-blur-lg border-white/20">
                   <CardContent className="p-6">
                     <h3 className="text-lg font-bold text-orange-400 mb-3">
-                      📄 Preciso levar documentos na prova?
+                      📞 Como tirar dúvidas?
                     </h3>
                     <p className="text-white">
-                      Sim, consulte os <strong className="text-orange-400">regulamentos específicos</strong> para a lista completa de documentos necessários no dia da prova.
+                      <strong className="text-orange-400">Ensino Fundamental:</strong> cristina.lima@colegioose.com.br<br/>
+                      <strong className="text-orange-400">Ensino Médio:</strong> regina.crippa@colegioose.com.br
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+
+              {/* FAQ 9 */}
+              <AnimatedCard delay={0.9}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-orange-400 mb-3">
+                      📄 Quais documentos preciso levar?
+                    </h3>
+                    <p className="text-white">
+                      <strong className="text-orange-400">Para matrícula:</strong> Declaração de escolaridade, foto 3x4, RG e CPF, certidão de nascimento, transferência, histórico escolar e comprovante de residência.
+                    </p>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+
+              {/* FAQ 10 */}
+              <AnimatedCard delay={1.0}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-orange-400 mb-3">
+                      ⏰ Preciso chegar com antecedência?
+                    </h3>
+                    <p className="text-white">
+                      Sim, chegue com <strong className="text-orange-400">30 minutos de antecedência</strong>. Traga caneta (preta ou azul), lápis e borracha. O pagamento da 1ª parcela é no ato da matrícula.
                     </p>
                   </CardContent>
                 </Card>
