@@ -290,7 +290,7 @@ export default function BolsasInscricao() {
                 <span className="text-orange-400">Formulário</span> de Inscrição
               </h2>
               <p className="text-xl text-orange-100 max-w-2xl mx-auto">
-                Preencha o formulário abaixo para se inscrever na <strong className="text-orange-300">prova de bolsas 2026</strong>
+                Preencha o formulário abaixo para se inscrever na <strong className="text-orange-400">prova de bolsas 2026</strong>
               </p>
             </motion.div>
 
@@ -422,17 +422,17 @@ export default function BolsasInscricao() {
               className="mt-12"
             >
               <AnimatedCard delay={0.3}>
-                <Card className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 backdrop-blur-lg border-orange-400/30">
+                <Card className="bg-orange-100/95 backdrop-blur-lg border-orange-500/50">
                   <CardContent className="p-6">
-                    <h3 className="text-2xl font-bold text-white mb-4 text-center">
+                    <h3 className="text-2xl font-bold text-orange-700 mb-4 text-center">
                       ⚠️ Informações Importantes
                     </h3>
-                    <div className="text-orange-100 space-y-3">
-                      <p>• <strong className="text-orange-300">Leia atentamente</strong> os dois regulamentos antes de se inscrever</p>
-                      <p>• <strong className="text-orange-300">Data da prova:</strong> 4 de outubro de 2026 (sábado)</p>
-                      <p>• <strong className="text-orange-300">Horários:</strong> 9h (Ensino Médio) e 14h (Fundamental II)</p>
-                      <p>• <strong className="text-orange-300">Matérias:</strong> Matemática e Português</p>
-                      <p>• <strong className="text-orange-300">Dúvidas:</strong> Entre em contato pelo telefone (15) 2101-3800</p>
+                    <div className="text-gray-800 space-y-3">
+                      <p>• <strong className="text-orange-600">Leia atentamente</strong> os dois regulamentos antes de se inscrever</p>
+                      <p>• <strong className="text-orange-600">Data da prova:</strong> 4 de outubro de 2026 (sábado)</p>
+                      <p>• <strong className="text-orange-600">Horários:</strong> 9h (Ensino Médio) e 14h (Fundamental II)</p>
+                      <p>• <strong className="text-orange-600">Matérias:</strong> Matemática e Português</p>
+                      <p>• <strong className="text-orange-600">Dúvidas:</strong> Entre em contato pelo telefone (15) 2101-3800</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -468,7 +468,7 @@ export default function BolsasInscricao() {
                       🎓 Quem pode participar do concurso de bolsas?
                     </h3>
                     <p className="text-white">
-                      Estudantes que iniciarão o <strong className="text-orange-300">6º ano do Ensino Fundamental II</strong> ou a <strong className="text-orange-300">1ª série do Ensino Médio</strong> em 2026.
+                      Estudantes que iniciarão o <strong className="text-orange-400">6º ano do Ensino Fundamental II</strong> ou a <strong className="text-orange-400">1ª série do Ensino Médio</strong> em 2026.
                     </p>
                   </CardContent>
                 </Card>
@@ -482,7 +482,7 @@ export default function BolsasInscricao() {
                       📅 Quando será realizada a prova?
                     </h3>
                     <p className="text-white">
-                      <strong className="text-orange-300">4 de outubro de 2026 (sábado)</strong><br/>
+                      <strong className="text-orange-400">4 de outubro de 2026 (sábado)</strong><br/>
                       • 9h: Ensino Médio<br/>
                       • 14h: Ensino Fundamental II
                     </p>
@@ -498,7 +498,7 @@ export default function BolsasInscricao() {
                       📚 Quais matérias serão cobradas?
                     </h3>
                     <p className="text-white">
-                      A prova abrangerá <strong className="text-orange-300">Matemática e Português</strong>, com questões adequadas ao nível de escolaridade do candidato.
+                      A prova abrangerá <strong className="text-orange-400">Matemática e Português</strong>, com questões adequadas ao nível de escolaridade do candidato.
                     </p>
                   </CardContent>
                 </Card>
@@ -512,7 +512,7 @@ export default function BolsasInscricao() {
                       💰 Que tipo de bolsa posso conseguir?
                     </h3>
                     <p className="text-white">
-                      O percentual de bolsa será determinado de acordo com o <strong className="text-orange-300">desempenho na prova</strong> e critérios estabelecidos no regulamento.
+                      O percentual de bolsa será determinado de acordo com o <strong className="text-orange-400">desempenho na prova</strong> e critérios estabelecidos no regulamento.
                     </p>
                   </CardContent>
                 </Card>
@@ -526,7 +526,7 @@ export default function BolsasInscricao() {
                       📋 Como me inscrevo?
                     </h3>
                     <p className="text-white">
-                      Use o <strong className="text-orange-300">formulário de inscrição</strong> disponível nesta página. Leia atentamente os regulamentos antes de se inscrever.
+                      Use o <strong className="text-orange-400">formulário de inscrição</strong> disponível nesta página. Leia atentamente os regulamentos antes de se inscrever.
                     </p>
                   </CardContent>
                 </Card>
@@ -540,7 +540,7 @@ export default function BolsasInscricao() {
                       🔄 O que são vagas remanescentes?
                     </h3>
                     <p className="text-white">
-                      São vagas disponíveis para <strong className="text-orange-300">preenchimento imediato</strong> em diferentes séries, com processo seletivo específico conforme regulamento.
+                      São vagas disponíveis para <strong className="text-orange-400">preenchimento imediato</strong> em diferentes séries, com processo seletivo específico conforme regulamento.
                     </p>
                   </CardContent>
                 </Card>
@@ -554,7 +554,7 @@ export default function BolsasInscricao() {
                       📞 Como tirar dúvidas?
                     </h3>
                     <p className="text-white">
-                      Entre em contato conosco pelo telefone <strong className="text-orange-300">(15) 2101-3800</strong> ou visite nossa secretaria para esclarecimentos.
+                      Entre em contato conosco pelo telefone <strong className="text-orange-400">(15) 2101-3800</strong> ou visite nossa secretaria para esclarecimentos.
                     </p>
                   </CardContent>
                 </Card>
@@ -568,7 +568,7 @@ export default function BolsasInscricao() {
                       📄 Preciso levar documentos na prova?
                     </h3>
                     <p className="text-white">
-                      Sim, consulte os <strong className="text-orange-300">regulamentos específicos</strong> para a lista completa de documentos necessários no dia da prova.
+                      Sim, consulte os <strong className="text-orange-400">regulamentos específicos</strong> para a lista completa de documentos necessários no dia da prova.
                     </p>
                   </CardContent>
                 </Card>
@@ -590,7 +590,7 @@ export default function BolsasInscricao() {
                       🚀 Pronto para conquistar sua bolsa?
                     </h3>
                     <p className="text-orange-100 mb-6">
-                      Não perca esta oportunidade única! <strong className="text-orange-300">Inscreva-se agora</strong> e garante sua vaga no Colégio OSE.
+                      Não perca esta oportunidade única! <strong className="text-orange-400">Inscreva-se agora</strong> e garante sua vaga no Colégio OSE.
                     </p>
                     <Button 
                       asChild
