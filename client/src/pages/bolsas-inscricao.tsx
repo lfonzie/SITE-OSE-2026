@@ -297,27 +297,20 @@ export default function BolsasInscricao() {
               <Card className="bg-white/30 backdrop-blur-lg border-white/20">
                 <CardContent className="p-2">
                   {/* Formulário do Forms.app */}
-                  <div 
-                    id="formsapp-form"
+                  <iframe 
+                    id="" 
+                    allowTransparency="true" 
+                    allowFullScreen="true" 
+                    allow="geolocation; microphone; camera" 
+                    src="https://trfyo43h.forms.app/form/6882db63040c8be61e1a2b3c" 
+                    frameBorder="0" 
                     style={{
-                      width: '100%',
-                      height: '600px',
-                      border: 'none',
-                      borderRadius: '8px',
-                      overflow: 'hidden'
+                      width: '100vw', 
+                      minWidth: '100%', 
+                      height: '600px', 
+                      border: 'none'
                     }}
-                  >
-                    <iframe
-                      src="https://trfyo43h.forms.app/6882db63040c8be61e1a2b3c"
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        border: 'none',
-                        borderRadius: '8px'
-                      }}
-                      title="Formulário de Inscrição - Prova de Bolsas 2026"
-                    />
-                  </div>
+                  />
                 </CardContent>
               </Card>
             </AnimatedCard>
