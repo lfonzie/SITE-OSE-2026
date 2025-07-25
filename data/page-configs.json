@@ -12,41 +12,21 @@
       "imageUrl": "/images/horizontal_4.png"
     },
     "pageName": "Home",
-    "lastModified": "2025-07-25T01:38:42.140Z",
+    "lastModified": "2025-07-25T01:41:13.714Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Why OSE Section": {
     "images": [
-      "/images/upload_1751324766005.jpeg",
-      "/images/horizontal_21.png",
-      "/images/upload_1751324989610.jpeg",
-      "/images/upload_1751324509723.jpeg"
+      "/images/horizontal_2.png",
+      "/images/horizontal_3.png",
+      "/images/horizontal_4.png",
+      "/images/horizontal_5.png"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-25T01:38:42.141Z",
+    "lastModified": "2025-07-25T01:41:29.328Z",
     "autoSaved": true,
-    "savedForDeployment": true,
-    "imagePositions": {
-      "why-ose-1": {
-        "objectPosition": "0% 26%",
-        "horizontalPosition": -50,
-        "verticalPosition": -24,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      },
-      "why-ose-3": {
-        "objectPosition": "15.5% 39%",
-        "horizontalPosition": -34.5,
-        "verticalPosition": -11,
-        "scale": 1,
-        "opacity": 1,
-        "filter": "none",
-        "objectFit": "cover"
-      }
-    }
+    "savedForDeployment": true
   },
   "Programs Section": {
     "images": [
@@ -56,13 +36,13 @@
       "/images/upload_1751325029201.jpeg"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-25T01:38:42.148Z",
+    "lastModified": "2025-07-25T01:41:14.708Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-25T01:38:42.703Z",
+    "lastModified": "2025-07-25T01:41:15.711Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -531,7 +511,7 @@
   "Bolsas 2026": {
     "heroBackground": {
       "type": "image",
-      "imageUrl": "/images/horizontal_15.png",
+      "imageUrl": "/images/horizontal_4.png",
       "opacity": 1,
       "overlay": true,
       "overlayColor": "#1e293b",
@@ -541,7 +521,7 @@
       "repeat": "no-repeat"
     },
     "pageName": "Bolsas 2026",
-    "lastModified": "2025-07-25T01:33:24.724Z",
+    "lastModified": "2025-07-25T01:41:29.325Z",
     "autoSaved": true,
     "savedForDeployment": true
   }
