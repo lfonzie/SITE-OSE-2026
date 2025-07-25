@@ -18,12 +18,16 @@ export const setupCSP = () => {
       https://ssl.google-analytics.com
       https://sdk.dfktv2.com
       https://www.uchat.com.au
-      https://ipapi.co;
+      https://ipapi.co
+      https://forms.app
+      https://*.forms.app;
     style-src 'self' 'unsafe-inline' 
       https://fonts.googleapis.com 
       https://assets.calendly.com
       https://calendly.com
-      https://*.calendly.com;
+      https://*.calendly.com
+      https://forms.app
+      https://*.forms.app;
     img-src 'self' data: https: blob: 
       https://www.facebook.com 
       https://www.google-analytics.com 
@@ -31,7 +35,9 @@ export const setupCSP = () => {
       https://chatbot.ewr1.vultrobjects.com
       https://assets.calendly.com
       https://calendly.com
-      https://*.calendly.com;
+      https://*.calendly.com
+      https://forms.app
+      https://*.forms.app;
     font-src 'self' 
       https://fonts.gstatic.com
       https://assets.calendly.com;
@@ -48,7 +54,9 @@ export const setupCSP = () => {
       https://connect.facebook.net
       https://sdk.dfktv2.com
       https://www.uchat.com.au
-      https://ipapi.co;
+      https://ipapi.co
+      https://forms.app
+      https://*.forms.app;
     frame-src 'self' 
       https://calendly.com 
       https://*.calendly.com
@@ -59,7 +67,9 @@ export const setupCSP = () => {
       https://*.doubleclick.net
       https://googleads.g.doubleclick.net
       https://sdk.dfktv2.com
-      https://www.uchat.com.au;
+      https://www.uchat.com.au
+      https://forms.app
+      https://*.forms.app;
   `.replace(/\s+/g, ' ').trim();
   document.head.appendChild(meta);
 };
