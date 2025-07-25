@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Play, Award, Users, BookOpen, Edit, Save, X } from "lucide-react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -259,6 +260,32 @@ export default function HeroSection() {
                 <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-xl font-body whitespace-pre-line">
                   {heroContent.description}
                 </p>
+                
+                {/* CTA para Prova de Bolsas */}
+                <motion.div
+                  className="mb-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
+                  <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-6 rounded-2xl backdrop-blur-xl border border-orange-400/30 shadow-2xl">
+                    <h3 className="text-2xl font-bold text-white mb-3">🎓 Prova de Bolsas 2026</h3>
+                    <p className="text-orange-100 mb-4">
+                      Inscrições abertas para o processo seletivo de bolsas de estudo!<br/>
+                      <strong>4 de outubro:</strong> 9h (Ensino Médio) | 14h (Fundamental II)
+                    </p>
+                    <Button 
+                      asChild
+                      size="lg"
+                      className="bg-white text-orange-600 hover:bg-orange-50 font-bold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <Link href="/bolsas">
+                        Inscreva-se Agora →
+                      </Link>
+                    </Button>
+                  </div>
+                </motion.div>
+                
                 {isAuthenticated && (
                   <Button
                     size="sm"

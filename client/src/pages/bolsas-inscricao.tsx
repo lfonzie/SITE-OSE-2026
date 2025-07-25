@@ -108,11 +108,11 @@ export default function BolsasInscricao() {
                 }
               : {
                   background: `linear-gradient(135deg, 
-                    rgba(217, 119, 6, 0.9) 0%, 
-                    rgba(180, 83, 9, 0.8) 25%, 
-                    rgba(146, 64, 14, 0.7) 50%, 
-                    rgba(120, 53, 15, 0.6) 75%, 
-                    rgba(92, 400, 138, 0.5) 100%)`,
+                    rgba(251, 146, 60, 0.95) 0%, 
+                    rgba(249, 115, 22, 0.9) 25%, 
+                    rgba(234, 88, 12, 0.85) 50%, 
+                    rgba(194, 65, 12, 0.8) 75%, 
+                    rgba(154, 52, 18, 0.75) 100%)`,
                 }
           }
         />
@@ -299,9 +299,8 @@ export default function BolsasInscricao() {
                   {/* Formulário do Forms.app */}
                   <div className="w-full overflow-hidden">
                     <iframe 
-                      id="" 
-                      allowTransparency="true" 
-                      allowFullScreen="true" 
+                      allowtransparency="true" 
+                      allowFullScreen={true} 
                       allow="geolocation; microphone; camera" 
                       src="https://trfyo43h.forms.app/form/6882db63040c8be61e1a2b3c" 
                       frameBorder="0" 
