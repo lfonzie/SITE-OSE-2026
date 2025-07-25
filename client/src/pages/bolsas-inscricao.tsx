@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { Calendar, Clock, BookOpen, Users } from 'lucide-react';
 import Navigation from "@/components/navigation";
 import WhyOSESection from "@/components/why-ose-section";
@@ -299,7 +300,7 @@ export default function BolsasInscricao() {
                   {/* Formulário do Forms.app */}
                   <div className="w-full overflow-hidden">
                     <iframe 
-                      allowtransparency="true" 
+                      allowTransparency="true" 
                       allowFullScreen={true} 
                       allow="geolocation; microphone; camera" 
                       src="https://trfyo43h.forms.app/form/6882db63040c8be61e1a2b3c" 
@@ -315,6 +316,128 @@ export default function BolsasInscricao() {
                 </CardContent>
               </Card>
             </AnimatedCard>
+          </div>
+        </section>
+
+        {/* Regulamentos */}
+        <section className="py-16 px-4">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Regulamentos
+              </h2>
+              <p className="text-xl text-orange-100 max-w-2xl mx-auto">
+                Consulte os regulamentos da prova de bolsas 2026
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Regulamento 1 */}
+              <AnimatedCard delay={0.1}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20 overflow-hidden">
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-2xl text-white">Regulamento Geral</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-4">
+                    <div className="mb-4">
+                      <iframe
+                        src="https://docs.google.com/document/d/e/2PACX-1vTJTlGGo0Rk7_GfZrZKw7ga_A28_pYSBXlLxE0HDmPtCmhJxwV48yARJzbSF40Uu-uq5npiFk8YvCEb/pub?embedded=true"
+                        style={{
+                          width: '100%',
+                          height: '400px',
+                          border: 'none',
+                          borderRadius: '8px'
+                        }}
+                        title="Regulamento Geral - Prova de Bolsas 2026"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <Button 
+                        asChild
+                        className="bg-orange-500 hover:bg-orange-600 text-white"
+                      >
+                        <a 
+                          href="https://docs.google.com/document/d/e/2PACX-1vTJTlGGo0Rk7_GfZrZKw7ga_A28_pYSBXlLxE0HDmPtCmhJxwV48yARJzbSF40Uu-uq5npiFk8YvCEb/pub"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          📄 Abrir Regulamento Completo
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+
+              {/* Regulamento 2 */}
+              <AnimatedCard delay={0.2}>
+                <Card className="bg-white/30 backdrop-blur-lg border-white/20 overflow-hidden">
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-2xl text-white">Regulamento Específico</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-4">
+                    <div className="mb-4">
+                      <iframe
+                        src="https://docs.google.com/document/d/e/2PACX-1vR7BERYh0NPZ0kg9KSky_Vbj8Xm9dZU2Hy67r5_kTQaJUN5evDeSLFsQ-xGwdi0qZ1tgUNtN9VmXBZK/pub?embedded=true"
+                        style={{
+                          width: '100%',
+                          height: '400px',
+                          border: 'none',
+                          borderRadius: '8px'
+                        }}
+                        title="Regulamento Específico - Prova de Bolsas 2026"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <Button 
+                        asChild
+                        className="bg-orange-500 hover:bg-orange-600 text-white"
+                      >
+                        <a 
+                          href="https://docs.google.com/document/d/e/2PACX-1vR7BERYh0NPZ0kg9KSky_Vbj8Xm9dZU2Hy67r5_kTQaJUN5evDeSLFsQ-xGwdi0qZ1tgUNtN9VmXBZK/pub"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          📄 Abrir Regulamento Completo
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+            </div>
+
+            {/* Informações Importantes */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-12"
+            >
+              <AnimatedCard delay={0.3}>
+                <Card className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 backdrop-blur-lg border-orange-400/30">
+                  <CardContent className="p-6">
+                    <h3 className="text-2xl font-bold text-white mb-4 text-center">
+                      ⚠️ Informações Importantes
+                    </h3>
+                    <div className="text-orange-100 space-y-3">
+                      <p>• <strong>Leia atentamente</strong> os dois regulamentos antes de se inscrever</p>
+                      <p>• <strong>Data da prova:</strong> 4 de outubro de 2026 (sábado)</p>
+                      <p>• <strong>Horários:</strong> 9h (Ensino Médio) e 14h (Fundamental II)</p>
+                      <p>• <strong>Matérias:</strong> Matemática e Português</p>
+                      <p>• <strong>Dúvidas:</strong> Entre em contato pelo telefone (15) 2101-3800</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+            </motion.div>
           </div>
         </section>
 
