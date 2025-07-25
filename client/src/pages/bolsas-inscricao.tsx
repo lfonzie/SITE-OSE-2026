@@ -191,9 +191,9 @@ export default function BolsasInscricao() {
             >
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
                 Prova de Bolsas
-                <span className="block text-amber-300">2026</span>
+                <span className="block text-orange-400">2026</span>
               </h1>
-              <p className="text-xl md:text-2xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-orange-100 max-w-4xl mx-auto leading-relaxed">
                 Colégio OSE
               </p>
             </motion.div>
@@ -219,11 +219,11 @@ export default function BolsasInscricao() {
               <AnimatedCard delay={0.1}>
                 <Card className="bg-white/30 backdrop-blur-lg border-white/20 h-full">
                   <CardHeader className="text-center">
-                    <Calendar className="h-12 w-12 text-amber-300 mx-auto mb-4" />
+                    <Calendar className="h-12 w-12 text-orange-400 mx-auto mb-4" />
                     <CardTitle className="text-2xl text-white">Data</CardTitle>
                   </CardHeader>
                   <CardContent className="text-center">
-                    <p className="text-amber-100 text-lg font-semibold">
+                    <p className="text-orange-100 text-lg font-semibold">
                       4 de outubro (sábado)
                     </p>
                   </CardContent>
@@ -233,14 +233,14 @@ export default function BolsasInscricao() {
               <AnimatedCard delay={0.2}>
                 <Card className="bg-white/30 backdrop-blur-lg border-white/20 h-full">
                   <CardHeader className="text-center">
-                    <Clock className="h-12 w-12 text-amber-300 mx-auto mb-4" />
+                    <Clock className="h-12 w-12 text-orange-400 mx-auto mb-4" />
                     <CardTitle className="text-2xl text-white">Horários</CardTitle>
                   </CardHeader>
                   <CardContent className="text-center space-y-2">
-                    <p className="text-amber-100">
+                    <p className="text-orange-100">
                       <strong>Ensino Médio:</strong> 9h
                     </p>
-                    <p className="text-amber-100">
+                    <p className="text-orange-100">
                       <strong>Fundamental II:</strong> 14h
                     </p>
                   </CardContent>
@@ -250,12 +250,12 @@ export default function BolsasInscricao() {
               <AnimatedCard delay={0.3}>
                 <Card className="bg-white/30 backdrop-blur-lg border-white/20 h-full">
                   <CardHeader className="text-center">
-                    <BookOpen className="h-12 w-12 text-amber-300 mx-auto mb-4" />
+                    <BookOpen className="h-12 w-12 text-orange-400 mx-auto mb-4" />
                     <CardTitle className="text-2xl text-white">Matérias</CardTitle>
                   </CardHeader>
                   <CardContent className="text-center space-y-2">
-                    <p className="text-amber-100">Matemática</p>
-                    <p className="text-amber-100">Português</p>
+                    <p className="text-orange-100">Matemática</p>
+                    <p className="text-orange-100">Português</p>
                   </CardContent>
                 </Card>
               </AnimatedCard>
@@ -263,12 +263,12 @@ export default function BolsasInscricao() {
               <AnimatedCard delay={0.4}>
                 <Card className="bg-white/30 backdrop-blur-lg border-white/20 h-full">
                   <CardHeader className="text-center">
-                    <Users className="h-12 w-12 text-amber-300 mx-auto mb-4" />
+                    <Users className="h-12 w-12 text-orange-400 mx-auto mb-4" />
                     <CardTitle className="text-2xl text-white">Segmentos</CardTitle>
                   </CardHeader>
                   <CardContent className="text-center space-y-2">
-                    <p className="text-amber-100 text-sm">Ensino Fundamental II</p>
-                    <p className="text-amber-100 text-sm">Ensino Médio</p>
+                    <p className="text-orange-100 text-sm">Ensino Fundamental II</p>
+                    <p className="text-orange-100 text-sm">Ensino Médio</p>
                   </CardContent>
                 </Card>
               </AnimatedCard>
