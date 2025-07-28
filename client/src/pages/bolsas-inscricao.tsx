@@ -535,7 +535,7 @@ export default function BolsasInscricao() {
                     </h3>
                     <p className="text-white">
                       Inscrições pelo site <strong className="text-orange-400">www.colegioose.com.br</strong><br/>
-                      Período: <strong className="text-orange-400">24/07/2025 a 02/10/2025</strong> (até 14h)
+                      Período: <strong className="text-orange-400">28/07/2025 a 11/09/2025</strong> (até 14h)
                     </p>
                   </CardContent>
                 </Card>
@@ -549,7 +549,7 @@ export default function BolsasInscricao() {
                       🔄 O que são vagas remanescentes?
                     </h3>
                     <p className="text-white">
-                      Para alunos que iniciarão <strong className="text-orange-400">7º, 8º, 9º anos e 2ª, 3ª séries</strong> em 2026. São 5 bolsas de 50% (uma para cada série). Prova no mesmo dia com horários específicos.
+                      Para alunos que iniciarão <strong className="text-orange-400">7º, 8º, 9º anos e 2ª, 3ª séries</strong> em 2026. São 5 bolsas de 50% (uma para cada série). <strong className="text-orange-400">Inscrições a partir de 28/07/2025.</strong>
                     </p>
                   </CardContent>
                 </Card>
@@ -564,7 +564,7 @@ export default function BolsasInscricao() {
                     </h3>
                     <p className="text-white">
                       <strong className="text-orange-400">Gabarito:</strong> 14/09/2025 às 14h (site)<br/>
-                      <strong className="text-orange-400">Resultado oficial:</strong> 16/09/2025 às 14h (no colégio)
+                      <strong className="text-orange-400">Resultado oficial:</strong> 15/09/2025 às 14h (no colégio)
                     </p>
                   </CardContent>
                 </Card>
@@ -593,7 +593,7 @@ export default function BolsasInscricao() {
                       📄 Quais documentos preciso levar?
                     </h3>
                     <p className="text-white">
-                      <strong className="text-orange-400">Para matrícula:</strong> Declaração de escolaridade, foto 3x4, RG e CPF, certidão de nascimento, transferência, histórico escolar e comprovante de residência.
+                      <strong className="text-orange-400">Para matrícula:</strong> Declaração de escolaridade, foto 3x4, RG e CPF, certidão de nascimento, transferência, histórico escolar e comprovante de residência. <strong className="text-orange-400">Pagamento da 1ª parcela no ato.</strong>
                     </p>
                   </CardContent>
                 </Card>
@@ -607,7 +607,7 @@ export default function BolsasInscricao() {
                       ⏰ Preciso chegar com antecedência?
                     </h3>
                     <p className="text-white">
-                      Sim, chegue com <strong className="text-orange-400">30 minutos de antecedência</strong>. Traga caneta (preta ou azul), lápis e borracha. O pagamento da 1ª parcela é no ato da matrícula.
+                      Sim, chegue com <strong className="text-orange-400">30 minutos de antecedência</strong>. Traga caneta (preta ou azul), lápis e borracha. <strong className="text-orange-400">Conteúdos disponíveis a partir de 01/08/2025</strong> no site e mural da escola.
                     </p>
                   </CardContent>
                 </Card>
