@@ -272,7 +272,7 @@ export default function HeroSection() {
                     <h3 className="text-2xl font-bold text-white mb-3">🎓 Prova de Bolsas 2026</h3>
                     <p className="text-orange-100 mb-4">
                       Inscrições abertas para o processo seletivo de bolsas de estudo!<br/>
-                      <strong>4 de outubro:</strong> 9h (Ensino Médio) | 14h (Fundamental II)
+                      <strong>13 de setembro:</strong> 9h (Ensino Médio) | 14h (Fundamental II)
                     </p>
                     <Button 
                       asChild
