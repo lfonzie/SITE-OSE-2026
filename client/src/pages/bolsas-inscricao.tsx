@@ -41,7 +41,7 @@ export default function BolsasInscricao() {
   useEffect(() => {
     updateSEO({
       title: "Prova de Bolsas 2026 - Colégio OSE Sorocaba",
-      description: "Inscreva-se na prova de bolsas 2026 do Colégio OSE. Provas no dia 4 de outubro: 9h (Ensino Médio) e 14h (Fundamental II). Matemática e Português.",
+      description: "Inscreva-se na prova de bolsas 2026 do Colégio OSE. Provas no dia 13 de setembro: 9h (Ensino Médio) e 14h (Fundamental II). Matemática e Português.",
       keywords: "prova de bolsas sorocaba, colégio ose bolsa estudo, ensino fundamental médio sorocaba, escola particular desconto"
     });
   }, []);
@@ -51,7 +51,7 @@ export default function BolsasInscricao() {
       {/* SEO */}
       <SEO 
         title="Prova de Bolsas 2026 - Colégio OSE Sorocaba"
-        description="Inscreva-se na prova de bolsas 2026 do Colégio OSE. Provas no dia 4 de outubro: 9h (Ensino Médio) e 14h (Fundamental II). Matemática e Português."
+        description="Inscreva-se na prova de bolsas 2026 do Colégio OSE. Provas no dia 13 de setembro: 9h (Ensino Médio) e 14h (Fundamental II). Matemática e Português."
         keywords="prova de bolsas sorocaba, colégio ose bolsa estudo, ensino fundamental médio sorocaba, escola particular desconto"
         ogImage="/images/bolsas-2026-og.jpg"
         structuredData={{
@@ -59,7 +59,7 @@ export default function BolsasInscricao() {
           "@type": "Event",
           "name": "Prova de Bolsas 2026 - Colégio OSE",
           "description": "Processo seletivo para bolsas de estudo no Colégio OSE",
-          "startDate": "2026-10-04",
+          "startDate": "2025-09-13",
           "location": {
             "@type": "Place",
             "name": "Colégio OSE",
@@ -224,7 +224,7 @@ export default function BolsasInscricao() {
                   </CardHeader>
                   <CardContent className="text-center">
                     <p className="text-orange-100 text-lg font-semibold">
-                      4 de outubro (sábado)
+                      13 de setembro (sábado)
                     </p>
                   </CardContent>
                 </Card>
@@ -429,7 +429,7 @@ export default function BolsasInscricao() {
                     </h3>
                     <div className="text-gray-800 space-y-3">
                       <p>• <strong className="text-orange-600">Leia atentamente</strong> os dois regulamentos antes de se inscrever</p>
-                      <p>• <strong className="text-orange-600">Data da prova:</strong> 4 de outubro de 2026 (sábado)</p>
+                      <p>• <strong className="text-orange-600">Data da prova:</strong> 13 de setembro de 2025 (sábado)</p>
                       <p>• <strong className="text-orange-600">Horários:</strong> 9h (Ensino Médio) e 14h (Fundamental II)</p>
                       <p>• <strong className="text-orange-600">Matérias:</strong> Matemática e Português</p>
                       <p>• <strong className="text-orange-600">Dúvidas:</strong> Entre em contato pelo telefone (15) 2101-3800</p>
@@ -482,7 +482,7 @@ export default function BolsasInscricao() {
                       📅 Quando será realizada a prova?
                     </h3>
                     <p className="text-white">
-                      <strong className="text-orange-400">4 de outubro de 2025 (sábado)</strong><br/>
+                      <strong className="text-orange-400">13 de setembro de 2025 (sábado)</strong><br/>
                       • 9h às 11h: 1ª série do Ensino Médio<br/>
                       • 14h às 16h: 6º ano do Ensino Fundamental
                     </p>
@@ -563,8 +563,8 @@ export default function BolsasInscricao() {
                       📅 Quando saem os resultados?
                     </h3>
                     <p className="text-white">
-                      <strong className="text-orange-400">Gabarito:</strong> 05/10/2025 às 14h (site)<br/>
-                      <strong className="text-orange-400">Resultado oficial:</strong> 06/10/2025 às 14h (no colégio)
+                      <strong className="text-orange-400">Gabarito:</strong> 14/09/2025 às 14h (site)<br/>
+                      <strong className="text-orange-400">Resultado oficial:</strong> 16/09/2025 às 14h (no colégio)
                     </p>
                   </CardContent>
                 </Card>
