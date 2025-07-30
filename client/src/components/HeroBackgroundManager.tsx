@@ -240,11 +240,10 @@ export default function HeroBackgroundManager({
         <DialogTrigger asChild>
           <Button
             size="sm"
-            variant="outline"
-            className="absolute top-2 right-2 z-20 bg-white/90 hover:bg-white shadow-md"
+            className="fixed top-20 right-4 z-50 bg-school-orange hover:bg-school-orange/90 text-white shadow-lg animate-pulse"
           >
             <Palette size={14} className="mr-1" />
-            Fundo
+            🎨 Editar Fundo
           </Button>
         </DialogTrigger>
         

@@ -14,22 +14,20 @@
       "size": "cover",
       "repeat": "no-repeat"
     },
-    "heroImage": "/images/horizontal_1.png",
-    "images": [],
     "pageName": "Home",
-    "lastModified": "2025-07-30T23:49:25.674Z",
+    "lastModified": "2025-07-30T23:56:06.615Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Why OSE Section": {
     "images": [
       "/images/horizontal_2.png",
-      "/images/4.png",
-      "/images/23.png",
+      "/images/horizontal_3.png",
+      "/images/horizontal_4.png",
       "/images/horizontal_5.png"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-30T23:49:25.677Z",
+    "lastModified": "2025-07-30T23:56:06.619Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -41,13 +39,13 @@
       "/images/12.png"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-30T23:49:26.219Z",
+    "lastModified": "2025-07-30T23:56:06.629Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-30T23:49:26.221Z",
+    "lastModified": "2025-07-30T23:56:06.632Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
