@@ -33,9 +33,9 @@ export default function Bolsas2025Page() {
 
   useEffect(() => {
     updateSEO({
-      title: "Bolsas de Estudo 2026 - Colégio OSE | Prova em 4 de Outubro",
-      description: "Bolsas de Estudo 2026 do Colégio OSE. Prova em 4 de outubro. Inscrições começam no início de agosto. Tradição centenária em educação de excelência.",
-      keywords: "bolsas 2026, prova outubro, colégio ose, bolsa de estudos, sorocaba, inscrições agosto"
+      title: "Bolsas de Estudo 2026 - Colégio OSE | Prova em 13 de Setembro",
+      description: "Bolsas de Estudo 2026 do Colégio OSE. Prova em 13 de setembro. Inscrições abertas de 28/07 a 11/09. Tradição centenária em educação de excelência.",
+      keywords: "bolsas 2026, prova setembro, colégio ose, bolsa de estudos, sorocaba, inscrições setembro"
     });
   }, []);
 
@@ -116,15 +116,15 @@ export default function Bolsas2025Page() {
                 <div className="text-center">
                   <Calendar className="w-16 h-16 text-school-orange mx-auto mb-4" />
                   <h3 className="text-2xl font-bold text-slate-800 mb-2">Data da Prova</h3>
-                  <p className="text-3xl font-bold text-school-orange">4 de Outubro</p>
+                  <p className="text-3xl font-bold text-school-orange">13 de Setembro</p>
                   <p className="text-slate-600 mt-2">Sábado</p>
                 </div>
 
                 <div className="text-center">
                   <Clock className="w-16 h-16 text-school-orange mx-auto mb-4" />
                   <h3 className="text-2xl font-bold text-slate-800 mb-2">Inscrições</h3>
-                  <p className="text-3xl font-bold text-school-orange">Início de Agosto</p>
-                  <p className="text-slate-600 mt-2">Em breve</p>
+                  <p className="text-3xl font-bold text-school-orange">28/07 a 11/09</p>
+                  <p className="text-slate-600 mt-2">Abertas</p>
                 </div>
               </div>
 
@@ -133,10 +133,18 @@ export default function Bolsas2025Page() {
                 <h2 className="text-3xl font-bold text-slate-800 mb-4">
                   Colégio OSE - 100 Anos de Tradição
                 </h2>
-                <p className="text-lg text-slate-600 leading-relaxed">
+                <p className="text-lg text-slate-600 leading-relaxed mb-6">
                   Uma oportunidade única de fazer parte de uma instituição centenária 
                   que forma líderes e cidadãos conscientes há mais de um século em Sorocaba.
                 </p>
+                <motion.a
+                  href="/bolsas"
+                  className="inline-block bg-school-orange hover:bg-school-orange/90 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  🎓 Inscreva-se Agora →
+                </motion.a>
               </div>
             </motion.div>
           </motion.div>
@@ -155,7 +163,7 @@ export default function Bolsas2025Page() {
               <Calendar className="w-12 h-12 text-school-orange mx-auto mb-4" />
               <h3 className="text-xl font-bold text-slate-800 mb-4">Prova</h3>
               <p className="text-slate-600">
-                A prova será realizada no dia <strong>4 de outubro (sábado)</strong> 
+                A prova será realizada no dia <strong>13 de setembro (sábado)</strong> 
                 nas dependências do Colégio OSE.
               </p>
             </div>
@@ -164,8 +172,8 @@ export default function Bolsas2025Page() {
               <Clock className="w-12 h-12 text-school-orange mx-auto mb-4" />
               <h3 className="text-xl font-bold text-slate-800 mb-4">Inscrições</h3>
               <p className="text-slate-600">
-                As inscrições para as bolsas de estudo 2026 
-                começam no <strong>início de agosto</strong>.
+                As inscrições estão <strong>abertas</strong> de 
+                <strong>28/07/2025 a 11/09/2025</strong> até às 14h.
               </p>
             </div>
 
