@@ -55,6 +55,7 @@ import ContatoPage from './pages/contato';
 import Bolsas2025Page from './pages/bolsas2025';
 import BolsasInscricao from './pages/bolsas-inscricao';
 import BolsasInscricaoSuccess from './pages/bolsas-inscricao-success';
+import GlobalImageEditButton from '@/components/GlobalImageEditButton';
 
 function Router() {
   // Track page views when routes change
@@ -168,6 +169,7 @@ function App() {
         <TooltipProvider>
           <DeploymentConfigLoader />
           <PerformanceMonitor />
+          <GlobalImageEditButton />
           <Toaster />
           <Router />
         </TooltipProvider>
