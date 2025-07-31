@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Edit3, Target } from 'lucide-react';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@/hooks/useAuth';
 import GlobalImageEditor from './GlobalImageEditor';
 
 export default function GlobalImageEditButton() {
@@ -9,6 +9,9 @@ export default function GlobalImageEditButton() {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [targetImage, setTargetImage] = useState<HTMLImageElement | null>(null);
   const [editMode, setEditMode] = useState(false);
+
+  // Debug log para verificar autenticação
+  console.log('GlobalImageEditButton - isAuthenticated:', isAuthenticated);
 
   useEffect(() => {
     if (!isAuthenticated) return;
@@ -108,7 +111,8 @@ export default function GlobalImageEditButton() {
     }
   };
 
-  if (!isAuthenticated) return null;
+  // Temporariamente sempre mostrar para debug
+  if (!isAuthenticated && false) return null;
 
   return (
     <>
