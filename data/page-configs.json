@@ -1,53 +1,68 @@
 {
   "Home": {
     "heroBackground": {
-      "type": "gradient",
-      "gradientColors": [
-        "#475569",
-        "#64748b"
-      ],
+      "type": "image",
       "opacity": 1,
       "overlay": true,
       "overlayColor": "#1e293b",
       "overlayOpacity": 0.8,
       "position": "center",
       "size": "cover",
-      "repeat": "no-repeat"
+      "repeat": "no-repeat",
+      "imageUrl": "/images/horizontal_4.png"
     },
-    "heroImage": "/images/horizontal_1.png",
-    "images": [],
     "pageName": "Home",
-    "lastModified": "2025-07-31T01:25:54.920Z",
+    "lastModified": "2025-07-30T22:13:03.475Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Why OSE Section": {
     "images": [
       "/images/horizontal_2.png",
-      "/images/4.png",
-      "/images/23.png",
+      "/images/horizontal_3.png",
+      "/images/horizontal_4.png",
       "/images/horizontal_5.png"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-31T01:25:54.917Z",
+    "lastModified": "2025-07-30T22:13:03.477Z",
     "autoSaved": true,
-    "savedForDeployment": true
+    "savedForDeployment": true,
+    "imagePositions": {
+      "why-ose-1": {
+        "objectPosition": "0% 26%",
+        "horizontalPosition": -50,
+        "verticalPosition": -24,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      },
+      "why-ose-3": {
+        "objectPosition": "15.5% 39%",
+        "horizontalPosition": -34.5,
+        "verticalPosition": -11,
+        "scale": 1,
+        "opacity": 1,
+        "filter": "none",
+        "objectFit": "cover"
+      }
+    }
   },
   "Programs Section": {
     "images": [
-      "/images/9.png",
-      "/images/10.png",
-      "/images/11.png",
-      "/images/12.png"
+      "/images/horizontal_27.png",
+      "/images/horizontal_13.png",
+      "/images/horizontal_23.png",
+      "/images/upload_1751325029201.jpeg"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-31T01:25:54.930Z",
+    "lastModified": "2025-07-30T22:13:03.491Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-31T01:25:54.939Z",
+    "lastModified": "2025-07-30T22:13:03.623Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -526,7 +541,7 @@
       "repeat": "no-repeat"
     },
     "pageName": "Bolsas 2026",
-    "lastModified": "2025-07-31T00:03:37.748Z",
+    "lastModified": "2025-07-30T22:16:09.561Z",
     "autoSaved": true,
     "savedForDeployment": true
   }
