@@ -47,26 +47,37 @@ export default function SimpleImageEditor() {
         htmlImg.style.filter = 'brightness(1.1) saturate(1.2)';
         htmlImg.style.transform = 'scale(1.02)';
         
-        // Adicionar indicador visual
+        // Adicionar indicador visual mais visível
         const indicator = document.createElement('div');
-        indicator.className = 'absolute top-2 left-2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-bold z-10';
-        indicator.textContent = '✏️ CLIQUE PARA EDITAR';
+        indicator.className = 'absolute top-0 left-0 bg-orange-500 text-white text-xs px-3 py-2 rounded-br-lg font-bold z-50 shadow-lg';
+        indicator.textContent = '✏️ CLIQUE';
         indicator.style.pointerEvents = 'none';
+        indicator.style.position = 'absolute';
+        indicator.style.zIndex = '1000';
         
-        // Posicionar o indicador
+        // Posicionar o indicador com melhor controle
         const parent = htmlImg.parentElement;
-        if (parent && getComputedStyle(parent).position === 'static') {
-          parent.style.position = 'relative';
-        }
         if (parent) {
+          const computedStyle = getComputedStyle(parent);
+          if (computedStyle.position === 'static') {
+            parent.style.position = 'relative';
+          }
+          parent.style.zIndex = '10';
           parent.appendChild(indicator);
+          
+          // Também adicionar um wrapper clicável se necessário
+          if (parent.tagName.toLowerCase() !== 'button' && parent.tagName.toLowerCase() !== 'a') {
+            parent.addEventListener('click', handleClick, { once: true, capture: true });
+            parent.style.cursor = 'pointer';
+          }
         }
         
         // Adicionar listener de clique
         const handleClick = (e: Event) => {
           e.preventDefault();
           e.stopPropagation();
-          console.log('🖱️ Clique na imagem detectado:', htmlImg.src);
+          console.log('🖱️ Clique detectado na imagem:', htmlImg.src);
+          console.log('🔧 Elemento clicado:', e.target);
           console.log('🔧 Abrindo gerenciador de imagens...');
           
           setTargetImage(htmlImg);
@@ -76,7 +87,13 @@ export default function SimpleImageEditor() {
           console.log('✅ Estado atualizado - targetImage:', htmlImg.src, 'isManagerOpen: true');
         };
         
-        htmlImg.addEventListener('click', handleClick, { once: true });
+        // Adicionar múltiplos tipos de eventos para garantir captura
+        htmlImg.addEventListener('click', handleClick, { once: true, capture: true });
+        htmlImg.addEventListener('mousedown', handleClick, { once: true, capture: true });
+        
+        // Força o elemento a ser clicável
+        htmlImg.style.pointerEvents = 'auto';
+        htmlImg.style.zIndex = '999';
         
         // Salvar referência para limpeza
         (htmlImg as any).__editModeIndicator = indicator;

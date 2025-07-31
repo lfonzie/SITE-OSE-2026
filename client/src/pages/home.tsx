@@ -11,6 +11,7 @@ import PedagogicalProposalSection from '@/components/pedagogical-proposal-sectio
 import FeaturesSection from '@/components/features-section';
 import SocialFeedsSection from '@/components/social-feeds-section';
 import SEO from '@/components/SEO';
+import DirectImageEditor from '@/components/DirectImageEditor';
 
 export default function Home() {
   const structuredData = {
@@ -123,6 +124,9 @@ export default function Home() {
           <ContactSection />
         </div>
       </div>
+      
+      {/* Editor de imagens direto */}
+      <DirectImageEditor />
     </div>
   );
 }
