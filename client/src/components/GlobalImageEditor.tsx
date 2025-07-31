@@ -48,6 +48,9 @@ export default function GlobalImageEditor({
   const [uploading, setUploading] = useState(false);
   const [currentImageUrl, setCurrentImageUrl] = useState('');
 
+  // Debug log
+  console.log('GlobalImageEditor - isOpen:', isOpen, 'targetImage:', targetImage?.src);
+
   useEffect(() => {
     if (targetImage) {
       setCurrentImageUrl(targetImage.src);

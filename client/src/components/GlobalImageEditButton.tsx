@@ -12,19 +12,23 @@ export default function GlobalImageEditButton() {
 
   // Debug log para verificar autenticação
   console.log('GlobalImageEditButton - isAuthenticated:', isAuthenticated);
+  console.log('GlobalImageEditButton - editMode:', editMode);
 
   useEffect(() => {
     if (!isAuthenticated) return;
 
     const handleImageClick = (event: MouseEvent) => {
+      console.log('Click detectado - editMode:', editMode, 'target:', event.target);
       if (!editMode) return;
       
       const target = event.target as HTMLElement;
       if (target.tagName === 'IMG') {
+        console.log('Imagem clicada:', (target as HTMLImageElement).src);
         event.preventDefault();
         event.stopPropagation();
         setTargetImage(target as HTMLImageElement);
         setIsEditorOpen(true);
+        console.log('Editor deve abrir - isEditorOpen será:', true);
       }
     };
 
