@@ -15,7 +15,8 @@ export default function GlobalImageEditButton() {
   console.log('GlobalImageEditButton - editMode:', editMode);
 
   useEffect(() => {
-    if (!isAuthenticated) return;
+    // Remover verificação de autenticação temporariamente para debug
+    // if (!isAuthenticated) return;
 
     const handleImageClick = (event: MouseEvent) => {
       console.log('Click detectado - editMode:', editMode, 'target:', event.target);
@@ -74,11 +75,29 @@ export default function GlobalImageEditButton() {
         img.style.outlineOffset = '';
       });
     };
-  }, [editMode, isAuthenticated]);
+  }, [editMode]);
 
   const toggleEditMode = () => {
-    setEditMode(!editMode);
-    if (!editMode) {
+    const newEditMode = !editMode;
+    setEditMode(newEditMode);
+    
+    console.log('toggleEditMode - novo editMode:', newEditMode);
+    
+    // Aplicar efeitos imediatamente
+    if (newEditMode) {
+      console.log('Ativando modo de edição - aplicando cursor e bordas');
+      document.body.style.cursor = 'crosshair';
+      
+      // Add visual indicators to images
+      const images = document.querySelectorAll('img');
+      console.log('Imagens encontradas:', images.length);
+      images.forEach((img, index) => {
+        console.log(`Aplicando borda na imagem ${index}:`, img.src);
+        img.style.outline = '2px dashed #ea580c';
+        img.style.outlineOffset = '2px';
+        img.style.transition = 'all 0.2s ease';
+      });
+      
       // Show instructions
       const toast = document.createElement('div');
       toast.className = 'fixed top-24 right-4 bg-school-orange text-white p-4 rounded-lg shadow-lg z-50 max-w-sm';
@@ -98,6 +117,16 @@ export default function GlobalImageEditButton() {
           toast.parentNode.removeChild(toast);
         }
       }, 4000);
+    } else {
+      console.log('Desativando modo de edição - removendo cursor e bordas');
+      document.body.style.cursor = '';
+      
+      // Remove visual indicators
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.style.outline = '';
+        img.style.outlineOffset = '';
+      });
     }
   };
 
