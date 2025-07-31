@@ -67,10 +67,13 @@ export default function SimpleImageEditor() {
           e.preventDefault();
           e.stopPropagation();
           console.log('🖱️ Clique na imagem detectado:', htmlImg.src);
+          console.log('🔧 Abrindo gerenciador de imagens...');
           
           setTargetImage(htmlImg);
           setIsManagerOpen(true);
           deactivateEditMode();
+          
+          console.log('✅ Estado atualizado - targetImage:', htmlImg.src, 'isManagerOpen: true');
         };
         
         htmlImg.addEventListener('click', handleClick, { once: true });
@@ -141,7 +144,19 @@ export default function SimpleImageEditor() {
       console.log('💾 Aplicando nova imagem:', newImageUrl, 'para elemento:', targetImage);
       
       const oldSrc = targetImage.src;
+      
+      // Atualizar a imagem diretamente
       targetImage.src = newImageUrl;
+      
+      // Forçar re-render do elemento com efeito visual
+      targetImage.style.opacity = '0.5';
+      targetImage.style.transform = 'scale(0.95)';
+      
+      setTimeout(() => {
+        targetImage.style.opacity = '1';
+        targetImage.style.transform = 'scale(1)';
+        targetImage.style.transition = 'all 0.3s ease';
+      }, 100);
       
       // Disparar evento personalizado para sistemas de auto-save
       const changeEvent = new CustomEvent('imageChanged', {
@@ -153,12 +168,6 @@ export default function SimpleImageEditor() {
         }
       });
       window.dispatchEvent(changeEvent);
-      
-      // Forçar re-render do elemento
-      targetImage.style.opacity = '0.8';
-      setTimeout(() => {
-        targetImage.style.opacity = '1';
-      }, 100);
       
       // Tentar identificar e atualizar hooks de página correspondentes
       const sectionId = targetImage.closest('[id]')?.id;
@@ -177,7 +186,9 @@ export default function SimpleImageEditor() {
         window.dispatchEvent(updateEvent);
       }
       
+      console.log('✅ Imagem atualizada com sucesso! Nova URL:', newImageUrl);
       setTargetImage(null);
+      setIsManagerOpen(false);
     }
   };
 
@@ -207,9 +218,17 @@ export default function SimpleImageEditor() {
         )}
       </Button>
 
+      {/* Debug info */}
+      {isManagerOpen && (
+        <div className="fixed top-20 right-4 z-40 bg-green-500 text-white p-2 rounded text-xs">
+          Modal aberta: {targetImage?.src ? 'Imagem selecionada' : 'Sem imagem'}
+        </div>
+      )}
+
       <ImageManager
         isOpen={isManagerOpen}
         onClose={() => {
+          console.log('🔴 Fechando modal do gerenciador');
           setIsManagerOpen(false);
           setTargetImage(null);
         }}

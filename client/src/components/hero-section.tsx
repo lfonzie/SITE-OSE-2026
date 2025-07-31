@@ -177,6 +177,15 @@ export default function HeroSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Glass morphism container */}
         <div className="max-w-4xl mx-auto backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 md:p-12 shadow-2xl shadow-black/20">
+          {/* Imagem de fundo editável para o Hero */}
+          <div className="absolute -top-4 -right-4 w-32 h-32 rounded-full overflow-hidden opacity-80 border-4 border-white/30">
+            <img 
+              src="/images/horizontal_1.png" 
+              alt="OSE - 100 anos"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
           <motion.div 
             className="relative group"
             initial={{ opacity: 0, y: 50 }}
