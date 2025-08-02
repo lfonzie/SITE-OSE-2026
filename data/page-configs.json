@@ -24,12 +24,12 @@
   "Why OSE Section": {
     "images": [
       "/images/horizontal_2.png",
-      "/images/horizontal_3.png",
-      "/images/horizontal_4.png",
+      "/images/4.png",
+      "/images/23.png",
       "/images/horizontal_5.png"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-08-02T14:30:30.510Z",
+    "lastModified": "2025-08-02T14:30:40.749Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -516,7 +516,7 @@
   "Bolsas 2026": {
     "heroBackground": {
       "type": "image",
-      "imageUrl": "/images/horizontal_4.png",
+      "imageUrl": "/images/horizontal_15.png",
       "opacity": 1,
       "overlay": true,
       "overlayColor": "#1e293b",
@@ -526,7 +526,7 @@
       "repeat": "no-repeat"
     },
     "pageName": "Bolsas 2026",
-    "lastModified": "2025-08-02T14:30:30.520Z",
+    "lastModified": "2025-08-02T14:30:40.753Z",
     "autoSaved": true,
     "savedForDeployment": true
   }
