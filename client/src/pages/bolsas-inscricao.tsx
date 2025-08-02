@@ -82,8 +82,8 @@ export default function BolsasInscricao() {
       {/* Background Management for Admin */}
       {isAuthenticated && (
         <HeroBackgroundManager 
-          heroBackground={heroBackground}
-          updateHeroBackground={updateHeroBackground}
+          currentBackground={heroBackground}
+          onBackgroundChange={updateHeroBackground}
         />
       )}
 
@@ -300,7 +300,6 @@ export default function BolsasInscricao() {
                   {/* Formulário do Forms.app */}
                   <div className="w-full overflow-hidden">
                     <iframe 
-                      allowTransparency="true" 
                       allowFullScreen={true} 
                       allow="geolocation; microphone; camera" 
                       src="https://trfyo43h.forms.app/form/6882db63040c8be61e1a2b3c" 
