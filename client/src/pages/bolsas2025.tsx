@@ -3,6 +3,7 @@ import Navigation from "@/components/navigation";
 import { updateSEO } from "@/lib/seo";
 import { Calendar, Clock, Award } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { AnimatedSection } from "@/components/animated/AnimatedSection";
 import { useAuth } from '@/contexts/AuthContext';
 import LogoutButton from '@/components/LogoutButton';
@@ -137,14 +138,15 @@ export default function Bolsas2025Page() {
                   Uma oportunidade única de fazer parte de uma instituição centenária 
                   que forma líderes e cidadãos conscientes há mais de um século em Sorocaba.
                 </p>
-                <motion.a
-                  href="/bolsas"
-                  className="inline-block bg-school-orange hover:bg-school-orange/90 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  🎓 Inscreva-se Agora →
-                </motion.a>
+                <Link href="/bolsas">
+                  <motion.button
+                    className="inline-block bg-school-orange hover:bg-school-orange/90 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    🎓 Inscreva-se Agora →
+                  </motion.button>
+                </Link>
               </div>
             </motion.div>
           </motion.div>

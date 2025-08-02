@@ -17,7 +17,7 @@
     "heroImage": "/images/horizontal_1.png",
     "images": [],
     "pageName": "Home",
-    "lastModified": "2025-07-31T01:33:53.373Z",
+    "lastModified": "2025-08-02T14:15:51.800Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -29,7 +29,7 @@
       "/images/horizontal_5.png"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-07-31T01:33:53.387Z",
+    "lastModified": "2025-08-02T14:15:51.841Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -41,13 +41,13 @@
       "/images/12.png"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-07-31T01:33:53.391Z",
+    "lastModified": "2025-08-02T14:15:51.820Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-07-31T01:33:53.375Z",
+    "lastModified": "2025-08-02T14:15:51.802Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -526,7 +526,7 @@
       "repeat": "no-repeat"
     },
     "pageName": "Bolsas 2026",
-    "lastModified": "2025-07-30T22:16:09.561Z",
+    "lastModified": "2025-08-02T14:17:49.751Z",
     "autoSaved": true,
     "savedForDeployment": true
   }
