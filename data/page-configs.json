@@ -17,19 +17,19 @@
     "heroImage": "/images/horizontal_1.png",
     "images": [],
     "pageName": "Home",
-    "lastModified": "2025-08-02T14:22:02.820Z",
+    "lastModified": "2025-08-02T17:11:24.383Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Why OSE Section": {
     "images": [
       "/images/horizontal_2.png",
-      "/images/horizontal_3.png",
-      "/images/horizontal_4.png",
+      "/images/4.png",
+      "/images/23.png",
       "/images/horizontal_5.png"
     ],
     "pageName": "Why OSE Section",
-    "lastModified": "2025-08-02T17:08:21.796Z",
+    "lastModified": "2025-08-02T17:11:51.303Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -41,13 +41,13 @@
       "/images/12.png"
     ],
     "pageName": "Programs Section",
-    "lastModified": "2025-08-02T14:22:02.974Z",
+    "lastModified": "2025-08-02T17:11:24.380Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
   "Testimonials": {
     "pageName": "Testimonials",
-    "lastModified": "2025-08-02T14:23:54.262Z",
+    "lastModified": "2025-08-02T17:11:24.391Z",
     "autoSaved": true,
     "savedForDeployment": true
   },
@@ -526,7 +526,7 @@
       "repeat": "no-repeat"
     },
     "pageName": "Bolsas 2026",
-    "lastModified": "2025-08-02T17:08:21.801Z",
+    "lastModified": "2025-08-02T17:11:50.681Z",
     "autoSaved": true,
     "savedForDeployment": true
   }
