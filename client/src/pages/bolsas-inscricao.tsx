@@ -318,7 +318,7 @@ export default function BolsasInscricao() {
           </div>
         </section>
 
-        {/* Listas de Material */}
+        {/* Conteúdo da Prova */}
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -329,10 +329,10 @@ export default function BolsasInscricao() {
               className="text-center mb-12"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                <span className="text-orange-400">Listas de</span> Material
+                <span className="text-orange-400">Conteúdo da</span> Prova
               </h2>
               <p className="text-xl text-orange-100 max-w-2xl mx-auto">
-                Consulte a lista de material escolar necessária para cada série
+                Consulte o conteúdo programático que será cobrado na prova de bolsas por série
               </p>
             </motion.div>
 
@@ -350,7 +350,7 @@ export default function BolsasInscricao() {
                         1ª Série do Ensino Médio
                       </h4>
                       <p className="text-white mb-3">
-                        Lista de material necessária para ingressar na 1ª série do Ensino Médio em 2026.
+                        Conteúdo programático de Matemática e Português que será cobrado na prova de bolsas.
                       </p>
                       <a 
                         href="https://docs.google.com/document/d/e/2PACX-1vSWUOfI6d8UdMOKOgphHm9zlN61fgjxfoPabSCem4BwfSdxPlZxJ8BMXz5HZeAoAg/pub"
@@ -358,7 +358,7 @@ export default function BolsasInscricao() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
                       >
-                        📄 Ver Lista Completa →
+                        📚 Ver Conteúdo Programático →
                       </a>
                     </CardContent>
                   </Card>
@@ -371,7 +371,7 @@ export default function BolsasInscricao() {
                         2ª Série do Ensino Médio
                       </h4>
                       <p className="text-white mb-3">
-                        Lista de material necessária para ingressar na 2ª série do Ensino Médio em 2026.
+                        Conteúdo programático de Matemática e Português que será cobrado na prova de bolsas.
                       </p>
                       <a 
                         href="https://docs.google.com/document/d/e/2PACX-1vS_TVOugSUeu8WyW3md8dKFIXg397ME5jupWcdvXKlT96NMhZ_hILhtYmPL4ORZmg/pub"
@@ -379,7 +379,7 @@ export default function BolsasInscricao() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
                       >
-                        📄 Ver Lista Completa →
+                        📚 Ver Conteúdo Programático →
                       </a>
                     </CardContent>
                   </Card>
@@ -392,7 +392,7 @@ export default function BolsasInscricao() {
                         3ª Série do Ensino Médio
                       </h4>
                       <p className="text-white mb-3">
-                        Lista de material necessária para ingressar na 3ª série do Ensino Médio em 2026.
+                        Conteúdo programático de Matemática e Português que será cobrado na prova de bolsas.
                       </p>
                       <a 
                         href="https://docs.google.com/document/d/e/2PACX-1vT2S7kkVKHcqyMZRFOwUK2BpyiN4dsgLG9pMmQbF1bcGwT1zQpww8iaDLZBvOba7Q/pub"
@@ -400,7 +400,7 @@ export default function BolsasInscricao() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
                       >
-                        📄 Ver Lista Completa →
+                        📚 Ver Conteúdo Programático →
                       </a>
                     </CardContent>
                   </Card>
@@ -420,7 +420,7 @@ export default function BolsasInscricao() {
                         6º Ano
                       </h4>
                       <p className="text-white mb-3">
-                        Lista de material necessária para ingressar no 6º ano do Ensino Fundamental II em 2026.
+                        Conteúdo programático de Matemática e Português que será cobrado na prova de bolsas.
                       </p>
                       <a 
                         href="https://docs.google.com/document/d/e/2PACX-1vR6kuTXXYxuXf-Qbm5qPEloXzE5DcN4z3u6O0nDqqDLBqAizP97SlOgpRv2Z499-g/pub"
@@ -428,7 +428,7 @@ export default function BolsasInscricao() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
                       >
-                        📄 Ver Lista Completa →
+                        📚 Ver Conteúdo Programático →
                       </a>
                     </CardContent>
                   </Card>
@@ -441,7 +441,7 @@ export default function BolsasInscricao() {
                         7º Ano
                       </h4>
                       <p className="text-white mb-3">
-                        Lista de material necessária para ingressar no 7º ano do Ensino Fundamental II em 2026.
+                        Conteúdo programático de Matemática e Português que será cobrado na prova de bolsas.
                       </p>
                       <a 
                         href="https://docs.google.com/document/d/e/2PACX-1vRcvs9kuVVyl_vPutbkmN_ge1VS2YZghqRHWFxRhSbBtIUjrNRLFcA3D9DtXrnKqQ/pub"
@@ -449,7 +449,7 @@ export default function BolsasInscricao() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
                       >
-                        📄 Ver Lista Completa →
+                        📚 Ver Conteúdo Programático →
                       </a>
                     </CardContent>
                   </Card>
@@ -462,7 +462,7 @@ export default function BolsasInscricao() {
                         8º Ano
                       </h4>
                       <p className="text-white mb-3">
-                        Lista de material necessária para ingressar no 8º ano do Ensino Fundamental II em 2026.
+                        Conteúdo programático de Matemática e Português que será cobrado na prova de bolsas.
                       </p>
                       <a 
                         href="https://docs.google.com/document/d/e/2PACX-1vQrZtdZYD9VlnQd8n0HBR5YyfzfSaUJ6rBoBud9Q1Z80Wkt3djk94aNVYs8_OkPrQ/pub"
@@ -470,7 +470,7 @@ export default function BolsasInscricao() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
                       >
-                        📄 Ver Lista Completa →
+                        📚 Ver Conteúdo Programático →
                       </a>
                     </CardContent>
                   </Card>
@@ -483,7 +483,7 @@ export default function BolsasInscricao() {
                         9º Ano
                       </h4>
                       <p className="text-white mb-3">
-                        Lista de material necessária para ingressar no 9º ano do Ensino Fundamental II em 2026.
+                        Conteúdo programático de Matemática e Português que será cobrado na prova de bolsas.
                       </p>
                       <a 
                         href="https://docs.google.com/document/d/e/2PACX-1vRZ1WcgzrS6PXc_o5SNp74ELkXv1wegVYuPbb1G0V1tahJ3JpSVBTqc5aLXAkhD5A/pub"
@@ -491,7 +491,7 @@ export default function BolsasInscricao() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
                       >
-                        📄 Ver Lista Completa →
+                        📚 Ver Conteúdo Programático →
                       </a>
                     </CardContent>
                   </Card>
