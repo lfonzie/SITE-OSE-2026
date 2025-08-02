@@ -318,6 +318,189 @@ export default function BolsasInscricao() {
           </div>
         </section>
 
+        {/* Listas de Material */}
+        <section className="py-16 px-4">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                <span className="text-orange-400">Listas de</span> Material
+              </h2>
+              <p className="text-xl text-orange-100 max-w-2xl mx-auto">
+                Consulte a lista de material escolar necessária para cada série
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-16">
+              {/* Ensino Médio */}
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-orange-400 text-center mb-6">
+                  📚 Ensino Médio
+                </h3>
+                
+                <AnimatedCard delay={0.1}>
+                  <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                    <CardContent className="p-6">
+                      <h4 className="text-lg font-bold text-orange-400 mb-3">
+                        1ª Série do Ensino Médio
+                      </h4>
+                      <p className="text-white mb-3">
+                        Lista de material necessária para ingressar na 1ª série do Ensino Médio em 2026.
+                      </p>
+                      <a 
+                        href="https://docs.google.com/document/d/e/2PACX-1vSWUOfI6d8UdMOKOgphHm9zlN61fgjxfoPabSCem4BwfSdxPlZxJ8BMXz5HZeAoAg/pub"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
+                      >
+                        📄 Ver Lista Completa →
+                      </a>
+                    </CardContent>
+                  </Card>
+                </AnimatedCard>
+
+                <AnimatedCard delay={0.2}>
+                  <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                    <CardContent className="p-6">
+                      <h4 className="text-lg font-bold text-orange-400 mb-3">
+                        2ª Série do Ensino Médio
+                      </h4>
+                      <p className="text-white mb-3">
+                        Lista de material necessária para ingressar na 2ª série do Ensino Médio em 2026.
+                      </p>
+                      <a 
+                        href="https://docs.google.com/document/d/e/2PACX-1vS_TVOugSUeu8WyW3md8dKFIXg397ME5jupWcdvXKlT96NMhZ_hILhtYmPL4ORZmg/pub"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
+                      >
+                        📄 Ver Lista Completa →
+                      </a>
+                    </CardContent>
+                  </Card>
+                </AnimatedCard>
+
+                <AnimatedCard delay={0.3}>
+                  <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                    <CardContent className="p-6">
+                      <h4 className="text-lg font-bold text-orange-400 mb-3">
+                        3ª Série do Ensino Médio
+                      </h4>
+                      <p className="text-white mb-3">
+                        Lista de material necessária para ingressar na 3ª série do Ensino Médio em 2026.
+                      </p>
+                      <a 
+                        href="https://docs.google.com/document/d/e/2PACX-1vT2S7kkVKHcqyMZRFOwUK2BpyiN4dsgLG9pMmQbF1bcGwT1zQpww8iaDLZBvOba7Q/pub"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
+                      >
+                        📄 Ver Lista Completa →
+                      </a>
+                    </CardContent>
+                  </Card>
+                </AnimatedCard>
+              </div>
+
+              {/* Ensino Fundamental II */}
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-orange-400 text-center mb-6">
+                  📖 Ensino Fundamental II
+                </h3>
+                
+                <AnimatedCard delay={0.4}>
+                  <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                    <CardContent className="p-6">
+                      <h4 className="text-lg font-bold text-orange-400 mb-3">
+                        6º Ano
+                      </h4>
+                      <p className="text-white mb-3">
+                        Lista de material necessária para ingressar no 6º ano do Ensino Fundamental II em 2026.
+                      </p>
+                      <a 
+                        href="https://docs.google.com/document/d/e/2PACX-1vR6kuTXXYxuXf-Qbm5qPEloXzE5DcN4z3u6O0nDqqDLBqAizP97SlOgpRv2Z499-g/pub"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
+                      >
+                        📄 Ver Lista Completa →
+                      </a>
+                    </CardContent>
+                  </Card>
+                </AnimatedCard>
+
+                <AnimatedCard delay={0.5}>
+                  <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                    <CardContent className="p-6">
+                      <h4 className="text-lg font-bold text-orange-400 mb-3">
+                        7º Ano
+                      </h4>
+                      <p className="text-white mb-3">
+                        Lista de material necessária para ingressar no 7º ano do Ensino Fundamental II em 2026.
+                      </p>
+                      <a 
+                        href="https://docs.google.com/document/d/e/2PACX-1vRcvs9kuVVyl_vPutbkmN_ge1VS2YZghqRHWFxRhSbBtIUjrNRLFcA3D9DtXrnKqQ/pub"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
+                      >
+                        📄 Ver Lista Completa →
+                      </a>
+                    </CardContent>
+                  </Card>
+                </AnimatedCard>
+
+                <AnimatedCard delay={0.6}>
+                  <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                    <CardContent className="p-6">
+                      <h4 className="text-lg font-bold text-orange-400 mb-3">
+                        8º Ano
+                      </h4>
+                      <p className="text-white mb-3">
+                        Lista de material necessária para ingressar no 8º ano do Ensino Fundamental II em 2026.
+                      </p>
+                      <a 
+                        href="https://docs.google.com/document/d/e/2PACX-1vQrZtdZYD9VlnQd8n0HBR5YyfzfSaUJ6rBoBud9Q1Z80Wkt3djk94aNVYs8_OkPrQ/pub"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
+                      >
+                        📄 Ver Lista Completa →
+                      </a>
+                    </CardContent>
+                  </Card>
+                </AnimatedCard>
+
+                <AnimatedCard delay={0.7}>
+                  <Card className="bg-white/30 backdrop-blur-lg border-white/20">
+                    <CardContent className="p-6">
+                      <h4 className="text-lg font-bold text-orange-400 mb-3">
+                        9º Ano
+                      </h4>
+                      <p className="text-white mb-3">
+                        Lista de material necessária para ingressar no 9º ano do Ensino Fundamental II em 2026.
+                      </p>
+                      <a 
+                        href="https://docs.google.com/document/d/e/2PACX-1vRZ1WcgzrS6PXc_o5SNp74ELkXv1wegVYuPbb1G0V1tahJ3JpSVBTqc5aLXAkhD5A/pub"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-orange-400 hover:text-orange-300 font-semibold"
+                      >
+                        📄 Ver Lista Completa →
+                      </a>
+                    </CardContent>
+                  </Card>
+                </AnimatedCard>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Regulamentos */}
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
